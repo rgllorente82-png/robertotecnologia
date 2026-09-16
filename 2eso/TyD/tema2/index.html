@@ -5,11 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <style>:root{color-scheme:light}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
 .eyebrow a:hover{border-bottom-color:currentColor}
+
+/* ---- sello de licencia, fijo en pantalla ---- */
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:2px;
+  background:rgba(18,32,46,.95);color:#fff;text-decoration:none;
+  font:500 12px/1.2 "Roboto",-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.02em;
+  transition:transform .18s ease,background .18s ease}
+.cc-sello:hover{background:rgba(18,32,46,1)}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello b{font-weight:700}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:560px){
+  .cc-sello{right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:7px 11px;font-size:11px}
+  .cc-sello .cc-autor{display:none}
+}
+@media print{.cc-sello{position:static;background:none;color:#000;box-shadow:none}}
 </style>
 <title>Del boceto al plano</title>
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema2/">
+<meta name="author" content="Roberto · Departamento de Tecnología">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto">
+<meta name="dcterms.dateCopyrighted" content="2026">
+<meta name="copyright" content="© 2026 Roberto · Departamento de Tecnología">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
 <style>
   :root{
     --paper:#e8ebef;
@@ -410,8 +436,196 @@
     body{font-size:16px}
     .ficha-cuerpo,.ses-head{padding:15px}
   }
+
+  /* ====================================================================
+     Capa base · reescribe el aspecto sin tocar contenido ni lógica.
+     Para volver al aspecto anterior basta con borrar este bloque entero.
+     Los colores de cara y vista (--c-*) NO se tocan: ahí el color enseña.
+     ==================================================================== */
+  :root{
+    --paper:#f8f9fa; --surface:#ffffff; --surface-2:#f1f3f4;
+    --ink:#202124; --ink-soft:#5f6368;
+    --line:#dadce0; --line-soft:#e8eaed;
+    --accent:#1a73e8; --accent-soft:#e8f0fe;
+    --pencil:#d93025; --pencil-soft:#fce8e6;
+    --green:#1e8e3e;
+    --grid:rgba(26,115,232,.07);
+    --shadow:none;
+    --shadow-2:none;
+    --r-card:16px; --r-inner:12px;
+    --f-display:"Roboto","Helvetica Neue",Arial,sans-serif;
+    --f-body:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+    --f-mono:"Roboto Mono",ui-monospace,Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#202124; --surface:#292a2d; --surface-2:#35363a;
+      --ink:#e8eaed; --ink-soft:#9aa0a6;
+      --line:#5f6368; --line-soft:#3c4043;
+      --accent:#8ab4f8; --accent-soft:#1f3347;
+      --pencil:#f28b82; --pencil-soft:#3f2321;
+      --green:#81c995;
+      --grid:rgba(138,180,248,.09);
+      --shadow:none;
+      --shadow-2:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#202124; --surface:#292a2d; --surface-2:#35363a;
+    --ink:#e8eaed; --ink-soft:#9aa0a6;
+    --line:#5f6368; --line-soft:#3c4043;
+    --accent:#8ab4f8; --accent-soft:#1f3347;
+    --pencil:#f28b82; --pencil-soft:#3f2321;
+    --green:#81c995;
+    --grid:rgba(138,180,248,.09);
+    --shadow:none;
+    --shadow-2:none;
+  }
+
+  /* tarjetas: sin borde duro, esquinas blandas y elevación */
+  .ficha, .escena, .ses-head, .nota, .def, .aviso, .tabla-wrap, .obra, .resp-cuerpo{
+    border-radius:var(--r-card); box-shadow:var(--shadow); border-color:transparent;
+  }
+  .ficha:hover, .escena:hover{box-shadow:var(--shadow-2)}
+  .ficha, .escena{transition:border-color .2s ease}
+  .lienzo{border-radius:var(--r-inner)}
+  .ficha-cab{border-radius:var(--r-card) var(--r-card) 0 0}
+
+  /* controles en píldora, como los de Google */
+  nav.sesiones button, .seg button, .btn, .chip{
+    border-radius:999px; font-family:var(--f-body); font-weight:500; letter-spacing:.01em;
+  }
+  nav.sesiones button, .seg button{padding-inline:16px}
+  .btn{padding:10px 22px; transition:background .2s ease}
+  
+  .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  nav.sesiones button[aria-selected="true"], .seg button[aria-pressed="true"]{
+    background:var(--accent-soft); color:var(--accent); border-color:transparent; font-weight:500;
+  }
+
+  /* numeración de sección: disco de color, no cuadrado */
+  .rotulo .num{
+    border-radius:999px; min-width:26px; height:26px; display:inline-grid; place-items:center;
+    background:var(--accent); color:#fff; font-weight:500;
+  }
+
+  /* cabecera limpia y tipografía más aireada */
+  header.top{box-shadow:none}
+  h1, h2, h3, h4{font-family:var(--f-display); letter-spacing:-.01em}
+  body{font-family:var(--f-body); letter-spacing:.01em}
+  .eyebrow, .rotulo, .chip, .cifra, .rotulo-svg, .flecha-rot{font-family:var(--f-mono)}
+
+
+  
+  /* ---- papel técnico: tinta plana, retícula, sin degradados ni difuminados ---- */
+  :root{
+    --tinta:#12202e; --azul:#15607f; --azul-claro:#e3eef3;
+    --rojo:#b8402a; --ocre:#a8761f; --verde-t:#2f7350;
+    --shadow:none; --shadow-2:none; --r-card:2px; --r-inner:2px;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --tinta:#dbe6ee; --azul:#6fb4d4; --azul-claro:#13303d;
+    --rojo:#e07b63; --ocre:#d2a65e; --verde-t:#6bb894;}}
+
+  /* tarjetas: borde firme y desplazamiento sólido, nunca difuminado */
+  .ficha, .escena, .ses-head, .nota, .def, .aviso, .tabla-wrap, .obra{
+    border:1.5px solid var(--line); border-radius:2px;
+    box-shadow:none;
+  }
+  .ficha:hover, .escena:hover{border-color:var(--ink-soft)}
+  .ficha::before{display:none}
+  .lienzo{border-radius:0}
+
+  /* cabecera: retícula de papel milimetrado, sin degradado */
+  header.top{
+    background:var(--surface); border-bottom:2px solid var(--ink);
+    background-image:
+      linear-gradient(var(--grid) 1px,transparent 1px),
+      linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:24px 24px; box-shadow:none;
+  }
+  header.top h1{color:var(--ink)}
+  header.top .eyebrow, header.top .eyebrow a{color:var(--accent)}
+
+  /* pestañas: rectangulares, seleccionada en tinta maciza */
+  nav.sesiones button{
+    background:var(--surface); color:var(--ink-soft);
+    border:1.5px solid var(--line); border-radius:2px; font-weight:400;
+  }
+  nav.sesiones button[aria-selected="true"]{
+    background:var(--ink); color:var(--surface); border-color:var(--ink); font-weight:500;
+  }
+  .seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+
+  /* numeración: cuadrada y en tinta, como una referencia de plano */
+  .rotulo .num{
+    border-radius:2px; background:var(--ink); color:var(--surface); font-weight:500;
+  }
+
+  /* botones: rectangulares con desplazamiento sólido */
+  .btn{border-radius:2px; border:1.5px solid var(--ink)}
+  .btn:hover{background:var(--surface-2)}
+  .btn.primary{background:var(--ink); color:var(--surface); border-color:var(--ink)}
+  .chip{border-radius:2px; border:1px solid var(--line); background:transparent; color:var(--ink-soft)}
+
+  /* el color solo donde significa algo */
+  .nota{border-left:4px solid var(--accent)}
+  .aviso{border-left:4px solid var(--pencil)}
+  .def{border-left:4px solid var(--ink)}
+
+  
+
+  /* ---- los cuatro colores de Google, planos ---- */
+  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995}}
+
+  /* pestaña activa en azul Google */
+  nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+  .seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+  .btn.primary{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+
+  /* cada sección numerada rota por los cuatro colores */
+  .rotulo .num{background:var(--goo-azul);color:#fff}
+  .bloque:nth-of-type(4n+2) .rotulo .num{background:var(--goo-rojo)}
+  .bloque:nth-of-type(4n+3) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+  .bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-verde)}
+
+  /* la raya de la sección, del color de su número */
+  .rotulo::after{background:var(--goo-azul);opacity:.35}
+  .bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+  .bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-amarillo)}
+  .bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-verde)}
+
+  /* avisos: cada tipo, su color */
+  .nota{border-left:5px solid var(--goo-azul)}
+  .aviso{border-left:5px solid var(--goo-amarillo)}
+  .def{border-left:5px solid var(--goo-verde)}
+  .nota .n-tag{color:var(--goo-azul)}
+
+  /* chips con color según su familia */
+  .chip{border-color:var(--goo-azul);color:var(--goo-azul)}
+  .chip.sab{border-color:var(--line);color:var(--ink-soft)}
+
 </style>
 
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LearningResource",
+ "name":"Tema 2 · Representación gráfica de un proyecto",
+ "url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema2/",
+ "inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto (2026) · Tema 2 · Representación gráfica de un proyecto · CC BY-SA 4.0",
+ "copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto","affiliation":{"@type":"Organization","name":"Departamento de Tecnología"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto"},
+ "isAccessibleForFree":true,
+ "educationalLevel":"Educación Secundaria Obligatoria",
+ "learningResourceType":"Unidad didáctica interactiva"
+}
+</script>
 </head>
 <body>
 <header class="top">
@@ -639,13 +853,18 @@
               <rect class="hueco fx" x="2" y="120" width="4" height="100"></rect>
               <rect class="muro fx" x="0" y="220" width="8" height="110"></rect>
               <!-- tabiques interiores -->
-              <rect class="muro fx" x="297" y="8" width="8" height="112"></rect>
-              <rect class="muro fx" x="297" y="175" width="8" height="147"></rect>
+              <rect class="muro fx" x="297" y="8" width="8" height="67"></rect>
+              <rect class="muro fx" x="297" y="130" width="8" height="70"></rect>
+              <rect class="muro fx" x="297" y="255" width="8" height="67"></rect>
               <rect class="muro fx" x="305" y="161" width="75" height="8"></rect>
               <rect class="muro fx" x="435" y="161" width="52" height="8"></rect>
               <!-- puertas -->
-              <path class="gruesa fx" d="M301 175 L356 175"></path>
-              <path class="fina fx" d="M356 175 A55 55 0 0 0 301 120"></path>
+              <!-- salón -> dormitorio: hoja sobre (301,130), barrido al norte -->
+              <path class="gruesa fx" d="M301 130 L356 130"></path>
+              <path class="fina fx" d="M356 130 A55 55 0 0 0 301 75"></path>
+              <!-- salón -> cocina: hoja sobre (301,200), barrido al sur -->
+              <path class="gruesa fx" d="M301 200 L356 200"></path>
+              <path class="fina fx" d="M356 200 A55 55 0 0 1 301 255"></path>
               <path class="gruesa fx" d="M380 165 L380 220"></path>
               <path class="fina fx" d="M380 220 A55 55 0 0 0 435 165"></path>
               <path class="gruesa fx" d="M115 322 L115 267"></path>
@@ -1521,7 +1740,28 @@
   <div id="ses-5" hidden><div class="vacio">Sesión 5 en preparación</div></div>
   <div id="ses-6" hidden><div class="vacio">Sesión 6 en preparación</div></div>
 
-  <footer class="pie-pag wrap" style="padding-left:0;padding-right:0">
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 2 · Representación gráfica de un proyecto</span> · © 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto</a>, Departamento de Tecnología.</p>
+  <p>Publicado bajo
+     <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</b></a>.
+     Puedes <b>copiarlo, adaptarlo y redistribuirlo</b>, incluso con fines comerciales, siempre que
+     <b>cites la autoría</b>, <b>indiques si lo has modificado</b> y publiques tus versiones derivadas
+     <b>con esta misma licencia</b>.</p>
+  <h3>Cómo citar</h3>
+  <p class="cc-cita"><code>Roberto (2026). <i>Tema 2 · Representación gráfica de un proyecto</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema2/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qué cubre esta licencia</h3>
+  <p>Cubre los textos, los dibujos y el código de estas páginas. <b>No cubre</b> las obras de terceros
+     incluidas o enlazadas, que conservan su propia condición legal: <i>Las Meninas</i> de Velázquez es
+     dominio público (Museo Nacional del Prado) y las tipografías proceden de Google Fonts con su
+     licencia correspondiente.</p>
+  <h3>Otros usos</h3>
+  <p>Para cualquier uso que exceda lo que permite la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+<footer class="pie-pag wrap" style="padding-left:0;padding-right:0">
     Tema 2 · Representación gráfica de un proyecto · Tecnología 2.º ESO
   </footer>
 </main>
@@ -1956,5 +2196,22 @@
 })();
 </script>
 
+<a class="cc-sello" property="dct:license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Este material se publica bajo licencia Creative Commons Reconocimiento 4.0. Puedes usarlo y adaptarlo citando la autoría.">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">· Roberto · Departamento de Tecnología</span></span>
+</a>
+<script>
+/* Si alguien borra el sello desde el navegador, se vuelve a poner.
+   Esto frena la retirada casual; no es -ni puede ser- a prueba de todo. */
+(function(){
+  var molde = document.querySelector('.cc-sello');
+  if(!molde) return;
+  var copia = molde.cloneNode(true);
+  new MutationObserver(function(){
+    if(!document.querySelector('.cc-sello')) document.body.appendChild(copia.cloneNode(true));
+  }).observe(document.body, {childList:true, subtree:true});
+})();
+</script>
 </body>
 </html>

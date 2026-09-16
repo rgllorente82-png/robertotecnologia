@@ -4,34 +4,174 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Materiales de Tecnología</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/">
+<meta name="author" content="Roberto · Departamento de Tecnología">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto">
+<meta name="dcterms.dateCopyrighted" content="2026">
+<meta name="copyright" content="© 2026 Roberto · Departamento de Tecnología">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
 <style>
-:root{--paper:#e8ebef;--surface:#fff;--surface-2:#f4f6f8;--ink:#15212e;--ink-soft:#54646f;--line:#c7d1da;--accent:#0b6e99;--accent-soft:#e0eef5;--grid:rgba(11,110,153,.10)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101720;--surface:#182028;--surface-2:#1e2833;--ink:#e8eef4;--ink-soft:#9dafbd;--line:#31404e;--accent:#57b6dd;--accent-soft:#11303d;--grid:rgba(87,182,221,.12)}}
-:root[data-theme="dark"]{--paper:#101720;--surface:#182028;--surface-2:#1e2833;--ink:#e8eef4;--ink-soft:#9dafbd;--line:#31404e;--accent:#57b6dd;--accent-soft:#11303d;--grid:rgba(87,182,221,.12)}
+:root{--paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--accent:#1a73e8;--accent-soft:#e8f0fe;--grid:rgba(26,115,232,.07);
+  --shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+  --shadow-2:0 1px 3px 0 rgba(60,64,67,.3),0 4px 8px 3px rgba(60,64,67,.15)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#202124;--surface:#292a2d;
+  --surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;--line:#5f6368;--accent:#8ab4f8;
+  --accent-soft:#1f3347;--grid:rgba(138,180,248,.09);
+  --shadow:0 1px 2px 0 rgba(0,0,0,.6),0 1px 3px 1px rgba(0,0,0,.35);
+  --shadow-2:0 1px 3px 0 rgba(0,0,0,.6),0 4px 8px 3px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;
+  --ink-soft:#9aa0a6;--line:#5f6368;--accent:#8ab4f8;--accent-soft:#1f3347;--grid:rgba(138,180,248,.09);
+  --shadow:0 1px 2px 0 rgba(0,0,0,.6),0 1px 3px 1px rgba(0,0,0,.35);
+  --shadow-2:0 1px 3px 0 rgba(0,0,0,.6),0 4px 8px 3px rgba(0,0,0,.35)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Source Sans 3",-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:880px;margin:0 auto;padding:0 18px}
-header{border-bottom:1px solid var(--line);background:var(--surface);
-background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
-header .wrap{padding-block:30px 26px}
-.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-h1{font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(24px,5vw,34px);margin:6px 0 8px;line-height:1.1}
-header p{margin:0;color:var(--ink-soft);max-width:60ch}
-main{padding-block:28px 60px}
-h2{font-family:Archivo,sans-serif;font-weight:600;font-size:20px;margin:26px 0 4px}
-.sub{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
-.temas{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
-.tema{display:block;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
-a.tema:hover{border-color:var(--accent);transform:translateY(-2px)}
-.tema .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
-.tema h3{font-family:Archivo,sans-serif;font-weight:600;font-size:17.5px;margin:0 0 5px;line-height:1.25}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.6 "Roboto",-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:var(--surface);box-shadow:var(--shadow);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px}
+header .wrap{padding-block:34px 30px}
+.ruta{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:12px}
+.ruta a{color:var(--accent);text-decoration:none;padding:3px 10px;border-radius:999px;transition:background .15s}
+.ruta a:hover{background:var(--accent-soft)}
+.ruta span{color:var(--ink-soft);margin:0 4px}
+.ruta strong{color:var(--ink-soft);font-weight:400}
+.eyebrow{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent)}
+h1{font-family:"Roboto",sans-serif;font-weight:700;font-size:clamp(26px,5vw,38px);margin:8px 0 10px;
+  line-height:1.15;letter-spacing:-.015em}
+header p{margin:0;color:var(--ink-soft);max-width:62ch}
+main{padding-block:32px 64px}
+h2{font-family:"Roboto",sans-serif;font-weight:500;font-size:22px;margin:28px 0 4px;letter-spacing:-.01em}
+.sub{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
+.temas{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.tema{display:block;background:var(--surface);border:none;border-radius:16px;padding:20px;
+  text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s}
+a.tema:hover{box-shadow:var(--shadow-2);transform:translateY(-2px)}
+.tema .n{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);background:var(--accent-soft);
+  padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.tema h3{font-family:"Roboto",sans-serif;font-weight:500;font-size:18px;margin:0 0 6px;line-height:1.3}
 .tema p{margin:0;font-size:14.5px;color:var(--ink-soft)}
-.tema.pendiente{opacity:.55;border-style:dashed}
-.tema.pendiente .n{color:var(--ink-soft)}
-footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px}
-footer .wrap{padding-block:18px 26px}
+.tema.pendiente{opacity:.6;box-shadow:none;border:1px dashed var(--line)}
+.tema.pendiente .n{color:var(--ink-soft);background:var(--surface-2)}
+footer{color:var(--ink-soft);font-size:13.5px;border-top:1px solid var(--line)}
+footer .wrap{padding-block:20px 30px}
+
+:root{--g-azul:#1a73e8;--g-rojo:#ea4335;--g-amarillo:#fbbc04;--g-verde:#34a853;
+  --g-morado:#7b2ff2;--g-rosa:#ff3d77;--g-turquesa:#00acc1}
+header{background:linear-gradient(135deg,var(--g-azul),var(--g-morado));background-image:
+  linear-gradient(135deg,var(--g-azul),var(--g-morado))}
+header .eyebrow{color:rgba(255,255,255,.85)}
+header h1{color:#fff}
+header p{color:rgba(255,255,255,.9)}
+.ruta a{color:#fff;background:rgba(255,255,255,.18)}
+.ruta a:hover{background:rgba(255,255,255,.3)}
+.ruta span,.ruta strong{color:rgba(255,255,255,.75)}
+/* cada tarjeta, su color */
+.tema{overflow:hidden;position:relative;border-radius:20px}
+a.tema::before{content:"";position:absolute;inset:0 0 auto 0;height:7px;background:var(--g-azul)}
+a.tema:nth-child(4n+2)::before{background:var(--g-rojo)}
+a.tema:nth-child(4n+3)::before{background:var(--g-verde)}
+a.tema:nth-child(4n+4)::before{background:var(--g-amarillo)}
+a.tema{padding-top:24px}
+a.tema:nth-child(4n+2) .n{color:var(--g-rojo);background:#fce8e6}
+a.tema:nth-child(4n+3) .n{color:var(--g-verde);background:#e6f4ea}
+a.tema:nth-child(4n+4) .n{color:#9a7326;background:#fef7e0}
+
+.ico{width:40px;height:40px;display:block;margin-bottom:12px;color:var(--g-azul)}
+a.tema:nth-child(4n+2) .ico{color:var(--g-rojo)}
+a.tema:nth-child(4n+3) .ico{color:var(--g-verde)}
+a.tema:nth-child(4n+4) .ico{color:#b98b1e}
+.tema.pendiente .ico{color:var(--ink-soft);opacity:.6}
+.prog{margin-top:14px}
+.prog-barra{height:7px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.prog-barra i{display:block;height:100%;border-radius:999px;background:var(--g-azul)}
+.prog-txt{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+  color:var(--ink-soft);margin-top:6px;display:block}
+.hero-arte{margin-top:18px;opacity:.9}
+.hero-arte svg{width:100%;max-width:420px;height:auto;display:block}
+
+/* ---- sello de licencia, fijo en pantalla ---- */
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+  background:rgba(32,33,36,.86);color:#fff;text-decoration:none;
+  font:500 12px/1.2 "Roboto",-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.02em;
+  transition:transform .18s ease,background .18s ease}
+.cc-sello:hover{background:rgba(18,32,46,1)}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello b{font-weight:700}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:560px){
+  .cc-sello{right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:7px 11px;font-size:11px}
+  .cc-sello .cc-autor{display:none}
+}
+@media print{.cc-sello{position:static;background:none;color:#000;box-shadow:none}}
+
+:root{--shadow:none;--shadow-2:none}
+header{background:var(--surface)!important;background-image:
+  linear-gradient(var(--grid) 1px,transparent 1px),
+  linear-gradient(90deg,var(--grid) 1px,transparent 1px)!important;
+  background-size:24px 24px!important;border-bottom:2px solid var(--ink);box-shadow:none}
+header h1{color:var(--ink)}
+header p{color:var(--ink-soft)}
+header .eyebrow{color:var(--accent)}
+.ruta a{color:var(--accent);background:transparent;padding:0;border-bottom:1px solid transparent}
+.ruta a:hover{background:transparent;border-bottom-color:var(--accent)}
+.ruta span,.ruta strong{color:var(--ink-soft)}
+.tema{border:1.5px solid var(--line);border-radius:2px;box-shadow:none;padding-top:20px}
+a.tema:hover{box-shadow:none;transform:none;border-color:var(--ink)}
+a.tema::before{display:none}
+.tema .n{border-radius:2px;background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
+a.tema .n{color:var(--accent);border-color:var(--accent)}
+.tema.pendiente{border-style:dashed}
+.prog-barra{border-radius:0;background:var(--surface-2);border:1px solid var(--line)}
+.prog-barra i{border-radius:0;background:var(--accent)}
+.ico{color:var(--accent)}
+a.tema:nth-child(4n+2) .ico,a.tema:nth-child(4n+3) .ico,a.tema:nth-child(4n+4) .ico{color:var(--accent)}
+.cc-sello{border-radius:2px;background:var(--ink);box-shadow:none;backdrop-filter:none}
+.cc-sello:hover{transform:none;background:var(--ink)}
+
+:root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995}}
+a.tema{border-top:5px solid var(--goo-azul)}
+a.tema:nth-child(4n+2){border-top-color:var(--goo-rojo)}
+a.tema:nth-child(4n+3){border-top-color:var(--goo-verde)}
+a.tema:nth-child(4n+4){border-top-color:var(--goo-amarillo)}
+a.tema .n,a.tema .ico{color:var(--goo-azul);border-color:var(--goo-azul)}
+a.tema:nth-child(4n+2) .n,a.tema:nth-child(4n+2) .ico{color:var(--goo-rojo);border-color:var(--goo-rojo)}
+a.tema:nth-child(4n+3) .n,a.tema:nth-child(4n+3) .ico{color:var(--goo-verde);border-color:var(--goo-verde)}
+a.tema:nth-child(4n+4) .n,a.tema:nth-child(4n+4) .ico{color:#9a7326;border-color:var(--goo-amarillo)}
+.prog-barra i{background:var(--goo-verde)}
+header .eyebrow{color:var(--goo-azul)}
+/* la retícula de la cabecera, en azul Google */
+:root{--grid:rgba(66,133,244,.10)}
 </style>
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LearningResource",
+ "name":"Materiales de Tecnología",
+ "url":"https://rgllorente82-png.github.io/robertotecnologia/",
+ "inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto (2026) · Materiales de Tecnología · CC BY-SA 4.0",
+ "copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto","affiliation":{"@type":"Organization","name":"Departamento de Tecnología"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto"},
+ "isAccessibleForFree":true,
+ "educationalLevel":"Educación Secundaria Obligatoria",
+ "learningResourceType":"Unidad didáctica interactiva"
+}
+</script>
 </head>
 <body>
 <header>
@@ -39,6 +179,23 @@ footer .wrap{padding-block:18px 26px}
     <div class="eyebrow">robertotecnologia</div>
     <h1>Materiales de Tecnología</h1>
     <p>Webs interactivas de cada tema, organizadas por nivel y materia. Se ven en el móvil y en clase, y cada tema está dividido en sesiones de una hora.</p>
+    <div class="hero-arte">
+      <svg viewBox="0 0 420 96" aria-hidden="true">
+        <g fill="none" stroke="rgba(255,255,255,.75)" stroke-width="2" stroke-linejoin="round">
+          <path d="M24 72 L56 54 L88 72 L56 90 Z" fill="rgba(255,255,255,.18)"/>
+          <path d="M24 72 V44 L56 26 L88 44 V72" />
+          <path d="M56 26 V54" />
+          <path d="M130 30 h56 v40 h-56 Z" fill="rgba(255,255,255,.12)"/>
+          <path d="M210 30 h30 v40 h-30 Z" fill="rgba(255,255,255,.12)"/>
+          <path d="M130 82 h56 v14 h-56 Z" fill="rgba(255,255,255,.12)"/>
+          <path d="M272 30 h40 v40 h-40 Z" fill="rgba(255,255,255,.12)"/>
+          <path d="M336 30 l32 20 l-32 20" />
+        </g>
+        <g stroke="rgba(255,255,255,.45)" stroke-width="1.2" stroke-dasharray="5 4">
+          <path d="M100 50 h20 M196 50 h8 M196 89 h8 M250 50 h16 M320 50 h10"/>
+        </g>
+      </svg>
+    </div>
   </div>
 </header>
 
@@ -47,16 +204,19 @@ footer .wrap{padding-block:18px 26px}
   <div class="sub">Tecnología y Digitalización</div>
   <div class="temas">
     <a class="tema" href="2eso/TyD/tema2/">
+      <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 30 L20 23 L32 30 L20 37 Z" fill="currentColor" opacity=".25"/><path d="M8 30 L20 23 L32 30 L20 37 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 30 V20 L20 13 L32 20 V30" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M20 13 V23" stroke="currentColor" stroke-width="2"/><rect x="36" y="14" width="8" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="36" y="27" width="8" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
       <span class="n">Tema 2</span>
       <h3>Representación gráfica de un proyecto</h3>
-      <p>Dibujo técnico y artístico, boceto, croquis y plano, vistas, tipos de líneas y normalización. 6 sesiones.</p>
+      <p>Dibujo técnico y artístico, boceto, croquis y plano, vistas, tipos de líneas y normalización.</p><div class="prog"><div class="prog-barra"><i style="width:67%"></i></div><span class="prog-txt">4 de 6 sesiones publicadas</span></div>
     </a>
     <div class="tema pendiente">
+      <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M24 7v6M24 35v6M7 24h6M35 24h6M12 12l4 4M32 32l4 4M36 12l-4 4M16 32l-4 4"/></g></svg>
       <span class="n">Tema 1</span>
       <h3>El proceso tecnológico</h3>
       <p>En preparación.</p>
     </div>
     <div class="tema pendiente">
+      <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8 L40 16 L24 24 L8 16 Z" fill="currentColor" opacity=".25" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 24 L24 32 L40 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 32 L24 40 L40 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
       <span class="n">Tema 3</span>
       <h3>Materiales de uso técnico</h3>
       <p>En preparación.</p>
@@ -64,8 +224,46 @@ footer .wrap{padding-block:18px 26px}
   </div>
 </main>
 
+<section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Materiales de Tecnología</span> · © 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto</a>, Departamento de Tecnología.</p>
+  <p>Publicado bajo
+     <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</b></a>.
+     Puedes <b>copiarlo, adaptarlo y redistribuirlo</b>, incluso con fines comerciales, siempre que
+     <b>cites la autoría</b>, <b>indiques si lo has modificado</b> y publiques tus versiones derivadas
+     <b>con esta misma licencia</b>.</p>
+  <h3>Cómo citar</h3>
+  <p class="cc-cita"><code>Roberto (2026). <i>Materiales de Tecnología</i>. https://rgllorente82-png.github.io/robertotecnologia/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qué cubre esta licencia</h3>
+  <p>Cubre los textos, los dibujos y el código de estas páginas. <b>No cubre</b> las obras de terceros
+     incluidas o enlazadas, que conservan su propia condición legal: <i>Las Meninas</i> de Velázquez es
+     dominio público (Museo Nacional del Prado) y las tipografías proceden de Google Fonts con su
+     licencia correspondiente.</p>
+  <h3>Otros usos</h3>
+  <p>Para cualquier uso que exceda lo que permite la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
 <footer>
   <div class="wrap">Roberto · Departamento de Tecnología · material de aula</div>
 </footer>
+<a class="cc-sello" property="dct:license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Este material se publica bajo licencia Creative Commons Reconocimiento 4.0. Puedes usarlo y adaptarlo citando la autoría.">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">· Roberto · Departamento de Tecnología</span></span>
+</a>
+<script>
+/* Si alguien borra el sello desde el navegador, se vuelve a poner.
+   Esto frena la retirada casual; no es -ni puede ser- a prueba de todo. */
+(function(){
+  var molde = document.querySelector('.cc-sello');
+  if(!molde) return;
+  var copia = molde.cloneNode(true);
+  new MutationObserver(function(){
+    if(!document.querySelector('.cc-sello')) document.body.appendChild(copia.cloneNode(true));
+  }).observe(document.body, {childList:true, subtree:true});
+})();
+</script>
 </body>
 </html>
