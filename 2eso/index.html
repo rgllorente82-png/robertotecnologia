@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2.º de ESO · Materiales de Tecnología</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{--paper:#e8ebef;--surface:#fff;--surface-2:#f4f6f8;--ink:#15212e;--ink-soft:#54646f;--line:#c7d1da;--accent:#0b6e99;--accent-soft:#e0eef5;--grid:rgba(11,110,153,.10)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#101720;--surface:#182028;--surface-2:#1e2833;--ink:#e8eef4;--ink-soft:#9dafbd;--line:#31404e;--accent:#57b6dd;--accent-soft:#11303d;--grid:rgba(87,182,221,.12)}}
+:root[data-theme="dark"]{--paper:#101720;--surface:#182028;--surface-2:#1e2833;--ink:#e8eef4;--ink-soft:#9dafbd;--line:#31404e;--accent:#57b6dd;--accent-soft:#11303d;--grid:rgba(87,182,221,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Source Sans 3",-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+header{border-bottom:1px solid var(--line);background:var(--surface);
+background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:26px 26px}
+header .wrap{padding-block:30px 26px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Archivo,sans-serif;font-weight:700;font-size:clamp(24px,5vw,34px);margin:6px 0 8px;line-height:1.1}
+header p{margin:0;color:var(--ink-soft);max-width:60ch}
+main{padding-block:28px 60px}
+h2{font-family:Archivo,sans-serif;font-weight:600;font-size:20px;margin:26px 0 4px}
+.sub{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.temas{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.tema{display:block;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+a.tema:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tema .n{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:4px}
+.tema h3{font-family:Archivo,sans-serif;font-weight:600;font-size:17.5px;margin:0 0 5px;line-height:1.25}
+.tema p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.tema.pendiente{opacity:.55;border-style:dashed}
+.tema.pendiente .n{color:var(--ink-soft)}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px}
+footer .wrap{padding-block:18px 26px}
+
+.ruta{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.ruta a{color:var(--accent);text-decoration:none;border-bottom:1px solid transparent}
+.ruta a:hover{border-bottom-color:var(--accent)}
+.ruta span{color:var(--ink-soft);margin:0 6px}
+.ruta strong{color:var(--ink-soft);font-weight:400}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="ruta" aria-label="Migas de pan">
+      <a href="../">Materiales</a><span>/</span><strong>2.º de ESO</strong>
+    </nav>
+    <div class="eyebrow">robertotecnologia</div>
+    <h1>2.º de ESO</h1>
+    <p>Materias con material publicado para este nivel.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <h2>Materias</h2>
+  <div class="sub">Curso 2.º ESO</div>
+  <div class="temas">
+    <a class="tema" href="TyD/">
+      <span class="n">TyD</span>
+      <h3>Tecnología y Digitalización</h3>
+      <p>Representación gráfica, proceso tecnológico y materiales. Cada tema dividido en sesiones de una hora.</p>
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Roberto · Departamento de Tecnología · material de aula</div>
+</footer>
+</body>
+</html>
