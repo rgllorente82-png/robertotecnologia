@@ -263,6 +263,15 @@
   .eje{fill:none;stroke:var(--accent);stroke-width:.9;stroke-dasharray:9 3 2 3}
   .oculta{fill:none;stroke:currentColor;stroke-width:1.3;stroke-dasharray:6 3;opacity:.75}
   .ref{fill:none;stroke:var(--accent);stroke-width:.7;stroke-dasharray:4 4;opacity:.7}
+  .vista{fill:var(--accent-soft);stroke:currentColor;stroke-width:2.2;stroke-linejoin:round}
+  .cuerpo{fill:var(--surface);stroke:currentColor;stroke-width:2.2;stroke-linejoin:round}
+  .cara{stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
+  .cara.techo{fill:var(--accent-soft)}
+  .cara.lateral{fill:var(--surface-2)}
+  .cruz{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:8 5;opacity:.55}
+  .lin{transition:opacity .3s ease}
+  .lin.atenuado{opacity:.09}
+  .rotura{fill:none;stroke:currentColor;stroke-width:.9}
   .cota{fill:none;stroke:var(--pencil);stroke-width:.9}
   .cifra{fill:var(--pencil);font-family:"IBM Plex Mono",monospace;font-size:11px}
   .rotulo-svg{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em}
@@ -368,7 +377,8 @@
   li>details.resp{margin-top:6px}
 
   .vacio{
-    border:1px dashed var(--line);border-radius:4px;padding:34px 20px;text-align:center;color:var(--ink-soft);    font-family:var(--f-mono);font-size:13px;background:var(--surface-2);
+    border:1px dashed var(--line);border-radius:4px;padding:34px 20px;text-align:center;color:var(--ink-soft);
+    font-family:var(--f-mono);font-size:13px;background:var(--surface-2);
   }
   footer.pie-pag{
     border-top:1px solid var(--line);margin-top:10px;padding-block:18px 0;
@@ -393,9 +403,9 @@
     </div>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema">
       <button type="button" data-ses="1" aria-selected="true">S1 · ¿Por qué dibujamos?</button>
-      <button type="button" data-ses="2" disabled>S2 · Boceto, croquis y plano</button>
-      <button type="button" data-ses="3" disabled>S3 · Las tres vistas</button>
-      <button type="button" data-ses="4" disabled>S4 · Tipos de líneas</button>
+      <button type="button" data-ses="2">S2 · Boceto, croquis y plano</button>
+      <button type="button" data-ses="3">S3 · Las tres vistas</button>
+      <button type="button" data-ses="4">S4 · Tipos de líneas</button>
       <button type="button" data-ses="5" disabled>S5 · Normalización</button>
       <button type="button" data-ses="6" disabled>S6 · Proyecto y test</button>
     </nav>
@@ -602,7 +612,8 @@
               <rect class="hueco fx" x="80" y="2" width="100" height="4"></rect>
               <rect class="muro fx" x="180" y="0" width="315" height="8"></rect>
               <rect class="muro fx" x="487" y="0" width="8" height="330"></rect>
-              <rect class="muro fx" x="0" y="322" width="60" height="8"></rect>              <rect class="muro fx" x="115" y="322" width="225" height="8"></rect>
+              <rect class="muro fx" x="0" y="322" width="60" height="8"></rect>
+              <rect class="muro fx" x="115" y="322" width="225" height="8"></rect>
               <rect class="hueco fx" x="340" y="324" width="90" height="4"></rect>
               <rect class="muro fx" x="430" y="322" width="65" height="8"></rect>
               <rect class="muro fx" x="0" y="0" width="8" height="120"></rect>
@@ -807,7 +818,8 @@
 
               <!-- ALZADO -->
               <text x="46" y="-26" text-anchor="middle" class="rotulo-svg">ALZADO</text>
-              <path class="gruesa draw" pathLength="1" d="M0 0 L92 0 L92 160 L0 160 Z"></path>              <path class="oculta" d="M7 0 L7 150 L85 150 L85 0"></path>
+              <path class="gruesa draw" pathLength="1" d="M0 0 L92 0 L92 160 L0 160 Z"></path>
+              <path class="oculta" d="M7 0 L7 150 L85 150 L85 0"></path>
               <path class="gruesa draw" pathLength="1" d="M92 32 C130 32 148 46 148 64 C148 84 126 98 92 98"></path>
               <path class="gruesa draw" pathLength="1" d="M92 46 C118 46 134 54 134 65 C134 77 116 86 92 86"></path>
               <path class="eje" d="M46 -14 L46 174"></path>
@@ -942,9 +954,551 @@
   </div>
 
   <!-- ============ SESIONES PENDIENTES ============ -->
-  <div id="ses-2" hidden><div class="vacio">Sesión 2 en preparación</div></div>
-  <div id="ses-3" hidden><div class="vacio">Sesión 3 en preparación</div></div>
-  <div id="ses-4" hidden><div class="vacio">Sesión 4 en preparación</div></div>
+  <!-- ============ SESIÓN 2 ============ -->
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesión 2 · 60 minutos</div>
+      <h2>Boceto, croquis y plano: los tres pasos de una idea</h2>
+      <p>Al terminar sabrás en qué se diferencian y, sobre todo, cuándo se usa cada uno. Hoy se dibuja: la mitad de la clase es lápiz y regla.</p>
+      <div class="minutado">
+        <span class="min"><b>5'</b> Reto inicial</span>
+        <span class="min"><b>15'</b> Teoría</span>
+        <span class="min"><b>10'</b> Animación</span>
+        <span class="min"><b>25'</b> Práctica</span>
+        <span class="min"><b>5'</b> Cierre</span>
+      </div>
+      <div class="chips">
+        <span class="chip">CE4 · 4.1</span>
+        <span class="chip">CE2 · 2.1</span>
+        <span class="chip sab">B.1</span>
+        <span class="chip sab">A.1</span>
+      </div>
+    </div>
+
+    <!-- reto inicial -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial · 5 min</div>
+      <p class="lead">Dibuja tu estuche en 30 segundos. Sin regla, sin borrar, sin medir.</p>
+      <p>Lo que acabas de hacer tiene nombre: es un <strong>boceto</strong>. Nadie lo fabricaría con eso, pero en medio minuto ya has puesto tu idea en el papel, y esa es exactamente su función. Ahora vamos a ver qué le falta para llegar al taller.</p>
+      <div class="nota">
+        <span class="n-tag">Para pensar</span>
+        Un ingeniero hace decenas de bocetos al día y casi ningún plano. ¿Por qué crees que dedica tanto tiempo a dibujos que va a tirar?
+      </div>
+      <details class="resp">
+        <summary>Ver respuesta</summary>
+        <div class="resp-cuerpo">
+          <p>Porque <strong>pensar es más barato en papel que en el taller</strong>. Cada boceto descarta una idea mala en un minuto; cada error descubierto en la fabricación cuesta material, horas y dinero.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- teoría -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teoría · 15 min</div>
+
+      <h3>Tres dibujos, tres momentos</h3>
+      <p>No son tres formas de dibujar lo mismo: son tres <strong>fases</strong> del proyecto. Cada una aparece en su momento y sirve para algo distinto.</p>
+
+      <div class="defs">
+        <div class="def">
+          <span class="tag">Fase 1 · idea</span>
+          <h4>Boceto</h4>
+          <p>Primer dibujo, <strong>a mano alzada</strong> y rápido. Sin medidas, sin instrumentos y con las proporciones aproximadas. Sirve para sacar ideas de la cabeza y compararlas. Se hacen varios y se tiran casi todos.</p>
+        </div>
+        <div class="def">
+          <span class="tag">Fase 2 · definición</span>
+          <h4>Croquis</h4>
+          <p>También <strong>a mano alzada</strong>, pero ya en serio: proporciones cuidadas, <strong>acotado con medidas reales</strong> y con el material anotado. <strong>No está a escala.</strong> Es el dibujo que se hace delante de la pieza, con la regla en la mano.</p>
+        </div>
+        <div class="def">
+          <span class="tag">Fase 3 · fabricación</span>
+          <h4>Plano</h4>
+          <p>El dibujo definitivo: <strong>con instrumentos o con CAD</strong>, a <strong>escala</strong>, con los tipos de línea normalizados, acotado y con <strong>cajetín</strong>. Es el único documento que va al taller.</p>
+        </div>
+      </div>
+
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col"></th><th scope="col">Boceto</th><th scope="col">Croquis</th><th scope="col">Plano</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Cómo se traza</td><td>A mano alzada</td><td>A mano alzada</td><td>Regla, escuadra, compás o CAD</td></tr>
+            <tr><td>Medidas</td><td>Ninguna</td><td>Sí, cotas reales</td><td>Sí, cotas reales</td></tr>
+            <tr><td>Escala</td><td>No</td><td>No</td><td>Sí (1:1, 1:2, 2:1…)</td></tr>
+            <tr><td>Proporciones</td><td>Aproximadas</td><td>Cuidadas</td><td>Exactas</td></tr>
+            <tr><td>Tiempo</td><td>Segundos</td><td>Minutos</td><td>Horas</td></tr>
+            <tr><td>Para qué</td><td>Pensar y comparar ideas</td><td>Tomar datos de la pieza</td><td>Fabricar</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Dos reglas que te van a puntuar</h4>
+      <ul>
+        <li><strong>En el boceto no se borra.</strong> Si una línea sale mal, se hace otra al lado. Borrar frena el pensamiento, y el boceto sirve justo para eso.</li>
+        <li><strong>El croquis se acota siempre en milímetros y sin escribir «mm».</strong> Una cifra suelta como 80 ya significa 80 milímetros: es la norma.</li>
+      </ul>
+
+      <div class="aviso">
+        <span class="n-tag">Error típico</span>
+        «Como el croquis no está a escala, las medidas me las invento». No: el croquis <strong>no está a escala pero sus cotas son reales</strong>. El dibujo puede estar deformado; las cifras, jamás.
+      </div>
+    </section>
+
+    <!-- animación -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Míralo en movimiento · 10 min</div>
+      <p>La misma pieza —un soporte en L— en las tres fases. Ve pasando y fíjate en qué se añade cada vez: primero la forma, luego las medidas, al final la escala y el cajetín.</p>
+
+      <div class="escena" id="esc-fases">
+        <div class="escena-barra">
+          <span class="escena-titulo">De la idea al taller</span>
+          <div class="seg" role="group" aria-label="Fase del dibujo">
+            <button type="button" data-fase="boceto" aria-pressed="true">1 · Boceto</button>
+            <button type="button" data-fase="croquis" aria-pressed="false">2 · Croquis</button>
+            <button type="button" data-fase="plano" aria-pressed="false">3 · Plano</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" id="svg-fases" role="img" aria-label="La misma pieza en L dibujada como boceto a mano alzada, como croquis acotado y como plano a escala con cajetín"></svg>
+        </div>
+        <div class="pie" data-pie><b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.</div>
+      </div>
+    </section>
+
+    <!-- práctica -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Práctica · 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 2 · De la idea al plano</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">2.1</span><span class="chip">B.1</span><span class="chip">A.1</span></span>
+          <span>Individual · 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qué necesitas</h4>
+          <p>Hoja lisa o cuadriculada, lápiz, goma, regla milimetrada y el objeto que te toque: un taco de madera, una pieza del taller o tu propia goma de borrar.</p>
+
+          <h4>Cómo se hace</h4>
+          <ol class="pasos">
+            <li><strong>Tres bocetos (6 min).</strong> Dibuja tu objeto tres veces desde tres puntos de vista distintos, dos minutos cada uno, a mano alzada. Sin borrar y sin regla.</li>
+            <li><strong>Elige y razona (2 min).</strong> Rodea el boceto que mejor explica la pieza y escribe en una línea por qué ese y no otro.</li>
+            <li><strong>Croquis acotado (10 min).</strong> Repite ese dibujo a mano alzada, más grande y con las proporciones cuidadas. Mide el objeto con la regla y pon las cotas en milímetros. Anota el material.</li>
+            <li><strong>Plano (7 min).</strong> El mismo dibujo con regla, limpio, a <strong>escala 1:1</strong> si la pieza cabe en la hoja o <strong>1:2</strong> si no. Añade el cajetín abajo a la derecha con: nombre de la pieza, tu nombre, la fecha y la escala.</li>
+          </ol>
+
+          <h4>Cómo se evalúa</h4>
+          <ul>
+            <li>Los tres bocetos están hechos y son tres vistas distintas <strong>(2 puntos)</strong>.</li>
+            <li>El croquis tiene proporciones creíbles y todas las cotas necesarias, en milímetros <strong>(3 puntos)</strong>.</li>
+            <li>El plano está trazado con regla, a la escala indicada y sin cotas repetidas <strong>(3 puntos)</strong>.</li>
+            <li>El cajetín está completo y bien colocado <strong>(2 puntos)</strong>.</li>
+          </ul>
+
+          <div class="nota">
+            <span class="n-tag">Si terminas antes</span>
+            Intercambia solo el croquis con un compañero y que dibuje la pieza sin verla. Si le sale parecida, tu croquis está bien acotado; si no, faltan cotas.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- cierre -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre · 5 min</div>
+      <div class="chips"><span class="chip">Criterio 4.1</span><span class="chip sab">B.1</span></div>
+      <p>Ticket de salida. Responde en el cuaderno y luego compara.</p>
+      <ol>
+        <li>¿Qué dibujo lleva medidas reales pero no está a escala?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>El <strong>croquis</strong>: se hace a mano alzada, así que el dibujo no guarda la escala, pero sus cotas son las medidas reales de la pieza.</p>
+          </div></details>
+        </li>
+        <li>Ordena las tres fases y di con qué instrumento se hace cada una.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p><strong>Boceto</strong> (a mano alzada) → <strong>croquis</strong> (a mano alzada, con regla solo para medir) → <strong>plano</strong> (regla, escuadra y cartabón, o CAD).</p>
+          </div></details>
+        </li>
+        <li>Vas a fabricar una pieza en el taller. ¿Qué dibujo de los tres te llevas y por qué?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>El <strong>plano</strong>: es el único a escala, normalizado y con cajetín, así que no admite interpretaciones y sirve como documento del proyecto.</p>
+          </div></details>
+        </li>
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesión</span>
+        Las tres vistas: cómo se aplana una pieza de tres dimensiones en alzado, planta y perfil sin perder información.
+      </div>
+    </section>
+  </div>
+  <!-- ============ SESIÓN 3 ============ -->
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesión 3 · 60 minutos</div>
+      <h2>Las tres vistas: alzado, planta y perfil</h2>
+      <p>Cómo se pasa una pieza de tres dimensiones al papel sin perder ni una medida. Es el contenido más importante del tema y el que más se pregunta.</p>
+      <div class="minutado">
+        <span class="min"><b>5'</b> Reto inicial</span>
+        <span class="min"><b>15'</b> Teoría</span>
+        <span class="min"><b>10'</b> Animación</span>
+        <span class="min"><b>25'</b> Práctica</span>
+        <span class="min"><b>5'</b> Cierre</span>
+      </div>
+      <div class="chips">
+        <span class="chip">CE4 · 4.1</span>
+        <span class="chip sab">B.1</span>
+      </div>
+    </div>
+
+    <!-- reto inicial -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial · 5 min</div>
+      <p class="lead">Coge la pieza que hay en tu mesa y dibújala tal y como la ves, en perspectiva. Ahora intenta acotarla.</p>
+      <p>Ahí está el problema: en perspectiva, ninguna cara se ve en su tamaño real. Las caras se acortan, los ángulos rectos dejan de ser rectos y cualquier medida que pongas es mentira. La solución que inventó el dibujo técnico es mirar la pieza <strong>desde varios sitios, uno cada vez</strong>.</p>
+    </section>
+
+    <!-- teoría -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teoría · 15 min</div>
+
+      <h3>Mirar de frente: la proyección ortogonal</h3>
+      <p>Imagina que te colocas <strong>justo enfrente</strong> de la pieza, con los ojos muy lejos, y que entre tú y ella hay un cristal. Si marcas en el cristal el contorno que ves, obtienes una <strong>proyección ortogonal</strong>: un dibujo plano donde todo lo paralelo al cristal conserva su medida real. Repite la operación desde arriba y desde un lado y tendrás tres dibujos que, juntos, describen la pieza sin ambigüedad.</p>
+
+      <div class="defs">
+        <div class="def">
+          <span class="tag">Vista 1</span>
+          <h4>Alzado</h4>
+          <p>Lo que se ve <strong>de frente</strong>. Es la vista principal: se elige la que mejor explica la pieza y la que tenga menos aristas ocultas. Da el <strong>ancho</strong> y la <strong>altura</strong>.</p>
+        </div>
+        <div class="def">
+          <span class="tag">Vista 2</span>
+          <h4>Planta</h4>
+          <p>Lo que se ve <strong>desde arriba</strong>. Se dibuja <strong>debajo</strong> del alzado y perfectamente alineada con él. Da el <strong>ancho</strong> y la <strong>profundidad</strong>.</p>
+        </div>
+        <div class="def">
+          <span class="tag">Vista 3</span>
+          <h4>Perfil izquierdo</h4>
+          <p>Lo que se ve <strong>desde la izquierda</strong>. Se dibuja <strong>a la derecha</strong> del alzado, a su misma altura. Da la <strong>profundidad</strong> y la <strong>altura</strong>.</p>
+        </div>
+      </div>
+
+      <div class="aviso">
+        <span class="n-tag">Lo que más confunde</span>
+        El perfil <strong>izquierdo</strong> se dibuja <strong>a la derecha</strong>. No es un error ni una manía: en el <strong>sistema europeo</strong> —el que usamos en España y en toda la UE— cada vista se coloca en el lado contrario a aquel desde el que se mira, porque el cristal está detrás de la pieza. En el sistema americano es al revés.
+      </div>
+
+      <h3>La regla de oro: correspondencia</h3>
+      <p>Las tres vistas no son tres dibujos sueltos, están <strong>encadenadas</strong>:</p>
+      <ul>
+        <li>El alzado y la planta comparten <strong>anchos</strong>: todo lo que mides en horizontal cae en el mismo sitio en las dos.</li>
+        <li>El alzado y el perfil comparten <strong>alturas</strong>: lo que en el alzado está a 30 mm del suelo, en el perfil también.</li>
+        <li>La planta y el perfil comparten <strong>profundidad</strong>.</li>
+      </ul>
+      <p>Por eso se dibujan con <strong>líneas de referencia</strong> finas que van de una vista a otra. Si una vista no cuadra con las demás, está mal: la correspondencia es el mejor corrector automático que tienes.</p>
+
+      <h4>Cómo elegir el alzado</h4>
+      <ul>
+        <li>El que muestre la pieza en su <strong>posición de trabajo</strong> o de uso.</li>
+        <li>El que dé <strong>más información</strong> de un vistazo.</li>
+        <li>El que deje <strong>menos aristas ocultas</strong> (líneas de trazos).</li>
+      </ul>
+    </section>
+
+    <!-- animación -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Míralo en movimiento · 10 min</div>
+      <p>Elige una pieza y ve paso a paso. Verás salir cada vista en su sitio, con las líneas de referencia que la atan a las demás.</p>
+
+      <div class="escena" id="esc-vistas">
+        <div class="escena-barra">
+          <span class="escena-titulo">De la pieza a las tres vistas</span>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <span class="seg" role="group" aria-label="Pieza">
+              <button type="button" data-pieza="0" aria-pressed="true">Escalón</button>
+              <button type="button" data-pieza="1" aria-pressed="false">Pieza en T</button>
+              <button type="button" data-pieza="2" aria-pressed="false">Doble escalón</button>
+            </span>
+            <span>
+              <button type="button" class="btn" data-vpaso="-1">◀</button>
+              <button type="button" class="btn primary" data-vpaso="+1">Siguiente ▶</button>
+              <button type="button" class="btn" data-vreset>↺</button>
+            </span>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 360" id="svg-vistas" role="img" aria-label="Una pieza en perspectiva y la obtención de su alzado, planta y perfil en sistema europeo"></svg>
+        </div>
+        <div class="pie" data-pie>La pieza, en perspectiva. Pulsa <b>Siguiente</b> para ir sacando las vistas.</div>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Truco de clase</span>
+        Pon la pieza sobre la mesa y agáchate hasta tenerla a la altura de los ojos: eso es el alzado. Súbete a mirarla desde arriba: la planta. Muévete a su izquierda: el perfil. Si lo haces con el cuerpo, ya no se te olvida.
+      </div>
+    </section>
+
+    <!-- práctica -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Práctica · 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 · Sacar las vistas</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">B.1</span></span>
+          <span>Individual · 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qué necesitas</h4>
+          <p>Hoja cuadriculada, lápiz y regla. Cada cuadro de la hoja equivale a 5 mm.</p>
+
+          <h4>Parte A · De la pieza a las vistas (15 min)</h4>
+          <ol class="pasos">
+            <li>Dibuja las tres vistas de las <strong>tres piezas de la animación</strong>, una por pieza: alzado arriba a la izquierda, planta debajo, perfil a la derecha.</li>
+            <li>Traza primero, con línea fina, las <strong>líneas de referencia</strong> entre vistas. Después repasa los contornos con trazo grueso.</li>
+            <li>Comprueba la correspondencia: los anchos del alzado y la planta tienen que coincidir; las alturas del alzado y el perfil, también.</li>
+          </ol>
+
+          <h4>Parte B · De las vistas a la pieza (10 min)</h4>
+          <ol class="pasos">
+            <li>Tu compañero te pasa tres vistas dibujadas por él, sin decirte cuál es la pieza.</li>
+            <li>Construye esa pieza con los bloques de madera del taller o dibújala en perspectiva.</li>
+            <li>Comparad: si la pieza que has montado no es la suya, buscad juntos qué vista estaba mal.</li>
+          </ol>
+
+          <h4>Cómo se evalúa</h4>
+          <ul>
+            <li>Las tres vistas de cada pieza están completas y bien colocadas en sistema europeo <strong>(4 puntos)</strong>.</li>
+            <li>La correspondencia entre vistas se mantiene y se ven las líneas de referencia <strong>(3 puntos)</strong>.</li>
+            <li>Las proporciones respetan la cuadrícula: 1 cuadro = 5 mm <strong>(2 puntos)</strong>.</li>
+            <li>La parte B está resuelta y razonada <strong>(1 punto)</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- cierre -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre · 5 min</div>
+      <div class="chips"><span class="chip">Criterio 4.1</span><span class="chip sab">B.1</span></div>
+      <ol>
+        <li>¿Dónde se coloca la planta y por qué está justo ahí?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p><strong>Debajo del alzado</strong> y alineada con él, porque comparten los anchos: así se pasa cualquier medida horizontal de una vista a otra con solo bajar una línea de referencia.</p>
+          </div></details>
+        </li>
+        <li>Una pieza tiene 60 mm de ancho, 40 de alto y 25 de fondo. ¿Qué medidas aparecen en cada vista?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p><strong>Alzado</strong> 60 × 40 (ancho y alto) · <strong>Planta</strong> 60 × 25 (ancho y fondo) · <strong>Perfil</strong> 25 × 40 (fondo y alto).</p>
+          </div></details>
+        </li>
+        <li>¿Por qué el perfil izquierdo se dibuja a la derecha del alzado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>Porque en el <strong>sistema europeo</strong> la pieza se proyecta sobre planos situados detrás de ella, así que cada vista acaba en el lado opuesto al del observador. Es la norma que se usa en España y en la UE.</p>
+          </div></details>
+        </li>
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesión</span>
+        Los tipos de línea: por qué un dibujo técnico lleva trazos gruesos, finos, discontinuos y de trazo y punto, y qué significa cada uno.
+      </div>
+    </section>
+  </div>
+  <!-- ============ SESIÓN 4 ============ -->
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesión 4 · 60 minutos</div>
+      <h2>Tipos de línea: el dibujo también tiene ortografía</h2>
+      <p>En un plano, el grosor y la forma de cada línea significan algo. Confundirlas es como escribir sin tildes: se entiende mal o no se entiende.</p>
+      <div class="minutado">
+        <span class="min"><b>5'</b> Reto inicial</span>
+        <span class="min"><b>15'</b> Teoría</span>
+        <span class="min"><b>10'</b> Animación</span>
+        <span class="min"><b>25'</b> Práctica</span>
+        <span class="min"><b>5'</b> Cierre</span>
+      </div>
+      <div class="chips">
+        <span class="chip">CE4 · 4.1</span>
+        <span class="chip sab">B.1</span>
+      </div>
+    </div>
+
+    <!-- reto inicial -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial · 5 min</div>
+      <p class="lead">Mira el dibujo de la animación de abajo durante un minuto y cuenta cuántas <strong>clases distintas</strong> de línea encuentras. No cuentes líneas: cuenta tipos.</p>
+      <p>Salen cinco. Cada una tiene un nombre, un grosor y un significado fijados por norma, y un plano bien hecho no usa ninguna otra.</p>
+    </section>
+
+    <!-- teoría -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teoría · 15 min</div>
+
+      <h3>Cinco líneas y un significado para cada una</h3>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Línea</th><th scope="col">Cómo es</th><th scope="col">Para qué sirve</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Continua gruesa</td><td>Trazo seguido y grueso</td><td>Aristas y contornos <strong>visibles</strong>. Es la protagonista del dibujo.</td></tr>
+            <tr><td>Continua fina</td><td>Trazo seguido y fino</td><td>Líneas de <strong>cota</strong> y auxiliares, rayado de las secciones, líneas de referencia.</td></tr>
+            <tr><td>Línea de trazos</td><td>Guiones cortos separados</td><td>Aristas y contornos <strong>ocultos</strong>: lo que existe pero no se ve desde fuera.</td></tr>
+            <tr><td>Trazo y punto fina</td><td>Raya larga, punto, raya larga</td><td><strong>Ejes</strong> de simetría y de revolución. Marca el centro de agujeros y piezas redondas.</td></tr>
+            <tr><td>Continua fina a mano alzada</td><td>Ondulada</td><td><strong>Roturas</strong>: cuando se corta el dibujo de una pieza larga para que quepa.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Los grosores van a pares</h4>
+      <p>La norma no fija milímetros concretos, fija una <strong>relación: la gruesa es el doble de ancha que la fina</strong>. En clase nos vale con dos portaminas o dos rotuladores calibrados: <strong>0,5 mm para las gruesas y 0,25 mm para las finas</strong>. Si dibujas con lápiz, la gruesa se repasa; la fina se traza suave y una sola vez.</p>
+
+      <h4>Cuándo dos líneas caen en el mismo sitio</h4>
+      <p>Pasa a menudo: un eje y una arista oculta coinciden. Hay un orden de preferencia, y se dibuja la que gane:</p>
+      <ol>
+        <li><strong>Arista visible</strong> (continua gruesa).</li>
+        <li><strong>Arista oculta</strong> (línea de trazos).</li>
+        <li><strong>Eje</strong> (trazo y punto).</li>
+      </ol>
+
+      <div class="aviso">
+        <span class="n-tag">Error típico</span>
+        Dibujar los agujeros del alzado con línea continua. Si el agujero no se ve desde donde miras, va en <strong>línea de trazos</strong>; y su centro siempre lleva <strong>eje</strong>, que se dibuja cruzado en la vista donde el agujero se ve redondo.
+      </div>
+    </section>
+
+    <!-- animación -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Míralo en movimiento · 10 min</div>
+      <p>Pulsa cada tipo de línea y verás dónde aparece en el dibujo. Todo lo demás se atenúa para que no haya dudas.</p>
+
+      <div class="escena" id="esc-lineas">
+        <div class="escena-barra">
+          <span class="escena-titulo">Las cinco líneas del plano</span>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button type="button" class="btn" data-tipo="todas">Todas</button>
+            <button type="button" class="btn" data-tipo="gruesa">Continua gruesa</button>
+            <button type="button" class="btn" data-tipo="fina">Continua fina</button>
+            <button type="button" class="btn" data-tipo="oculta">Trazos</button>
+            <button type="button" class="btn" data-tipo="eje">Trazo y punto</button>
+            <button type="button" class="btn" data-tipo="rotura">Mano alzada</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 320" role="img" aria-label="Pieza con un taladro dibujada en alzado y planta, con los cinco tipos de línea normalizados">
+            <!-- ALZADO -->
+            <text x="230" y="36" text-anchor="middle" class="rotulo-svg">ALZADO</text>
+            <path class="gruesa lin" data-tipo="gruesa" d="M150 50 L310 50 L310 140 L150 140 Z"></path>
+            <path class="oculta lin" data-tipo="oculta" d="M210 50 L210 140 M250 50 L250 140"></path>
+            <path class="eje lin" data-tipo="eje" d="M230 38 L230 152"></path>
+            <path class="cota lin" data-tipo="fina" d="M150 146 L150 176 M310 146 L310 176"></path>
+            <path class="cota lin" data-tipo="fina" d="M150 170 L310 170 M150 166 L150 174 M310 166 L310 174"></path>
+            <text x="230" y="188" text-anchor="middle" class="cifra lin" data-tipo="fina">120</text>
+            <path class="cota lin" data-tipo="fina" d="M126 50 L126 140 M122 50 L130 50 M122 140 L130 140"></path>
+            <text x="118" y="99" text-anchor="end" class="cifra lin" data-tipo="fina">70</text>
+            <path class="cota lin" data-tipo="fina" d="M230 96 L286 40 L318 40"></path>
+            <text x="322" y="36" class="cifra lin" data-tipo="fina">Ø40</text>
+
+            <!-- PLANTA -->
+            <text x="230" y="300" text-anchor="middle" class="rotulo-svg">PLANTA</text>
+            <path class="gruesa lin" data-tipo="gruesa" d="M150 216 L310 216 L310 276 L150 276 Z"></path>
+            <circle cx="230" cy="246" r="20" class="gruesa lin" data-tipo="gruesa"></circle>
+            <path class="eje lin" data-tipo="eje" d="M230 204 L230 288 M138 246 L322 246"></path>
+            <path class="ref lin" data-tipo="fina" d="M150 144 L150 212 M310 144 L310 212 M210 144 L210 212 M250 144 L250 212"></path>
+
+            <!-- BARRA CON SECCIÓN RAYADA Y ROTURA -->
+            <text x="466" y="36" text-anchor="middle" class="rotulo-svg">PIEZA LARGA · CORTADA</text>
+            <path class="gruesa lin" data-tipo="gruesa" d="M505 60 L390 60 L390 110 L505 110"></path>
+            <path class="rotura lin" data-tipo="rotura" d="M505 60 C513 68 497 76 505 84 C513 92 497 102 505 110"></path>
+            <path class="fina lin" data-tipo="fina" d="M390 110 L430 60 M405 110 L445 60 M420 110 L460 60 M435 110 L475 60 M450 110 L490 60 M465 110 L500 65 M390 95 L418 60"></path>
+            <text x="446" y="132" text-anchor="middle" class="rotulo-svg" style="font-size:9.5px">RAYADO DE SECCIÓN · CONTINUA FINA</text>
+            <text x="446" y="148" text-anchor="middle" class="rotulo-svg" style="font-size:9.5px">ROTURA · MANO ALZADA</text>
+
+            <!-- LEYENDA -->
+            <g transform="translate(390,196)">
+              <path class="gruesa lin" data-tipo="gruesa" d="M0 0 L46 0"></path>
+              <text x="56" y="4" class="rotulo-svg" style="font-size:9.5px">ARISTA VISTA</text>
+              <path class="fina lin" data-tipo="fina" d="M0 22 L46 22"></path>
+              <text x="56" y="26" class="rotulo-svg" style="font-size:9.5px">COTAS Y RAYADO</text>
+              <path class="oculta lin" data-tipo="oculta" d="M0 44 L46 44"></path>
+              <text x="56" y="48" class="rotulo-svg" style="font-size:9.5px">ARISTA OCULTA</text>
+              <path class="eje lin" data-tipo="eje" d="M0 66 L46 66"></path>
+              <text x="56" y="70" class="rotulo-svg" style="font-size:9.5px">EJE DE SIMETRÍA</text>
+              <path class="rotura lin" data-tipo="rotura" d="M0 88 C8 82 16 94 24 88 C32 82 40 94 46 88"></path>
+              <text x="56" y="92" class="rotulo-svg" style="font-size:9.5px">ROTURA</text>
+            </g>
+          </svg>
+        </div>
+        <div class="pie" data-pie>Las cinco líneas a la vez, como en un plano de verdad. Pulsa una para aislarla.</div>
+      </div>
+    </section>
+
+    <!-- práctica -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Práctica · 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 · Detective de líneas</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">B.1</span></span>
+          <span>Individual y por parejas · 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Parte A · Identificar (8 min)</h4>
+          <p>Con el dibujo de la animación proyectado, copia en el cuaderno esta tabla y complétala: <strong>tipo de línea · dónde aparece · qué significa</strong>. Las cinco filas, con un ejemplo concreto en cada una.</p>
+
+          <h4>Parte B · Repasar con los grosores correctos (10 min)</h4>
+          <ol class="pasos">
+            <li>Dibuja a lápiz, con regla, el alzado y la planta de una pieza de 100 × 60 mm con un agujero de 30 mm de diámetro en el centro.</li>
+            <li>Repasa los contornos con trazo grueso y las cotas con trazo fino.</li>
+            <li>Pon el agujero en <strong>línea de trazos</strong> en el alzado y como circunferencia en la planta.</li>
+            <li>Añade los <strong>ejes</strong> del agujero en las dos vistas: cruzados en la planta, vertical en el alzado.</li>
+          </ol>
+
+          <h4>Parte C · Caza del error (7 min)</h4>
+          <p>Intercambia el dibujo con un compañero y busca estos cuatro fallos clásicos. Anota cuáles encuentras:</p>
+          <ul>
+            <li>Agujero dibujado con línea continua en el alzado.</li>
+            <li>Ejes que no sobresalen del contorno de la pieza.</li>
+            <li>Cotas repetidas en las dos vistas.</li>
+            <li>Todas las líneas con el mismo grosor.</li>
+          </ul>
+
+          <h4>Cómo se evalúa</h4>
+          <ul>
+            <li>La tabla de la parte A está completa y es correcta <strong>(3 puntos)</strong>.</li>
+            <li>El dibujo distingue claramente los dos grosores <strong>(3 puntos)</strong>.</li>
+            <li>El agujero está en trazos y con sus ejes en las dos vistas <strong>(3 puntos)</strong>.</li>
+            <li>La caza del error está hecha y razonada <strong>(1 punto)</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- cierre -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre · 5 min</div>
+      <div class="chips"><span class="chip">Criterio 4.1</span><span class="chip sab">B.1</span></div>
+      <ol>
+        <li>¿Con qué línea se dibuja un agujero que no se ve desde esa vista?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>Con <strong>línea de trazos</strong>, porque es una arista oculta. Y su centro lleva además un <strong>eje</strong> de trazo y punto.</p>
+          </div></details>
+        </li>
+        <li>Si una arista visible y un eje coinciden en el mismo sitio, ¿cuál se dibuja?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>La <strong>arista visible</strong>: manda el orden de preferencia —visible, oculta, eje—. El eje solo se dibuja donde no tape nada.</p>
+          </div></details>
+        </li>
+        <li>¿Qué relación tienen que guardar el trazo grueso y el fino?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>El grueso es el <strong>doble</strong> de ancho que el fino (por ejemplo 0,5 y 0,25 mm). Lo importante no es el número exacto, sino que se distingan a simple vista.</p>
+          </div></details>
+        </li>
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesión</span>
+        Normalización: formatos de papel, escalas y acotación. Por qué un A3 es exactamente dos A4 y cómo se pone una cota sin equivocarse.
+      </div>
+    </section>
+  </div>
   <div id="ses-5" hidden><div class="vacio">Sesión 5 en preparación</div></div>
   <div id="ses-6" hidden><div class="vacio">Sesión 6 en preparación</div></div>
 
@@ -1040,6 +1594,296 @@
   if(btnPlano && gPlano){
     btnPlano.addEventListener('click', function(){
       relanza(Array.prototype.slice.call(gPlano.querySelectorAll('.fx')), resetOpacidad, playOpacidad, 0.05);
+    });
+  }
+
+  /* ---- escena S2: boceto → croquis → plano ---- */
+  var svgF = document.getElementById('svg-fases');
+  if(svgF){
+    var K = 2.6, OX = 152, OY = 62;
+    var PZ = [[0,0],[80,0],[80,30],[30,30],[30,50],[0,50]];
+    var Ppx = PZ.map(function(p){ return [OX + p[0]*K, OY + p[1]*K]; });
+    var X0 = OX, X1 = OX + 80*K, Y0 = OY, Y1 = OY + 50*K, XS = OX + 30*K, YS = OY + 30*K;
+
+    function rng(semilla){
+      var s = semilla;
+      return function(){ s = (s * 16807) % 2147483647; return s / 2147483647 - 0.5; };
+    }
+    /* traza una polilínea con temblor de mano alzada */
+    function mano(pts, amp, semilla, cerrado){
+      var r = rng(semilla), lista = cerrado ? pts.concat([pts[0]]) : pts, d = '', n = 4;
+      for(var i = 0; i < lista.length - 1; i++){
+        var a = lista[i], b = lista[i+1];
+        if(i === 0) d += 'M' + (a[0] + r()*amp).toFixed(1) + ' ' + (a[1] + r()*amp).toFixed(1);
+        for(var t = 1; t <= n; t++){
+          var f = t / n;
+          d += ' L' + (a[0] + (b[0]-a[0])*f + r()*amp*2).toFixed(1) + ' ' + (a[1] + (b[1]-a[1])*f + r()*amp*2).toFixed(1);
+        }
+      }
+      return d;
+    }
+    function trazo(d, clase){ return '<path class="' + clase + '" pathLength="1" d="' + d + '"></path>'; }
+    function texto(x, y, t, extra){ return '<text x="' + x + '" y="' + y + '" text-anchor="middle" class="rotulo-svg"' + (extra || '') + '>' + t + '</text>'; }
+    function cifra(x, y, t, anchor){ return '<text x="' + x + '" y="' + y + '" text-anchor="' + (anchor || 'middle') + '" class="cifra">' + t + '</text>'; }
+
+    /* --- 1. BOCETO: dos pasadas a mano alzada, sin nada más --- */
+    var gBoceto = '<g data-fase="boceto">'
+      + trazo(mano(Ppx, 2.4, 7, true), 'gruesa draw on')
+      + trazo(mano(Ppx, 3.2, 31, true), 'sombra draw on')
+      + trazo(mano([[X0-16, Y1+16],[X1+10, Y1+16]], 2.6, 53, false), 'sombra draw on')
+      + texto(320, 252, 'BOCETO · A MANO ALZADA · SIN MEDIDAS')
+      + '</g>';
+
+    /* --- 2. CROQUIS: mano alzada cuidada + cotas reales --- */
+    var gCroquis = '<g data-fase="croquis">'
+      + trazo(mano(Ppx, 1.1, 11, true), 'gruesa draw on')
+      + trazo(mano([[X0, Y1+22],[X1, Y1+22]], .9, 17, false), 'cota draw on')
+      + trazo(mano([[X0, Y1+16],[X0, Y1+28]], .7, 19, false), 'cota draw on')
+      + trazo(mano([[X1, Y1+16],[X1, Y1+28]], .7, 23, false), 'cota draw on')
+      + cifra((X0+X1)/2, Y1+40, '80')
+      + trazo(mano([[X0-24, Y0],[X0-24, Y1]], .9, 29, false), 'cota draw on')
+      + trazo(mano([[X0-30, Y0],[X0-18, Y0]], .7, 37, false), 'cota draw on')
+      + trazo(mano([[X0-30, Y1],[X0-18, Y1]], .7, 41, false), 'cota draw on')
+      + cifra(X0-34, (Y0+Y1)/2 + 4, '50', 'end')
+      + trazo(mano([[X1+24, Y0],[X1+24, YS]], .9, 43, false), 'cota draw on')
+      + trazo(mano([[X1+18, Y0],[X1+30, Y0]], .7, 47, false), 'cota draw on')
+      + trazo(mano([[X1+18, YS],[X1+30, YS]], .7, 59, false), 'cota draw on')
+      + cifra(X1+36, (Y0+YS)/2 + 4, '30', 'start')
+      + trazo(mano([[X0, Y0-22],[XS, Y0-22]], .9, 61, false), 'cota draw on')
+      + trazo(mano([[X0, Y0-28],[X0, Y0-16]], .7, 67, false), 'cota draw on')
+      + trazo(mano([[XS, Y0-28],[XS, Y0-16]], .7, 71, false), 'cota draw on')
+      + cifra((X0+XS)/2, Y0-30, '30')
+      + texto(320, 252, 'CROQUIS · A MANO ALZADA · COTAS REALES · SIN ESCALA')
+      + texto(X1+40, Y1-6, 'MATERIAL: MADERA', ' text-anchor="start" style="font-size:9.5px"')
+      + '</g>';
+
+    /* --- 3. PLANO: instrumentos, escala, marco y cajetín --- */
+    var cajX = 392, cajY = 206, cajW = 208, cajH = 52;
+    var gPlano = '<g data-fase="plano">'
+      + '<path class="fina" d="M40 22 L600 22 L600 268 L40 268 Z"></path>'
+      + trazo('M' + X0 + ' ' + Y0 + ' L' + X1 + ' ' + Y0 + ' L' + X1 + ' ' + YS + ' L' + XS + ' ' + YS + ' L' + XS + ' ' + Y1 + ' L' + X0 + ' ' + Y1 + ' Z', 'gruesa draw on')
+      + '<path class="cota" d="M' + X0 + ' ' + (Y1+22) + ' L' + X1 + ' ' + (Y1+22) + ' M' + X0 + ' ' + (Y1+16) + ' L' + X0 + ' ' + (Y1+28) + ' M' + X1 + ' ' + (Y1+16) + ' L' + X1 + ' ' + (Y1+28) + '"></path>'
+      + cifra((X0+X1)/2, Y1+40, '80')
+      + '<path class="cota" d="M' + (X0-24) + ' ' + Y0 + ' L' + (X0-24) + ' ' + Y1 + ' M' + (X0-30) + ' ' + Y0 + ' L' + (X0-18) + ' ' + Y0 + ' M' + (X0-30) + ' ' + Y1 + ' L' + (X0-18) + ' ' + Y1 + '"></path>'
+      + cifra(X0-34, (Y0+Y1)/2 + 4, '50', 'end')
+      + '<path class="cota" d="M' + (X1+24) + ' ' + Y0 + ' L' + (X1+24) + ' ' + YS + ' M' + (X1+18) + ' ' + Y0 + ' L' + (X1+30) + ' ' + Y0 + ' M' + (X1+18) + ' ' + YS + ' L' + (X1+30) + ' ' + YS + '"></path>'
+      + cifra(X1+36, (Y0+YS)/2 + 4, '30', 'start')
+      + '<path class="cota" d="M' + X0 + ' ' + (Y0-22) + ' L' + XS + ' ' + (Y0-22) + ' M' + X0 + ' ' + (Y0-28) + ' L' + X0 + ' ' + (Y0-16) + ' M' + XS + ' ' + (Y0-28) + ' L' + XS + ' ' + (Y0-16) + '"></path>'
+      + cifra((X0+XS)/2, Y0-30, '30')
+      + '<path class="fina" d="M' + cajX + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + (cajY+cajH) + ' L' + cajX + ' ' + (cajY+cajH) + ' Z M' + cajX + ' ' + (cajY+26) + ' L' + (cajX+cajW) + ' ' + (cajY+26) + ' M' + (cajX+124) + ' ' + (cajY+26) + ' L' + (cajX+124) + ' ' + (cajY+cajH) + '"></path>'
+      + '<text x="' + (cajX+10) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:11px;fill:var(--ink)">SOPORTE EN L</text>'
+      + '<text x="' + (cajX+10) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">2.º ESO</text>'
+      + '<text x="' + (cajX+134) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">ESC. 1:2</text>'
+      + texto(320, 290, 'PLANO · CON INSTRUMENTOS · A ESCALA · CON CAJETÍN')
+      + '</g>';
+
+    svgF.innerHTML = gBoceto + gCroquis + gPlano;
+
+    var esc2 = document.getElementById('esc-fases');
+    var pie2 = esc2.querySelector('[data-pie]');
+    var textos2 = {
+      boceto: '<b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.',
+      croquis: '<b>Croquis:</b> el mismo dibujo a mano alzada, pero ya con las <b>cotas reales</b> (80, 50, 30) y el material anotado. Fíjate: el dibujo está deformado, las medidas no.',
+      plano: '<b>Plano:</b> trazado con instrumentos, a escala, dentro de su marco y con el <b>cajetín</b> que identifica la pieza, el curso y la escala. Este es el que va al taller.'
+    };
+    function faseActiva(nombre){
+      svgF.querySelectorAll('[data-fase]').forEach(function(g){
+        g.style.transition = 'opacity .35s ease';
+        g.style.opacity = (g.dataset.fase === nombre) ? '1' : '0';
+      });
+      esc2.querySelectorAll('button[data-fase]').forEach(function(b){
+        b.setAttribute('aria-pressed', b.dataset.fase === nombre ? 'true' : 'false');
+      });
+      pie2.innerHTML = textos2[nombre];
+      var activo = svgF.querySelector('[data-fase="' + nombre + '"]');
+      relanza(Array.prototype.slice.call(activo.querySelectorAll('.draw')), resetTrazo, playTrazo, 0.08);
+    }
+    esc2.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-fase]'); if(!b) return;
+      faseActiva(b.dataset.fase);
+    });
+    svgF.querySelectorAll('[data-fase]').forEach(function(g){
+      g.style.opacity = (g.dataset.fase === 'boceto') ? '1' : '0';
+    });
+  }
+
+  /* ---- escena S3: de la pieza a las tres vistas ---- */
+  var svgV = document.getElementById('svg-vistas');
+  if(svgV){
+    var PIEZAS = [
+      { nombre:'Escalón',       cols:[{w:30,h:55},{w:60,h:25}], d:40 },
+      { nombre:'Pieza en T',    cols:[{w:20,h:20},{w:30,h:60},{w:20,h:20}], d:35 },
+      { nombre:'Doble escalón', cols:[{w:30,h:60},{w:25,h:40},{w:25,h:20}], d:40 }
+    ];
+    var S = 1.5, SI = 1.25, VX = 330, VY = 72, GAP = 34, IX = 112, IBASE = 252;
+    var CS = Math.cos(Math.PI/6);   /* isométrica: ejes a 30° */
+
+    function geo(p){
+      var W = 0, H = 0, x = 0, pts = [[0,0]], bordes = [], alturas = [];
+      p.cols.forEach(function(c){ W += c.w; H = Math.max(H, c.h); });
+      p.cols.forEach(function(c){ pts.push([x, c.h]); x += c.w; pts.push([x, c.h]); });
+      pts.push([W, 0]);
+      x = 0;
+      for(var i = 0; i < p.cols.length - 1; i++){
+        x += p.cols[i].w;
+        if(p.cols[i].h !== p.cols[i+1].h) bordes.push(x);
+      }
+      p.cols.forEach(function(c){ if(c.h < H && alturas.indexOf(c.h) < 0) alturas.push(c.h); });
+      return { W:W, H:H, d:p.d, pts:pts, bordes:bordes, alturas:alturas };
+    }
+    function vpx(g, x, y){ return [(VX + x*S).toFixed(1), (VY + (g.H - y)*S).toFixed(1)]; }
+    function ipx(g, x, y, z){
+      return [(IX + (x*CS - z*CS)*SI).toFixed(1), (IBASE - (y + (x + z)*0.5)*SI).toFixed(1)];
+    }
+    function poli(puntos, cerrar){
+      return 'M' + puntos.map(function(q){ return q[0] + ' ' + q[1]; }).join(' L') + (cerrar ? ' Z' : '');
+    }
+    function rot(x, y, t, tam){
+      return '<text x="' + x + '" y="' + y + '" text-anchor="middle" class="rotulo-svg"' + (tam ? ' style="font-size:' + tam + 'px"' : '') + '>' + t + '</text>';
+    }
+
+    function construye(idx){
+      var g = geo(PIEZAS[idx]);
+      var PY = VY + g.H*S + GAP;              /* arriba de la planta */
+      var PX = VX + g.W*S + GAP;              /* izquierda del perfil */
+      var frente = g.pts.map(function(q){ return ipx(g, q[0], q[1], 0); });
+      /* caras vistas del sólido: techos, testa derecha y escalones que miran al observador */
+      var trozos = [], x0 = 0;
+      PIEZAS[idx].cols.forEach(function(c, i){
+        var x1 = x0 + c.w, t = '';
+        t += '<path class="cara techo" d="' + poli([ipx(g,x0,c.h,0), ipx(g,x1,c.h,0), ipx(g,x1,c.h,g.d), ipx(g,x0,c.h,g.d)], true) + '"></path>';
+        var sig = PIEZAS[idx].cols[i+1];
+        if(sig && c.h > sig.h){
+          t += '<path class="cara lateral" d="' + poli([ipx(g,x1,sig.h,0), ipx(g,x1,c.h,0), ipx(g,x1,c.h,g.d), ipx(g,x1,sig.h,g.d)], true) + '"></path>';
+        }
+        trozos.push(t);
+        x0 = x1;
+      });
+      /* de derecha a izquierda: la columna alta se pinta encima de lo que queda detrás */
+      var caras = trozos.reverse().join('');
+      var ultima = PIEZAS[idx].cols[PIEZAS[idx].cols.length - 1];
+      caras += '<path class="cara lateral" d="' + poli([ipx(g,g.W,0,0), ipx(g,g.W,ultima.h,0), ipx(g,g.W,ultima.h,g.d), ipx(g,g.W,0,g.d)], true) + '"></path>';
+
+      var m = '';
+      /* paso 0 · la pieza */
+      m += '<g class="st" data-st="0">'
+         + caras
+         + '<path class="cuerpo" d="' + poli(frente, true) + '"></path>'
+         + rot(132, IBASE + 26, 'LA PIEZA')
+         + rot(132, IBASE + 42, 'PERSPECTIVA ISOMÉTRICA · EJES A 30°', 9)
+         + '</g>';
+
+      /* paso 1 · alzado */
+      var cruzX = (VX + g.W*S + GAP/2).toFixed(1), cruzY = (VY + g.H*S + GAP/2).toFixed(1);
+      m += '<g class="st" data-st="1">'
+         + '<path class="cruz" d="M' + cruzX + ' ' + (VY - 30) + ' L' + cruzX + ' ' + (PY + g.d*S + 10).toFixed(1) + ' M' + (VX - 30) + ' ' + cruzY + ' L' + (PX + g.d*S + 10).toFixed(1) + ' ' + cruzY + '"></path>'
+         + '<path class="vista draw" pathLength="1" d="' + poli(g.pts.map(function(q){ return vpx(g, q[0], q[1]); }), true) + '"></path>'
+         + rot(VX + g.W*S/2, VY - 14, 'ALZADO')
+         + '</g>';
+
+      /* paso 2 · planta */
+      var lineasPlanta = '';
+      g.bordes.forEach(function(b){
+        lineasPlanta += 'M' + (VX + b*S).toFixed(1) + ' ' + PY.toFixed(1) + ' L' + (VX + b*S).toFixed(1) + ' ' + (PY + g.d*S).toFixed(1) + ' ';
+      });
+      var refV = '';
+      [0, g.W].concat(g.bordes).forEach(function(x){
+        refV += 'M' + (VX + x*S).toFixed(1) + ' ' + (VY + g.H*S + 5).toFixed(1) + ' L' + (VX + x*S).toFixed(1) + ' ' + (PY - 5).toFixed(1) + ' ';
+      });
+      m += '<g class="st" data-st="2">'
+         + '<path class="ref" d="' + refV + '"></path>'
+         + '<path class="vista draw" pathLength="1" d="M' + VX + ' ' + PY.toFixed(1) + ' L' + (VX + g.W*S).toFixed(1) + ' ' + PY.toFixed(1) + ' L' + (VX + g.W*S).toFixed(1) + ' ' + (PY + g.d*S).toFixed(1) + ' L' + VX + ' ' + (PY + g.d*S).toFixed(1) + ' Z"></path>'
+         + (lineasPlanta ? '<path class="gruesa draw" pathLength="1" d="' + lineasPlanta + '"></path>' : '')
+         + rot(VX + g.W*S/2, PY + g.d*S + 20, 'PLANTA')
+         + '</g>';
+
+      /* paso 3 · perfil izquierdo */
+      var lineasPerfil = '';
+      g.alturas.forEach(function(a){
+        lineasPerfil += 'M' + PX.toFixed(1) + ' ' + (VY + (g.H - a)*S).toFixed(1) + ' L' + (PX + g.d*S).toFixed(1) + ' ' + (VY + (g.H - a)*S).toFixed(1) + ' ';
+      });
+      var refH = '';
+      [0, g.H].concat(g.alturas).forEach(function(y){
+        refH += 'M' + (VX + g.W*S + 5).toFixed(1) + ' ' + (VY + (g.H - y)*S).toFixed(1) + ' L' + (PX - 5).toFixed(1) + ' ' + (VY + (g.H - y)*S).toFixed(1) + ' ';
+      });
+      m += '<g class="st" data-st="3">'
+         + '<path class="ref" d="' + refH + '"></path>'
+         + '<path class="vista draw" pathLength="1" d="M' + PX.toFixed(1) + ' ' + VY + ' L' + (PX + g.d*S).toFixed(1) + ' ' + VY + ' L' + (PX + g.d*S).toFixed(1) + ' ' + (VY + g.H*S).toFixed(1) + ' L' + PX.toFixed(1) + ' ' + (VY + g.H*S).toFixed(1) + ' Z"></path>'
+         + (lineasPerfil ? '<path class="gruesa draw" pathLength="1" d="' + lineasPerfil + '"></path>' : '')
+         + rot(PX + g.d*S/2, VY - 14, 'PERFIL IZQUIERDO', 10)
+         + '</g>';
+
+      /* paso 4 · conclusión */
+      m += '<g class="st" data-st="4">'
+         + rot((VX + PX + g.d*S)/2, PY + g.d*S + 44, 'SISTEMA EUROPEO · EL PERFIL IZQUIERDO VA A LA DERECHA', 9.5)
+         + '</g>';
+
+      svgV.innerHTML = m;
+    }
+
+    var escV = document.getElementById('esc-vistas');
+    var pieV = escV.querySelector('[data-pie]');
+    var piezaActual = 0, pasoV = 0;
+    var textosV = [
+      'La pieza, en perspectiva. Pulsa <b>Siguiente</b> para ir sacando las vistas.',
+      '<b>Alzado:</b> lo que se ve de frente. Da el ancho y la altura reales, sin deformación.',
+      '<b>Planta:</b> desde arriba, y va <b>debajo</b> del alzado. Las líneas de referencia bajan los anchos: por eso encajan.',
+      '<b>Perfil izquierdo:</b> se mira desde la izquierda y se dibuja <b>a la derecha</b>, a la misma altura que el alzado.',
+      'Ya está definida: tres dibujos planos, ninguna medida deformada y una sola pieza posible.'
+    ];
+    function pintaV(){
+      svgV.querySelectorAll('[data-st]').forEach(function(n){
+        n.classList.toggle('on', Number(n.dataset.st) <= pasoV);
+      });
+      var activo = svgV.querySelector('[data-st="' + pasoV + '"]');
+      if(activo) relanza(Array.prototype.slice.call(activo.querySelectorAll('.draw')), resetTrazo, playTrazo, 0.1);
+      svgV.querySelectorAll('[data-st]').forEach(function(n){
+        if(Number(n.dataset.st) < pasoV) n.querySelectorAll('.draw').forEach(function(p){ p.classList.add('on'); });
+      });
+      pieV.innerHTML = textosV[pasoV];
+    }
+    escV.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if(!b) return;
+      if(b.dataset.pieza !== undefined){
+        piezaActual = Number(b.dataset.pieza);
+        escV.querySelectorAll('button[data-pieza]').forEach(function(x){
+          x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+        });
+        construye(piezaActual);
+        pintaV();
+        return;
+      }
+      if(b.hasAttribute('data-vreset')) pasoV = 0;
+      else if(b.dataset.vpaso === '+1') pasoV = Math.min(4, pasoV + 1);
+      else if(b.dataset.vpaso === '-1') pasoV = Math.max(0, pasoV - 1);
+      pintaV();
+    });
+    construye(0);
+    pintaV();
+  }
+
+  /* ---- escena S4: los cinco tipos de línea ---- */
+  var escL = document.getElementById('esc-lineas');
+  if(escL){
+    var pieL = escL.querySelector('[data-pie]');
+    var txtL = {
+      todas:  'Las cinco líneas a la vez, como en un plano de verdad. Pulsa una para aislarla.',
+      gruesa: '<b>Continua gruesa:</b> aristas y contornos que se ven. Es el dibujo propiamente dicho; todo lo demás es información añadida.',
+      fina:   '<b>Continua fina:</b> líneas de cota, líneas auxiliares, líneas de referencia entre vistas y rayado de las secciones. Nunca es la pieza: es lo que se dice sobre ella.',
+      oculta: '<b>Línea de trazos:</b> aristas que existen pero no se ven desde esa vista. Aquí, las paredes del taladro que atraviesa la pieza.',
+      eje:    '<b>Trazo y punto fina:</b> ejes de simetría y de revolución. Sobresalen un poco del contorno y se cruzan en el centro de los agujeros.',
+      rotura: '<b>Continua fina a mano alzada:</b> la rotura. Sirve para acortar una pieza muy larga sin cambiar sus cotas: se dibujan los extremos y se corta por el medio.'
+    };
+    escL.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-tipo]'); if(!b) return;
+      var t = b.dataset.tipo;
+      escL.querySelectorAll('.lin').forEach(function(n){
+        n.classList.toggle('atenuado', t !== 'todas' && n.dataset.tipo !== t);
+      });
+      escL.querySelectorAll('button[data-tipo]').forEach(function(x){
+        x.classList.toggle('primary', x === b);
+      });
+      pieL.innerHTML = txtL[t];
     });
   }
 
