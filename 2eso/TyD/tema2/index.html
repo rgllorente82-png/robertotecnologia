@@ -271,6 +271,9 @@
   .cara.techo{fill:var(--accent-soft)}
   .cara.lateral{fill:var(--surface-2)}
   .cruz{fill:none;stroke:var(--accent);stroke-width:1.2;stroke-dasharray:8 5;opacity:.55}
+  .flecha{fill:none;stroke:var(--accent);stroke-width:2.4;stroke-linecap:round}
+  .flecha-cabeza{fill:var(--accent);stroke:none}
+  .flecha-rot{fill:var(--accent);font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;font-weight:500}
   .lin{transition:opacity .3s ease}
   .lin.atenuado{opacity:.09}
   .rotura{fill:none;stroke:currentColor;stroke-width:.9}
@@ -1717,7 +1720,7 @@
       { nombre:'Pieza en T',    cols:[{w:20,h:20},{w:30,h:60},{w:20,h:20}], d:35 },
       { nombre:'Doble escalón', cols:[{w:30,h:60},{w:25,h:40},{w:25,h:20}], d:40 }
     ];
-    var S = 1.5, SI = 1.25, VX = 330, VY = 72, GAP = 34, IX = 112, IBASE = 252;
+    var S = 1.5, SI = 1.25, VX = 330, VY = 72, GAP = 34, IX = 20, IBASE = 180;
     var CS = Math.cos(Math.PI/6);   /* isométrica: ejes a 30° */
 
     function geo(p){
@@ -1735,13 +1738,29 @@
     }
     function vpx(g, x, y){ return [(VX + x*S).toFixed(1), (VY + (g.H - y)*S).toFixed(1)]; }
     function ipx(g, x, y, z){
-      return [(IX + (x*CS - z*CS)*SI).toFixed(1), (IBASE - (y + (x + z)*0.5)*SI).toFixed(1)];
+      return [(IX + (x*CS + z*CS)*SI).toFixed(1), (IBASE - (y - x*0.5 + z*0.5)*SI).toFixed(1)];
     }
     function poli(puntos, cerrar){
       return 'M' + puntos.map(function(q){ return q[0] + ' ' + q[1]; }).join(' L') + (cerrar ? ' Z' : '');
     }
     function rot(x, y, t, tam){
       return '<text x="' + x + '" y="' + y + '" text-anchor="middle" class="rotulo-svg"' + (tam ? ' style="font-size:' + tam + 'px"' : '') + '>' + t + '</text>';
+    }
+
+    function flecha(px, py, dx, dy, largo, texto){
+      /* dirección de mirada: (dx,dy) unitario en pantalla; la punta cae en (px,py) */
+      var x0 = (px - dx*largo).toFixed(1), y0 = (py - dy*largo).toFixed(1);
+      var x1 = px.toFixed(1), y1 = py.toFixed(1);
+      var nx = -dy, ny = dx, c = 9, a = 4.6;   /* cabeza triangular */
+      var bx = px - dx*c, by = py - dy*c;
+      var cabeza = [[px,py], [bx+nx*a, by+ny*a], [bx-nx*a, by-ny*a]]
+        .map(function(q){ return q[0].toFixed(1) + ' ' + q[1].toFixed(1); }).join(' L');
+      /* rótulo perpendicular al eje de la flecha, en el hueco libre */
+      var mx = px - dx*largo/2, my = py - dy*largo/2;
+      var lx = mx + nx*15, ly = my + ny*15 + 3.5;
+      return '<path class="flecha" d="M' + x0 + ' ' + y0 + ' L' + bx.toFixed(1) + ' ' + by.toFixed(1) + '"></path>'
+           + '<path class="flecha-cabeza" d="M' + cabeza + ' Z"></path>'
+           + '<text class="flecha-rot" x="' + lx.toFixed(1) + '" y="' + ly.toFixed(1) + '" text-anchor="middle">' + texto + '</text>';
     }
 
     function construye(idx){
@@ -1761,8 +1780,8 @@
         trozos.push(t);
         x0 = x1;
       });
-      /* de derecha a izquierda: la columna alta se pinta encima de lo que queda detrás */
-      var caras = trozos.reverse().join('');
+      /* de atrás hacia delante: con los ejes de D la X crece hacia el observador */
+      var caras = trozos.join('');
       var ultima = PIEZAS[idx].cols[PIEZAS[idx].cols.length - 1];
       caras += '<path class="cara lateral" d="' + poli([ipx(g,g.W,0,0), ipx(g,g.W,ultima.h,0), ipx(g,g.W,ultima.h,g.d), ipx(g,g.W,0,g.d)], true) + '"></path>';
 
@@ -1771,13 +1790,20 @@
       m += '<g class="st" data-st="0">'
          + caras
          + '<path class="cuerpo" d="' + poli(frente, true) + '"></path>'
-         + rot(132, IBASE + 26, 'LA PIEZA')
-         + rot(132, IBASE + 42, 'PERSPECTIVA ISOMÉTRICA · EJES A 30°', 9)
+         + rot(120, IBASE + 74, 'LA PIEZA')
+         + rot(120, IBASE + 90, 'PERSPECTIVA ISOMÉTRICA · EJES A 30°', 9)
          + '</g>';
 
       /* paso 1 · alzado */
       var cruzX = (VX + g.W*S + GAP/2).toFixed(1), cruzY = (VY + g.H*S + GAP/2).toFixed(1);
+      /* flecha de mirada del alzado: el observador está en -z, mira hacia +z */
+      var caraF = ipx(g, g.W*0.7, g.H*0.35, 0);
+      var fx = parseFloat(caraF[0]), fy = parseFloat(caraF[1]);
+      var DX = CS, DY = -0.5;            /* +z en pantalla: arriba y a la derecha */
+      var mira = flecha(fx - DX*22, fy - DY*22, DX, DY, 52, 'ALZADO');
+
       m += '<g class="st" data-st="1">'
+         + mira
          + '<path class="cruz" d="M' + cruzX + ' ' + (VY - 30) + ' L' + cruzX + ' ' + (PY + g.d*S + 10).toFixed(1) + ' M' + (VX - 30) + ' ' + cruzY + ' L' + (PX + g.d*S + 10).toFixed(1) + ' ' + cruzY + '"></path>'
          + '<path class="vista draw" pathLength="1" d="' + poli(g.pts.map(function(q){ return vpx(g, q[0], q[1]); }), true) + '"></path>'
          + rot(VX + g.W*S/2, VY - 14, 'ALZADO')
