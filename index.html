@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light}html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Del boceto al plano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+  :root{
+    --paper:#e8ebef;
+    --surface:#ffffff;
+    --surface-2:#f4f6f8;
+    --ink:#15212e;
+    --ink-soft:#54646f;
+    --line:#c7d1da;
+    --line-soft:#dde4ea;
+    --accent:#0b6e99;
+    --accent-soft:#e0eef5;
+    --pencil:#c2492b;
+    --pencil-soft:#f7e7e2;
+    --green:#2c7a5c;
+    --grid:rgba(11,110,153,.10);
+    --shadow:0 1px 0 rgba(21,33,46,.05), 0 8px 24px -16px rgba(21,33,46,.35);
+    --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+    --f-body:"Source Sans 3",-apple-system,"Segoe UI",Roboto,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#101720;
+      --surface:#182028;
+      --surface-2:#1e2833;
+      --ink:#e8eef4;
+      --ink-soft:#9dafbd;
+      --line:#31404e;
+      --line-soft:#26323e;
+      --accent:#57b6dd;
+      --accent-soft:#11303d;
+      --pencil:#ea7a5e;
+      --pencil-soft:#3a2119;
+      --green:#6cc4a0;
+      --grid:rgba(87,182,221,.12);
+      --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 26px -18px rgba(0,0,0,.9);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#101720;
+    --surface:#182028;
+    --surface-2:#1e2833;
+    --ink:#e8eef4;
+    --ink-soft:#9dafbd;
+    --line:#31404e;
+    --line-soft:#26323e;
+    --accent:#57b6dd;
+    --accent-soft:#11303d;
+    --pencil:#ea7a5e;
+    --pencil-soft:#3a2119;
+    --green:#6cc4a0;
+    --grid:rgba(87,182,221,.12);
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 26px -18px rgba(0,0,0,.9);
+  }
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--f-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  *{box-sizing:border-box}
+
+  .wrap{max-width:900px;margin:0 auto;padding:0 18px}
+
+  /* ---------- cabecera ---------- */
+  header.top{
+    position:sticky;
+    top:env(safe-area-inset-top, 0px);
+    z-index:20;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .top-inner{display:flex;flex-direction:column;gap:10px;padding-block:12px}
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+  h1.tema{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:clamp(22px,4.4vw,30px);
+    line-height:1.15;
+    margin:0;
+    text-wrap:balance;
+  }
+  nav.sesiones{
+    display:flex;
+    gap:6px;
+    overflow-x:auto;
+    scrollbar-width:thin;
+    padding-bottom:4px;
+    margin-bottom:-4px;
+  }
+  nav.sesiones button{
+    flex:0 0 auto;
+    font-family:var(--f-mono);
+    font-size:12.5px;
+    letter-spacing:.02em;
+    color:var(--ink-soft);
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 13px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:background .18s,color .18s,border-color .18s;
+  }
+  nav.sesiones button:hover{border-color:var(--accent);color:var(--ink)}
+  nav.sesiones button[aria-selected="true"]{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+  nav.sesiones button[disabled]{opacity:.45;cursor:not-allowed}
+  nav.sesiones button:focus-visible,
+  .btn:focus-visible,
+  .seg button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* ---------- estructura de sesión ---------- */
+  main{padding-block:26px 60px}
+  .ses-head{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    box-shadow:var(--shadow);
+    padding:20px;
+    margin-bottom:26px;
+  }
+  .ses-head h2{
+    font-family:var(--f-display);
+    font-weight:700;
+    font-size:clamp(20px,3.8vw,26px);
+    margin:2px 0 6px;
+    line-height:1.2;
+    text-wrap:balance;
+  }
+  .ses-head p{margin:0;color:var(--ink-soft)}
+  .minutado{
+    display:flex;flex-wrap:wrap;gap:6px;
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);
+  }
+  .min{
+    font-family:var(--f-mono);font-size:11.5px;
+    border:1px solid var(--line);border-radius:3px;
+    padding:3px 8px;color:var(--ink-soft);
+    display:flex;gap:6px;align-items:baseline;
+  }
+  .min b{color:var(--accent);font-weight:500}
+
+  section.bloque{margin-bottom:34px}
+  .rotulo{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .rotulo::after{content:"";flex:1;height:1px;background:var(--line)}
+  .rotulo .num{
+    color:var(--paper);background:var(--accent);
+    border-radius:2px;padding:1px 6px;letter-spacing:.06em;
+  }
+  h3{
+    font-family:var(--f-display);font-weight:600;
+    font-size:20px;margin:22px 0 8px;line-height:1.25;
+  }
+  h4{font-family:var(--f-display);font-weight:600;font-size:16px;margin:18px 0 6px}
+  p{margin:0 0 12px}
+  .bloque ul,.bloque ol{margin:0 0 12px;padding-left:22px}
+  .bloque li{margin-bottom:6px}
+  strong{font-weight:600}
+  .lead{font-size:18.5px}
+
+  /* definiciones */
+  .defs{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:16px 0 20px}
+  .def{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:4px;padding:15px 16px;
+  }
+  .def .tag{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);display:block;margin-bottom:5px;
+  }
+  .def h4{margin:0 0 6px;font-size:17px}
+  .def p{margin:0;font-size:15.5px;color:var(--ink-soft)}
+  .def.art .tag{color:var(--pencil)}
+
+  /* tabla comparativa */
+  .tabla-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--surface);margin:16px 0 20px}
+  table{border-collapse:collapse;width:100%;min-width:520px;font-size:15.5px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+  thead th{
+    font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-soft);background:var(--surface-2);
+  }
+  tbody tr:last-child td{border-bottom:0}
+  td:first-child{font-weight:600;width:28%}
+
+  /* panel de animación */
+  .escena{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin:16px 0 14px;
+  }
+  .escena-barra{
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+    padding:10px 14px;border-bottom:1px solid var(--line);background:var(--surface-2);
+  }
+  .escena-titulo{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+  .lienzo{
+    background-color:var(--surface);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:22px 22px;
+    padding:14px;
+  }
+  .lienzo svg{display:block;width:100%;height:auto;max-width:100%;color:var(--ink)}
+  .pie{
+    padding:11px 14px;border-top:1px solid var(--line);
+    font-size:15px;color:var(--ink-soft);min-height:46px;background:var(--surface);
+  }
+  .pie b{color:var(--ink);font-weight:600}
+
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .seg button{
+    font-family:var(--f-mono);font-size:12px;padding:6px 12px;border:0;cursor:pointer;
+    background:var(--surface);color:var(--ink-soft);
+  }
+  .seg button+button{border-left:1px solid var(--line)}
+  .seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  .btn{
+    font-family:var(--f-mono);font-size:12px;padding:6px 12px;cursor:pointer;
+    background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:3px;
+  }
+  .btn:hover{border-color:var(--accent)}
+  .btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  /* trazos svg */
+  .st{opacity:0;transition:opacity .45s ease}
+  .st.on{opacity:1}
+  .draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .9s ease}
+  .draw.on{stroke-dashoffset:0}
+  .gruesa{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .fina{fill:none;stroke:currentColor;stroke-width:.9}
+  .eje{fill:none;stroke:var(--accent);stroke-width:.9;stroke-dasharray:9 3 2 3}
+  .oculta{fill:none;stroke:currentColor;stroke-width:1.3;stroke-dasharray:6 3;opacity:.75}
+  .ref{fill:none;stroke:var(--accent);stroke-width:.7;stroke-dasharray:4 4;opacity:.7}
+  .cota{fill:none;stroke:var(--pencil);stroke-width:.9}
+  .cifra{fill:var(--pencil);font-family:"IBM Plex Mono",monospace;font-size:11px}
+  .rotulo-svg{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em}
+  .sombra{fill:none;stroke:currentColor;stroke-width:1;opacity:.5;stroke-linecap:round}
+  .mancha{fill:var(--accent);opacity:.08}
+
+  /* ficha de práctica */
+  .ficha{
+    background:var(--surface);border:1px solid var(--ink);border-radius:4px;overflow:hidden;
+  }
+  .ficha-cab{
+    background:var(--ink);color:var(--paper);
+    font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    padding:9px 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  .ficha-cuerpo{padding:16px}
+  .ficha-cuerpo h4:first-child{margin-top:0}
+  .pasos{list-style:none;padding:0;margin:0 0 14px;counter-reset:paso}
+  .pasos li{
+    position:relative;padding-left:34px;margin-bottom:10px;counter-increment:paso;
+  }
+  .pasos li::before{
+    content:counter(paso);position:absolute;left:0;top:1px;
+    width:23px;height:23px;border:1px solid var(--accent);color:var(--accent);
+    border-radius:50%;display:grid;place-items:center;
+    font-family:var(--f-mono);font-size:12px;
+  }
+  .nota{
+    background:var(--accent-soft);border-radius:3px;padding:12px 14px;font-size:15.5px;margin:14px 0;
+  }
+  .nota .n-tag{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);display:block;margin-bottom:4px;
+  }
+  .aviso{background:var(--pencil-soft);border-radius:3px;padding:12px 14px;font-size:15.5px;margin:14px 0}
+  .aviso .n-tag{color:var(--pencil);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+
+  /* enlaces */
+  a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+  .enlaces{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:12px}
+  .enlace{
+    background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:12px 14px;font-size:15px;
+  }
+  .enlace a{font-weight:600;text-decoration:none}
+  .enlace a:hover{text-decoration:underline}
+  .enlace span{display:block;color:var(--ink-soft);font-size:13.5px;margin-top:3px}
+
+  /* obra y plano */
+  .obra{margin:16px 0 18px;background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .obra img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;background:var(--surface-2)}
+  .obra-falta{padding:26px 18px;background:var(--surface-2);text-align:center;color:var(--ink-soft);font-size:15px}
+  .obra-falta p{margin:0 0 6px}
+  .obra figcaption{padding:12px 14px;font-size:14.5px;color:var(--ink-soft);line-height:1.5;border-top:1px solid var(--line)}
+  .obra figcaption b{display:block;font-family:var(--f-display);font-size:15.5px;color:var(--ink);margin-bottom:3px}
+  .muro{fill:currentColor;stroke:none}
+  .hueco{fill:currentColor;stroke:none;opacity:.55}
+  .fx{transition:opacity .4s ease}
+  .fx.apagado{opacity:0}
+
+  /* currículo: chips y tabla */
+  .chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0 2px}
+  .chip{
+    font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;
+    border:1px solid var(--accent);color:var(--accent);background:var(--accent-soft);
+    border-radius:3px;padding:2px 7px;
+  }
+  .chip.sab{border-color:var(--line);color:var(--ink-soft);background:var(--surface-2)}
+  .ficha-cab .chips{margin:0}
+  .ficha-cab .chip{border-color:rgba(255,255,255,.5);color:var(--paper);background:transparent}
+  .curr-tabla td:first-child{width:22%}
+  .curr-tabla .cod{font-family:var(--f-mono);font-size:12.5px;color:var(--accent)}
+
+  /* galería de familias del dibujo técnico */
+  .galeria{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));margin:0 0 20px}
+  .mini{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .mini-lienzo{
+    background-color:var(--surface);
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:18px 18px;
+    padding:8px;border-bottom:1px solid var(--line);
+  }
+  .mini svg{display:block;width:100%;height:auto;color:var(--ink)}
+  .mini figcaption{padding:11px 13px;font-size:14.5px;color:var(--ink-soft);line-height:1.45}
+  .mini figcaption b{display:block;font-family:var(--f-display);font-size:15.5px;color:var(--ink);margin-bottom:2px}
+
+  /* respuestas desplegables */
+  details.resp{
+    border:1px solid var(--line);border-radius:3px;background:var(--surface);
+    margin:8px 0 14px;
+  }
+  details.resp>summary{
+    cursor:pointer;padding:9px 14px;list-style:none;
+    font-family:var(--f-mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--accent);display:flex;gap:8px;align-items:center;
+  }
+  details.resp>summary::-webkit-details-marker{display:none}
+  details.resp>summary::before{content:"▸";font-size:13px}
+  details.resp[open]>summary::before{content:"▾"}
+  details.resp>summary:hover{color:var(--ink)}
+  details.resp:focus-within{border-color:var(--accent)}
+  .resp-cuerpo{padding:0 14px 13px;font-size:15.5px;color:var(--ink)}
+  .resp-cuerpo p:last-child{margin-bottom:0}
+  li>details.resp{margin-top:6px}
+
+  .vacio{
+    border:1px dashed var(--line);border-radius:4px;padding:34px 20px;text-align:center;color:var(--ink-soft);    font-family:var(--f-mono);font-size:13px;background:var(--surface-2);
+  }
+  footer.pie-pag{
+    border-top:1px solid var(--line);margin-top:10px;padding-block:18px 0;
+    font-size:13.5px;color:var(--ink-soft);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .st,.draw{transition:none}
+  }
+  @media (max-width:520px){
+    body{font-size:16px}
+    .ficha-cuerpo,.ses-head{padding:15px}
+  }
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <div>
+      <div class="eyebrow">Tecnología · 2.º ESO · Tema 2</div>
+      <h1 class="tema">Representación gráfica de un proyecto</h1>
+    </div>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema">
+      <button type="button" data-ses="1" aria-selected="true">S1 · ¿Por qué dibujamos?</button>
+      <button type="button" data-ses="2" disabled>S2 · Boceto, croquis y plano</button>
+      <button type="button" data-ses="3" disabled>S3 · Las tres vistas</button>
+      <button type="button" data-ses="4" disabled>S4 · Tipos de líneas</button>
+      <button type="button" data-ses="5" disabled>S5 · Normalización</button>
+      <button type="button" data-ses="6" disabled>S6 · Proyecto y test</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ SESIÓN 1 ============ -->
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesión 1 · 60 minutos</div>
+      <h2>¿Por qué dibujamos? Dibujo técnico y dibujo artístico</h2>
+      <p>Al terminar la sesión sabrás explicar en qué se diferencian los dos tipos de dibujo y por qué sin dibujo técnico no se puede fabricar nada.</p>
+      <div class="minutado">
+        <span class="min"><b>5'</b> Reto inicial</span>
+        <span class="min"><b>15'</b> Teoría</span>
+        <span class="min"><b>10'</b> Animación</span>
+        <span class="min"><b>25'</b> Práctica</span>
+        <span class="min"><b>5'</b> Cierre</span>
+      </div>
+    </div>
+
+    <!-- marco curricular -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">LEY</span> Marco curricular · Tecnología y Digitalización, 2.º ESO (Andalucía)</div>
+      <p>Todo el tema 2 se sostiene sobre la <strong>competencia específica 4</strong> («Explicar lo que has hecho con planos, esquemas y las palabras técnicas correctas») y su único criterio, el <strong>4.1</strong>, apoyado en los saberes del <strong>bloque B · Comunicar ideas</strong>. Dos competencias más entran de refuerzo: la 1 cuando se analiza el objeto antes de dibujarlo y la 2 cuando el dibujo forma parte del diseño de una solución.</p>
+
+      <details class="resp">
+        <summary>Criterios y saberes del tema completo</summary>
+        <div class="resp-cuerpo">
+          <div class="tabla-wrap" style="margin-top:4px">
+            <table class="curr-tabla">
+              <thead>
+                <tr><th scope="col">Criterio</th><th scope="col">Qué pide</th><th scope="col">Saberes</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="cod">4.1</td>
+                  <td>Representar y comunicar el proceso de creación de un producto sencillo, desde su diseño hasta su difusión, elaborando documentación técnica y gráfica básica con la ayuda o no de herramientas digitales, empleando los formatos y el vocabulario técnico adecuados, de manera colaborativa.</td>
+                  <td class="cod">B.1 · B.2 · B.3</td>
+                </tr>
+                <tr>
+                  <td class="cod">1.2</td>
+                  <td>Comprender y examinar productos tecnológicos de uso habitual a través del análisis de objetos básicos y sistemas sencillos, empleando el método científico.</td>
+                  <td class="cod">A.2 · A.3</td>
+                </tr>
+                <tr>
+                  <td class="cod">2.1</td>
+                  <td>Idear y diseñar soluciones eficaces, innovadoras y sostenibles a problemas sencillos definidos, con actitud emprendedora, perseverante y creativa.</td>
+                  <td class="cod">A.1 · A.8 · B.1 · B.3</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h4>Saberes básicos implicados, literales</h4>
+          <ul>
+            <li><strong>B.1</strong> · Habilidades básicas de comunicación interpersonal: vocabulario técnico apropiado y pautas de conducta propias del entorno virtual (etiqueta digital).</li>
+            <li><strong>B.2</strong> · Aplicaciones CAD en dos y tres dimensiones para la representación de esquemas, circuitos, planos y objetos básicos.</li>
+            <li><strong>B.3</strong> · Herramientas digitales para la elaboración, publicación y difusión de documentación técnica e información multimedia relativa a proyectos sencillos.</li>
+            <li><strong>A.1</strong> · Estrategias, técnicas y marcos de resolución de problemas sencillos en diferentes contextos y sus fases.</li>
+            <li><strong>A.3</strong> · Análisis de productos básicos y de sistemas tecnológicos sencillos para la construcción de conocimiento desde distintos enfoques y ámbitos.</li>
+          </ul>
+          <h4>Reparto por sesión</h4>
+          <ul>
+            <li><strong>S1</strong> Técnico vs artístico → 4.1 · 1.2 | B.1 · A.3</li>
+            <li><strong>S2</strong> Boceto, croquis y plano → 4.1 · 2.1 | B.1 · A.1</li>
+            <li><strong>S3</strong> Las tres vistas → 4.1 | B.1</li>
+            <li><strong>S4</strong> Tipos de líneas → 4.1 | B.1</li>
+            <li><strong>S5</strong> Normalización → 4.1 | B.1 · B.2</li>
+            <li><strong>S6</strong> Proyecto y test → 4.1 · 2.1 | B.2 · B.3 · A.1</li>
+          </ul>
+          <p style="margin-bottom:0;color:var(--ink-soft);font-size:14.5px">Ojo con una trampa habitual: en 2.º de ESO el currículo no tiene un saber que diga «vistas» o «acotación». La expresión gráfica entra como <em>documentación técnica y gráfica básica</em> del criterio 4.1 y como vocabulario técnico (B.1). Conviene dejarlo escrito así en la programación.</p>
+        </div>
+      </details>
+
+      <div class="chips">
+        <span class="chip">Sesión 1 → CE4 · 4.1</span>
+        <span class="chip">CE1 · 1.2</span>
+        <span class="chip sab">B.1</span>
+        <span class="chip sab">A.3</span>
+      </div>
+    </section>
+
+    <!-- reto inicial -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial · 5 min</div>
+      <div class="chips"><span class="chip">Criterio 4.1</span><span class="chip sab">B.1</span></div>
+      <p class="lead">Describe con palabras, sin dibujar nada, la mesa en la que estás sentado, de forma que una carpintería pueda construir otra exactamente igual. Tienes 60 segundos.</p>
+      <p>Vamos a comprobar algo incómodo: el idioma no sirve para fabricar. Dos personas que escuchan la misma frase construyen dos mesas distintas. El dibujo técnico nace justo de ese problema.</p>
+      <div class="escena" id="esc-ambiguo">
+        <div class="escena-barra">
+          <span class="escena-titulo">Las palabras no bastan</span>
+          <div>
+            <button type="button" class="btn" data-paso="-1">◀</button>
+            <button type="button" class="btn primary" data-paso="+1">Siguiente ▶</button>
+            <button type="button" class="btn" data-reset>↺</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 230" role="img" aria-label="Tres mesas distintas que cumplen la misma descripción y, después, el plano acotado que solo admite una">
+            <!-- paso 1: la frase -->
+            <g class="st" data-st="1">
+              <rect x="60" y="12" width="520" height="34" rx="3" fill="var(--surface-2)" stroke="var(--line)"></rect>
+              <text x="320" y="34" text-anchor="middle" class="rotulo-svg" style="font-size:13px;fill:var(--ink)">«Una mesa de aula: tablero rectangular y cuatro patas»</text>
+            </g>
+            <!-- paso 2: tres interpretaciones -->
+            <g class="st" data-st="2">
+              <path class="sombra" d="M40 150 L600 150"></path>
+              <!-- mesa baja y ancha -->
+              <g transform="translate(55,88)">
+                <path class="gruesa" d="M0 0 L150 0 L150 10 L0 10 Z"></path>
+                <path class="gruesa" d="M8 10 L8 62 L18 62 L18 10"></path>
+                <path class="gruesa" d="M132 10 L132 62 L142 62 L142 10"></path>
+                <text x="75" y="82" text-anchor="middle" class="rotulo-svg">ALUMNO A</text>
+              </g>
+              <!-- mesa alta y estrecha -->
+              <g transform="translate(270,58)">
+                <path class="gruesa" d="M0 0 L100 0 L100 8 L0 8 Z"></path>
+                <path class="gruesa" d="M6 8 L6 92 L16 92 L16 8"></path>
+                <path class="gruesa" d="M84 8 L84 92 L94 92 L94 8"></path>
+                <text x="50" y="112" text-anchor="middle" class="rotulo-svg">ALUMNO B</text>
+              </g>
+              <!-- mesa con patas hacia el centro -->
+              <g transform="translate(440,94)">
+                <path class="gruesa" d="M0 0 L160 0 L160 12 L0 12 Z"></path>
+                <path class="gruesa" d="M50 12 L50 56 L60 56 L60 12"></path>
+                <path class="gruesa" d="M100 12 L100 56 L110 56 L110 12"></path>
+                <text x="80" y="76" text-anchor="middle" class="rotulo-svg">ALUMNA C</text>
+              </g>
+            </g>
+            <!-- paso 3: tachado + conclusión -->
+            <g class="st" data-st="3">
+              <path d="M55 84 L205 154 M205 84 L55 154" stroke="var(--pencil)" stroke-width="2" fill="none"></path>
+              <path d="M440 90 L600 154 M600 90 L440 154" stroke="var(--pencil)" stroke-width="2" fill="none"></path>
+              <text x="320" y="196" text-anchor="middle" class="rotulo-svg" style="fill:var(--pencil)">Las tres cumplen la frase… y solo una es la mesa del aula</text>
+            </g>
+            <!-- paso 4: el plano acotado -->
+            <g class="st" data-st="4">
+              <rect x="0" y="0" width="640" height="230" fill="var(--surface)"></rect>
+              <g transform="translate(215,38)">
+                <path class="gruesa" d="M0 0 L210 0 L210 14 L0 14 Z"></path>
+                <path class="gruesa" d="M10 14 L10 116 L24 116 L24 14"></path>
+                <path class="gruesa" d="M186 14 L186 116 L200 116 L200 14"></path>
+                <path class="cota" d="M0 132 L210 132 M0 128 L0 136 M210 128 L210 136"></path>
+                <text x="105" y="148" text-anchor="middle" class="cifra">1200</text>
+                <path class="cota" d="M-20 0 L-20 116 M-24 0 L-16 0 M-24 116 L-16 116"></path>
+                <text x="-28" y="62" text-anchor="end" class="cifra">750</text>
+                <path class="cota" d="M224 0 L224 14 M220 0 L228 0 M220 14 L228 14"></path>
+                <text x="232" y="12" class="cifra">25</text>
+              </g>
+              <text x="320" y="206" text-anchor="middle" class="rotulo-svg" style="fill:var(--accent)">Con un plano acotado solo hay una mesa posible, en cualquier carpintería del mundo</text>
+            </g>
+          </svg>
+        </div>
+        <div class="pie" data-pie>Pulsa <b>Siguiente</b> para empezar.</div>
+      </div>
+    </section>
+
+    <!-- teoría -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teoría · 15 min</div>
+
+      <h3>Dibujar es comunicar</h3>
+      <p>Un <strong>dibujo</strong> es la representación gráfica de una idea o de un objeto. Según para qué se haga, hablamos de dos grandes familias: el dibujo <strong>artístico</strong> y el dibujo <strong>técnico</strong>.</p>
+
+      <div class="defs">
+        <div class="def art">
+          <span class="tag">Familia 1</span>
+          <h4>Dibujo artístico</h4>
+          <p>Representa la realidad —o la imaginación— para <strong>transmitir sensaciones</strong>. Es libre y subjetivo: cada artista lo hace a su manera y cada persona lo interpreta de forma distinta. No necesita medidas ni normas.</p>
+        </div>
+        <div class="def">
+          <span class="tag">Familia 2</span>
+          <h4>Dibujo técnico</h4>
+          <p>Representa un objeto de forma <strong>objetiva, precisa y normalizada</strong> para poder fabricarlo o construirlo. Lleva medidas reales, se dibuja a escala y sigue normas internacionales, así que todo el mundo lo entiende igual.</p>
+        </div>
+      </div>
+
+      <h3>Dos ejemplos de verdad</h3>
+      <p>Un cuadro y un plano. Los dos son dibujo, los dos están muy bien hechos… y no sirven para lo mismo.</p>
+
+      <figure class="obra">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Las%20Meninas,%20by%20Diego%20Vel%C3%A1zquez,%20from%20Prado%20in%20Google%20Earth.jpg?width=1000"
+             alt="Las Meninas, de Diego Velázquez (1656), Museo Nacional del Prado"
+             loading="lazy" id="img-meninas">
+        <div class="obra-falta" id="falta-meninas" hidden>
+          <p><strong>Las Meninas</strong>, Diego Velázquez, 1656. Museo Nacional del Prado.</p>
+          <p><a href="https://commons.wikimedia.org/wiki/File:Las_Meninas,_by_Diego_Vel%C3%A1zquez,_from_Prado_in_Google_Earth.jpg" target="_blank" rel="noopener">Abrir la imagen en Wikimedia Commons →</a></p>
+        </div>
+        <figcaption><b>Dibujo artístico · Las Meninas, Velázquez (1656)</b> Nadie sabe con exactitud cuánto mide la sala ni a qué distancia está el espejo del fondo, y da igual: el cuadro no se pintó para construir nada. Cada persona que lo mira entiende una escena distinta, y en eso está su valor. Obra en dominio público (Museo Nacional del Prado).</figcaption>
+      </figure>
+
+      <div class="escena" id="esc-plano">
+        <div class="escena-barra">
+          <span class="escena-titulo">Dibujo técnico · plano de una vivienda</span>
+          <button type="button" class="btn" id="dibuja-plano">↺ Dibujar el plano</button>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 400" role="img" aria-label="Plano en planta de una vivienda con salón, dormitorio y cocina, acotado y a escala 1 a 50">
+            <g transform="translate(78,16)" id="g-plano">
+              <!-- muros exteriores -->
+              <rect class="muro fx" x="0" y="0" width="80" height="8"></rect>
+              <rect class="hueco fx" x="80" y="2" width="100" height="4"></rect>
+              <rect class="muro fx" x="180" y="0" width="315" height="8"></rect>
+              <rect class="muro fx" x="487" y="0" width="8" height="330"></rect>
+              <rect class="muro fx" x="0" y="322" width="60" height="8"></rect>              <rect class="muro fx" x="115" y="322" width="225" height="8"></rect>
+              <rect class="hueco fx" x="340" y="324" width="90" height="4"></rect>
+              <rect class="muro fx" x="430" y="322" width="65" height="8"></rect>
+              <rect class="muro fx" x="0" y="0" width="8" height="120"></rect>
+              <rect class="hueco fx" x="2" y="120" width="4" height="100"></rect>
+              <rect class="muro fx" x="0" y="220" width="8" height="110"></rect>
+              <!-- tabiques interiores -->
+              <rect class="muro fx" x="297" y="8" width="8" height="112"></rect>
+              <rect class="muro fx" x="297" y="175" width="8" height="147"></rect>
+              <rect class="muro fx" x="305" y="161" width="75" height="8"></rect>
+              <rect class="muro fx" x="435" y="161" width="52" height="8"></rect>
+              <!-- puertas -->
+              <path class="gruesa fx" d="M301 175 L356 175"></path>
+              <path class="fina fx" d="M356 175 A55 55 0 0 0 301 120"></path>
+              <path class="gruesa fx" d="M380 165 L380 220"></path>
+              <path class="fina fx" d="M380 220 A55 55 0 0 0 435 165"></path>
+              <path class="gruesa fx" d="M115 322 L115 267"></path>
+              <path class="fina fx" d="M115 267 A55 55 0 0 0 60 322"></path>
+              <!-- rótulos de estancias -->
+              <text x="150" y="158" text-anchor="middle" class="rotulo-svg fx" style="font-size:13px;fill:var(--ink)">SALÓN</text>
+              <text x="150" y="176" text-anchor="middle" class="rotulo-svg fx">5,25 × 5,70 m</text>
+              <text x="396" y="76" text-anchor="middle" class="rotulo-svg fx" style="font-size:13px;fill:var(--ink)">DORMITORIO</text>
+              <text x="396" y="94" text-anchor="middle" class="rotulo-svg fx">3,30 × 2,78 m</text>
+              <text x="396" y="246" text-anchor="middle" class="rotulo-svg fx" style="font-size:13px;fill:var(--ink)">COCINA</text>
+              <text x="396" y="264" text-anchor="middle" class="rotulo-svg fx">3,30 × 2,78 m</text>
+              <text x="87" y="338" text-anchor="middle" class="rotulo-svg fx" style="font-size:9.5px">ENTRADA</text>
+              <!-- cotas -->
+              <path class="cota fx" d="M0 352 L495 352 M0 348 L0 356 M495 348 L495 356"></path>
+              <text x="247" y="368" text-anchor="middle" class="cifra fx">9,00 m</text>
+              <path class="cota fx" d="M-20 0 L-20 330 M-24 0 L-16 0 M-24 330 L-16 330"></path>
+              <text x="-28" y="169" text-anchor="end" class="cifra fx">6,00 m</text>
+              <text x="495" y="390" text-anchor="end" class="rotulo-svg fx">ESCALA 1:50 · COTAS EN METROS</text>
+            </g>
+          </svg>
+        </div>
+        <div class="pie"><b>Dibujo técnico:</b> aquí no hay interpretación posible. Los muros miden lo que dicen las cotas, las puertas abren hacia donde marca el arco y con este plano el albañil levanta la casa. Está dibujado <b>a escala 1:50</b>: cada centímetro del papel son 50 cm reales.</div>
+      </div>
+
+      <div class="aviso">
+        <span class="n-tag">Derechos de autor</span>
+        Velázquez sí, Picasso no: <em>Las Meninas</em> está en dominio público y se puede publicar, pero las obras de Picasso siguen protegidas (hasta 2043 en España). Si quieres usar el <em>Guernica</em> en clase, enlaza a la web del Museo Reina Sofía en lugar de subir la imagen al Site.
+      </div>
+
+      <h3>Las siete diferencias que hay que saber</h3>
+      <div class="tabla-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Se diferencian en…</th><th scope="col">Dibujo artístico</th><th scope="col">Dibujo técnico</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Finalidad</td><td>Expresar, emocionar, decorar</td><td>Fabricar, construir, montar</td></tr>
+            <tr><td>Interpretación</td><td>Libre: cada uno ve una cosa</td><td>Única: solo significa una cosa</td></tr>
+            <tr><td>Medidas</td><td>No hacen falta</td><td>Imprescindibles (cotas en mm)</td></tr>
+            <tr><td>Normas</td><td>Ninguna</td><td>Normas UNE e ISO</td></tr>
+            <tr><td>Instrumentos</td><td>Lápiz, carboncillo, pincel…</td><td>Escuadra, cartabón, compás, CAD</td></tr>
+            <tr><td>Quién lo lee</td><td>El público</td><td>El taller, la obra, la fábrica</td></tr>
+            <tr><td>Ejemplo</td><td>El retrato de un grifo</td><td>El plano del grifo para fundirlo</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>¿Por qué es necesario el dibujo técnico?</h3>
+      <ul>
+        <li><strong>Es un idioma universal.</strong> Un plano hecho en Sanlúcar se fabrica igual en Alemania o en Japón, sin traducir una sola palabra.</li>
+        <li><strong>Elimina la ambigüedad.</strong> Las cotas y las normas hacen que solo exista una interpretación posible.</li>
+        <li><strong>Permite fabricar antes de existir.</strong> Se dibuja la pieza, se calcula el material y el precio, y solo entonces se construye.</li>
+        <li><strong>Deja constancia.</strong> El plano es el documento legal de un proyecto: con él se pide licencia, se compra material y se reclama si algo sale mal.</li>
+        <li><strong>Lo usas ya sin darte cuenta.</strong> Las instrucciones de montaje de un mueble, el plano de evacuación del instituto o el esquema del cargador del móvil son dibujo técnico.</li>
+      </ul>
+
+      <h4>Dónde lo vas a encontrar</h4>
+      <p>Cuatro familias de dibujo técnico. Cambia el objeto y cambian los símbolos, pero las normas son las mismas.</p>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:8px">
+        <button type="button" class="btn" id="redibuja">↺ Dibujar de nuevo</button>
+      </div>
+      <div class="galeria" id="galeria">
+
+        <figure class="mini">
+          <div class="mini-lienzo">
+            <svg viewBox="0 0 220 150" role="img" aria-label="Pieza mecánica acotada con dos taladros">
+              <g transform="translate(38,26)">
+                <path class="gruesa draw on" pathLength="1" d="M0 0 L140 0 L140 76 L0 76 Z"></path>
+                <circle cx="26" cy="38" r="11" class="gruesa draw on" pathLength="1"></circle>
+                <circle cx="114" cy="38" r="11" class="gruesa draw on" pathLength="1"></circle>
+                <path class="eje" d="M26 20 L26 56 M8 38 L44 38 M114 20 L114 56 M96 38 L132 38"></path>
+                <path class="cota" d="M0 92 L140 92 M0 88 L0 96 M140 88 L140 96"></path>
+                <text x="70" y="108" text-anchor="middle" class="cifra">140</text>
+                <path class="cota" d="M-16 0 L-16 76 M-20 0 L-12 0 M-20 76 L-12 76"></path>
+                <text x="-24" y="42" text-anchor="end" class="cifra">76</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Industrial o mecánico</b> Piezas y máquinas: vistas, ejes y cotas para fabricarlas en el taller.</figcaption>
+        </figure>
+
+        <figure class="mini">
+          <div class="mini-lienzo">
+            <svg viewBox="0 0 220 150" role="img" aria-label="Planta de una habitación con muros, puerta y ventana">
+              <g transform="translate(26,18)">
+                <path class="gruesa draw on" pathLength="1" d="M0 0 L168 0 L168 92 L66 92 M40 92 L0 92 L0 0"></path>
+                <path class="gruesa draw on" pathLength="1" d="M6 6 L162 6 L162 86 L66 86 M40 86 L6 86 L6 6"></path>
+                <path class="gruesa draw on" pathLength="1" d="M40 86 L40 92 M66 86 L66 92"></path>
+                <path class="gruesa draw on" pathLength="1" d="M40 86 L40 60"></path>
+                <path class="fina draw on" pathLength="1" d="M40 60 A26 26 0 0 1 66 86"></path>
+                <path class="gruesa draw on" pathLength="1" d="M100 0 L100 6 M140 0 L140 6"></path>
+                <path class="fina draw on" pathLength="1" d="M100 3 L140 3"></path>
+                <path class="cota" d="M0 106 L168 106 M0 102 L0 110 M168 102 L168 110"></path>
+                <text x="84" y="122" text-anchor="middle" class="cifra">4,20 m</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Arquitectónico</b> Viviendas y obra: muros, puertas y ventanas vistos desde arriba, en metros.</figcaption>
+        </figure>
+
+        <figure class="mini">
+          <div class="mini-lienzo">
+            <svg viewBox="0 0 220 150" role="img" aria-label="Esquema eléctrico con pila, interruptor, lámpara y resistencia">
+              <g transform="translate(26,32)">
+                <path class="fina draw on" pathLength="1" d="M0 0 L58 0"></path>
+                <path class="fina draw on" pathLength="1" d="M92 0 L168 0 L168 36"></path>
+                <path class="fina draw on" pathLength="1" d="M168 64 L168 96 L104 96"></path>
+                <path class="fina draw on" pathLength="1" d="M60 96 L0 96 L0 58"></path>
+                <path class="fina draw on" pathLength="1" d="M0 36 L0 0"></path>
+                <!-- pila -->
+                <path class="gruesa draw on" pathLength="1" d="M-12 38 L12 38 M-6 43 L6 43 M-12 48 L12 48 M-6 53 L6 53"></path>
+                <text x="18" y="66" class="rotulo-svg" style="font-size:9px">PILA</text>
+                <!-- interruptor -->
+                <circle cx="58" cy="0" r="2.6" class="gruesa"></circle>
+                <circle cx="92" cy="0" r="2.6" class="gruesa"></circle>
+                <path class="gruesa draw on" pathLength="1" d="M58 0 L88 -13"></path>
+                <text x="75" y="-22" text-anchor="middle" class="rotulo-svg" style="font-size:9px">INTERRUPTOR</text>
+                <!-- lámpara -->
+                <circle cx="168" cy="50" r="14" class="gruesa draw on" pathLength="1"></circle>
+                <path class="gruesa draw on" pathLength="1" d="M158 40 L178 60 M178 40 L158 60"></path>
+                <!-- resistencia -->
+                <path class="gruesa draw on" pathLength="1" d="M60 88 L104 88 L104 104 L60 104 Z"></path>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Eléctrico y electrónico</b> Circuitos: cada componente tiene su símbolo normalizado, igual en todo el mundo.</figcaption>
+        </figure>
+
+        <figure class="mini">
+          <div class="mini-lienzo">
+            <svg viewBox="0 0 220 172" role="img" aria-label="Plano topográfico con curvas de nivel y escala gráfica">
+              <g transform="translate(6,2)">
+                <path class="fina draw on" pathLength="1" d="M14 104 C36 56 88 26 140 40 C182 52 202 88 178 110 C148 136 56 136 14 104 Z"></path>
+                <path class="fina draw on" pathLength="1" d="M42 100 C58 68 100 48 136 58 C166 66 180 90 162 104 C140 122 74 122 42 100 Z"></path>
+                <path class="fina draw on" pathLength="1" d="M70 96 C80 78 108 68 130 76 C148 83 154 94 143 101 C128 110 90 108 70 96 Z"></path>
+                <text x="10" y="118" class="rotulo-svg" style="font-size:9px">120</text>
+                <text x="44" y="114" class="rotulo-svg" style="font-size:9px">130</text>
+                <text x="78" y="110" class="rotulo-svg" style="font-size:9px">140</text>
+                <path class="gruesa" d="M104 84 L112 92 M112 84 L104 92"></path>
+                <text x="118" y="88" class="cifra" style="font-size:9px">147</text>
+                <path class="cota" d="M14 150 L94 150 M14 146 L14 154 M54 146 L54 154 M94 146 L94 154"></path>
+                <text x="14" y="166" text-anchor="middle" class="cifra" style="font-size:9px">0</text>
+                <text x="94" y="166" text-anchor="middle" class="cifra" style="font-size:9px">100 m</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption><b>Cartográfico</b> Mapas y topografía: curvas de nivel, cotas de altitud y escala gráfica.</figcaption>
+        </figure>
+
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Idea clave</span>
+        El dibujo artístico admite muchas lecturas; el dibujo técnico solo admite una. Por eso uno cuelga en un museo y el otro se envía al taller.
+      </div>
+    </section>
+
+    <!-- animación -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Míralo en movimiento · 10 min</div>
+      <p>El mismo objeto —una taza— dibujado de las dos maneras. Cambia de pestaña y fíjate en qué información aparece y cuál desaparece. El dibujo técnico se traza solo, vista a vista.</p>
+
+      <div class="escena" id="esc-taza">
+        <div class="escena-barra">
+          <span class="escena-titulo">Mismo objeto, dos miradas</span>
+          <div class="seg" role="group" aria-label="Tipo de dibujo">
+            <button type="button" data-modo="art" aria-pressed="true">Artístico</button>
+            <button type="button" data-modo="tec" aria-pressed="false">Técnico</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 340" role="img" aria-label="La misma taza dibujada de forma artística y, después, en sistema diédrico con alzado, planta y perfil acotados">
+            <!-- ARTÍSTICO -->
+            <g id="taza-art" transform="translate(0,22)">
+              <ellipse cx="300" cy="268" rx="120" ry="14" class="mancha"></ellipse>
+              <path class="gruesa" d="M232 74 C230 78 236 82 244 84 C266 90 330 91 354 84 C362 81 368 77 366 73 C362 69 344 65 300 65 C256 65 236 69 232 74 Z"></path>
+              <path class="gruesa" d="M234 78 C238 132 244 198 252 224 C258 244 276 254 300 254 C324 254 342 244 348 224 C356 198 362 132 366 78"></path>
+              <path class="gruesa" d="M366 104 C400 100 424 116 424 142 C424 170 398 188 360 190"></path>
+              <path class="sombra" d="M246 96 C252 150 258 200 266 222"></path>
+              <path class="sombra" d="M330 100 C336 154 336 202 330 224"></path>
+              <path class="sombra" d="M340 104 C348 156 348 200 342 222"></path>
+              <path class="sombra" d="M350 110 C356 156 356 196 350 216"></path>
+              <path class="sombra" d="M238 250 C268 262 336 262 364 248"></path>
+              <path class="sombra" d="M252 78 C288 86 330 86 352 79"></path>
+              <text x="300" y="292" text-anchor="middle" class="rotulo-svg">TRAZO LIBRE · LUZ Y SOMBRA · SIN MEDIDAS</text>
+            </g>
+            <!-- TÉCNICO: sistema europeo, cotas en mm -->
+            <g id="taza-tec" style="opacity:0" transform="translate(221,39) scale(0.85)">
+
+              <!-- ALZADO -->
+              <text x="46" y="-26" text-anchor="middle" class="rotulo-svg">ALZADO</text>
+              <path class="gruesa draw" pathLength="1" d="M0 0 L92 0 L92 160 L0 160 Z"></path>              <path class="oculta" d="M7 0 L7 150 L85 150 L85 0"></path>
+              <path class="gruesa draw" pathLength="1" d="M92 32 C130 32 148 46 148 64 C148 84 126 98 92 98"></path>
+              <path class="gruesa draw" pathLength="1" d="M92 46 C118 46 134 54 134 65 C134 77 116 86 92 86"></path>
+              <path class="eje" d="M46 -14 L46 174"></path>
+              <path class="cota" d="M-20 0 L-20 160 M-24 0 L-16 0 M-24 160 L-16 160"></path>
+              <text x="-28" y="84" text-anchor="end" class="cifra">160</text>
+
+              <!-- PERFIL IZQUIERDO: se mira desde la izquierda y se dibuja a la derecha -->
+              <text x="238" y="-26" text-anchor="middle" class="rotulo-svg">PERFIL IZQUIERDO</text>
+              <path class="gruesa draw" pathLength="1" d="M192 0 L284 0 L284 160 L192 160 Z"></path>
+              <path class="oculta" d="M199 0 L199 150 L277 150 L277 0"></path>
+              <path class="oculta" d="M231 32 L245 32 L245 98 L231 98 Z"></path>
+              <path class="eje" d="M238 -14 L238 174"></path>
+              <text x="238" y="186" text-anchor="middle" class="rotulo-svg" style="font-size:9.5px">ASA OCULTA: LÍNEA DE TRAZOS</text>
+              <path class="ref" d="M152 0 L190 0 M152 160 L190 160"></path>
+
+              <!-- PLANTA: debajo del alzado y alineada con él -->
+              <text x="46" y="196" text-anchor="middle" class="rotulo-svg">PLANTA</text>
+              <path class="ref" d="M0 164 L0 200 M92 164 L92 200"></path>
+              <circle cx="46" cy="250" r="46" class="gruesa draw" pathLength="1"></circle>
+              <circle cx="46" cy="250" r="39" class="gruesa draw" pathLength="1"></circle>
+              <path class="gruesa draw" pathLength="1" d="M91.5 243 L141 243 A7 7 0 0 1 141 257 L91.5 257"></path>
+              <path class="eje" d="M-14 250 L162 250"></path>
+              <path class="eje" d="M46 190 L46 310"></path>
+              <!-- cota del diámetro exterior -->
+              <path class="cota" d="M0 250 L0 322 M92 250 L92 322"></path>
+              <path class="cota" d="M0 318 L92 318 M0 314 L0 322 M92 314 L92 322"></path>
+              <text x="46" y="334" text-anchor="middle" class="cifra">Ø92</text>
+              <!-- cota del diámetro interior -->
+              <path class="cota" d="M73.6 222.4 L18.4 277.6 M18.4 277.6 L2 294"></path>
+              <text x="-2" y="299" text-anchor="end" class="cifra">Ø78</text>
+            </g>
+          </svg>
+        </div>
+        <div class="pie" data-pie><b>Artístico:</b> reconoces la taza al instante, pero no puedes fabricarla: no sabes cuánto mide ni de qué grosor es la pared.</div>
+      </div>
+
+      <div class="aviso">
+        <span class="n-tag">Pregunta de clase</span>
+        ¿Cuál de los dos dibujos enviarías a una fábrica de cerámica? ¿Y cuál pondrías en la carta de una cafetería? Justifica la respuesta con dos de las siete diferencias de la tabla.
+      </div>
+      <details class="resp">
+        <summary>Ver respuesta</summary>
+        <div class="resp-cuerpo">
+          <p>A la <strong>fábrica</strong>, el técnico: lleva <strong>medidas</strong> (Ø92, Ø78, 160) y sigue <strong>normas</strong>, así que solo admite una interpretación y se puede fabricar. A la <strong>carta de la cafetería</strong>, el artístico: su finalidad es <strong>atraer</strong>, no fabricar, y las sombras y el trazo libre transmiten mejor la sensación del producto.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- práctica -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Práctica · 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 1 · El objeto misterioso</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">1.2</span><span class="chip">B.1</span><span class="chip">A.3</span></span>
+          <span>Por parejas · 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qué necesitas</h4>
+          <p>Cuaderno, lápiz, regla y un objeto pequeño de la mochila (goma, pendrive, calculadora, estuche…).</p>
+
+          <h4>Cómo se hace</h4>
+          <ol class="pasos">
+            <li><strong>Describir (5 min).</strong> Sin enseñarlo, el alumno A describe su objeto solo con palabras. El alumno B lo dibuja según lo que oye. Prohibido decir la marca o el nombre del objeto.</li>
+            <li><strong>Comparar (3 min).</strong> Se enseña el objeto real. Anotad en el cuaderno las tres diferencias más grandes entre el objeto y el dibujo.</li>
+            <li><strong>Dibujo artístico (6 min).</strong> Cada uno dibuja su objeto a mano alzada como lo ve: volumen, sombras, detalles. Sin regla.</li>
+            <li><strong>Dibujo técnico (9 min).</strong> Mismo objeto, ahora con regla: contorno limpio de frente y, al lado, las medidas reales en milímetros medidas con la regla.</li>
+            <li><strong>Conclusión (2 min).</strong> Escribe dos líneas: ¿cuál de tus dos dibujos serviría para que otra persona fabricase tu objeto? ¿Por qué?</li>
+          </ol>
+
+          <h4>Cómo se evalúa</h4>
+          <ul>
+            <li>Los dos dibujos están hechos y se distinguen claramente entre sí <strong>(4 puntos)</strong>.</li>
+            <li>El dibujo técnico lleva medidas reales en milímetros y trazo limpio con regla <strong>(3 puntos)</strong>.</li>
+            <li>Las tres diferencias y la conclusión están escritas y razonadas <strong>(3 puntos)</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- cierre -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre · 5 min</div>
+      <div class="chips"><span class="chip">Criterio 4.1</span><span class="chip sab">B.1</span></div>
+      <p>Ticket de salida: responde en una línea cada pregunta antes de salir de clase. Primero la tuya en el cuaderno; después despliega y compara.</p>
+      <ol>
+        <li>¿Qué tipo de dibujo admite varias interpretaciones?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>El <strong>artístico</strong>. Es subjetivo: cada persona que lo mira puede entender algo distinto, y eso en un taller sería un desastre.</p>
+          </div></details>
+        </li>
+        <li>Nombra dos cosas que tiene un dibujo técnico y que nunca tiene uno artístico.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>Por ejemplo: <strong>cotas</strong> (medidas reales en milímetros) y <strong>escala</strong>. También valen: vistas normalizadas, ejes de simetría, tipos de línea normalizados o cajetín.</p>
+          </div></details>
+        </li>
+        <li>¿Por qué se dice que el dibujo técnico es un idioma universal?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+            <p>Porque sigue <strong>normas internacionales (UNE e ISO)</strong>: los mismos símbolos, líneas y cotas significan lo mismo en cualquier país, sin necesidad de traducir el plano.</p>
+          </div></details>
+        </li>
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesión</span>
+        Trae una regla milimetrada: empezamos a dibujar de verdad con el boceto, el croquis y el plano.
+      </div>
+    </section>
+
+    <!-- imágenes libres -->
+    <section class="bloque">
+      <div class="rotulo"><span class="num">05</span> Imágenes libres para el Site</div>
+      <p>Recursos de Wikimedia Commons con licencia libre, listos para incrustar o proyectar. Comprueba siempre la licencia concreta de cada archivo antes de publicarlo.</p>
+      <div class="enlaces">
+        <div class="enlace">
+          <a href="https://commons.wikimedia.org/wiki/Category:Technical_drawings" target="_blank" rel="noopener">Category: Technical drawings</a>
+          <span>Cientos de planos reales para enseñar cómo es un dibujo técnico de verdad.</span>
+        </div>
+        <div class="enlace">
+          <a href="https://commons.wikimedia.org/wiki/Category:Engineering_drawing" target="_blank" rel="noopener">Category: Engineering drawing</a>
+          <span>Dibujo de ingeniería: vistas, cortes y acotación en piezas industriales.</span>
+        </div>
+        <div class="enlace">
+          <a href="https://commons.wikimedia.org/wiki/File:Technical_Drawing_Template_(ISO_5457_1999_Size_A4).svg" target="_blank" rel="noopener">Plantilla A4 normalizada (ISO 5457)</a>
+          <span>Formato A4 con márgenes y cajetín: se puede imprimir para la práctica.</span>
+        </div>
+        <div class="enlace">
+          <a href="https://commons.wikimedia.org/wiki/Category:Technical_drawings_with_frame" target="_blank" rel="noopener">Dibujos técnicos con cajetín</a>
+          <span>Ejemplos de láminas completas con recuadro y cuadro de rotulación.</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SESIONES PENDIENTES ============ -->
+  <div id="ses-2" hidden><div class="vacio">Sesión 2 en preparación</div></div>
+  <div id="ses-3" hidden><div class="vacio">Sesión 3 en preparación</div></div>
+  <div id="ses-4" hidden><div class="vacio">Sesión 4 en preparación</div></div>
+  <div id="ses-5" hidden><div class="vacio">Sesión 5 en preparación</div></div>
+  <div id="ses-6" hidden><div class="vacio">Sesión 6 en preparación</div></div>
+
+  <footer class="pie-pag wrap" style="padding-left:0;padding-right:0">
+    Tema 2 · Representación gráfica de un proyecto · Tecnología 2.º ESO
+  </footer>
+</main>
+
+<script>
+(function(){
+  /* ---- reproductor de trazados: corta la transición, reinicia y relanza con retardo ---- */
+  function relanza(nodos, reset, play, paso){
+    if(!nodos.length) return;
+    nodos.forEach(function(n){
+      n.style.transition = 'none';
+      n.style.transitionDelay = '0s';
+      reset(n);
+    });
+    void nodos[0].getBoundingClientRect();   /* fuerza el reflujo antes de reactivar */
+    nodos.forEach(function(n,i){
+      n.style.transition = '';
+      n.style.transitionDelay = (i * paso) + 's';
+      play(n);
+    });
+  }
+  function resetOpacidad(n){ n.classList.add('apagado'); }
+  function playOpacidad(n){ n.classList.remove('apagado'); }
+  function resetTrazo(n){ n.classList.remove('on'); }
+  function playTrazo(n){ n.classList.add('on'); }
+
+  /* ---- navegación entre sesiones ---- */
+  var nav = document.getElementById('nav');
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-selected', x===b ? 'true':'false'); });
+    for(var i=1;i<=6;i++){
+      var p = document.getElementById('ses-'+i);
+      if(p) p.hidden = (String(i) !== b.dataset.ses);
+    }
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---- escena por pasos: la ambigüedad ---- */
+  var esc = document.getElementById('esc-ambiguo');
+  var pies = [
+    'Pulsa <b>Siguiente</b> para empezar.',
+    'Esto es todo lo que le encargamos a la carpintería. Parece suficiente…',
+    'Tres compañeros leen la misma frase y dibujan <b>tres mesas distintas</b>. Las tres son correctas.',
+    'Pero el instituto solo quería una. Con palabras es imposible saber cuál.',
+    'Con <b>cotas</b> (1200 de ancho, 750 de alto, tablero de 25 mm) ya no hay duda: una única mesa posible.'
+  ];
+  var paso = 0;
+  function pintaAmbiguo(){
+    esc.querySelectorAll('[data-st]').forEach(function(n){
+      n.classList.toggle('on', Number(n.dataset.st) <= paso);
+    });
+    esc.querySelector('[data-pie]').innerHTML = pies[paso];
+  }
+  esc.addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    if(b.hasAttribute('data-reset')) paso = 0;
+    else if(b.dataset.paso === '+1') paso = Math.min(4, paso+1);
+    else if(b.dataset.paso === '-1') paso = Math.max(0, paso-1);
+    pintaAmbiguo();
+  });
+  pintaAmbiguo();
+
+  /* ---- galería: volver a dibujar ---- */
+  var gal = document.getElementById('galeria');
+  var btnGal = document.getElementById('redibuja');
+  if(gal && btnGal){
+    btnGal.addEventListener('click', function(){
+      gal.querySelectorAll('.mini').forEach(function(card){
+        relanza(Array.prototype.slice.call(card.querySelectorAll('.draw')), resetTrazo, playTrazo, 0.09);
+      });
+    });
+  }
+
+  /* ---- imagen de la obra: aviso si el visor bloquea imágenes externas ---- */
+  var img = document.getElementById('img-meninas');
+  if(img){
+    img.addEventListener('error', function(){
+      img.hidden = true;
+      var f = document.getElementById('falta-meninas');
+      if(f) f.hidden = false;
+    });
+  }
+
+  /* ---- plano de vivienda: volver a dibujar ---- */
+  var btnPlano = document.getElementById('dibuja-plano');
+  var gPlano = document.getElementById('g-plano');
+  if(btnPlano && gPlano){
+    btnPlano.addEventListener('click', function(){
+      relanza(Array.prototype.slice.call(gPlano.querySelectorAll('.fx')), resetOpacidad, playOpacidad, 0.05);
+    });
+  }
+
+  /* ---- escena taza: artístico / técnico ---- */
+  var taza = document.getElementById('esc-taza');
+  var art = document.getElementById('taza-art');
+  var tec = document.getElementById('taza-tec');
+  var pieTaza = taza.querySelector('[data-pie]');
+  var textos = {
+    art: '<b>Artístico:</b> reconoces la taza al instante, pero no puedes fabricarla: no sabes cuánto mide ni de qué grosor es la pared.',
+    tec: '<b>Técnico:</b> pierdes las sombras y ganas lo que importa en el taller: <b>alzado, planta y perfil</b> (sistema europeo), ejes de simetría, líneas de trazos para lo que queda oculto y cotas en milímetros. La planta es la que da el <b>diámetro</b>: Ø92 por fuera y Ø78 por dentro.'
+  };
+  art.style.transition = 'opacity .4s ease';
+  tec.style.transition = 'opacity .4s ease';
+  taza.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-modo]'); if(!b) return;
+    var modo = b.dataset.modo;
+    taza.querySelectorAll('button[data-modo]').forEach(function(x){
+      x.setAttribute('aria-pressed', x===b ? 'true':'false');
+    });
+    art.style.opacity = (modo==='art') ? '1' : '0';
+    tec.style.opacity = (modo==='tec') ? '1' : '0';
+    pieTaza.innerHTML = textos[modo];
+    if(modo==='tec'){
+      relanza(Array.prototype.slice.call(tec.querySelectorAll('.draw')), resetTrazo, playTrazo, 0.12);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
