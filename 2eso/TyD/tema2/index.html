@@ -275,6 +275,11 @@
   .oculta{fill:none;stroke:currentColor;stroke-width:1.3;stroke-dasharray:6 3;opacity:.75}
   .ref{fill:none;stroke:var(--accent);stroke-width:.7;stroke-dasharray:4 4;opacity:.7}
   .vista{fill:var(--accent-soft);stroke:currentColor;stroke-width:2.2;stroke-linejoin:round}
+  .vista.v-alzado{fill:var(--c-alzado);stroke:var(--c-alzado-bd)}
+  .vista.v-planta{fill:var(--c-planta);stroke:var(--c-planta-bd)}
+  .vista.v-perfil{fill:var(--c-perfil);stroke:var(--c-perfil-bd)}
+  .gruesa.g-planta{stroke:var(--c-planta-bd)}
+  .gruesa.g-perfil{stroke:var(--c-perfil-bd)}
   .cuerpo{fill:var(--c-alzado);stroke:var(--c-alzado-bd);stroke-width:2.4;stroke-linejoin:round}
   .cara{stroke:currentColor;stroke-width:1.8;stroke-linejoin:round}
   .cara.techo{fill:var(--c-planta);stroke:var(--c-planta-bd)}
@@ -1814,7 +1819,7 @@
       m += '<g class="st" data-st="1">'
          + mira
          + '<path class="cruz" d="M' + cruzX + ' ' + (VY - 30) + ' L' + cruzX + ' ' + (PY + g.d*S + 10).toFixed(1) + ' M' + (VX - 30) + ' ' + cruzY + ' L' + (PX + g.d*S + 10).toFixed(1) + ' ' + cruzY + '"></path>'
-         + '<path class="vista draw" pathLength="1" d="' + poli(g.pts.map(function(q){ return vpx(g, q[0], q[1]); }), true) + '"></path>'
+         + '<path class="vista v-alzado draw" pathLength="1" d="' + poli(g.pts.map(function(q){ return vpx(g, q[0], q[1]); }), true) + '"></path>'
          + rot(VX + g.W*S/2, VY - 14, 'ALZADO')
          + '</g>';
 
@@ -1829,8 +1834,8 @@
       });
       m += '<g class="st" data-st="2">'
          + '<path class="ref" d="' + refV + '"></path>'
-         + '<path class="vista draw" pathLength="1" d="M' + VX + ' ' + PY.toFixed(1) + ' L' + (VX + g.W*S).toFixed(1) + ' ' + PY.toFixed(1) + ' L' + (VX + g.W*S).toFixed(1) + ' ' + (PY + g.d*S).toFixed(1) + ' L' + VX + ' ' + (PY + g.d*S).toFixed(1) + ' Z"></path>'
-         + (lineasPlanta ? '<path class="gruesa draw" pathLength="1" d="' + lineasPlanta + '"></path>' : '')
+         + '<path class="vista v-planta draw" pathLength="1" d="M' + VX + ' ' + PY.toFixed(1) + ' L' + (VX + g.W*S).toFixed(1) + ' ' + PY.toFixed(1) + ' L' + (VX + g.W*S).toFixed(1) + ' ' + (PY + g.d*S).toFixed(1) + ' L' + VX + ' ' + (PY + g.d*S).toFixed(1) + ' Z"></path>'
+         + (lineasPlanta ? '<path class="gruesa g-planta draw" pathLength="1" d="' + lineasPlanta + '"></path>' : '')
          + rot(VX + g.W*S/2, PY + g.d*S + 20, 'PLANTA')
          + '</g>';
 
@@ -1845,8 +1850,8 @@
       });
       m += '<g class="st" data-st="3">'
          + '<path class="ref" d="' + refH + '"></path>'
-         + '<path class="vista draw" pathLength="1" d="M' + PX.toFixed(1) + ' ' + VY + ' L' + (PX + g.d*S).toFixed(1) + ' ' + VY + ' L' + (PX + g.d*S).toFixed(1) + ' ' + (VY + g.H*S).toFixed(1) + ' L' + PX.toFixed(1) + ' ' + (VY + g.H*S).toFixed(1) + ' Z"></path>'
-         + (lineasPerfil ? '<path class="gruesa draw" pathLength="1" d="' + lineasPerfil + '"></path>' : '')
+         + '<path class="vista v-perfil draw" pathLength="1" d="M' + PX.toFixed(1) + ' ' + VY + ' L' + (PX + g.d*S).toFixed(1) + ' ' + VY + ' L' + (PX + g.d*S).toFixed(1) + ' ' + (VY + g.H*S).toFixed(1) + ' L' + PX.toFixed(1) + ' ' + (VY + g.H*S).toFixed(1) + ' Z"></path>'
+         + (lineasPerfil ? '<path class="gruesa g-perfil draw" pathLength="1" d="' + lineasPerfil + '"></path>' : '')
          + rot(PX + g.d*S/2, VY - 14, 'PERFIL IZQUIERDO', 10)
          + '</g>';
 
