@@ -207,7 +207,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3</div>
     <h1>Materiales de uso t&eacute;cnico</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4" disabled>S4 &middot; Metales</button><button type="button" data-ses="5" disabled>S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6" disabled>S6 &middot; Impacto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4">S4 &middot; Metales</button><button type="button" data-ses="5" disabled>S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6" disabled>S6 &middot; Impacto y test</button></nav>
   </div>
 </header>
 
@@ -943,7 +943,234 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>Los metales: hay que sacarlos de una piedra</h2>
+      <p>Una piedra no se parece a una espada. Entender ese salto explica el precio de los metales, su huella y por qu&eacute; se reciclan tanto.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>La madera se corta de un &aacute;rbol: se ve el &aacute;rbol, se ve la tabla, se entiende. Con el metal hay
+         un salto que no es evidente en absoluto.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        Una piedra no se parece en nada a una espada. <b>&iquest;C&oacute;mo se le ocurri&oacute; a alguien que dentro de
+        esa piedra hab&iacute;a metal?</b> &iquest;Y c&oacute;mo consigui&oacute; sacarlo?
+      </div>
+      <p>Pi&eacute;nsalo en serio treinta segundos antes de seguir. No hay ninguna pista en el aspecto de un
+         mineral que sugiera que calent&aacute;ndolo mucho, con las cosas adecuadas al lado, sale un l&iacute;quido
+         brillante.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Probablemente fue un accidente, y probablemente ocurri&oacute; en un horno de cer&aacute;mica. Al cocer
+           vasijas se alcanzan temperaturas altas, y si el barro o la le&ntilde;a llevaban mineral de cobre,
+           alguien encontr&oacute; gotas de metal entre las cenizas.</p>
+        <p>Lo interesante no es el hallazgo: es que <b>alguien se diera cuenta de que se pod&iacute;a repetir</b>.
+           Eso ya no es suerte, es el principio de la metalurgia. Y separa la Edad de Piedra de todo lo
+           dem&aacute;s: por primera vez el ser humano no usa un material que encuentra, sino uno que
+           <b>fabrica</b>.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>El metal cuesta energ&iacute;a, y eso lo explica casi todo</h3>
+      <p>La diferencia esencial con la madera: el metal <b>no existe puro en la naturaleza</b> salvo
+         excepciones. Est&aacute; combinado con otros elementos formando un <b>mineral</b>, y separarlo exige
+         meter much&iacute;sima energ&iacute;a.</p>
+
+      <div class="escena" id="esc-metal">
+        <div class="escena-barra">
+          <span class="escena-titulo">Lo que cuesta un kilo de metal</span>
+          <div class="seg" id="seg-metal">
+            <button type="button" data-m="aluminio" aria-pressed="true">Aluminio</button>
+            <button type="button" data-m="acero">Acero</button>
+            <button type="button" data-m="cobre">Cobre</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 250" id="svg-metal" role="img"
+               aria-label="Energ&iacute;a necesaria para producir un kilo de metal desde el mineral frente a reciclarlo"></svg>
+        </div>
+        <div class="pie" id="pie-metal"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-metal');
+        var pie = document.getElementById('pie-metal');
+        var seg = document.getElementById('seg-metal');
+        if(!svg) return;
+
+        /* kWh por kg, valores redondeados de fuentes industriales */
+        var MET = {
+          aluminio:{n:'Aluminio', mineral:'Bauxita', virgen:45, reciclado:2.3, col:'#b9c2cc',
+            txt:'Sacar aluminio de la bauxita exige <b>electrolisis</b>: pasar corriente a lo bruto durante '
+              + 'horas. Por eso las f&aacute;bricas de aluminio se ponen al lado de centrales el&eacute;ctricas. '
+              + 'Reciclarlo solo pide fundirlo, y eso es <b>el 5&nbsp;% de la energ&iacute;a</b>. Una lata reciclada '
+              + 'ahorra veinte veces lo que cuesta hacerla nueva.'},
+          acero:{n:'Acero', mineral:'Hematita', virgen:14, reciclado:5.5, col:'#7a8590',
+            txt:'El hierro se saca del mineral en un <b>alto horno</b>, quem&aacute;ndolo con carb&oacute;n a 1.500&nbsp;&deg;C. '
+              + 'Reciclarlo cuesta menos de la mitad, y adem&aacute;s es el material m&aacute;s reciclado del mundo: es '
+              + '<b>magn&eacute;tico</b>, as&iacute; que separarlo de la basura es trivial.'},
+          cobre:{n:'Cobre', mineral:'Calcopirita', virgen:16, reciclado:1.5, col:'#c98a4b',
+            txt:'Reciclar cobre cuesta <b>menos del 10&nbsp;%</b> que extraerlo. Y eso explica un problema '
+              + 'muy real: el robo de cable. No se roba por el cable, se roba porque el cobre recuperado '
+              + 'vale casi lo mismo que el nuevo.'}
+        };
+        var sel = 'aluminio';
+
+        function pinta(){
+          var d = MET[sel], m = '';
+          var X = 168, W = 372, MAX = 46;
+
+          function fila(y, etq, val, col, sub){
+            var w = W * val / MAX;
+            var s = '<text x="' + (X-12) + '" y="' + (y+16) + '" text-anchor="end" class="rotulo-svg" '
+                  + 'style="font-size:11.5px;fill:var(--ink)">' + etq + '</text>';
+            s += '<rect x="' + X + '" y="' + y + '" width="' + W + '" height="24" rx="3" fill="var(--surface-2)"></rect>';
+            s += '<rect x="' + X + '" y="' + y + '" width="' + w.toFixed(1) + '" height="24" rx="3" fill="' + col + '"></rect>';
+            s += '<text x="' + (X + w + 10) + '" y="' + (y+16) + '" class="rotulo-svg" '
+               + 'style="font-size:12px;fill:var(--ink);font-weight:500">' + val + ' kWh</text>';
+            s += '<text x="' + (X-12) + '" y="' + (y+30) + '" text-anchor="end" class="rotulo-svg" '
+               + 'style="font-size:9.5px;opacity:.7">' + sub + '</text>';
+            return s;
+          }
+
+          m += '<text x="' + (X-12) + '" y="34" text-anchor="end" class="rotulo-svg" style="font-size:11px">'
+             + d.n.toUpperCase() + '</text>';
+          m += fila(56,  'Desde el mineral', d.virgen,    d.col,               'a partir de ' + d.mineral);
+          m += fila(136, 'Reciclado',        d.reciclado, 'var(--goo-verde)',  'fundiendo chatarra');
+
+          var ahorro = Math.round((1 - d.reciclado/d.virgen) * 100);
+          m += '<text x="' + (X + W/2) + '" y="222" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:15px;fill:var(--goo-verde);font-weight:500">'
+             + 'Reciclar ahorra el ' + ahorro + ' % de la energ&iacute;a</text>';
+          svg.innerHTML = m;
+          pie.innerHTML = d.txt;
+        }
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-m]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+          sel = b.dataset.m; pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <p>Mira esas barras un momento m&aacute;s. <b>No son datos de ecolog&iacute;a: son datos de econom&iacute;a.</b> Un
+         material que cuesta 45 kWh producir y 2 reciclar tiene el reciclaje garantizado, porque sale
+         a cuenta aunque a nadie le importe el planeta.</p>
+
+      <div class="copiar">
+        <h4>De la piedra al metal</h4>
+        <p><b>Mineral</b>: roca que contiene el metal combinado con otros elementos.</p>
+        <p><b>Metalurgia</b>: conjunto de t&eacute;cnicas para separar el metal de su mineral y trabajarlo.</p>
+        <p><b>Aleaci&oacute;n</b>: mezcla de un metal con otros elementos para mejorar sus propiedades. Casi
+           nada se fabrica con metales puros.</p>
+      </div>
+
+      <h3>Los dos grandes grupos</h3>
+      <div class="copiar">
+        <h4>F&eacute;rricos y no f&eacute;rricos</h4>
+        <ul>
+          <li><b>F&eacute;rricos</b>: contienen hierro. <b>Acero</b> (hierro + carbono, hasta 2&nbsp;%) y
+              <b>fundici&oacute;n</b> (m&aacute;s de 2&nbsp;%). Baratos, resistentes y <b>magn&eacute;ticos</b>, pero se
+              <b>oxidan</b>.</li>
+          <li><b>No f&eacute;rricos</b>: sin hierro. <b>Aluminio</b> (ligero, no se oxida por dentro),
+              <b>cobre</b> (el mejor conductor asequible), <b>zinc</b>, <b>esta&ntilde;o</b>, <b>plomo</b>.</li>
+          <li>Aleaciones cl&aacute;sicas: <b>bronce</b> (cobre + esta&ntilde;o), <b>lat&oacute;n</b> (cobre + zinc),
+              <b>acero inoxidable</b> (acero + cromo).</li>
+        </ul>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Un truco que siempre funciona</span>
+        &iquest;Es f&eacute;rrico? <b>Ac&eacute;rcale un im&aacute;n.</b> Si se pega, lleva hierro. Es el mismo truco que usan las
+        plantas de reciclaje para separar miles de toneladas al d&iacute;a: un electroim&aacute;n gigante sobre una
+        cinta transportadora.
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>El aluminio es el <b>tercer elemento m&aacute;s abundante</b> de la corteza terrestre, m&aacute;s que el
+           hierro. Y sin embargo en 1850 val&iacute;a m&aacute;s que el oro: Napoleón III reservaba los cubiertos de
+           aluminio para sus invitados de honor y daba los de oro al resto.</p>
+        <p>&iquest;Por qu&eacute;? Porque nadie sab&iacute;a separarlo. El aluminio est&aacute; tan bien agarrado a su mineral que
+           hizo falta la <b>electricidad</b> para arrancarlo, y eso no lleg&oacute; hasta 1886. En veinte a&ntilde;os
+           pas&oacute; de metal precioso a material de envase. <b>El valor de un material no depende de lo raro
+           que sea, sino de lo que cueste obtenerlo.</b></p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 6 &middot; Auditor&iacute;a met&aacute;lica del aula</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">7.1</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Con un im&aacute;n peque&ntilde;o, de los de la nevera, se puede auditar un aula entera.</p>
+          <ol class="pasos">
+            <li>Encontrad <b>seis piezas met&aacute;licas</b>: patas de mesa, tornillos, bisagras, el marco de
+                la ventana, una lata, el cable de un cargador.</li>
+            <li>Pasad el im&aacute;n por cada una y clasificadlas en <b>f&eacute;rricas</b> y <b>no f&eacute;rricas</b>.</li>
+            <li>Para cada una, proponed <b>qu&eacute; metal o aleaci&oacute;n</b> es y en qu&eacute; os bas&aacute;is: color, peso,
+                si se oxida, si conduce.</li>
+            <li>Para cada una, <b>&iquest;por qu&eacute; ese metal ah&iacute;?</b> Una raz&oacute;n t&eacute;cnica, no &laquo;porque s&iacute;&raquo;.</li>
+            <li>Elegid la que os parezca <b>m&aacute;s cara de producir</b> y justificadlo con lo visto en la
+                escena de la energ&iacute;a.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las seis piezas est&aacute;n clasificadas con el im&aacute;n <b>(2 puntos)</b>.</li>
+            <li>La propuesta de metal se justifica con algo observable <b>(3 puntos)</b>.</li>
+            <li>Las razones de uso son t&eacute;cnicas <b>(3 puntos)</b>.</li>
+            <li>La estimaci&oacute;n de coste energ&eacute;tico est&aacute; razonada <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Ojo con una trampa</span>
+            El <b>acero inoxidable</b> de algunos fregaderos y cubiertos <b>no se pega al im&aacute;n</b> aunque
+            lleva hierro: el cromo y el n&iacute;quel le cambian la estructura interna. Si os pasa, no lo
+            tach&eacute;is: anotadlo. Es justo la clase de excepci&oacute;n que merece la pena descubrir.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Volvamos a la piedra del principio. Entre aquella piedra y una espada hay <b>energ&iacute;a</b>: mucho
+         calor, mucho tiempo y mucho trabajo.</p>
+      <p>Y esa energ&iacute;a no desaparece cuando el objeto se tira. Sigue ah&iacute;, dentro del metal. Por eso
+         reciclar no es un gesto simb&oacute;lico: es <b>recuperar la energ&iacute;a que ya se gast&oacute;</b>.</p>
+      <ol>
+              <li>&iquest;Por qu&eacute; el aluminio val&iacute;a m&aacute;s que el oro en 1850 si es abundant&iacute;simo?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque nadie sab&iacute;a separarlo de su mineral: hizo falta la electricidad, que no lleg&oacute; hasta 1886. <b>El valor depende de lo que cueste obtenerlo</b>, no de lo raro que sea.</p></div></details></li>
+        <li>&iquest;Qu&eacute; diferencia hay entre acero y fundici&oacute;n?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La cantidad de <b>carbono</b>. Hasta el 2&nbsp;por ciento es acero; por encima, fundici&oacute;n. M&aacute;s carbono da m&aacute;s dureza pero tambi&eacute;n m&aacute;s fragilidad.</p></div></details></li>
+        <li>Reciclar aluminio ahorra casi toda la energ&iacute;a. &iquest;Por qu&eacute; tanto?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo caro era <b>separarlo del mineral por electrolisis</b>, y eso ya est&aacute; hecho. Reciclar solo exige fundirlo, que es much&iacute;simo m&aacute;s barato.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        La madera creci&oacute;. El metal se arranc&oacute; de una piedra. Los <b>pl&aacute;sticos</b> no estaban ah&iacute;:
+        hubo que inventarlos, mol&eacute;cula a mol&eacute;cula. Y ese es otro salto distinto.
+      </div>
+  
+    </section>
+
+  </div>
 
   <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
 
