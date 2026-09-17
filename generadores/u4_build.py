@@ -6,6 +6,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
 from escena_hierro import ESCENA_HIERRO
 from u4_s2 import S2
+from u4_s3 import S3
 
 INTRO = u'''
       <div class="escena">
@@ -252,7 +253,12 @@ S.append(dict(corto=u'Tipos de estructura', titulo=u'Las seis familias: por qu&e
               minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
               chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5', u'A.7'],
               cuerpo=S2))
-for c in [u'Perfiles y secciones', u'Estabilidad', u'Construir', u'Proyecto y test']:
+S.append(dict(corto=u'Perfiles y secciones', titulo=u'El mismo acero, doce veces m&aacute;s aguante',
+              entradilla=u'Con la misma cantidad de material, lo que decide es d&oacute;nde lo pones. La regla de canto lo demuestra en dos segundos.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5', u'A.7'],
+              cuerpo=S3))
+for c in [u'Estabilidad', u'Construir', u'Proyecto y test']:
     S.append(dict(corto=c, pendiente=True))
 
 CFG = dict(
