@@ -183,6 +183,20 @@ h4{font-size:15.5px;margin:16px 0 4px}
   .entender,.escena,.video,.narra,nav.sesiones{display:none}
   .copiar{border-width:1.5px;break-inside:avoid}
 }
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}

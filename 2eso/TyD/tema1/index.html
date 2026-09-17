@@ -183,6 +183,20 @@ h4{font-size:15.5px;margin:16px 0 4px}
   .entender,.escena,.video,.narra,nav.sesiones{display:none}
   .copiar{border-width:1.5px;break-inside:avoid}
 }
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -405,105 +419,98 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
 
-      <div class="narra" id="narra-u1" style="margin-top:18px">
-        <div class="avatar-caja" id="av-u1"></div>
-        <div class="globo">
-          <span id="txt-u1"></span>
-          <div class="seg" style="margin-top:10px">
-            <button type="button" id="voz-u1">&#128266; Que me lo cuenten</button>
-            <button type="button" id="stop-u1">&#9632; Parar</button>
+
+      <div class="narrador" id="narr-u1">
+        <div class="narrador-fig" id="narr-u1-fig"></div>
+        <div class="narrador-txt">
+          <h4>El maestro de taller</h4>
+          <span class="narrador-quien">Por qu&eacute; hubo que inventar un m&eacute;todo, y cu&aacute;les son los siete pasos</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
           </div>
-          <div id="sel-voz-u1" style="margin-top:9px"></div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada y audio propio. La boca sigue el volumen real de la voz, as&iacute; que se mueve cuando habla y se para en los silencios.</p>
         </div>
       </div>
 
       <script>
       (function(){
-        var caja = document.getElementById('av-u1');
-        var txt  = document.getElementById('txt-u1');
-        if(!caja) return;
+        var C = document.getElementById('narr-u1');
+        if(!C) return;
+        var fig = document.getElementById('narr-u1-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.57, 0.91, 0.5, 0.2, 0.69, 0.22, 0.74, 0.31, 0.42, 0.33, 0.1, 0.27, 0.27, 0.02, 0.57, 0.66, 0.61, 0.55, 0.41, 0.63, 0.63, 0.19, 0.33, 0.25, 0.21, 0.14, 0.01, 0.0, 0.0, 0.0, 0.14, 0.8, 0.69, 0.87, 0.78, 0.15, 0.49, 0.17, 0.55, 0.6, 0.56, 0.54, 0.52, 0.44, 0.37, 0.46, 0.37, 0.49, 0.55, 0.52, 0.5, 0.08, 0.28, 0.41, 0.35, 0.61, 0.57, 0.51, 0.14, 0.33, 0.12, 0.32, 0.36, 0.35, 0.34, 0.28, 0.22, 0.18, 0.05, 0.0, 0.0, 0.0, 0.0, 0.0, 0.28, 0.35, 0.86, 0.58, 0.73, 0.7, 0.15, 0.58, 0.42, 0.92, 0.87, 0.72, 0.7, 0.64, 0.64, 0.66, 0.42, 0.31, 0.41, 0.68, 0.59, 0.4, 0.11, 0.41, 0.39, 0.14, 0.14, 0.53, 0.32, 0.36, 0.26, 0.13, 0.19, 0.2, 0.19, 0.06, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09, 0.73, 0.65, 0.17, 0.73, 0.86, 0.91, 0.59, 0.59, 0.65, 0.54, 0.41, 0.59, 0.29, 0.56, 0.33, 0.1, 0.61, 0.6, 0.14, 0.56, 0.43, 0.53, 0.52, 0.67, 0.53, 0.14, 0.45, 0.31, 0.07, 0.55, 0.42, 0.34, 0.21, 0.11, 0.41, 0.5, 0.59, 0.18, 0.47, 0.05, 0.57, 0.62, 0.54, 0.59, 0.57, 0.18, 0.68, 0.66, 0.58, 0.19, 0.32, 0.27, 0.13, 0.31, 0.26, 0.21, 0.17, 0.06, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03, 0.92, 0.82, 0.55, 0.64, 0.68, 0.63, 0.64, 0.54, 0.46, 0.63, 0.48, 0.42, 0.25, 0.71, 0.85, 0.51, 0.52, 0.57, 0.63, 0.41, 0.44, 0.3, 0.43, 0.53, 0.2, 0.45, 0.07, 0.34, 0.31, 0.73, 0.49, 0.3, 0.16, 0.02, 0.02, 0.0, 0.0, 0.0, 0.64, 0.48, 0.45, 0.48, 0.46, 0.94, 0.42, 0.46, 0.1, 0.8, 0.69, 0.12, 0.47, 0.58, 0.53, 0.52, 0.11, 0.39, 0.4, 0.18, 0.13, 0.6, 0.33, 0.58, 0.27, 0.31, 0.23, 0.05, 0.37, 0.27, 0.1, 0.2, 0.16, 0.05, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.47, 0.45, 0.07, 0.63, 0.17, 0.97, 0.92, 0.4, 0.85, 0.75, 0.65, 0.68, 0.22, 0.64, 0.65, 0.46, 0.48, 0.37, 0.26, 0.52, 0.65, 0.54, 0.2, 0.73, 1.0, 0.42, 0.1, 0.53, 0.56, 0.51, 0.52, 0.62, 0.07, 0.53, 0.28, 0.65, 0.79, 0.57, 0.16, 0.29, 0.3, 0.19, 0.2, 0.19, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/u1-maestro.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
 
-        var GUION = 'Antes de que existiera un método, cada artesano resolvía los problemas a su manera, '
-          + 'y el resultado dependía de su experiencia. Funcionaba mientras las cosas eran sencillas y las '
-          + 'hacía una sola persona. Cuando hubo que fabricar miles de piezas iguales, entre varias personas '
-          + 'y en sitios distintos, hizo falta una forma de trabajar que otro pudiera seguir. '
-          + 'Son siete pasos. Uno: detectar la necesidad. Dos: analizar el problema y escribir los requisitos. '
-          + 'Tres: buscar varias ideas. Cuatro: elegir una y diseñarla. Cinco: planificar quién hace qué. '
-          + 'Seis: construir. Y siete: evaluar si cumple los requisitos que escribiste al principio. '
-          + 'El paso que decide todo es el dos. Si los requisitos están bien escritos, evaluar es objetivo: '
-          + 'se cumplen o no se cumplen. Si no los escribiste, nunca sabrás si tu solución es buena, '
-          + 'solo si te gusta.';
-
-        function cara(hablando){
-          var boca = hablando
-            ? '<ellipse cx="32" cy="46" rx="6" ry="5" fill="#8c3b2e"/>'
-            : '<path d="M25 45 q7 6 14 0" fill="none" stroke="#8c3b2e" stroke-width="2.6" stroke-linecap="round"/>';
-          return '<svg viewBox="0 0 104 72" class="avatar' + (hablando ? ' habla' : '') + '" aria-hidden="true">'
-            + '<ellipse cx="32" cy="38" rx="21" ry="23" fill="#f3d3b3" stroke="#c9a583" stroke-width="1.5"/>'
-            + '<path d="M12 22 h40 v4 h-40 Z M20 22 v-5 h24 v5" fill="#2f3a45"/>'
-            + '<circle cx="24" cy="34" r="3.4" fill="#2f3a45"/><circle cx="40" cy="34" r="3.4" fill="#2f3a45"/>'
-            + '<circle cx="25.2" cy="32.8" r="1.2" fill="#fff"/><circle cx="41.2" cy="32.8" r="1.2" fill="#fff"/>'
-            + '<circle cx="17" cy="45" r="3.2" fill="#ea4335" opacity=".22"/>'
-            + '<circle cx="47" cy="45" r="3.2" fill="#ea4335" opacity=".22"/>'
-            + boca
-            + '<rect x="64" y="30" width="30" height="24" rx="2" fill="#fff" stroke="#5f6368" stroke-width="2"/>'
-            + '<path d="M79 30 v24" stroke="#5f6368" stroke-width="2"/>'
-            + '<path d="M68 38 h8 M68 44 h8 M83 38 h8 M83 44 h8" stroke="#9aa0a6" stroke-width="1.6"/>'
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
             + '</svg>';
         }
 
-        txt.innerHTML = '<b>El maestro de taller</b><br>Te cuenta por qu&eacute; hubo que inventar un m&eacute;todo, '
-          + 'y cu&aacute;les son los siete pasos.';
-        caja.innerHTML = cara(false);
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
 
-        var hayVoz = ('speechSynthesis' in window), voz = null;
-        function puntua(v){
-          var n = (v.name || '').toLowerCase(), p = 0;
-          if(/natural|neural/.test(n)) p += 100;
-          if(/online/.test(n)) p += 40;
-          if(/premium|enhanced/.test(n)) p += 60;
-          if(/google/.test(n)) p += 50;
-          if(/^es-es/i.test(v.lang)) p += 10;
-          return p;
-        }
-        function vocesES(){
-          return !hayVoz ? [] : speechSynthesis.getVoices()
-            .filter(function(v){ return /^es/i.test(v.lang); })
-            .sort(function(a,b){ return puntua(b) - puntua(a); });
-        }
-        function elige(){
-          var vs = vocesES(); if(!vs.length) return;
-          var g = null; try{ g = localStorage.getItem('voz-tema0'); }catch(e){}
-          voz = vs.filter(function(v){ return v.name === g; })[0] || vs[0];
-          var c = document.getElementById('sel-voz-u1');
-          if(!c || vs.length < 2) return;
-          c.innerHTML = '<label style="font-family:var(--f-m);font-size:11px;color:var(--ink-soft)">Voz: ' +
-            '<select style="font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:2px;' +
-            'background:var(--surface);color:var(--ink);max-width:220px">' +
-            vs.map(function(v){ return '<option' + (voz && v.name===voz.name ? ' selected':'') + '>' +
-              v.name.replace(/Microsoft |Spanish \(Spain\)|- /g,'').trim() + '</option>'; }).join('') +
-            '</select></label>';
-          c.querySelector('select').addEventListener('change', function(){
-            voz = vs.filter(function(v){ return v.name.indexOf(this.value) >= 0; }.bind(this))[0] || voz;
-            try{ localStorage.setItem('voz-tema0', voz.name); }catch(e){}
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
           });
-        }
-        if(hayVoz){ elige(); speechSynthesis.onvoiceschanged = elige; }
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
 
-        document.getElementById('voz-u1').addEventListener('click', function(){
-          if(!hayVoz){ txt.innerHTML += '<br><i>Este navegador no puede leer en voz alta.</i>'; return; }
-          speechSynthesis.cancel();
-          var u = new SpeechSynthesisUtterance(GUION);
-          u.lang = 'es-ES'; if(voz) u.voice = voz;
-          u.rate = 0.97; u.pitch = 1.0;
-          u.onstart = function(){ caja.innerHTML = cara(true); };
-          u.onend = u.onerror = function(){ caja.innerHTML = cara(false); };
-          speechSynthesis.speak(u);
-        });
-        document.getElementById('stop-u1').addEventListener('click', function(){
-          if(hayVoz) speechSynthesis.cancel();
-          caja.innerHTML = cara(false);
-        });
+        fig.innerHTML = dibuja(0, false);
       })();
       </script>
       <h3>Y no es una l&iacute;nea recta</h3>
