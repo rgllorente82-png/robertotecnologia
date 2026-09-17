@@ -8,6 +8,7 @@ from escena_hierro import ESCENA_HIERRO
 from u4_s2 import S2
 from u4_s3 import S3
 from u4_s4 import S4
+from u4_s5 import S5
 
 INTRO = u'''
       <div class="escena">
@@ -264,8 +265,12 @@ S.append(dict(corto=u'Estabilidad', titulo=u'Puede estar todo bien calculado y c
               minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
               chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5'],
               cuerpo=S4))
-for c in [u'Construir', u'Proyecto y test']:
-    S.append(dict(corto=c, pendiente=True))
+S.append(dict(corto=u'Construir', titulo=u'El puente de 40 cent&iacute;metros',
+              entradilla=u'Veinte palillos y un metro de cinta. La nota no es lo que aguante: es lo que aguante dividido por lo que pese.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Dise&ntilde;o'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5'],
+              cuerpo=S5))
+S.append(dict(corto=u'Proyecto y test', pendiente=True))
 
 CFG = dict(
  ruta='2eso/TyD/tema4/',
