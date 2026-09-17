@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 4 &middot; Estructuras</title>
+<meta name="description" content="Tema 4 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los cinco esfuerzos, la triangulaci&oacute;n y por qu&eacute; una estructura aguanta.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema4/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 4 &middot; Estructuras","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema4/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 4 &middot; Estructuras &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 4</div>
+    <h1>Estructuras</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; no se cae?</button><button type="button" data-ses="2" disabled>S2 &middot; Tipos de estructura</button><button type="button" data-ses="3" disabled>S3 &middot; Perfiles y secciones</button><button type="button" data-ses="4" disabled>S4 &middot; Estabilidad</button><button type="button" data-ses="5" disabled>S5 &middot; Construir</button><button type="button" data-ses="6" disabled>S6 &middot; Proyecto y test</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>Por qu&eacute; no se cae: los cinco esfuerzos</h2>
+      <p>Una estructura no aguanta porque sea fuerte. Aguanta porque reparte.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.4</span><span class="chip sab">A.5</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Mira el edificio m&aacute;s alto que se vea desde la ventana. Ahora piensa en un temporal de los de
+         verdad.</p>
+      <div class="aviso">
+        <span class="n-tag">El dato</span>
+        El viento empuja la fachada de un rascacielos con una fuerza que equivale a <b>varias toneladas
+        empujando de lado</b>. Y el edificio no vuelca: como mucho, su punta se balancea unos cent&iacute;metros.
+      </div>
+      <p><b>&iquest;Por qu&eacute; no se cae?</b> Cont&eacute;stalo por escrito antes de seguir.</p>
+      <p>La respuesta habitual es «porque es muy fuerte» o «porque tiene mucho hormig&oacute;n». Y no es eso:
+         hay torres el&eacute;ctricas que est&aacute;n <b>casi huecas</b>, pesan una fracci&oacute;n de lo que parece, y aguantan
+         vendavales a&ntilde;o tras a&ntilde;o.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <h3>No aguanta porque sea fuerte: aguanta porque reparte</h3>
+
+      <div class="narrador" id="narr-u4">
+        <div class="narrador-fig" id="narr-u4-fig"></div>
+        <div class="narrador-txt">
+          <h4>Por qu&eacute; aguanta una estructura</h4>
+          <span class="narrador-quien">La idea que organiza todo el tema, en medio minuto</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Audio propio, generado con voz neuronal. La boca sigue el volumen real de la voz.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-u4');
+        if(!C) return;
+        var fig = document.getElementById('narr-u4-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.0, 0.71, 0.81, 0.8, 0.13, 0.27, 0.52, 0.24, 0.51, 0.69, 0.66, 0.64, 0.52, 0.75, 0.66, 0.75, 0.86, 0.47, 0.28, 0.37, 0.31, 0.28, 0.49, 0.18, 0.4, 0.24, 0.64, 0.84, 0.31, 0.23, 0.33, 0.3, 0.03, 0.23, 0.19, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.51, 0.66, 0.3, 0.83, 0.93, 0.5, 0.66, 0.84, 0.06, 0.74, 0.46, 0.13, 0.63, 0.46, 0.39, 0.66, 0.57, 0.28, 0.04, 0.19, 0.15, 0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.57, 0.77, 0.56, 0.76, 0.52, 0.72, 0.67, 0.35, 0.58, 0.51, 0.4, 0.57, 0.56, 0.13, 0.73, 0.6, 0.64, 0.61, 0.29, 0.25, 0.39, 0.55, 0.1, 0.2, 0.24, 0.18, 0.07, 0.0, 0.0, 0.0, 0.04, 0.45, 0.12, 0.54, 0.17, 0.49, 0.55, 0.3, 0.5, 0.57, 0.53, 0.28, 0.48, 0.48, 0.64, 0.63, 0.56, 0.45, 0.38, 0.3, 0.28, 0.19, 0.36, 0.4, 0.22, 0.21, 0.07, 0.01, 0.0, 0.0, 0.0, 0.49, 0.75, 0.63, 0.37, 0.4, 0.6, 0.07, 0.47, 0.68, 0.64, 0.9, 0.87, 0.35, 0.27, 0.53, 0.36, 0.26, 0.07, 0.28, 0.16, 0.31, 0.21, 0.14, 0.18, 0.15, 0.04, 0.0, 0.0, 0.0, 0.0, 0.0, 0.34, 0.36, 0.69, 0.42, 0.07, 0.59, 0.78, 0.78, 0.06, 0.7, 0.56, 0.23, 0.11, 0.42, 0.38, 0.27, 0.2, 0.07, 0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.47, 0.77, 0.34, 0.78, 0.62, 0.61, 0.15, 0.47, 0.59, 0.61, 0.07, 0.48, 0.85, 0.51, 0.35, 0.35, 0.12, 0.31, 0.11, 0.8, 0.79, 0.45, 0.32, 0.28, 0.49, 0.45, 0.18, 0.07, 0.66, 0.48, 0.45, 0.54, 0.33, 0.29, 0.29, 0.27, 0.5, 0.77, 0.13, 0.3, 0.37, 0.23, 0.21, 0.08, 0.01, 0.0, 0.0, 0.03, 0.14, 0.58, 0.59, 0.49, 0.11, 0.55, 0.57, 0.1, 0.54, 0.51, 0.47, 0.73, 1.0, 0.48, 0.28, 0.28, 0.17, 0.04, 0.72, 0.45, 0.37, 0.33, 0.15, 0.27, 0.29, 0.14, 0.21, 0.37, 0.24, 0.17, 0.09, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.57, 0.83, 0.78, 0.57, 0.13, 0.49, 0.49, 0.73, 0.56, 0.32, 0.62, 0.62, 0.71, 0.67, 0.38, 0.12, 0.36, 0.28, 0.23, 0.13, 0.48, 0.45, 0.36, 0.18, 0.05, 0.0, 0.0, 0.0, 0.06, 0.56, 0.14, 0.05, 0.56, 0.27, 0.55, 0.38, 0.11, 0.47, 0.36, 0.5, 0.53, 0.22, 0.28, 0.17, 0.04, 0.0, 0.02, 0.56, 0.56, 0.74, 0.75, 0.3, 0.47, 0.47, 0.64, 0.57, 0.16, 0.41, 0.61, 0.48, 0.19, 0.28, 0.07, 0.53, 0.55, 0.42, 0.56, 0.57, 0.55, 0.61, 0.56, 0.29, 0.44, 0.51, 0.06, 0.41, 0.27, 0.33, 0.21, 0.36, 0.27, 0.15, 0.32, 0.12, 0.33, 0.18, 0.09, 0.18, 0.14, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/u4-estructuras.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+      <p>Cuando una fuerza llega a una estructura, <b>no se queda donde llega</b>. Cada pieza se la pasa a
+         la siguiente y la conduce hasta el suelo. Y seg&uacute;n c&oacute;mo est&eacute; colocada, cada pieza sufre un tipo
+         distinto de esfuerzo.</p>
+
+      <div class="escena" id="esc-esf">
+        <div class="escena-barra">
+          <span class="escena-titulo">Los cinco esfuerzos &middot; pulsa uno</span>
+          <div class="seg" id="seg-esf">
+            <button type="button" data-e="0" aria-pressed="true">Tracci&oacute;n</button>
+            <button type="button" data-e="1">Compresi&oacute;n</button>
+            <button type="button" data-e="2">Flexi&oacute;n</button>
+            <button type="button" data-e="3">Torsi&oacute;n</button>
+            <button type="button" data-e="4">Cortadura</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 210" id="svg-esf" role="img"
+               aria-label="Los cinco esfuerzos: traccion, compresion, flexion, torsion y cortadura"></svg>
+        </div>
+        <div class="pie" id="pie-esf"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-esf');
+        var pie = document.getElementById('pie-esf');
+        var seg = document.getElementById('seg-esf');
+        if(!svg) return;
+        var sel = 0;
+
+        var E = [
+          {n:'Tracci&oacute;n',  d:'Dos fuerzas tiran en sentidos opuestos y <b>alargan</b> la pieza. '
+            + 'La cuerda de un columpio, el cable de una gr&uacute;a. El acero aguanta muy bien; el hormig&oacute;n, fatal.'},
+          {n:'Compresi&oacute;n', d:'Las fuerzas aprietan y tienden a <b>acortar</b> la pieza. Las patas de una silla, '
+            + 'un pilar. Ojo: si es larga y delgada no se aplasta, <b>se dobla de golpe</b>. Eso es el pandeo.'},
+          {n:'Flexi&oacute;n',    d:'La fuerza llega perpendicular y la pieza <b>se curva</b>. Una estanter&iacute;a con libros. '
+            + 'Al curvarse, arriba se comprime y abajo se estira: la flexi&oacute;n es las dos cosas a la vez.'},
+          {n:'Torsi&oacute;n',    d:'Dos fuerzas la hacen <b>girar sobre su eje</b>. Escurrir un trapo, girar una llave. '
+            + 'Es el m&aacute;s traicionero: muchas estructuras se calculan pensando solo en cargas verticales.'},
+          {n:'Cortadura',  d:'Dos fuerzas pr&oacute;ximas y opuestas tienden a <b>cortar</b> la pieza, como unas tijeras. '
+            + 'As&iacute; trabajan tornillos y remaches. Por eso un tornillo mal elegido no se dobla: se secciona.'}
+        ];
+
+        function flecha(x1,y1,x2,y2,col){
+          var dx=x2-x1, dy=y2-y1, L=Math.hypot(dx,dy), ux=dx/L, uy=dy/L;
+          var bx=x2-ux*11, by=y2-uy*11, nx=-uy, ny=ux;
+          return '<path d="M'+x1+' '+y1+' L'+bx.toFixed(1)+' '+by.toFixed(1)+'" stroke="'+col+'" stroke-width="3.5" stroke-linecap="round"></path>'
+               + '<path d="M'+x2+' '+y2+' L'+(bx+nx*5).toFixed(1)+' '+(by+ny*5).toFixed(1)
+               + ' L'+(bx-nx*5).toFixed(1)+' '+(by-ny*5).toFixed(1)+' Z" fill="'+col+'"></path>';
+        }
+
+        function pinta(){
+          var m = '', R='var(--goo-rojo)', A='var(--goo-azul)', X=190, Y=95, W=260, H=34;
+          if(sel === 0){        /* traccion: la pieza se alarga */
+            m += '<rect x="'+(X-14)+'" y="'+Y+'" width="'+(W+28)+'" height="'+H+'" rx="3" fill="var(--accent-soft)" stroke="'+A+'" stroke-width="2.5"></rect>';
+            m += flecha(X-30, Y+H/2, X-90, Y+H/2, R) + flecha(X+W+30, Y+H/2, X+W+90, Y+H/2, R);
+          } else if(sel === 1){ /* compresion: mas corta y ancha */
+            m += '<rect x="'+(X+16)+'" y="'+(Y-6)+'" width="'+(W-32)+'" height="'+(H+12)+'" rx="3" fill="var(--accent-soft)" stroke="'+A+'" stroke-width="2.5"></rect>';
+            m += flecha(X-70, Y+H/2, X+8, Y+H/2, R) + flecha(X+W+70, Y+H/2, X+W-8, Y+H/2, R);
+          } else if(sel === 2){ /* flexion: curvada */
+            m += '<path d="M'+X+' '+Y+' q130 46 '+W+' 0 v'+H+' q-130 46 -'+W+' 0 Z" fill="var(--accent-soft)" stroke="'+A+'" stroke-width="2.5"></path>';
+            m += flecha(X+W/2, Y-52, X+W/2, Y+22, R);
+            m += '<path d="M'+(X-6)+' '+(Y+H+6)+' h18 M'+(X+W-12)+' '+(Y+H+6)+' h18" stroke="var(--ink-soft)" stroke-width="5"></path>';
+            m += '<text x="'+(X+W/2)+'" y="'+(Y-60)+'" text-anchor="middle" class="rotulo-svg" style="font-size:10px">carga</text>';
+            m += '<text x="'+(X+40)+'" y="'+(Y+14)+'" class="rotulo-svg" style="font-size:9.5px">se comprime</text>';
+            m += '<text x="'+(X+40)+'" y="'+(Y+H+28)+'" class="rotulo-svg" style="font-size:9.5px">se estira</text>';
+          } else if(sel === 3){ /* torsion: secciones giradas */
+            m += '<rect x="'+X+'" y="'+Y+'" width="'+W+'" height="'+H+'" rx="3" fill="var(--accent-soft)" stroke="'+A+'" stroke-width="2.5"></rect>';
+            for(var k=1;k<6;k++){
+              var xx = X + k*W/6, inc = (k-3)*5;
+              m += '<path d="M'+xx+' '+(Y+inc)+' L'+xx+' '+(Y+H+inc)+'" stroke="'+A+'" stroke-width="1.6" opacity=".7"></path>';
+            }
+            m += '<path d="M'+(X-52)+' '+(Y+H/2)+' a26 26 0 1 1 8 18" fill="none" stroke="'+R+'" stroke-width="3.5"></path>';
+            m += '<path d="M'+(X-44)+' '+(Y+H/2+18)+' l10 -3 l-2 11 Z" fill="'+R+'"></path>';
+            m += '<path d="M'+(X+W+52)+' '+(Y+H/2)+' a26 26 0 1 0 -8 18" fill="none" stroke="'+R+'" stroke-width="3.5"></path>';
+            m += '<path d="M'+(X+W+44)+' '+(Y+H/2+18)+' l-10 -3 l2 11 Z" fill="'+R+'"></path>';
+          } else {              /* cortadura: dos mitades desplazadas */
+            m += '<rect x="'+X+'" y="'+(Y-7)+'" width="'+(W/2)+'" height="'+H+'" rx="3" fill="var(--accent-soft)" stroke="'+A+'" stroke-width="2.5"></rect>';
+            m += '<rect x="'+(X+W/2)+'" y="'+(Y+7)+'" width="'+(W/2)+'" height="'+H+'" rx="3" fill="var(--accent-soft)" stroke="'+A+'" stroke-width="2.5"></rect>';
+            m += '<path d="M'+(X+W/2)+' '+(Y-20)+' V'+(Y+H+20)+'" stroke="'+R+'" stroke-width="1.5" stroke-dasharray="5 4"></path>';
+            m += flecha(X+40, Y-26, X+W/2-14, Y-26, R) + flecha(X+W-40, Y+H+26, X+W/2+14, Y+H+26, R);
+          }
+          svg.innerHTML = m;
+          pie.innerHTML = '<b>'+E[sel].n+'.</b> '+E[sel].d;
+        }
+        seg.addEventListener('click', function(e){
+          var b=e.target.closest('button[data-e]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed', x===b?'true':'false');});
+          sel=+b.dataset.e; pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Los cinco esfuerzos</h4>
+        <ul>
+          <li><b>Tracci&oacute;n</b>: la alargan.</li>
+          <li><b>Compresi&oacute;n</b>: la acortan o aplastan. Si es larga y delgada, <b>pandea</b>.</li>
+          <li><b>Flexi&oacute;n</b>: la curvan. Es compresi&oacute;n arriba y tracci&oacute;n abajo a la vez.</li>
+          <li><b>Torsi&oacute;n</b>: la retuercen sobre su eje.</li>
+          <li><b>Cortadura</b>: tienden a cortarla, como unas tijeras.</li>
+        </ul>
+        <p><b>Estructura</b>: conjunto de elementos que soporta las cargas de un objeto y las conduce
+           hasta el suelo sin romperse ni deformarse demasiado.</p>
+      </div>
+
+      <h3>El truco que lo cambia todo: triangular</h3>
+
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">El tri&aacute;ngulo y el cuadrado, en movimiento</span></div>
+        <div class="lienzo" style="padding:0">
+          <video controls preload="metadata" style="width:100%;height:auto;display:block"
+                 poster="../../../video/triangulacion.jpg">
+            <source src="../../../video/triangulacion.mp4" type="video/mp4">
+            Tu navegador no puede reproducir v&iacute;deo.
+            <a href="../../../video/triangulacion.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
+          </video>
+        </div>
+        <div class="pie">F&iacute;jate en una cosa mientras lo ves: <b>ninguna barra cambia de longitud</b>.
+          Lo &uacute;nico que se mueve son los &aacute;ngulos. Y aun as&iacute;, el cuadrado se desploma y el tri&aacute;ngulo no.
+          <br><br>V&iacute;deo propio, hecho con manim, con voz propia. Es material de la web, bajo la misma licencia. Las dos fotos del final proceden de Wikimedia Commons: torre de alta tensi&oacute;n de <i>HighVoltage 5576</i> (CC0) y &laquo;Paris, Eiffelturm 2014&raquo; de <i>Dietmar Rabich</i> (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a>).</div>
+      </div>
+
+      <div class="copiar">
+        <h4>Triangulaci&oacute;n</h4>
+        <p><b>El tri&aacute;ngulo es la &uacute;nica figura indeformable</b> con barras articuladas: fijados los tres
+           lados, los tres &aacute;ngulos quedan determinados y no hay otra forma posible.</p>
+        <p><b>Triangular</b> una estructura es dividirla en tri&aacute;ngulos con barras diagonales, llamadas
+           <b>tirantes</b> o <b>riostras</b>. Es lo que ves en las torres el&eacute;ctricas, las gr&uacute;as, las cerchas
+           de los tejados y la Torre Eiffel.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Que la torsi&oacute;n no es un detalle menor lo demostr&oacute; el <b>puente de Tacoma Narrows</b>. Se abri&oacute;
+           al tr&aacute;fico el 1 de julio de 1940, con un vano central de 853 metros y un tablero estrecho
+           rigidizado con vigas macizas en lugar de celos&iacute;as trianguladas.</p>
+        <p>El 7 de noviembre de ese mismo a&ntilde;o, con un viento de unos <b>68 km/h</b> &mdash;una ventolera de
+           oto&ntilde;o, nada excepcional&mdash;, el tablero entr&oacute; en oscilaci&oacute;n de torsi&oacute;n, se retorci&oacute; durante
+           m&aacute;s de una hora y se hundi&oacute;. No hubo v&iacute;ctimas humanas.</p>
+        <p>El puente estaba calculado para vientos muy superiores. <b>El fallo estuvo en la forma, no en
+           la fuerza.</b> El que se construy&oacute; en su lugar cambi&oacute; aquellas vigas macizas por celos&iacute;as
+           trianguladas abiertas, que dejan pasar el aire. Sigue en servicio.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 9 &middot; La torre de papel</span>
+          <span class="chips"><span class="chip">2.1</span><span class="chip">3.1</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Material: <b>cinco folios y 50 cm de cinta</b>. Nada m&aacute;s.</p>
+          <ol class="pasos">
+            <li>Construid la torre <b>m&aacute;s alta posible</b> que aguante un libro de texto encima durante
+                un minuto.</li>
+            <li>Antes de empezar, dibujad el dise&ntilde;o y <b>se&ntilde;alad qu&eacute; esfuerzo</b> sufre cada pieza.</li>
+            <li>Al terminar, medid la altura y anotad <b>por d&oacute;nde ha fallado</b> si ha fallado.</li>
+            <li>Si se ha doblado una pieza vertical, decid si fue por aplastamiento o por <b>pandeo</b>.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El dise&ntilde;o previo est&aacute; dibujado y con los esfuerzos se&ntilde;alados <b>(3 puntos)</b>.</li>
+            <li>La torre aguanta el libro <b>(2 puntos)</b>.</li>
+            <li>Hay triangulaci&oacute;n y se justifica d&oacute;nde y por qu&eacute; <b>(3 puntos)</b>.</li>
+            <li>El an&aacute;lisis del fallo es correcto <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Pista que casi nadie usa</span>
+            Un folio plano no aguanta nada de pie. <b>Enrollado en tubo, aguanta much&iacute;simo.</b> La
+            resistencia no depende solo del material: depende tambi&eacute;n de la <b>forma de la secci&oacute;n</b>.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Vuelve al rascacielos. Ya puedes contestar sin decir «porque es fuerte»: no vuelca porque el
+         empuje del viento <b>se reparte</b> entre todas sus piezas y baja hasta el suelo, y porque su
+         estructura est&aacute; pensada para que ninguna pieza reciba m&aacute;s de lo que puede.</p>
+      <ol>
+              <li>&iquest;Por qu&eacute; el tri&aacute;ngulo es indeformable y el cuadrado no?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque fijados los tres lados de un tri&aacute;ngulo, <b>los tres &aacute;ngulos quedan determinados</b>. Un cuadrado, en cambio, se desploma en rombo sin que sus lados cambien de longitud.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es el pandeo y en qu&eacute; esfuerzo aparece?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Aparece en <b>compresi&oacute;n</b>. Una pieza larga y delgada comprimida no se aplasta: <b>se dobla de golpe</b> hacia un lado. Por eso los pilares altos son gruesos.</p></div></details></li>
+        <li>La flexi&oacute;n es en realidad dos esfuerzos a la vez. &iquest;Cu&aacute;les?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Compresi&oacute;n</b> en la cara que se acorta y <b>tracci&oacute;n</b> en la que se estira. Por eso una viga de hormig&oacute;n lleva las barras de acero abajo: es donde se estira, y el hormig&oacute;n no aguanta tracci&oacute;n.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes que aguante. Pero una estructura que aguanta no hace nada: est&aacute; quieta. Lo siguiente es
+        conseguir que <b>algo se mueva</b>, y eso son los mecanismos.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden><div class="ses-head"><h2>Sesi&oacute;n 2 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-3" hidden><div class="ses-head"><h2>Sesi&oacute;n 3 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 4 &middot; Estructuras</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 4 &middot; Estructuras</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema4/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
+     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
+     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 4 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>
