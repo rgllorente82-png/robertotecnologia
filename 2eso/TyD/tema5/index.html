@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tema 5 &middot; Mecanismos</title>
-<meta name="description" content="Tema 5 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: palanca, poleas y polipasto, engranajes y relaci&oacute;n de transmisi&oacute;n, con escenas interactivas.">
+<meta name="description" content="Tema 5 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: palanca, poleas y polipasto, engranajes y relaci&oacute;n de transmisi&oacute;n, transformaci&oacute;n del movimiento, taller de engranajes de cart&oacute;n y test, con escenas interactivas.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/">
@@ -273,6 +273,42 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+.test{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;
+  padding:4px 18px 18px;margin:18px 0}
+.test ol.test-lista{list-style:none;padding:0;margin:0;counter-reset:tp}
+.test .test-p{counter-increment:tp;border-top:1px solid var(--line-soft);padding:16px 0 14px;margin:0}
+.test .test-p:first-child{border-top:none}
+.test .test-enun{margin:0 0 10px;font-weight:500}
+.test .test-enun::before{content:counter(tp) ".";font-family:var(--f-m);color:var(--goo-azul);
+  margin-right:8px;font-weight:500}
+.test .test-ops{display:grid;gap:6px}
+.test .test-ops label{display:flex;gap:10px;align-items:flex-start;padding:8px 11px;cursor:pointer;
+  border:1.5px solid var(--line);border-radius:2px;background:var(--surface);font-size:15px}
+.test .test-ops label:hover{border-color:var(--goo-azul)}
+.test .test-ops input{margin:3px 0 0;flex:none;accent-color:var(--goo-azul)}
+.test.hecho .test-ops label{cursor:default}
+/* El tinte va en rgba de los hexadecimales de marca, no en color-mix: con una
+   capa translucida al 13 % se lee igual sobre el fondo claro y sobre el oscuro,
+   y funciona tambien en navegadores viejos de aula. */
+.test .op-bien{border-color:var(--goo-verde);background:rgba(52,168,83,.13)}
+.test .op-mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.13)}
+.test .marca{margin-left:auto;font-family:var(--f-m);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;white-space:nowrap}
+.test .op-bien .marca{color:var(--goo-verde)}
+.test .op-mal .marca{color:var(--goo-rojo)}
+.test .test-fb{margin:10px 0 0;padding:10px 13px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px}
+.test .test-fb p{margin:0}
+.test-pie{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px;
+  padding-top:16px;border-top:2px solid var(--goo-azul)}
+.test-pie button{background:var(--goo-azul);border:1.5px solid var(--goo-azul);color:#fff;
+  border-radius:2px;padding:9px 18px;font:500 13px var(--f-m);cursor:pointer}
+.test-pie button.sec{background:var(--surface);color:var(--goo-azul)}
+.test-nota{flex:1;min-width:230px;font-size:14.5px}
+.test-nota b.cifra{font-size:22px;font-family:var(--f-m)}
+.test-aviso{font-size:13.5px;color:var(--goo-rojo);margin:8px 0 0}
+@media print{.test-ops input{display:none}}
 </style>
 </head>
 <body>
@@ -280,7 +316,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 5</div>
     <h1>Mecanismos</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; La palanca</button><button type="button" data-ses="2">S2 &middot; Poleas</button><button type="button" data-ses="3">S3 &middot; Engranajes</button><button type="button" data-ses="4" disabled>S4 &middot; Transformar el movimiento</button><button type="button" data-ses="5" disabled>S5 &middot; Montar un mecanismo</button><button type="button" data-ses="6" disabled>S6 &middot; Repaso y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; La palanca</button><button type="button" data-ses="2">S2 &middot; Poleas</button><button type="button" data-ses="3">S3 &middot; Engranajes</button><button type="button" data-ses="4">S4 &middot; Transformar</button><button type="button" data-ses="5">S5 &middot; Montar un mecanismo</button><button type="button" data-ses="6">S6 &middot; Repaso y test</button></nav>
   </div>
 </header>
 
@@ -618,7 +654,7 @@ footer .wrap{padding-block:18px 26px}
           <span class="video-tri" aria-hidden="true"></span>
           <span class="video-txt">
             <b>Ley de la palanca (mecanismos)</b>
-            <span>TECH LAPSE &middot; unos 4 minutos</span>
+            <span>TECH LAPSE &middot; 2 minutos</span>
           </span>
         </button>
         <p class="video-nota">Animaci&oacute;n de los tres g&eacute;neros con la ley aplicada paso a paso. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
@@ -1000,7 +1036,7 @@ footer .wrap{padding-block:18px 26px}
           <span class="video-tri" aria-hidden="true"></span>
           <span class="video-txt">
             <b>Polea fija, polea m&oacute;vil y polipasto</b>
-            <span>tecnoblas2 &middot; unos 4 minutos</span>
+            <span>tecnoblas2 &middot; 7 minutos y medio</span>
           </span>
         </button>
         <p class="video-nota">Ense&ntilde;a los tres montajes seguidos, con la cuerda que hay que tirar en cada uno. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
@@ -1447,9 +1483,12 @@ footer .wrap{padding-block:18px 26px}
                + ' 0 0 1 ' + (-(Ri+10)) + ' ' + (Ri+10)
                + '" fill="none" stroke="var(--goo-azul)" stroke-width="2.2"></path>';
             m += '<path d="M' + xi + ' ' + (yi+Ri+10) + ' l7 -8 l4 10 Z" fill="var(--goo-azul)"></path>';
-            m += '<text x="' + xi + '" y="' + (yi-Ri-14) + '" text-anchor="middle" class="rotulo-svg" '
+            /* 18 px entre los dos rotulos, no 13: en un movil estrecho el
+               navegador agranda el cuerpo de letra respecto al viewBox y con 13
+               se montaban el uno sobre el otro. */
+            m += '<text x="' + xi + '" y="' + (yi-Ri-20) + '" text-anchor="middle" class="rotulo-svg" '
                + 'style="fill:var(--ink)">el tornillo, por el extremo</text>';
-            m += '<text x="' + xi + '" y="' + (yi-Ri-1) + '" text-anchor="middle" class="rotulo-svg">'
+            m += '<text x="' + xi + '" y="' + (yi-Ri-2) + '" text-anchor="middle" class="rotulo-svg">'
                + 'las mismas tres marcas</text>';
 
             svg.innerHTML = m;
@@ -1590,7 +1629,7 @@ footer .wrap{padding-block:18px 26px}
           <span class="video-tri" aria-hidden="true"></span>
           <span class="video-txt">
             <b>Engranajes (Transmisi&oacute;n circular)</b>
-            <span>TECH LAPSE &middot; unos 5 minutos</span>
+            <span>TECH LAPSE &middot; 2 minutos y medio</span>
           </span>
         </button>
         <p class="video-nota">Animaci&oacute;n de trenes de engranajes con la relaci&oacute;n de transmisi&oacute;n calculada. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
@@ -1893,11 +1932,1787 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>El motor gira y el pist&oacute;n sube y baja: transformar el movimiento</h2>
+      <p>Hasta aqu&iacute; entraba un giro y sal&iacute;a un giro. Desde aqu&iacute; cambia la naturaleza del movimiento, y eso pide cuatro mecanismos nuevos.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE3 &middot; 3.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+      <p>Repasa lo de las tres sesiones anteriores y busca lo que tienen en com&uacute;n. La palanca
+         recibe un empuj&oacute;n y devuelve un empuj&oacute;n. El polipasto recibe un tir&oacute;n y
+         devuelve un tir&oacute;n. Los engranajes reciben un giro y devuelven un giro. <b>Siempre sale
+         lo mismo que entr&oacute;</b>, cambiado de tama&ntilde;o pero no de clase.</p>
+      <p>Y resulta que casi nada de lo que te rodea funciona as&iacute;. El motor de un coche gira,
+         pero dentro lo que hay es un <b>pist&oacute;n que sube y baja</b>. El motor del port&oacute;n
+         del garaje gira, pero la puerta <b>corre recta</b>. El limpiaparabrisas <b>va y viene</b>. La
+         aguja de una m&aacute;quina de coser <b>sube y baja</b> mientras el motor da vueltas.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        Tienes un motor, que solo sabe girar, y necesitas mover algo <b>en l&iacute;nea recta</b>.
+        <b>&iquest;C&oacute;mo lo haces?</b> Y la de vuelta, que es m&aacute;s dif&iacute;cil todav&iacute;a:
+        dentro del motor la explosi&oacute;n empuja el pist&oacute;n <b>recto</b>&hellip; y por el
+        cig&uuml;e&ntilde;al sale un <b>giro</b>. &iquest;Qui&eacute;n hace esa traducci&oacute;n?
+      </div>
+      <h3>La soluci&oacute;n f&aacute;cil, y por qu&eacute; no sirve</h3>
+      <p>Lo primero que se le ocurre a casi todo el mundo ya lo sabes hacer: <b>enrollar una cuerda en
+         un tambor</b>. Giras el tambor y la cuerda se recoge, tirando de lo que sea en l&iacute;nea
+         recta. Es el torno del pozo de toda la vida, y funciona.</p>
+      <p>Funciona para sacar un cubo de agua. Para lo dem&aacute;s se cae por cuatro sitios, y conviene
+         verlos uno a uno porque cada uno explica un mecanismo de hoy:</p>
+      <ul>
+        <li>Una cuerda <b>solo tira</b>. No empuja. La mitad de las m&aacute;quinas necesitan empujar.</li>
+        <li><b>No vuelve sola.</b> Para que baje hace falta que algo la baje: la gravedad, otra cuerda,
+            un peso.</li>
+        <li>Conforme se enrolla, la cuerda se monta sobre s&iacute; misma y el tambor <b>engorda</b>:
+            cada vuelta sube un poco m&aacute;s que la anterior. <b>No puedes calcular</b> cu&aacute;nto
+            sube por vuelta, y eso descarta la cuerda para cualquier cosa de precisi&oacute;n.</li>
+        <li>Y sobre todo: un motor de coche hace <b>3.000 vueltas por minuto</b>. Cincuenta por segundo.
+            Una cuerda ah&iacute; no dura ni un minuto.</li>
+      </ul>
+      <p>As&iacute; que hace falta otra cosa. Cuatro cosas, en realidad, y cada una resuelve un caso
+         distinto.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <h3>Transmitir y transformar no son lo mismo</h3>
+      <p>Aqu&iacute; se parte el tema en dos mitades, y el corte es este: en las sesiones anteriores el
+         movimiento <b>se transmit&iacute;a</b> &mdash;entraba un giro y sal&iacute;a un giro&mdash;. A
+         partir de ahora el movimiento <b>se transforma</b>: entra un giro y sale otra cosa. Cambia la
+         <b>naturaleza</b> del movimiento, no solo su tama&ntilde;o.</p>
+
+      <div class="copiar">
+        <h4>Las dos familias de mecanismos</h4>
+        <ul>
+          <li><b>De transmisi&oacute;n</b>: la salida es del <b>mismo tipo</b> que la entrada. Palanca,
+              poleas, engranajes, cadena, correa, tornillo sin fin.</li>
+          <li><b>De transformaci&oacute;n</b>: la salida es de <b>otro tipo</b>. Casi siempre entra un
+              giro y sale un movimiento <b>rectil&iacute;neo</b> (todo seguido en l&iacute;nea recta) o
+              <b>alternativo</b> (ir y venir sin parar).</li>
+        </ul>
+      </div>
+
+      <h3>El primero: biela y manivela</h3>
+      <p>Coge una barra y sujeta un extremo a un punto de una rueda que <b>no sea el centro</b>. El otro
+         extremo, a algo que solo pueda ir y venir en l&iacute;nea recta. Ya est&aacute;. Ese punto
+         descentrado es la <b>manivela</b> y la barra es la <b>biela</b>.</p>
+      <p>Mira la escena. Y no mires solo el dibujo: mira la <b>gr&aacute;fica de abajo</b>, que dice
+         d&oacute;nde est&aacute; el pist&oacute;n en cada grado de la vuelta. Cambia la longitud de la
+         biela con los botones y fíjate en dos cosas: en que la <b>carrera no cambia</b>, y en que la
+         curva <b>s&iacute; cambia</b>.</p>
+
+      <div class="escena" id="esc-biela">
+        <div class="escena-barra">
+          <span class="escena-titulo">La manivela gira &middot; el pist&oacute;n va y viene</span>
+          <div class="seg" id="seg-biela">
+            <button type="button" data-b="corta">Biela corta</button>
+            <button type="button" data-b="normal" aria-pressed="true">Biela normal</button>
+            <button type="button" data-b="larga">Biela larga</button>
+            <button type="button" data-b="muerto">&#9673; Punto muerto</button>
+            <button type="button" data-b="pausa">&#9208; Parar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 380" id="svg-biela" role="img"
+               aria-label="Mecanismo de biela y manivela: la manivela gira y el pist&oacute;n va y viene
+                           dentro del cilindro, con la gr&aacute;fica de su recorrido a lo largo de una vuelta"></svg>
+        </div>
+        <div class="pie" id="pie-biela"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-biela');
+        var pie = document.getElementById('pie-biela');
+        var seg = document.getElementById('seg-biela');
+        if(!svg) return;
+
+        var ESC = 1.3;              /* pixeles por milimetro */
+        var Rmm = 40;               /* radio de la manivela, en mm */
+        /* El mecanismo va a media altura: arriba estan los numeros y abajo la
+           grafica, y la biela barre toda la banda de en medio.                */
+        var CX = 130, CY = 176;     /* centro de giro de la manivela */
+        var BIELAS = {corta: 100, normal: 160, larga: 320};   /* longitud L, en mm */
+        var cual = 'normal', ang = 0, girando = true, raf = null, ultimo = 0;
+
+        var AZ = 'var(--goo-azul)', RO = 'var(--goo-rojo)', VE = 'var(--goo-verde)',
+            GR = 'var(--ink-soft)', TI = 'var(--ink)', LI = 'var(--line)';
+
+        /* La cinematica, medida desde el eje de giro. */
+        function xPiston(t, r, L){
+          var s = r*Math.sin(t);
+          return r*Math.cos(t) + Math.sqrt(L*L - s*s);
+        }
+        function rot(x, y, t, col, tam, anc){
+          return '<text x="' + x + '" y="' + y + '" class="rotulo-svg"'
+               + (anc ? ' text-anchor="' + anc + '"' : '')
+               + ' style="font-size:' + (tam || 11) + 'px;fill:' + (col || GR) + '">' + t + '</text>';
+        }
+        /* Los dos rotulos que van pegados a piezas que se mueven llevan halo del
+           color del fondo: pasan por encima del cilindro y del circulo de la
+           manivela, y sin halo hay angulos en los que no se leen. */
+        function pegado(x, y, t, col){
+          return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="middle" '
+               + 'class="rotulo-svg" paint-order="stroke" stroke="var(--surface)" stroke-width="3.5" '
+               + 'stroke-linejoin="round" style="font-size:11px;fill:' + col + '">' + t + '</text>';
+        }
+
+        function pinta(){
+          var Lmm = BIELAS[cual];
+          var r = Rmm*ESC, L = Lmm*ESC;
+          var t = ang;
+          var xp = CX + xPiston(t, r, L);                 /* pasador del piston, en px */
+          var xPMS = CX + L + r, xPMI = CX + L - r;       /* los dos extremos del recorrido */
+          var smm = (L + r - (xp - CX))/ESC;              /* recorrido desde el PMS, en mm */
+          var pinx = CX + r*Math.cos(t), piny = CY + r*Math.sin(t);
+          var m = '';
+
+          /* --- la bancada --- */
+          m += '<path d="M40 ' + CY + ' H' + (xPMS + 30).toFixed(1) + '" stroke="' + LI
+             + '" stroke-width="1.2" stroke-dasharray="7 5"></path>';
+
+          /* --- el cilindro: tiene que contener al piston en todo su recorrido --- */
+          var xa = xPMI - 22, xb = xPMS + 22, alto = 58;
+          m += '<path d="M' + xa.toFixed(1) + ' ' + (CY-alto/2) + ' H' + xb.toFixed(1) + ' V' + (CY+alto/2)
+             + ' H' + xa.toFixed(1) + '" fill="var(--surface-2)" stroke="' + GR + '" stroke-width="2.4"></path>';
+
+          /* --- los dos puntos muertos, marcados sobre el cilindro --- */
+          m += '<path d="M' + xPMI.toFixed(1) + ' ' + (CY-alto/2-7) + ' V' + (CY+alto/2+7)
+             + ' M' + xPMS.toFixed(1) + ' ' + (CY-alto/2-7) + ' V' + (CY+alto/2+7)
+             + '" stroke="' + RO + '" stroke-width="1.6" stroke-dasharray="4 4"></path>';
+          m += rot(xPMI, CY+alto/2+22, 'PMI', RO, 10.5, 'middle');
+          m += rot(xPMS, CY+alto/2+22, 'PMS', RO, 10.5, 'middle');
+
+          /* --- la biela --- */
+          m += '<path d="M' + pinx.toFixed(1) + ' ' + piny.toFixed(1) + ' L' + xp.toFixed(1)
+             + ' ' + CY + '" stroke="' + GR + '" stroke-width="7" stroke-linecap="round"></path>';
+
+          /* --- el piston --- */
+          m += '<rect x="' + (xp-16).toFixed(1) + '" y="' + (CY-alto/2+5) + '" width="32" height="'
+             + (alto-10) + '" rx="3" fill="var(--accent-soft)" stroke="' + AZ + '" stroke-width="2.2"></rect>';
+          m += '<circle cx="' + xp.toFixed(1) + '" cy="' + CY + '" r="4.5" fill="' + AZ + '"></circle>';
+
+          /* --- la manivela: eje, brazo y mu&ntilde;eta. Nada de disco entero: el disco
+                 se meteria dentro del cilindro cuando la biela es corta, que es
+                 justo lo que no puede pasar en una maquina de verdad.          */
+          m += '<circle cx="' + CX + '" cy="' + CY + '" r="' + r.toFixed(1)
+             + '" fill="none" stroke="' + RO + '" stroke-width="1.2" stroke-dasharray="3 4"></circle>';
+          m += '<path d="M' + CX + ' ' + CY + ' L' + pinx.toFixed(1) + ' ' + piny.toFixed(1)
+             + '" stroke="' + TI + '" stroke-width="8" stroke-linecap="round"></path>';
+          m += '<circle cx="' + CX + '" cy="' + CY + '" r="9" fill="var(--surface)" stroke="' + TI
+             + '" stroke-width="3"></circle>';
+          m += '<circle cx="' + pinx.toFixed(1) + '" cy="' + piny.toFixed(1) + '" r="6" fill="' + RO + '"></circle>';
+          m += rot(CX, CY+r+34, 'manivela', GR, 11, 'middle');
+          /* la palabra sola: la medida va arriba, con los numeros. Va en el centro
+             de la biela y separada 16 px en PERPENDICULAR a ella (hacia arriba),
+             que es la unica manera de que no se le monte encima al eje de la
+             manivela cuando la biela pasa por delante. */
+          var ddx = xp - pinx, ddy = CY - piny, dl = Math.sqrt(ddx*ddx + ddy*ddy);
+          m += pegado((pinx + xp)/2 + 16*ddy/dl, (piny + CY)/2 - 16*ddx/dl, 'biela', GR);
+
+          /* --- los numeros --- */
+          var enMuerto = Math.abs(Math.sin(t)) < 0.06;
+          var grados = Math.round(t*180/Math.PI) % 360;
+          m += rot(20, 24, '&aacute;ngulo de la manivela: ' + grados + '&deg;', TI, 12.5);
+          m += rot(20, 44, 'manivela r = ' + Rmm + ' mm &middot; biela L = ' + Lmm + ' mm ('
+                 + (Lmm/Rmm).toFixed(1) + ' veces r)');
+          m += rot(20, 64, 'carrera = 2 &middot; r = ' + (2*Rmm) + ' mm', TI, 12.5);
+          m += rot(20, 84, 'el pist&oacute;n lleva ' + smm.toFixed(1) + ' mm recorridos desde el PMS');
+
+          /* --- la grafica: la MISMA funcion, muestreada cada 2 grados --- */
+          var GX0 = 62, GX1 = 596, GY0 = 292, GY1 = 352;   /* GY0 = PMS, GY1 = PMI */
+          m += '<path d="M' + GX0 + ' ' + GY0 + ' H' + GX1 + ' M' + GX0 + ' ' + GY1 + ' H' + GX1
+             + ' M' + GX0 + ' ' + GY0 + ' V' + GY1 + '" stroke="' + LI + '" stroke-width="1.4"></path>';
+          m += rot(GX0-8, GY0+4, 'PMS', GR, 10, 'end');
+          m += rot(GX0-8, GY1+4, 'PMI', GR, 10, 'end');
+          var d = '', k;
+          for(k = 0; k <= 180; k++){
+            var tt = k*2*Math.PI/180;
+            var ss = (L + r - xPiston(tt, r, L))/(2*r);     /* 0 en el PMS, 1 en el PMI */
+            d += (k ? 'L' : 'M') + (GX0 + (GX1-GX0)*k/180).toFixed(1) + ' '
+               + (GY0 + (GY1-GY0)*ss).toFixed(1) + ' ';
+          }
+          m += '<path d="' + d + '" fill="none" stroke="' + AZ + '" stroke-width="2.6"></path>';
+
+          /* la media carrera, y el cuarto de vuelta: no se cruzan en el mismo sitio */
+          var GYm = (GY0+GY1)/2;
+          m += '<path d="M' + GX0 + ' ' + GYm + ' H' + GX1 + '" stroke="' + VE
+             + '" stroke-width="1.4" stroke-dasharray="5 5"></path>';
+          m += rot(GX1+4, GYm+4, 'media', VE, 10);
+          var gx90 = GX0 + (GX1-GX0)/4;
+          var s90 = (L + r - xPiston(Math.PI/2, r, L))/(2*r);
+          m += '<path d="M' + gx90.toFixed(1) + ' ' + GY0 + ' V' + GY1 + '" stroke="' + RO
+             + '" stroke-width="1.4" stroke-dasharray="4 4"></path>';
+          m += '<circle cx="' + gx90.toFixed(1) + '" cy="' + (GY0 + (GY1-GY0)*s90).toFixed(1)
+             + '" r="4.5" fill="' + RO + '"></circle>';
+          m += rot(gx90+9, GY0+15, 'a 90&deg; ya ha hecho el ' + Math.round(s90*100) + ' %', RO, 10.5);
+
+          /* donde esta ahora mismo */
+          var gxn = GX0 + (GX1-GX0)*(((t % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI))/(2*Math.PI);
+          var sn = (L + r - xPiston(t, r, L))/(2*r);
+          m += '<circle cx="' + gxn.toFixed(1) + '" cy="' + (GY0 + (GY1-GY0)*sn).toFixed(1)
+             + '" r="5" fill="' + AZ + '"></circle>';
+          m += rot(GX0, GY1+20, 'una vuelta entera de la manivela, grado a grado', GR, 10.5);
+          m += rot(GX1, GY1+20, '360&deg;', GR, 10.5, 'end');
+
+          svg.innerHTML = m;
+
+          var razon = Lmm/Rmm;
+          var txt = 'La mu&ntilde;eta de la manivela describe una circunferencia de <b>' + (2*Rmm)
+                  + ' mm de di&aacute;metro</b>, y eso es exactamente la <b>carrera</b> del pist&oacute;n: '
+                  + 'no cambia por mucho que alargues la biela. Lo que s&iacute; cambia es <b>c&oacute;mo</b> '
+                  + 'se recorre. Con esta biela (L = ' + razon.toFixed(1) + ' &middot; r), a un cuarto de '
+                  + 'vuelta el pist&oacute;n ya ha hecho el <b>' + Math.round(s90*100) + ' %</b> del camino, '
+                  + 'no la mitad. Por eso la curva de abajo no es sim&eacute;trica.';
+          if(enMuerto){
+            txt = '<b style="color:var(--goo-rojo)">Punto muerto.</b> Manivela, biela y pist&oacute;n est&aacute;n '
+                + 'en l&iacute;nea: por mucho que empujes el pist&oacute;n, la fuerza pasa justo por el eje de '
+                + 'giro y <b>no hace girar nada</b>. Un motor pasa de aqu&iacute; gracias al <b>volante</b>, '
+                + 'una rueda pesada que guarda la inercia de la vuelta anterior. ' + txt;
+          }
+          pie.innerHTML = txt;
+        }
+
+        function cuadro(ts){
+          if(!ultimo) ultimo = ts;
+          var dt = Math.min(0.05, (ts - ultimo)/1000);
+          ultimo = ts;
+          ang = (ang + 1.1*dt) % (2*Math.PI);
+          pinta();
+          raf = girando ? requestAnimationFrame(cuadro) : null;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-b]'); if(!b) return;
+          var v = b.dataset.b;
+          if(v === 'pausa'){
+            girando = !girando;
+            b.innerHTML = girando ? '&#9208; Parar' : '&#9654; Seguir';
+            if(girando && raf === null){ ultimo = 0; raf = requestAnimationFrame(cuadro); }
+            return;
+          }
+          if(v === 'muerto'){
+            ang = 0; girando = false; raf = null;
+            seg.querySelector('button[data-b="pausa"]').innerHTML = '&#9654; Seguir';
+            pinta(); return;
+          }
+          cual = v;
+          seg.querySelectorAll('button[data-b]').forEach(function(x){
+            if(x.dataset.b !== 'pausa' && x.dataset.b !== 'muerto')
+              x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        pinta();
+        raf = requestAnimationFrame(cuadro);
+      })();
+      </script>
+
+      <p>La primera es la que hay que quedarse: la carrera del pist&oacute;n es <b>siempre el
+         di&aacute;metro de la circunferencia que describe la mu&ntilde;eta</b>, o sea el doble del radio
+         de la manivela. Da igual lo larga que sea la biela. Si quieres m&aacute;s recorrido, no alargues
+         la biela: <b>descentra m&aacute;s la manivela</b>.</p>
+      <p>La segunda es m&aacute;s fina, y es la que explica que un motor suene como suena: el
+         pist&oacute;n <b>no va y viene a velocidad constante</b>. A un cuarto de vuelta ya ha recorrido
+         m&aacute;s de la mitad del camino, porque la biela, al inclinarse, lo empuja de lado. Cuanto
+         m&aacute;s corta es la biela, m&aacute;s brusco es el reparto.</p>
+
+      <div class="copiar">
+        <h4>Biela-manivela</h4>
+        <p>Transforma un movimiento <b>circular</b> en uno <b>alternativo</b> (de ida y vuelta), y
+           tambi&eacute;n al rev&eacute;s.</p>
+        <p><b>Carrera = 2 &middot; r</b>, siendo r el radio de la manivela. La longitud de la biela
+           <b>no</b> cambia la carrera.</p>
+        <p>Funciona igual de bien en los <b>dos sentidos</b>, y es el &uacute;nico que convierte un
+           vaiv&eacute;n en <b>vueltas enteras, una detr&aacute;s de otra</b>. Por eso con &eacute;l un
+           motor convierte los empujones del pist&oacute;n en giro, y una m&aacute;quina de coser
+           convierte el giro en el sube y baja de la aguja.</p>
+        <h4>Los puntos muertos</h4>
+        <p>Dos veces por vuelta, la biela y la manivela quedan <b>en l&iacute;nea</b>. En esa
+           posici&oacute;n el pist&oacute;n empuja justo hacia el eje de giro y <b>no consigue hacer girar
+           nada</b>. Para pasar de ah&iacute; hace falta un <b>volante</b>: una rueda pesada que guarda la
+           inercia de la vuelta anterior.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Por qu&eacute; te cuesta arrancar la bici cuesta arriba</span>
+        Te pasa cuando el pedal se te queda <b>arriba del todo</b>: por mucho que pises, no avanza. Eso es
+        un punto muerto, exactamente el mismo. La soluci&oacute;n tambi&eacute;n es la misma: mover el
+        pedal un poco para salir de la l&iacute;nea. Y por eso las bielas de una bici van <b>a 180
+        grados</b>: cuando una est&aacute; en el punto muerto, la otra est&aacute; en el mejor sitio.
+      </div>
+      <div class="video" id="video-biela" data-vid="Dyee1JVYsd0">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: La biela - manivela (mecanismo de transformaci&oacute;n)">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>La biela - manivela (mecanismo de transformaci&oacute;n)</b>
+            <span>TECH LAPSE &middot; poco m&aacute;s de 2 minutos</span>
+          </span>
+        </button>
+        <p class="video-nota">Del mismo profesor que los v&iacute;deos de la palanca y de los engranajes, as&iacute; que usa el mismo vocabulario que hemos usado en clase. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
+          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=Dyee1JVYsd0" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-biela');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+      <figure class="foto">
+        <img src="../../../img/u5-biela-locomotora.jpg" loading="lazy" alt="Bajos de una locomotora de vapor vistos de lado: a la derecha el cilindro, del que sale un v&aacute;stago horizontal; ese v&aacute;stago se une a una barra larga que baja hasta un pasador montado fuera del centro de la rueda motriz">
+        <figcaption>Los bajos de una locomotora de vapor de 1911 (la Ec 4/5 n.&ordm; 11 del Dampfbahn Bern). Se ve la cadena entera: el <b>cilindro</b>, a la derecha; el <b>v&aacute;stago</b> que sale de &eacute;l empujado por el vapor; la <b>biela</b>, esa barra larga; y el pasador donde acaba, montado <b>fuera del centro</b> de la rueda: esa es la <b>manivela</b>. El vapor empuja recto y la rueda gira.
+          <span class="credito">Abderitestatos &middot; CC BY 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:11Ec45SMBBauma-20121014viii.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <h3>Los otros tres, y qu&eacute; resuelve cada uno</h3>
+      <p>La biela-manivela solo sabe hacer una cosa: ir y venir, siempre igual, con la misma carrera. Para
+         lo dem&aacute;s hay otros tres mecanismos, y cada uno es el mejor en algo.</p>
+
+      <div class="escena" id="esc-transforma">
+        <div class="escena-barra">
+          <span class="escena-titulo">Tres maneras m&aacute;s de cambiar la naturaleza del movimiento</span>
+          <div class="seg" id="seg-transforma">
+            <button type="button" data-t="suave" aria-pressed="true">Leva exc&eacute;ntrica</button>
+            <button type="button" data-t="prog">Leva de programa</button>
+            <button type="button" data-t="golpes">Leva de 4 golpes</button>
+            <button type="button" data-t="torn">Tornillo y tuerca</button>
+            <button type="button" data-t="crem">Pi&ntilde;&oacute;n y cremallera</button>
+            <button type="button" data-t="pausa">&#9208; Parar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 346" id="svg-transforma" role="img"
+               aria-label="Leva con seguidor, tornillo con tuerca y pi&ntilde;&oacute;n con cremallera, con
+                           la altura del seguidor y el avance por vuelta calculados"></svg>
+        </div>
+        <div class="pie" id="pie-transforma"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-transforma');
+        var pie = document.getElementById('pie-transforma');
+        var seg = document.getElementById('seg-transforma');
+        if(!svg) return;
+
+        var AZ = 'var(--goo-azul)', RO = 'var(--goo-rojo)', VE = 'var(--goo-verde)',
+            GR = 'var(--ink-soft)', TI = 'var(--ink)', LI = 'var(--line)',
+            S2 = 'var(--surface-2)', SU = 'var(--accent-soft)';
+        var modo = 'suave', ang = 0, girando = true, raf = null, ultimo = 0;
+
+        function rot(x, y, t, col, tam, anc){
+          return '<text x="' + x + '" y="' + y + '" class="rotulo-svg"'
+               + (anc ? ' text-anchor="' + anc + '"' : '')
+               + ' style="font-size:' + (tam || 11) + 'px;fill:' + (col || GR) + '">' + t + '</text>';
+        }
+        function norm(a){ a = a % (2*Math.PI); return a < 0 ? a + 2*Math.PI : a; }
+
+        /* ------------- los tres perfiles de leva, en mm de radio --------------
+           Los tres con el mismo radio minimo y la misma carrera, para poder
+           compararlos: lo unico que cambia es la LEY con la que suben.        */
+        var RMIN = 20, H = 20;
+        function perfil(a){
+          if(modo === 'suave'){
+            /* exc&eacute;ntrica de verdad: un circulo con el eje descentrado. Su
+               ecuacion polar es LA MISMA que la del piston de la escena anterior. */
+            var e = H/2, Rc = RMIN + H/2, s = Math.sin(a);
+            return e*Math.cos(a) + Math.sqrt(Rc*Rc - e*e*s*s);
+          }
+          /* OJO con el sentido. El seguidor toca la leva en alfa = -90 - fase, o
+             sea que segun gira la leva va recorriendo su perfil HACIA ATRAS. Si
+             el perfil se escribe en alfa a secas, el programa se ejecuta del
+             reves: esta leva sub&iacute;a de golpe y ca&iacute;a despacio, justo
+             lo contrario de lo que dice el texto. Midiendo g desde la posicion
+             de contacto inicial, g ES el angulo girado y el perfil se lee como
+             se escribe.                                                        */
+          var g = norm(-a - Math.PI/2)*180/Math.PI;
+          if(modo === 'prog'){
+            /* sube en 150 grados, se queda arriba 90, cae en 60 y descansa 60 */
+            if(g < 150) return RMIN + H*(1 - Math.cos(Math.PI*g/150))/2;
+            if(g < 240) return RMIN + H;
+            if(g < 300) return RMIN + H*(1 + Math.cos(Math.PI*(g-240)/60))/2;
+            return RMIN;
+          }
+          /* cuatro lobulos de 50 grados, uno cada 90: la leva del martinete.
+             Entre lobulo y lobulo hay 40 grados de reposo, para que cada subida
+             se lea como un GOLPE y no como un bamboleo continuo. */
+          var d = g % 90; if(d > 45) d -= 90;
+          if(Math.abs(d) >= 25) return RMIN;
+          return RMIN + H*(1 + Math.cos(Math.PI*d/25))/2;
+        }
+
+        function leva(){
+          /* Geometria: la leva abajo a la izquierda, el seguidor subiendo por su
+             vertical hasta una guia fija, y el muelle entre la guia y el collarin.
+             Las alturas estan calculadas para que el muelle se COMPRIMA al subir
+             el seguidor (de 56 px estirado a 12 px comprimido) y para que ni la
+             leva ni el vastago pisen el bloque de numeros de arriba.           */
+          var E = 2.2, cx = 180, cy = 248, m = '', fase = ang;
+          var YG = 110;                          /* cara de abajo de la guia fija */
+          /* El seguidor esta en la vertical de arriba, o sea en el angulo -90 de
+             pantalla. Un punto de la leva de angulo propio alfa se dibuja en
+             alfa + fase, asi que el que toca al seguidor es alfa = -90 - fase. */
+          var aCont = -Math.PI/2 - fase;
+          var hCont = perfil(aCont);
+          var yT = cy - hCont*E;                 /* la punta del seguidor */
+          var yCol = yT - 38;                    /* cara de arriba del collarin */
+
+          /* --- el perfil, punto a punto --- */
+          var d = '', k, a, rr;
+          for(k = 0; k <= 720; k++){
+            a = k*Math.PI/360; rr = perfil(a)*E;
+            d += (k ? 'L' : 'M') + (cx + rr*Math.cos(a + fase)).toFixed(1) + ' '
+               + (cy + rr*Math.sin(a + fase)).toFixed(1) + ' ';
+          }
+          d += 'Z';
+          m += '<path d="' + d + '" fill="' + SU + '" stroke="' + AZ + '" stroke-width="2.2"></path>';
+          m += '<path d="M' + cx + ' ' + cy + ' L' + (cx + RMIN*E*0.8*Math.cos(fase)).toFixed(1)
+             + ' ' + (cy + RMIN*E*0.8*Math.sin(fase)).toFixed(1) + '" stroke="' + TI
+             + '" stroke-width="2.4"></path>';
+          m += '<circle cx="' + cx + '" cy="' + cy + '" r="6" fill="' + TI + '"></circle>';
+          m += rot(cx - (RMIN+H)*E - 10, cy + 4, 'la leva', AZ, 11, 'end');
+
+          /* --- el seguidor: punta, vastago, collarin, guia fija y muelle ---
+                 El muelle es el que BAJA al seguidor: la leva solo sabe empujar. */
+          m += '<path d="M' + cx + ' ' + yT.toFixed(1) + ' l-7 -13 h14 Z" fill="' + RO + '"></path>';
+          m += '<path d="M' + cx + ' ' + (yT-12).toFixed(1) + ' V' + (YG-12) + '" stroke="' + GR
+             + '" stroke-width="6" stroke-linecap="round"></path>';
+          m += '<rect x="' + (cx-24) + '" y="' + yCol.toFixed(1) + '" width="48" height="12" rx="2" '
+             + 'fill="' + S2 + '" stroke="' + GR + '" stroke-width="2"></rect>';
+          m += '<rect x="' + (cx-36) + '" y="' + (YG-14) + '" width="72" height="14" fill="' + S2
+             + '" stroke="' + GR + '" stroke-width="2"></rect>';
+          m += rot(cx+44, YG-2, 'gu&iacute;a fija', GR, 10.5);
+          var mu = '';
+          for(k = 0; k <= 8; k++){
+            mu += (k ? 'L' : 'M') + (cx + (k % 2 ? 13 : -13)) + ' '
+                + (YG + (yCol - YG)*k/8).toFixed(1) + ' ';
+          }
+          m += '<path d="' + mu + '" fill="none" stroke="' + VE + '" stroke-width="2"></path>';
+          m += rot(cx+22, (YG + yCol)/2 + 4, 'muelle', VE, 10.5);
+          m += rot(cx - 46, (yT + yCol)/2, 'seguidor', RO, 10.5, 'end');
+
+          /* --- la grafica: la MISMA funcion, una vuelta entera --- */
+          /* La grafica empieza en 320 y el rotulo es corto a proposito: en un
+             movil estrecho el navegador redondea el cuerpo de letra hacia arriba
+             y los textos crecen un 20 % largo respecto al viewBox. */
+          var GX0 = 320, GX1 = 618, GY0 = 180, GY1 = 300;
+          m += '<path d="M' + GX0 + ' ' + GY0 + ' H' + GX1 + ' M' + GX0 + ' ' + GY1 + ' H' + GX1
+             + ' M' + GX0 + ' ' + GY0 + ' V' + GY1 + '" stroke="' + LI + '" stroke-width="1.4"></path>';
+          var g = '';
+          for(k = 0; k <= 180; k++){
+            /* el eje de la grafica es el angulo GIRADO, no el propio de la leva */
+            var f = k*2*Math.PI/180, hh = perfil(-Math.PI/2 - f);
+            g += (k ? 'L' : 'M') + (GX0 + (GX1-GX0)*k/180).toFixed(1) + ' '
+               + (GY1 - (GY1-GY0)*(hh-RMIN)/H).toFixed(1) + ' ';
+          }
+          m += '<path d="' + g + '" fill="none" stroke="' + AZ + '" stroke-width="2.6"></path>';
+          m += '<circle cx="' + (GX0 + (GX1-GX0)*(norm(fase)/(2*Math.PI))).toFixed(1) + '" cy="'
+             + (GY1 - (GY1-GY0)*(hCont-RMIN)/H).toFixed(1) + '" r="5" fill="' + RO + '"></circle>';
+          m += rot(GX0, GY0-12, 'altura del seguidor en una vuelta', TI, 11);
+          m += rot(GX0, GY1+18, '0&deg;', GR, 10);
+          m += rot(GX1, GY1+18, '360&deg;', GR, 10, 'end');
+          m += rot(GX0-6, GY0+4, 'arriba', GR, 10, 'end');
+          m += rot(GX0-6, GY1+4, 'abajo', GR, 10, 'end');
+
+          /* --- los numeros, arriba del todo y sin pisar nada --- */
+          m += rot(20, 24, 'radio m&iacute;nimo ' + RMIN + ' mm, radio m&aacute;ximo ' + (RMIN+H)
+                 + ' mm', TI, 12.5);
+          m += rot(20, 44, 'carrera = r m&aacute;x &minus; r m&iacute;n = ' + H + ' mm', TI, 12.5);
+          m += rot(20, 62, 'ahora el seguidor toca la leva a ' + hCont.toFixed(1) + ' mm del eje');
+          m += rot(20, 80, 'o sea, ' + (hCont-RMIN).toFixed(1)
+                 + ' mm por encima de su punto m&aacute;s bajo');
+          svg.innerHTML = m;
+
+          if(modo === 'suave'){
+            pie.innerHTML = 'Una <b>exc&eacute;ntrica</b>: un disco redondo con el eje descentrado. Sube y baja '
+              + 'suave, y la curva de la derecha se parece mucho a la del pist&oacute;n de la escena anterior. '
+              + 'No es casualidad: <b>es la misma cuenta</b>. La carrera vale el doble de lo que hayas '
+              + 'descentrado el eje.';
+          } else if(modo === 'prog'){
+            pie.innerHTML = 'Aqu&iacute; est&aacute; la gracia de la leva: <b>la forma es el programa</b>. Esta '
+              + 'sube despacio, <b>se queda arriba un cuarto de vuelta</b>, cae de golpe y descansa. Ninguno de '
+              + 'los mecanismos anteriores sabe hacer eso: la biela-manivela solo sabe ir y venir siempre igual. '
+              + 'Si quieres otro movimiento, <b>recortas otra leva</b>.';
+          } else {
+            pie.innerHTML = 'Cuatro l&oacute;bulos: <b>cuatro golpes por vuelta</b>. Es la leva del '
+              + '<b>martinete</b> de una herrer&iacute;a, movido por una rueda de agua: de las primeras '
+              + 'm&aacute;quinas que hicieron un trabajo repetitivo sin un brazo detr&aacute;s.';
+          }
+        }
+
+        function tornillo(){
+          var E = 6, PASO = 5;                  /* px por mm, y mm que avanza por vuelta */
+          var p = PASO*E;                       /* el paso, en pixeles */
+          var yE = 132, Rc = 15, Rx = 25, XA = 70, XB = 470, m = '';
+          var vueltas = ang/(2*Math.PI);
+          var avance = vueltas*PASO;
+
+          /* --- el nucleo --- */
+          m += '<rect x="' + XA + '" y="' + (yE-Rc) + '" width="' + (XB-XA) + '" height="' + (2*Rc)
+             + '" fill="' + S2 + '" stroke="none"></rect>';
+
+          /* --- el filete. La cresta de arriba y la de abajo van desfasadas medio
+                 paso: eso es lo que hace que se vea que da la vuelta. Avanza lo
+                 mismo que la tuerca, porque la tuerca vive metida en ese surco. */
+          var k, xc, fase = (avance*E) % p;
+          for(k = -2; k < (XB-XA)/p + 2; k++){
+            xc = XA + k*p + fase;
+            var a = xc - 0.30*p, b = xc - 0.10*p, c = xc + 0.10*p, e2 = xc + 0.30*p, s = p/2;
+            m += '<path d="M' + (a+s).toFixed(1) + ' ' + (yE+Rc) + ' L' + (a+p).toFixed(1) + ' ' + (yE-Rc)
+               + '" stroke="' + GR + '" stroke-width="1.1" opacity=".38" stroke-dasharray="3 3"></path>';
+            m += '<path d="M' + a.toFixed(1) + ' ' + (yE-Rc) + ' L' + b.toFixed(1) + ' ' + (yE-Rx)
+               + ' L' + c.toFixed(1) + ' ' + (yE-Rx) + ' L' + e2.toFixed(1) + ' ' + (yE-Rc)
+               + ' L' + (e2+s).toFixed(1) + ' ' + (yE+Rc) + ' L' + (c+s).toFixed(1) + ' ' + (yE+Rx)
+               + ' L' + (b+s).toFixed(1) + ' ' + (yE+Rx) + ' L' + (a+s).toFixed(1) + ' ' + (yE+Rc)
+               + ' Z" fill="var(--surface)" stroke="' + GR + '" stroke-width="1.5" '
+               + 'stroke-linejoin="round"></path>';
+          }
+          /* se tapa lo que se sale por los dos extremos */
+          m += '<rect x="0" y="' + (yE-Rx-3) + '" width="' + XA + '" height="' + (2*Rx+6)
+             + '" fill="var(--surface)"></rect>';
+          m += '<rect x="' + XB + '" y="' + (yE-Rx-3) + '" width="' + (640-XB) + '" height="' + (2*Rx+6)
+             + '" fill="var(--surface)"></rect>';
+          m += '<path d="M' + XA + ' ' + (yE-Rc) + ' H' + XB + ' M' + XA + ' ' + (yE+Rc) + ' H' + XB
+             + '" stroke="' + GR + '" stroke-width="1.6"></path>';
+
+          /* --- la manivela, a la derecha --- */
+          m += '<path d="M' + XB + ' ' + yE + ' H' + (XB+40) + '" stroke="' + GR + '" stroke-width="7"></path>';
+          m += '<path d="M' + (XB+40) + ' ' + yE + ' L' + (XB+40) + ' '
+             + (yE + 34*Math.cos(ang)).toFixed(1) + '" stroke="' + TI
+             + '" stroke-width="5" stroke-linecap="round"></path>';
+          m += '<circle cx="' + (XB+40) + '" cy="' + (yE + 34*Math.cos(ang)).toFixed(1)
+             + '" r="6" fill="' + RO + '"></circle>';
+          m += rot(XB+56, yE-10, 'manivela', GR, 10.5);
+
+          /* --- la tuerca, que es lo que avanza --- */
+          var xt = XA + 50 + (avance*E) % (XB - XA - 130);
+          m += '<rect x="' + (xt-24).toFixed(1) + '" y="' + (yE-Rx-11) + '" width="48" height="'
+             + (2*Rx+22) + '" rx="3" fill="' + SU + '" stroke="' + AZ + '" stroke-width="2.4"></rect>';
+          m += rot(xt, yE-Rx-20, 'tuerca', AZ, 10.5, 'middle');
+          m += '<path d="M' + (xt+32).toFixed(1) + ' ' + (yE+Rx+32) + ' h42" stroke="' + RO
+             + '" stroke-width="3"></path>';
+          m += '<path d="M' + (xt+74).toFixed(1) + ' ' + (yE+Rx+32) + ' l-12 -6 v12 Z" fill="' + RO + '"></path>';
+          m += rot(xt-32, yE+Rx+36, 'avanza', RO, 10.5, 'end');
+
+          /* --- los numeros: todo sale de paso x vueltas --- */
+          m += rot(20, 24, 'paso del tornillo: ' + PASO + ' mm &mdash; lo que avanza en UNA vuelta', TI, 12.5);
+          m += rot(20, 44, 'vueltas dadas: ' + vueltas.toFixed(2) + ' &nbsp;&#8594;&nbsp; avance = '
+                 + PASO + ' &times; ' + vueltas.toFixed(2) + ' = ' + avance.toFixed(1) + ' mm', TI, 12.5);
+
+          /* --- el gato del coche, con la cuenta hecha --- */
+          var Rman = 250, carga = 10000;        /* mm de palanca y newtons de carga */
+          var vuelta = 2*Math.PI*Rman;
+          var VM = vuelta/PASO, F = carga/VM;
+          var v10 = 100/PASO, camino = v10*vuelta/1000;
+          var y0 = 236;
+          m += '<path d="M20 ' + y0 + ' H620" stroke="' + LI + '" stroke-width="1.4"></path>';
+          /* estos cuatro rotulos son los mas largos de toda la unidad: en el
+             movil los textos crecen respecto al viewBox, asi que van justos */
+          m += rot(20, y0+22, 'EL GATO DEL COCHE &middot; palanca ' + Rman
+                 + ' mm, coche de 1.000 kg = 10.000 N', TI, 12);
+          m += rot(20, y0+42, 'una vuelta de tu mano son 2&pi; &times; ' + Rman + ' = '
+                 + Math.round(vuelta) + ' mm, y el coche sube ' + PASO + ' mm');
+          m += rot(20, y0+62, 'ventaja mec&aacute;nica = ' + Math.round(vuelta) + ' / ' + PASO + ' = '
+                 + Math.round(VM) + ' &nbsp;&#8594;&nbsp; haces ' + F.toFixed(0) + ' N, unos '
+                 + (F/10).toFixed(1) + ' kg', VE, 12);
+          m += rot(20, y0+82, 'y lo pagas: ' + v10 + ' vueltas y ' + camino.toFixed(1)
+                 + ' m de mano para 10 cm de coche', RO, 12);
+          svg.innerHTML = m;
+
+          pie.innerHTML = 'El tornillo-tuerca es el <b>campe&oacute;n en fuerza</b> de todo el tema: '
+            + 'multiplica por <b>' + Math.round(VM) + '</b>, as&iacute; que un coche de mil kilos lo levanta '
+            + 'cualquiera. Y el precio es el de siempre, pero exagerado: <b>' + camino.toFixed(1)
+            + ' metros</b> de mano para diez cent&iacute;metros de coche. Adem&aacute;s <b>no se puede mover '
+            + 'al rev&eacute;s</b>: el peso del coche no consigue hacer girar al tornillo. Por eso el coche '
+            + 'se queda arriba solo.';
+        }
+
+        function cremallera(){
+          var E = 2, MOD = 4, Z = 12;           /* px por mm, modulo en mm, dientes */
+          var rp = MOD*Z/2;                     /* radio primitivo, en mm */
+          var avanceVuelta = Math.PI*MOD*Z;     /* mm que corre la cremallera por vuelta */
+          var vueltas = ang/(2*Math.PI);
+          var m = '', YP = 150, cx = 320;
+          var rpp = rp*E, cy = YP - rpp;
+          var pas = 2*Math.PI/Z, p = rpp*pas;   /* el paso, en pixeles */
+          /* la fase se deja acotada a una vuelta: como el dibujo se repite cada
+             diente y una vuelta son Z dientes exactos, no se ve ning&uacute;n salto */
+          var fase = -(ang % (2*Math.PI));
+          var yCres = YP - MOD*E, yRaiz = YP + 1.25*MOD*E;
+          var XA = 60, XB = 580, alto = 30;
+
+          m += '<rect x="' + XA + '" y="' + yRaiz + '" width="' + (XB-XA) + '" height="' + alto
+             + '" fill="' + S2 + '" stroke="' + GR + '" stroke-width="2"></rect>';
+          /* el perfil de la cremallera, de un tiron de XA a XB: asi los dientes
+             quedan unidos por la linea de fondo, como en la escena 3 */
+          var d = '', k, xc, hay = false;
+          for(k = -12; k < 34; k++){
+            /* los dientes del pinon, desenrollados; el signo es el de la escena 3 */
+            xc = cx - rpp*(fase + k*pas - Math.PI/2) + p/2;
+            if(xc < XA + 10 || xc > XB - 10) continue;
+            if(!hay){ d += 'M' + (XA+2).toFixed(1) + ' ' + yRaiz.toFixed(1) + ' '; hay = true; }
+            d += 'L' + (xc - 0.27*p).toFixed(1) + ' ' + yRaiz.toFixed(1)
+               + ' L' + (xc - 0.17*p).toFixed(1) + ' ' + yCres.toFixed(1)
+               + ' L' + (xc + 0.17*p).toFixed(1) + ' ' + yCres.toFixed(1)
+               + ' L' + (xc + 0.27*p).toFixed(1) + ' ' + yRaiz.toFixed(1) + ' ';
+          }
+          if(hay){
+            d += 'L' + (XB-2).toFixed(1) + ' ' + yRaiz.toFixed(1);
+            m += '<path d="' + d + '" fill="' + S2 + '" stroke="' + AZ + '" stroke-width="2.2"></path>';
+          }
+
+          /* --- el pinon --- */
+          var ra = rpp + MOD*E, rf = rpp - 1.25*MOD*E, dd = '';
+          for(k = 0; k < Z; k++){
+            var t = fase + k*pas;
+            var pts = [[t - pas*0.27, rf], [t - pas*0.17, ra], [t + pas*0.17, ra], [t + pas*0.27, rf]];
+            for(var j = 0; j < 4; j++){
+              dd += (dd === '' ? 'M' : 'L') + (cx + pts[j][1]*Math.cos(pts[j][0])).toFixed(1) + ' '
+                  + (cy + pts[j][1]*Math.sin(pts[j][0])).toFixed(1) + ' ';
+            }
+          }
+          dd += 'Z';
+          m += '<path d="' + dd + '" fill="' + SU + '" stroke="' + AZ + '" stroke-width="1.6"></path>';
+          m += '<circle cx="' + cx + '" cy="' + cy.toFixed(1) + '" r="' + (rpp*0.3).toFixed(1)
+             + '" fill="var(--surface)" stroke="' + GR + '" stroke-width="2"></circle>';
+          m += '<path d="M' + cx + ' ' + cy.toFixed(1) + ' L' + (cx + rpp*0.85*Math.cos(fase)).toFixed(1)
+             + ' ' + (cy + rpp*0.85*Math.sin(fase)).toFixed(1) + '" stroke="' + TI
+             + '" stroke-width="2.5"></path>';
+
+          /* --- una escala de milimetros, para leer los tamanos del dibujo --- */
+          var yR = yRaiz + alto + 10;
+          m += '<path d="M' + XA + ' ' + yR + ' H' + XB + '" stroke="' + GR + '" stroke-width="1.6"></path>';
+          for(k = 0; k*10*E <= XB - XA; k++){
+            var xx = XA + k*10*E;
+            m += '<path d="M' + xx.toFixed(1) + ' ' + yR + ' v' + ((k % 5 === 0) ? 11 : 5)
+               + '" stroke="' + GR + '" stroke-width="1.2"></path>';
+            if(k % 5 === 0) m += rot(xx, yR+26, k*10, GR, 9.5, 'middle');
+          }
+          m += rot(XB+4, yR+26, 'mm', GR, 9.5);
+          m += rot(XA, yR+44, 'escala del dibujo: mide con ella el di&aacute;metro del pi&ntilde;&oacute;n '
+                 + 'y el paso de los dientes', GR, 10.5);
+
+          m += rot(20, 24, 'pi&ntilde;&oacute;n de ' + Z + ' dientes, m&oacute;dulo ' + MOD
+                 + ' mm &nbsp;&#8594;&nbsp; di&aacute;metro = ' + MOD + ' &times; ' + Z + ' = '
+                 + (MOD*Z) + ' mm', TI, 12.5);
+          m += rot(20, 44, 'por vuelta corre su contorno entero: &pi; &times; ' + (MOD*Z) + ' = '
+                 + avanceVuelta.toFixed(1) + ' mm', TI, 12.5);
+          m += rot(20, 322, 'vueltas: ' + vueltas.toFixed(2) + ' &nbsp;&#8594;&nbsp; la cremallera lleva '
+                 + (vueltas*avanceVuelta).toFixed(0) + ' mm recorridos', TI, 12.5);
+          svg.innerHTML = m;
+
+          pie.innerHTML = 'Es el &uacute;nico de los cuatro que da un movimiento recto <b>tan largo como '
+            + 'quieras</b>: basta con alargar la barra. Y funciona <b>en los dos sentidos</b>: el '
+            + 'pi&ntilde;&oacute;n mueve a la cremallera, y la cremallera mueve al pi&ntilde;&oacute;n. Por eso '
+            + 'notas los baches de la carretera en el volante. Avance por vuelta: <b>'
+            + avanceVuelta.toFixed(1) + ' mm</b>, que es el contorno del pi&ntilde;&oacute;n.';
+        }
+
+        function pinta(){
+          if(modo === 'torn') return tornillo();
+          if(modo === 'crem') return cremallera();
+          return leva();
+        }
+
+        function cuadro(ts){
+          if(!ultimo) ultimo = ts;
+          var dt = Math.min(0.05, (ts - ultimo)/1000);
+          ultimo = ts;
+          ang += (modo === 'torn' ? 1.9 : 0.7)*dt;
+          /* los contadores se reinician al dar la vuelta al dibujo, para que el
+             numero que se lee y lo que se ve no se separen nunca */
+          if(modo === 'torn' && ang > 9*2*Math.PI) ang -= 9*2*Math.PI;
+          if(modo === 'crem' && ang > 4*2*Math.PI) ang -= 4*2*Math.PI;
+          pinta();
+          raf = girando ? requestAnimationFrame(cuadro) : null;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-t]'); if(!b) return;
+          if(b.dataset.t === 'pausa'){
+            girando = !girando;
+            b.innerHTML = girando ? '&#9208; Parar' : '&#9654; Seguir';
+            if(girando && raf === null){ ultimo = 0; raf = requestAnimationFrame(cuadro); }
+            return;
+          }
+          modo = b.dataset.t; ang = 0;
+          seg.querySelectorAll('button[data-t]').forEach(function(x){
+            if(x.dataset.t !== 'pausa') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        pinta();
+        raf = requestAnimationFrame(cuadro);
+      })();
+      </script>
+
+      <p>La <b>leva</b> merece que te pares un momento, porque es distinta de todo lo que llevas visto.
+         En los dem&aacute;s mecanismos, el movimiento que sale est&aacute; decidido de antemano por la
+         f&oacute;rmula. En la leva lo decides t&uacute;, <b>dibujando</b>: el radio que tenga la leva en
+         cada &aacute;ngulo es la altura a la que va a estar el seguidor cuando pase por ah&iacute;.
+         <b>La forma es el programa.</b></p>
+      <p>Y tiene el precio de todo lo que empuja en una sola direcci&oacute;n: la leva sabe <b>subir</b>
+         el seguidor, pero no sabe bajarlo. Baja por su peso o porque un <b>muelle</b> tira de &eacute;l.
+         Si el muelle se rompe, el seguidor se queda arriba.</p>
+
+      <div class="copiar">
+        <h4>Los cuatro mecanismos de transformaci&oacute;n</h4>
+        <ul>
+          <li><b>Pi&ntilde;&oacute;n-cremallera</b>: rueda dentada + barra dentada. Giro &rarr;
+              <b>rectil&iacute;neo</b>, tan largo como quieras. Por cada vuelta avanza <b>el contorno del
+              pi&ntilde;&oacute;n</b>. <b>Reversible</b>. <i>Direcci&oacute;n del coche, taladro de
+              columna, puertas correderas.</i></li>
+          <li><b>Tornillo-tuerca</b>: giro &rarr; <b>rectil&iacute;neo</b>, lento y con much&iacute;sima
+              fuerza. Por cada vuelta avanza <b>el paso de rosca</b>. <b>No es reversible</b>: la
+              h&eacute;lice va tan tumbada que la carga no consigue hacerlo girar, y se queda donde lo
+              dejas. <i>Gato del coche, tornillo de banco, sargento, prensa.</i></li>
+          <li><b>Biela-manivela</b>: giro &harr; <b>alternativo</b>. Carrera = <b>2 &middot; r</b>.
+              <b>Reversible</b>. <i>Motores, m&aacute;quina de coser, sierra de vaiv&eacute;n.</i></li>
+          <li><b>Leva y seguidor</b>: giro &rarr; el movimiento que t&uacute; dibujes. Carrera =
+              <b>radio m&aacute;ximo &minus; radio m&iacute;nimo</b>. <b>No es reversible</b> y necesita
+              <b>muelle</b> para volver. <i>V&aacute;lvulas del motor, martinete, m&aacute;quinas
+              autom&aacute;ticas antiguas.</i></li>
+        </ul>
+        <h4>Y el trato, por cuarta vez</h4>
+        <p>El gato del coche multiplica tu fuerza <b>m&aacute;s de 300 veces</b>&hellip; y para subir el
+           coche diez cent&iacute;metros tu mano tiene que recorrer m&aacute;s de <b>treinta metros</b>.
+           Es la misma regla de la palanca, del polipasto y de los engranajes, llevada al extremo.</p>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/u5-arbol-levas.jpg" loading="lazy" alt="Dos &aacute;rboles de levas de un motor de coche, expuestos en una vitrina: dos ejes de acero con una hilera de piezas ovaladas montadas a distintos &aacute;ngulos">
+        <figcaption>Dos <b>&aacute;rboles de levas</b> de un motor de coche (Museo de la Industria de Chemnitz). Cada bulto ovalado es una leva, y cada una abre una v&aacute;lvula. F&iacute;jate en que <b>no est&aacute;n giradas igual</b>: esa diferencia de &aacute;ngulo es la que decide en qu&eacute; orden se abre cada v&aacute;lvula. El motor entero est&aacute; <b>programado en la forma y la posici&oacute;n</b> de estas piezas.
+          <span class="credito">Elmschrat &middot; CC BY 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:1-_nockenwelle.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>La manivela parece una tonter&iacute;a &mdash;un mango torcido&mdash; y sin embargo tard&oacute;
+           siglos en aparecer. Con biela, movida por agua, est&aacute; documentada en el
+           <b>aserradero de Hier&aacute;polis</b>, en la actual Turqu&iacute;a, en un relieve del <b>siglo
+           III</b>: una rueda de agua mueve, por medio de engranajes y dos bielas, dos sierras que van y
+           vienen cortando piedra. Es la m&aacute;quina m&aacute;s antigua que se conoce con biela y
+           manivela &mdash;y lo sabemos porque un molinero se la hizo esculpir <b>en su propia
+           tumba</b>.</p>
+        <p>Y lleg&oacute; a valer tanto que hubo <b>pleitos</b> por ella. En <b>1780</b>, James Pickard
+           patent&oacute; en Inglaterra el uso de la manivela con un volante para sacar giro de una
+           m&aacute;quina de vapor. <b>James Watt</b>, que estaba en lo mismo, se qued&oacute; fuera: tuvo
+           que rodear la patente con otro mecanismo m&aacute;s complicado y peor, el <i>engranaje sol y
+           planeta</i>, que patent&oacute; en 1781 a partir de una idea de su empleado William Murdoch.
+           En cuanto la patente de Pickard caduc&oacute;, en <b>1794</b>, Boulton y Watt se pasaron a la
+           manivela de toda la vida.</p>
+        <p>Merece la pena pensarlo: durante catorce a&ntilde;os, la mejor m&aacute;quina de vapor del
+           mundo llev&oacute; un mecanismo peor <b>por un motivo legal, no t&eacute;cnico</b>. La
+           tecnolog&iacute;a no la deciden solo los ingenieros.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 &middot; Dibujar el movimiento que quieres</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">3.1</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Material</h4>
+          <p>Comp&aacute;s, transportador, regla y l&aacute;piz. Nada m&aacute;s.</p>
+          <h4>Parte A &middot; La leva de una m&aacute;quina de sellar cajas</h4>
+          <p>Una cinta transportadora lleva cajas. El sello est&aacute; <b>fijo arriba</b>, y debajo de la
+             cinta hay una leva con su seguidor: cuando el seguidor sube, empuja la caja contra el sello.
+             Tiene que subir, <b>apretar un rato</b>, bajar y esperar a la caja siguiente. El eje de la
+             leva gira a <b>30 rpm</b>, y el seguidor tiene que estar a <b>20 mm</b> del eje cuando
+             est&aacute; abajo y a <b>35 mm</b> cuando est&aacute; apretando.</p>
+          <ol class="pasos">
+            <li>Traza dos circunferencias conc&eacute;ntricas, de <b>20 y 35 mm de radio</b>, y divide la
+                vuelta en <b>doce sectores de 30&ordm;</b> con el transportador.</li>
+            <li>Marca en cada radio el punto que dice esta tabla, midiendo desde el centro. Va en dos
+                mitades para que se lea en el m&oacute;vil; es una sola vuelta:
+                <table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:14px">
+                  <tr><td style="padding:3px 4px"><b>&aacute;ngulo</b></td>
+                      <td style="padding:3px 4px">0&ordm;</td><td style="padding:3px 4px">30&ordm;</td>
+                      <td style="padding:3px 4px">60&ordm;</td><td style="padding:3px 4px">90&ordm;</td>
+                      <td style="padding:3px 4px">120&ordm;</td><td style="padding:3px 4px">150&ordm;</td></tr>
+                  <tr><td style="padding:3px 4px"><b>radio</b></td>
+                      <td style="padding:3px 4px">20</td><td style="padding:3px 4px">20</td>
+                      <td style="padding:3px 4px">20</td><td style="padding:3px 4px">25</td>
+                      <td style="padding:3px 4px">30</td><td style="padding:3px 4px">35</td></tr>
+                </table>
+                <table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:14px">
+                  <tr><td style="padding:3px 4px"><b>&aacute;ngulo</b></td>
+                      <td style="padding:3px 4px">180&ordm;</td><td style="padding:3px 4px">210&ordm;</td>
+                      <td style="padding:3px 4px">240&ordm;</td><td style="padding:3px 4px">270&ordm;</td>
+                      <td style="padding:3px 4px">300&ordm;</td><td style="padding:3px 4px">330&ordm;</td></tr>
+                  <tr><td style="padding:3px 4px"><b>radio</b></td>
+                      <td style="padding:3px 4px">35</td><td style="padding:3px 4px">35</td>
+                      <td style="padding:3px 4px">35</td><td style="padding:3px 4px">28</td>
+                      <td style="padding:3px 4px">20</td><td style="padding:3px 4px">20</td></tr>
+                </table>
+            </li>
+            <li>Une los doce puntos con una curva suave, <b>a mano alzada</b>. Eso es la leva.</li>
+            <li>Contesta, con la leva delante: <b>&iquest;cu&aacute;nto vale la carrera?</b>
+                <b>&iquest;cu&aacute;ntos grados est&aacute; el sello apretando?</b> &iquest;y
+                <b>cu&aacute;ntas cajas por minuto</b> sella la m&aacute;quina?</li>
+            <li>Dibuja debajo la <b>gr&aacute;fica</b> de la altura del seguidor: el &aacute;ngulo en el
+                eje horizontal, la altura en el vertical. Doce puntos y a unirlos.</li>
+          </ol>
+          <h4>Parte B &middot; Dos problemas de n&uacute;meros</h4>
+          <ol class="pasos" start="6">
+            <li><b>El gato.</b> Un gato de tornillo tiene una palanca de <b>30 cm</b> y un paso de rosca
+                de <b>4 mm</b>. El coche pesa <b>1.200 kg</b> (12.000 N). Calcula: cu&aacute;nto recorre tu
+                mano en una vuelta, la ventaja mec&aacute;nica, la fuerza que haces&hellip; y
+                <b>cu&aacute;ntos metros recorre tu mano</b> para subir el coche 12 cm.</li>
+            <li><b>El port&oacute;n.</b> Una puerta corredera de garaje mide <b>2,40 m</b> y la mueve un
+                pi&ntilde;&oacute;n de <b>16 dientes y m&oacute;dulo 3 mm</b>. Calcula el di&aacute;metro
+                del pi&ntilde;&oacute;n, lo que avanza la puerta en cada vuelta y <b>cu&aacute;ntas
+                vueltas</b> hacen falta para abrirla del todo.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La leva est&aacute; trazada con los doce radios y los doce puntos medidos
+                <b>(3 puntos)</b>.</li>
+            <li>Las tres preguntas sobre la leva est&aacute;n contestadas con su n&uacute;mero
+                <b>(2 puntos)</b>.</li>
+            <li>La gr&aacute;fica de la altura est&aacute; dibujada y se parece a la leva
+                <b>(1 punto)</b>.</li>
+            <li>El problema del gato est&aacute; completo, <b>incluido el recorrido de la mano</b>
+                <b>(2 puntos)</b>.</li>
+            <li>El problema del port&oacute;n est&aacute; completo <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Lo que de verdad se eval&uacute;a</span>
+            El recorrido de la mano en el gato. Sale un n&uacute;mero <b>rid&iacute;culo</b>, y est&aacute;
+            bien: es el precio de multiplicar la fuerza por casi quinientos. Si alguien lo da por
+            equivocado porque &laquo;no puede ser tanto&raquo;, ah&iacute; hay una conversaci&oacute;n
+            que vale por media clase.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Ya est&aacute;n las dos respuestas. De giro a recto: <b>pi&ntilde;&oacute;n-cremallera</b> si
+         quieres recorrido, <b>tornillo-tuerca</b> si quieres fuerza, <b>leva</b> si quieres un
+         movimiento con su propio gui&oacute;n. Y de recto a giro, uno por encima de todos: la
+         <b>biela-manivela</b>, la &uacute;nica que convierte un ir y venir en <b>vueltas enteras</b>,
+         una detr&aacute;s de otra. Por eso est&aacute; dentro de todos los motores del mundo. El
+         pi&ntilde;&oacute;n-cremallera tambi&eacute;n se deja empujar por los dos lados, pero la barra
+         <b>se acaba</b>: da un trozo de giro, no vueltas sin fin.</p>
+      <ol>
+              <li>La manivela de una sierra de vaiv&eacute;n tiene 18 mm de radio. &iquest;Cu&aacute;nto recorre la hoja en cada pasada, y qu&eacute; pasa si pongo una biela m&aacute;s larga?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La carrera es <b>2 &middot; 18 = 36 mm</b>. Y con una biela m&aacute;s larga la carrera <b>no cambia</b>: sigue siendo 36 mm. Lo &uacute;nico que cambia es que el movimiento sale m&aacute;s suave. Para alargar la pasada hay que <b>descentrar m&aacute;s la manivela</b>.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; una leva necesita un muelle y una biela-manivela no?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la leva <b>solo empuja</b>: el seguidor se apoya en el perfil y este lo levanta, pero no tiene c&oacute;mo tirar de &eacute;l hacia abajo. El muelle es el que lo hace volver. La biela, en cambio, va <b>atornillada por los dos extremos</b>, as&iacute; que tira y empuja igual de bien.</p></div></details></li>
+        <li>Quieres levantar un armario 5 cm para meterle una cu&ntilde;a. &iquest;Tornillo-tuerca o pi&ntilde;&oacute;n-cremallera?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Tornillo-tuerca</b>, sin dudarlo. El recorrido es cort&iacute;simo &mdash;5 cm&mdash; y la fuerza es enorme, que es justo su terreno. Y adem&aacute;s <b>no se suelta</b> al soltarlo t&uacute;, mientras que la cremallera se ir&iacute;a para abajo con el peso.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Llevas cuatro sesiones de mecanismos y no has tocado ninguno. La pr&oacute;xima toca
+        <b>montarlo</b>: dos ruedas dentadas de cart&oacute;n, hechas por ti, que engranen de verdad y
+        cuya relaci&oacute;n de transmisi&oacute;n puedas <b>contar girando</b>. Aviso: si las recortas a
+        ojo, no engranan. Hay una medida que hay que decidir <b>antes</b> de coger el comp&aacute;s.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>Dos ruedas de cart&oacute;n que engranen de verdad</h2>
+      <p>Recortadas a ojo no engranan, y no es por recortar mal. Hay una medida que se decide antes que ninguna otra, y a partir de ella el di&aacute;metro ya no se elige.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>15'</b> Trazado</span><span class="min"><b>30'</b> Taller</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE3 &middot; 3.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Cuatro sesiones mirando mecanismos. Hoy se monta uno, y se mide.</p>
+      <p>El encargo es concreto: un <b>reductor de 1 a 2</b>. Una rueda peque&ntilde;a que arrastre a una
+         grande y que la grande d&eacute; <b>media vuelta</b> por cada vuelta de la peque&ntilde;a.
+         Material: cart&oacute;n de una caja, dos chinchetas y un trozo de cart&oacute;n de base.
+         Presupuesto: <b>cero euros</b>.</p>
+      <p>La soluci&oacute;n que se le ocurre a todo el mundo: recorto un c&iacute;rculo, le pinto
+         <b>12 dientes</b>; recorto otro el doble de grande, le pinto <b>24</b>; chincheta, chincheta y a
+         girar.</p>
+      <div class="aviso">
+        <span class="n-tag">Lo que pasa de verdad</span>
+        <b>No engranan.</b> O se atascan, o los dientes se montan unos encima de otros, o hay un hueco
+        por el que la rueda patina media vuelta. Y no es por recortar mal: falla aunque recortes
+        perfecto.
+      </div>
+      <h3>Por qu&eacute; falla</h3>
+      <p>Piensa en el punto donde se tocan las dos ruedas. Ah&iacute; los dientes de una tienen que
+         meterse en los huecos de la otra, uno detr&aacute;s de otro, sin adelantarse ni retrasarse.
+         Para eso hace falta que el diente de una <b>mida exactamente lo mismo</b> que el hueco de la
+         otra.</p>
+      <p>Y ah&iacute; est&aacute; el error. Al recortar cada rueda por separado, cada uno reparte los
+         dientes que le tocan en el contorno que le ha salido, y le sale un diente de un tama&ntilde;o
+         distinto. No se trata de ser m&aacute;s cuidadoso: es que <b>se ha elegido mal qu&eacute;
+         decidir primero</b>.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        &iquest;Qu&eacute; medida hay que decidir <b>antes</b> de coger el comp&aacute;s, y qu&eacute;
+        medidas dejan entonces de poder elegirse?
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> El trazado &middot; 15 min</div>
+
+      <h3>Se elige el diente, no la rueda</h3>
+      <p>Lo primero que se decide en un engranaje <b>no es el di&aacute;metro</b>: es el
+         <b>tama&ntilde;o del diente</b>. Una vez elegido, el di&aacute;metro ya no se elige, <b>se
+         calcula</b>.</p>
+      <p>El razonamiento es de una l&iacute;nea. Si una rueda tiene z dientes y cada diente ocupa p
+         mil&iacute;metros de contorno, su contorno entero mide p &middot; z. Y como el contorno de una
+         circunferencia es &pi; &middot; d, sale que <b>d = p &middot; z / &pi;</b>. Ese
+         <b>p / &pi;</b> aparece tantas veces que tiene nombre propio: el <b>m&oacute;dulo</b>.</p>
+
+      <div class="copiar">
+        <h4>El m&oacute;dulo</h4>
+        <p>El <b>m&oacute;dulo m</b> es la medida que fija el <b>tama&ntilde;o del diente</b>. Se da en
+           mil&iacute;metros y es lo primero que se elige.</p>
+        <p style="font-size:18px;text-align:center;margin:10px 0"><b>d = m &middot; z</b></p>
+        <p>d es el <b>di&aacute;metro primitivo</b> &mdash;la circunferencia que de verdad rueda, que no
+           es ni la de las puntas ni la del fondo&mdash; y z es el n&uacute;mero de dientes.</p>
+        <p><b>Dos ruedas solo engranan si tienen el mismo m&oacute;dulo.</b> Es la regla entera.</p>
+        <h4>Las dem&aacute;s medidas salen de ah&iacute;</h4>
+        <ul>
+          <li><b>Paso</b> (contorno por diente): p = &pi; &middot; m</li>
+          <li><b>Di&aacute;metro exterior</b> (hasta la punta): d<sub>e</sub> = d + 2m</li>
+          <li><b>&Aacute;ngulo entre dientes</b>: 360&ordm; / z</li>
+          <li><b>Distancia entre centros</b> de dos ruedas engranadas:
+              <b>(d<sub>1</sub> + d<sub>2</sub>) / 2</b></li>
+        </ul>
+      </div>
+
+      <p>Prueba en la escena. Cambia el m&oacute;dulo y mira c&oacute;mo crecen las dos ruedas a la vez;
+         cambia los dientes y mira c&oacute;mo cambia la distancia entre los centros. Los n&uacute;meros
+         de abajo son <b>los que vas a usar ahora mismo</b> con el comp&aacute;s: ap&uacute;ntalos antes
+         de empezar.</p>
+
+      <div class="escena" id="esc-plantilla">
+        <div class="escena-barra">
+          <span class="escena-titulo">Tu plantilla &middot; elige, y ap&uacute;ntate los n&uacute;meros</span>
+          <div class="seg" id="seg-plantilla">
+            <button type="button" data-p="m4">m&oacute;dulo 4</button>
+            <button type="button" data-p="m5">m&oacute;dulo 5</button>
+            <button type="button" data-p="m6" aria-pressed="true">m&oacute;dulo 6</button>
+            <button type="button" data-p="z1-">&minus; z1</button>
+            <button type="button" data-p="z1+">+ z1</button>
+            <button type="button" data-p="z2-">&minus; z2</button>
+            <button type="button" data-p="z2+">+ z2</button>
+            <button type="button" data-p="gira">&#8635; Comprobar girando</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 424" id="svg-plantilla" role="img"
+               aria-label="Dos ruedas dentadas dibujadas a escala con el m&oacute;dulo y el n&uacute;mero de
+                           dientes elegidos, con los di&aacute;metros y la distancia entre centros calculados"
+               preserveAspectRatio="xMidYMid meet"></svg>
+        </div>
+        <div class="pie" id="pie-plantilla"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-plantilla');
+        var pie = document.getElementById('pie-plantilla');
+        var seg = document.getElementById('seg-plantilla');
+        if(!svg) return;
+
+        var AZ = 'var(--goo-azul)', RO = 'var(--goo-rojo)', VE = 'var(--goo-verde)',
+            GR = 'var(--ink-soft)', TI = 'var(--ink)', LI = 'var(--line)',
+            SU = 'var(--accent-soft)';
+        var mod = 6, z1 = 12, z2 = 24, ang = 0, girando = false, raf = null, ultimo = 0;
+
+        function rot(x, y, t, col, tam, anc){
+          return '<text x="' + x + '" y="' + y + '" class="rotulo-svg"'
+               + (anc ? ' text-anchor="' + anc + '"' : '')
+               + ' style="font-size:' + (tam || 11) + 'px;fill:' + (col || GR) + '">' + t + '</text>';
+        }
+        function rueda(cx, cy, z, fase, E){
+          /* E: pixeles por milimetro. Proporciones normalizadas: la cabeza del
+             diente sale un modulo por fuera de la primitiva y el pie entra 1,25. */
+          var rp = mod*z/2*E, ra = rp + mod*E, rf = rp - 1.25*mod*E;
+          var pas = 2*Math.PI/z, d = '', k, j;
+          for(k = 0; k < z; k++){
+            var t = fase + k*pas;
+            var pts = [[t - pas*0.27, rf], [t - pas*0.17, ra], [t + pas*0.17, ra], [t + pas*0.27, rf]];
+            for(j = 0; j < 4; j++){
+              d += (d === '' ? 'M' : 'L') + (cx + pts[j][1]*Math.cos(pts[j][0])).toFixed(1) + ' '
+                 + (cy + pts[j][1]*Math.sin(pts[j][0])).toFixed(1) + ' ';
+            }
+          }
+          d += 'Z';
+          var m = '<path d="' + d + '" fill="' + SU + '" stroke="' + AZ + '" stroke-width="1.6"></path>';
+          /* la circunferencia primitiva: la que de verdad manda */
+          m += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy + '" r="' + rp.toFixed(1)
+             + '" fill="none" stroke="' + RO + '" stroke-width="1.4" stroke-dasharray="5 4"></circle>';
+          m += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy + '" r="4" fill="' + TI + '"></circle>';
+          /* la marca que el alumno pinta con boli para contar vueltas */
+          m += '<path d="M' + cx.toFixed(1) + ' ' + cy + ' L' + (cx + rp*0.8*Math.cos(fase)).toFixed(1)
+             + ' ' + (cy + rp*0.8*Math.sin(fase)).toFixed(1) + '" stroke="' + TI
+             + '" stroke-width="2.4"></path>';
+          return m;
+        }
+
+        function pinta(){
+          var d1 = mod*z1, d2 = mod*z2;              /* diametros primitivos, en mm */
+          var de1 = d1 + 2*mod, de2 = d2 + 2*mod;    /* diametros exteriores */
+          var a = (d1 + d2)/2;                       /* distancia entre centros */
+          var paso = Math.PI*mod;                    /* mm de contorno por diente */
+          var i = z1/z2;
+
+          /* la escala se calcula para que quepan las dos a lo ancho y la mayor a lo alto */
+          var ancho = de1/2 + a + de2/2;
+          var E = Math.min(430/ancho, 196/Math.max(de1, de2));
+          var cy = 126, cx1 = 320 - a*E/2, cx2 = 320 + a*E/2;
+          var m = '';
+
+          m += rueda(cx1, cy, z1, ang, E);
+          /* la conducida gira al reves y con la relacion exacta; el desfase mete
+             un diente de la motriz en un hueco de la otra */
+          m += rueda(cx2, cy, z2, -ang*z1/z2 + Math.PI - Math.PI/z2, E);
+          /* Las dos etiquetas van en la MISMA linea de arriba, con una guia hasta
+             su rueda: si cada una se pone sobre la suya, la de la peque&ntilde;a
+             acaba encima de la grande en cuanto los tama&ntilde;os se separan. */
+          var yTop = cy - Math.max(de1, de2)*E/2 - 14;
+          m += '<path d="M' + cx1.toFixed(1) + ' ' + (yTop+5) + ' V' + (cy - de1*E/2 - 2).toFixed(1)
+             + ' M' + cx2.toFixed(1) + ' ' + (yTop+5) + ' V' + (cy - de2*E/2 - 2).toFixed(1)
+             + '" stroke="' + AZ + '" stroke-width="1" stroke-dasharray="3 3" opacity=".55"></path>';
+          m += rot(cx1, yTop, 'z1 = ' + z1, AZ, 12.5, 'middle');
+          m += rot(cx2, yTop, 'z2 = ' + z2, AZ, 12.5, 'middle');
+
+          var yc = cy + Math.max(de1, de2)*E/2 + 24;
+          m += '<path d="M' + cx1.toFixed(1) + ' ' + (yc-6) + ' V' + (yc+6) + ' M' + cx2.toFixed(1)
+             + ' ' + (yc-6) + ' V' + (yc+6) + ' M' + cx1.toFixed(1) + ' ' + yc + ' H' + cx2.toFixed(1)
+             + '" stroke="' + VE + '" stroke-width="1.6"></path>';
+          m += rot((cx1+cx2)/2, yc+18, 'distancia entre centros = ' + a.toFixed(1) + ' mm', VE, 11, 'middle');
+
+          /* --- la chuleta para trazarlas: todo calculado --- */
+          m += '<path d="M20 278 H620" stroke="' + LI + '" stroke-width="1.4"></path>';
+          m += rot(20, 296, 'PARA TRAZARLAS CON COMP&Aacute;S Y TRANSPORTADOR', TI, 12);
+          m += rot(20, 316, 'm&oacute;dulo m = ' + mod + ' mm &nbsp;&middot;&nbsp; paso = &pi; &times; '
+                 + mod + ' = ' + paso.toFixed(1) + ' mm de contorno por diente', TI, 12);
+          m += rot(20, 338, 'con el comp&aacute;s, en mm: radio primitivo y radio exterior');
+          m += rot(20, 358, 'rueda 1 (z1 = ' + z1 + '): ' + (d1/2).toFixed(1) + ' y '
+                 + (de1/2).toFixed(1) + ' &middot; un diente cada ' + (360/z1).toFixed(1) + '&deg;');
+          m += rot(20, 376, 'rueda 2 (z2 = ' + z2 + '): ' + (d2/2).toFixed(1) + ' y '
+                 + (de2/2).toFixed(1) + ' &middot; un diente cada ' + (360/z2).toFixed(1) + '&deg;');
+          m += rot(20, 396, 'las dos chinchetas van a ' + a.toFixed(1) + ' mm una de otra', VE, 12);
+          m += rot(20, 416, 'i = ' + z1 + ' / ' + z2 + ' = ' + i.toFixed(3) + ' &nbsp;&#8594;&nbsp; '
+                 + (1/i).toFixed(2) + ' vueltas de z1 por cada una de z2', TI, 12);
+          svg.innerHTML = m;
+
+          var t = 'Las dos ruedas engranan porque tienen el <b>mismo m&oacute;dulo</b>, o sea dientes del '
+                + 'mismo tama&ntilde;o. El di&aacute;metro no lo eliges t&uacute;: sale de la cuenta '
+                + '<b>d = m &times; z</b> = ' + mod + ' &times; ' + z1 + ' = ' + d1 + ' mm y '
+                + mod + ' &times; ' + z2 + ' = ' + d2 + ' mm.';
+          if(z1 < 8 || z2 < 8){
+            t += ' <b style="color:var(--goo-rojo)">Con tan pocos dientes el hueco sale enorme y la rueda '
+               + 'deja de parecer redonda</b>: en cart&oacute;n, de ocho para arriba.';
+          }
+          pie.innerHTML = t;
+        }
+
+        function cuadro(ts){
+          if(!ultimo) ultimo = ts;
+          var dt = Math.min(0.05, (ts - ultimo)/1000);
+          ultimo = ts;
+          ang += 0.6*dt;
+          pinta();
+          raf = girando ? requestAnimationFrame(cuadro) : null;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          var v = b.dataset.p;
+          if(v === 'gira'){
+            girando = !girando;
+            b.innerHTML = girando ? '&#9208; Parar' : '&#8635; Comprobar girando';
+            if(girando && raf === null){ ultimo = 0; raf = requestAnimationFrame(cuadro); }
+            return;
+          }
+          if(v.charAt(0) === 'm'){
+            mod = +v.slice(1);
+            seg.querySelectorAll('button[data-p]').forEach(function(x){
+              if(x.dataset.p.charAt(0) === 'm' && x.dataset.p !== 'm')
+                x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+            });
+          }
+          else if(v === 'z1-') z1 = Math.max(6, z1 - 1);
+          else if(v === 'z1+') z1 = Math.min(30, z1 + 1);
+          else if(v === 'z2-') z2 = Math.max(6, z2 - 1);
+          else if(v === 'z2+') z2 = Math.min(48, z2 + 1);
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>C&oacute;mo se traza una rueda dentada</h4>
+        <ol>
+          <li>Calcula <b>d = m &middot; z</b> y <b>d<sub>e</sub> = d + 2m</b>. Divide los dos entre 2:
+              son los dos radios del comp&aacute;s.</li>
+          <li>Marca el centro y traza las <b>dos circunferencias</b>.</li>
+          <li>Con el transportador, marca <b>un radio cada 360&ordm;/z</b>. Cada radio es el
+              <b>centro de un diente</b>.</li>
+          <li>A cada lado de ese radio, sobre la circunferencia primitiva, marca <b>un cuarto de paso</b>
+              (p/4). Eso da el ancho del diente.</li>
+          <li>Une cada marca con la circunferencia exterior y recorta el hueco entre dientes.</li>
+          <li>P&iacute;ntale una raya a <b>un diente</b>: es la que vas a seguir para contar vueltas.</li>
+        </ol>
+        <p>&#9888; Los dientes de verdad no tienen los lados rectos: llevan una curva llamada
+           <b>evolvente</b>, que hace que el contacto sea suave. Con cart&oacute;n y tijeras eso no se
+           puede trazar, as&iacute; que los haremos rectos. Engranar&aacute;n con alg&uacute;n
+           trompic&oacute;n, y es un trompic&oacute;n que vale la pena notar: es exactamente el problema
+           que resuelve la evolvente.</p>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/u5-rueda-linterna.jpg" loading="lazy" alt="Interior de un molino de viento de madera: una rueda grande con dientes rectangulares de madera encajados en el borde engrana con un pi&ntilde;&oacute;n formado por barrotes redondos entre dos discos">
+        <figcaption>El engranaje de madera de un molino de viento de Long Island. A la izquierda, la rueda grande con los dientes <b>metidos uno a uno</b> en el borde; a la derecha, la <b>linterna</b>: dos discos y unos barrotes redondos que hacen de dientes. Ni una curva calculada: un carpintero repartiendo el contorno en partes iguales. Es exactamente lo que vas a hacer t&uacute; hoy con cart&oacute;n, y el motivo por el que todo depende de una sola medida: <b>lo que mide un diente</b>.
+          <span class="credito">Historic American Buildings Survey &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Cage_Gear.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Durante siglos, los engranajes se hicieron exactamente como los vas a hacer t&uacute;: un
+           carpintero repartiendo un contorno en partes iguales. Los molinos de viento y de agua
+           llevaban ruedas de varios metros con los dientes <b>metidos uno a uno</b> en el borde, como
+           tacos.</p>
+        <p>Y eso ten&iacute;a una ventaja que hoy se ha perdido: cuando un diente se romp&iacute;a,
+           <b>se cambiaba ese diente</b>. Adem&aacute;s se hac&iacute;an a prop&oacute;sito de una madera
+           m&aacute;s blanda que el resto, para que la pieza que se partiera fuese siempre la barata. Hoy
+           eso se llama <b>pieza de sacrificio</b> y se sigue usando: el fusible de tu casa es lo mismo.</p>
+        <p>Lo que cambi&oacute; con la industria no fue la idea, fue la <b>norma</b>. Cuando el
+           m&oacute;dulo se normaliz&oacute;, una rueda hecha en una f&aacute;brica empez&oacute; a
+           engranar con otra hecha en otra f&aacute;brica, a mil kil&oacute;metros. Eso es lo que de
+           verdad vale del m&oacute;dulo: no que sirva para calcular, sino que sirve para
+           <b>ponerse de acuerdo</b>.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Taller &middot; 30 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 5 &middot; Un reductor de cart&oacute;n que se pueda medir</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">3.1</span></span>
+          <span>Parejas &middot; 30 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Material, por pareja</h4>
+          <p>Cart&oacute;n de caja (dos trozos de una cuartilla y uno grande de base), <b>tres
+             chinchetas</b>, comp&aacute;s, transportador, regla, tijeras y un boli. Si hay cart&oacute;n
+             ondulado, mejor: aguanta la chincheta sin doblarse.</p>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Trabajad con <b>m&oacute;dulo 6</b>. Uno de los dos traza la rueda de <b>12 dientes</b> y
+                el otro la de <b>24</b>, siguiendo los seis pasos del trazado. Antes de dibujar nada,
+                <b>escribid en el cuaderno</b> los dos radios y el &aacute;ngulo entre dientes de vuestra
+                rueda, sacados de la escena.</li>
+            <li>Recortad las dos y clavadlas en la base con las chinchetas, a la <b>distancia entre
+                centros</b> que os diga la cuenta. Sin apretar del todo: tienen que girar.</li>
+            <li><b>Comprobad que engranan.</b> Si se atascan, mirad de d&oacute;nde viene: casi siempre es
+                que un hueco ha quedado estrecho. Ensanchadlo con las tijeras y anotad lo que
+                pas&oacute;.</li>
+            <li><b>La medida.</b> Con la raya de boli como referencia, dad <b>diez vueltas completas</b>
+                a la rueda grande contando en voz alta, y contad cu&aacute;ntas da la peque&ntilde;a.
+                Anotad el n&uacute;mero de verdad, salga lo que salga.</li>
+            <li>Comparadlo con la cuenta: z<sub>2</sub> / z<sub>1</sub>. &iquest;Cuadra?
+                &iquest;En cu&aacute;nto os hab&eacute;is desviado?</li>
+            <li>Mirad el <b>sentido</b> de giro de las dos y anotadlo con una flecha en el dibujo.</li>
+            <li><b>La rueda loca.</b> Juntaos con otra pareja y pedidles <b>su rueda de 12</b>. Montad un
+                tren de tres en l&iacute;nea: vuestra rueda de 12, la de ellos <b>en medio</b> y vuestra
+                rueda de 24. Ojo, ahora hay <b>dos distancias entre centros</b> distintas: calculadlas
+                antes de clavar nada. Volved a contar diez vueltas: &iquest;ha cambiado la
+                relaci&oacute;n? &iquest;y el sentido de giro de la &uacute;ltima?</li>
+            <li>Informe, media cara: el dibujo del montaje con las medidas, la tabla de vueltas contadas,
+                la relaci&oacute;n medida, la calculada y <b>una explicaci&oacute;n de la diferencia</b>.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las medidas est&aacute;n calculadas y escritas <b>antes</b> de trazar <b>(2 puntos)</b>.</li>
+            <li>Las dos ruedas est&aacute;n trazadas con comp&aacute;s y transportador, no a ojo
+                <b>(2 puntos)</b>.</li>
+            <li>El montaje <b>gira</b> y los dientes engranan <b>(2 puntos)</b>.</li>
+            <li>Las vueltas est&aacute;n contadas y comparadas con la relaci&oacute;n calculada
+                <b>(2 puntos)</b>.</li>
+            <li>Est&aacute; anotado qu&eacute; hace la rueda loca con la relaci&oacute;n y con el sentido
+                <b>(1 punto)</b>.</li>
+            <li>El informe explica <b>una</b> causa concreta de la diferencia <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Lo que de verdad se eval&uacute;a</span>
+            El &uacute;ltimo punto, otra vez. Con cart&oacute;n y tijeras <b>nunca</b> va a salir 2,00
+            exacto: el cart&oacute;n se aplasta, la chincheta tiene holgura, los dientes son rectos y no
+            de evolvente. Quien mida 2,00 clavado, casi seguro que no ha contado; quien mida 2,1 y sepa
+            decir por qu&eacute;, ha entendido el taller.
+          </div>
+          <div class="aviso" style="margin-top:12px">
+            <span class="n-tag">Seguridad y orden</span>
+            Las chinchetas se clavan <b>desde arriba</b> y sobre la base, nunca sobre la mesa ni sobre la
+            mano. Al acabar se recogen <b>contadas</b>: salieron tres por pareja y vuelven tres. Las
+            tijeras, cerradas y por el mango.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>La pregunta del principio ten&iacute;a una respuesta de tres palabras: <b>el tama&ntilde;o del
+         diente</b>. Se elige el m&oacute;dulo, y a partir de ah&iacute; el di&aacute;metro, el
+         di&aacute;metro exterior y la distancia entre los ejes <b>ya no se eligen</b>: se calculan. Es la
+         primera vez en el tema que una cuenta no sirve para predecir, sino para <b>fabricar</b>.</p>
+      <ol>
+              <li>Dos ruedas de m&oacute;dulo 4: una de 20 dientes y otra de 30. &iquest;A qu&eacute; distancia van los ejes?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>d<sub>1</sub> = 4 &middot; 20 = <b>80 mm</b> y d<sub>2</sub> = 4 &middot; 30 = <b>120 mm</b>. La distancia entre centros es la <b>suma de los radios</b>: (80 + 120) / 2 = <b>100 mm</b>.</p></div></details></li>
+        <li>Tienes una rueda de m&oacute;dulo 5 y otra de m&oacute;dulo 3. &iquest;Pueden engranar si las pones a la distancia justa?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>No.</b> Da igual a qu&eacute; distancia las pongas: los dientes de una miden m&aacute;s que los huecos de la otra, as&iacute; que se montan. Para engranar hace falta <b>el mismo m&oacute;dulo</b>, y eso no se arregla moviendo los ejes.</p></div></details></li>
+        <li>Quieres una rueda de m&oacute;dulo 6 que mida 90 mm de di&aacute;metro primitivo. &iquest;Cu&aacute;ntos dientes le pones?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>z = d / m = 90 / 6 = <b>15 dientes</b>. Y si te sale un n&uacute;mero con decimales, no vale: los dientes son enteros. Habr&iacute;a que cambiar el di&aacute;metro o el m&oacute;dulo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Queda recoger. Cinco sesiones, un mont&oacute;n de mecanismos&hellip; y <b>una sola idea</b>
+        debajo de todos ellos. La pr&oacute;xima la ponemos por escrito, montamos una m&aacute;quina
+        entera encadenando lo que hemos visto, y hay <b>test que se corrige solo</b>.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Ning&uacute;n mecanismo regala nada</h2>
+      <p>Doce mecanismos y una sola idea debajo. Se encadenan en una m&aacute;quina entera, se pone por escrito y se comprueba con doce preguntas que se corrigen solas.</p>
+      <div class="minutado"><span class="min"><b>5'</b> La idea</span><span class="min"><b>20'</b> Repaso</span><span class="min"><b>25'</b> Test</span><span class="min"><b>10'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE3 &middot; 3.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> El tema en una frase &middot; 5 min</div>
+
+      <p>Cinco sesiones. La palanca, la polea, el polipasto, los engranajes, la cadena, la correa, el
+         tornillo sin fin, la caja de cambios, la biela-manivela, la leva, el tornillo-tuerca, el
+         pi&ntilde;&oacute;n-cremallera. Parece una lista para memorizar, y no lo es: debajo de los doce
+         hay <b>una sola idea</b>.</p>
+      <div class="aviso">
+        <span class="n-tag">La idea del tema</span>
+        <b>Ning&uacute;n mecanismo regala nada.</b> Todos cambian una cosa por otra: fuerza por
+        recorrido, velocidad por fuerza, o un tipo de movimiento por otro. Lo que sale multiplicado por
+        un lado, sale dividido por el otro. Siempre.
+      </div>
+      <p>Si te acuerdas de eso, los mecanismos dejan de ser una lista. Y si alguien te ofrece uno que
+         multiplica la fuerza <b>sin</b> pedir nada a cambio, ya sabes que te est&aacute; enga&ntilde;ando
+         o que se ha equivocado.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Repaso &middot; 20 min</div>
+
+      <h3>Una m&aacute;quina de verdad no lleva un mecanismo: lleva varios</h3>
+      <p>Hasta ahora los hemos visto de uno en uno. En una m&aacute;quina de verdad van
+         <b>encadenados</b>: el motor entra por un lado, atraviesa dos o tres etapas y por el otro
+         extremo sale lo que hace falta.</p>
+      <p>Y la cuenta es c&oacute;moda: las relaciones se <b>multiplican</b>. Monta tu m&aacute;quina en
+         la escena, pulsando en los tres botones, y vigila el n&uacute;mero de la derecha del
+         marcador.</p>
+
+      <div class="escena" id="esc-cadena">
+        <div class="escena-barra">
+          <span class="escena-titulo">Monta la m&aacute;quina &middot; el motor da siempre 1.500 rpm</span>
+          <div class="seg" id="seg-cadena">
+            <button type="button" data-c="e1">1.&ordf; etapa</button>
+            <button type="button" data-c="e2">2.&ordf; etapa</button>
+            <button type="button" data-c="sa">Salida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 330" id="svg-cadena" role="img"
+               aria-label="Cadena de mecanismos: motor, dos etapas de transmisi&oacute;n y una de
+                           transformaci&oacute;n, con las vueltas y la fuerza calculadas en cada punto"></svg>
+        </div>
+        <div class="pie" id="pie-cadena"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-cadena');
+        var pie = document.getElementById('pie-cadena');
+        var seg = document.getElementById('seg-cadena');
+        if(!svg) return;
+
+        var AZ = 'var(--goo-azul)', RO = 'var(--goo-rojo)', VE = 'var(--goo-verde)',
+            GR = 'var(--ink-soft)', TI = 'var(--ink)', LI = 'var(--line)', S2 = 'var(--surface-2)';
+        var RPM = 1500;
+
+        /* Las etapas de TRANSMISION: cada una es una relacion i = z1/z2. */
+        var ETAPAS = [
+          {n: 'sin nada', c: 'directo', i: 1, d: 'el eje del motor, tal cual'},
+          {n: 'reductor 12&#8594;48', c: 'reductor 12&#8594;48', i: 12/48, d: 'z1 = 12, z2 = 48'},
+          {n: 'reductor 10&#8594;50', c: 'reductor 10&#8594;50', i: 10/50, d: 'z1 = 10, z2 = 50'},
+          {n: 'tornillo sin fin', c: 'sin fin 1&#8594;40', i: 1/40, d: 'rueda de 40 dientes'},
+          {n: 'multiplicador 45&#8594;15', c: 'multipl. 45&#8594;15', i: 45/15, d: 'z1 = 45, z2 = 15'}
+        ];
+        /* Las de TRANSFORMACION: cambian la naturaleza del movimiento. */
+        var SALIDAS = [
+          {n: 'un eje que gira', c: 'eje que gira', tipo: 'giro'},
+          {n: 'pi&ntilde;&oacute;n y cremallera', c: 'pi&ntilde;&oacute;n-cremallera', tipo: 'recto', mod: 2, z: 20},
+          {n: 'tornillo y tuerca', c: 'tornillo-tuerca', tipo: 'recto', paso: 2},
+          {n: 'biela-manivela', c: 'biela-manivela', tipo: 'vaiv&eacute;n', r: 30}
+        ];
+        var e1 = 0, e2 = 0, sa = 0;
+
+        function rot(x, y, t, col, tam, anc){
+          return '<text x="' + x + '" y="' + y + '" class="rotulo-svg"'
+               + (anc ? ' text-anchor="' + anc + '"' : '')
+               + ' style="font-size:' + (tam || 11) + 'px;fill:' + (col || GR) + '">' + t + '</text>';
+        }
+        /* Numero sin ceros de relleno: "200.000" se lee en espanol como doscientos
+           mil, y aqui quiere decir doscientos. Con esto sale "200", "0.005" y "1". */
+        function num(x, d){
+          var s = x.toFixed(d);
+          if(s.indexOf('.') >= 0) s = s.replace(/0+$/, '').replace(/\.$/, '');
+          return s;
+        }
+        function caja(x, y, w, h, titulo, l1, l2, col, tam){
+          var m = '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="3" fill="'
+                + S2 + '" stroke="' + col + '" stroke-width="2.2"></rect>';
+          m += rot(x + w/2, y + 20, titulo, col, 11.5, 'middle');
+          if(l1) m += rot(x + w/2, y + 41, l1, TI, tam || 10.5, 'middle');
+          if(l2) m += rot(x + w/2, y + 59, l2, GR, 10, 'middle');
+          return m;
+        }
+        function flecha(x1, x2, y, etq){
+          var m = '<path d="M' + x1 + ' ' + y + ' H' + (x2-9) + '" stroke="' + GR
+                + '" stroke-width="2.4"></path>';
+          m += '<path d="M' + x2 + ' ' + y + ' l-11 -6 v12 Z" fill="' + GR + '"></path>';
+          /* la etiqueta va DEBAJO de las cajas: entre caja y caja no cabe */
+          if(etq) m += rot((x1+x2)/2, 172, etq, TI, 10.5, 'middle');
+          return m;
+        }
+
+        function pinta(){
+          var A = ETAPAS[e1], B = ETAPAS[e2], S = SALIDAS[sa];
+          var iTot = A.i*B.i, rpm = RPM*iTot, fuerza = 1/iTot;
+          var m = '', Y = 62, H = 78;
+
+          m += caja(16, Y, 92, H, 'MOTOR', RPM + ' rpm', 'fuerza &times; 1', TI);
+          m += flecha(108, 148, Y + H/2, '');
+          m += caja(148, Y, 144, H, '1.&ordf; ETAPA', A.c, A.d, AZ);
+          m += flecha(292, 332, Y + H/2, num(RPM*A.i, 1) + ' rpm');
+          m += caja(332, Y, 144, H, '2.&ordf; ETAPA', B.c, B.d, AZ);
+          m += flecha(476, 516, Y + H/2, num(rpm, 1) + ' rpm');
+          m += caja(516, Y, 112, H, 'SALIDA', S.c, S.tipo, VE, 9.5);
+
+          /* --- lo que sale de verdad, calculado --- */
+          var l1, l2;
+          if(S.tipo === 'giro'){
+            l1 = 'un eje que gira a <b>' + num(rpm, 1) + ' rpm</b>';
+            l2 = 'sigue siendo movimiento <b>circular continuo</b>: el mismo que entr&oacute;';
+          } else if(S.mod){
+            var av = Math.PI*S.mod*S.z;
+            l1 = 'la cremallera corre a <b>' + num(av*rpm/1000, 2) + ' m/min</b>';
+            l2 = 'avance por vuelta = &pi; &middot; ' + S.mod + ' &middot; ' + S.z + ' = ' + num(av, 1)
+               + ' mm, y el movimiento es <b>rectil&iacute;neo</b>';
+          } else if(S.paso){
+            l1 = 'la tuerca avanza <b>' + num(S.paso*rpm, 1) + ' mm por minuto</b>';
+            l2 = 'avance por vuelta = el paso = ' + S.paso + ' mm; movimiento <b>rectil&iacute;neo</b>, '
+               + 'y no se deja mover al rev&eacute;s';
+          } else {
+            l1 = '<b>' + num(rpm, 1) + ' idas y venidas por minuto</b>, de ' + (2*S.r) + ' mm de carrera';
+            l2 = 'carrera = 2 &middot; r = 2 &middot; ' + S.r + ' mm; movimiento <b>alternativo</b>';
+          }
+
+          /* --- el marcador: el tema entero en tres numeros --- */
+          var y0 = 190;
+          m += '<path d="M16 ' + y0 + ' H628" stroke="' + LI + '" stroke-width="1.4"></path>';
+          m += rot(16, y0+24, 'relaci&oacute;n total = ' + num(A.i, 4) + ' &times; ' + num(B.i, 4)
+                 + ' = ' + num(iTot, 5), TI, 12.5);
+          m += rot(16, y0+50, 'velocidad &times; ' + num(iTot, 5), iTot < 1 ? RO : VE, 13);
+          m += rot(216, y0+50, 'fuerza &times; ' + num(fuerza, 2), iTot < 1 ? VE : RO, 13);
+          m += rot(416, y0+50, 'producto = ' + num(Math.round(iTot*fuerza*1000)/1000, 3), TI, 13);
+          m += rot(16, y0+76, 'El producto sale 1 siempre, elijas lo que elijas: eso es el tema entero.',
+                   GR, 11.5);
+          m += rot(16, y0+96, 'En la m&aacute;quina de verdad sale algo menos: el rozamiento se lleva su parte.',
+                   GR, 11.5);
+          svg.innerHTML = m;
+
+          pie.innerHTML = '<b>' + S.n.charAt(0).toUpperCase() + S.n.slice(1) + '.</b> ' + l1 + '. ' + l2
+            + '. La fuerza se ha multiplicado por <b>' + num(fuerza, 2) + '</b> y la velocidad por <b>'
+            + num(iTot, 5) + '</b>: uno es justo el inverso del otro, porque <b>ninguna m&aacute;quina '
+            + 'regala nada</b>.';
+        }
+
+        function etiqueta(b){
+          if(b.dataset.c === 'e1') b.innerHTML = '1.&ordf; etapa: ' + ETAPAS[e1].n;
+          if(b.dataset.c === 'e2') b.innerHTML = '2.&ordf; etapa: ' + ETAPAS[e2].n;
+          if(b.dataset.c === 'sa') b.innerHTML = 'Salida: ' + SALIDAS[sa].n;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]'); if(!b) return;
+          if(b.dataset.c === 'e1') e1 = (e1 + 1) % ETAPAS.length;
+          if(b.dataset.c === 'e2') e2 = (e2 + 1) % ETAPAS.length;
+          if(b.dataset.c === 'sa') sa = (sa + 1) % SALIDAS.length;
+          seg.querySelectorAll('button[data-c]').forEach(etiqueta);
+          pinta();
+        });
+        seg.querySelectorAll('button[data-c]').forEach(etiqueta);
+        pinta();
+      })();
+      </script>
+
+      <p>Ese <b>producto = 1</b> es el tema entero. Puedes hacer que la salida vaya 160 veces m&aacute;s
+         despacio, y entonces ir&aacute; con 160 veces m&aacute;s fuerza. Puedes hacer que vaya tres
+         veces m&aacute;s r&aacute;pida, y entonces tendr&aacute; la tercera parte de la fuerza. Lo que no
+         puedes es quedarte con las dos cosas.</p>
+
+      <div class="copiar">
+        <h4>Cadenas de mecanismos</h4>
+        <p>Cuando se encadenan etapas, la relaci&oacute;n total es el <b>producto</b> de las relaciones:
+           i<sub>total</sub> = i<sub>1</sub> &middot; i<sub>2</sub> &middot; &hellip;</p>
+        <p>La velocidad se multiplica por i<sub>total</sub> y la fuerza por 1 / i<sub>total</sub>. Su
+           <b>producto vale 1</b>: ninguna m&aacute;quina crea energ&iacute;a.</p>
+        <p>En la m&aacute;quina real sale algo <b>menos</b> de 1, porque el <b>rozamiento</b> se queda
+           una parte por el camino. A esa fracci&oacute;n que s&iacute; llega se le llama
+           <b>rendimiento</b>.</p>
+      </div>
+
+      <h3>Todo el tema, en una tabla</h3>
+      <div class="copiar">
+        <h4>Los mecanismos de la unidad</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin-top:6px">
+          <tr style="border-bottom:1.5px solid var(--line)">
+            <td style="padding:5px 6px"><b>Mecanismo</b></td>
+            <td style="padding:5px 6px"><b>Qu&eacute; hace</b></td>
+            <td style="padding:5px 6px"><b>La cuenta</b></td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Palanca</td><td style="padding:5px 6px">multiplica fuerza</td>
+            <td style="padding:5px 6px">F &middot; b<sub>F</sub> = R &middot; b<sub>R</sub></td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Polea fija</td><td style="padding:5px 6px">cambia la direcci&oacute;n</td>
+            <td style="padding:5px 6px">F = R</td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Polipasto</td><td style="padding:5px 6px">multiplica fuerza</td>
+            <td style="padding:5px 6px">F = R / n</td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Engranajes, cadena, correa</td>
+            <td style="padding:5px 6px">cambia velocidad y fuerza</td>
+            <td style="padding:5px 6px">i = z<sub>1</sub>/z<sub>2</sub> = n<sub>2</sub>/n<sub>1</sub></td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Tornillo sin fin</td>
+            <td style="padding:5px 6px">reduce much&iacute;simo; no va al rev&eacute;s</td>
+            <td style="padding:5px 6px">i = 1 / z</td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Pi&ntilde;&oacute;n-cremallera</td>
+            <td style="padding:5px 6px">giro &harr; recto largo</td>
+            <td style="padding:5px 6px">avance = &pi; &middot; m &middot; z por vuelta</td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Tornillo-tuerca</td>
+            <td style="padding:5px 6px">giro &rarr; recto, mucha fuerza</td>
+            <td style="padding:5px 6px">avance = el paso, por vuelta</td></tr>
+          <tr style="border-bottom:1px solid var(--line-soft)">
+            <td style="padding:5px 6px">Biela-manivela</td>
+            <td style="padding:5px 6px">giro &harr; ir y venir</td>
+            <td style="padding:5px 6px">carrera = 2 &middot; r</td></tr>
+          <tr>
+            <td style="padding:5px 6px">Leva y seguidor</td>
+            <td style="padding:5px 6px">giro &rarr; el movimiento que dibujes</td>
+            <td style="padding:5px 6px">carrera = r<sub>m&aacute;x</sub> &minus; r<sub>m&iacute;n</sub></td></tr>
+        </table>
+        <p style="margin-top:10px">Y <b>d = m &middot; z</b> para todo lo que lleve dientes.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Test &middot; 25 min</div>
+
+      <p>Doce preguntas de todo el tema. Cont&eacute;stalas <b>primero en el cuaderno</b>, con la cuenta
+         escrita cuando haga falta, y luego m&aacute;rcalas aqu&iacute; y pulsa
+         <i>Corregir el test</i>. Al corregir te dir&aacute; la nota y a qu&eacute; sesiones tienes que
+         volver.</p>
+      <div class="nota">
+        <span class="n-tag">C&oacute;mo se usa esto</span>
+        La nota de aqu&iacute; <b>no cuenta</b> para nada: es para ti. Lo que cuenta es lo que hagas
+        despu&eacute;s con las que falles. Puedes repetirlo las veces que quieras.
+      </div>
+      <div class="test" id="test-u5">
+        <ol class="test-lista">
+          <li class="test-p" data-ok="1" data-ses="1">
+            <p class="test-enun">Una llave de 20 cm no puede con una tuerca. Le metes un tubo y la llave pasa a medir 60 cm. &iquest;Qu&eacute; le pasa a la fuerza que tienes que hacer?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp1" value="0"><span>Se multiplica por 3</span></label>
+              <label><input type="radio" name="tp1" value="1"><span>Se divide entre 3</span></label>
+              <label><input type="radio" name="tp1" value="2"><span>No cambia: solo es m&aacute;s c&oacute;modo de agarrar</span></label>
+              <label><input type="radio" name="tp1" value="3"><span>Se divide entre 9</span></label>
+            </div>
+            <div class="test-fb" hidden><p>El brazo de tu fuerza se multiplica por 3, as&iacute; que la fuerza se divide entre 3. De F &middot; b<sub>F</sub> = R &middot; b<sub>R</sub>: si b<sub>F</sub> se triplica, F se reduce a la tercera parte. Y t&uacute; recorres el triple de arco.</p></div>
+          </li>
+          <li class="test-p" data-ok="1" data-ses="1">
+            <p class="test-enun">Una carretilla es una palanca de <b>segundo g&eacute;nero</b>. Eso quiere decir que&hellip;</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp2" value="0"><span>el punto de apoyo est&aacute; en medio</span></label>
+              <label><input type="radio" name="tp2" value="1"><span>la resistencia est&aacute; en medio, as&iacute; que siempre gana fuerza</span></label>
+              <label><input type="radio" name="tp2" value="2"><span>la fuerza est&aacute; en medio, as&iacute; que siempre pierde fuerza</span></label>
+              <label><input type="radio" name="tp2" value="3"><span>no tiene punto de apoyo</span></label>
+            </div>
+            <div class="test-fb" hidden><p>El apoyo es la rueda, en un extremo; t&uacute; est&aacute;s en el otro, en los mangos; y la carga queda <b>en medio</b>. Como b<sub>F</sub> es forzosamente mayor que b<sub>R</sub>, una palanca de segundo g&eacute;nero <b>siempre</b> multiplica la fuerza.</p></div>
+          </li>
+          <li class="test-p" data-ok="2" data-ses="1">
+            <p class="test-enun">Una palanca multiplica tu fuerza por 5. Para subir la carga 4 cm, tu mano recorre&hellip;</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp3" value="0"><span>4 cm</span></label>
+              <label><input type="radio" name="tp3" value="1"><span>0,8 cm</span></label>
+              <label><input type="radio" name="tp3" value="2"><span>20 cm</span></label>
+              <label><input type="radio" name="tp3" value="3"><span>100 cm</span></label>
+            </div>
+            <div class="test-fb" hidden><p>Lo que se gana en fuerza se paga en recorrido, y en la misma proporci&oacute;n: 5 &times; 4 = <b>20 cm</b>. Es la regla de oro, y vale para la palanca, el polipasto, los engranajes y el gato del coche.</p></div>
+          </li>
+          <li class="test-p" data-ok="2" data-ses="2">
+            <p class="test-enun">Un polipasto sube <b>150 kg</b> y quien tira hace <b>375 N</b>. &iquest;Cu&aacute;ntos tramos de cuerda sostienen la carga?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp4" value="0"><span>2 tramos</span></label>
+              <label><input type="radio" name="tp4" value="1"><span>3 tramos</span></label>
+              <label><input type="radio" name="tp4" value="2"><span>4 tramos</span></label>
+              <label><input type="radio" name="tp4" value="3"><span>5 tramos</span></label>
+            </div>
+            <div class="test-fb" hidden><p>150 kg son 1.500 N. n = 1.500 / 375 = <b>4 tramos</b>. Y para subir la carga un metro, hay que tirar de cuatro metros de cuerda.</p></div>
+          </li>
+          <li class="test-p" data-ok="0" data-ses="2">
+            <p class="test-enun">Si una polea fija no multiplica la fuerza, &iquest;para qu&eacute; se pone?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp5" value="0"><span>Para cambiar la <b>direcci&oacute;n</b> de la fuerza: as&iacute; puedes tirar hacia abajo, colgarte y poner a m&aacute;s gente en la cuerda</span></label>
+              <label><input type="radio" name="tp5" value="1"><span>Para que la cuerda no se desgaste</span></label>
+              <label><input type="radio" name="tp5" value="2"><span>Para dividir la fuerza entre dos</span></label>
+              <label><input type="radio" name="tp5" value="3"><span>Para que la carga suba m&aacute;s deprisa</span></label>
+            </div>
+            <div class="test-fb" hidden><p>Cambiar la direcci&oacute;n no multiplica nada, y aun as&iacute; puede ser media soluci&oacute;n: tirando hacia abajo sumas tu propio peso, apoyas los pies y cabe m&aacute;s gente en la cuerda. Adem&aacute;s te deja estar <b>lejos</b> de la carga.</p></div>
+          </li>
+          <li class="test-p" data-ok="1" data-ses="3">
+            <p class="test-enun">Una rueda de <b>15 dientes</b> que gira a <b>600 rpm</b> mueve a otra de <b>45 dientes</b>. &iquest;A cu&aacute;ntas rpm gira la segunda?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp6" value="0"><span>1.800 rpm</span></label>
+              <label><input type="radio" name="tp6" value="1"><span>200 rpm</span></label>
+              <label><input type="radio" name="tp6" value="2"><span>600 rpm</span></label>
+              <label><input type="radio" name="tp6" value="3"><span>45 rpm</span></label>
+            </div>
+            <div class="test-fb" hidden><p>i = z<sub>1</sub>/z<sub>2</sub> = 15/45 = 0,33. n<sub>2</sub> = 600 &middot; 0,33 = <b>200 rpm</b>, y en sentido contrario. Es un reductor: tres veces menos velocidad y tres veces m&aacute;s fuerza.</p></div>
+          </li>
+          <li class="test-p" data-ok="3" data-ses="3">
+            <p class="test-enun">&iquest;Qu&eacute; hace una rueda intermedia (una &laquo;loca&raquo;) metida entre otras dos?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp7" value="0"><span>Multiplica la relaci&oacute;n de transmisi&oacute;n por sus dientes</span></label>
+              <label><input type="radio" name="tp7" value="1"><span>Divide la relaci&oacute;n entre sus dientes</span></label>
+              <label><input type="radio" name="tp7" value="2"><span>No hace nada: es solo un apoyo</span></label>
+              <label><input type="radio" name="tp7" value="3"><span>Invierte el sentido de giro y <b>no cambia</b> la relaci&oacute;n</span></label>
+            </div>
+            <div class="test-fb" hidden><p>Sus dientes se cancelan en la cuenta: lo que multiplica por un lado lo divide por el otro. Lo &uacute;nico que consigue es <b>invertir el sentido</b>. Es exactamente lo que hace la marcha atr&aacute;s de un coche.</p></div>
+          </li>
+          <li class="test-p" data-ok="1" data-ses="4">
+            <p class="test-enun">La manivela de una biela-manivela tiene <b>25 mm de radio</b>. La carrera del pist&oacute;n es&hellip;</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp8" value="0"><span>25 mm</span></label>
+              <label><input type="radio" name="tp8" value="1"><span>50 mm</span></label>
+              <label><input type="radio" name="tp8" value="2"><span>12,5 mm</span></label>
+              <label><input type="radio" name="tp8" value="3"><span>depende de lo larga que sea la biela</span></label>
+            </div>
+            <div class="test-fb" hidden><p>Carrera = 2 &middot; r = <b>50 mm</b>, que es el di&aacute;metro de la circunferencia que describe la mu&ntilde;eta. La biela <b>no</b> influye en la carrera: solo cambia lo brusco que es el reparto dentro de cada vuelta.</p></div>
+          </li>
+          <li class="test-p" data-ok="2" data-ses="4">
+            <p class="test-enun">Un tornillo de banco tiene un paso de rosca de <b>3 mm</b>. Le das <b>7 vueltas</b>. &iquest;Cu&aacute;nto se ha cerrado?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp9" value="0"><span>3 mm</span></label>
+              <label><input type="radio" name="tp9" value="1"><span>7 mm</span></label>
+              <label><input type="radio" name="tp9" value="2"><span>21 mm</span></label>
+              <label><input type="radio" name="tp9" value="3"><span>2,3 mm</span></label>
+            </div>
+            <div class="test-fb" hidden><p>El paso es lo que avanza la tuerca en <b>una</b> vuelta, as&iacute; que 3 &times; 7 = <b>21 mm</b>. Cuanto m&aacute;s fino sea el paso, m&aacute;s fuerza hace el tornillo y m&aacute;s vueltas hay que dar.</p></div>
+          </li>
+          <li class="test-p" data-ok="3" data-ses="4">
+            <p class="test-enun">Necesitas que algo suba despacio, se quede quieto arriba un rato, caiga de golpe y espere. Una y otra vez. &iquest;Qu&eacute; mecanismo eliges?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp10" value="0"><span>Pi&ntilde;&oacute;n-cremallera</span></label>
+              <label><input type="radio" name="tp10" value="1"><span>Tornillo-tuerca</span></label>
+              <label><input type="radio" name="tp10" value="2"><span>Biela-manivela</span></label>
+              <label><input type="radio" name="tp10" value="3"><span>Leva y seguidor</span></label>
+            </div>
+            <div class="test-fb" hidden><p>Solo la <b>leva</b> sabe hacer un movimiento con gui&oacute;n propio, porque el gui&oacute;n <b>es su forma</b>. La biela-manivela solo sabe ir y venir siempre igual, y los otros dos dan un avance constante mientras giren.</p></div>
+          </li>
+          <li class="test-p" data-ok="1" data-ses="5">
+            <p class="test-enun">Dos ruedas dentadas de <b>m&oacute;dulo 5 mm</b>, una de <b>16 dientes</b> y otra de <b>24</b>. &iquest;A qu&eacute; distancia hay que poner los dos ejes?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp11" value="0"><span>200 mm</span></label>
+              <label><input type="radio" name="tp11" value="1"><span>100 mm</span></label>
+              <label><input type="radio" name="tp11" value="2"><span>40 mm</span></label>
+              <label><input type="radio" name="tp11" value="3"><span>20 mm</span></label>
+            </div>
+            <div class="test-fb" hidden><p>d = m &middot; z, as&iacute; que 80 mm y 120 mm. Los ejes van a la <b>suma de los radios</b>: (80 + 120) / 2 = <b>100 mm</b>. Si te equivocas en esa medida, las ruedas no engranan por mucho que est&eacute;n bien trazadas.</p></div>
+          </li>
+          <li class="test-p" data-ok="0" data-ses="6">
+            <p class="test-enun">Un motor de <b>1.500 rpm</b> pasa por un reductor de 12&rarr;48 dientes y luego por un <b>tornillo sin fin</b> con una rueda de 40. &iquest;Qu&eacute; sale por el otro lado?</p>
+            <div class="test-ops">
+              <label><input type="radio" name="tp12" value="0"><span>9,4 rpm, y la fuerza multiplicada por 160</span></label>
+              <label><input type="radio" name="tp12" value="1"><span>9,4 rpm, y la fuerza dividida entre 160</span></label>
+              <label><input type="radio" name="tp12" value="2"><span>375 rpm, y la fuerza multiplicada por 40</span></label>
+              <label><input type="radio" name="tp12" value="3"><span>9,4 rpm, y la misma fuerza que a la entrada</span></label>
+            </div>
+            <div class="test-fb" hidden><p>Las relaciones se <b>multiplican</b>: i = (12/48) &middot; (1/40) = 0,00625. 1.500 &middot; 0,00625 = <b>9,4 rpm</b>. Y la fuerza va justo al rev&eacute;s: 1 / 0,00625 = <b>160 veces m&aacute;s</b>. Velocidad por 0,00625, fuerza por 160: el producto, como siempre, <b>1</b>.</p></div>
+          </li>
+        </ol>
+        <div class="test-pie">
+          <button type="button" id="test-corrige">Corregir el test</button>
+          <button type="button" class="sec" id="test-otra" hidden>Volver a empezar</button>
+          <div class="test-nota" id="test-nota" hidden></div>
+        </div>
+        <p class="test-aviso" id="test-aviso" hidden></p>
+      </div>
+
+      <script>
+      (function(){
+        var caja = document.getElementById('test-u5');
+        if(!caja) return;
+        var bCor = document.getElementById('test-corrige');
+        var bOtra = document.getElementById('test-otra');
+        var nota = document.getElementById('test-nota');
+        var aviso = document.getElementById('test-aviso');
+        var pregs = [].slice.call(caja.querySelectorAll('.test-p'));
+
+        function limpia(){
+          caja.classList.remove('hecho');
+          pregs.forEach(function(p){
+            p.querySelectorAll('label').forEach(function(l){
+              l.classList.remove('op-bien', 'op-mal');
+              var mm = l.querySelector('.marca'); if(mm) mm.remove();
+              var inp = l.querySelector('input');
+              inp.disabled = false; inp.checked = false;
+            });
+            p.querySelector('.test-fb').hidden = true;
+          });
+          nota.hidden = true; aviso.hidden = true; bOtra.hidden = true; bCor.hidden = false;
+          caja.scrollIntoView({behavior: 'smooth', block: 'start'});
+        }
+
+        function corrige(){
+          var bien = 0, sin = 0, fallos = {}, total = pregs.length;
+          pregs.forEach(function(p){
+            var ok = +p.dataset.ok, ses = p.dataset.ses;
+            var marcada = p.querySelector('input:checked');
+            var elegida = marcada ? +marcada.value : -1;
+            if(elegida < 0) sin++;
+            if(elegida === ok){ bien++; } else { fallos[ses] = (fallos[ses] || 0) + 1; }
+            p.querySelectorAll('label').forEach(function(l){
+              var v = +l.querySelector('input').value;
+              l.querySelector('input').disabled = true;
+              if(v === ok){
+                l.classList.add('op-bien');
+                l.insertAdjacentHTML('beforeend',
+                  '<span class="marca">' + (v === elegida ? 'bien' : 'era esta') + '</span>');
+              } else if(v === elegida){
+                l.classList.add('op-mal');
+                l.insertAdjacentHTML('beforeend', '<span class="marca">fallo</span>');
+              }
+            });
+            p.querySelector('.test-fb').hidden = false;
+          });
+          caja.classList.add('hecho');
+
+          var n = Math.round(1000*bien/total)/100;
+          var t = '<b class="cifra">' + n.toFixed(1).replace('.', ',') + '</b> sobre 10 &mdash; '
+                + bien + ' de ' + total + ' bien. ';
+          var ses = Object.keys(fallos).sort();
+          if(!ses.length){
+            t += 'Pleno. No te queda nada por repasar de este tema.';
+          } else {
+            var l = ses.map(function(s){
+              return 'la <b>sesi&oacute;n ' + s + '</b> (' + fallos[s]
+                   + (fallos[s] > 1 ? ' fallos' : ' fallo') + ')';
+            });
+            t += 'Vuelve a ' + (l.length > 1 ? l.slice(0, -1).join(', ') + ' y ' + l[l.length-1] : l[0]) + '.';
+          }
+          nota.innerHTML = t; nota.hidden = false;
+          if(sin){
+            aviso.textContent = 'Has dejado ' + sin + (sin > 1 ? ' preguntas' : ' pregunta')
+                              + ' sin contestar; cuentan como falladas.';
+            aviso.hidden = false;
+          }
+          bCor.hidden = true; bOtra.hidden = false;
+        }
+
+        bCor.addEventListener('click', corrige);
+        bOtra.addEventListener('click', limpia);
+      })();
+      </script>
+
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre del tema &middot; 10 min</div>
+
+      <p>Vuelve al principio del tema: <i>el m&uacute;sculo mueve poco y mal</i>. Ahora se puede decir
+         exactamente qu&eacute; quiere decir. Tu brazo es una palanca de tercer g&eacute;nero que
+         <b>pierde fuerza a prop&oacute;sito</b> para ganar velocidad, y todo el tema ha sido aprender a
+         deshacer ese cambio cuando lo que hace falta es fuerza &mdash;o a llevarlo m&aacute;s
+         lejos cuando lo que hace falta es velocidad.</p>
+      <ol>
+              <li>Un amigo te dice que ha montado un mecanismo que multiplica la fuerza por 4 sin perder velocidad. &iquest;Qu&eacute; le contestas?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que se ha equivocado midiendo, o que hay algo que no ha mirado. Si la fuerza se multiplica por 4, la velocidad se divide entre 4: el producto es 1. Y en la m&aacute;quina real es <b>menos</b> de 1, porque el rozamiento se lleva su parte. <b>No hay ning&uacute;n mecanismo que regale nada</b>: eso no es una regla de esta asignatura, es una consecuencia de que la energ&iacute;a no se crea.</p></div></details></li>
+        <li>De todos los mecanismos del tema, &iquest;cu&aacute;les NO se pueden mover al rev&eacute;s, y qu&eacute; tienen en com&uacute;n?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El <b>tornillo sin fin</b> y el <b>tornillo-tuerca</b>, y la <b>leva</b> (que adem&aacute;s necesita muelle). Los dos primeros tienen en com&uacute;n la <b>h&eacute;lice muy tumbada</b>: la salida empuja casi perpendicular al giro y no consigue moverlo. Y eso, que suena a defecto, es justo lo que quieres en un port&oacute;n, en un gato o en una clavija de guitarra: que se quede donde lo has dejado.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; casi todos los mecanismos del tema aparecen en una bicicleta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque una bici es una m&aacute;quina para <b>traducir</b> un m&uacute;sculo. Los pedales son una <b>manivela</b>; el plato y el pi&ntilde;&oacute;n, una transmisi&oacute;n por <b>cadena</b> con su relaci&oacute;n; los frenos de varilla, <b>palancas</b>; y las bielas van a 180&ordm; para que nunca est&eacute;n las dos en el <b>punto muerto</b>. Toda la bici es este tema.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Y el tema que viene</span>
+        Queda una cosa sin resolver, y es la de siempre: todos estos mecanismos necesitan que
+        <b>alguien empuje por un extremo</b>. Hasta ahora ese alguien has sido t&uacute;, o el agua, o el
+        viento. En el <b>tema 6</b> aparece una forma de energ&iacute;a que llega por un cable, se
+        enciende con un interruptor y no se cansa: la <b>electricidad</b>.
+      </div>
+  
+    </section>
+
+  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
