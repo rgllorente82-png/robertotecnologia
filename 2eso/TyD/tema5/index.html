@@ -1136,6 +1136,7 @@ footer .wrap{padding-block:18px 26px}
             <button type="button" data-e="mul">Multiplicador 36 &#8594; 12</button>
             <button type="button" data-e="cad">Cadena 24 &#8594; 12</button>
             <button type="button" data-e="sin">Tornillo sin fin</button>
+            <button type="button" data-e="cre">Pi&ntilde;&oacute;n y cremallera</button>
             <button type="button" data-e="pausa">&#9208; Parar</button>
           </div>
         </div>
@@ -1158,7 +1159,7 @@ footer .wrap{padding-block:18px 26px}
         var modo = 'red', ang = 0, girando = true, raf = null, ultimo = 0;
         var C = {
           red: {z1:12, z2:36}, mul: {z1:36, z2:12},
-          cad: {z1:24, z2:12}, sin: {z1:1,  z2:40}
+          cad: {z1:24, z2:12}, sin: {z1:1,  z2:40}, cre: {z1:12, z2:0}
         };
 
         function radio(z){ return MOD*z/2; }
@@ -1197,8 +1198,62 @@ footer .wrap{padding-block:18px 26px}
 
         function pinta(){
           svg.setAttribute('viewBox', '0 0 640 300');
+          svg.setAttribute('viewBox', '0 0 640 300');
           var c = C[modo], m = '', z1 = c.z1, z2 = c.z2;
           var i, n2;
+
+          if(modo === 'cre'){
+            /* Un pinon engranando con una barra dentada. La barra no gira:
+               corre. Es el primer mecanismo del tema que no transmite un giro,
+               sino que lo TRANSFORMA en movimiento recto.                    */
+            svg.setAttribute('viewBox', '0 0 640 258');
+            var rp = radio(z1);
+            var cx = 320, YP = 150, cy = YP - rp;
+            var pas1 = 2*Math.PI/z1, p = rp*pas1;
+            var fase = -ang;
+            var yCres = YP - MOD, yRaiz = YP + 1.25*MOD;
+            var XA = 70, XB = 570, alto = 34;
+
+            /* cuerpo de la cremallera */
+            m += '<rect x="' + XA + '" y="' + yRaiz + '" width="' + (XB-XA) + '" height="' + alto
+               + '" fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="2"></rect>';
+
+            /* los dientes: los del pinon, desenrollados */
+            var d = '', k, xc, hay = false;
+            for(k = -80; k < 160; k++){
+              xc = cx + rp*(fase + k*pas1 - Math.PI/2) + p/2;
+              if(xc < XA + 8 || xc > XB - 8) continue;
+              if(!hay){ d += 'M' + (XA+2).toFixed(1) + ' ' + yRaiz.toFixed(1) + ' '; hay = true; }
+              d += 'L' + (xc - 0.27*p).toFixed(1) + ' ' + yRaiz.toFixed(1) + ' ';
+              d += 'L' + (xc - 0.17*p).toFixed(1) + ' ' + yCres.toFixed(1) + ' ';
+              d += 'L' + (xc + 0.17*p).toFixed(1) + ' ' + yCres.toFixed(1) + ' ';
+              d += 'L' + (xc + 0.27*p).toFixed(1) + ' ' + yRaiz.toFixed(1) + ' ';
+            }
+            if(hay){
+              d += 'L' + (XB-2).toFixed(1) + ' ' + yRaiz.toFixed(1);
+              m += '<path d="' + d + '" fill="var(--surface-2)" stroke="var(--goo-azul)" stroke-width="2.2"></path>';
+            }
+
+            m += rueda(cx, cy, z1, fase, 'var(--accent-soft)');
+
+            /* hacia donde corre la cremallera */
+            var xf = XA + 40, yf = yRaiz + alto + 26;
+            m += '<path d="M' + (xf+90) + ' ' + yf + ' H' + xf + '" stroke="var(--goo-rojo)" stroke-width="3"></path>';
+            m += '<path d="M' + xf + ' ' + yf + ' l12 -6 v12 Z" fill="var(--goo-rojo)"></path>';
+            m += '<text x="' + (xf+100) + '" y="' + (yf+4) + '" class="rotulo-svg" '
+               + 'style="fill:var(--goo-rojo)">la cremallera no gira: corre</text>';
+
+            m += etiqueta(cx, cy - rp - 34, z1, '60', 'el pi&ntilde;&oacute;n, de entrada');
+            m += '<text x="20" y="22" class="rotulo-svg" style="font-size:12.5px;fill:var(--ink)">'
+               + 'Pi&ntilde;&oacute;n de 12 dientes, m&oacute;dulo 4 &nbsp;&#8594;&nbsp; una vuelta corre 151 mm</text>';
+            svg.innerHTML = m;
+            pie.innerHTML = 'Esto ya <b>no es transmitir</b> un giro: es <b>transformarlo</b>. El pi&ntilde;&oacute;n da '
+              + 'vueltas y la barra corre en l&iacute;nea recta, tanto como mide el contorno del pi&ntilde;&oacute;n '
+              + 'por cada vuelta: &pi; &middot; m&oacute;dulo &middot; dientes = 3,14 &middot; 4 &middot; 12 = <b>151 mm</b>. Es lo que llevan la direcci&oacute;n de un coche, un taladro de columna y '
+              + 'las puertas correderas de los garajes. Los mecanismos que transforman el movimiento son '
+              + 'la <b>sesi&oacute;n siguiente</b>.';
+            return;
+          }
 
           if(modo === 'sin'){
             /* Vista por el plano que contiene los dos ejes. El filete del
