@@ -105,6 +105,63 @@ autor: primero 2.º y 4.º.*
 
 ---
 
+## Método: el sentido antes que la definición
+
+El material no empieza por definiciones. Empieza por el **problema que hizo
+necesario** ese conocimiento. La terminología llega después, cuando el alumno ya
+ha sentido que le hace falta.
+
+**Dentro de cada sesión:**
+
+1. Plantear el problema real, sin nombrar nada todavía.
+2. Dejar que el alumno lo intente con lo que ya sabe.
+3. Que falle, y hacer explícito **por qué** falla. Ahí aparece la necesidad.
+4. Solo entonces: nombrar el concepto y definirlo.
+5. Añadir cómo se estableció ese conocimiento: quién, cuándo, frente a qué
+   alternativa y por qué prevaleció esta.
+
+Ejemplo ya publicado: la sesión 1 de la U2 no empieza diciendo qué es el dibujo
+técnico. Empieza pidiendo que describan una mesa con palabras, y enseñando que
+tres personas construyen tres mesas distintas. El dibujo técnico aparece como
+**solución a un fracaso que acaban de vivir**.
+
+## Secuenciación: que el alumno se monte un marco mental correcto
+
+El criterio no es cubrir el temario, es que al acabar el curso el alumno tenga un
+**modelo mental correcto** de qué es la tecnología y cómo se hacen las cosas. Eso
+obliga a que los temas se encadenen, no a que se sumen.
+
+**Reglas:**
+
+- Cada tema **abre** recogiendo lo que ya sabe del anterior.
+- Cada tema **cierra** señalando qué queda sin resolver y qué tema lo resuelve.
+- No se introduce un concepto antes de que exista el problema que lo necesita,
+  **aunque el libro lo ponga antes**.
+- Si el orden del libro rompe la cadena causal, se dice y se propone otro.
+
+### La cadena de 2.º, y por qué
+
+| | Tema | Qué pregunta responde | Qué deja abierto |
+|---|---|---|---|
+| T0 | ¿Qué es la tecnología? | ¿De qué va esta asignatura? | ¿Y cómo se hace, en concreto? |
+| U1 | El proceso tecnológico | ¿Cuál es el método? | Ya sé qué quiero. ¿Cómo se lo explico a otro? |
+| **U2** | **Representación gráfica** | Comunicar el diseño sin ambigüedad | Sé qué construir y cómo decirlo. ¿De qué lo hago? |
+| U3-U5 | Materiales y su impacto | ¿Qué material, y a qué coste ambiental? | Ya tengo material. ¿Cómo hago que se sostenga? |
+| U6 | Estructuras | Que aguante sin romperse | ¿Y si además tiene que moverse? |
+| U7 | Mecanismos | Transmitir y transformar movimiento | El músculo no basta. ¿De dónde saco energía? |
+| U8 | Electricidad y electrónica | Energía que llega por un cable | ¿Y si quiero que decida solo? |
+| U9 | El ordenador | La máquina que procesa información | ¿Y si están conectadas entre sí? |
+| U10 | Internet, datos y seguridad | La red, y sus riesgos | ¿Cómo produzco y difundo con esto? |
+| U11 | Herramientas digitales | Comunicar en digital | Cierra el círculo abierto en U2 |
+| U12 | Programación y robótica | Automatizar lo construido | Necesita todo lo anterior: es la cima |
+
+**Observación sobre el orden del libro.** La cadena funciona: cada unidad deja
+una pregunta que abre la siguiente. Solo hay un detalle que conviene explotar en
+clase — el **criterio 4.1 cubre U2 y U11 a la vez**. Son la misma competencia
+(comunicar lo que has hecho) separada por diez unidades: una a mano y otra en
+digital. Merece la pena decirlo en ambas, para que el alumno las vea como lo
+mismo y no como dos temas sueltos.
+
 ## Criterios de producción
 
 Acordados para todas las unidades:
