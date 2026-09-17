@@ -1,0 +1,7 @@
+Hasta ahora has conseguido que las cosas se sostengan y que se muevan. Pero se mueven porque tú las empujas. En cuanto quieres que se muevan solas, aparece la pregunta de este tema: de dónde sale la energía, y cómo la llevas hasta donde hace falta.
+
+Con un cable. Esa es la respuesta corta, y por eso todo lo que enciendes en tu casa lleva uno. Pero un cable suelto no hace nada. Hace falta un camino cerrado, hace falta algo que empuje las cargas, y hace falta algo que se oponga a que pasen, porque si nada se opone lo que tienes no es una lámpara encendida, es una pila echando humo.
+
+Así que en este tema vas a aprender tres cosas y una regla que las une. Las tres cosas son la tensión, la intensidad y la resistencia. La regla se llama ley de Ohm, ocupa cuatro caracteres y con ella se calcula cualquier circuito de los que vas a montar.
+
+Y aprenderás una decisión que costó dinero de verdad: por qué las bombillas de tu casa están conectadas en paralelo y las de aquella guirnalda vieja estaban en serie.

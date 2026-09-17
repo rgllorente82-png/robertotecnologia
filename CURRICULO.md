@@ -68,6 +68,23 @@ Siete competencias específicas, quince criterios de evaluación.
 
 ### Mapa inverso: qué toca cada unidad
 
+> **Cuidado con la numeración.** Los temas de la web **no llevan el mismo número**
+> que las unidades de esta tabla. La web agrupa U3, U4 y U5 en un solo tema de
+> materiales, así que a partir de ahí va una menos... y luego dos:
+>
+> | Web | Unidad del libro | Título |
+> |---|---|---|
+> | tema1 | U1 | El proceso tecnológico |
+> | tema2 | U2 | Representación gráfica |
+> | tema3 | U3 + U4 + U5 | Materiales de uso técnico |
+> | tema4 | U6 | Estructuras |
+> | tema5 | U7 | Mecanismos |
+> | tema6 | U8 | Electricidad y electrónica |
+> | tema7 | U9 | El ordenador y sus componentes |
+>
+> Lo que manda para el alumno es el número de la web; el de la tabla sirve para
+> localizar los criterios y saberes que le tocan.
+
 Deducido invirtiendo la tabla anterior. Los **títulos son una hipótesis** a
 partir de los saberes que le corresponden: hay que contrastarlos con el índice
 del libro antes de darlos por buenos.
