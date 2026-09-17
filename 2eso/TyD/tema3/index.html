@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 3 &middot; Materiales de uso t&eacute;cnico</title>
+<meta name="description" content="Tema 3 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: propiedades de los materiales, c&oacute;mo se eligen y qu&eacute; impacto ambiental tienen.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 3 &middot; Materiales de uso t&eacute;cnico","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 3 &middot; Materiales de uso t&eacute;cnico &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3</div>
+    <h1>Materiales de uso t&eacute;cnico</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2" disabled>S2 &middot; Medir propiedades</button><button type="button" data-ses="3" disabled>S3 &middot; La madera</button><button type="button" data-ses="4" disabled>S4 &middot; Metales</button><button type="button" data-ses="5" disabled>S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6" disabled>S6 &middot; Impacto y test</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>Por qu&eacute; las cosas est&aacute;n hechas de lo que est&aacute;n hechas</h2>
+      <p>Ning&uacute;n material es el mejor. Elegir uno es comparar lo que sabe hacer con lo que t&uacute; necesitas.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip sab">A.3</span><span class="chip sab">A.7</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Coge cualquier objeto que tengas encima de la mesa. El boli, la mochila, la botella, la silla.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        <b>&iquest;Por qu&eacute; est&aacute; hecho de eso y no de otra cosa?</b> Cont&eacute;stalo por escrito, en una frase.
+      </div>
+      <p>Comparad las respuestas. Van a salir tres, y las tres son la misma: <i>porque s&iacute;</i>,
+         <i>porque es barato</i> o <i>porque siempre se ha hecho as&iacute;</i>.</p>
+      <p>Ninguna explica nada. Y sin embargo alguien tom&oacute; esa decisi&oacute;n, y la tom&oacute; por razones muy
+         concretas que se pueden medir.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>El mismo objeto, tres materiales</h3>
+      <p>Para ver que la elecci&oacute;n no es arbitraria hace falta un objeto que se fabrique <b>igual</b> en
+         materiales distintos. La bicicleta sirve perfectamente: el mismo cuadro, la misma forma, y tres
+         materiales que se usan de verdad.</p>
+
+      <div class="escena" id="esc-bici">
+        <div class="escena-barra">
+          <span class="escena-titulo">El mismo cuadro de bicicleta, tres materiales</span>
+          <div class="seg" id="seg-bici">
+            <button type="button" data-b="acero" aria-pressed="true">Acero</button>
+            <button type="button" data-b="alu">Aluminio</button>
+            <button type="button" data-b="carbono">Fibra de carbono</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 260" id="svg-bici" role="img"
+               aria-label="Comparaci&oacute;n de un cuadro de bicicleta en acero, aluminio y fibra de carbono"></svg>
+        </div>
+        <div class="pie" id="pie-bici"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-bici');
+        var pie = document.getElementById('pie-bici');
+        var seg = document.getElementById('seg-bici');
+        if(!svg) return;
+
+        var M = {
+          acero: {nom:'Acero', col:'#7a8590', peso:2.2, precio:120, vida:5, repara:5, co2:2.5,
+            txt:'Pesa el doble que el carbono, pero <b>se puede soldar en cualquier taller</b> y aguanta '
+              + 'd&eacute;cadas. Si se dobla, avisa antes de romper. Es el material de las bicis que duran toda la vida.'},
+          alu:  {nom:'Aluminio', col:'#b9c2cc', peso:1.4, precio:250, vida:3, repara:2, co2:4,
+            txt:'El equilibrio de casi todas las bicis de tienda: ligero, no se oxida y sale a un precio '
+              + 'razonable. A cambio <b>se fatiga</b>: tras muchos a&ntilde;os de uso puede fallar sin aviso, y '
+              + 'soldarlo bien es dif&iacute;cil.'},
+          carbono:{nom:'Fibra de carbono', col:'#2f3a45', peso:0.9, precio:900, vida:2, repara:1, co2:7,
+            txt:'La mitad de peso que el acero y muy r&iacute;gido: por eso lo usan los profesionales. Pero '
+              + '<b>no avisa</b> &mdash;rompe de golpe&mdash;, un golpe tonto lo inutiliza y reciclarlo hoy '
+              + 'es pr&aacute;cticamente imposible.'}
+        };
+        var sel = 'acero';
+
+        function barra(x, y, w, etq, val, max, col, uni){
+          var L = 165, p = Math.min(1, val/max);
+          var m = '<text x="' + x + '" y="' + (y+11) + '" class="rotulo-svg" style="font-size:11px">' + etq + '</text>';
+          m += '<rect x="' + (x+120) + '" y="' + y + '" width="' + L + '" height="13" rx="2" fill="var(--surface-2)"></rect>';
+          m += '<rect x="' + (x+120) + '" y="' + y + '" width="' + (L*p).toFixed(1) + '" height="13" rx="2" fill="' + col + '"></rect>';
+          m += '<text x="' + (x+120+L+10) + '" y="' + (y+11) + '" class="rotulo-svg" style="font-size:11px">' + uni + '</text>';
+          return m;
+        }
+
+        function pinta(){
+          var d = M[sel], m = '';
+          /* Geometria real de una bici de carretera, a escala 0.138 desde mm:
+             entre ejes 990 · rueda 680 · vaina 410 · caida del pedalier 70
+             tija 540 a 73.5 grados · direccion 140 a 72 grados
+             La proporcion rueda/entre-ejes sale 0.34, la real.                */
+          var RB={x:52.0,y:150.0}, RD={x:188.6,y:150.0}, PED={x:107.7,y:159.7};
+          var SIL={x:86.6,y:88.2}, DA={x:161.8,y:92.2}, DB={x:167.8,y:110.6};
+          var SILLIN={x:76.9,y:55.6}, MAN={x:165.8,y:70.2}, R=46.9;
+
+          /* ruedas */
+          m += '<circle cx="'+RB.x+'" cy="'+RB.y+'" r="'+R+'" fill="none" stroke="var(--line)" stroke-width="3.5"></circle>';
+          m += '<circle cx="'+RD.x+'" cy="'+RD.y+'" r="'+R+'" fill="none" stroke="var(--line)" stroke-width="3.5"></circle>';
+          m += '<circle cx="'+RB.x+'" cy="'+RB.y+'" r="3" fill="var(--ink-soft)"></circle>';
+          m += '<circle cx="'+RD.x+'" cy="'+RD.y+'" r="3" fill="var(--ink-soft)"></circle>';
+
+          /* horquilla, tija del sillin y manillar, en gris: no son el cuadro */
+          m += '<g fill="none" stroke="var(--ink-soft)" stroke-width="4" stroke-linecap="round">'
+             + '<path d="M'+DB.x+' '+DB.y+' L'+RD.x+' '+RD.y+'"></path>'
+             + '<path d="M'+SIL.x+' '+SIL.y+' L'+SILLIN.x+' '+SILLIN.y+'"></path>'
+             + '<path d="M'+DA.x+' '+DA.y+' L'+MAN.x+' '+MAN.y+'"></path>'
+             + '</g>';
+          /* sillin, inclinado como la tija; manillar, en cuerno */
+          m += '<path d="M'+(SILLIN.x-13)+' '+(SILLIN.y+4)+' q13 -7 26 -2" fill="none" '
+             + 'stroke="var(--ink-soft)" stroke-width="6" stroke-linecap="round"></path>';
+          m += '<path d="M'+(MAN.x-11)+' '+MAN.y+' h16 q8 0 8 8 v6" fill="none" '
+             + 'stroke="var(--ink-soft)" stroke-width="4.5" stroke-linecap="round"></path>';
+
+          /* el cuadro: triangulo delantero y triangulo trasero */
+          m += '<g fill="none" stroke="'+d.col+'" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">'
+             + '<path d="M'+SIL.x+' '+SIL.y+' L'+DA.x+' '+DA.y+'"></path>'
+             + '<path d="M'+PED.x+' '+PED.y+' L'+DB.x+' '+DB.y+'"></path>'
+             + '<path d="M'+SIL.x+' '+SIL.y+' L'+PED.x+' '+PED.y+'"></path>'
+             + '<path d="M'+DA.x+' '+DA.y+' L'+DB.x+' '+DB.y+'"></path>'
+             + '<path d="M'+PED.x+' '+PED.y+' L'+RB.x+' '+RB.y+'"></path>'
+             + '<path d="M'+SIL.x+' '+SIL.y+' L'+RB.x+' '+RB.y+'"></path>'
+             + '</g>';
+          m += '<circle cx="'+PED.x+'" cy="'+PED.y+'" r="6.5" fill="'+d.col+'"></circle>';
+
+          var y = 34;
+          m += barra(250, y, 0, 'Peso',        d.peso,  2.5, d.col, d.peso + ' kg'); y += 26;
+          m += barra(250, y, 0, 'Precio',      d.precio, 1000, d.col, d.precio + ' &euro;'); y += 26;
+          m += barra(250, y, 0, 'Dura',        d.vida,  5, 'var(--goo-verde)', ['', 'poco','poco','bastante','bastante','mucho'][d.vida] || d.vida); y += 26;
+          m += barra(250, y, 0, 'Se repara',   d.repara, 5, 'var(--goo-verde)', ['', 'casi no','poco','normal','normal','f&aacute;cil'][d.repara] || d.repara); y += 26;
+          m += barra(250, y, 0, 'Huella CO&#8322;', d.co2, 7, 'var(--goo-rojo)', d.co2 + ' kg/kg'); y += 26;
+
+          svg.innerHTML = m;
+          pie.innerHTML = d.txt;
+        }
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-b]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+          sel = b.dataset.b; pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <p>F&iacute;jate en que <b>ninguno gana en todo</b>. El carbono es el m&aacute;s ligero y el peor de reparar.
+         El acero es el m&aacute;s pesado y el que m&aacute;s dura. No hay un material mejor: hay un material
+         <b>adecuado para lo que quieres hacer</b>.</p>
+
+      <div class="copiar">
+        <h4>Definiciones</h4>
+        <p><b>Material t&eacute;cnico</b>: materia prima transformada para poder fabricar objetos con ella.</p>
+        <p><b>Propiedad</b>: caracter&iacute;stica de un material que se puede <b>medir</b> y que determina si
+           sirve o no para un uso concreto.</p>
+        <p>Elegir un material es <b>comparar propiedades frente a lo que necesitas</b>, no buscar el mejor:
+           el mejor no existe.</p>
+      </div>
+
+      <h3>Qu&eacute; se mide de un material</h3>
+      <div class="copiar">
+        <h4>Propiedades que hay que conocer</h4>
+        <ul>
+          <li><b>Dureza</b>: resistencia a ser rayado.</li>
+          <li><b>Tenacidad</b>: aguanta golpes sin romperse. Lo contrario es <b>fragilidad</b>.</li>
+          <li><b>Elasticidad</b>: se deforma y recupera su forma.</li>
+          <li><b>Plasticidad</b>: se deforma y <b>no</b> la recupera. Si es en hilos, <b>ductilidad</b>;
+              si es en l&aacute;minas, <b>maleabilidad</b>.</li>
+          <li><b>Densidad</b>: cu&aacute;nto pesa un volumen dado. De ah&iacute; sale que algo sea «ligero».</li>
+          <li><b>Conductividad</b>: deja pasar el calor o la electricidad. Lo contrario es <b>aislante</b>.</li>
+        </ul>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Durante casi toda la historia esto no se eligi&oacute;: se usaba <b>lo que hab&iacute;a cerca</b>. Las casas
+           del norte se hicieron de madera y las del sur de piedra y barro porque eso era lo que ten&iacute;an a
+           mano, no porque nadie comparara propiedades.</p>
+        <p>La idea de <b>elegir</b> el material es moderna y depende de dos cosas que antes no exist&iacute;an:
+           poder <b>medir</b> las propiedades &mdash;los primeros ensayos sistem&aacute;ticos de resistencia son
+           del siglo XVIII&mdash; y poder <b>transportar</b> materiales lejos de donde se extraen. Sin ferrocarril
+           no hay elecci&oacute;n de material: hay lo que hay.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 &middot; La autopsia de un objeto</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">2.2</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Elegid <b>un objeto del aula</b> que tenga al menos tres piezas de materiales distintos.
+             Una silla, una mochila, unas tijeras, un boli.</p>
+          <ol class="pasos">
+            <li>Dibujadlo y se&ntilde;alad <b>tres piezas</b> de materiales diferentes.</li>
+            <li>Para cada pieza: qu&eacute; material cre&eacute;is que es y <b>qu&eacute; dos propiedades</b> lo hac&iacute;an
+                adecuado ah&iacute;.</li>
+            <li>Para cada pieza: proponed <b>otro material</b> que tambi&eacute;n valdr&iacute;a y decid qu&eacute; se ganar&iacute;a
+                y qu&eacute; se perder&iacute;a.</li>
+            <li>Elegid la pieza que os parezca <b>peor resuelta</b> y justificad por qu&eacute;.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las tres piezas son de materiales realmente distintos <b>(2 puntos)</b>.</li>
+            <li>Las propiedades citadas son propiedades, no opiniones <b>(3 puntos)</b>.</li>
+            <li>La alternativa es razonable y se dice qu&eacute; se pierde <b>(3 puntos)</b>.</li>
+            <li>La cr&iacute;tica final est&aacute; argumentada <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso</span>
+            «Es de plástico porque es barato» no puntúa. El precio no es una propiedad del material: es una
+            consecuencia de sus propiedades, de su abundancia y de c&oacute;mo se fabrica.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Vuelve a la frase que escribiste al empezar la clase. Probablemente pon&iacute;a «porque es barato».</p>
+      <p>Ahora podr&iacute;as escribir: <i>es de polipropileno porque es ligero, aislante, no se oxida y se puede
+         moldear en caliente en una sola pieza</i>. Eso s&iacute; explica algo, y adem&aacute;s permite discutirlo.</p>
+      <ol>
+              <li>&iquest;Cu&aacute;l es el mejor material para un cuadro de bicicleta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Pregunta trampa: <b>ninguno</b>. Depende de qu&eacute; te importe. Si es el peso, el carbono; si es que dure y se pueda arreglar, el acero; si quieres un equilibrio, el aluminio.</p></div></details></li>
+        <li>Diferencia entre elasticidad y plasticidad.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En la <b>elasticidad</b> el material recupera su forma al dejar de apretar. En la <b>plasticidad</b> se queda deformado. Una goma es el&aacute;stica; la plastilina, pl&aacute;stica.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; el precio no es una propiedad del material?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no es una caracter&iacute;stica del material en s&iacute;: es una <b>consecuencia</b> de lo abundante que sea, de lo que cueste extraerlo y de c&oacute;mo se fabrique. El mismo material cambia de precio sin cambiar sus propiedades.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes que se elige comparando propiedades. La pr&oacute;xima sesi&oacute;n va de <b>c&oacute;mo se miden</b>
+        esas propiedades &mdash;porque si no se miden, volvemos a las opiniones.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden><div class="ses-head"><h2>Sesi&oacute;n 2 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-3" hidden><div class="ses-head"><h2>Sesi&oacute;n 3 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 3 &middot; Materiales de uso t&eacute;cnico</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 3 &middot; Materiales de uso t&eacute;cnico</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
+     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
+     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 3 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

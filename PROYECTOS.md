@@ -102,8 +102,13 @@ El más barato de todos y el que más margen deja al diseño del objeto.
 
 ## Lo que hay que decidir antes de escribir el tema
 
-1. **¿Micro:bit o Arduino?** MakeCode es mucho más rápido de arrancar; Tinkercad
-   simula Arduino mejor. Si el centro ya tiene placas, decide eso.
+1. ~~¿Micro:bit o Arduino?~~ **Decidido (17 sep 2026): micro:bit en 2.º,
+   Arduino en 4.º.** En 2.º MakeCode arranca en cinco minutos, se programa por
+   bloques y casi no hay que cablear. En 4.º el salto a código y a montar el
+   circuito real encaja con el nivel, y Tinkercad simula Arduino mucho mejor que
+   micro:bit, así que se puede depurar antes de tocar una placa.
+   Los cinco proyectos del catálogo valen para las dos placas; solo cambia el
+   sensor concreto y el entorno de programación.
 2. **¿Proyecto único o a elegir?** Uno solo simplifica la gestión del aula; a
    elegir motiva más y encaja mejor con «detectar un problema de tu entorno», que
    es literalmente el criterio 1.1.
