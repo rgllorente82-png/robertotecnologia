@@ -165,6 +165,24 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
 .video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
 .video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"¸E  PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -231,18 +249,39 @@ footer .wrap{padding-block:18px 26px}
       <h3>Lo que acaba de fallar</h3>
       <p>No os ha fallado la creatividad. Os ha fallado el <b>orden</b>. Os hab&eacute;is puesto a dar soluciones
          antes de saber qu&eacute; ten&iacute;a que cumplir la soluci&oacute;n.</p>
+      <div class="entender">
+      <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
       <p>Esto le pasaba tambi&eacute;n a la gente que fabricaba cosas hace doscientos a&ntilde;os. Un artesano
          resolv&iacute;a el problema <b>en su cabeza</b>, y el resultado depend&iacute;a de su experiencia. Funcionaba
          mientras las cosas eran sencillas y las hac&iacute;a una sola persona. En cuanto hubo que fabricar
          miles de piezas iguales, en sitios distintos y entre varias personas, dej&oacute; de valer: hac&iacute;a
          falta una forma de trabajar que <b>otro pudiera seguir</b>.</p>
-      <div class="def">
-        <span class="n-tag">Definici&oacute;n</span>
+      </div>
+      <div class="copiar">
+        <h4>Definici&oacute;n</h4>
         <p>El <b>proceso tecnol&oacute;gico</b> es el orden de pasos que se sigue para pasar de una necesidad a
         un objeto que la resuelve, de forma que el resultado no dependa de la inspiraci&oacute;n de quien lo hace
         y otra persona pueda continuar el trabajo.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-taller.jpg" loading="lazy"
+             alt="Grabado del taller de un lutier del siglo XVII, con los oficiales trabajando y las herramientas colgadas">
+        <figcaption>El taller de un <b>lutier</b>, grabado de la <b>Encyclop&eacute;die</b> de Diderot y d'Alembert.
+          Cada gesto y cada herramienta, dibujados para que alguien que no estuviera all&iacute; pudiera entenderlo.
+          <br><br>Esto es exactamente el problema de esta sesi&oacute;n. Aquel saber viv&iacute;a solo en la cabeza y en las
+          manos de los artesanos, y se perd&iacute;a con ellos. La Encyclop&eacute;die fue el primer intento serio de
+          <b>escribirlo para que otro pudiera seguirlo</b>: cientos de l&aacute;minas como esta, durante veinte a&ntilde;os.
+          Poner un m&eacute;todo por escrito no es burocracia, es lo que hace que el conocimiento sobreviva a quien
+          lo tiene.
+          <span class="credito">Laurent Grillet &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Atelier%20de%20lutherie%20-%20XVIIe%20si%C3%A8cle%20-%20Encyclop%C3%A9die%20Diderot%20d%20Alembert-%20Planches%20-%20T4%20pl%20XVIII%20(extrait).png"
+               target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <h3>Los pasos</h3>
+      <div class="copiar">
+      <h4>Los siete pasos</h4>
       <ol class="pasos">
         <li><b>Detectar la necesidad.</b> Qu&eacute; falta y a qui&eacute;n le falta.</li>
         <li><b>Analizar el problema.</b> Qu&eacute; condiciones tiene que cumplir la soluci&oacute;n. A esto se le
@@ -254,11 +293,219 @@ footer .wrap{padding-block:18px 26px}
         <li><b>Construir.</b></li>
         <li><b>Evaluar.</b> &iquest;Cumple los requisitos que escribimos en el paso 2? Si no, se vuelve atr&aacute;s.</li>
       </ol>
+      <p><b>Requisito:</b> condici&oacute;n que la soluci&oacute;n tiene que cumplir, escrita de forma que se pueda
+         comprobar sin discutir.</p>
+      </div>
       <div class="nota">
         <span class="n-tag">El paso que decide todo</span>
         El paso 2. Si los requisitos est&aacute;n bien escritos, el paso 7 es una comprobaci&oacute;n objetiva: se
         cumplen o no. Si no los escribiste, <b>nunca sabr&aacute;s si tu soluci&oacute;n es buena</b>, solo si te gusta.
       </div>
+
+      <div class="escena" id="esc-proceso">
+        <div class="escena-barra">
+          <span class="escena-titulo">Los siete pasos, y lo que pasa de verdad</span>
+          <div class="seg" id="seg-proceso">
+            <button type="button" data-p="sig" aria-pressed="true">Siguiente paso &#9654;</button>
+            <button type="button" data-p="fallo">&#9888; Algo sale mal</button>
+            <button type="button" data-p="reset">&#8635; Empezar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 250" id="svg-proceso" role="img"
+               aria-label="Los siete pasos del proceso tecnol&oacute;gico, con la vuelta atr&aacute;s desde evaluar hasta dise&ntilde;ar"></svg>
+        </div>
+        <div class="pie" id="pie-proceso"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-proceso');
+        var pie = document.getElementById('pie-proceso');
+        var seg = document.getElementById('seg-proceso');
+        if(!svg) return;
+
+        var PASOS = [
+          {n:'NECESIDAD',  t:'Detectar la necesidad',
+           d:'Qu&eacute; falta y a qui&eacute;n le falta. Los abrigos en el suelo.'},
+          {n:'ANALIZAR',   t:'Analizar el problema',
+           d:'Escribir los <b>requisitos</b>: qu&eacute; tiene que cumplir la soluci&oacute;n. Es el paso que casi todo el mundo se salta.'},
+          {n:'IDEAS',      t:'Buscar ideas',
+           d:'Varias, no una. Cuantas m&aacute;s haya, mejor ser&aacute; la que elijas.'},
+          {n:'DISE&Ntilde;AR',   t:'Elegir y dise&ntilde;ar',
+           d:'Escoger con un criterio y concretar: medidas, materiales, piezas, dibujos.'},
+          {n:'PLANIFICAR', t:'Planificar',
+           d:'Qui&eacute;n hace qu&eacute;, con qu&eacute; herramientas y en cu&aacute;nto tiempo.'},
+          {n:'CONSTRUIR',  t:'Construir',
+           d:'Por fin. Y es la parte m&aacute;s corta del proceso, aunque no lo parezca.'},
+          {n:'EVALUAR',    t:'Evaluar',
+           d:'&iquest;Cumple los requisitos del paso 2? Si los escribiste bien, esto es objetivo: se cumplen o no.'}
+        ];
+
+        var i = 0, roto = false, vuelta = false;
+        var X0 = 30, X1 = 610, Y = 95;
+
+        function px(k){ return X0 + (X1 - X0) * k / (PASOS.length - 1); }
+
+        function pinta(){
+          var m = '';
+          /* linea base */
+          m += '<path d="M' + X0 + ' ' + Y + ' H' + X1 + '" stroke="var(--line)" stroke-width="2"></path>';
+          /* tramo recorrido */
+          if(i > 0) m += '<path d="M' + X0 + ' ' + Y + ' H' + px(i).toFixed(1) +
+                         '" stroke="var(--goo-azul)" stroke-width="3"></path>';
+
+          /* la vuelta atras: de EVALUAR (6) a DISENAR (3) */
+          if(vuelta){
+            var xa = px(6), xb = px(3);
+            m += '<path d="M' + xa.toFixed(1) + ' ' + (Y+14) + ' Q' + ((xa+xb)/2).toFixed(1) + ' ' + (Y+70) +
+                 ' ' + xb.toFixed(1) + ' ' + (Y+14) + '" fill="none" stroke="var(--goo-rojo)" stroke-width="2.4"' +
+                 ' stroke-dasharray="7 5"></path>';
+            m += '<path d="M' + xb.toFixed(1) + ' ' + (Y+14) + ' l6 10 l-12 0 Z" fill="var(--goo-rojo)"></path>';
+            m += '<text x="' + ((xa+xb)/2).toFixed(1) + '" y="' + (Y+84) +
+                 '" text-anchor="middle" class="rotulo-svg" style="font-size:10px;fill:var(--goo-rojo)">' +
+                 'VUELTA ATR&Aacute;S' + '</text>';
+          }
+
+          PASOS.forEach(function(p, k){
+            var x = px(k), hecho = k <= i;
+            var col = !hecho ? 'var(--line)' : (k === 1 ? 'var(--goo-amarillo)' : 'var(--goo-azul)');
+            m += '<circle cx="' + x.toFixed(1) + '" cy="' + Y + '" r="' + (k === i ? 12 : 8) +
+                 '" fill="' + (hecho ? col : 'var(--surface)') + '" stroke="' + col + '" stroke-width="2.5"></circle>';
+            if(k === i) m += '<circle cx="' + x.toFixed(1) + '" cy="' + Y + '" r="18" fill="none" stroke="' + col +
+                             '" stroke-width="1.2" opacity=".45"></circle>';
+            m += '<text x="' + x.toFixed(1) + '" y="' + (k % 2 ? Y + 34 : Y - 24) +
+                 '" text-anchor="middle" class="rotulo-svg" style="font-size:9.5px' +
+                 (k === i ? ';fill:var(--ink);font-weight:500' : '') + '">' + p.n + '</text>';
+            m += '<text x="' + x.toFixed(1) + '" y="' + (k % 2 ? Y + 46 : Y - 36) +
+                 '" text-anchor="middle" class="rotulo-svg" style="font-size:9px;opacity:.6">' + (k+1) + '</text>';
+          });
+          svg.innerHTML = m;
+
+          var p = PASOS[i];
+          var extra = '';
+          if(i === 1) extra = '<br><b style="color:var(--goo-amarillo)">Este es el paso que decide si tu proyecto se puede evaluar o no.</b>';
+          if(roto)    extra = '<br><b style="color:var(--goo-rojo)">La madera no aguanta el peso. Vuelves al dise&ntilde;o: eso no es fracasar, es como funciona.</b>';
+          pie.innerHTML = '<b>' + (i+1) + ' &middot; ' + p.t + '</b><br>' + p.d + extra;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          var a = b.dataset.p;
+          if(a === 'reset'){ i = 0; roto = false; vuelta = false; }
+          else if(a === 'fallo'){
+            if(i < 5){ i = 5; }          /* te lleva a construir */
+            else { i = 3; roto = true; vuelta = true; }   /* y de ahi, atras al diseno */
+          }
+          else { i = Math.min(i + 1, PASOS.length - 1); roto = false; }
+          pinta();
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="narra" id="narra-u1" style="margin-top:18px">
+        <div class="avatar-caja" id="av-u1"></div>
+        <div class="globo">
+          <span id="txt-u1"></span>
+          <div class="seg" style="margin-top:10px">
+            <button type="button" id="voz-u1">&#128266; Que me lo cuenten</button>
+            <button type="button" id="stop-u1">&#9632; Parar</button>
+          </div>
+          <div id="sel-voz-u1" style="margin-top:9px"></div>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var caja = document.getElementById('av-u1');
+        var txt  = document.getElementById('txt-u1');
+        if(!caja) return;
+
+        var GUION = 'Antes de que existiera un método, cada artesano resolvía los problemas a su manera, '
+          + 'y el resultado dependía de su experiencia. Funcionaba mientras las cosas eran sencillas y las '
+          + 'hacía una sola persona. Cuando hubo que fabricar miles de piezas iguales, entre varias personas '
+          + 'y en sitios distintos, hizo falta una forma de trabajar que otro pudiera seguir. '
+          + 'Son siete pasos. Uno: detectar la necesidad. Dos: analizar el problema y escribir los requisitos. '
+          + 'Tres: buscar varias ideas. Cuatro: elegir una y diseñarla. Cinco: planificar quién hace qué. '
+          + 'Seis: construir. Y siete: evaluar si cumple los requisitos que escribiste al principio. '
+          + 'El paso que decide todo es el dos. Si los requisitos están bien escritos, evaluar es objetivo: '
+          + 'se cumplen o no se cumplen. Si no los escribiste, nunca sabrás si tu solución es buena, '
+          + 'solo si te gusta.';
+
+        function cara(hablando){
+          var boca = hablando
+            ? '<ellipse cx="32" cy="46" rx="6" ry="5" fill="#8c3b2e"/>'
+            : '<path d="M25 45 q7 6 14 0" fill="none" stroke="#8c3b2e" stroke-width="2.6" stroke-linecap="round"/>';
+          return '<svg viewBox="0 0 104 72" class="avatar' + (hablando ? ' habla' : '') + '" aria-hidden="true">'
+            + '<ellipse cx="32" cy="38" rx="21" ry="23" fill="#f3d3b3" stroke="#c9a583" stroke-width="1.5"/>'
+            + '<path d="M12 22 h40 v4 h-40 Z M20 22 v-5 h24 v5" fill="#2f3a45"/>'
+            + '<circle cx="24" cy="34" r="3.4" fill="#2f3a45"/><circle cx="40" cy="34" r="3.4" fill="#2f3a45"/>'
+            + '<circle cx="25.2" cy="32.8" r="1.2" fill="#fff"/><circle cx="41.2" cy="32.8" r="1.2" fill="#fff"/>'
+            + '<circle cx="17" cy="45" r="3.2" fill="#ea4335" opacity=".22"/>'
+            + '<circle cx="47" cy="45" r="3.2" fill="#ea4335" opacity=".22"/>'
+            + boca
+            + '<rect x="64" y="30" width="30" height="24" rx="2" fill="#fff" stroke="#5f6368" stroke-width="2"/>'
+            + '<path d="M79 30 v24" stroke="#5f6368" stroke-width="2"/>'
+            + '<path d="M68 38 h8 M68 44 h8 M83 38 h8 M83 44 h8" stroke="#9aa0a6" stroke-width="1.6"/>'
+            + '</svg>';
+        }
+
+        txt.innerHTML = '<b>El maestro de taller</b><br>Te cuenta por qu&eacute; hubo que inventar un m&eacute;todo, '
+          + 'y cu&aacute;les son los siete pasos.';
+        caja.innerHTML = cara(false);
+
+        var hayVoz = ('speechSynthesis' in window), voz = null;
+        function puntua(v){
+          var n = (v.name || '').toLowerCase(), p = 0;
+          if(/natural|neural/.test(n)) p += 100;
+          if(/online/.test(n)) p += 40;
+          if(/premium|enhanced/.test(n)) p += 60;
+          if(/google/.test(n)) p += 50;
+          if(/^es-es/i.test(v.lang)) p += 10;
+          return p;
+        }
+        function vocesES(){
+          return !hayVoz ? [] : speechSynthesis.getVoices()
+            .filter(function(v){ return /^es/i.test(v.lang); })
+            .sort(function(a,b){ return puntua(b) - puntua(a); });
+        }
+        function elige(){
+          var vs = vocesES(); if(!vs.length) return;
+          var g = null; try{ g = localStorage.getItem('voz-tema0'); }catch(e){}
+          voz = vs.filter(function(v){ return v.name === g; })[0] || vs[0];
+          var c = document.getElementById('sel-voz-u1');
+          if(!c || vs.length < 2) return;
+          c.innerHTML = '<label style="font-family:var(--f-m);font-size:11px;color:var(--ink-soft)">Voz: ' +
+            '<select style="font:inherit;padding:3px 6px;border:1px solid var(--line);border-radius:2px;' +
+            'background:var(--surface);color:var(--ink);max-width:220px">' +
+            vs.map(function(v){ return '<option' + (voz && v.name===voz.name ? ' selected':'') + '>' +
+              v.name.replace(/Microsoft |Spanish \(Spain\)|- /g,'').trim() + '</option>'; }).join('') +
+            '</select></label>';
+          c.querySelector('select').addEventListener('change', function(){
+            voz = vs.filter(function(v){ return v.name.indexOf(this.value) >= 0; }.bind(this))[0] || voz;
+            try{ localStorage.setItem('voz-tema0', voz.name); }catch(e){}
+          });
+        }
+        if(hayVoz){ elige(); speechSynthesis.onvoiceschanged = elige; }
+
+        document.getElementById('voz-u1').addEventListener('click', function(){
+          if(!hayVoz){ txt.innerHTML += '<br><i>Este navegador no puede leer en voz alta.</i>'; return; }
+          speechSynthesis.cancel();
+          var u = new SpeechSynthesisUtterance(GUION);
+          u.lang = 'es-ES'; if(voz) u.voice = voz;
+          u.rate = 0.97; u.pitch = 1.0;
+          u.onstart = function(){ caja.innerHTML = cara(true); };
+          u.onend = u.onerror = function(){ caja.innerHTML = cara(false); };
+          speechSynthesis.speak(u);
+        });
+        document.getElementById('stop-u1').addEventListener('click', function(){
+          if(hayVoz) speechSynthesis.cancel();
+          caja.innerHTML = cara(false);
+        });
+      })();
+      </script>
       <h3>Y no es una l&iacute;nea recta</h3>
       <p>Casi siempre se vuelve atr&aacute;s. Construyes y descubres que la madera no aguanta: vuelves al
          dise&ntilde;o. Eso <b>no es fracasar</b>, es c&oacute;mo funciona. Lo que ser&iacute;a un fallo es descubrirlo
