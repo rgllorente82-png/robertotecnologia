@@ -219,6 +219,167 @@ footer .wrap{padding-block:18px 26px}
          del surco pierde un poco de calidad, y si se raya, se estrope&oacute; para siempre. Un archivo de m&uacute;sica
          guarda esa misma canci&oacute;n como una <b>lista de n&uacute;meros</b>. Y los n&uacute;meros se copian exactos,
          infinitas veces, sin perder nada y casi sin coste. Ah&iacute; est&aacute; toda la diferencia.</p>
+      <h4>Escúchalo</h4>
+      <p>La misma melodía, guardada de las dos maneras. Dale a copiar varias veces y vuelve a escuchar
+         las dos: ahí está toda la diferencia.</p>
+
+      <div class="escena" id="esc-audio">
+        <div class="escena-barra">
+          <span class="escena-titulo">Vinilo frente a archivo digital</span>
+          <div class="seg" id="seg-audio">
+            <button type="button" data-a="copiar">Copiar una vez &#9654;</button>
+            <button type="button" data-a="reset">&#8635; Empezar de nuevo</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 230" id="svg-audio" role="img"
+               aria-label="Comparación entre una grabación analógica que se degrada al copiarse y un archivo digital que no"></svg>
+        </div>
+        <div class="pie" id="pie-audio">Las dos copias son la original. Todavía suenan igual.</div>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Por qué pasa esto</span>
+        El vinilo guarda un <b>surco continuo</b>: al copiarlo, la aguja añade un poco de ruido y pierde un
+        poco de agudos. Poco, pero cada vez. El archivo guarda <b>números</b>: copiar un 7 da un 7, siempre.
+        Por eso una copia de una copia de una copia digital es idéntica a la original, y la analógica no.
+      </div>
+
+      <div class="aviso">
+        <span class="n-tag">Nota</span>
+        La melodía que escuchas no es ninguna canción: la genera tu propio navegador con unas pocas líneas de
+        código, sin descargar nada. El ruido del vinilo también está fabricado a propósito para que oigas el
+        efecto.
+      </div>
+
+      <script>
+      (function(){
+        var svgA = document.getElementById('svg-audio');
+        var pieA = document.getElementById('pie-audio');
+        var segA = document.getElementById('seg-audio');
+        if(!svgA) return;
+
+        var gen = 0, MAXG = 6, ctx = null;
+        /* melodia propia, en semitonos sobre La3 = 220 Hz */
+        var NOTAS = [0, 4, 7, 12, 7, 4, 0, -5, 0, 4, 7, 4];
+        var DUR = 0.26;
+
+        function hz(semi){ return 220 * Math.pow(2, semi/12); }
+
+        function suena(analogico){
+          try{
+            ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+          }catch(e){ pieA.textContent = 'Tu navegador no deja reproducir sonido aquí.'; return; }
+          if(ctx.state === 'suspended') ctx.resume();
+          var t0 = ctx.currentTime + 0.05;
+          var master = ctx.createGain();
+          master.gain.value = 0.9;
+
+          /* la copia analogica pierde agudos: filtro cada vez mas cerrado */
+          var salida = master;
+          if(analogico){
+            var lp = ctx.createBiquadFilter();
+            lp.type = 'lowpass';
+            lp.frequency.value = Math.max(900, 9000 - gen * 1350);
+            master.connect(lp); salida = lp;
+          }
+          salida.connect(ctx.destination);
+
+          NOTAS.forEach(function(n, i){
+            var o = ctx.createOscillator(), g = ctx.createGain();
+            o.type = 'triangle';
+            var f = hz(n);
+            /* wow and flutter: la velocidad del plato no es perfecta */
+            if(analogico && gen > 0) f *= 1 + (Math.random()-0.5) * 0.004 * gen;
+            o.frequency.value = f;
+            var ini = t0 + i*DUR;
+            g.gain.setValueAtTime(0.0001, ini);
+            g.gain.exponentialRampToValueAtTime(0.22, ini + 0.02);
+            g.gain.exponentialRampToValueAtTime(0.0001, ini + DUR*0.92);
+            o.connect(g); g.connect(salida);
+            o.start(ini); o.stop(ini + DUR);
+          });
+
+          /* ruido de superficie y chasquidos, solo en las copias analogicas */
+          if(analogico && gen > 0){
+            var dur = NOTAS.length * DUR;
+            var buf = ctx.createBuffer(1, Math.ceil(ctx.sampleRate*dur), ctx.sampleRate);
+            var d = buf.getChannelData(0);
+            var nivel = 0.006 * gen;
+            for(var s = 0; s < d.length; s++){
+              d[s] = (Math.random()*2 - 1) * nivel;
+              if(Math.random() < 0.00012 * gen) d[s] = (Math.random()*2-1) * 0.55;  /* chasquido */
+            }
+            var src = ctx.createBufferSource(); src.buffer = buf;
+            var gn = ctx.createGain(); gn.gain.value = 1;
+            src.connect(gn); gn.connect(ctx.destination);
+            src.start(t0);
+          }
+        }
+
+        function onda(x0, y0, w, h, ruido, agudos, pasos){
+          var p = '', N = 150;
+          for(var i = 0; i <= N; i++){
+            var t = i/N, x = x0 + t*w;
+            var v = Math.sin(t*Math.PI*6) * agudos + Math.sin(t*Math.PI*17) * 0.32 * agudos;
+            if(pasos) v = Math.round(v*6)/6;
+            v += (Math.random()*2-1) * ruido;
+            var y = y0 + h/2 - v*(h/2.4);
+            p += (i ? ' L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1);
+          }
+          return p;
+        }
+
+        function pinta(){
+          var deg = gen / MAXG;
+          var m = '';
+          /* vinilo */
+          m += '<text class="rotulo-svg" x="24" y="26" style="font-size:11px">VINILO &middot; SURCO CONTINUO</text>';
+          m += '<path d="' + onda(24, 36, 592, 66, 0.055*gen, Math.max(0.28, 1 - deg*0.72), false) +
+               '" fill="none" stroke="var(--goo-rojo)" stroke-width="1.6"></path>';
+          /* digital */
+          m += '<text class="rotulo-svg" x="24" y="140" style="font-size:11px">ARCHIVO &middot; LISTA DE N&Uacute;MEROS</text>';
+          m += '<path d="' + onda(24, 150, 592, 66, 0, 1, true) +
+               '" fill="none" stroke="var(--goo-verde)" stroke-width="1.6"></path>';
+          m += '<text class="rotulo-svg" x="616" y="26" text-anchor="end" style="font-size:10px;fill:var(--goo-rojo)">' +
+               (gen === 0 ? 'ORIGINAL' : 'COPIA ' + gen) + '</text>';
+          m += '<text class="rotulo-svg" x="616" y="140" text-anchor="end" style="font-size:10px;fill:var(--goo-verde)">' +
+               (gen === 0 ? 'ORIGINAL' : 'COPIA ' + gen + ' &middot; ID&Eacute;NTICA') + '</text>';
+          svgA.innerHTML = m;
+
+          var b = svgA.parentElement.parentElement.querySelector('#btns-audio');
+          if(gen === 0) pieA.innerHTML = 'Las dos son el original. Todav&iacute;a suenan igual. Pulsa <b>Copiar</b>.';
+          else if(gen < MAXG) pieA.innerHTML = 'Copia n&uacute;mero <b>' + gen + '</b>. El vinilo ha perdido agudos y ha ganado ruido. El archivo sigue siendo el mismo.';
+          else pieA.innerHTML = 'Copia n&uacute;mero <b>' + gen + '</b>. El vinilo casi no se entiende. El archivo digital es <b>bit a bit id&eacute;ntico</b> al original.';
+        }
+
+        segA.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-a]'); if(!b) return;
+          if(b.dataset.a === 'copiar') gen = Math.min(gen + 1, MAXG);
+          else gen = 0;
+          pinta();
+        });
+
+        svgA.addEventListener('click', function(e){
+          var y = e.offsetY / svgA.getBoundingClientRect().height * 230;
+          suena(y < 115);
+        });
+
+        /* botones de escucha bajo el lienzo */
+        var barra = document.createElement('div');
+        barra.className = 'pie';
+        barra.id = 'btns-audio';
+        barra.innerHTML = '<div class="seg">' +
+          '<button type="button" id="play-vin">&#9654; Escuchar el vinilo</button>' +
+          '<button type="button" id="play-dig">&#9654; Escuchar el archivo</button></div>';
+        pieA.parentElement.insertBefore(barra, pieA);
+        barra.querySelector('#play-vin').addEventListener('click', function(){ suena(true); });
+        barra.querySelector('#play-dig').addEventListener('click', function(){ suena(false); });
+
+        pinta();
+      })();
+      </script>
+
       <p>Cuando eso mismo le ocurre a las fotos, a los libros, al dinero, a las clases, a los planos y a las
          m&aacute;quinas de una f&aacute;brica, cambian tres cosas de golpe:</p>
       <ul>
