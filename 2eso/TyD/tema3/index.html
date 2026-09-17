@@ -207,7 +207,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3</div>
     <h1>Materiales de uso t&eacute;cnico</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4">S4 &middot; Metales</button><button type="button" data-ses="5" disabled>S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6" disabled>S6 &middot; Impacto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4">S4 &middot; Metales</button><button type="button" data-ses="5">S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6">S6 &middot; Impacto y test</button></nav>
   </div>
 </header>
 
@@ -1172,9 +1172,449 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>Los pl&aacute;sticos: hubo que inventarlos</h2>
+      <p>No estaban en ninguna parte esperando a que alguien los encontrara. Y se inventaron, ir&oacute;nicamente, para dejar de matar elefantes.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <p>La madera creci&oacute;. El metal estaba dentro de una piedra. Con los pl&aacute;sticos pasa algo distinto:</p>
+      <div class="aviso">
+        <span class="n-tag">El dato</span>
+        <b>Los pl&aacute;sticos no exist&iacute;an.</b> No estaban en ning&uacute;n sitio esperando a que alguien los
+        encontrara. Hubo que <b>inventarlos</b>.
+      </div>
+      <p>&iquest;Y por qu&eacute; se inventaron? Aqu&iacute; viene lo bueno, y no es lo que esperas.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>En 1863, una empresa de billares de Nueva York ofreci&oacute; <b>10.000 d&oacute;lares</b> &mdash;una fortuna
+           entonces&mdash; a quien encontrara un sustituto del <b>marfil</b> para las bolas. Se estaban
+           quedando sin elefantes, y con ellos sin negocio.</p>
+        <p>John Wesley Hyatt gan&oacute; el premio en 1869 con el <b>celuloide</b>. Funcionaba, aunque con un
+           inconveniente memorable: era tan inflamable que, seg&uacute;n contaban los duenos de los salones, a
+           veces el choque de dos bolas provocaba un peque&ntilde;o estallido y los vaqueros sacaban la pistola.</p>
+        <p>El primer pl&aacute;stico totalmente sint&eacute;tico lleg&oacute; en 1907: la <b>baquelita</b>, de Leo Baekeland.
+           Y merece la pena quedarse con la iron&iacute;a: <b>los pl&aacute;sticos se inventaron para dejar de matar
+           elefantes y tortugas</b>. Hoy son el s&iacute;mbolo del problema ambiental. Ninguna tecnolog&iacute;a nace
+           buena ni mala: nace resolviendo algo, y crea lo siguiente.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Qu&eacute; es un pl&aacute;stico por dentro</h3>
+      <p>Un pl&aacute;stico es un <b>pol&iacute;mero</b>: mol&eacute;culas larguísimas formadas repitiendo una peque&ntilde;a
+         unidad miles de veces, como un collar de cuentas iguales. Y casi todo su comportamiento depende
+         de <b>c&oacute;mo est&eacute;n esas cadenas entre s&iacute;</b>.</p>
+
+      <div class="escena" id="esc-plast">
+        <div class="escena-barra">
+          <span class="escena-titulo">Calentar un pl&aacute;stico &middot; pulsa el mechero</span>
+          <div class="seg" id="seg-plast">
+            <button type="button" data-p="termo" aria-pressed="true">Termopl&aacute;stico</button>
+            <button type="button" data-p="estable">Termoestable</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 230" id="svg-plast" role="img"
+               aria-label="Al calentarlo, un termopl&aacute;stico se ablanda y se puede remoldear; un termoestable se quema"></svg>
+        </div>
+        <div class="pie" id="pie-plast"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-plast');
+        var pie = document.getElementById('pie-plast');
+        var seg = document.getElementById('seg-plast');
+        if(!svg) return;
+        var tipo = 'termo', fase = 0;   /* 0 frio · 1 calentado · 2 resultado */
+
+        function cadenas(x, y, enredado, quemado){
+          var m = '', col = quemado ? '#5b3a16' : (enredado ? '#9aa0a6' : 'var(--goo-azul)');
+          for(var i = 0; i < 5; i++){
+            var yy = y + i*17;
+            if(enredado){
+              m += '<path d="M'+x+' '+yy+' q18 -12 34 0 q16 12 34 0 q18 -12 34 0 q16 12 34 0" fill="none" '
+                 + 'stroke="'+col+'" stroke-width="4" stroke-linecap="round"></path>';
+            } else {
+              m += '<path d="M'+x+' '+yy+' h136" fill="none" stroke="'+col+'" stroke-width="4" stroke-linecap="round"></path>';
+            }
+          }
+          /* los enlaces cruzados del termoestable */
+          if(tipo === 'estable'){
+            for(var j = 0; j < 4; j++){
+              for(var k = 0; k < 3; k++){
+                var xx = x + 25 + k*45;
+                m += '<path d="M'+xx+' '+(y+j*17)+' V'+(y+(j+1)*17)+'" stroke="var(--goo-rojo)" stroke-width="3"></path>';
+              }
+            }
+          }
+          return m;
+        }
+
+        function pinta(){
+          var m = '';
+          m += '<text x="40" y="30" class="rotulo-svg" style="font-size:11px">ANTES</text>';
+          m += cadenas(40, 60, false, false);
+          m += '<text x="250" y="30" text-anchor="middle" class="rotulo-svg" style="font-size:11px">CALOR</text>';
+          /* mechero */
+          m += '<path d="M250 70 q-14 -18 0 -34 q14 16 0 34 Z" fill="'+(fase?'#fbbc04':'var(--line)')+'"></path>';
+          if(fase) m += '<path d="M250 62 q-7 -10 0 -18 q7 10 0 18 Z" fill="#ea4335"></path>';
+          m += '<path d="M244 72 h12 v46 h-12 Z" fill="var(--ink-soft)"></path>';
+          m += '<path d="M215 140 H285" stroke="var(--line)" stroke-width="2"></path>';
+
+          m += '<text x="420" y="30" class="rotulo-svg" style="font-size:11px">DESPU&Eacute;S</text>';
+          if(fase === 0){
+            m += '<text x="490" y="105" text-anchor="middle" class="rotulo-svg" style="font-size:12px;opacity:.5">'
+               + 'pulsa el mechero</text>';
+          } else if(tipo === 'termo'){
+            m += cadenas(420, 60, true, false);
+          } else {
+            m += cadenas(420, 60, false, true);
+            m += '<path d="M470 52 q-9 -14 0 -24 q9 12 0 24 Z" fill="#9aa0a6" opacity=".7"></path>';
+            m += '<path d="M500 48 q-7 -11 0 -19 q7 10 0 19 Z" fill="#9aa0a6" opacity=".5"></path>';
+          }
+
+          m += '<text x="320" y="200" text-anchor="middle" class="rotulo-svg" style="font-size:10.5px">'
+             + (tipo === 'termo' ? 'CADENAS SUELTAS, SE PUEDEN DESLIZAR'
+                                 : 'CADENAS UNIDAS ENTRE S&Iacute; &middot; LOS PUENTES ROJOS NO SE DESHACEN') + '</text>';
+          svg.innerHTML = m;
+
+          if(fase === 0){
+            pie.innerHTML = tipo === 'termo'
+              ? 'Las cadenas de un <b>termopl&aacute;stico</b> est&aacute;n sueltas, apiladas como espaguetis cocidos. '
+                + 'Pulsa el mechero.'
+              : 'Un <b>termoestable</b> tiene las cadenas <b>cosidas entre s&iacute;</b> por enlaces qu&iacute;micos, '
+                + 'los puentes rojos. Pulsa el mechero.';
+          } else if(tipo === 'termo'){
+            pie.innerHTML = '<b>Se ablanda y se puede remoldear.</b> Con calor las cadenas deslizan unas sobre '
+              + 'otras, y al enfriarse quedan en la nueva forma. Esto se puede repetir muchas veces: por eso '
+              + 'un termopl&aacute;stico <b>se recicla</b>.';
+          } else {
+            pie.innerHTML = '<b>No se ablanda: se quema.</b> Los puentes entre cadenas no se deshacen con el '
+              + 'calor, as&iacute; que antes de fundirse el material se descompone. Un termoestable <b>no se puede '
+              + 'reciclar</b> fundi&eacute;ndolo: como mucho se tritura y se usa de relleno.';
+          }
+        }
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+          tipo = b.dataset.p; fase = 0; pinta();
+        });
+        svg.addEventListener('click', function(){ fase = fase ? 0 : 1; pinta(); });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Los pl&aacute;sticos</h4>
+        <p><b>Pol&iacute;mero</b>: mol&eacute;cula muy larga formada por la repetici&oacute;n de una unidad peque&ntilde;a,
+           el <b>mon&oacute;mero</b>.</p>
+        <p><b>Termopl&aacute;sticos</b>: cadenas sueltas. Con calor se ablandan y se pueden remoldear muchas
+           veces. <b>Se reciclan.</b> PET, PE, PP, PVC, PS.</p>
+        <p><b>Termoestables</b>: cadenas unidas entre s&iacute; por enlaces. Con calor <b>se queman sin
+           ablandarse</b>. No se reciclan fundi&eacute;ndolos. Baquelita, resinas ep&oacute;xi, poliuretano.</p>
+        <p><b>Elast&oacute;meros</b>: cadenas poco unidas y muy enrolladas. Se estiran mucho y recuperan la
+           forma. Caucho, goma, silicona.</p>
+      </div>
+
+      <h3>El tri&aacute;ngulo de la base</h3>
+      <p>Casi todo envase lleva un tri&aacute;ngulo con un n&uacute;mero del 1 al 7. No es decoraci&oacute;n: dice
+         <b>de qu&eacute; pl&aacute;stico est&aacute; hecho</b>, y por tanto si se puede reciclar y con qu&eacute;.</p>
+      <div class="copiar">
+        <h4>C&oacute;digos que conviene reconocer</h4>
+        <ul>
+          <li><b>1 · PET</b> &mdash; botellas de agua y refresco. Se recicla muy bien.</li>
+          <li><b>2 · HDPE</b> &mdash; garrafas, botes de detergente. Se recicla bien.</li>
+          <li><b>3 · PVC</b> &mdash; tuber&iacute;as, marcos. Dif&iacute;cil y problem&aacute;tico.</li>
+          <li><b>4 · LDPE</b> &mdash; bolsas y film. Se recicla mal por lo fino.</li>
+          <li><b>5 · PP</b> &mdash; t&aacute;pers, tapones. Aguanta el microondas.</li>
+          <li><b>6 · PS</b> &mdash; porex, bandejas. Voluminoso y poco rentable.</li>
+          <li><b>7 · Otros</b> &mdash; caj&oacute;n de sastre. Casi nunca se recicla.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <span class="n-tag">Lo que casi nadie sabe</span>
+        <b>El tri&aacute;ngulo no significa que se recicle.</b> Significa de qu&eacute; material es. Un 6 y un 7 llevan
+        tri&aacute;ngulo y acaban casi siempre incinerados o en vertedero. El s&iacute;mbolo informa; no promete.
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7 &middot; Leer los tri&aacute;ngulos</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">7.1</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Reunid <b>seis envases o piezas de pl&aacute;stico</b> y buscad el tri&aacute;ngulo con su n&uacute;mero.
+                Suele estar en la base, muy peque&ntilde;o.</li>
+            <li>Anotad el n&uacute;mero, el nombre del pl&aacute;stico y para qu&eacute; sirve ese objeto.</li>
+            <li>Decid si cada uno es <b>termopl&aacute;stico o termoestable</b>, y en qu&eacute; os bas&aacute;is.</li>
+            <li>Para cada uno: <b>&iquest;por qu&eacute; ese pl&aacute;stico y no otro?</b> Pensad en si va al microondas,
+                si aguanta golpes, si tiene que ser transparente.</li>
+            <li>Buscad uno que, en vuestra opini&oacute;n, <b>no deber&iacute;a ser de pl&aacute;stico</b>. Argumentadlo.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los seis tri&aacute;ngulos est&aacute;n localizados y anotados <b>(3 puntos)</b>.</li>
+            <li>La clasificaci&oacute;n termopl&aacute;stico/termoestable es correcta <b>(2 puntos)</b>.</li>
+            <li>Las razones de uso son t&eacute;cnicas <b>(3 puntos)</b>.</li>
+            <li>La cr&iacute;tica final est&aacute; argumentada <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Si no encontr&aacute;is el tri&aacute;ngulo</span>
+            Eso tambi&eacute;n es un dato, y de los buenos: <b>un envase sin marcar es un envase que nadie
+            podr&aacute; separar</b>. Anotadlo como tal.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Los pl&aacute;sticos se inventaron para <b>no tener que matar elefantes</b>. Hoy son el s&iacute;mbolo del
+         problema ambiental. Las dos cosas son verdad a la vez.</p>
+      <p>Esa es probablemente la lecci&oacute;n m&aacute;s importante del tema: <b>ninguna tecnolog&iacute;a nace buena
+         ni mala</b>. Nace resolviendo un problema, y al resolverlo crea el siguiente.</p>
+      <ol>
+              <li>&iquest;Qu&eacute; diferencia hay entre un termopl&aacute;stico y un termoestable?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Las cadenas. En el <b>termopl&aacute;stico</b> est&aacute;n sueltas y con calor deslizan: se remoldea y se recicla. En el <b>termoestable</b> est&aacute;n unidas por enlaces que el calor no deshace: se quema antes de ablandarse.</p></div></details></li>
+        <li>&iquest;Qu&eacute; significa exactamente el tri&aacute;ngulo con un n&uacute;mero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Dice <b>de qu&eacute; pl&aacute;stico est&aacute; hecho</b>, nada m&aacute;s. <b>No garantiza que se recicle</b>: un 6 o un 7 lo llevan y casi siempre acaban incinerados.</p></div></details></li>
+        <li>Los pl&aacute;sticos se inventaron para sustituir al marfil. &iquest;Qu&eacute; ense&ntilde;a eso?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que una tecnolog&iacute;a puede resolver un problema grave &mdash;la caza de elefantes&mdash; y crear otro distinto d&eacute;cadas despu&eacute;s. Hay que juzgarlas por sus <b>consecuencias completas</b>, no por su intenci&oacute;n.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes elegir material. Falta la otra mitad de la decisi&oacute;n: <b>qu&eacute; pasa con &eacute;l cuando el
+        objeto se tira</b>. Y el test del tema.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Qu&eacute; pasa cuando lo tiras</h2>
+      <p>Elegir un material no termina en sus propiedades. La otra mitad de la decisi&oacute;n es qu&eacute; ocurre con &eacute;l despu&eacute;s.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>15'</b> Test</span></div>
+      <div class="chips"><span class="chip">CE7 &middot; 7.1</span><span class="chip">CE7 &middot; 7.2</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span><span class="chip sab">E.2</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Una pregunta que parece de otra asignatura y no lo es:</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        <b>&iquest;D&oacute;nde est&aacute; ahora la botella de agua que te bebiste el mes pasado?</b>
+      </div>
+      <p>Existe. No ha desaparecido. Est&aacute; en alg&uacute;n sitio concreto, ahora mismo, y lo m&aacute;s probable es
+         que siga existiendo cuando t&uacute; tengas cincuenta a&ntilde;os.</p>
+      <p>Durante todo este tema hemos elegido materiales mirando lo que saben hacer. Falta la otra mitad
+         de la decisi&oacute;n: <b>qu&eacute; pasa con ellos despu&eacute;s</b>.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>El objeto no termina cuando lo tiras</h3>
+
+      <div class="escena" id="esc-ciclo">
+        <div class="escena-barra">
+          <span class="escena-titulo">El ciclo de vida de una botella &middot; pulsa cada fase</span>
+          <div class="seg" id="seg-ciclo">
+            <button type="button" data-c="lineal" aria-pressed="true">Modelo lineal</button>
+            <button type="button" data-c="circular">Modelo circular</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 240" id="svg-ciclo" role="img"
+               aria-label="Ciclo de vida lineal frente a circular de una botella"></svg>
+        </div>
+        <div class="pie" id="pie-ciclo"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-ciclo');
+        var pie = document.getElementById('pie-ciclo');
+        var seg = document.getElementById('seg-ciclo');
+        if(!svg) return;
+        var modo = 'lineal', sel = -1;
+
+        var F = [
+          {n:'Extraer',  d:'Se saca <b>petróleo</b>. Una botella de litro y medio necesita unos 100 ml de crudo.'},
+          {n:'Fabricar', d:'Se convierte en PET y se moldea. Aqu&iacute; se gasta la mayor parte de la energ&iacute;a.'},
+          {n:'Transportar', d:'De la f&aacute;brica al embotellador, de ah&iacute; al supermercado y de ah&iacute; a tu casa.'},
+          {n:'Usar',     d:'Tiempo medio de uso de una botella de agua: <b>unos minutos</b>.'},
+          {n:'Tirar',    d:'Y aqu&iacute; se decide todo: contenedor amarillo, o no.'}
+        ];
+
+        function pinta(){
+          var m = '', X = 40, W = 118, Y = 70;
+          F.forEach(function(f, i){
+            var x = X + i*W;
+            var act = (sel === i);
+            var col = act ? 'var(--goo-azul)' : 'var(--line)';
+            m += '<g class="fase" data-i="'+i+'" style="cursor:pointer">';
+            m += '<rect x="'+x+'" y="'+Y+'" width="96" height="46" rx="3" fill="'+(act?'var(--accent-soft)':'var(--surface)')
+               + '" stroke="'+col+'" stroke-width="'+(act?3:1.5)+'"></rect>';
+            m += '<text x="'+(x+48)+'" y="'+(Y+28)+'" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:12px;fill:var(--ink)">'+f.n+'</text>';
+            m += '</g>';
+            if(i < 4){
+              m += '<path d="M'+(x+96)+' '+(Y+23)+' h16" stroke="var(--ink-soft)" stroke-width="2"></path>';
+              m += '<path d="M'+(x+118)+' '+(Y+23)+' l-9 -5 v10 Z" fill="var(--ink-soft)"></path>';
+            }
+          });
+
+          if(modo === 'lineal'){
+            m += '<path d="M'+(X+4*W+96)+' '+(Y+23)+' h40" stroke="var(--goo-rojo)" stroke-width="2.5"></path>';
+            m += '<path d="M'+(X+4*W+142)+' '+(Y+23)+' l-10 -6 v12 Z" fill="var(--goo-rojo)"></path>';
+            m += '<text x="'+(X+4*W+108)+'" y="'+(Y+58)+'" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:11px;fill:var(--goo-rojo)">VERTEDERO</text>';
+          } else {
+            m += '<path d="M'+(X+4*W+48)+' '+(Y+50)+' V190 H'+(X+48)+' V'+(Y+50)+'" fill="none" '
+               + 'stroke="var(--goo-verde)" stroke-width="2.5" stroke-dasharray="7 5"></path>';
+            m += '<path d="M'+(X+48)+' '+(Y+50)+' l-6 12 h12 Z" fill="var(--goo-verde)"></path>';
+            m += '<text x="320" y="208" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:11.5px;fill:var(--goo-verde)">RECICLAR &middot; vuelve a ser materia prima</text>';
+          }
+          m += '<text x="40" y="36" class="rotulo-svg" style="font-size:11px">UNA BOTELLA DE AGUA, DE PRINCIPIO A FIN</text>';
+          svg.innerHTML = m;
+
+          if(sel >= 0) pie.innerHTML = '<b>'+F[sel].n+'.</b> '+F[sel].d;
+          else if(modo === 'lineal')
+            pie.innerHTML = 'El modelo <b>lineal</b>: extraer, fabricar, usar y tirar. Funcion&oacute; mientras '
+              + 'los recursos parec&iacute;an infinitos y la basura, invisible. Pulsa cada fase.';
+          else
+            pie.innerHTML = 'El modelo <b>circular</b>: lo que se tira vuelve a entrar como materia prima. '
+              + 'No es reciclar por gusto: es que <b>extraer sale car&iacute;simo</b>, como viste con el aluminio.';
+        }
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('.fase'); if(!g) return;
+          sel = (sel === +g.dataset.i) ? -1 : +g.dataset.i; pinta();
+        });
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+          modo = b.dataset.c; sel = -1; pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Ciclo de vida</h4>
+        <p><b>Ciclo de vida</b>: todas las etapas por las que pasa un producto, desde que se extrae la
+           materia prima hasta que se convierte en residuo o vuelve a ser materia prima.</p>
+        <p><b>Modelo lineal</b>: extraer, fabricar, usar, tirar. <b>Modelo circular</b>: lo que se tira
+           vuelve a entrar como materia prima.</p>
+        <p><b>Huella de carbono</b>: cantidad de CO&#8322; que se emite a lo largo de todo ese ciclo.</p>
+      </div>
+
+      <h3>Las tres erres, en el orden correcto</h3>
+      <div class="copiar">
+        <h4>Reducir, reutilizar, reciclar</h4>
+        <ol class="pasos">
+          <li><b>Reducir</b>: no usarlo. Es la &uacute;nica que ahorra el 100&nbsp;por cien.</li>
+          <li><b>Reutilizar</b>: usarlo otra vez tal cual, sin transformarlo.</li>
+          <li><b>Reciclar</b>: destruirlo para recuperar el material.</li>
+        </ol>
+        <p><b>El orden importa</b>, y casi siempre se cuenta al rev&eacute;s. Reciclar es la &uacute;ltima, no la
+           primera: sigue gastando energ&iacute;a y transporte.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Hay un t&eacute;rmino que conviene conocer: <b>obsolescencia programada</b>, dise&ntilde;ar algo para que
+           dure poco. El caso documentado m&aacute;s claro es el <b>c&aacute;rtel Phoebus</b>: en 1924 los grandes
+           fabricantes de bombillas acordaron por escrito limitar su duraci&oacute;n a 1.000 horas, cuando ya
+           fabricaban algunas de 2.500. Multaban al que se pasara.</p>
+        <p>Existe una bombilla encendida desde 1901 en un parque de bomberos de California. La han visto
+           millones de personas por internet. No es un milagro: es que se fabric&oacute; antes del acuerdo.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 8 &middot; El juicio a un objeto</span>
+          <span class="chips"><span class="chip">7.1</span><span class="chip">7.2</span></span>
+          <span>Grupos de cuatro &middot; 15 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Elegid un objeto cotidiano: una botella de agua, un boli, unos auriculares, un m&oacute;vil.</p>
+          <ol class="pasos">
+            <li>Reconstruid su <b>ciclo de vida completo</b>, las cinco fases, con todo el detalle que pod&aacute;is.</li>
+            <li>Se&ntilde;alad en qu&eacute; fase se gasta <b>m&aacute;s energ&iacute;a</b> y en cu&aacute;l se genera m&aacute;s residuo.</li>
+            <li>Proponed <b>una mejora por cada erre</b>: una para reducir, una para reutilizar y una para reciclar.</li>
+            <li>Decid cu&aacute;l de las tres tendr&iacute;a <b>m&aacute;s efecto</b> y por qu&eacute;.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El ciclo de vida est&aacute; completo y es realista <b>(3 puntos)</b>.</li>
+            <li>La fase cr&iacute;tica est&aacute; bien identificada <b>(2 puntos)</b>.</li>
+            <li>Hay una mejora por cada erre y son aplicables <b>(3 puntos)</b>.</li>
+            <li>La conclusi&oacute;n razona cu&aacute;l tiene m&aacute;s efecto <b>(2 puntos)</b>.</li>
+          </ul>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Test del tema &middot; 15 min</div>
+
+      <p>Diez preguntas de todo el tema. Contesta primero en el cuaderno y luego despliega cada una.</p>
+      <ol>
+              <li>&iquest;Cu&aacute;l es el mejor material?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Ninguno.</b> No existe. Existe el <b>adecuado</b> para lo que quieres hacer, y se encuentra comparando propiedades con lo que necesitas.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; el precio no es una propiedad?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no es una caracter&iacute;stica del material: es <b>consecuencia</b> de su abundancia, de lo que cueste extraerlo y de c&oacute;mo se fabrique.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es un ensayo?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Una prueba <b>normalizada</b> para medir una propiedad, hecha siempre igual para que el resultado no dependa de qui&eacute;n la haga.</p></div></details></li>
+        <li>&iquest;Qu&eacute; significa que la madera sea anis&oacute;tropa?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que <b>sus propiedades cambian seg&uacute;n la direcci&oacute;n</b>: mucho a lo largo de la veta, poco a lo ancho.</p></div></details></li>
+        <li>&iquest;Qu&eacute; problema resuelve el contrachapado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La anisotrop&iacute;a. Cruzando la veta de cada capa 90 grados, <b>ninguna direcci&oacute;n queda d&eacute;bil</b>.</p></div></details></li>
+        <li>&iquest;C&oacute;mo distingues un metal f&eacute;rrico de uno que no lo es?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Con un <b>im&aacute;n</b>. Si se pega, lleva hierro. Con la excepci&oacute;n del acero inoxidable, que lo lleva y no se pega.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; reciclar aluminio ahorra tant&iacute;sima energ&iacute;a?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo caro es <b>separarlo del mineral por electrolisis</b>, y eso ya se hizo. Reciclar solo exige fundirlo.</p></div></details></li>
+        <li>Termopl&aacute;stico y termoestable: la diferencia, y su consecuencia.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El primero tiene las cadenas sueltas y con calor se remoldea, as&iacute; que <b>se recicla</b>. El segundo las tiene unidas por enlaces y se quema antes de ablandarse: <b>no se recicla</b> fundi&eacute;ndolo.</p></div></details></li>
+        <li>Ordena las tres erres de m&aacute;s a menos eficaz y explica el orden.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Reducir, reutilizar, reciclar.</b> Reducir es la &uacute;nica que ahorra todo; reutilizar no transforma nada; reciclar todav&iacute;a gasta energ&iacute;a y transporte.</p></div></details></li>
+        <li>&iquest;Es la tecnolog&iacute;a buena o mala para el medio ambiente? Razona.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Ni una cosa ni otra. El pl&aacute;stico se invent&oacute; para <b>dejar de matar elefantes</b> y hoy es un problema ambiental. Una tecnolog&iacute;a resuelve un problema y al hacerlo crea el siguiente: hay que juzgarla por sus <b>consecuencias completas</b>.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Tema terminado</span>
+        Ya sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
+        eso que has elegido <b>se sostenga</b>: las estructuras.
+      </div>
+  
+    </section>
+
+  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
