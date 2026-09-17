@@ -7,6 +7,7 @@ from unidad_base import pagina, bloque, ficha, pregunta
 from escena_hierro import ESCENA_HIERRO
 from u4_s2 import S2
 from u4_s3 import S3
+from u4_s4 import S4
 
 INTRO = u'''
       <div class="escena">
@@ -258,7 +259,12 @@ S.append(dict(corto=u'Perfiles y secciones', titulo=u'El mismo acero, doce veces
               minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
               chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5', u'A.7'],
               cuerpo=S3))
-for c in [u'Estabilidad', u'Construir', u'Proyecto y test']:
+S.append(dict(corto=u'Estabilidad', titulo=u'Puede estar todo bien calculado y caerse igual',
+              entradilla=u'Volcar no es romperse. Es otro examen, y tiene sus propias reglas: d&oacute;nde est&aacute; el peso y d&oacute;nde se apoya.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5'],
+              cuerpo=S4))
+for c in [u'Construir', u'Proyecto y test']:
     S.append(dict(corto=c, pendiente=True))
 
 CFG = dict(
