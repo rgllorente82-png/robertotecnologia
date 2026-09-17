@@ -256,99 +256,22 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>No aguanta porque sea fuerte: aguanta porque reparte</h3>
 
-      <div class="narrador" id="narr-u4">
-        <div class="narrador-fig" id="narr-u4-fig"></div>
-        <div class="narrador-txt">
-          <h4>Por qu&eacute; aguanta una estructura</h4>
-          <span class="narrador-quien">La idea que organiza todo el tema, en medio minuto</span>
-          <div class="seg">
-            <button type="button" data-a="play">&#9654; Escuchar</button>
-            <button type="button" data-a="stop">&#9632; Parar</button>
-          </div>
-          <div class="narrador-barra"><i></i></div>
-          <p class="narrador-nota">Audio propio, generado con voz neuronal. La boca sigue el volumen real de la voz.</p>
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">La idea que organiza todo el tema &middot; medio minuto</span></div>
+        <div class="lienzo" style="padding:0">
+          <video controls preload="metadata" style="width:100%;height:auto;display:block"
+                 poster="../../../video/u4-estructuras.jpg">
+            <source src="../../../video/u4-estructuras.mp4" type="video/mp4">
+            Tu navegador no puede reproducir v&iacute;deo.
+            <a href="../../../video/u4-estructuras.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
+          </video>
         </div>
+        <div class="pie">Lleva <b>subt&iacute;tulos</b>: lo que se oye tambi&eacute;n est&aacute; escrito, por si el aula
+          est&aacute; ruidosa o prefieres leerlo. Qu&eacute;date con la frase del principio, porque es la que
+          explica el resto del tema: <b>una estructura no aguanta porque sea fuerte, aguanta porque reparte</b>.
+          <br><br>V&iacute;deo y voz propios, hechos con manim. La foto de la torre es de
+          <i>HighVoltage 5576</i>, Wikimedia Commons (CC0).</div>
       </div>
-
-      <script>
-      (function(){
-        var C = document.getElementById('narr-u4');
-        if(!C) return;
-        var fig = document.getElementById('narr-u4-fig');
-        var barra = C.querySelector('.narrador-barra i');
-        var ENV = [0.0, 0.0, 0.0, 0.0, 0.71, 0.81, 0.8, 0.13, 0.27, 0.52, 0.24, 0.51, 0.69, 0.66, 0.64, 0.52, 0.75, 0.66, 0.75, 0.86, 0.47, 0.28, 0.37, 0.31, 0.28, 0.49, 0.18, 0.4, 0.24, 0.64, 0.84, 0.31, 0.23, 0.33, 0.3, 0.03, 0.23, 0.19, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.51, 0.66, 0.3, 0.83, 0.93, 0.5, 0.66, 0.84, 0.06, 0.74, 0.46, 0.13, 0.63, 0.46, 0.39, 0.66, 0.57, 0.28, 0.04, 0.19, 0.15, 0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.57, 0.77, 0.56, 0.76, 0.52, 0.72, 0.67, 0.35, 0.58, 0.51, 0.4, 0.57, 0.56, 0.13, 0.73, 0.6, 0.64, 0.61, 0.29, 0.25, 0.39, 0.55, 0.1, 0.2, 0.24, 0.18, 0.07, 0.0, 0.0, 0.0, 0.04, 0.45, 0.12, 0.54, 0.17, 0.49, 0.55, 0.3, 0.5, 0.57, 0.53, 0.28, 0.48, 0.48, 0.64, 0.63, 0.56, 0.45, 0.38, 0.3, 0.28, 0.19, 0.36, 0.4, 0.22, 0.21, 0.07, 0.01, 0.0, 0.0, 0.0, 0.49, 0.75, 0.63, 0.37, 0.4, 0.6, 0.07, 0.47, 0.68, 0.64, 0.9, 0.87, 0.35, 0.27, 0.53, 0.36, 0.26, 0.07, 0.28, 0.16, 0.31, 0.21, 0.14, 0.18, 0.15, 0.04, 0.0, 0.0, 0.0, 0.0, 0.0, 0.34, 0.36, 0.69, 0.42, 0.07, 0.59, 0.78, 0.78, 0.06, 0.7, 0.56, 0.23, 0.11, 0.42, 0.38, 0.27, 0.2, 0.07, 0.02, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.47, 0.77, 0.34, 0.78, 0.62, 0.61, 0.15, 0.47, 0.59, 0.61, 0.07, 0.48, 0.85, 0.51, 0.35, 0.35, 0.12, 0.31, 0.11, 0.8, 0.79, 0.45, 0.32, 0.28, 0.49, 0.45, 0.18, 0.07, 0.66, 0.48, 0.45, 0.54, 0.33, 0.29, 0.29, 0.27, 0.5, 0.77, 0.13, 0.3, 0.37, 0.23, 0.21, 0.08, 0.01, 0.0, 0.0, 0.03, 0.14, 0.58, 0.59, 0.49, 0.11, 0.55, 0.57, 0.1, 0.54, 0.51, 0.47, 0.73, 1.0, 0.48, 0.28, 0.28, 0.17, 0.04, 0.72, 0.45, 0.37, 0.33, 0.15, 0.27, 0.29, 0.14, 0.21, 0.37, 0.24, 0.17, 0.09, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.57, 0.83, 0.78, 0.57, 0.13, 0.49, 0.49, 0.73, 0.56, 0.32, 0.62, 0.62, 0.71, 0.67, 0.38, 0.12, 0.36, 0.28, 0.23, 0.13, 0.48, 0.45, 0.36, 0.18, 0.05, 0.0, 0.0, 0.0, 0.06, 0.56, 0.14, 0.05, 0.56, 0.27, 0.55, 0.38, 0.11, 0.47, 0.36, 0.5, 0.53, 0.22, 0.28, 0.17, 0.04, 0.0, 0.02, 0.56, 0.56, 0.74, 0.75, 0.3, 0.47, 0.47, 0.64, 0.57, 0.16, 0.41, 0.61, 0.48, 0.19, 0.28, 0.07, 0.53, 0.55, 0.42, 0.56, 0.57, 0.55, 0.61, 0.56, 0.29, 0.44, 0.51, 0.06, 0.41, 0.27, 0.33, 0.21, 0.36, 0.27, 0.15, 0.32, 0.12, 0.33, 0.18, 0.09, 0.18, 0.14, 0.03, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
-        var PASO = 0.066;
-        var audio = new Audio('../../../audio/u4-estructuras.mp3');
-        audio.preload = 'none';
-        var raf = null, parpadeo = 0, tParp = 0;
-
-        /* El personaje se dibuja entero cada cuadro: la boca depende del
-           volumen de la voz en ese instante, y los ojos parpadean solos.   */
-        function dibuja(a, ojosCerrados){
-          var abre = 3 + a * 13;                 /* alto de la boca */
-          var ancho = 15 + a * 5;
-          var ceja = -a * 2.5;                   /* las cejas acompanan */
-          var ojo = ojosCerrados
-            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
-            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
-            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
-            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
-            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
-          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
-            /* cuerpo, en azul de la web */
-            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
-            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
-            /* cabeza */
-            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
-            /* pelo, plano y geometrico */
-            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
-            /* cejas */
-            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
-            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
-            + ojo
-            /* colorete */
-            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
-            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
-            /* boca: se abre con la voz */
-            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
-            + '" fill="#8c3b2e"/>'
-            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
-                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
-            + '</svg>';
-        }
-
-        function cuadro(){
-          var t = audio.currentTime;
-          var i = Math.floor(t / PASO);
-          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
-          /* parpadeo cada 3-5 segundos */
-          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
-          if(parpadeo > 0) parpadeo--;
-          fig.innerHTML = dibuja(a, parpadeo > 3);
-          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
-          if(!audio.paused) raf = requestAnimationFrame(cuadro);
-        }
-
-        C.querySelector('[data-a="play"]').addEventListener('click', function(){
-          audio.currentTime = 0;
-          audio.play().then(function(){ cuadro(); }).catch(function(){
-            C.querySelector('.narrador-nota').innerHTML =
-              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
-          });
-        });
-        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
-          audio.pause(); audio.currentTime = 0;
-          if(raf) cancelAnimationFrame(raf);
-          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
-        });
-        audio.addEventListener('ended', function(){
-          if(raf) cancelAnimationFrame(raf);
-          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
-        });
-
-        fig.innerHTML = dibuja(0, false);
-      })();
-      </script>
 
       <p>Cuando una fuerza llega a una estructura, <b>no se queda donde llega</b>. Cada pieza se la pasa a
          la siguiente y la conduce hasta el suelo. Y seg&uacute;n c&oacute;mo est&eacute; colocada, cada pieza sufre un tipo

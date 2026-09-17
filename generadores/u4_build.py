@@ -4,17 +4,26 @@ import io, os, sys, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
-from avatar_flat import componente
 
-ENV = json.load(io.open('_env_u4.json', encoding='utf-8'))
+INTRO = u'''
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">La idea que organiza todo el tema &middot; medio minuto</span></div>
+        <div class="lienzo" style="padding:0">
+          <video controls preload="metadata" style="width:100%;height:auto;display:block"
+                 poster="../../../video/u4-estructuras.jpg">
+            <source src="../../../video/u4-estructuras.mp4" type="video/mp4">
+            Tu navegador no puede reproducir v&iacute;deo.
+            <a href="../../../video/u4-estructuras.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
+          </video>
+        </div>
+        <div class="pie">Lleva <b>subt&iacute;tulos</b>: lo que se oye tambi&eacute;n est&aacute; escrito, por si el aula
+          est&aacute; ruidosa o prefieres leerlo. Qu&eacute;date con la frase del principio, porque es la que
+          explica el resto del tema: <b>una estructura no aguanta porque sea fuerte, aguanta porque reparte</b>.
+          <br><br>V&iacute;deo y voz propios, hechos con manim. La foto de la torre es de
+          <i>HighVoltage 5576</i>, Wikimedia Commons (CC0).</div>
+      </div>
+'''
 
-NARRADOR = componente(
-    idc='narr-u4',
-    titulo=u'Por qu&eacute; aguanta una estructura',
-    quien=u'La idea que organiza todo el tema, en medio minuto',
-    mp3='../../../audio/u4-estructuras.mp3',
-    envolvente=ENV,
-    nota=u'Audio propio, generado con voz neuronal. La boca sigue el volumen real de la voz.')
 
 VIDEO = u'''
       <div class="escena">
@@ -141,7 +150,7 @@ C = u'''
 
 T = u'''
       <h3>No aguanta porque sea fuerte: aguanta porque reparte</h3>
-''' + NARRADOR + u'''
+''' + INTRO + u'''
       <p>Cuando una fuerza llega a una estructura, <b>no se queda donde llega</b>. Cada pieza se la pasa a
          la siguiente y la conduce hasta el suelo. Y seg&uacute;n c&oacute;mo est&eacute; colocada, cada pieza sufre un tipo
          distinto de esfuerzo.</p>
