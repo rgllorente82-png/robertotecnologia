@@ -4,6 +4,7 @@ import io, os, sys, json
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
+from escena_hierro import ESCENA_HIERRO
 
 INTRO = u'''
       <div class="escena">
@@ -150,7 +151,7 @@ C = u'''
 
 T = u'''
       <h3>No aguanta porque sea fuerte: aguanta porque reparte</h3>
-''' + INTRO + u'''
+''' + INTRO + ESCENA_HIERRO + u'''
       <p>Cuando una fuerza llega a una estructura, <b>no se queda donde llega</b>. Cada pieza se la pasa a
          la siguiente y la conduce hasta el suelo. Y seg&uacute;n c&oacute;mo est&eacute; colocada, cada pieza sufre un tipo
          distinto de esfuerzo.</p>
