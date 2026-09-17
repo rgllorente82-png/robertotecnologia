@@ -1,0 +1,1566 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 5 &middot; Mecanismos</title>
+<meta name="description" content="Tema 5 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: palanca, poleas y polipasto, engranajes y relaci&oacute;n de transmisi&oacute;n, con escenas interactivas.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 5 &middot; Mecanismos","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 5 &middot; Mecanismos &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 5</div>
+    <h1>Mecanismos</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; La palanca</button><button type="button" data-ses="2">S2 &middot; Poleas</button><button type="button" data-ses="3">S3 &middot; Engranajes</button><button type="button" data-ses="4" disabled>S4 &middot; Transformar el movimiento</button><button type="button" data-ses="5" disabled>S5 &middot; Montar un mecanismo</button><button type="button" data-ses="6" disabled>S6 &middot; Repaso y test</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>La barra que multiplica: por qu&eacute; un tubo afloja lo que t&uacute; no</h2>
+      <p>Una palanca no te hace m&aacute;s fuerte: te cambia fuerza por recorrido. De ah&iacute; sale todo lo dem&aacute;s del tema.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE3 &middot; 3.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>En el tema anterior todo lo que constru&iacute;as ten&iacute;a que <b>quedarse quieto</b>: una
+         estructura que se mueve es una estructura que ha fallado. Desde hoy pasa justo lo contrario.
+         Queremos que se mueva &mdash;y que se mueva donde nosotros digamos, con la fuerza que nosotros
+         digamos.</p>
+      <p>Empecemos por algo que has visto: cambiar la rueda de un coche. La tuerca est&aacute; apretada
+         con m&aacute;quina y con la llave del maletero no hay quien la mueva. Entonces alguien mete un
+         tubo en el mango, empuja casi sin ganas y la tuerca sale.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        El truco del tubo lo conoce todo el mundo. <b>&iquest;Cu&aacute;nta fuerza te ahorra
+        exactamente?</b> Cont&eacute;stalo con un n&uacute;mero, por escrito. «Bastante» no vale.
+      </div>
+      <p>Aqu&iacute; se acaban las respuestas. Sabemos <i>que</i> funciona, pero no sabemos
+         <b>cu&aacute;nto</b>, y por eso no podr&iacute;amos dise&ntilde;ar nada: ni decidir qu&eacute;
+         largo tiene que tener el tubo, ni saber si con ese tubo va a salir o vamos a doblar la llave.</p>
+      <p>Y hay una segunda pregunta, peor: <b>&iquest;por qu&eacute; no puedes con ella a pelo?</b> La
+         tuerca de una rueda se aprieta con unos 110 newton-metro. Con la llave corta, de 20 cm, eso son
+         550 N: como colgar <b>55 kg</b> de tu mano. Empujando con un brazo, a tu edad, andas del orden
+         de los 250 N. No es cuesti&oacute;n de ganas: <b>el m&uacute;sculo no llega</b>.</p>
+
+      <div class="narrador" id="narr-u5">
+        <div class="narrador-fig" id="narr-u5-fig"></div>
+        <div class="narrador-txt">
+          <h4>De qu&eacute; va este tema</h4>
+          <span class="narrador-quien">El m&uacute;sculo mueve poco y mal: qu&eacute; ponemos entre &eacute;l y el problema</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada y audio propio. La boca sigue el volumen real de la voz, as&iacute; que se mueve cuando habla y se para en los silencios.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-u5');
+        if(!C) return;
+        var fig = document.getElementById('narr-u5-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.049, 0.48, 1.0, 0.907, 0.85, 0.916, 0.93, 0.52, 0.999, 0.747, 0.316, 0.532, 0.857, 0.81, 0.42, 0.094, 0.982, 0.698, 0.13, 0.355, 0.193, 0.011, 0.002, 0.341, 1.0, 0.48, 0.83, 0.41, 0.466, 0.499, 0.448, 0.2, 0.256, 0.223, 0.09, 0.073, 0.029, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.445, 1.0, 0.501, 0.93, 0.288, 0.797, 0.749, 0.892, 0.381, 0.766, 0.224, 0.759, 0.599, 0.349, 0.27, 1.0, 0.714, 0.729, 1.0, 0.856, 0.81, 0.202, 0.612, 0.716, 0.332, 0.513, 0.376, 0.198, 0.401, 0.436, 0.323, 0.268, 0.271, 0.17, 0.043, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.819, 0.573, 0.308, 1.0, 0.623, 0.276, 1.0, 0.774, 0.4, 0.681, 0.871, 1.0, 0.271, 1.0, 0.87, 0.431, 0.431, 0.17, 0.587, 0.627, 0.272, 0.476, 0.359, 0.37, 0.302, 0.273, 0.12, 0.007, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.479, 0.756, 0.531, 0.719, 0.284, 0.625, 0.611, 0.24, 0.358, 0.511, 0.721, 0.656, 0.34, 0.547, 0.597, 0.686, 0.207, 0.539, 0.571, 0.475, 0.171, 0.037, 0.001, 0.0, 0.001, 0.526, 0.962, 0.677, 0.177, 0.599, 0.564, 0.155, 0.461, 0.105, 0.497, 0.434, 0.137, 0.008, 0.0, 0.0, 0.001, 0.294, 0.685, 0.676, 0.68, 0.139, 0.514, 0.268, 0.55, 0.649, 0.16, 0.575, 0.668, 0.527, 0.395, 0.697, 0.711, 0.3, 0.657, 0.39, 0.321, 0.182, 0.055, 0.401, 0.352, 0.242, 0.133, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.052, 0.919, 1.0, 0.986, 0.657, 0.841, 0.476, 0.607, 0.916, 0.817, 0.983, 0.921, 0.613, 0.512, 0.334, 0.899, 0.163, 0.752, 0.236, 0.427, 0.458, 0.16, 0.909, 0.77, 0.396, 0.197, 0.293, 0.224, 0.148, 0.049, 0.0, 0.0, 0.041, 0.663, 0.13, 1.0, 0.827, 0.796, 0.605, 0.651, 0.661, 0.086, 0.661, 0.765, 0.748, 0.406, 0.664, 0.258, 0.663, 0.24, 0.734, 0.692, 0.833, 0.817, 0.372, 0.518, 0.506, 0.188, 0.383, 0.12, 0.722, 0.561, 0.142, 0.714, 0.06, 0.655, 0.824, 0.547, 0.199, 0.318, 0.089, 0.32, 0.349, 0.131, 0.142, 0.25, 0.091, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.739, 0.505, 0.424, 0.893, 0.637, 0.623, 0.956, 0.785, 0.504, 0.415, 0.268, 0.032, 0.002, 0.002, 0.545, 1.0, 0.907, 1.0, 0.914, 0.641, 0.73, 0.788, 0.316, 0.053, 0.986, 0.683, 0.765, 0.084, 0.568, 0.298, 0.396, 0.725, 0.312, 0.542, 0.887, 0.278, 0.495, 0.332, 0.513, 0.099, 0.36, 0.159, 0.799, 0.532, 0.405, 0.244, 0.096, 0.549, 0.553, 0.182, 0.537, 0.499, 0.103, 0.805, 0.492, 0.464, 0.385, 0.055, 0.825, 0.824, 0.556, 0.382, 0.393, 0.057, 0.6, 0.361, 0.092, 0.238, 0.218, 0.079, 0.005, 0.0, 0.0, 0.0, 0.0, 0.001, 0.133, 0.296, 0.958, 0.942, 0.881, 0.388, 0.308, 0.824, 0.133, 0.778, 0.382, 0.449, 1.0, 0.979, 0.168, 0.463, 0.78, 0.833, 0.337, 0.486, 0.434, 0.358, 0.504, 0.267, 0.299, 1.0, 0.599, 0.413, 0.213, 0.221, 0.759, 0.23, 0.446, 0.516, 0.088, 0.482, 0.687, 0.91, 0.427, 0.467, 0.849, 0.464, 0.639, 0.248, 0.545, 0.252, 0.419, 0.727, 0.332, 0.684, 0.719, 0.167, 0.508, 0.772, 0.33, 0.657, 0.466, 0.684, 0.985, 0.258, 0.472, 0.188, 0.191, 0.436, 0.319, 0.343, 0.363, 0.342, 0.073, 0.282, 0.202, 0.043, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.365, 1.0, 0.845, 1.0, 0.965, 0.812, 0.167, 0.626, 1.0, 0.674, 0.708, 0.953, 0.814, 0.914, 0.544, 0.428, 0.72, 0.505, 0.652, 0.433, 0.38, 0.377, 0.331, 0.27, 0.229, 0.203, 0.191, 0.046, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.765, 0.994, 0.959, 0.99, 0.097, 0.926, 1.0, 1.0, 0.361, 0.65, 0.659, 0.839, 0.531, 0.382, 0.833, 0.163, 0.732, 0.41, 0.671, 0.841, 0.786, 0.797, 0.364, 0.679, 0.463, 0.447, 0.551, 0.497, 0.692, 0.781, 0.155, 0.56, 0.561, 0.436, 0.346, 0.543, 0.404, 0.304, 0.452, 0.344, 0.383, 0.298, 0.274, 0.149, 0.03, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.009, 0.55, 1.0, 0.525, 0.324, 0.594, 0.311, 0.717, 0.66, 0.18, 0.787, 0.735, 0.555, 0.979, 0.482, 0.508, 0.812, 0.221, 0.635, 0.725, 0.107, 0.294, 0.15, 0.009, 0.0, 0.0, 0.004, 0.013, 0.772, 0.664, 0.491, 0.076, 0.697, 0.449, 0.097, 0.677, 0.267, 0.515, 0.811, 0.651, 0.916, 0.628, 0.464, 0.462, 0.113, 0.464, 0.329, 0.809, 0.393, 0.368, 0.169, 0.016, 0.001, 0.0, 0.0, 0.022, 0.815, 0.684, 0.942, 0.973, 0.336, 0.504, 0.61, 0.746, 0.235, 0.516, 0.225, 0.747, 0.621, 0.753, 0.662, 0.521, 0.062, 0.522, 0.36, 0.115, 0.217, 0.239, 0.081, 0.005, 0.0, 0.0, 0.0, 0.0, 0.259, 0.928, 0.436, 0.668, 0.807, 0.301, 0.952, 0.837, 0.984, 0.675, 0.453, 0.417, 0.416, 0.26, 0.674, 0.843, 0.633, 0.887, 0.687, 0.741, 0.766, 0.748, 0.677, 0.28, 0.076, 0.553, 1.0, 0.517, 0.155, 0.495, 0.349, 0.349, 0.132, 0.25, 0.193, 0.059, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.003, 0.689, 1.0, 0.934, 0.944, 1.0, 0.978, 0.539, 0.535, 0.862, 1.0, 0.53, 0.414, 0.378, 0.136, 0.071, 0.489, 0.449, 0.231, 0.057, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.135, 0.791, 1.0, 0.951, 0.924, 1.0, 1.0, 0.331, 0.978, 0.371, 0.543, 0.437, 0.844, 0.589, 0.439, 0.329, 0.316, 0.213, 0.172, 0.056, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.836, 0.973, 0.743, 0.227, 0.622, 0.477, 0.325, 0.711, 0.401, 0.762, 0.918, 0.733, 0.328, 0.235, 0.808, 0.437, 0.396, 0.52, 0.859, 0.423, 0.06, 0.448, 0.403, 0.198, 0.122, 0.033, 0.001, 0.001, 0.068, 0.55, 0.598, 0.306, 0.591, 0.58, 0.645, 0.398, 0.203, 0.34, 0.14, 0.014, 0.0, 0.0, 0.054, 0.648, 0.095, 0.722, 0.639, 0.578, 0.678, 0.084, 0.685, 0.845, 0.245, 0.686, 0.197, 0.686, 0.372, 0.464, 0.174, 0.498, 0.376, 0.904, 0.526, 0.42, 0.218, 0.025, 0.001, 0.0, 0.0, 0.056, 0.545, 0.637, 0.34, 0.645, 0.777, 0.886, 0.758, 0.459, 0.441, 0.293, 0.368, 0.447, 0.38, 0.363, 0.516, 0.19, 0.03, 0.314, 0.199, 0.021, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.255, 0.988, 0.756, 0.088, 0.754, 0.79, 0.94, 0.898, 0.962, 0.281, 0.699, 0.399, 0.603, 0.723, 0.714, 0.723, 0.295, 0.49, 0.931, 0.422, 0.741, 0.111, 0.788, 0.658, 0.735, 0.705, 0.401, 0.334, 0.108, 0.437, 0.493, 0.566, 0.542, 0.43, 0.222, 0.483, 0.787, 0.329, 0.174, 0.253, 0.122, 0.003, 0.003, 0.854, 0.812, 0.579, 0.383, 0.653, 0.451, 0.427, 0.469, 0.499, 0.116, 0.181, 0.182, 0.067, 0.023, 0.0, 0.0, 0.0, 0.0, 0.0, 0.017, 0.867, 0.598, 0.692, 1.0, 1.0, 0.498, 0.586, 0.706, 0.862, 0.692, 0.716, 0.682, 0.196, 0.542, 0.5, 1.0, 0.515, 0.351, 1.0, 0.877, 0.613, 0.128, 0.462, 0.841, 0.901, 0.893, 0.682, 0.924, 0.256, 0.462, 0.356, 0.366, 0.175, 0.276, 0.41, 0.24, 0.201, 0.23, 0.078, 0.007, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.032, 0.243, 0.876, 0.262, 0.874, 0.338, 0.804, 0.674, 0.375, 0.08, 0.863, 0.742, 0.503, 0.134, 0.795, 1.0, 0.093, 0.378, 0.253, 0.045, 0.001, 0.0, 0.0, 0.835, 0.917, 0.954, 0.1, 0.871, 0.792, 0.743, 0.888, 0.87, 0.233, 0.862, 0.654, 0.539, 0.684, 0.769, 0.519, 0.324, 0.21, 0.12, 0.006, 0.0, 0.0, 0.359, 0.751, 0.211, 0.713, 0.392, 0.963, 0.761, 0.632, 0.3, 0.176, 0.698, 0.577, 0.371, 0.3, 0.381, 0.337, 0.449, 0.241, 0.313, 0.173, 0.027, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.171, 0.81, 1.0, 0.864, 0.75, 0.38, 0.727, 0.385, 0.405, 0.2, 0.05, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/u5-mecanismos.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Una barra, un punto y un trato</h3>
+      <p>Pon una barra sobre un punto fijo, la carga en un lado y tu mano en el otro. Eso es todo el
+         invento. Lo interesante es que la barra <b>no reparte la fuerza a partes iguales</b>: reparte
+         seg&uacute;n lo lejos que est&eacute; cada cosa del punto de apoyo.</p>
+      <p>En la escena, la carga son 50 kg &mdash;500 N&mdash; y la barra mide 2,30 m. Mueve el apoyo
+         pulsando sobre la barra y mira qu&eacute; pasa con la fuerza que te pide.</p>
+
+      <div class="escena" id="esc-palanca">
+        <div class="escena-barra">
+          <span class="escena-titulo">Pulsa sobre la barra para mover el elemento del medio</span>
+          <div class="seg" id="seg-palanca">
+            <button type="button" data-g="1" aria-pressed="true">1.&ordm; g&eacute;nero</button>
+            <button type="button" data-g="2">2.&ordm; g&eacute;nero</button>
+            <button type="button" data-g="3">3.&ordm; g&eacute;nero</button>
+            <button type="button" data-g="mover">&#8635; Mover la carga</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" id="svg-palanca" role="img"
+               aria-label="Palanca con el punto de apoyo m&oacute;vil: al acercar el apoyo a la carga
+                           baja la fuerza necesaria y sube el recorrido de la mano"></svg>
+        </div>
+        <div class="pie" id="pie-palanca"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-palanca');
+        var pie = document.getElementById('pie-palanca');
+        var seg = document.getElementById('seg-palanca');
+        if(!svg) return;
+
+        var X0 = 90, X1 = 550, Y0 = 132;   /* la barra, en reposo */
+        var ESC = 200;                     /* 200 px = 1 metro */
+        var R = 500;                       /* la carga: 50 kg */
+        var TU = 250;                      /* lo que da un brazo, en newtons */
+        var genero = 1, movil = 230, movida = false;
+
+        /* [x del apoyo, x de la carga, x de la fuerza] segun el genero */
+        function sitio(){
+          if(genero === 1) return [movil, X0, X1];
+          if(genero === 2) return [X0, movil, X1];
+          return [X0, X1, movil];
+        }
+        function gira(x, ang, xa){
+          /* un punto de la barra, girado un angulo alrededor del apoyo */
+          var d = x - xa;
+          return [xa + d*Math.cos(ang), Y0 + d*Math.sin(ang)];
+        }
+        function flecha(x, yBase, largo, haciaArriba, col){
+          /* flecha vertical que ocupa de yBase-largo a yBase */
+          var a = (yBase - largo).toFixed(1), b = yBase.toFixed(1), xx = x.toFixed(1);
+          var m = '<path d="M' + xx + ' ' + a + ' V' + b + '" stroke="' + col + '" stroke-width="3"></path>';
+          m += haciaArriba
+             ? '<path d="M' + xx + ' ' + a + ' l-6 11 h12 Z" fill="' + col + '"></path>'
+             : '<path d="M' + xx + ' ' + b + ' l-6 -11 h12 Z" fill="' + col + '"></path>';
+          return m;
+        }
+        function cota(xa, xb, y, etq){
+          var m = '<path d="M' + xa + ' ' + (y-6) + ' V' + (y+6) + ' M' + xb + ' ' + (y-6) + ' V' + (y+6)
+                + ' M' + xa + ' ' + y + ' H' + xb + '" stroke="var(--line)" stroke-width="1.6"></path>';
+          m += '<text x="' + ((xa+xb)/2) + '" y="' + (y+18) + '" text-anchor="middle" class="rotulo-svg">'
+             + etq + '</text>';
+          return m;
+        }
+
+        function pinta(){
+          var p = sitio(), xa = p[0], xr = p[1], xf = p[2];
+          var bR = Math.abs(xr - xa) / ESC;
+          var bF = Math.abs(xf - xa) / ESC;
+          var F = R * bR / bF;
+          var ang = (genero === 1 ? 0.13 : -0.10) * (movida ? 1 : 0);
+          var pr = gira(xr, ang, xa), pf = gira(xf, ang, xa);
+          var e0 = gira(X0, ang, xa), e1 = gira(X1, ang, xa);
+          var m = '';
+
+          /* la barra y el punto de apoyo */
+          m += '<path d="M' + e0[0].toFixed(1) + ' ' + e0[1].toFixed(1) + ' L' + e1[0].toFixed(1)
+             + ' ' + e1[1].toFixed(1) + '" stroke="var(--ink-soft)" stroke-width="9" '
+             + 'stroke-linecap="round"></path>';
+          m += '<path d="M' + xa + ' ' + Y0 + ' l-15 28 h30 Z" fill="var(--goo-azul)"></path>';
+          m += '<text x="' + xa + '" y="' + (Y0+50) + '" text-anchor="middle" class="rotulo-svg">APOYO</text>';
+
+          /* la carga, colgando siempre en vertical */
+          m += '<path d="M' + pr[0].toFixed(1) + ' ' + pr[1].toFixed(1) + ' V' + (pr[1]+14).toFixed(1)
+             + '" stroke="var(--ink-soft)" stroke-width="2"></path>';
+          m += '<rect x="' + (pr[0]-27).toFixed(1) + '" y="' + (pr[1]+14).toFixed(1)
+             + '" width="54" height="40" rx="3" fill="#a5783f" stroke="#7a5528" stroke-width="2"></rect>';
+          m += '<text x="' + pr[0].toFixed(1) + '" y="' + (pr[1]+39).toFixed(1)
+             + '" text-anchor="middle" class="rotulo-svg" style="fill:#fff">50 kg</text>';
+
+          /* la fuerza: hacia abajo en el primer genero, hacia arriba en los otros dos.
+             La flecha va siempre por encima de la barra y se recorta para no salirse. */
+          var largo = Math.max(16, Math.min(22 + 62*Math.min(1, F/1500), pf[1] - 54));
+          var abajo = (genero === 1);
+          var col = (F <= TU) ? 'var(--goo-verde)' : 'var(--goo-rojo)';
+          m += flecha(pf[0], pf[1] - 8, largo, !abajo, col);
+          m += '<text x="' + pf[0].toFixed(1) + '" y="' + (pf[1] - 18 - largo).toFixed(1)
+             + '" text-anchor="middle" class="rotulo-svg" style="fill:var(--ink);font-size:12px">'
+             + 'F = ' + Math.round(F) + ' N</text>';
+
+          /* los brazos, medidos sobre la barra en reposo */
+          m += cota(Math.min(xa, xr), Math.max(xa, xr), 236, 'bR = ' + bR.toFixed(2) + ' m');
+          m += cota(Math.min(xa, xf), Math.max(xa, xf), 272, 'bF = ' + bF.toFixed(2) + ' m');
+
+          /* la ley, con los numeros puestos */
+          m += '<text x="20" y="26" class="rotulo-svg" style="font-size:12.5px;fill:var(--ink)">'
+             + 'F x bF = R x bR &nbsp;&#8594;&nbsp; ' + Math.round(F) + ' x ' + bF.toFixed(2)
+             + ' = 500 x ' + bR.toFixed(2) + '</text>';
+          svg.innerHTML = m;
+
+          var vm = R / F;
+          var t = '';
+          if(F <= TU){
+            t = '<b>Con esta palanca llegas.</b> Hacen falta ' + Math.round(F) + ' N y un brazo da unos '
+              + TU + ' N. ';
+          } else {
+            t = '<b>As&iacute; no la mueves.</b> Hacen falta ' + Math.round(F) + ' N, unos '
+              + Math.round(F/10) + ' kg, y un brazo da unos ' + TU + ' N. ';
+          }
+          t += 'La palanca multiplica tu fuerza por <b>' + vm.toFixed(2) + '</b>, as&iacute; que pagas lo '
+             + 'mismo en recorrido: para subir la carga 10 cm, tu mano recorre <b>'
+             + (Math.round(100*vm)/10).toFixed(1) + ' cm</b>.';
+          if(genero === 3){
+            t += ' En el tercer g&eacute;nero eso es menos de 1: <b>pierdes fuerza y ganas recorrido</b>. '
+               + 'As&iacute; est&aacute; hecho tu brazo.';
+          }
+          pie.innerHTML = t;
+        }
+
+        svg.addEventListener('click', function(e){
+          var caja = svg.getBoundingClientRect();
+          var x = (e.clientX - caja.left) * 640 / caja.width;
+          if(x < X0 + 70) x = X0 + 70;
+          if(x > X1 - 70) x = X1 - 70;
+          movil = Math.round(x);
+          pinta();
+        });
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-g]'); if(!b) return;
+          if(b.dataset.g === 'mover'){ movida = !movida; pinta(); return; }
+          genero = +b.dataset.g;
+          movil = (genero === 1) ? 230 : 320;
+          movida = false;
+          seg.querySelectorAll('button[data-g]').forEach(function(x){
+            if(x.dataset.g !== 'mover') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <p>Dos cosas que conviene haber visto antes de copiar nada. La primera: cuanto m&aacute;s cerca
+         pones el apoyo de la carga, menos fuerza necesitas. La segunda, la importante: <b>eso no es
+         gratis</b>. Cada vez que divides la fuerza entre tres, tu mano tiene que recorrer tres veces
+         m&aacute;s camino. La palanca no fabrica fuerza de la nada; la <b>cambia por recorrido</b>.</p>
+
+      <div class="copiar">
+        <h4>Definiciones</h4>
+        <p><b>Mecanismo</b>: conjunto de piezas que recibe un movimiento y una fuerza y los entrega
+           <b>cambiados</b>: m&aacute;s fuerza, m&aacute;s velocidad o en otra direcci&oacute;n.</p>
+        <p><b>Palanca</b>: barra r&iacute;gida que gira alrededor de un punto de apoyo o
+           <b>fulcro</b>.</p>
+        <p>Sus cuatro elementos: la <b>resistencia R</b> (lo que hay que vencer) con su brazo
+           <b>b<sub>R</sub></b>, y la <b>fuerza F</b> (la que haces t&uacute;) con su brazo
+           <b>b<sub>F</sub></b>. El <b>brazo</b> es la distancia de cada fuerza al punto de apoyo.</p>
+        <h4>La ley de la palanca</h4>
+        <p style="font-size:18px;text-align:center;margin:10px 0"><b>F &middot; b<sub>F</sub> =
+           R &middot; b<sub>R</sub></b></p>
+        <p><b>Ventaja mec&aacute;nica</b>: las veces que la palanca multiplica tu fuerza.
+           VM = R / F = b<sub>F</sub> / b<sub>R</sub>.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Lo que se gana se paga</h4>
+        <p>Si una palanca multiplica tu fuerza por 4, tu mano recorre <b>4 veces</b> lo que recorre la
+           carga. Ninguna m&aacute;quina te regala nada: <b>cambia fuerza por recorrido</b>.</p>
+      </div>
+
+      <h3>Los tres g&eacute;neros</h3>
+      <p>Seg&uacute;n d&oacute;nde caiga el punto de apoyo salen tres palancas distintas, y cada una
+         sirve para una cosa distinta. Puedes verlas en la escena de arriba con los botones.</p>
+      <div class="copiar">
+        <h4>Clasificaci&oacute;n</h4>
+        <ul>
+          <li><b>Primer g&eacute;nero</b> &mdash; el apoyo <b>en medio</b>, entre la fuerza y la
+              resistencia. Puede ganar o perder fuerza, seg&uacute;n d&oacute;nde pongas el apoyo.
+              <i>Tijeras, alicates, balanc&iacute;n, el martillo sacando un clavo.</i></li>
+          <li><b>Segundo g&eacute;nero</b> &mdash; la <b>resistencia en medio</b>. Siempre gana fuerza
+              (b<sub>F</sub> es mayor que b<sub>R</sub> forzosamente).
+              <i>Carretilla, cascanueces, abrebotellas.</i></li>
+          <li><b>Tercer g&eacute;nero</b> &mdash; la <b>fuerza en medio</b>. Siempre <b>pierde</b>
+              fuerza y gana recorrido y velocidad.
+              <i>Pinzas de depilar, ca&ntilde;a de pescar, tu propio brazo.</i></li>
+        </ul>
+      </div>
+      <div class="video" id="video-palanca" data-vid="8fDOm-XJBOQ">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Ley de la palanca (mecanismos)">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Ley de la palanca (mecanismos)</b>
+            <span>TECH LAPSE &middot; unos 4 minutos</span>
+          </span>
+        </button>
+        <p class="video-nota">Animaci&oacute;n de los tres g&eacute;neros con la ley aplicada paso a paso. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
+          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=8fDOm-XJBOQ" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-palanca');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+      <figure class="foto">
+        <img src="../../../img/u5-shaduf.jpeg" loading="lazy" alt="Grabado de un hombre sacando agua de un r&iacute;o con un shaduf: una p&eacute;rtiga apoyada en un poste, con el cubo en un extremo y un contrapeso en el otro">
+        <figcaption>Un <b>shaduf</b>, la m&aacute;quina de regar del Nilo. Es una palanca de primer g&eacute;nero con un contrapeso: el agua sube sola y el hombre solo gu&iacute;a la p&eacute;rtiga. Se usaba en Egipto mucho antes de que nadie escribiera la ley de la palanca, y se sigue usando hoy.
+          <span class="credito">G. Pearson &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Shaduf2.jpeg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>La palanca no la invent&oacute; nadie: es demasiado antigua para tener autor. En Egipto se
+           regaba con <b>shaduf</b> &mdash;una p&eacute;rtiga con un cubo en un extremo y una piedra en
+           el otro&mdash; hace unos 4.000 a&ntilde;os, y se sigue regando as&iacute; en algunos sitios.</p>
+        <p>Lo que s&iacute; tiene autor es la <b>explicaci&oacute;n</b>. La demuestra <b>Arqu&iacute;medes</b>
+           en el siglo III a. C., casi dos mil a&ntilde;os despu&eacute;s de que la gente llevara usando
+           palancas todos los d&iacute;as. La famosa frase &mdash;<i>dadme un punto de apoyo y mover&eacute;
+           el mundo</i>&mdash; no est&aacute; en ning&uacute;n texto suyo: la cuenta Pappus de
+           Alejandr&iacute;a unos quinientos a&ntilde;os m&aacute;s tarde.</p>
+        <p>Es un patr&oacute;n que se repite en toda la tecnolog&iacute;a: primero se usa, despu&eacute;s
+           se entiende. Y entenderlo es lo que permite <b>calcular</b> en vez de probar.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Vuelve al t&iacute;tulo del tema: <i>el m&uacute;sculo mueve poco y mal</i>. Ahora se puede
+           decir con precisi&oacute;n por qu&eacute;. Tu b&iacute;ceps se agarra al antebrazo a unos 5 cm
+           del codo, y la mano est&aacute; a unos 35 cm. Es una <b>palanca de tercer g&eacute;nero</b>, la
+           que pierde fuerza: para sostener 5 kg en la mano, el b&iacute;ceps tira del orden de
+           <b>35 kg</b>.</p>
+        <p>Parece un mal dise&ntilde;o y es justo al rev&eacute;s. A cambio de esa p&eacute;rdida, tu mano
+           se mueve <b>siete veces m&aacute;s r&aacute;pido</b> que el punto donde tira el m&uacute;sculo.
+           Tu cuerpo ha elegido velocidad en vez de fuerza. Los mecanismos que vamos a ver el resto del
+           tema son, casi todos, formas de <b>deshacer ese cambio</b> cuando lo que hace falta es
+           fuerza.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 1 &middot; Predecir antes de medir</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">3.1</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Material</h4>
+          <p>Una regla de 30 cm, un l&aacute;piz de secci&oacute;n hexagonal (hace de apoyo y no rueda) y
+             unas <b>20 monedas iguales</b>. Sirven arandelas, tapones o gomas de borrar: lo &uacute;nico
+             que importa es que pesen lo mismo entre ellas.</p>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Montad la palanca: el l&aacute;piz debajo de la regla, en la marca de los 15 cm.
+                Comprobad que queda equilibrada a cero.</li>
+            <li>Poned <b>6 monedas</b> a 10 cm del apoyo, a un lado. Antes de tocar nada:
+                <b>escribid cu&aacute;ntas monedas har&aacute;n falta</b> a 15 cm del apoyo por el otro
+                lado. Usad la ley, no la intuici&oacute;n.</li>
+            <li>Comprobadlo. Anotad la predicci&oacute;n y el resultado real, aunque no coincidan.</li>
+            <li>Repetidlo <b>cuatro veces m&aacute;s</b> cambiando la distancia o el n&uacute;mero de
+                monedas. Tabla de cinco filas con: n&uacute;mero de monedas y brazo de cada lado, y las
+                dos multiplicaciones.</li>
+            <li>Ahora el otro lado del trato. Con el apoyo en 5 cm y la carga en el extremo corto, subid
+                la carga <b>2 cm</b> y medid cu&aacute;nto ha bajado vuestra mano. Comparad esa
+                proporci&oacute;n con la de los brazos.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las cinco predicciones est&aacute;n escritas <b>antes</b> de medir <b>(3 puntos)</b>.</li>
+            <li>La tabla est&aacute; completa y las dos multiplicaciones salen parecidas
+                <b>(3 puntos)</b>.</li>
+            <li>La medida de los recorridos est&aacute; hecha y comparada con los brazos
+                <b>(2 puntos)</b>.</li>
+            <li>Hay una explicaci&oacute;n escrita de por qu&eacute; no cuadra del todo
+                <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Lo que de verdad se eval&uacute;a</span>
+            El &uacute;ltimo punto. Nunca va a cuadrar exacto: la regla <b>pesa</b>, el apoyo <b>roza</b> y
+            las monedas no est&aacute;n en un punto sino repartidas. Detectar por qu&eacute; falla una
+            medida vale m&aacute;s que acertarla.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Ya se puede contestar con un n&uacute;mero a la pregunta del principio. La tuerca pide 110 N&middot;m.
+         Con la llave de 20 cm, 550 N. Con el tubo puesto, 60 cm, <b>183 N</b>: la fuerza se ha dividido
+         entre tres porque el brazo se ha multiplicado por tres. Y a cambio tu mano recorre tres veces
+         m&aacute;s arco, que es un precio que nadie nota.</p>
+      <ol>
+              <li>Una carretilla lleva 60 kg. La rueda est&aacute; a 30 cm de la carga y los mangos a 120 cm de la rueda. &iquest;Qu&eacute; fuerza haces?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El apoyo es la <b>rueda</b>. b<sub>R</sub> = 0,30 m y b<sub>F</sub> = 1,20 m. F = 600 &middot; 0,30 / 1,20 = <b>150 N</b>, unos 15 kg. Levantas 60 kg haciendo 15: es una palanca de <b>segundo g&eacute;nero</b>.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; unas pinzas de depilar son de tercer g&eacute;nero si hacen menos fuerza de la que pones?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo que se busca ah&iacute; <b>no es fuerza</b>, es <b>precisi&oacute;n</b>. La fuerza va en medio, as&iacute; que la punta se mueve poco aunque tus dedos se muevan mucho: puedes controlar d&eacute;cimas de mil&iacute;metro. Perder fuerza es el precio, y sale a cuenta.</p></div></details></li>
+        <li>Si una palanca multiplica tu fuerza por 5, &iquest;qu&eacute; pasa con el recorrido?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se multiplica por 5 <b>el tuyo</b>: para subir la carga 2 cm, tu mano recorre 10 cm. El trato siempre es el mismo, y va a volver a aparecer en las dos sesiones siguientes.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        La palanca tiene un l&iacute;mite que la deja fuera de casi todo: <b>el recorrido</b>. Para subir
+        un saco al tercer piso har&iacute;a falta una barra de veinte metros. La soluci&oacute;n es
+        cambiar la barra r&iacute;gida por algo que pueda ser tan largo como haga falta: <b>una
+        cuerda</b>.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>Ochenta kilos hasta el andamio: poleas y polipasto</h2>
+      <p>La palanca se queda sin recorrido. Una cuerda puede ser tan larga como haga falta, y con ella vuelve a aparecer el mismo trato.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE3 &middot; 3.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Ayer qued&oacute; claro el trato: fuerza a cambio de recorrido. Hoy el problema es <b>el
+         recorrido</b>.</p>
+      <p>Una obra. Hay que subir un saco de <b>80 kg</b> hasta el andamio, ocho metros por encima de tu
+         cabeza. Con una palanca no hay manera: para que la carga suba ocho metros, tu extremo
+         tendr&iacute;a que recorrer mucho m&aacute;s, y no existe esa barra.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        Cuelga una cuerda del andamio, &aacute;tala al saco y tira. <b>&iquest;Por qu&eacute; es mucho
+        m&aacute;s f&aacute;cil tirar de una cuerda hacia abajo que hacia arriba?</b> Es la misma cuerda
+        y el mismo saco.
+      </div>
+      <p>Piensa qu&eacute; puedes hacer en cada caso. Tirando hacia arriba solo tienes los brazos, y
+         encima en la peor postura. Tirando hacia abajo puedes <b>colgarte</b>: sumas tu propio peso,
+         apoyas los pies, y adem&aacute;s <b>cabe m&aacute;s gente</b> en la cuerda.</p>
+      <p>Cambiar la direcci&oacute;n de una fuerza no multiplica nada &mdash;y aun as&iacute; puede ser
+         media soluci&oacute;n.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Una rueda con una garganta</h3>
+      <p>Una <b>polea</b> es una rueda con un canal por donde pasa la cuerda. No parece gran cosa.
+         Seg&uacute;n de d&oacute;nde cuelgue, hace dos trabajos completamente distintos.</p>
+      <p>En la escena, el saco son 80 kg &mdash;800 N&mdash;. Prueba los cuatro montajes y, en cada uno,
+         pulsa <i>Tirar de la cuerda</i> y mira las dos cosas a la vez: lo que marca la fuerza y lo que
+         baja tu mano.</p>
+
+      <div class="escena" id="esc-poleas">
+        <div class="escena-barra">
+          <span class="escena-titulo">80 kg colgando &middot; elige el montaje y tira</span>
+          <div class="seg" id="seg-poleas">
+            <button type="button" data-n="1" aria-pressed="true">Polea fija</button>
+            <button type="button" data-n="2">2 tramos</button>
+            <button type="button" data-n="3">3 tramos</button>
+            <button type="button" data-n="4">4 tramos</button>
+            <button type="button" data-n="tira">&#8595; Tirar de la cuerda</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 330" id="svg-poleas" role="img"
+               aria-label="Polea fija y polipastos de dos, tres y cuatro tramos: la fuerza se divide
+                           entre el n&uacute;mero de tramos y la cuerda que hay que tirar se multiplica
+                           por ese mismo n&uacute;mero"></svg>
+        </div>
+        <div class="pie" id="pie-poleas"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-poleas');
+        var pie = document.getElementById('pie-poleas');
+        var seg = document.getElementById('seg-poleas');
+        if(!svg) return;
+
+        var Rr = 15;          /* radio de las poleas */
+        var YV = 40;          /* la viga */
+        var YT = 72;          /* eje de las poleas fijas */
+        var YB0 = 200;        /* eje de las poleas moviles, en reposo */
+        var YM0 = 112;        /* la mano, en reposo */
+        var SUBE = 42;        /* lo que sube la carga al tirar */
+        var P = 800;          /* la carga, en newtons */
+        var n = 1, tirado = false;
+
+        /* Para cada montaje: poleas de arriba, poleas de abajo, donde se ata la
+           cuerda, por donde se va a la mano, y de que cuelga la carga.       */
+        var M = {
+          1: {arriba:[360], abajo:[],        ata:null,  atax:null, mano:375, carga:345},
+          2: {arriba:[360], abajo:[330],     ata:'viga', atax:315, mano:375, carga:330},
+          3: {arriba:[330,390], abajo:[360], ata:'bloque', atax:315, mano:405, carga:360},
+          4: {arriba:[360,420], abajo:[330,390], ata:'viga', atax:315, mano:435, carga:360}
+        };
+
+        /* El cuerpo de la polea se dibuja un poco mas pequeno que el radio de la
+           cuerda: asi la cuerda se ve por fuera, metida en la garganta.          */
+        function polea(cx, cy){
+          return '<circle cx="' + cx + '" cy="' + cy + '" r="' + (Rr-2.5) + '" fill="var(--surface-2)" '
+               + 'stroke="var(--ink-soft)" stroke-width="2"></circle>'
+               + '<circle cx="' + cx + '" cy="' + cy + '" r="3" fill="var(--ink-soft)"></circle>';
+        }
+        function tramo(x, y1, y2){
+          return '<path d="M' + x + ' ' + y1 + ' V' + y2 + '" stroke="var(--goo-rojo)" '
+               + 'stroke-width="2.6" fill="none"></path>';
+        }
+        function vuelta(cx, cy, porArriba){
+          return '<path d="M' + (cx-Rr) + ' ' + cy + ' A' + Rr + ' ' + Rr + ' 0 0 '
+               + (porArriba ? 1 : 0) + ' ' + (cx+Rr) + ' ' + cy + '" stroke="var(--goo-rojo)" '
+               + 'stroke-width="2.6" fill="none"></path>';
+        }
+
+        function pinta(){
+          var d = M[n];
+          var yb = YB0 - (tirado ? SUBE : 0);          /* poleas moviles */
+          var ymano = YM0 + (tirado ? SUBE*n : 0);     /* la mano baja n veces mas */
+          var m = '';
+
+          /* la viga */
+          m += '<rect x="180" y="' + (YV-14) + '" width="340" height="14" fill="var(--surface-2)" '
+             + 'stroke="var(--ink-soft)" stroke-width="2"></rect>';
+          for(var k = 0; k < 11; k++){
+            m += '<path d="M' + (188 + k*31) + ' ' + (YV-14) + ' l10 14" stroke="var(--line)" '
+               + 'stroke-width="1.5"></path>';
+          }
+
+          /* colgadores de las poleas fijas */
+          var i;
+          for(i = 0; i < d.arriba.length; i++){
+            m += '<path d="M' + d.arriba[i] + ' ' + YV + ' V' + (YT-Rr) + '" stroke="var(--ink-soft)" '
+               + 'stroke-width="3"></path>';
+          }
+
+          /* el bloque movil y la carga */
+          if(d.abajo.length){
+            var x0 = d.abajo[0] - 26, x1 = d.abajo[d.abajo.length-1] + 26;
+            m += '<rect x="' + x0 + '" y="' + (yb+Rr) + '" width="' + (x1-x0) + '" height="10" rx="2" '
+               + 'fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="2"></rect>';
+            m += '<path d="M' + d.carga + ' ' + (yb+Rr+10) + ' V' + (yb+Rr+26) + '" '
+               + 'stroke="var(--ink-soft)" stroke-width="2.5"></path>';
+          } else {
+            m += '<path d="M' + d.carga + ' ' + yb + ' V' + (yb+Rr+26) + '" stroke="var(--goo-rojo)" '
+               + 'stroke-width="2.6"></path>';
+          }
+          var yc = yb + Rr + 26;
+          m += '<rect x="' + (d.carga-42) + '" y="' + yc + '" width="84" height="52" rx="3" '
+             + 'fill="#a5783f" stroke="#7a5528" stroke-width="2"></rect>';
+          m += '<text x="' + d.carga + '" y="' + (yc+31) + '" text-anchor="middle" class="rotulo-svg" '
+             + 'style="fill:#fff;font-size:12.5px">80 kg</text>';
+
+          /* La cuerda. Cada tramo es vertical de verdad: sale por la tangente de una
+             polea y entra por la de la siguiente, que esta desplazada justo 2r. Las
+             poleas se recorren alternando abajo y arriba, empezando por el lado que
+             diga 'ata', y el ultimo tramo se va a la mano.                        */
+          if(n === 1){
+            m += tramo(345, YT, yb);
+            m += vuelta(360, YT, true);
+            m += tramo(375, YT, ymano);
+          } else {
+            var lado = (d.ata === 'viga') ? 'abajo' : 'arriba';
+            var x = d.atax, ia = 0, ib = 0;
+            var total = d.arriba.length + d.abajo.length;
+            m += tramo(x, (d.ata === 'viga') ? YV : yb + Rr, (lado === 'abajo') ? yb : YT);
+            for(var s = 0; s < total; s++){
+              if(lado === 'abajo'){
+                m += vuelta(d.abajo[ib], yb, false);
+                x = d.abajo[ib] + Rr; ib++;
+                lado = 'arriba';
+                if(s < total - 1) m += tramo(x, yb, YT);
+              } else {
+                m += vuelta(d.arriba[ia], YT, true);
+                x = d.arriba[ia] + Rr; ia++;
+                lado = 'abajo';
+                if(s < total - 1) m += tramo(x, YT, yb);
+              }
+            }
+            m += tramo(x, YT, ymano);
+          }
+
+          /* las poleas, encima de la cuerda */
+          for(i = 0; i < d.arriba.length; i++) m += polea(d.arriba[i], YT);
+          for(i = 0; i < d.abajo.length; i++) m += polea(d.abajo[i], yb);
+
+          /* la mano */
+          m += '<circle cx="' + d.mano + '" cy="' + ymano + '" r="9" fill="var(--goo-azul)"></circle>';
+
+          /* los numeros */
+          var F = P / n;
+          m += '<text x="20" y="22" class="rotulo-svg" style="font-size:12.5px;fill:var(--ink)">'
+             + 'Tramos que sostienen la carga: ' + n + ' &nbsp;&#8594;&nbsp; F = 800 / ' + n + ' = '
+             + Math.round(F) + ' N</text>';
+          m += '<text x="20" y="' + (YB0+118) + '" class="rotulo-svg" style="font-size:12px">'
+             + 'Para subir la carga 30 cm hay que tirar ' + (30*n) + ' cm de cuerda</text>';
+          svg.innerHTML = m;
+
+          var t;
+          if(n === 1){
+            t = '<b>La polea fija no multiplica nada</b>: sigues haciendo los 800 N enteros. Lo que hace '
+              + 'es cambiar la direcci&oacute;n, y no es poco: ahora tiras <b>hacia abajo</b>, puedes colgarte '
+              + 'de la cuerda y pueden tirar varios a la vez.';
+          } else {
+            t = '<b>' + n + ' tramos de cuerda sostienen la carga</b>, as&iacute; que cada uno aguanta '
+              + Math.round(P/n) + ' N: eso es lo que notas t&uacute;. A cambio, por cada metro que sube la '
+              + 'carga tienes que tirar <b>' + n + ' metros</b> de cuerda. Fuerza dividida entre ' + n
+              + ', recorrido multiplicado por ' + n + '.';
+          }
+          pie.innerHTML = t;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-n]'); if(!b) return;
+          if(b.dataset.n === 'tira'){ tirado = !tirado; pinta(); return; }
+          n = +b.dataset.n; tirado = false;
+          seg.querySelectorAll('button[data-n]').forEach(function(x){
+            if(x.dataset.n !== 'tira') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <p>La cuenta que hay debajo es de una sola l&iacute;nea: <b>la carga se reparte entre los tramos de
+         cuerda que la sostienen</b>. Si la sostienen cuatro tramos, cada uno aguanta la cuarta parte, y
+         t&uacute; est&aacute;s en uno de ellos.</p>
+
+      <div class="copiar">
+        <h4>Los tres montajes</h4>
+        <ul>
+          <li><b>Polea fija</b>: su eje est&aacute; sujeto a un punto fijo. <b>No multiplica la
+              fuerza</b> (F = R), solo <b>cambia su direcci&oacute;n</b>.</li>
+          <li><b>Polea m&oacute;vil</b>: su eje va enganchado a la carga y sube con ella. La sostienen
+              <b>dos</b> tramos de cuerda: F = R / 2, y hay que tirar <b>el doble</b> de cuerda.</li>
+          <li><b>Polipasto</b> (o aparejo): varias poleas fijas y m&oacute;viles combinadas.
+              <b>F = R / n</b>, siendo <b>n el n&uacute;mero de tramos que sostienen la carga</b>. Hay
+              que tirar <b>n metros</b> de cuerda por cada metro que sube la carga.</li>
+        </ul>
+        <h4>La regla de oro de la mec&aacute;nica</h4>
+        <p>Lo que se gana en fuerza se pierde en recorrido. <b>Ninguna m&aacute;quina crea
+           energ&iacute;a</b>: solo la transforma. Y en la vida real, adem&aacute;s, el <b>rozamiento</b>
+           se queda una parte por el camino.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Otra vez el mismo trato</span>
+        Y no es casualidad. Palanca, polea y &mdash;ma&ntilde;ana&mdash; engranajes hacen el
+        <b>mismo trato</b> con distinta cara. Si te quedas con la regla, los mecanismos dejan de ser una
+        lista que memorizar.
+      </div>
+      <div class="video" id="video-poleas" data-vid="AlAxnplUNH0">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Polea fija, polea m&oacute;vil y polipasto">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Polea fija, polea m&oacute;vil y polipasto</b>
+            <span>tecnoblas2 &middot; unos 4 minutos</span>
+          </span>
+        </button>
+        <p class="video-nota">Ense&ntilde;a los tres montajes seguidos, con la cuerda que hay que tirar en cada uno. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
+          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=AlAxnplUNH0" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-poleas');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+      <figure class="foto">
+        <img src="../../../img/u5-grua-haterii.jpg" loading="lazy" alt="Relieve romano de la tumba de los Haterii con una gr&uacute;a de rueda de andar, con hombres caminando dentro de la rueda y el polipasto colgando del m&aacute;stil">
+        <figcaption>La gr&uacute;a de la <b>tumba de los Haterii</b> (Roma, finales del siglo I). A la izquierda, la rueda de andar con los hombres dentro; arriba, el polipasto. Es la mejor imagen que se conserva de la m&aacute;quina de elevaci&oacute;n que describe Vitruvio.
+          <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Tomb_of_the_Haterii_crane_relief_(Gusman_Art_decoratif_I_pl_27).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>El ingeniero romano <b>Vitruvio</b> describe hacia el a&ntilde;o 25 a. C., en el libro X de
+           <i>De architectura</i>, la m&aacute;quina de elevaci&oacute;n de las obras: un m&aacute;stil,
+           un cabrestante y un polipasto que &eacute;l llama <i>polyspastos</i>. Se conserva
+           adem&aacute;s dibujada, en el relieve de la tumba de los Haterii.</p>
+        <p>Los historiadores de la t&eacute;cnica estiman, a partir de esos textos, que un polipasto de
+           tres por cinco poleas movido por <b>cuatro hombres</b> en el cabrestante sub&iacute;a unos
+           <b>3.000 kg</b>. Y que si en vez del cabrestante se pon&iacute;a una <b>rueda de andar</b>
+           &mdash;una rueda enorme con hombres caminando por dentro&mdash; se llegaba a <b>6.000 kg con
+           la mitad de la gente</b>, porque esa rueda es una palanca gigante: el radio de la rueda contra
+           el radio del eje.</p>
+        <p>Para comparar: en las rampas de las pir&aacute;mides se calcula que hac&iacute;an falta unos
+           50 hombres por bloque de dos toneladas y media, es decir, unos <b>50 kg por persona</b>. Con
+           la rueda de andar se pasa a unos <b>3.000 kg por persona</b>. Sesenta veces m&aacute;s, con
+           los mismos m&uacute;sculos. Lo &uacute;nico que cambi&oacute; fue <b>lo que hab&iacute;a entre
+           el hombre y la piedra</b>.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 2 &middot; El polipasto de las escobas</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">3.1</span></span>
+          <span>Grupos de cuatro &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Material</h4>
+          <p>Dos palos de escoba (o dos mangos de fregona) y unos <b>4 m de cuerda</b> que no corte las
+             manos. Nada m&aacute;s.</p>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Dos personas sujetan un palo cada una, en horizontal, paralelos y separados un metro.
+                Tienen que <b>separarlos</b> con todas sus fuerzas.</li>
+            <li>Atad la cuerda a un palo y dad <b>una vuelta</b> alrededor del otro. Una tercera persona
+                tira del extremo. Anotad qui&eacute;n gana.</li>
+            <li>Repetidlo con <b>dos, tres y cuatro vueltas</b>. Anotad en cada caso si los palos se
+                juntan y c&oacute;mo de f&aacute;cil es.</li>
+            <li>Medid, con una cinta: cuanta <b>cuerda</b> tira quien tira, y cu&aacute;nto se
+                <b>acercan</b> los palos. Hacedlo con dos y con cuatro vueltas.</li>
+            <li>Escribid el informe: qu&eacute; n&uacute;mero de tramos hay en cada caso, qu&eacute;
+                fuerza deber&iacute;a hacer falta en teor&iacute;a y qu&eacute; pas&oacute; de verdad.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El montaje est&aacute; dibujado y se cuentan bien los tramos <b>(3 puntos)</b>.</li>
+            <li>Est&aacute;n medidos la cuerda tirada y el acercamiento <b>(3 puntos)</b>.</li>
+            <li>La relaci&oacute;n entre las dos medidas se compara con el n&uacute;mero de tramos
+                <b>(2 puntos)</b>.</li>
+            <li>El informe explica <b>una</b> diferencia entre la teor&iacute;a y lo que pas&oacute;
+                <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso, y es parte del ejercicio</span>
+            Este polipasto <b>hace m&aacute;s trampa de lo que dice la f&oacute;rmula</b>: la cuerda roza
+            al enrollarse en los palos, y ese rozamiento ayuda a quien tira. En un polipasto de verdad, el
+            rozamiento va <b>en contra</b> y hay que hacer algo m&aacute;s fuerza de la que dice la
+            cuenta. Quien se d&eacute; cuenta de esto solo, que lo escriba: es lo mejor que puede salir de
+            esta pr&aacute;ctica.
+          </div>
+          <div class="aviso" style="margin-top:12px">
+            <span class="n-tag">Seguridad</span>
+            La cuerda se suelta de golpe si alguien afloja. Nadie mete los dedos entre la cuerda y el
+            palo, y se tira <b>en l&iacute;nea</b>, no hacia la cara de nadie.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>El saco de 80 kg sube al andamio con un polipasto de cuatro tramos tirando de <b>200 N</b>, unos
+         20 kg: lo hace una persona sola. A cambio, para subirlo ocho metros hay que tirar de
+         <b>treinta y dos metros</b> de cuerda. Nadie regala nada.</p>
+      <ol>
+              <li>&iquest;Para qu&eacute; sirve una polea fija si no multiplica la fuerza?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Para <b>cambiar la direcci&oacute;n</b>. Eso te deja tirar hacia abajo, usar tu propio peso, apoyar los pies y poner a varias personas en la misma cuerda. Adem&aacute;s te permite estar <b>lejos</b> de la carga, que en una obra es media seguridad.</p></div></details></li>
+        <li>Un polipasto sube 120 kg y quien tira hace 300 N. &iquest;Cu&aacute;ntos tramos tiene?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La carga son 1.200 N. n = 1.200 / 300 = <b>4 tramos</b>. Y para subirla un metro habr&aacute; que tirar de cuatro metros de cuerda.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; en la realidad hay que hacer algo m&aacute;s fuerza de la que dice la f&oacute;rmula?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Por el <b>rozamiento</b> de las poleas y por el <b>peso</b> de las poleas m&oacute;viles, que tambi&eacute;n hay que subir. La f&oacute;rmula da el caso ideal; la m&aacute;quina real siempre paga un peaje.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Palanca y polea mueven cosas <b>a tirones y en l&iacute;nea recta</b>. Pero casi todo lo que se
+        mueve hoy <b>gira</b>: un motor, una rueda, un ventilador. Y un motor tiene un problema gordo:
+        gira siempre a la velocidad que le da la gana.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>El motor gira como quiere: engranajes y relaci&oacute;n de transmisi&oacute;n</h2>
+      <p>Tus piernas tienen una velocidad y la rueda necesita otra. Los dientes son la forma de traducir una en la otra, pagando siempre el mismo precio.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE3 &middot; 3.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Una bicicleta con cambio. El que pedalea es el mismo, la cuesta es la misma y la bici es la
+         misma.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        <b>&iquest;Qu&eacute; cambia exactamente cuando cambias de marcha?</b> Y sobre todo:
+        &iquest;por qu&eacute; con el plato peque&ntilde;o subes la cuesta pero vas lento, y con el
+        grande vuelas en el llano pero no puedes con la cuesta?
+      </div>
+      <p>Empecemos por el problema de fondo, que es de las piernas. T&uacute; pedaleas c&oacute;modo a
+         unas <b>60 vueltas por minuto</b>, una por segundo, y ah&iacute; no hay mucho margen: a 20 rpm te
+         atascas y a 150 te agotas. La rueda, en cambio, tiene que girar a 180 rpm para ir a 23 km/h y a
+         50 rpm cuando subes. <b>Las piernas tienen una velocidad y la rueda necesita otra.</b></p>
+      <p>Prueba la soluci&oacute;n f&aacute;cil: dos ruedas lisas que se tocan, una en el eje de los
+         pedales y otra en el de la rueda. Una arrastra a la otra por rozamiento. Funciona
+         perfectamente&hellip; hasta que aprietas de verdad, y entonces <b>patinan</b>. Justo cuando
+         m&aacute;s falta hac&iacute;a que no patinaran.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Dientes: dejar de pedir el favor</h3>
+      <p>La soluci&oacute;n a que patine no es apretar m&aacute;s las ruedas: es que <b>no puedan</b>
+         patinar. Se les ponen dientes y el contacto deja de depender del rozamiento. Los dientes se
+         empujan unos a otros y la cuenta se vuelve exacta: por cada diente que avanza una, avanza un
+         diente la otra.</p>
+      <p>Para que dos ruedas engranen, sus dientes tienen que ser <b>del mismo tama&ntilde;o</b>. Y si
+         los dientes miden lo mismo, una rueda con el triple de dientes tiene el triple de
+         di&aacute;metro: <b>el n&uacute;mero de dientes y el tama&ntilde;o son la misma
+         informaci&oacute;n</b>. Por eso a partir de ahora contamos dientes y nos olvidamos de medir.</p>
+
+      <div class="escena" id="esc-engranajes">
+        <div class="escena-barra">
+          <span class="escena-titulo">A c&aacute;mara lenta &middot; la entrada gira siempre a 60 rpm</span>
+          <div class="seg" id="seg-engranajes">
+            <button type="button" data-e="red" aria-pressed="true">Reductor 12 &#8594; 36</button>
+            <button type="button" data-e="mul">Multiplicador 36 &#8594; 12</button>
+            <button type="button" data-e="cad">Cadena 24 &#8594; 12</button>
+            <button type="button" data-e="sin">Tornillo sin fin</button>
+            <button type="button" data-e="pausa">&#9208; Parar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" id="svg-engranajes" role="img"
+               aria-label="Dos ruedas dentadas engranadas girando en sentidos contrarios, una cadena
+                           entre dos pi&ntilde;ones y un tornillo sin fin con su rueda"></svg>
+        </div>
+        <div class="pie" id="pie-engranajes"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-engranajes');
+        var pie = document.getElementById('pie-engranajes');
+        var seg = document.getElementById('seg-engranajes');
+        if(!svg) return;
+
+        var MOD = 4;                 /* modulo: pixeles de diametro por diente */
+        var modo = 'red', ang = 0, girando = true, raf = null, ultimo = 0;
+        var C = {
+          red: {z1:12, z2:36}, mul: {z1:36, z2:12},
+          cad: {z1:24, z2:12}, sin: {z1:1,  z2:40}
+        };
+
+        function radio(z){ return MOD*z/2; }
+
+        function rueda(cx, cy, z, fase, col){
+          var rp = radio(z), ra = rp + MOD, rf = rp - 1.25*MOD;
+          var pas = 2*Math.PI/z, d = '', k, j, a, r, x, y;
+          for(k = 0; k < z; k++){
+            var t = fase + k*pas;
+            /* el diente ocupa algo menos de medio paso, para que entre holgado
+               en el hueco de la otra rueda y no se monten al dibujarlos */
+            var pts = [[t - pas*0.27, rf], [t - pas*0.17, ra],
+                       [t + pas*0.17, ra], [t + pas*0.27, rf]];
+            for(j = 0; j < 4; j++){
+              a = pts[j][0]; r = pts[j][1];
+              x = cx + r*Math.cos(a); y = cy + r*Math.sin(a);
+              d += (d === '' ? 'M' : 'L') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+            }
+          }
+          d += 'Z';
+          var m = '<path d="' + d + '" fill="' + col + '" stroke="var(--ink-soft)" stroke-width="1.5"></path>';
+          m += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (rp*0.30).toFixed(1)
+             + '" fill="var(--surface)" stroke="var(--ink-soft)" stroke-width="2"></circle>';
+          /* una marca radial, para ver girar la rueda */
+          m += '<path d="M' + cx + ' ' + cy + ' L' + (cx + rp*0.85*Math.cos(fase)).toFixed(1) + ' '
+             + (cy + rp*0.85*Math.sin(fase)).toFixed(1) + '" stroke="var(--ink)" stroke-width="2.5"></path>';
+          return m;
+        }
+
+        function etiqueta(cx, cy, z, rpm, txt){
+          return '<text x="' + cx + '" y="' + cy + '" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:12px;fill:var(--ink)">z = ' + z + ' &middot; ' + rpm + ' rpm</text>'
+               + '<text x="' + cx + '" y="' + (cy+16) + '" text-anchor="middle" class="rotulo-svg">'
+               + txt + '</text>';
+        }
+
+        function pinta(){
+          var c = C[modo], m = '', z1 = c.z1, z2 = c.z2;
+          var i, n2;
+
+          if(modo === 'sin'){
+            /* el tornillo, horizontal; la rueda encima, tangente a su lomo */
+            var YT = 236, ALT = 22, XA = 190, XB = 430;
+            var rp = radio(z2);
+            var cx = 310, cy = YT - ALT - rp;
+            m += rueda(cx, cy, z2, -ang/z2, 'var(--surface-2)');
+            m += '<rect x="' + XA + '" y="' + (YT-ALT) + '" width="' + (XB-XA) + '" height="' + (2*ALT)
+               + '" rx="' + ALT + '" fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="2"></rect>';
+            var des = (ang*26) % 26;
+            for(i = 0; i < 12; i++){
+              var x0 = XA + 8 + i*26 + des;
+              if(x0 > XA + 6 && x0 + 16 < XB - 6){
+                m += '<path d="M' + x0.toFixed(1) + ' ' + (YT-ALT+2) + ' l16 ' + (2*ALT-4)
+                   + '" stroke="var(--ink-soft)" stroke-width="2"></path>';
+              }
+            }
+            m += '<path d="M' + (XB+10) + ' ' + YT + ' h34" stroke="var(--goo-azul)" stroke-width="4"></path>';
+            m += '<text x="' + (XB+16) + '" y="' + (YT-12) + '" class="rotulo-svg">entrada</text>';
+            m += etiqueta(cx + rp + 82, cy - 4, z2, '1,5', 'la rueda, de salida');
+            m += '<text x="20" y="26" class="rotulo-svg" style="font-size:12.5px;fill:var(--ink)">'
+               + 'Tornillo de 1 entrada y rueda de 40 dientes &nbsp;&#8594;&nbsp; i = 1 / 40</text>';
+            svg.innerHTML = m;
+            pie.innerHTML = 'El tornillo tiene <b>un solo diente</b>, enrollado en h&eacute;lice. Cada vuelta '
+              + 'del tornillo avanza la rueda <b>un diente</b>: hacen falta 40 vueltas para una vuelta de '
+              + 'la rueda. Reducci&oacute;n enorme en muy poco sitio &mdash; y, si la h&eacute;lice es '
+              + 'tumbada, <b>no se puede mover al rev&eacute;s</b>: la rueda no consigue hacer girar al '
+              + 'tornillo. Por eso lo llevan las clavijas de una guitarra y los portones.';
+            return;
+          }
+
+          var r1 = radio(z1), r2 = radio(z2), CY = 150;
+          n2 = Math.round(60 * z1 / z2 * 10) / 10;
+
+          if(modo === 'cad'){
+            var x1 = 190, x2 = 470, dd = x2 - x1;
+            var alfa = Math.asin((r1 - r2) / dd);
+            var t1 = alfa - Math.PI/2, t2 = alfa + Math.PI/2;
+            /* los dos ramales de la cadena, tangentes a las dos ruedas */
+            m += '<path d="M' + (x1 + r1*Math.cos(t1)).toFixed(1) + ' ' + (CY + r1*Math.sin(t1)).toFixed(1)
+               + ' L' + (x2 + r2*Math.cos(t1)).toFixed(1) + ' ' + (CY + r2*Math.sin(t1)).toFixed(1)
+               + '" stroke="var(--ink-soft)" stroke-width="5" stroke-linecap="round"></path>';
+            m += '<path d="M' + (x1 + r1*Math.cos(t2)).toFixed(1) + ' ' + (CY + r1*Math.sin(t2)).toFixed(1)
+               + ' L' + (x2 + r2*Math.cos(t2)).toFixed(1) + ' ' + (CY + r2*Math.sin(t2)).toFixed(1)
+               + '" stroke="var(--ink-soft)" stroke-width="5" stroke-linecap="round"></path>';
+            m += rueda(x1, CY, z1, ang, 'var(--surface-2)');
+            m += rueda(x2, CY, z2, ang*z1/z2, 'var(--accent-soft)');
+            m += etiqueta(x1, CY + r1 + 34, z1, 60, 'plato, entrada');
+            m += etiqueta(x2, CY + r2 + 34, z2, n2, 'pi&ntilde;&oacute;n, salida');
+            m += '<text x="20" y="26" class="rotulo-svg" style="font-size:12.5px;fill:var(--ink)">'
+               + 'i = z1 / z2 = ' + z1 + ' / ' + z2 + ' = ' + (z1/z2).toFixed(2)
+               + ' &nbsp;&#8594;&nbsp; n2 = 60 x ' + (z1/z2).toFixed(2) + ' = ' + n2 + ' rpm</text>';
+            svg.innerHTML = m;
+            pie.innerHTML = 'Con <b>cadena</b> las dos ruedas giran en el <b>mismo sentido</b> y pueden '
+              + 'estar lejos una de otra: por eso la lleva la bicicleta, con los pedales delante y la '
+              + 'rueda detr&aacute;s. La cuenta es la misma que con los dientes engranados.';
+            return;
+          }
+
+          var cx1 = 320 - (r1 + r2)/2, cx2 = 320 + (r1 + r2)/2;
+          var pas2 = 2*Math.PI/z2;
+          /* desfase para que un diente de la motriz caiga en un hueco de la conducida */
+          var fase2 = Math.PI - pas2/2 - ang*z1/z2;
+          m += rueda(cx1, CY, z1, ang, 'var(--surface-2)');
+          m += rueda(cx2, CY, z2, fase2, 'var(--accent-soft)');
+          m += etiqueta(cx1, CY + radio(z1) + 34, z1, 60, 'motriz, entrada');
+          m += etiqueta(cx2, CY + radio(z2) + 34, z2, n2, 'conducida, salida');
+          m += '<text x="20" y="26" class="rotulo-svg" style="font-size:12.5px;fill:var(--ink)">'
+             + 'i = z1 / z2 = ' + z1 + ' / ' + z2 + ' = ' + (z1/z2).toFixed(2)
+             + ' &nbsp;&#8594;&nbsp; n2 = 60 x ' + (z1/z2).toFixed(2) + ' = ' + n2 + ' rpm</text>';
+          svg.innerHTML = m;
+
+          if(z1 < z2){
+            pie.innerHTML = '<b>Reductor.</b> La peque&ntilde;a arrastra a la grande: la salida gira '
+              + '<b>tres veces m&aacute;s despacio</b> y, a cambio, con <b>tres veces m&aacute;s fuerza</b>. '
+              + 'Es lo que necesita una cuesta, un taladro o un portal autom&aacute;tico. F&iacute;jate en '
+              + 'que giran en sentidos contrarios.';
+          } else {
+            pie.innerHTML = '<b>Multiplicador.</b> La grande arrastra a la peque&ntilde;a: la salida gira '
+              + '<b>tres veces m&aacute;s deprisa</b> y con <b>la tercera parte de la fuerza</b>. Es el '
+              + 'plato grande de la bici en una bajada. El trato es el mismo de la palanca y del polipasto.';
+          }
+        }
+
+        function cuadro(t){
+          if(!ultimo) ultimo = t;
+          var dt = Math.min(0.05, (t - ultimo)/1000);
+          ultimo = t;
+          ang += 0.55*dt;
+          pinta();
+          raf = girando ? requestAnimationFrame(cuadro) : null;
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-e]'); if(!b) return;
+          if(b.dataset.e === 'pausa'){
+            girando = !girando;
+            b.innerHTML = girando ? '&#9208; Parar' : '&#9654; Seguir';
+            if(girando && raf === null){ ultimo = 0; raf = requestAnimationFrame(cuadro); }
+            return;
+          }
+          modo = b.dataset.e;
+          seg.querySelectorAll('button[data-e]').forEach(function(x){
+            if(x.dataset.e !== 'pausa') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        pinta();
+        raf = requestAnimationFrame(cuadro);
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Transmisi&oacute;n por engranajes</h4>
+        <p><b>Engranaje</b>: par de ruedas dentadas que engranan entre s&iacute; para transmitir el giro
+           de un eje a otro. La que manda es la <b>motriz</b> (entrada) y la que obedece es la
+           <b>conducida</b> (salida).</p>
+        <p><b>Relaci&oacute;n de transmisi&oacute;n</b>: las veces que la salida gira por cada vuelta de
+           la entrada.</p>
+        <p style="font-size:18px;text-align:center;margin:10px 0"><b>i = z<sub>1</sub> / z<sub>2</sub> =
+           n<sub>2</sub> / n<sub>1</sub></b></p>
+        <p>z son los dientes y n las vueltas por minuto (rpm). El 1 es la entrada y el 2, la salida.</p>
+        <ul>
+          <li><b>i menor que 1</b>: <b>reductor</b>. Gira m&aacute;s despacio y con m&aacute;s fuerza.</li>
+          <li><b>i mayor que 1</b>: <b>multiplicador</b>. Gira m&aacute;s deprisa y con menos fuerza.</li>
+          <li>Dos ruedas engranadas giran en <b>sentidos contrarios</b>. Una rueda intermedia
+              (&laquo;loca&raquo;) invierte el sentido y <b>no cambia</b> la relaci&oacute;n.</li>
+        </ul>
+      </div>
+
+      <div class="copiar">
+        <h4>Cuando los ejes est&aacute;n lejos</h4>
+        <ul>
+          <li><b>Cadena</b> y pi&ntilde;ones: transmite a distancia, <b>mismo sentido</b> y sin
+              deslizamiento. Es lo de la bicicleta.</li>
+          <li><b>Correa</b> y poleas: m&aacute;s barata y silenciosa, pero <b>puede patinar</b>. A veces
+              eso es bueno: si algo se atasca, patina la correa en vez de romperse el motor.</li>
+          <li><b>Tornillo sin fin</b> y rueda dentada: el tornillo cuenta como <b>un solo diente</b>, as&iacute;
+              que con una rueda de 40 hace falta <b>una vuelta por diente</b>: i = 1/40. Reducci&oacute;n
+              enorme en muy poco sitio, y <b>no se puede mover al rev&eacute;s</b>.</li>
+        </ul>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Y otra vez lo mismo</span>
+        Un reductor de 1 a 3 divide la velocidad entre tres y <b>multiplica la fuerza por tres</b>. Es la
+        ley de la palanca con otro disfraz: lo que se gana por un lado se paga por el otro.
+      </div>
+
+      <h3>La bici, con n&uacute;meros</h3>
+      <p>Plato de <b>48</b> dientes, pi&ntilde;&oacute;n de <b>16</b>: i = 48/16 = <b>3</b>. Cada
+         pedalada son tres vueltas de rueda. A 60 pedaladas por minuto son 180 rpm, y con una rueda de
+         2,10 m de per&iacute;metro salen unos <b>23 km/h</b>. Cambia al pi&ntilde;&oacute;n de 28
+         dientes: i = 1,7, unos 13 km/h&hellip; y casi el doble de fuerza en la rueda. Eso es subir la
+         cuesta.</p>
+      <div class="video" id="video-engranajes" data-vid="0pO6cHi3HzE">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Engranajes (Transmisi&oacute;n circular)">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Engranajes (Transmisi&oacute;n circular)</b>
+            <span>TECH LAPSE &middot; unos 5 minutos</span>
+          </span>
+        </button>
+        <p class="video-nota">Animaci&oacute;n de trenes de engranajes con la relaci&oacute;n de transmisi&oacute;n calculada. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
+          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=0pO6cHi3HzE" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-engranajes');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+      <figure class="foto">
+        <img src="../../../img/u5-anticitera.jpg" loading="lazy" alt="Tres fragmentos corro&iacute;dos del mecanismo de Anticitera en una vitrina; en el central se distingue una gran rueda dentada de bronce con sus radios">
+        <figcaption>El <b>mecanismo de Anticitera</b>, sacado del mar en 1901. Bajo esa corrosi&oacute;n hay una treintena de ruedas dentadas de bronce montadas unas sobre otras. Es del siglo II a. C.: engranajes de precisi&oacute;n mil a&ntilde;os antes de que nadie volviera a fabricar algo parecido.
+          <span class="credito">Joyofmuseums &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Antikythera_Mechanism_-_National_Archaeological_Museum,_Athens_by_Joy_of_Museum.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>En 1901, unos pescadores de esponjas encontraron frente a la isla griega de <b>Anticitera</b>
+           los restos de un naufragio, y entre ellos un bulto de bronce corro&iacute;do. Dentro hab&iacute;a
+           una treintena de <b>ruedas dentadas</b> montadas unas sobre otras, algunas con m&aacute;s de
+           200 dientes cortados a mano.</p>
+        <p>Es del <b>siglo II a. C.</b> y serv&iacute;a para predecir las posiciones del Sol y la Luna y
+           los eclipses. Nadie volvi&oacute; a fabricar engranajes de esa precisi&oacute;n hasta los
+           relojes de catedral, <b>mil cuatrocientos a&ntilde;os despu&eacute;s</b>.</p>
+        <p>Y no lo sabemos porque nadie lo escribiera: lo sabemos porque <b>se encontr&oacute; el
+           aparato</b>. De casi toda la tecnolog&iacute;a antigua se ha perdido la explicaci&oacute;n, y a
+           veces tambi&eacute;n el objeto. Este se salv&oacute; porque se hundi&oacute; un barco.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 &middot; El desarrollo de una bicicleta</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">3.1</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Una bici de monta&ntilde;a con <b>dos platos</b> (32 y 48 dientes) y <b>cinco
+             pi&ntilde;ones</b> (14, 18, 21, 24 y 32 dientes). La rueda mide 2,10 m de per&iacute;metro y
+             quien pedalea lo hace siempre a <b>60 rpm</b>.</p>
+          <ol class="pasos">
+            <li>Tabla de <b>diez combinaciones</b>: plato, pi&ntilde;&oacute;n, relaci&oacute;n i, vueltas
+                de rueda por minuto y velocidad en km/h.</li>
+            <li>Se&ntilde;alad la combinaci&oacute;n <b>m&aacute;s r&aacute;pida</b> y la <b>m&aacute;s
+                fuerte</b>, y decid para qu&eacute; sirve cada una.</li>
+            <li>Hay dos combinaciones distintas que dan <b>exactamente</b> la misma velocidad.
+                Encontradlas y explicad por qu&eacute; pasa eso.</li>
+            <li>La cuesta del instituto se sube a 7 km/h. &iquest;Qu&eacute; combinaci&oacute;n
+                eleg&iacute;s? Justificadlo con la tabla.</li>
+            <li><b>Problema aparte.</b> Un motor gira a 3.000 rpm y una cinta transportadora necesita 100
+                rpm. Dise&ntilde;ad la reducci&oacute;n con <b>dos parejas</b> de ruedas, usando solo
+                ruedas de 10, 12, 15, 20, 30, 50 y 60 dientes. Explicad por qu&eacute; no se hace con una
+                sola pareja.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla est&aacute; completa y las velocidades bien calculadas <b>(3 puntos)</b>.</li>
+            <li>Las dos combinaciones que coinciden est&aacute;n encontradas y explicadas
+                <b>(2 puntos)</b>.</li>
+            <li>La elecci&oacute;n para la cuesta est&aacute; justificada con datos <b>(2 puntos)</b>.</li>
+            <li>La reducci&oacute;n de dos etapas funciona y est&aacute; comprobada <b>(3 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Pista para el problema del motor</span>
+            Hace falta dividir la velocidad entre 30. En una sola pareja, la rueda grande tendr&iacute;a
+            <b>treinta veces</b> el di&aacute;metro del pi&ntilde;&oacute;n: no cabe en ninguna
+            m&aacute;quina. Con dos parejas basta con que <b>el producto</b> de las dos relaciones sea
+            1/30.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Cambiar de marcha no cambia tus piernas: cambia <b>la relaci&oacute;n entre lo que gira tu pie y
+         lo que gira la rueda</b>. Con el plato peque&ntilde;o la rueda da menos vueltas por pedalada,
+         as&iacute; que vas m&aacute;s lento y empujas con m&aacute;s fuerza. Y al rev&eacute;s. Es el
+         mismo trato de la palanca y del polipasto, por tercera vez.</p>
+      <ol>
+              <li>Una rueda de 20 dientes que gira a 300 rpm mueve otra de 60. &iquest;A qu&eacute; velocidad gira la segunda, y en qu&eacute; sentido?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>i = 20/60 = 0,33. n<sub>2</sub> = 300 &middot; 0,33 = <b>100 rpm</b>, y en <b>sentido contrario</b>. Es un reductor: tres veces menos velocidad y tres veces m&aacute;s fuerza.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; la bicicleta lleva cadena y no dos ruedas dentadas engranadas?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque los pedales y la rueda est&aacute;n a <b>un metro</b> el uno de la otra. Dos ruedas engranadas tienen que tocarse; la cadena transmite a distancia y, adem&aacute;s, mantiene el <b>mismo sentido</b> de giro.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; el mecanismo de una clavija de guitarra lleva tornillo sin fin?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Por dos motivos a la vez. Da una <b>reducci&oacute;n enorme</b>, as&iacute; que puedes afinar con mucha precisi&oacute;n; y <b>no se deja mover al rev&eacute;s</b>, as&iacute; que la tensi&oacute;n de la cuerda no desafina la clavija sola.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Todo lo de hoy transmite un giro y devuelve otro giro. Pero el pist&oacute;n de un motor
+        <b>sube y baja</b>, una puerta corredera <b>va en l&iacute;nea recta</b> y el limpiaparabrisas
+        <b>va y viene</b>. La sesi&oacute;n 4 va de lo que falta: <b>transformar</b> un movimiento en otro
+        distinto, con la biela-manivela y el pi&ntilde;&oacute;n-cremallera.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 5 &middot; Mecanismos</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 5 &middot; Mecanismos</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
+     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
+     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 5 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

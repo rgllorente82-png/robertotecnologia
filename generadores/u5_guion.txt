@@ -1,0 +1,11 @@
+Bienvenido al tema cinco: los mecanismos.
+
+Empecemos reconociendo una cosa incómoda. Tu cuerpo es un motor bastante malo. El bíceps solo sabe tirar, nunca empujar; trabaja siempre en la misma dirección, con un recorrido de pocos centímetros, y con un brazo no pasas de unos veinticinco kilos de fuerza.
+
+Y sin embargo, el mundo nos pide aflojar tuercas apretadas con cincuenta kilos de fuerza, subir sacos a ocho metros de altura y hacer girar ruedas a ciento ochenta vueltas por minuto. La biología no nos da nada de eso.
+
+Un mecanismo es lo que ponemos entre el músculo y el problema. Y hace siempre el mismo trato: te da fuerza a cambio de recorrido, o velocidad a cambio de fuerza, o simplemente te cambia una dirección por otra. Ninguno crea energía. Ninguno te regala nada.
+
+En estas sesiones vas a ver tres: la palanca, que cambia fuerza por recorrido; la polea y el polipasto, que hacen lo mismo con una cuerda tan larga como haga falta; y los engranajes, que traducen la velocidad de un giro en otra distinta.
+
+Si te quedas con el trato, y no con la lista de nombres, este tema está entendido. Vamos allá.
