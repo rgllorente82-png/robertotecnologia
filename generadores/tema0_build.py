@@ -1,304 +1,60 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tema 0 &middot; &iquest;Qu&eacute; es la tecnolog&iacute;a?</title>
-<meta name="description" content="Tema 0 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: qu&eacute; es la tecnolog&iacute;a, en qu&eacute; se diferencia de la t&eacute;cnica y de la ciencia, y c&oacute;mo ha cambiado la historia desde la piedra tallada hasta la inteligencia artificial.">
-<meta name="license" content="CC BY-SA 4.0">
-<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
-<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema0/">
-<meta name="author" content="Roberto P. García Llorente">
-<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
-<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
-<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 0 &middot; &iquest;Qu&eacute; es la tecnolog&iacute;a?","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema0/","inLanguage":"es",
- "license":"https://creativecommons.org/licenses/by-sa/4.0/",
- "creditText":"Roberto P. García Llorente (2026) &middot; Tema 0 &middot; &iquest;Qu&eacute; es la tecnolog&iacute;a? &middot; CC BY-SA 4.0","copyrightYear":"2026",
- "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
- "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
- "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
-</script>
-<style>
-:root{
-  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
-  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
-  --grid:rgba(66,133,244,.09);
-  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
-  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
-  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
-  --grid:rgba(138,180,248,.09)}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px}
-header.top{background:var(--surface);border-bottom:2px solid var(--ink);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:24px 24px;position:sticky;top:0;z-index:50}
-header.top .wrap{padding-block:16px 0}
-.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
-.eyebrow a:hover{border-bottom-color:currentColor}
-h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
-nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
-nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
-  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-nav.sesiones button[disabled]{opacity:.45;cursor:default}
-main{padding-block:26px 70px}
-.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
-.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
-.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
-.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
-.chip.sab{border-color:var(--line);color:var(--ink-soft)}
-.bloque{margin-bottom:34px}
-.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
-.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
-  display:inline-grid;place-items:center;font-weight:500}
-.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
-.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
-.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
-.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
-.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
-h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
-h4{font-size:15.5px;margin:16px 0 4px}
-.bloque ul,.bloque ol{padding-left:22px}
-.bloque li{margin-bottom:5px}
-.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
-.nota{border-left:5px solid var(--goo-azul)}
-.aviso{border-left:5px solid var(--goo-amarillo)}
-.def{border-left:5px solid var(--goo-verde)}
-.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-soft);margin-bottom:5px}
-.nota .n-tag{color:var(--goo-azul)}
-.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
-.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
-  padding:12px 16px;border-bottom:1px solid var(--line)}
-.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
-  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-.lienzo{padding:10px;background:var(--surface);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:20px 20px}
-.lienzo svg{width:100%;height:auto;display:block}
-.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
-.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
-.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
-  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
-  letter-spacing:.08em;text-transform:uppercase}
-.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
-.ficha-cuerpo{padding:16px}
-.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
-.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink-soft)}
-.resp summary::-webkit-details-marker{display:none}
-.resp-cuerpo{padding:0 13px 13px}
-.resp-cuerpo p:last-child{margin-bottom:0}
+# -*- coding: utf-8 -*-
+import io, os, sys, json
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from tema0_base import cabeza, SELLO, aviso_licencia, SITIO, AUTOR_TXT, CARGO
+from tema0_contenido import HITOS, NIVELES
 
-.narra{display:flex;gap:14px;align-items:flex-start}
-.avatar-caja{flex:none;width:104px}
-.avatar-caja svg.avatar{width:104px;height:72px;display:block}
-.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
-@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
-.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
-.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
-  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
-.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
-.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
-@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
 
-.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
-  border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
-.reto-piensa p{margin:0}
-.resp.revela summary{color:var(--goo-azul);font-weight:500}
-.resp.revela[open] summary{color:var(--ink-soft)}
-.resp.revela table{margin:0}
-.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
-.secuencia li.oculto *{visibility:hidden}
-.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
-#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
-  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
-#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
-
-/* series del grafico de coste: validadas con el script de dataviz
-   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
-   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
-:root{--c-analog:#ea4335;--c-digital:#1a73e8}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
-.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
-.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
-
-
-.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
-.foto img{width:100%;height:auto;display:block}
-.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
-.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
-.credito a{color:var(--ink-soft)}
-.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
-.galeria-ri .foto{margin:0}
-.galeria-ri figcaption{font-size:13.5px}
-
-.video{margin:16px 0}
-.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
-  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
-  transition:border-color .18s ease}
-.video-play:hover{border-color:var(--goo-rojo)}
-.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
-.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
-  border-top:8px solid transparent;border-bottom:8px solid transparent}
-.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
-.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
-.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
-.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
-
-/* lo que se copia en la libreta, frente a lo que es solo para entender */
-.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
-  padding:16px 18px;margin:18px 0;position:relative}
-.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
-  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
-  padding:3px 9px;border-radius:2px}
-.copiar > :first-child{margin-top:6px}
-.copiar > :last-child{margin-bottom:0}
-.copiar h4{font-size:15px;margin:10px 0 4px}
-.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
-.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-.entender b{color:var(--ink)}
-@media print{
-  .entender,.escena,.video,.narra,nav.sesiones{display:none}
-  .copiar{border-width:1.5px;break-inside:avoid}
-}
-
-/* ---- avatar narrador, plano y sincronizado con la voz ---- */
-.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
-  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
-.narrador-fig{flex:none;width:110px}
-.narrador-fig svg{width:110px;height:120px;display:block}
-.narrador-txt{flex:1;min-width:0}
-.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
-.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
-.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
-.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
-.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
-@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
-  .narrador-txt{text-align:center}}
-
-/* ---- test de autoevaluacion ---- */
-.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
-  background:var(--surface);position:relative}
-.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
-  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
-.test h4{margin:8px 0 14px;font-size:16px}
-.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
-.test-p:first-of-type{border-top:0}
-.test-p > p{margin:0 0 9px;font-weight:500}
-.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
-  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
-.test-op:hover{border-color:var(--goo-azul)}
-.test-op input{margin-right:9px}
-.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
-.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
-.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
-  background:var(--surface-2);font-size:14.5px;line-height:1.55}
-.test.corregido .test-por{display:block}
-.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
-.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
-  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
-.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
-.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
-.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
-@media print{.test{break-inside:avoid}.test-por{display:block}}
-
-/* ---- banco de programacion ---- */
-.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-.prog-izq{flex:1 1 380px;min-width:300px}
-.prog-der{flex:0 1 230px;min-width:200px}
-.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
-  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
-.prog-lista ol{margin:0;padding:0 0 0 26px}
-.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
-.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
-.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
-.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
-.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
-  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
-.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
-.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-.prog-bot button.ir:hover{color:#fff}
-.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
-.prog-est b{font-size:13.5px}
-.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
-.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
-.hito.on{fill:var(--goo-azul)}
-.eje-t{fill:none;stroke:var(--line);stroke-width:2}
-.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
-  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
-  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
-.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
-.cc-sello .cc-autor{opacity:.75;font-weight:400}
-@media (max-width:620px){.cc-sello .cc-autor{display:none}}
-.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
-.cc-aviso h2{font-size:17px;margin:0 0 8px}
-.cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
-footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
-footer .wrap{padding-block:18px 26px}
-@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
-</style>
-</head>
-<body>
-<header class="top">
-  <div class="wrap">
-    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 0</div>
-    <h1>&iquest;Qu&eacute; es la tecnolog&iacute;a?</h1>
-    <nav class="sesiones" aria-label="Sesiones del tema">
-      <button type="button" aria-selected="true">Sesi&oacute;n &uacute;nica &middot; 60 min</button>
-    </nav>
-  </div>
-</header>
-
-<main class="wrap">
-  <div class="ses-head">
-    <div class="eyebrow">Sesi&oacute;n introductoria &middot; 60 minutos</div>
-    <h2>&iquest;Qu&eacute; es la tecnolog&iacute;a?</h2>
-    <p>Antes de dibujar, programar o construir nada, conviene saber de qu&eacute; estamos hablando. Esta sesi&oacute;n responde a una pregunta que parece f&aacute;cil y no lo es.</p>
-    <div class="minutado">
-      <span class="min"><b>5'</b> Reto inicial</span>
-      <span class="min"><b>20'</b> Teor&iacute;a</span>
-      <span class="min"><b>15'</b> L&iacute;nea del tiempo</span>
-      <span class="min"><b>15'</b> Pr&aacute;ctica</span>
-      <span class="min"><b>5'</b> Cierre</span>
+VIDEO_RI4 = u"""
+    <h3>Un repaso r&aacute;pido antes de analizarlo</h3>
+    <div class="video" id="video-ri" data-vid="A1lacXFaKow">
+      <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo resumen sobre la Revoluci&oacute;n Industrial">
+        <span class="video-tri" aria-hidden="true"></span>
+        <span class="video-txt">
+          <b>La Revoluci&oacute;n Industrial &middot; resumen</b>
+          <span>A toda leche</span>
+        </span>
+      </button>
+      <p class="video-nota">Al verlo, ve anotando los <b>cuatro pasos</b> de la secuencia que has destapado
+        antes: qu&eacute; cambi&oacute; en la producci&oacute;n, qu&eacute; excedente gener&oacute;, c&oacute;mo se reorganiz&oacute; la
+        sociedad y qu&eacute; problema nuevo apareci&oacute;. Lo usaremos en la actividad.</p>
+      <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
+        seguimiento. Si la red del centro bloquea YouTube,
+        <a href="https://www.youtube.com/watch?v=A1lacXFaKow" target="_blank" rel="noopener">&aacute;brelo
+        directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
+        licencia de esta p&aacute;gina.</p>
     </div>
-    <div class="chips"><span class="chip">CE1 &middot; 1.1</span><span class="chip sab">A.1</span></div>
-  </div>
+"""
 
-  <section class="bloque">
-    <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 5 min</div>
-    <p>Sin mirar el m&oacute;vil: escribe en 60 segundos <b>cinco objetos</b> que hayas usado hoy antes de
-        entrar en clase. Ahora t&aacute;chalos todos menos uno, el que m&aacute;s te costar&iacute;a vivir sin &eacute;l.</p>
-      <p>&iquest;Lo tienes? Pues alguien tuvo que <b>inventarlo</b>, alguien tuvo que aprender a <b>fabricarlo</b>
-        y alguien tuvo que averiguar <b>por qu&eacute; funciona</b>. Esas tres cosas son distintas, y hoy vamos a
-        separarlas.</p>
-  </section>
+VIDEO_RI = u"""
+    <h3>Ve&aacute;moslo en tres minutos</h3>
+    <div class="video" id="video-ri" data-vid="eZtmIClLJWM">
+      <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo sobre la Revoluci&oacute;n Industrial">
+        <span class="video-tri" aria-hidden="true"></span>
+        <span class="video-txt">
+          <b>La Revoluci&oacute;n Industrial</b>
+          <span>Happy Learning Espa&ntilde;ol &middot; unos 3 minutos</span>
+        </span>
+      </button>
+      <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
+        seguimiento. Si la red del centro bloquea YouTube,
+        <a href="https://www.youtube.com/watch?v=eZtmIClLJWM" target="_blank" rel="noopener">&aacute;brelo
+        directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material publicado bajo
+        la licencia de esta p&aacute;gina.</p>
+    </div>
+"""
 
-  <section class="bloque">
-    <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-    
+
+def cuerpo(k, n):
+    es2 = (k == '2eso')
+    clave = 'c2' if es2 else 'c4'
+    hitos_js = json.dumps([{'id': h['id'], 'pos': h['pos'], 'ep': h['ep'], 't': h['t'], 'c': h[clave]}
+                           for h in HITOS], ensure_ascii=False)
+
+    # --- 01 teoria, distinta por nivel ---
+    if es2:
+        teoria = u"""
       <h3>Empecemos por una pregunta tonta</h3>
       <p>Cuenta cu&aacute;ntos objetos has usado hoy desde que has abierto los ojos hasta llegar a clase.
          La alarma, la luz, el grifo, la ropa, el desayuno envasado, el autob&uacute;s, la mochila, el boli.
@@ -737,7 +493,371 @@ footer .wrap{padding-block:18px 26px}
          &eacute;poca</b>, igual que la m&aacute;quina de vapor lo fue del siglo XIX. Y como con cualquier tecnolog&iacute;a,
          aqu&iacute; no basta con saber usarla: hay que entender c&oacute;mo funciona por dentro y decidir qu&eacute; queremos
          hacer con ella.</p>
+"""
+    else:
+        teoria = u"""
+      <h3>Una definici&oacute;n que aguante</h3>
+      <p>La palabra viene del griego <i>t&eacute;chne</i> (arte, oficio) y <i>log&iacute;a</i> (estudio, tratado). Literalmente,
+         <b>el estudio de c&oacute;mo se hacen las cosas</b>. Esa etimolog&iacute;a ya contiene la clave: la tecnolog&iacute;a no
+         es el objeto, es el <b>conocimiento</b> que permite producirlo.</p>
 
+      <div class="def">
+        <span class="n-tag">Definici&oacute;n</span>
+        <p><b>Tecnolog&iacute;a</b>: conjunto organizado de conocimientos cient&iacute;ficos, t&eacute;cnicos y emp&iacute;ricos,
+        junto con los medios materiales y los procedimientos, que se aplica de forma sistem&aacute;tica al dise&ntilde;o
+        y producci&oacute;n de bienes y servicios destinados a satisfacer necesidades humanas.</p>
+      </div>
+
+      <h3>Tres conceptos que conviene no mezclar</h3>
+      <div class="reto-piensa">
+        <span class="n-tag">Antes de mirar</span>
+        <p>Dibuja en el cuaderno una tabla con <b>tres filas</b> &mdash;t&eacute;cnica, ciencia y
+           tecnolog&iacute;a&mdash; y <b>tres columnas</b>:</p>
+        <ol style="margin:8px 0 8px 0">
+          <li><b>Pregunta</b> &middot; &iquest;a qu&eacute; pregunta responde cada una?</li>
+          <li><b>Busca</b> &middot; &iquest;qu&eacute; persigue: hacer algo bien, entender algo o resolver algo?</li>
+          <li><b>Se transmite</b> &middot; &iquest;c&oacute;mo pasa ese saber de unos a otros?</li>
+        </ol>
+        <p>Una o dos palabras por casilla, no m&aacute;s. Cuando la tengas, comprueba.</p>
+      </div>
+      <details class="resp revela"><summary>Comprobar la tabla</summary><div class="resp-cuerpo">
+      <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0">
+        <tr style="text-align:left;border-bottom:2px solid var(--ink)">
+          <th style="padding:8px 6px"></th><th style="padding:8px 6px">Pregunta</th>
+          <th style="padding:8px 6px">Busca</th><th style="padding:8px 6px">Se transmite</th></tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:8px 6px"><b>T&eacute;cnica</b></td><td style="padding:8px 6px"><i>&iquest;C&oacute;mo se hace?</i></td>
+          <td style="padding:8px 6px">Destreza</td><td style="padding:8px 6px">Imitaci&oacute;n y pr&aacute;ctica</td></tr>
+        <tr style="border-bottom:1px solid var(--line)">
+          <td style="padding:8px 6px"><b>Ciencia</b></td><td style="padding:8px 6px"><i>&iquest;Por qu&eacute; ocurre?</i></td>
+          <td style="padding:8px 6px">Explicaci&oacute;n</td><td style="padding:8px 6px">Publicaci&oacute;n y m&eacute;todo</td></tr>
+        <tr><td style="padding:8px 6px"><b>Tecnolog&iacute;a</b></td><td style="padding:8px 6px"><i>&iquest;C&oacute;mo lo resuelvo?</i></td>
+          <td style="padding:8px 6px">Soluci&oacute;n eficaz</td><td style="padding:8px 6px">Dise&ntilde;o, norma y patente</td></tr>
+      </table>
+      <p>La t&eacute;cnica es <b>anterior</b> a la ciencia en millones de a&ntilde;os: se tallaba piedra sin saber nada de
+         mineralog&iacute;a y se fund&iacute;a bronce sin conocer la tabla peri&oacute;dica. Solo desde el siglo XVIII la ciencia
+         empieza a guiar sistem&aacute;ticamente a la t&eacute;cnica, y de esa uni&oacute;n nace la tecnolog&iacute;a moderna.</p>
+      </div></details>
+
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">C&oacute;mo se relacionan los tres</span></div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" role="img"
+               aria-label="La t&eacute;cnica y la ciencia confluyen en la tecnolog&iacute;a, que a su vez devuelve preguntas a la ciencia">
+
+            <!-- TECNICA -->
+            <rect x="26" y="26" width="220" height="92" rx="3" fill="var(--surface)" stroke="var(--goo-amarillo)" stroke-width="2.5"/>
+            <text x="46" y="52" style="font:500 14px var(--f-b);fill:var(--ink)">T&Eacute;CNICA</text>
+            <text x="46" y="72" style="font:400 12px var(--f-m);fill:var(--goo-amarillo)">&iquest;C&Oacute;MO SE HACE?</text>
+            <text x="46" y="94" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Saber hacerlo con las manos.</text>
+            <text x="46" y="110" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Se aprende imitando.</text>
+            <!-- mano con herramienta -->
+            <g transform="translate(196,58)" stroke="#9a7326" stroke-width="2.2" fill="none" stroke-linecap="round">
+              <path d="M0 22 q-6 -4 -6 -12 v-8 M4 22 v-22 M10 22 v-18 M16 22 q6 -2 6 -10"/>
+              <path d="M-8 22 h30 v8 h-30 Z" fill="#fbbc04" opacity=".3" stroke="none"/>
+            </g>
+
+            <!-- CIENCIA -->
+            <rect x="394" y="26" width="220" height="92" rx="3" fill="var(--surface)" stroke="var(--goo-verde)" stroke-width="2.5"/>
+            <text x="414" y="52" style="font:500 14px var(--f-b);fill:var(--ink)">CIENCIA</text>
+            <text x="414" y="72" style="font:400 12px var(--f-m);fill:var(--goo-verde)">&iquest;POR QU&Eacute; OCURRE?</text>
+            <text x="414" y="94" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Explicar la naturaleza.</text>
+            <text x="414" y="110" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Se publica y se comprueba.</text>
+            <!-- lupa -->
+            <g transform="translate(566,58)" stroke="#1e6b33" stroke-width="2.4" fill="none">
+              <circle cx="8" cy="10" r="10"/><path d="M16 18 l10 10" stroke-linecap="round"/>
+            </g>
+
+            <!-- flechas de entrada -->
+            <path d="M136 122 L136 152 L290 152 L290 176" fill="none" stroke="var(--goo-amarillo)" stroke-width="2.2"/>
+            <path d="M290 184 l-5 -10 h10 Z" fill="var(--goo-amarillo)"/>
+            <path d="M504 122 L504 152 L350 152 L350 176" fill="none" stroke="var(--goo-verde)" stroke-width="2.2"/>
+            <path d="M350 184 l-5 -10 h10 Z" fill="var(--goo-verde)"/>
+
+            <!-- TECNOLOGIA -->
+            <rect x="152" y="186" width="336" height="88" rx="3" fill="var(--accent-soft)" stroke="var(--goo-azul)" stroke-width="2.5"/>
+            <text x="176" y="214" style="font:500 15px var(--f-b);fill:var(--ink)">TECNOLOG&Iacute;A</text>
+            <text x="176" y="234" style="font:400 12px var(--f-m);fill:var(--goo-azul)">&iquest;C&Oacute;MO LO RESUELVO?</text>
+            <text x="176" y="256" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Junta las dos para resolver un problema real.</text>
+            <g transform="translate(436,206)" stroke="#1a5fb4" stroke-width="2.4" fill="none">
+              <circle cx="14" cy="22" r="11"/><circle cx="14" cy="22" r="3.4" fill="#1a5fb4"/>
+              <path d="M14 8 v5 M14 31 v5 M0 22 h5 M23 22 h5 M4 12 l3.5 3.5 M20.5 28.5 l3.5 3.5 M24 12 l-3.5 3.5 M7.5 28.5 l-3.5 3.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- flecha de vuelta -->
+            <path d="M488 230 L560 230 L560 160 L560 122" fill="none" stroke="var(--goo-azul)"
+                  stroke-width="1.8" stroke-dasharray="6 4"/>
+            <path d="M560 114 l-5 10 h10 Z" fill="var(--goo-azul)"/>
+            <text x="572" y="180" style="font:400 10px var(--f-m);fill:var(--goo-azul)">y a veces</text>
+            <text x="572" y="193" style="font:400 10px var(--f-m);fill:var(--goo-azul)">va por</text>
+            <text x="572" y="206" style="font:400 10px var(--f-m);fill:var(--goo-azul)">delante</text>
+          </svg>
+        </div>
+        <div class="pie">La t&eacute;cnica aporta el <b>saber hacer</b> y la ciencia el <b>saber por qu&eacute;</b>. La tecnolog&iacute;a
+          los junta para resolver un problema concreto. Y la flecha de puntos importa: a veces la tecnolog&iacute;a
+          funciona antes de que la ciencia sepa explicarla, y es ella la que obliga a investigar.</div>
+      </div>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa</span>
+        <p>Parece l&oacute;gico que la ciencia vaya primero y la tecnolog&iacute;a aplique lo que aquella descubre.
+           <b>&iquest;Se te ocurre alg&uacute;n caso en que ocurriera al rev&eacute;s?</b> Una tecnolog&iacute;a que funcionara
+           antes de que nadie supiera explicar por qu&eacute;.</p>
+      </div>
+      <details class="resp revela"><summary>Ver un caso</summary><div class="resp-cuerpo">
+        <p>La <b>m&aacute;quina de vapor</b>. Watt vend&iacute;a m&aacute;quinas que mov&iacute;an f&aacute;bricas enteras d&eacute;cadas antes
+           de que Carnot y Clausius formularan la termodin&aacute;mica. De hecho fue al rev&eacute;s de lo esperable:
+           la necesidad de mejorar el rendimiento de esas m&aacute;quinas es lo que <b>oblig&oacute; a crear la
+           ciencia</b> que las explicaba.</p>
+        <p>Conclusi&oacute;n: la relaci&oacute;n no es de una sola direcci&oacute;n. <b>La tecnolog&iacute;a tambi&eacute;n empuja a
+           la ciencia.</b></p>
+      </div></details>
+
+      <h3>Por qu&eacute; la tecnolog&iacute;a explica la historia</h3>
+      <p>Los grandes cortes hist&oacute;ricos no los marcan las batallas, sino los cambios en <b>c&oacute;mo se produce</b>.
+         Cada tecnolog&iacute;a decisiva desencadena la misma secuencia:</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Antes de mirar</span>
+        <p>Toda tecnolog&iacute;a decisiva desencadena la misma secuencia de cuatro pasos.
+           <b>&iquest;Cu&aacute;les dir&iacute;as que son?</b> Piensa en la agricultura o en la imprenta y ve
+           destapando uno a uno.</p>
+      </div>
+      <ol class="pasos secuencia" id="secuencia-hist">
+        <li class="oculto"><b>Cambia lo que se puede producir</b> y con cu&aacute;nto esfuerzo.</li>
+        <li class="oculto">Eso genera <b>excedente</b> y modifica qui&eacute;n trabaja en qu&eacute;.</li>
+        <li class="oculto">La <b>estructura social se reorganiza</b>: aparecen oficios, clases y poderes nuevos.</li>
+        <li class="oculto">Surgen <b>problemas in&eacute;ditos</b> que la sociedad tarda en regular.</li>
+      </ol>
+      <div class="seg"><button type="button" id="btn-secuencia">Destapar el siguiente paso &#9654;</button></div>
+      <p>Ese cuarto punto es el que m&aacute;s te interesa hoy: la agricultura trajo el hambre estacional y la guerra
+         por la tierra; la industria, la contaminaci&oacute;n y el trabajo infantil; lo digital, la desinformaci&oacute;n y
+         la brecha. <b>Ninguna tecnolog&iacute;a es neutral en sus consecuencias</b>, aunque s&iacute; lo sea en su intenci&oacute;n.</p>
+      <h3>La digitalizaci&oacute;n como tecnolog&iacute;a de &eacute;poca</h3>
+      <p>Conviene precisar el t&eacute;rmino, porque se usa con tres sentidos que no son intercambiables:</p>
+      <p>Son estos tres. Intenta definirlos antes de destaparlos:</p>
+      <details class="resp revela"><summary>1 &middot; Digitalizar, en sentido estricto</summary>
+        <div class="resp-cuerpo"><p>Convertir una se&ntilde;al o un soporte anal&oacute;gico en una representaci&oacute;n
+        num&eacute;rica discreta &mdash;muestrear y cuantificar&mdash;. Escanear un plano.</p></div></details>
+      <details class="resp revela"><summary>2 &middot; Digitalizaci&oacute;n de procesos</summary>
+        <div class="resp-cuerpo"><p>Redise&ntilde;ar una actividad para que el flujo de informaci&oacute;n sea digital
+        de principio a fin. <b>No consiste en escanear la factura, sino en que ya no haya factura en
+        papel.</b></p></div></details>
+      <details class="resp revela"><summary>3 &middot; Transformaci&oacute;n digital, en sentido amplio</summary>
+        <div class="resp-cuerpo"><p>El cambio estructural que todo eso provoca en la econom&iacute;a, el trabajo,
+        la cultura y el poder.</p></div></details>
+      <p>Lo que hace singular a esta tecnolog&iacute;a es una propiedad econ&oacute;mica poco intuitiva: el <b>coste
+         marginal de reproducci&oacute;n es pr&aacute;cticamente cero</b>. Producir la copia n&uacute;mero un mill&oacute;n cuesta
+         lo mismo que producir la segunda.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Antes de mirar</span>
+        <p>Esa sola propiedad explica casi todo lo que ves a tu alrededor en internet.
+           <b>&iquest;Qu&eacute; consecuencias se te ocurren?</b> Piensa en por qu&eacute; hay servicios enormes que no te
+           cobran nada, y en por qu&eacute; son siempre las mismas cuatro empresas.</p>
+      </div>
+      <details class="resp revela"><summary>Ver las consecuencias</summary><div class="resp-cuerpo">
+      <p>De esa propiedad se derivan casi todos los fen&oacute;menos que observas: plataformas globales, contenidos
+         aparentemente gratuitos financiados con datos, concentraci&oacute;n de mercado en muy pocas empresas y
+         una propiedad intelectual dif&iacute;cil de hacer cumplir.</p>
+
+      <div class="escena">
+        <div class="escena-barra">
+          <span class="escena-titulo">Coste de producir copias</span>
+          <div class="seg"><button type="button" id="tabla-coste" aria-pressed="false">Ver los datos</button></div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" id="svg-coste" role="img"
+               aria-label="Gráfico de líneas: el coste de producir copias analógicas crece de forma constante mientras el de las digitales se mantiene plano tras la primera">
+            <!-- rejilla -->
+            <g stroke="var(--line-soft)" stroke-width="1">
+              <path d="M70 40 H600"/><path d="M70 92 H600"/><path d="M70 144 H600"/>
+              <path d="M70 196 H600"/>
+            </g>
+            <path d="M70 248 H600" stroke="var(--ink-soft)" stroke-width="1.5"/>
+            <path d="M70 40 V248" stroke="var(--ink-soft)" stroke-width="1.5"/>
+
+            <!-- eje Y -->
+            <g class="ejeq" text-anchor="end">
+              <text x="60" y="44">2.000 €</text><text x="60" y="96">1.500 €</text>
+              <text x="60" y="148">1.000 €</text><text x="60" y="200">500 €</text>
+              <text x="60" y="252">0 €</text>
+            </g>
+            <!-- eje X -->
+            <g class="ejeq" text-anchor="middle">
+              <text x="70" y="268">0</text><text x="203" y="268">250</text>
+              <text x="336" y="268">500</text><text x="468" y="268">750</text>
+              <text x="600" y="268">1.000</text>
+              <text x="336" y="288" style="font-size:10.5px">COPIAS PRODUCIDAS</text>
+            </g>
+
+            <!-- analogico: 2 euros por copia -->
+            <path d="M70 248 L600 40" fill="none" stroke="var(--c-analog)" stroke-width="2"
+                  stroke-linecap="round"/>
+            <!-- digital: 300 euros de produccion y ya -->
+            <path d="M70 248 L83 217 L600 216" fill="none" stroke="var(--c-digital)" stroke-width="2"
+                  stroke-linecap="round"/>
+
+            <!-- etiquetas directas -->
+            <circle cx="600" cy="40" r="4.5" fill="var(--c-analog)" stroke="var(--surface)" stroke-width="2"/>
+            <text x="592" y="34" text-anchor="end" class="etq">ANAL&Oacute;GICO &middot; 2.000 &euro;</text>
+            <circle cx="600" cy="216" r="4.5" fill="var(--c-digital)" stroke="var(--surface)" stroke-width="2"/>
+            <text x="592" y="210" text-anchor="end" class="etq">DIGITAL &middot; 300 &euro;</text>
+          </svg>
+        </div>
+        <div class="pie">
+          <p style="margin:0 0 8px">Un disco prensado cuesta unos 2&nbsp;&euro; por unidad: mil copias son mil
+            veces ese coste. Un archivo cuesta producirlo <b>una vez</b> &mdash;grabar, mezclar, masterizar&mdash;
+            y a partir de ah&iacute; la copia n&uacute;mero mil cuesta pr&aacute;cticamente lo mismo que la segunda: nada.</p>
+          <p style="margin:0"><b>Eso es el coste marginal cero</b>, y de ah&iacute; sale casi todo lo dem&aacute;s:
+            por qu&eacute; hay servicios enormes que no te cobran, por qu&eacute; el que llega primero se lo queda todo,
+            y por qu&eacute; la propiedad intelectual se volvi&oacute; tan dif&iacute;cil de hacer cumplir.</p>
+          <table id="datos-coste" hidden style="width:100%;border-collapse:collapse;font-size:13.5px;margin-top:12px">
+            <tr style="text-align:left;border-bottom:2px solid var(--ink)">
+              <th style="padding:6px">Copias</th><th style="padding:6px">Anal&oacute;gico</th><th style="padding:6px">Digital</th></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px">1</td><td style="padding:6px">302 &euro;</td><td style="padding:6px">300 &euro;</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px">250</td><td style="padding:6px">500 &euro;</td><td style="padding:6px">300 &euro;</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px">500</td><td style="padding:6px">1.000 &euro;</td><td style="padding:6px">300 &euro;</td></tr>
+            <tr style="border-bottom:1px solid var(--line)"><td style="padding:6px">750</td><td style="padding:6px">1.500 &euro;</td><td style="padding:6px">300 &euro;</td></tr>
+            <tr><td style="padding:6px">1.000</td><td style="padding:6px">2.000 &euro;</td><td style="padding:6px">300 &euro;</td></tr>
+          </table>
+        </div>
+      </div>
+      <script>
+      (function(){
+        var b = document.getElementById('tabla-coste'), t = document.getElementById('datos-coste');
+        if(!b || !t) return;
+        b.addEventListener('click', function(){
+          t.hidden = !t.hidden;
+          b.setAttribute('aria-pressed', t.hidden ? 'false' : 'true');
+          b.textContent = t.hidden ? 'Ver los datos' : 'Ocultar los datos';
+        });
+      })();
+      </script>
+
+      </div></details>
+      <p>A esto se suma una segunda propiedad: la informaci&oacute;n digital es <b>procesable por m&aacute;quinas</b>.
+         No solo se guarda y se transmite, sino que se puede buscar, cruzar, analizar y usar para entrenar
+         sistemas que toman decisiones. Ah&iacute; es donde la digitalizaci&oacute;n deja de ser una cuesti&oacute;n t&eacute;cnica
+         y pasa a ser una cuesti&oacute;n pol&iacute;tica: qui&eacute;n tiene los datos, con qu&eacute; criterio decide el algoritmo
+         y qui&eacute;n responde cuando se equivoca.</p>
+      <div class="aviso">
+        <span class="n-tag">Para el debate</span>
+        A la digitalizaci&oacute;n se le atribuye ser <b>inmaterial</b>, y no lo es. Los centros de datos consumen
+        electricidad y agua, los dispositivos requieren minerales cr&iacute;ticos extra&iacute;dos en condiciones a
+        menudo cuestionables, y la obsolescencia genera un residuo electr&oacute;nico que crece m&aacute;s r&aacute;pido que
+        cualquier otro. La nube est&aacute; hecha de hierro, cobre y refrigeraci&oacute;n. Evaluar una tecnolog&iacute;a
+        exige contar tambi&eacute;n lo que no se ve.
+      </div>
+"""
+
+    # --- 03 practica ---
+    if es2:
+        practica = u"""
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Elige <b>un objeto</b> que hayas usado hoy. Cualquiera, cuanto m&aacute;s tonto mejor: una cuchara,
+                una cremallera, un boli.</li>
+            <li>Escribe qu&eacute; <b>necesidad</b> resuelve. En una frase.</li>
+            <li>Explica c&oacute;mo se resolv&iacute;a esa misma necesidad <b>hace 200 a&ntilde;os</b>. Y hace 2.000.</li>
+            <li>Di qu&eacute; <b>t&eacute;cnica</b> hace falta para fabricarlo y qu&eacute; <b>ciencia</b> hay detr&aacute;s.</li>
+            <li>Termina con una predicci&oacute;n: &iquest;c&oacute;mo crees que ser&aacute; dentro de 50 a&ntilde;os?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La necesidad est&aacute; bien identificada y no se confunde con el objeto <b>(3 puntos)</b>.</li>
+            <li>La comparaci&oacute;n hist&oacute;rica es correcta y concreta <b>(3 puntos)</b>.</li>
+            <li>Distingue bien t&eacute;cnica de ciencia <b>(3 puntos)</b>.</li>
+            <li>La predicci&oacute;n est&aacute; razonada, no es una ocurrencia <b>(1 punto)</b>.</li>
+          </ul>"""
+    else:
+        practica = u"""
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>An&aacute;lisis por parejas de <b>una tecnolog&iacute;a decisiva</b> a elegir entre las nueve de la l&iacute;nea del
+             tiempo. Entrega: una cara de folio, estructurada as&iacute;.</p>
+          <ol class="pasos">
+            <li><b>Qu&eacute; problema resolv&iacute;a</b> y qu&eacute; se hac&iacute;a antes.</li>
+            <li><b>Qu&eacute; hizo falta</b> para que apareciera: &iquest;conocimiento cient&iacute;fico previo, destreza
+                t&eacute;cnica acumulada, un material nuevo, una necesidad econ&oacute;mica?</li>
+            <li><b>Qu&eacute; cambi&oacute; en la sociedad</b>: trabajo, poblaci&oacute;n, ciudades, poder.</li>
+            <li><b>Qu&eacute; problema nuevo cre&oacute;</b> y cu&aacute;nto tard&oacute; en regularse, si es que se regul&oacute;.</li>
+            <li><b>Paralelismo con hoy</b>: qu&eacute; tecnolog&iacute;a actual est&aacute; en una fase parecida y por qu&eacute;.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cuatro primeros apartados est&aacute;n completos y documentados <b>(4 puntos)</b>.</li>
+            <li>Distingue las aportaciones de la ciencia y de la t&eacute;cnica en el caso elegido <b>(2 puntos)</b>.</li>
+            <li>El an&aacute;lisis de consecuencias va m&aacute;s all&aacute; de lo obvio <b>(2 puntos)</b>.</li>
+            <li>El paralelismo con el presente est&aacute; argumentado <b>(2 puntos)</b>.</li>
+          </ul>"""
+
+    # --- 04 cierre ---
+    if es2:
+        cierre = u"""
+        <li>Un carpintero que hace sillas preciosas pero no sabe explicar por qu&eacute; la madera se comba, &iquest;tiene t&eacute;cnica, ciencia o tecnolog&iacute;a?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>T&eacute;cnica.</b> Sabe hacerlo muy bien, que es justo lo que define a la t&eacute;cnica. Le falta la explicaci&oacute;n, que ser&iacute;a la ciencia.</p></div></details></li>
+        <li>&iquest;Cu&aacute;l dir&iacute;as que fue la primera tecnolog&iacute;a de la historia?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>La piedra tallada</b>, hace unos 2,6 millones de a&ntilde;os. Es la primera vez que se fabrica una herramienta a prop&oacute;sito en vez de usar lo que se encuentra.</p></div></details></li>
+        <li>Di una cosa buena y una mala que haya tra&iacute;do internet.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Respuesta abierta. Buena: acceso al conocimiento desde cualquier sitio. Mala: bulos, adicci&oacute;n o que quien no tiene conexi&oacute;n se queda fuera de todo. Lo importante es que veas que <b>casi toda tecnolog&iacute;a trae las dos cosas a la vez</b>.</p></div></details></li>"""
+    else:
+        cierre = u"""
+        <li>&iquest;Por qu&eacute; se dice que la t&eacute;cnica es anterior a la ciencia?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque durante millones de a&ntilde;os se fabricaron herramientas eficaces <b>sin ninguna explicaci&oacute;n te&oacute;rica</b> de por qu&eacute; funcionaban: se tallaba s&iacute;lex sin mineralog&iacute;a y se fund&iacute;a bronce sin qu&iacute;mica. La ciencia solo empieza a guiar sistem&aacute;ticamente a la t&eacute;cnica a partir del siglo XVIII.</p></div></details></li>
+        <li>Pon un ejemplo de tecnolog&iacute;a que empujara a la ciencia, y no al rev&eacute;s.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La <b>m&aacute;quina de vapor</b>: funcionaba y se vend&iacute;a d&eacute;cadas antes de que Carnot y Clausius formularan la termodin&aacute;mica. Fue la necesidad de mejorar su rendimiento la que oblig&oacute; a desarrollar esa ciencia.</p></div></details></li>
+        <li>&iquest;Es neutral la tecnolog&iacute;a? Justifica la respuesta.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Puede serlo en su <b>intenci&oacute;n</b>, pero nunca en sus <b>consecuencias</b>. Toda tecnolog&iacute;a reparte de forma desigual beneficios y perjuicios, favorece a unos grupos sobre otros y abre problemas que nadie hab&iacute;a previsto. Por eso su evaluaci&oacute;n no es solo t&eacute;cnica: tambi&eacute;n es &eacute;tica y pol&iacute;tica.</p></div></details></li>"""
+
+    reto = (u"""<p>Sin mirar el m&oacute;vil: escribe en 60 segundos <b>cinco objetos</b> que hayas usado hoy antes de
+        entrar en clase. Ahora t&aacute;chalos todos menos uno, el que m&aacute;s te costar&iacute;a vivir sin &eacute;l.</p>
+      <p>&iquest;Lo tienes? Pues alguien tuvo que <b>inventarlo</b>, alguien tuvo que aprender a <b>fabricarlo</b>
+        y alguien tuvo que averiguar <b>por qu&eacute; funciona</b>. Esas tres cosas son distintas, y hoy vamos a
+        separarlas.</p>"""
+        if es2 else
+        u"""<p>Escribe una definici&oacute;n de <b>tecnolog&iacute;a</b> en una sola frase, sin mirar nada. Tienes dos minutos.</p>
+      <details class="resp revela"><summary>Solo cuando ya la tengas escrita</summary>
+        <div class="resp-cuerpo">
+          <p>Comprueba una cosa: <b>&iquest;has escrito una lista de aparatos?</b> Si tu definici&oacute;n menciona
+             m&oacute;viles, ordenadores o m&aacute;quinas, es probable que hayas definido <b>los productos</b> de la
+             tecnolog&iacute;a y no la tecnolog&iacute;a misma.</p>
+          <p>No pasa nada: es lo que contesta casi todo el mundo, y precisamente por eso empezamos aqu&iacute;.
+             <b>Guarda tu frase</b> sin corregirla. La revisaremos al final de la sesi&oacute;n, cuando tengas
+             con qu&eacute; compararla.</p>
+        </div></details>""")
+
+    return u"""
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow">%(migas)s</div>
+    <h1>%(h1)s</h1>
+    <nav class="sesiones" aria-label="Sesiones del tema">
+      <button type="button" aria-selected="true">Sesi&oacute;n &uacute;nica &middot; 60 min</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="ses-head">
+    <div class="eyebrow">Sesi&oacute;n introductoria &middot; 60 minutos</div>
+    <h2>%(titulo_h2)s</h2>
+    <p>%(entradilla)s</p>
+    <div class="minutado">
+      <span class="min"><b>5'</b> Reto inicial</span>
+      <span class="min"><b>20'</b> Teor&iacute;a</span>
+      <span class="min"><b>15'</b> L&iacute;nea del tiempo</span>
+      <span class="min"><b>15'</b> Pr&aacute;ctica</span>
+      <span class="min"><b>5'</b> Cierre</span>
+    </div>
+    <div class="chips">%(chips)s</div>
+  </div>
+
+  <section class="bloque">
+    <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 5 min</div>
+    %(reto)s
+  </section>
+
+  <section class="bloque">
+    <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+    %(teoria)s
   </section>
 
   <section class="bloque">
@@ -781,46 +901,30 @@ footer .wrap{padding-block:18px 26px}
         <figure class="foto">
           <img src="../../../img/ri1-telar.jpg" alt="Telar mec&aacute;nico en una f&aacute;brica textil de 1835" loading="lazy">
           <figcaption><b>1.&ordf; revoluci&oacute;n</b> &middot; Telar mec&aacute;nico, 1835. El vapor mueve las m&aacute;quinas; las personas pasan a vigilarlas.
-            <span class="credito">T. Allom y J. Tingle &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Powerloom%20weaving%20in%201835.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+            <span class="credito">T. Allom y J. Tingle &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Powerloom%%20weaving%%20in%%201835.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
           </figcaption>
         </figure>
         <figure class="foto">
           <img src="../../../img/ri2-ford.jpg" alt="Cadena de montaje de la f&aacute;brica Ford en 1913" loading="lazy">
           <figcaption><b>2.&ordf; revoluci&oacute;n</b> &middot; Cadena de montaje de Ford, 1913. Electricidad y producci&oacute;n en serie: el coche deja de ser un lujo.
-            <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Ford%20assembly%20line%20-%201913.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+            <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Ford%%20assembly%%20line%%20-%%201913.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
           </figcaption>
         </figure>
         <figure class="foto">
           <img src="../../../img/ri3-intel4004.jpg" alt="Microprocesador Intel 4004 de 1971 visto de cerca" loading="lazy">
           <figcaption><b>3.&ordf; revoluci&oacute;n</b> &middot; El Intel 4004, 1971. Un ordenador entero en una pieza del tama&ntilde;o de una u&ntilde;a.
-            <span class="credito">Thomas Nguyen &middot; CC BY-SA 4.0 &middot; <a href="https://commons.wikimedia.org/wiki/File:Intel%20C4004.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+            <span class="credito">Thomas Nguyen &middot; CC BY-SA 4.0 &middot; <a href="https://commons.wikimedia.org/wiki/File:Intel%%20C4004.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
           </figcaption>
         </figure>
         <figure class="foto">
           <img src="../../../img/ri4-robots.jpg" alt="Brazos rob&oacute;ticos industriales apilando pan en una f&aacute;brica" loading="lazy">
           <figcaption><b>4.&ordf; revoluci&oacute;n</b> &middot; Robots coordinados por software. Las m&aacute;quinas ya no solo ejecutan: deciden.
-            <span class="credito">KUKA Roboter GmbH &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Factory%20Automation%20Robotics%20Palettizing%20Bread.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+            <span class="credito">KUKA Roboter GmbH &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Factory%%20Automation%%20Robotics%%20Palettizing%%20Bread.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
           </figcaption>
         </figure>
     </div>
 
-
-    <h3>Ve&aacute;moslo en tres minutos</h3>
-    <div class="video" id="video-ri" data-vid="eZtmIClLJWM">
-      <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo sobre la Revoluci&oacute;n Industrial">
-        <span class="video-tri" aria-hidden="true"></span>
-        <span class="video-txt">
-          <b>La Revoluci&oacute;n Industrial</b>
-          <span>Happy Learning Espa&ntilde;ol &middot; unos 3 minutos</span>
-        </span>
-      </button>
-      <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-        seguimiento. Si la red del centro bloquea YouTube,
-        <a href="https://www.youtube.com/watch?v=eZtmIClLJWM" target="_blank" rel="noopener">&aacute;brelo
-        directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material publicado bajo
-        la licencia de esta p&aacute;gina.</p>
-    </div>
-
+%(video)s
     <h3>La m&aacute;quina que lo empez&oacute; todo</h3>
     <p>De todos los hitos de la l&iacute;nea, ninguno cambi&oacute; tanto en tan poco tiempo. Merece una mirada de cerca.</p>
         <figure class="foto">
@@ -832,7 +936,7 @@ footer .wrap{padding-block:18px 26px}
         <figure class="foto">
           <img src="../../../img/vapor-grabado.png" alt="Grabado t&eacute;cnico de la m&aacute;quina de Boulton y Watt de 1784" loading="lazy">
           <figcaption>El grabado original de la m&aacute;quina de Boulton &amp; Watt, 1784. Es un <b>plano t&eacute;cnico</b>, y por eso sabemos hoy exactamente c&oacute;mo estaba hecha. Sin ese dibujo, la m&aacute;quina se habr&iacute;a perdido con quien la construy&oacute;.
-            <span class="credito">Robert Henry Thurston &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:SteamEngine%20Boulton%26Watt%201784.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+            <span class="credito">Robert Henry Thurston &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:SteamEngine%%20Boulton%%26Watt%%201784.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
           </figcaption>
         </figure>
 
@@ -842,73 +946,30 @@ footer .wrap{padding-block:18px 26px}
     <div class="rotulo"><span class="num">03</span> Pr&aacute;ctica &middot; 15 min</div>
     <div class="ficha">
       <div class="ficha-cab">
-        <span>Actividad 0 &middot; De un objeto a su historia</span>
+        <span>Actividad 0 &middot; %(act)s</span>
         <span class="chips"><span class="chip">1.1</span><span class="chip">A.1</span></span>
-        <span>Individual &middot; 15 min</span>
+        <span>%(modo)s</span>
       </div>
-      <div class="ficha-cuerpo">
-          <h4>Qu&eacute; hay que hacer</h4>
-          <ol class="pasos">
-            <li>Elige <b>un objeto</b> que hayas usado hoy. Cualquiera, cuanto m&aacute;s tonto mejor: una cuchara,
-                una cremallera, un boli.</li>
-            <li>Escribe qu&eacute; <b>necesidad</b> resuelve. En una frase.</li>
-            <li>Explica c&oacute;mo se resolv&iacute;a esa misma necesidad <b>hace 200 a&ntilde;os</b>. Y hace 2.000.</li>
-            <li>Di qu&eacute; <b>t&eacute;cnica</b> hace falta para fabricarlo y qu&eacute; <b>ciencia</b> hay detr&aacute;s.</li>
-            <li>Termina con una predicci&oacute;n: &iquest;c&oacute;mo crees que ser&aacute; dentro de 50 a&ntilde;os?</li>
-          </ol>
-          <h4>C&oacute;mo se eval&uacute;a</h4>
-          <ul>
-            <li>La necesidad est&aacute; bien identificada y no se confunde con el objeto <b>(3 puntos)</b>.</li>
-            <li>La comparaci&oacute;n hist&oacute;rica es correcta y concreta <b>(3 puntos)</b>.</li>
-            <li>Distingue bien t&eacute;cnica de ciencia <b>(3 puntos)</b>.</li>
-            <li>La predicci&oacute;n est&aacute; razonada, no es una ocurrencia <b>(1 punto)</b>.</li>
-          </ul></div>
+      <div class="ficha-cuerpo">%(practica)s</div>
     </div>
   </section>
 
   <section class="bloque">
     <div class="rotulo"><span class="num">04</span> Cierre &middot; 5 min</div>
     <p>Ticket de salida. Responde primero en el cuaderno; despu&eacute;s despliega y comprueba.</p>
-    <ol>
-        <li>Un carpintero que hace sillas preciosas pero no sabe explicar por qu&eacute; la madera se comba, &iquest;tiene t&eacute;cnica, ciencia o tecnolog&iacute;a?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>T&eacute;cnica.</b> Sabe hacerlo muy bien, que es justo lo que define a la t&eacute;cnica. Le falta la explicaci&oacute;n, que ser&iacute;a la ciencia.</p></div></details></li>
-        <li>&iquest;Cu&aacute;l dir&iacute;as que fue la primera tecnolog&iacute;a de la historia?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>La piedra tallada</b>, hace unos 2,6 millones de a&ntilde;os. Es la primera vez que se fabrica una herramienta a prop&oacute;sito en vez de usar lo que se encuentra.</p></div></details></li>
-        <li>Di una cosa buena y una mala que haya tra&iacute;do internet.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Respuesta abierta. Buena: acceso al conocimiento desde cualquier sitio. Mala: bulos, adicci&oacute;n o que quien no tiene conexi&oacute;n se queda fuera de todo. Lo importante es que veas que <b>casi toda tecnolog&iacute;a trae las dos cosas a la vez</b>.</p></div></details></li></ol>
+    <ol>%(cierre)s</ol>
     <div class="nota">
       <span class="n-tag">A partir de aqu&iacute;</span>
-      Ya sabes qu&eacute; es la tecnolog&iacute;a y de d&oacute;nde viene. A partir del tema 1 empezamos a hacerla: analizar objetos, dibujarlos y construirlos.
+      %(siguiente)s
     </div>
   </section>
 
-  <section class="cc-aviso" id="licencia"
-  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-  <h2>Licencia y uso</h2>
-  <p><span property="dct:title">Tema 0 &middot; &iquest;Qu&eacute; es la tecnolog&iacute;a?</span> &middot; &copy; 2026
-     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
-  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
-     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
-     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
-     derivadas con esta misma licencia.</p>
-  <h3>C&oacute;mo citar</h3>
-  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 0 &middot; &iquest;Qu&eacute; es la tecnolog&iacute;a?</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema0/. Bajo licencia CC BY-SA 4.0.</code></p>
-  <h3>Qu&eacute; cubre</h3>
-  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
-  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
-     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
-     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
-     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
-     propia licencia.</p>
-  <h3>Otros usos</h3>
-  <p>Para usos que excedan la licencia, abre una incidencia en
-     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
-</section>
+  %(licencia)s
 </main>
 
-<footer><div class="wrap">Tema 0 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
+<footer><div class="wrap">Tema 0 &middot; %(curso)s &middot; %(materia)s</div></footer>
 <script>
-var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La piedra tallada", "c": "Un canto rodado golpeado contra otro hasta sacarle filo. Con eso se cortaba carne que los dientes no pod&iacute;an. No es poca cosa: es la primera vez que un ser vivo <b>fabrica una herramienta para fabricar otra cosa</b>."}, {"id": "fuego", "pos": 0.13, "ep": "800.000 a&ntilde;os", "t": "El dominio del fuego", "c": "No lo inventaron: aprendieron a <b>conservarlo y encenderlo</b>. Con fuego se cocina (m&aacute;s energ&iacute;a de la misma comida), se alarga el d&iacute;a y se sobrevive al fr&iacute;o. Cambi&oacute; hasta la forma de nuestro cerebro."}, {"id": "agri", "pos": 0.3, "ep": "10.000 a.C.", "t": "La agricultura", "c": "Dejar de perseguir la comida y ponerla a crecer donde t&uacute; quieres. Aparecen las aldeas, los almacenes, los excedentes y, con ellos, los primeros oficios: si no todos cultivan, alguien puede dedicarse solo a hacer vasijas."}, {"id": "rueda", "pos": 0.42, "ep": "3.500 a.C.", "t": "La rueda y el metal", "c": "La rueda no aparece para transportar: se usa primero como <b>torno de alfarero</b>. Y el cobre, el bronce y el hierro dan herramientas que no se rompen al primer golpe."}, {"id": "imprenta", "pos": 0.58, "ep": "1440", "t": "La imprenta", "c": "Gutenberg no invent&oacute; la escritura ni el papel: invent&oacute; los <b>tipos m&oacute;viles</b>, letras sueltas reutilizables. De copiar un libro en un a&ntilde;o a imprimir cientos en una semana."}, {"id": "vapor", "pos": 0.7, "ep": "1769", "t": "La m&aacute;quina de vapor", "c": "Por primera vez una m&aacute;quina trabaja sin depender de un m&uacute;sculo, del viento o de un r&iacute;o. Nacen las f&aacute;bricas, el ferrocarril y las ciudades industriales. Es la <b>Primera Revoluci&oacute;n Industrial</b>."}, {"id": "electri", "pos": 0.82, "ep": "1870", "t": "Electricidad y cadena de montaje", "c": "La energ&iacute;a ya viaja por un cable hasta donde la necesitas. Con el motor el&eacute;ctrico y la cadena de montaje, fabricar en serie se vuelve barato. <b>Segunda Revoluci&oacute;n Industrial</b>."}, {"id": "electro", "pos": 0.91, "ep": "1947-1971", "t": "El transistor y el chip", "c": "Un interruptor sin piezas m&oacute;viles, min&uacute;sculo y barato. De ah&iacute; salen los ordenadores, y de los ordenadores, todo lo dem&aacute;s. <b>Tercera Revoluci&oacute;n Industrial</b>."}, {"id": "digital", "pos": 0.985, "ep": "1990-hoy", "t": "Internet y la IA", "c": "La informaci&oacute;n es lo que se produce y se transporta. El m&oacute;vil que llevas encima tiene m&aacute;s potencia que todos los ordenadores que llevaron al hombre a la Luna. <b>Cuarta Revoluci&oacute;n Industrial</b>."}];
+var HITOS = %(hitos_js)s;
 (function(){
   var svg = document.getElementById('svg-tiempo');
   var pie = document.getElementById('pie-tiempo');
@@ -1057,7 +1118,7 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
     var m = '<path class="eje-t" d="M' + X0 + ' ' + Y + ' L' + X1 + ' ' + Y + '"></path>';
     HITOS.forEach(function(h, k){
       var x = X0 + (X1 - X0) * h.pos;
-      var arriba = k % 2 === 0;
+      var arriba = k %% 2 === 0;
       var yt = arriba ? Y - 30 : Y + 30;
       m += '<path class="eje-t" d="M' + x.toFixed(1) + ' ' + Y + ' L' + x.toFixed(1) + ' ' + yt + '"></path>';
       m += '<circle class="hito' + (k === i ? ' on' : '') + '" data-k="' + k + '" cx="' + x.toFixed(1) +
@@ -1125,15 +1186,26 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
   });
 })();
 </script>
-<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
-   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
-  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
-</a>
-<script>
-(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
-new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
-.observe(document.body,{childList:true,subtree:true});})();
-</script>
+%(sello)s
 </body>
-</html>
+</html>""" % dict(
+        migas=n['migas'], h1=n['h1'], titulo_h2=n['h1'], entradilla=n['entradilla'],
+        chips=u''.join([u'<span class="chip%s">%s</span>' % (' sab' if '.' not in c or c.startswith('A') else '', c) for c in n['chips']]),
+        reto=reto, teoria=teoria, practica=practica, cierre=cierre,
+        act=u'De un objeto a su historia' if es2 else u'An&aacute;lisis de una tecnolog&iacute;a decisiva',
+        modo=u'Individual &middot; 15 min' if es2 else u'Parejas &middot; 15 min',
+        siguiente=(u'Ya sabes qu&eacute; es la tecnolog&iacute;a y de d&oacute;nde viene. A partir del tema 1 empezamos a hacerla: '
+                   u'analizar objetos, dibujarlos y construirlos.' if es2 else
+                   u'Con el vocabulario fijado, el curso entra en materia: an&aacute;lisis de sistemas t&eacute;cnicos, '
+                   u'dise&ntilde;o y evaluaci&oacute;n de soluciones.'),
+        video=(VIDEO_RI if es2 else VIDEO_RI4),
+        licencia=aviso_licencia(n['titulo'], SITIO + '/' + n['ruta']),
+        curso=n['curso'], materia=n['materia'], hitos_js=hitos_js, sello=SELLO)
+
+
+for k, n in NIVELES.items():
+    canon = SITIO + '/' + n['ruta']
+    html = cabeza(n['titulo'], n['desc'], canon) + cuerpo(k, n)
+    p = os.path.join(BASE, n['ruta'], 'index.html')
+    io.open(p, 'w', encoding='utf-8', newline='').write(html)
+    print('generado: %s  (%d bytes)' % (n['ruta'], len(html)))

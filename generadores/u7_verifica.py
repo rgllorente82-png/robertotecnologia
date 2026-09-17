@@ -3,12 +3,17 @@
 
     ~/venv/bin/python generadores/u7_verifica.py     -> sale 0 si todo va bien
 
-Comprueba: que no hay errores de JavaScript, que las tres escenas pintan SVG,
+Comprueba: que no hay errores de JavaScript, que las SEIS escenas pintan SVG,
 que responden a cada boton, que las imagenes cargan con su tamano real y que
-cada sesion lleva sus bloques de libreta. Dejarlo aqui no es un capricho: quien
-escriba las sesiones 4, 5 y 6 tiene asi una red debajo.
+cada sesion lleva sus bloques de libreta.
+
+De las tres escenas nuevas no basta con mirar que pinten: lo que se comprueba es
+que los numeros que sacan estan BIEN. La del conversor se contrasta contra la
+cuenta hecha aparte en Python, la del planificador contra el tiempo total de CPU
+que piden los programas, y la del diagnostico se resuelve por biseccion a ver si
+tres pruebas bastan de verdad.
 """
-import os, re, sys
+import math, os, re, sys
 from playwright.sync_api import sync_playwright
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,8 +46,8 @@ with sync_playwright() as p:
     print('== Navegacion de sesiones')
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 6, 'hay 6 botones de sesion (hay %d)' % len(bts))
-    check(sum(1 for b in bts if b.get_attribute('disabled') is not None) == 3,
-          '3 sesiones marcadas como pendientes')
+    check(sum(1 for b in bts if b.get_attribute('disabled') is not None) == 0,
+          'ninguna sesion queda pendiente')
 
     # --------------------------------------------------- escena 1: la CPU
     print('== Escena 1 · CPU')
@@ -149,19 +154,172 @@ with sync_playwright() as p:
     pag.click('#seg-bits button[data-b="reto"]')
     check('Reto: forma el' in pag.inner_text('#pie-bits'), 'el reto propone un numero')
 
+    # ------------------------------------------- escena 4: el conversor A/D
+    print('== Escena 4 · conversor')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-adc'), 'la escena del conversor es visible en la sesion 4')
+
+    def onda(t):
+        return 2.5 + 1.6 * math.sin(2 * math.pi * t) + 0.6 * math.sin(6 * math.pi * t + 1)
+
+    def coma(x, dec):
+        return ('%.*f' % (dec, x)).replace('.', ',')
+
+    def esmiles(n):
+        """Como escribe los miles toLocaleString('es-ES'), que es como manda la RAE:
+        punto a partir de cinco cifras y nada en los numeros de cuatro."""
+        return '{:,}'.format(n).replace(',', '.') if n >= 10000 else str(n)
+
+    def cuentas_adc(bits, muestras):
+        """La misma cuenta que hace la escena, hecha aqui a mano para cotejarla."""
+        niveles = 2 ** bits
+        escalon = 5.0 / (niveles - 1)
+        errs, codigos = [], []
+        for i in range(muestras):
+            v = onda(i / float(muestras))
+            c = min(niveles - 1, max(0, int(round(v / escalon))))
+            codigos.append(c)
+            errs.append(abs(v - c * escalon))
+        return dict(escalon=escalon, medio=sum(errs) / muestras, peor=max(errs),
+                    codigos=codigos, bytes=muestras * 1000 * bits // 8)
+
+    for bits, mu in ((4, 16), (2, 8), (8, 32)):
+        pag.click('#seg-adc-bits button[data-b="%d"]' % bits)
+        pag.click('#seg-adc-mu button[data-m="%d"]' % mu)
+        pag.wait_for_timeout(120)
+        C = cuentas_adc(bits, mu)
+        t = pag.inner_text('#pie-adc')
+        check(coma(C['escalon'], 3) + ' V' in t,
+              '%d bits: el escalon que dice es %s V' % (bits, coma(C['escalon'], 3)))
+        check(coma(C['medio'], 3) + ' V' in t,
+              '%d bits, %d medidas: el error MEDIO esta medido (%s V)'
+              % (bits, mu, coma(C['medio'], 3)))
+        check(coma(C['peor'], 3) + ' V' in t,
+              '%d bits, %d medidas: el error PEOR esta medido (%s V)'
+              % (bits, mu, coma(C['peor'], 3)))
+        check(C['peor'] <= C['escalon'] / 2 + 1e-9,
+              '%d bits: el peor error no pasa de medio escalon' % bits)
+        caudal = esmiles(C['bytes'])
+        check(caudal + ' bytes' in t,
+              '%d bits, %d medidas: el caudal es de %s bytes/s' % (bits, mu, caudal))
+        svgt = pag.eval_on_selector('#svg-adc', 'e => e.textContent')
+        check(str(C['codigos'][0]) in svgt and str(C['codigos'][1]) in svgt,
+              '%d bits: los primeros codigos guardados son los que salen de la cuenta' % bits)
+
+    pag.click('#seg-adc-bits button[data-b="2"]')
+    pag.click('#seg-adc-mu button[data-m="8"]')
+    pag.wait_for_timeout(120)
+    e2 = cuentas_adc(2, 8)['medio']
+    pag.click('#seg-adc-bits button[data-b="8"]')
+    pag.wait_for_timeout(120)
+    e8 = cuentas_adc(8, 8)['medio']
+    check(e8 < e2 / 10, 'subir de 2 a 8 bits baja el error de verdad (%.3f -> %.4f)' % (e2, e8))
+
+    # --------------------------------------- escena 5: el reparto de la CPU
+    print('== Escena 5 · planificador')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-plan'), 'la escena del planificador es visible en la sesion 5')
+
+    PIDE = [120.0, 40.0, 200.0, 15.0, 2.0]      # ms de CPU que pide cada programa
+    CAMBIO = 0.05
+
+    def simula(turno):
+        """El mismo reparto por turnos que hace la escena, para cotejar cifras."""
+        queda, t, util, fin = list(PIDE), 0.0, 0.0, [0.0] * len(PIDE)
+        vivo = lambda: any(r > 1e-9 for r in queda)
+        while vivo():
+            for i in range(len(PIDE)):
+                if queda[i] <= 1e-9:
+                    continue
+                d = queda[i] if turno is None else min(turno, queda[i])
+                t += d
+                util += d
+                queda[i] -= d
+                if queda[i] <= 1e-9:
+                    fin[i] = t
+                if vivo():
+                    t += CAMBIO
+        return fin, 100.0 * util / t
+
+    teclas = {}
+    for etq, turno in (('0.1', 0.1), ('10', 10.0), ('100', 100.0), ('nada', None)):
+        pag.click('#seg-plan button[data-q="%s"]' % etq)
+        pag.wait_for_timeout(150)
+        fin, rend = simula(turno)
+        t = pag.inner_text('#pie-plan')
+        check(coma(fin[4], 1) + ' ms' in t,
+              'turno %s: la tecla acaba a los %s ms, y la escena lo dice' % (etq, coma(fin[4], 1)))
+        check(coma(rend, 1) + ' %' in t,
+              'turno %s: el trabajo util es el %s %%, y la escena lo dice' % (etq, coma(rend, 1)))
+        teclas[etq] = fin[4]
+        svgt = pag.eval_on_selector('#svg-plan', 'e => e.textContent')
+        check('acaba a los' in svgt and 'pide 200 ms' in svgt,
+              'turno %s: la leyenda lleva lo que pide y cuando acaba cada programa' % etq)
+
+    check(teclas['0.1'] < teclas['10'] < teclas['100'],
+          'a turno mas largo, mas tarda la tecla (%.1f < %.1f < %.1f)'
+          % (teclas['0.1'], teclas['10'], teclas['100']))
+    _, r01 = simula(0.1)
+    _, r100 = simula(100.0)
+    check(r01 < 70 and r100 > 99,
+          'y al reves con el trabajo util: %.1f%% con turno corto, %.1f%% con turno largo'
+          % (r01, r100))
+
+    # ------------------------------------------ escena 6: acotar la averia
+    print('== Escena 6 · diagnostico')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-diag'), 'la escena del diagnostico es visible en la sesion 6')
+
+    def txt_diag():
+        return pag.eval_on_selector('#svg-diag', 'e => e.textContent')
+
+    check('Sospechosos: 7 de 7' in txt_diag(), 'arranca con los siete sospechosos')
+    check(len(pag.query_selector_all('#svg-diag .pr-fila')) == 6, 'hay seis pruebas')
+
+    peor = 0
+    for intento in range(12):
+        pag.click('#seg-diag button[data-d="otra"]')
+        pag.wait_for_timeout(80)
+        lo, hi, n = 1, 7, 0
+        while lo < hi and n < 7:
+            j = (lo + hi) // 2
+            pag.click('#svg-diag .pr-fila[data-j="%d"]' % j)
+            pag.wait_for_timeout(50)
+            fila = pag.eval_on_selector('#svg-diag .pr-fila[data-j="%d"]' % j, 'e => e.textContent')
+            n += 1
+            if 'NO llega' in fila:
+                hi = j
+            else:
+                lo = j + 1
+        peor = max(peor, n)
+        t = txt_diag()
+        check('Sospechosos: 1 de 7' in t and ('pruebas usadas: %d' % n) in t,
+              'averia %d: acotada a una pieza en %d pruebas, y la escena lleva la cuenta'
+              % (intento + 1, n))
+    check(peor <= 3, 'partiendo por la mitad nunca hacen falta mas de 3 pruebas (peor caso: %d)' % peor)
+    check('acotado' in pag.inner_text('#pie-diag'), 'el pie da el veredicto al acabar')
+    pag.click('#seg-diag button[data-d="reset"]')
+    check('Sospechosos: 7 de 7' in txt_diag(), 'empezar de nuevo devuelve los siete sospechosos')
+
     # ------------------------------------------------------ imagenes y video
     print('== Imagenes, video y avatar')
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(200)
     imgs = pag.eval_on_selector_all(
         'img', 'l => l.map(i => [i.getAttribute("src"), i.naturalWidth, i.naturalHeight])')
     for src, w, h in imgs:
         check(w > 400, 'carga %s (%dx%d)' % (src.split('/')[-1], w, h))
-    check(len(imgs) == 6, 'hay 6 fotografias (hay %d)' % len(imgs))
+    check(len(imgs) == 11, 'hay 11 fotografias (hay %d)' % len(imgs))
+    check(len(set(s for s, _, _ in imgs)) == len(imgs), 'no hay ninguna foto repetida')
 
     vids = pag.query_selector_all('.video[data-vid]')
-    check(len(vids) == 3, 'hay 3 videos (hay %d)' % len(vids))
+    check(len(vids) == 6, 'hay 6 videos, uno por sesion (hay %d)' % len(vids))
+    check(len(set(v.get_attribute('data-vid') for v in vids)) == 6,
+          'los seis videos son distintos')
     pag.click('#nav button[data-ses="3"]')
     pag.wait_for_timeout(200)
     pag.click('#video-bin .video-play')
@@ -183,7 +341,7 @@ with sync_playwright() as p:
     check(dur and dur > 30, 'el audio del narrador carga (%.1f s)' % (dur or 0))
 
     print('== Bloques de la libreta')
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(150)
         c = len(pag.query_selector_all('#ses-%d .copiar' % ses))
@@ -192,6 +350,33 @@ with sync_playwright() as p:
               'sesion %d: %d bloques PARA LA LIBRETA y %d PARA ENTENDER' % (ses, c, e))
         check(all(x.inner_text().strip() for x in pag.query_selector_all('#ses-%d .e-tag' % ses)),
               'sesion %d: los avisos de "solo para entenderlo" estan puestos' % ses)
+
+    print('== Test de autoevaluacion')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(200)
+    preg = pag.query_selector_all('#test-u7 .test-p')
+    check(len(preg) == 10, 'el test tiene 10 preguntas (tiene %d)' % len(preg))
+    check(all(p.query_selector('.test-por').inner_text().strip() for p in preg),
+          'las 10 explican su porque')
+    check(all(len(p.query_selector_all('.test-op')) == 3 for p in preg),
+          'las 10 tienen tres opciones')
+    # Se contesta bien a todas: tiene que dar 10 de 10.
+    pag.evaluate("""() => {
+        document.querySelectorAll('#test-u7 .test-p').forEach(P => {
+            P.querySelectorAll('input')[+P.dataset.ok].checked = true;
+        });
+    }""")
+    pag.click('#test-u7 [data-a="corregir"]')
+    pag.wait_for_timeout(150)
+    check(pag.inner_text('#test-u7 .test-nota').strip().startswith('10 de 10'),
+          'acertandolas todas puntua 10 de 10 (dice "%s")'
+          % pag.inner_text('#test-u7 .test-nota').strip())
+    check(pag.is_visible('#test-u7 .test-por'), 'al corregir aparecen las explicaciones')
+    pag.click('#test-u7 [data-a="otra"]')
+    pag.wait_for_timeout(150)
+    check(not pag.is_visible('#test-u7 .test-por'), 'repetir esconde las explicaciones')
+    check(pag.eval_on_selector_all('#test-u7 input', 'l => l.every(i => !i.checked)'),
+          'repetir borra las respuestas')
 
     print('== Lectura del tema')
     pag.click('#nav button[data-ses="1"]')

@@ -1,307 +1,10 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tema 3 &middot; Materiales de uso t&eacute;cnico</title>
-<meta name="description" content="Tema 3 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: propiedades de los materiales, c&oacute;mo se eligen y qu&eacute; impacto ambiental tienen.">
-<meta name="license" content="CC BY-SA 4.0">
-<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
-<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/">
-<meta name="author" content="Roberto P. García Llorente">
-<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
-<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
-<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 3 &middot; Materiales de uso t&eacute;cnico","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/","inLanguage":"es",
- "license":"https://creativecommons.org/licenses/by-sa/4.0/",
- "creditText":"Roberto P. García Llorente (2026) &middot; Tema 3 &middot; Materiales de uso t&eacute;cnico &middot; CC BY-SA 4.0","copyrightYear":"2026",
- "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
- "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
- "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
-</script>
-<style>
-:root{
-  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
-  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
-  --grid:rgba(66,133,244,.09);
-  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
-  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
-  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
-  --grid:rgba(138,180,248,.09)}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px}
-header.top{background:var(--surface);border-bottom:2px solid var(--ink);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:24px 24px;position:sticky;top:0;z-index:50}
-header.top .wrap{padding-block:16px 0}
-.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
-.eyebrow a:hover{border-bottom-color:currentColor}
-h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
-nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
-nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
-  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-nav.sesiones button[disabled]{opacity:.45;cursor:default}
-main{padding-block:26px 70px}
-.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
-.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
-.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
-.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
-.chip.sab{border-color:var(--line);color:var(--ink-soft)}
-.bloque{margin-bottom:34px}
-.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
-.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
-  display:inline-grid;place-items:center;font-weight:500}
-.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
-.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
-.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
-.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
-.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
-h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
-h4{font-size:15.5px;margin:16px 0 4px}
-.bloque ul,.bloque ol{padding-left:22px}
-.bloque li{margin-bottom:5px}
-.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
-.nota{border-left:5px solid var(--goo-azul)}
-.aviso{border-left:5px solid var(--goo-amarillo)}
-.def{border-left:5px solid var(--goo-verde)}
-.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-soft);margin-bottom:5px}
-.nota .n-tag{color:var(--goo-azul)}
-.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
-.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
-  padding:12px 16px;border-bottom:1px solid var(--line)}
-.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
-  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-.lienzo{padding:10px;background:var(--surface);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:20px 20px}
-.lienzo svg{width:100%;height:auto;display:block}
-.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
-.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
-.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
-  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
-  letter-spacing:.08em;text-transform:uppercase}
-.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
-.ficha-cuerpo{padding:16px}
-.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
-.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink-soft)}
-.resp summary::-webkit-details-marker{display:none}
-.resp-cuerpo{padding:0 13px 13px}
-.resp-cuerpo p:last-child{margin-bottom:0}
+# -*- coding: utf-8 -*-
+"""2.o TyD · U3 · Materiales: por que las cosas estan hechas de lo que estan hechas."""
+import io, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from unidad_base import pagina, bloque, ficha, pregunta
 
-.narra{display:flex;gap:14px;align-items:flex-start}
-.avatar-caja{flex:none;width:104px}
-.avatar-caja svg.avatar{width:104px;height:72px;display:block}
-.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
-@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
-.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
-.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
-  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
-.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
-.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
-@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
-
-.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
-  border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
-.reto-piensa p{margin:0}
-.resp.revela summary{color:var(--goo-azul);font-weight:500}
-.resp.revela[open] summary{color:var(--ink-soft)}
-.resp.revela table{margin:0}
-.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
-.secuencia li.oculto *{visibility:hidden}
-.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
-#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
-  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
-#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
-
-/* series del grafico de coste: validadas con el script de dataviz
-   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
-   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
-:root{--c-analog:#ea4335;--c-digital:#1a73e8}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
-.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
-.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
-
-
-.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
-.foto img{width:100%;height:auto;display:block}
-.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
-.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
-.credito a{color:var(--ink-soft)}
-.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
-.galeria-ri .foto{margin:0}
-.galeria-ri figcaption{font-size:13.5px}
-
-.video{margin:16px 0}
-.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
-  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
-  transition:border-color .18s ease}
-.video-play:hover{border-color:var(--goo-rojo)}
-.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
-.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
-  border-top:8px solid transparent;border-bottom:8px solid transparent}
-.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
-.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
-.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
-.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
-
-/* lo que se copia en la libreta, frente a lo que es solo para entender */
-.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
-  padding:16px 18px;margin:18px 0;position:relative}
-.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
-  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
-  padding:3px 9px;border-radius:2px}
-.copiar > :first-child{margin-top:6px}
-.copiar > :last-child{margin-bottom:0}
-.copiar h4{font-size:15px;margin:10px 0 4px}
-.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
-.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-.entender b{color:var(--ink)}
-@media print{
-  .entender,.escena,.video,.narra,nav.sesiones{display:none}
-  .copiar{border-width:1.5px;break-inside:avoid}
-}
-
-/* ---- avatar narrador, plano y sincronizado con la voz ---- */
-.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
-  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
-.narrador-fig{flex:none;width:110px}
-.narrador-fig svg{width:110px;height:120px;display:block}
-.narrador-txt{flex:1;min-width:0}
-.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
-.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
-.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
-.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
-.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
-@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
-  .narrador-txt{text-align:center}}
-
-/* ---- test de autoevaluacion ---- */
-.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
-  background:var(--surface);position:relative}
-.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
-  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
-.test h4{margin:8px 0 14px;font-size:16px}
-.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
-.test-p:first-of-type{border-top:0}
-.test-p > p{margin:0 0 9px;font-weight:500}
-.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
-  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
-.test-op:hover{border-color:var(--goo-azul)}
-.test-op input{margin-right:9px}
-.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
-.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
-.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
-  background:var(--surface-2);font-size:14.5px;line-height:1.55}
-.test.corregido .test-por{display:block}
-.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
-.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
-  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
-.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
-.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
-.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
-@media print{.test{break-inside:avoid}.test-por{display:block}}
-
-/* ---- banco de programacion ---- */
-.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-.prog-izq{flex:1 1 380px;min-width:300px}
-.prog-der{flex:0 1 230px;min-width:200px}
-.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
-  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
-.prog-lista ol{margin:0;padding:0 0 0 26px}
-.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
-.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
-.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
-.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
-.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
-  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
-.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
-.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-.prog-bot button.ir:hover{color:#fff}
-.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
-.prog-est b{font-size:13.5px}
-.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
-.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
-.hito.on{fill:var(--goo-azul)}
-.eje-t{fill:none;stroke:var(--line);stroke-width:2}
-.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
-  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
-  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
-.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
-.cc-sello .cc-autor{opacity:.75;font-weight:400}
-@media (max-width:620px){.cc-sello .cc-autor{display:none}}
-.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
-.cc-aviso h2{font-size:17px;margin:0 0 8px}
-.cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
-footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
-footer .wrap{padding-block:18px 26px}
-@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
-</style>
-</head>
-<body>
-<header class="top">
-  <div class="wrap">
-    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3</div>
-    <h1>Materiales de uso t&eacute;cnico</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4">S4 &middot; Metales</button><button type="button" data-ses="5">S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6">S6 &middot; Impacto y test</button></nav>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <div id="ses-1">
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
-      <h2>Por qu&eacute; las cosas est&aacute;n hechas de lo que est&aacute;n hechas</h2>
-      <p>Ning&uacute;n material es el mejor. Elegir uno es comparar lo que sabe hacer con lo que t&uacute; necesitas.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip sab">A.3</span><span class="chip sab">A.7</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
-      <p>Coge cualquier objeto que tengas encima de la mesa. El boli, la mochila, la botella, la silla.</p>
-      <div class="aviso">
-        <span class="n-tag">La pregunta</span>
-        <b>&iquest;Por qu&eacute; est&aacute; hecho de eso y no de otra cosa?</b> Cont&eacute;stalo por escrito, en una frase.
-      </div>
-      <p>Comparad las respuestas. Van a salir tres, y las tres son la misma: <i>porque s&iacute;</i>,
-         <i>porque es barato</i> o <i>porque siempre se ha hecho as&iacute;</i>.</p>
-      <p>Ninguna explica nada. Y sin embargo alguien tom&oacute; esa decisi&oacute;n, y la tom&oacute; por razones muy
-         concretas que se pueden medir.</p>
-  
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
-      <h3>El mismo objeto, tres materiales</h3>
-      <p>Para ver que la elecci&oacute;n no es arbitraria hace falta un objeto que se fabrique <b>igual</b> en
-         materiales distintos. La bicicleta sirve perfectamente: el mismo cuadro, la misma forma, y tres
-         materiales que se usan de verdad.</p>
-
+ESCENA = u'''
       <div class="escena" id="esc-bici">
         <div class="escena-barra">
           <span class="escena-titulo">El mismo cuadro de bicicleta, tres materiales</span>
@@ -410,7 +113,26 @@ footer .wrap{padding-block:18px 26px}
         pinta();
       })();
       </script>
+'''
 
+S1 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>Coge cualquier objeto que tengas encima de la mesa. El boli, la mochila, la botella, la silla.</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        <b>&iquest;Por qu&eacute; est&aacute; hecho de eso y no de otra cosa?</b> Cont&eacute;stalo por escrito, en una frase.
+      </div>
+      <p>Comparad las respuestas. Van a salir tres, y las tres son la misma: <i>porque s&iacute;</i>,
+         <i>porque es barato</i> o <i>porque siempre se ha hecho as&iacute;</i>.</p>
+      <p>Ninguna explica nada. Y sin embargo alguien tom&oacute; esa decisi&oacute;n, y la tom&oacute; por razones muy
+         concretas que se pueden medir.</p>
+  ''') +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <h3>El mismo objeto, tres materiales</h3>
+      <p>Para ver que la elecci&oacute;n no es arbitraria hace falta un objeto que se fabrique <b>igual</b> en
+         materiales distintos. La bicicleta sirve perfectamente: el mismo cuadro, la misma forma, y tres
+         materiales que se usan de verdad.</p>
+''' + ESCENA + u'''
       <p>F&iacute;jate en que <b>ninguno gana en todo</b>. El carbono es el m&aacute;s ligero y el peor de reparar.
          El acero es el m&aacute;s pesado y el que m&aacute;s dura. No hay un material mejor: hay un material
          <b>adecuado para lo que quieres hacer</b>.</p>
@@ -448,17 +170,10 @@ footer .wrap{padding-block:18px 26px}
            del siglo XVIII&mdash; y poder <b>transportar</b> materiales lejos de donde se extraen. Sin ferrocarril
            no hay elecci&oacute;n de material: hay lo que hay.</p>
       </div>
-  
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 3 &middot; La autopsia de un objeto</span>
-          <span class="chips"><span class="chip">1.2</span><span class="chip">2.2</span></span>
-          <span>Parejas &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+  ''') +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 3 &middot; La autopsia de un objeto',
+    [u'1.2', u'2.2'], u'Parejas &middot; 25 min', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Elegid <b>un objeto del aula</b> que tenga al menos tres piezas de materiales distintos.
              Una silla, una mochila, unas tijeras, un boli.</p>
@@ -482,46 +197,39 @@ footer .wrap{padding-block:18px 26px}
             «Es de plástico porque es barato» no puntúa. El precio no es una propiedad del material: es una
             consecuencia de sus propiedades, de su abundancia y de c&oacute;mo se fabrica.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
-
+  ''')) +
+  bloque('03', u'Cierre &middot; 5 min', u'''
       <p>Vuelve a la frase que escribiste al empezar la clase. Probablemente pon&iacute;a «porque es barato».</p>
       <p>Ahora podr&iacute;as escribir: <i>es de polipropileno porque es ligero, aislante, no se oxida y se puede
          moldear en caliente en una sola pieza</i>. Eso s&iacute; explica algo, y adem&aacute;s permite discutirlo.</p>
       <ol>
-              <li>&iquest;Cu&aacute;l es el mejor material para un cuadro de bicicleta?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Pregunta trampa: <b>ninguno</b>. Depende de qu&eacute; te importe. Si es el peso, el carbono; si es que dure y se pueda arreglar, el acero; si quieres un equilibrio, el aluminio.</p></div></details></li>
-        <li>Diferencia entre elasticidad y plasticidad.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En la <b>elasticidad</b> el material recupera su forma al dejar de apretar. En la <b>plasticidad</b> se queda deformado. Una goma es el&aacute;stica; la plastilina, pl&aacute;stica.</p></div></details></li>
-        <li>&iquest;Por qu&eacute; el precio no es una propiedad del material?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no es una caracter&iacute;stica del material en s&iacute;: es una <b>consecuencia</b> de lo abundante que sea, de lo que cueste extraerlo y de c&oacute;mo se fabrique. El mismo material cambia de precio sin cambiar sus propiedades.</p></div></details></li>
-
+      ''' + pregunta(u'&iquest;Cu&aacute;l es el mejor material para un cuadro de bicicleta?',
+                     u'<p>Pregunta trampa: <b>ninguno</b>. Depende de qu&eacute; te importe. Si es el peso, el carbono; si es que dure y se pueda arreglar, el acero; si quieres un equilibrio, el aluminio.</p>')
+        + pregunta(u'Diferencia entre elasticidad y plasticidad.',
+                   u'<p>En la <b>elasticidad</b> el material recupera su forma al dejar de apretar. En la <b>plasticidad</b> se queda deformado. Una goma es el&aacute;stica; la plastilina, pl&aacute;stica.</p>')
+        + pregunta(u'&iquest;Por qu&eacute; el precio no es una propiedad del material?',
+                   u'<p>Porque no es una caracter&iacute;stica del material en s&iacute;: es una <b>consecuencia</b> de lo abundante que sea, de lo que cueste extraerlo y de c&oacute;mo se fabrique. El mismo material cambia de precio sin cambiar sus propiedades.</p>') + u'''
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         Ya sabes que se elige comparando propiedades. La pr&oacute;xima sesi&oacute;n va de <b>c&oacute;mo se miden</b>
         esas propiedades &mdash;porque si no se miden, volvemos a las opiniones.
       </div>
-  
-    </section>
+  '''))
 
-  </div>
+S = [dict(corto=u'&iquest;Por qu&eacute; de eso?', titulo=u'Por qu&eacute; las cosas est&aacute;n hechas de lo que est&aacute;n hechas',
+          entradilla=u'Ning&uacute;n material es el mejor. Elegir uno es comparar lo que sabe hacer con lo que t&uacute; necesitas.',
+          minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+          chips=[u'CE1 &middot; 1.2', u'CE2 &middot; 2.2', u'A.3', u'A.7'],
+          cuerpo=S1)]
 
-  <div id="ses-2" hidden>
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
-      <h2>Medir, no opinar: los ensayos</h2>
-      <p>Una propiedad solo sirve para elegir un material si se puede medir. Y medir significa que cualquiera repita la prueba y le salga lo mismo.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip sab">A.3</span><span class="chip sab">A.7</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+S.append(dict(
+ corto=u'Medir propiedades', titulo=u'Medir, no opinar: los ensayos',
+ entradilla=u'Una propiedad solo sirve para elegir un material si se puede medir. Y medir significa que cualquiera repita la prueba y le salga lo mismo.',
+ minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+ chips=[u'CE1 &middot; 1.2', u'CE2 &middot; 2.2', u'A.3', u'A.7'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u"""
       <p>En la sesi&oacute;n anterior qued&oacute; claro que un material se elige <b>comparando propiedades</b>.
          Bien. Coge estas dos cosas de la mesa:</p>
       <div class="aviso">
@@ -534,11 +242,8 @@ footer .wrap{padding-block:18px 26px}
       <p>Mientras la respuesta sea «se nota», seguimos en las opiniones del tema anterior. Una propiedad
          solo sirve para elegir si se puede <b>medir</b> &mdash;y medir significa que cualquiera repita la
          prueba y le salga lo mismo.</p>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
+""") +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u"""
       <h3>Medir la dureza sin ning&uacute;n aparato</h3>
       <p>La dureza fue de las primeras propiedades que se consiguieron medir, y se hizo de la forma m&aacute;s
          simple imaginable: <b>ver qui&eacute;n raya a qui&eacute;n</b>. Si A raya a B, A es m&aacute;s duro. Sin discusi&oacute;n
@@ -677,17 +382,10 @@ footer .wrap{padding-block:18px 26px}
         En la sesi&oacute;n anterior el cuadro de aluminio dec&iacute;a «se fatiga: puede fallar sin aviso». Ahora ya
         sabes de d&oacute;nde sale ese dato: de un <b>ensayo de fatiga</b>, no de la impresi&oacute;n de nadie.
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 4 &middot; Montar una escala de dureza del aula</span>
-          <span class="chips"><span class="chip">1.2</span><span class="chip">2.2</span></span>
-          <span>Grupos de tres &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+""") +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 4 &middot; Montar una escala de dureza del aula',
+    [u'1.2', u'2.2'], u'Grupos de tres &middot; 25 min', u"""
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Vais a construir <b>vuestra propia escala de Mohs</b> con lo que hay en el aula. Nada de
              aparatos: solo rayar.</p>
@@ -714,46 +412,34 @@ footer .wrap{padding-block:18px 26px}
             demostrar que eso <b>es una medida</b>. Si os sale distinto, hay que averiguar por qu&eacute; &mdash;y
             esa investigaci&oacute;n vale m&aacute;s que la tabla.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
-
+  """)) +
+  bloque('03', u'Cierre &middot; 5 min', u"""
       <p>Volved a la pregunta del principio: &iquest;qu&eacute; es m&aacute;s duro, el boli o la mesa?</p>
       <p>Ya no hace falta contestar «se nota». Ahora se contesta <b>rayando</b>, y si alguien discrepa, se
          repite la prueba delante de &eacute;l.</p>
       <ol>
-              <li>&iquest;Qu&eacute; es un ensayo y en qu&eacute; se diferencia de una impresi&oacute;n?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es una prueba <b>normalizada</b>: hecha siempre igual, de modo que el resultado no dependa de qui&eacute;n la haga. Una impresi&oacute;n s&iacute; depende de qui&eacute;n la tenga.</p></div></details></li>
-        <li>Un material aguanta un martillazo pero se rompe tras meses de vibraci&oacute;n. &iquest;Qu&eacute; ensayo lo detecta?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El de <b>fatiga</b>, que carga y descarga miles de veces. El de resiliencia solo mide el golpe &uacute;nico, y ese lo aguantaba.</p></div></details></li>
-        <li>&iquest;Por qu&eacute; se dice que la escala de Mohs es ordinal?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque dice <b>qui&eacute;n va delante de qui&eacute;n, pero no cu&aacute;nto</b>. Del 9 al 10 hay mucha m&aacute;s diferencia que del 1 al 2, aunque el salto de n&uacute;mero sea el mismo.</p></div></details></li>
-
+      """ + pregunta(u'&iquest;Qu&eacute; es un ensayo y en qu&eacute; se diferencia de una impresi&oacute;n?',
+                     u'<p>Es una prueba <b>normalizada</b>: hecha siempre igual, de modo que el resultado no dependa de qui&eacute;n la haga. Una impresi&oacute;n s&iacute; depende de qui&eacute;n la tenga.</p>')
+        + pregunta(u'Un material aguanta un martillazo pero se rompe tras meses de vibraci&oacute;n. &iquest;Qu&eacute; ensayo lo detecta?',
+                   u'<p>El de <b>fatiga</b>, que carga y descarga miles de veces. El de resiliencia solo mide el golpe &uacute;nico, y ese lo aguantaba.</p>')
+        + pregunta(u'&iquest;Por qu&eacute; se dice que la escala de Mohs es ordinal?',
+                   u'<p>Porque dice <b>qui&eacute;n va delante de qui&eacute;n, pero no cu&aacute;nto</b>. Del 9 al 10 hay mucha m&aacute;s diferencia que del 1 al 2, aunque el salto de n&uacute;mero sea el mismo.</p>') + u"""
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         Ya sabes elegir un material y medir sus propiedades. Toca mirar los materiales uno a uno,
         empezando por el m&aacute;s antiguo de todos: <b>la madera</b>.
       </div>
-  
-    </section>
+  """))))
 
-  </div>
 
-  <div id="ses-3" hidden>
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
-      <h2>La madera: el &uacute;nico material que crece</h2>
-      <p>Por qu&eacute; la le&ntilde;a se raja siempre a lo largo, y por qu&eacute; esa respuesta explica desde el contrachapado hasta el mueble de tu casa.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip sab">A.3</span><span class="chip sab">A.7</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+S.append(dict(
+ corto=u'La madera', titulo=u'La madera: el &uacute;nico material que crece',
+ entradilla=u'Por qu&eacute; la le&ntilde;a se raja siempre a lo largo, y por qu&eacute; esa respuesta explica desde el contrachapado hasta el mueble de tu casa.',
+ minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+ chips=[u'CE1 &middot; 1.2', u'CE2 &middot; 2.2', u'A.3', u'A.7'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u"""
       <p>Una pregunta de las que parecen tontas y no lo son:</p>
       <div class="aviso">
         <span class="n-tag">La pregunta</span>
@@ -770,11 +456,8 @@ footer .wrap{padding-block:18px 26px}
         <p>Por eso sus propiedades <b>dependen de la direcci&oacute;n</b>. Esa idea tiene nombre &mdash;anisotrop&iacute;a&mdash;
            y es rar&iacute;sima: el acero se comporta igual lo mires por donde lo mires. La madera no.</p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
+""") +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u"""
       <h3>Por dentro es un manojo de tubos</h3>
       <p>El tronco est&aacute; formado por millones de <b>fibras</b> alargadas, paralelas al eje del &aacute;rbol, que
          en vida transportaban agua. Imagina un paquete de pajitas pegadas entre s&iacute;: fuertes a lo largo,
@@ -935,17 +618,10 @@ footer .wrap{padding-block:18px 26px}
         cruzando las capas. Es exactamente lo que hace un ingeniero: no busca el material perfecto,
         corrige el defecto del que tiene.
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 5 &middot; Identificar maderas en el aula</span>
-          <span class="chips"><span class="chip">1.2</span><span class="chip">2.2</span></span>
-          <span>Parejas &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+""") +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 5 &middot; Identificar maderas en el aula',
+    [u'1.2', u'2.2'], u'Parejas &middot; 25 min', u"""
           <h4>Qu&eacute; hay que hacer</h4>
           <p>El aula est&aacute; llena de madera y de derivados, y casi nadie distingue unos de otros.</p>
           <ol class="pasos">
@@ -971,48 +647,36 @@ footer .wrap{padding-block:18px 26px}
             hojaldre, contrachapado. Si es liso y uniforme como cart&oacute;n muy duro, DM. Si la veta de la cara
             no contin&uacute;a por el canto, est&aacute; chapado.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
-
+  """)) +
+  bloque('03', u'Cierre &middot; 5 min', u"""
       <p>Volvamos a la le&ntilde;a del principio. Se raja a lo largo porque a lo largo solo hay que
          <b>separar fibras</b>, y eso es f&aacute;cil. A lo ancho habr&iacute;a que <b>romperlas</b>, y eso es
          much&iacute;simo m&aacute;s dif&iacute;cil.</p>
       <p>Y de ah&iacute; sale todo lo dem&aacute;s: por qu&eacute; las vigas se ponen con la veta a lo largo, por qu&eacute; una
          regla de madera se parte siempre igual, y por qu&eacute; alguien tuvo la idea de cruzar las capas.</p>
       <ol>
-              <li>&iquest;Qu&eacute; significa que la madera sea anis&oacute;tropa?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que <b>sus propiedades cambian seg&uacute;n la direcci&oacute;n</b>. Aguanta mucho a lo largo de la veta y poco a lo ancho. El acero, en cambio, se comporta igual en todas.</p></div></details></li>
-        <li>&iquest;Qu&eacute; problema resuelve exactamente el contrachapado?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La <b>anisotrop&iacute;a</b>. Al cruzar la veta de cada capa 90&deg;, ninguna direcci&oacute;n queda d&eacute;bil: para partirlo habr&iacute;a que separar las fibras de una capa y romper las de la siguiente.</p></div></details></li>
-        <li>La balsa se corta con la u&ntilde;a. &iquest;Es madera blanda?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No: es <b>madera dura</b>. La clasificaci&oacute;n es bot&aacute;nica &mdash;hoja caduca o perenne&mdash;, no de dureza real. Es de los pocos casos donde el nombre enga&ntilde;a.</p></div></details></li>
-
+      """ + pregunta(u'&iquest;Qu&eacute; significa que la madera sea anis&oacute;tropa?',
+                     u'<p>Que <b>sus propiedades cambian seg&uacute;n la direcci&oacute;n</b>. Aguanta mucho a lo largo de la veta y poco a lo ancho. El acero, en cambio, se comporta igual en todas.</p>')
+        + pregunta(u'&iquest;Qu&eacute; problema resuelve exactamente el contrachapado?',
+                   u'<p>La <b>anisotrop&iacute;a</b>. Al cruzar la veta de cada capa 90&deg;, ninguna direcci&oacute;n queda d&eacute;bil: para partirlo habr&iacute;a que separar las fibras de una capa y romper las de la siguiente.</p>')
+        + pregunta(u'La balsa se corta con la u&ntilde;a. &iquest;Es madera blanda?',
+                   u'<p>No: es <b>madera dura</b>. La clasificaci&oacute;n es bot&aacute;nica &mdash;hoja caduca o perenne&mdash;, no de dureza real. Es de los pocos casos donde el nombre enga&ntilde;a.</p>') + u"""
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         La madera creci&oacute;. Los metales hay que <b>sacarlos de una piedra</b>, y eso cambia absolutamente
         todo: el precio, la energ&iacute;a que cuestan y lo que se puede hacer con ellos.
       </div>
-  
-    </section>
+  """))))
 
-  </div>
 
-  <div id="ses-4" hidden>
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
-      <h2>Los metales: hay que sacarlos de una piedra</h2>
-      <p>Una piedra no se parece a una espada. Entender ese salto explica el precio de los metales, su huella y por qu&eacute; se reciclan tanto.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+S.append(dict(
+ corto=u'Metales', titulo=u'Los metales: hay que sacarlos de una piedra',
+ entradilla=u'Una piedra no se parece a una espada. Entender ese salto explica el precio de los metales, su huella y por qu&eacute; se reciclan tanto.',
+ minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+ chips=[u'CE1 &middot; 1.2', u'CE2 &middot; 2.2', u'CE7 &middot; 7.1', u'A.7', u'E.1'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u"""
       <p>La madera se corta de un &aacute;rbol: se ve el &aacute;rbol, se ve la tabla, se entiende. Con el metal hay
          un salto que no es evidente en absoluto.</p>
       <div class="aviso">
@@ -1033,11 +697,8 @@ footer .wrap{padding-block:18px 26px}
            dem&aacute;s: por primera vez el ser humano no usa un material que encuentra, sino uno que
            <b>fabrica</b>.</p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
+""") +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u"""
       <h3>El metal cuesta energ&iacute;a, y eso lo explica casi todo</h3>
       <p>La diferencia esencial con la madera: el metal <b>no existe puro en la naturaleza</b> salvo
          excepciones. Est&aacute; combinado con otros elementos formando un <b>mineral</b>, y separarlo exige
@@ -1165,17 +826,10 @@ footer .wrap{padding-block:18px 26px}
            pas&oacute; de metal precioso a material de envase. <b>El valor de un material no depende de lo raro
            que sea, sino de lo que cueste obtenerlo.</b></p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 6 &middot; Auditor&iacute;a met&aacute;lica del aula</span>
-          <span class="chips"><span class="chip">1.2</span><span class="chip">7.1</span></span>
-          <span>Parejas &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+""") +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 6 &middot; Auditor&iacute;a met&aacute;lica del aula',
+    [u'1.2', u'7.1'], u'Parejas &middot; 25 min', u"""
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Con un im&aacute;n peque&ntilde;o, de los de la nevera, se puede auditar un aula entera.</p>
           <ol class="pasos">
@@ -1201,47 +855,35 @@ footer .wrap{padding-block:18px 26px}
             lleva hierro: el cromo y el n&iacute;quel le cambian la estructura interna. Si os pasa, no lo
             tach&eacute;is: anotadlo. Es justo la clase de excepci&oacute;n que merece la pena descubrir.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
-
+  """)) +
+  bloque('03', u'Cierre &middot; 5 min', u"""
       <p>Volvamos a la piedra del principio. Entre aquella piedra y una espada hay <b>energ&iacute;a</b>: mucho
          calor, mucho tiempo y mucho trabajo.</p>
       <p>Y esa energ&iacute;a no desaparece cuando el objeto se tira. Sigue ah&iacute;, dentro del metal. Por eso
          reciclar no es un gesto simb&oacute;lico: es <b>recuperar la energ&iacute;a que ya se gast&oacute;</b>.</p>
       <ol>
-              <li>&iquest;Por qu&eacute; el aluminio val&iacute;a m&aacute;s que el oro en 1850 si es abundant&iacute;simo?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque nadie sab&iacute;a separarlo de su mineral: hizo falta la electricidad, que no lleg&oacute; hasta 1886. <b>El valor depende de lo que cueste obtenerlo</b>, no de lo raro que sea.</p></div></details></li>
-        <li>&iquest;Qu&eacute; diferencia hay entre acero y fundici&oacute;n?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La cantidad de <b>carbono</b>. Hasta el 2&nbsp;por ciento es acero; por encima, fundici&oacute;n. M&aacute;s carbono da m&aacute;s dureza pero tambi&eacute;n m&aacute;s fragilidad.</p></div></details></li>
-        <li>Reciclar aluminio ahorra casi toda la energ&iacute;a. &iquest;Por qu&eacute; tanto?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo caro era <b>separarlo del mineral por electrolisis</b>, y eso ya est&aacute; hecho. Reciclar solo exige fundirlo, que es much&iacute;simo m&aacute;s barato.</p></div></details></li>
-
+      """ + pregunta(u'&iquest;Por qu&eacute; el aluminio val&iacute;a m&aacute;s que el oro en 1850 si es abundant&iacute;simo?',
+                     u'<p>Porque nadie sab&iacute;a separarlo de su mineral: hizo falta la electricidad, que no lleg&oacute; hasta 1886. <b>El valor depende de lo que cueste obtenerlo</b>, no de lo raro que sea.</p>')
+        + pregunta(u'&iquest;Qu&eacute; diferencia hay entre acero y fundici&oacute;n?',
+                   u'<p>La cantidad de <b>carbono</b>. Hasta el 2&nbsp;por ciento es acero; por encima, fundici&oacute;n. M&aacute;s carbono da m&aacute;s dureza pero tambi&eacute;n m&aacute;s fragilidad.</p>')
+        + pregunta(u'Reciclar aluminio ahorra casi toda la energ&iacute;a. &iquest;Por qu&eacute; tanto?',
+                   u'<p>Porque lo caro era <b>separarlo del mineral por electrolisis</b>, y eso ya est&aacute; hecho. Reciclar solo exige fundirlo, que es much&iacute;simo m&aacute;s barato.</p>') + u"""
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         La madera creci&oacute;. El metal se arranc&oacute; de una piedra. Los <b>pl&aacute;sticos</b> no estaban ah&iacute;:
         hubo que inventarlos, mol&eacute;cula a mol&eacute;cula. Y ese es otro salto distinto.
       </div>
-  
-    </section>
+  """))))
 
-  </div>
 
-  <div id="ses-5" hidden>
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
-      <h2>Los pl&aacute;sticos: hubo que inventarlos</h2>
-      <p>No estaban en ninguna parte esperando a que alguien los encontrara. Y se inventaron, ir&oacute;nicamente, para dejar de matar elefantes.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+S.append(dict(
+ corto=u'Pl&aacute;sticos', titulo=u'Los pl&aacute;sticos: hubo que inventarlos',
+ entradilla=u'No estaban en ninguna parte esperando a que alguien los encontrara. Y se inventaron, ir&oacute;nicamente, para dejar de matar elefantes.',
+ minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+ chips=[u'CE1 &middot; 1.2', u'CE2 &middot; 2.2', u'CE7 &middot; 7.1', u'A.7', u'E.1'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u"""
       <p>La madera creci&oacute;. El metal estaba dentro de una piedra. Con los pl&aacute;sticos pasa algo distinto:</p>
       <div class="aviso">
         <span class="n-tag">El dato</span>
@@ -1262,11 +904,8 @@ footer .wrap{padding-block:18px 26px}
            elefantes y tortugas</b>. Hoy son el s&iacute;mbolo del problema ambiental. Ninguna tecnolog&iacute;a nace
            buena ni mala: nace resolviendo algo, y crea lo siguiente.</p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
+""") +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u"""
       <h3>Qu&eacute; es un pl&aacute;stico por dentro</h3>
       <p>Un pl&aacute;stico es un <b>pol&iacute;mero</b>: mol&eacute;culas larguísimas formadas repitiendo una peque&ntilde;a
          unidad miles de veces, como un collar de cuentas iguales. Y casi todo su comportamiento depende
@@ -1404,17 +1043,10 @@ footer .wrap{padding-block:18px 26px}
         <b>El tri&aacute;ngulo no significa que se recicle.</b> Significa de qu&eacute; material es. Un 6 y un 7 llevan
         tri&aacute;ngulo y acaban casi siempre incinerados o en vertedero. El s&iacute;mbolo informa; no promete.
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 7 &middot; Leer los tri&aacute;ngulos</span>
-          <span class="chips"><span class="chip">1.2</span><span class="chip">7.1</span></span>
-          <span>Parejas &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+""") +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 7 &middot; Leer los tri&aacute;ngulos',
+    [u'1.2', u'7.1'], u'Parejas &middot; 25 min', u"""
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
             <li>Reunid <b>seis envases o piezas de pl&aacute;stico</b> y buscad el tri&aacute;ngulo con su n&uacute;mero.
@@ -1437,47 +1069,34 @@ footer .wrap{padding-block:18px 26px}
             Eso tambi&eacute;n es un dato, y de los buenos: <b>un envase sin marcar es un envase que nadie
             podr&aacute; separar</b>. Anotadlo como tal.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
-
+  """)) +
+  bloque('03', u'Cierre &middot; 5 min', u"""
       <p>Los pl&aacute;sticos se inventaron para <b>no tener que matar elefantes</b>. Hoy son el s&iacute;mbolo del
          problema ambiental. Las dos cosas son verdad a la vez.</p>
       <p>Esa es probablemente la lecci&oacute;n m&aacute;s importante del tema: <b>ninguna tecnolog&iacute;a nace buena
          ni mala</b>. Nace resolviendo un problema, y al resolverlo crea el siguiente.</p>
       <ol>
-              <li>&iquest;Qu&eacute; diferencia hay entre un termopl&aacute;stico y un termoestable?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Las cadenas. En el <b>termopl&aacute;stico</b> est&aacute;n sueltas y con calor deslizan: se remoldea y se recicla. En el <b>termoestable</b> est&aacute;n unidas por enlaces que el calor no deshace: se quema antes de ablandarse.</p></div></details></li>
-        <li>&iquest;Qu&eacute; significa exactamente el tri&aacute;ngulo con un n&uacute;mero?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Dice <b>de qu&eacute; pl&aacute;stico est&aacute; hecho</b>, nada m&aacute;s. <b>No garantiza que se recicle</b>: un 6 o un 7 lo llevan y casi siempre acaban incinerados.</p></div></details></li>
-        <li>Los pl&aacute;sticos se inventaron para sustituir al marfil. &iquest;Qu&eacute; ense&ntilde;a eso?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que una tecnolog&iacute;a puede resolver un problema grave &mdash;la caza de elefantes&mdash; y crear otro distinto d&eacute;cadas despu&eacute;s. Hay que juzgarlas por sus <b>consecuencias completas</b>, no por su intenci&oacute;n.</p></div></details></li>
-
+      """ + pregunta(u'&iquest;Qu&eacute; diferencia hay entre un termopl&aacute;stico y un termoestable?',
+                     u'<p>Las cadenas. En el <b>termopl&aacute;stico</b> est&aacute;n sueltas y con calor deslizan: se remoldea y se recicla. En el <b>termoestable</b> est&aacute;n unidas por enlaces que el calor no deshace: se quema antes de ablandarse.</p>')
+        + pregunta(u'&iquest;Qu&eacute; significa exactamente el tri&aacute;ngulo con un n&uacute;mero?',
+                   u'<p>Dice <b>de qu&eacute; pl&aacute;stico est&aacute; hecho</b>, nada m&aacute;s. <b>No garantiza que se recicle</b>: un 6 o un 7 lo llevan y casi siempre acaban incinerados.</p>')
+        + pregunta(u'Los pl&aacute;sticos se inventaron para sustituir al marfil. &iquest;Qu&eacute; ense&ntilde;a eso?',
+                   u'<p>Que una tecnolog&iacute;a puede resolver un problema grave &mdash;la caza de elefantes&mdash; y crear otro distinto d&eacute;cadas despu&eacute;s. Hay que juzgarlas por sus <b>consecuencias completas</b>, no por su intenci&oacute;n.</p>') + u"""
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         Ya sabes elegir material. Falta la otra mitad de la decisi&oacute;n: <b>qu&eacute; pasa con &eacute;l cuando el
         objeto se tira</b>. Y el test del tema.
       </div>
-  
-    </section>
+  """))))
 
-  </div>
-
-  <div id="ses-6" hidden>
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
-      <h2>Qu&eacute; pasa cuando lo tiras</h2>
-      <p>Elegir un material no termina en sus propiedades. La otra mitad de la decisi&oacute;n es qu&eacute; ocurre con &eacute;l despu&eacute;s.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>15'</b> Test</span></div>
-      <div class="chips"><span class="chip">CE7 &middot; 7.1</span><span class="chip">CE7 &middot; 7.2</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span><span class="chip sab">E.2</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+S.append(dict(
+ corto=u'Impacto y test', titulo=u'Qu&eacute; pasa cuando lo tiras',
+ entradilla=u'Elegir un material no termina en sus propiedades. La otra mitad de la decisi&oacute;n es qu&eacute; ocurre con &eacute;l despu&eacute;s.',
+ minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'), (u"15'", u'Test')],
+ chips=[u'CE7 &middot; 7.1', u'CE7 &middot; 7.2', u'A.7', u'E.1', u'E.2'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u"""
       <p>Una pregunta que parece de otra asignatura y no lo es:</p>
       <div class="aviso">
         <span class="n-tag">La pregunta</span>
@@ -1487,11 +1106,8 @@ footer .wrap{padding-block:18px 26px}
          que siga existiendo cuando t&uacute; tengas cincuenta a&ntilde;os.</p>
       <p>Durante todo este tema hemos elegido materiales mirando lo que saben hacer. Falta la otra mitad
          de la decisi&oacute;n: <b>qu&eacute; pasa con ellos despu&eacute;s</b>.</p>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
+""") +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u"""
       <h3>El objeto no termina cuando lo tiras</h3>
 
       <div class="escena" id="esc-ciclo">
@@ -1608,17 +1224,10 @@ footer .wrap{padding-block:18px 26px}
         <p>Existe una bombilla encendida desde 1901 en un parque de bomberos de California. La han visto
            millones de personas por internet. No es un milagro: es que se fabric&oacute; antes del acuerdo.</p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 8 &middot; El juicio a un objeto</span>
-          <span class="chips"><span class="chip">7.1</span><span class="chip">7.2</span></span>
-          <span>Grupos de cuatro &middot; 15 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+""") +
+  bloque('02', u'Pr&aacute;ctica &middot; 15 min', ficha(
+    u'Actividad 8 &middot; El juicio a un objeto',
+    [u'7.1', u'7.2'], u'Grupos de cuatro &middot; 15 min', u"""
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Elegid un objeto cotidiano: una botella de agua, un boli, unos auriculares, un m&oacute;vil.</p>
           <ol class="pasos">
@@ -1634,161 +1243,51 @@ footer .wrap{padding-block:18px 26px}
             <li>Hay una mejora por cada erre y son aplicables <b>(3 puntos)</b>.</li>
             <li>La conclusi&oacute;n razona cu&aacute;l tiene m&aacute;s efecto <b>(2 puntos)</b>.</li>
           </ul>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Test del tema &middot; 15 min</div>
-
+  """)) +
+  bloque('03', u'Test del tema &middot; 15 min', u"""
       <p>Diez preguntas de todo el tema. Contesta primero en el cuaderno y luego despliega cada una.</p>
       <ol>
-              <li>&iquest;Cu&aacute;l es el mejor material?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Ninguno.</b> No existe. Existe el <b>adecuado</b> para lo que quieres hacer, y se encuentra comparando propiedades con lo que necesitas.</p></div></details></li>
-        <li>&iquest;Por qu&eacute; el precio no es una propiedad?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no es una caracter&iacute;stica del material: es <b>consecuencia</b> de su abundancia, de lo que cueste extraerlo y de c&oacute;mo se fabrique.</p></div></details></li>
-        <li>&iquest;Qu&eacute; es un ensayo?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Una prueba <b>normalizada</b> para medir una propiedad, hecha siempre igual para que el resultado no dependa de qui&eacute;n la haga.</p></div></details></li>
-        <li>&iquest;Qu&eacute; significa que la madera sea anis&oacute;tropa?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que <b>sus propiedades cambian seg&uacute;n la direcci&oacute;n</b>: mucho a lo largo de la veta, poco a lo ancho.</p></div></details></li>
-        <li>&iquest;Qu&eacute; problema resuelve el contrachapado?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La anisotrop&iacute;a. Cruzando la veta de cada capa 90 grados, <b>ninguna direcci&oacute;n queda d&eacute;bil</b>.</p></div></details></li>
-        <li>&iquest;C&oacute;mo distingues un metal f&eacute;rrico de uno que no lo es?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Con un <b>im&aacute;n</b>. Si se pega, lleva hierro. Con la excepci&oacute;n del acero inoxidable, que lo lleva y no se pega.</p></div></details></li>
-        <li>&iquest;Por qu&eacute; reciclar aluminio ahorra tant&iacute;sima energ&iacute;a?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo caro es <b>separarlo del mineral por electrolisis</b>, y eso ya se hizo. Reciclar solo exige fundirlo.</p></div></details></li>
-        <li>Termopl&aacute;stico y termoestable: la diferencia, y su consecuencia.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El primero tiene las cadenas sueltas y con calor se remoldea, as&iacute; que <b>se recicla</b>. El segundo las tiene unidas por enlaces y se quema antes de ablandarse: <b>no se recicla</b> fundi&eacute;ndolo.</p></div></details></li>
-        <li>Ordena las tres erres de m&aacute;s a menos eficaz y explica el orden.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Reducir, reutilizar, reciclar.</b> Reducir es la &uacute;nica que ahorra todo; reutilizar no transforma nada; reciclar todav&iacute;a gasta energ&iacute;a y transporte.</p></div></details></li>
-        <li>&iquest;Es la tecnolog&iacute;a buena o mala para el medio ambiente? Razona.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Ni una cosa ni otra. El pl&aacute;stico se invent&oacute; para <b>dejar de matar elefantes</b> y hoy es un problema ambiental. Una tecnolog&iacute;a resuelve un problema y al hacerlo crea el siguiente: hay que juzgarla por sus <b>consecuencias completas</b>.</p></div></details></li>
-
+      """ + pregunta(u'&iquest;Cu&aacute;l es el mejor material?',
+                     u'<p><b>Ninguno.</b> No existe. Existe el <b>adecuado</b> para lo que quieres hacer, y se encuentra comparando propiedades con lo que necesitas.</p>')
+        + pregunta(u'&iquest;Por qu&eacute; el precio no es una propiedad?',
+                   u'<p>Porque no es una caracter&iacute;stica del material: es <b>consecuencia</b> de su abundancia, de lo que cueste extraerlo y de c&oacute;mo se fabrique.</p>')
+        + pregunta(u'&iquest;Qu&eacute; es un ensayo?',
+                   u'<p>Una prueba <b>normalizada</b> para medir una propiedad, hecha siempre igual para que el resultado no dependa de qui&eacute;n la haga.</p>')
+        + pregunta(u'&iquest;Qu&eacute; significa que la madera sea anis&oacute;tropa?',
+                   u'<p>Que <b>sus propiedades cambian seg&uacute;n la direcci&oacute;n</b>: mucho a lo largo de la veta, poco a lo ancho.</p>')
+        + pregunta(u'&iquest;Qu&eacute; problema resuelve el contrachapado?',
+                   u'<p>La anisotrop&iacute;a. Cruzando la veta de cada capa 90 grados, <b>ninguna direcci&oacute;n queda d&eacute;bil</b>.</p>')
+        + pregunta(u'&iquest;C&oacute;mo distingues un metal f&eacute;rrico de uno que no lo es?',
+                   u'<p>Con un <b>im&aacute;n</b>. Si se pega, lleva hierro. Con la excepci&oacute;n del acero inoxidable, que lo lleva y no se pega.</p>')
+        + pregunta(u'&iquest;Por qu&eacute; reciclar aluminio ahorra tant&iacute;sima energ&iacute;a?',
+                   u'<p>Porque lo caro es <b>separarlo del mineral por electrolisis</b>, y eso ya se hizo. Reciclar solo exige fundirlo.</p>')
+        + pregunta(u'Termopl&aacute;stico y termoestable: la diferencia, y su consecuencia.',
+                   u'<p>El primero tiene las cadenas sueltas y con calor se remoldea, as&iacute; que <b>se recicla</b>. El segundo las tiene unidas por enlaces y se quema antes de ablandarse: <b>no se recicla</b> fundi&eacute;ndolo.</p>')
+        + pregunta(u'Ordena las tres erres de m&aacute;s a menos eficaz y explica el orden.',
+                   u'<p><b>Reducir, reutilizar, reciclar.</b> Reducir es la &uacute;nica que ahorra todo; reutilizar no transforma nada; reciclar todav&iacute;a gasta energ&iacute;a y transporte.</p>')
+        + pregunta(u'&iquest;Es la tecnolog&iacute;a buena o mala para el medio ambiente? Razona.',
+                   u'<p>Ni una cosa ni otra. El pl&aacute;stico se invent&oacute; para <b>dejar de matar elefantes</b> y hoy es un problema ambiental. Una tecnolog&iacute;a resuelve un problema y al hacerlo crea el siguiente: hay que juzgarla por sus <b>consecuencias completas</b>.</p>') + u"""
       </ol>
       <div class="nota">
         <span class="n-tag">Tema terminado</span>
         Ya sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
         eso que has elegido <b>se sostenga</b>: las estructuras.
       </div>
-  
-    </section>
+  """))))
 
-  </div>
 
-  <section class="cc-aviso" id="licencia"
-  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-  <h2>Licencia y uso</h2>
-  <p><span property="dct:title">Tema 3 &middot; Materiales de uso t&eacute;cnico</span> &middot; &copy; 2026
-     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
-  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
-     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
-     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
-     derivadas con esta misma licencia.</p>
-  <h3>C&oacute;mo citar</h3>
-  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 3 &middot; Materiales de uso t&eacute;cnico</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/. Bajo licencia CC BY-SA 4.0.</code></p>
-  <h3>Qu&eacute; cubre</h3>
-  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
-  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
-     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
-     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
-     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
-     propia licencia.</p>
-  <h3>Otros usos</h3>
-  <p>Para usos que excedan la licencia, abre una incidencia en
-     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
-</section>
-</main>
+CFG = dict(
+ ruta='2eso/TyD/tema3/',
+ migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3',
+ h1=u'Materiales de uso t&eacute;cnico',
+ titulo=u'Tema 3 &middot; Materiales de uso t&eacute;cnico',
+ tema=u'Tema 3', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 3 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: propiedades de los materiales, c&oacute;mo se eligen y qu&eacute; impacto ambiental tienen.',
+ sesiones=S)
 
-<footer><div class="wrap">Tema 3 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
-
-<script>
-(function(){
-  var nav = document.getElementById('nav');
-  if(!nav) return;
-  nav.addEventListener('click', function(e){
-    var b = e.target.closest('button[data-ses]');
-    if(!b || b.disabled) return;
-    nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
-    });
-    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
-      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
-    });
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  });
-})();
-</script>
-
-<script>
-/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
-   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
-(function(){
-  document.querySelectorAll('.video[data-vid]').forEach(function(c){
-    var b = c.querySelector('.video-play');
-    if(!b) return;
-    b.addEventListener('click', function(){
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
-      f.title = b.querySelector('.video-txt b').textContent;
-      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
-      f.referrerPolicy = 'strict-origin-when-cross-origin';
-      f.allowFullscreen = true;
-      b.replaceWith(f);
-    });
-  });
-})();
-</script>
-
-<script>
-/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
-(function(){
-  document.querySelectorAll('.test').forEach(function(T){
-    var corregir = T.querySelector('[data-a="corregir"]');
-    var otra = T.querySelector('[data-a="otra"]');
-    var nota = T.querySelector('.test-nota');
-
-    corregir.addEventListener('click', function(){
-      var bien = 0, total = 0, sinContestar = 0;
-      T.querySelectorAll('.test-p').forEach(function(P){
-        total++;
-        var ok = +P.dataset.ok;
-        var marcada = P.querySelector('input:checked');
-        if(!marcada) sinContestar++;
-        P.querySelectorAll('.test-op').forEach(function(L, i){
-          L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
-        });
-        if(marcada && +marcada.value === ok) bien++;
-      });
-      T.classList.add('corregido');
-      nota.textContent = bien + ' de ' + total
-        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
-      otra.hidden = false;
-    });
-
-    otra.addEventListener('click', function(){
-      T.classList.remove('corregido');
-      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.test-op').forEach(function(L){ L.classList.remove('bien','mal'); });
-      nota.textContent = '';
-      otra.hidden = true;
-      T.scrollIntoView({block:'start', behavior:'smooth'});
-    });
-  });
-})();
-</script>
-
-<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
-   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
-  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
-</a>
-<script>
-(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
-new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
-.observe(document.body,{childList:true,subtree:true});})();
-</script>
-</body>
-</html>
+BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
+os.makedirs(os.path.join(BASE, '2eso/TyD/tema3'), exist_ok=True)
+html = pagina(CFG)
+io.open(os.path.join(BASE, '2eso/TyD/tema3/index.html'), 'w', encoding='utf-8', newline='').write(html)
+print('U3 generada: %d bytes, %d sesiones (%d escritas)' % (
+    len(html), len(S), sum(1 for x in S if not x.get('pendiente'))))

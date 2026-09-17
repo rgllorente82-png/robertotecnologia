@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tema 7 &middot; El ordenador y sus componentes</title>
-<meta name="description" content="Tema 7 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: hardware y software, la CPU y su ciclo, memoria RAM frente a almacenamiento y representaci&oacute;n binaria de la informaci&oacute;n.">
+<meta name="description" content="Tema 7 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: hardware y software, la CPU y su ciclo, memoria RAM frente a almacenamiento, representaci&oacute;n binaria, perif&eacute;ricos y conversi&oacute;n anal&oacute;gico-digital, sistema operativo y diagn&oacute;stico de aver&iacute;as.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema7/">
@@ -183,6 +183,65 @@ h4{font-size:15.5px;margin:16px 0 4px}
   .entender,.escena,.video,.narra,nav.sesiones{display:none}
   .copiar{border-width:1.5px;break-inside:avoid}
 }
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.test h4{margin:8px 0 14px;font-size:16px}
+.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.test-p:first-of-type{border-top:0}
+.test-p > p{margin:0 0 9px;font-weight:500}
+.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.test-op:hover{border-color:var(--goo-azul)}
+.test-op input{margin-right:9px}
+.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.test.corregido .test-por{display:block}
+.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.test{break-inside:avoid}.test-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -229,7 +288,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 7</div>
     <h1>El ordenador y sus componentes</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Hardware y software</button><button type="button" data-ses="2">S2 &middot; RAM y almacenamiento</button><button type="button" data-ses="3">S3 &middot; Ceros y unos</button><button type="button" data-ses="4" disabled>S4 &middot; Entrada y salida</button><button type="button" data-ses="5" disabled>S5 &middot; Sistema operativo</button><button type="button" data-ses="6" disabled>S6 &middot; Diagnosticar una aver&iacute;a</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Hardware y software</button><button type="button" data-ses="2">S2 &middot; RAM y almacenamiento</button><button type="button" data-ses="3">S3 &middot; Ceros y unos</button><button type="button" data-ses="4">S4 &middot; Entrada y salida</button><button type="button" data-ses="5">S5 &middot; Sistema operativo</button><button type="button" data-ses="6">S6 &middot; Diagnosticar una aver&iacute;a</button></nav>
   </div>
 </header>
 
@@ -1551,11 +1610,1432 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>Entrada y salida: traducir el mundo a n&uacute;meros</h2>
+      <p>La temperatura, el sonido y la luz no vienen en escalones, y dentro de la m&aacute;quina todo son escalones. Lo que entra no es el mundo: es una copia, y se puede medir cu&aacute;nto se pierde.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">D.1&ndash;D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+      <p>La sesi&oacute;n pasada acab&oacute; en un sitio inc&oacute;modo: dentro de la m&aacute;quina no hay
+         palabras ni im&aacute;genes, solo <b>ceros y unos</b>. Y t&uacute; no eres ceros y unos. La clase
+         tampoco.</p>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Haz que el ordenador sepa <b>qu&eacute; temperatura hace ahora mismo en el aula</b>. No vale
+        mirar el term&oacute;metro y teclear el n&uacute;mero: tiene que enterarse <b>&eacute;l</b>. Escribe
+        tu m&eacute;todo antes de seguir.
+      </div>
+
+      <p>Van a salir estas tres, y las tres se caen solas:</p>
+      <ul>
+        <li><b>&laquo;Le pongo un term&oacute;metro dentro&raquo;.</b> Un term&oacute;metro de los de
+            mercurio no le dice nada a un cable. La columna sube, y ah&iacute; se queda.</li>
+        <li><b>&laquo;Un cable para cada temperatura&raquo;.</b> Uno para 20&nbsp;&deg;C, otro para 21,
+            otro para 22&hellip; Ya viste ad&oacute;nde lleva eso en la sesi&oacute;n 3: a un cable por
+            s&iacute;mbolo, que es justo lo que no se puede hacer.</li>
+        <li><b>&laquo;Que mida y me lo diga&raquo;.</b> Vale, &iquest;y qu&eacute; pasa con 20,5?
+            &iquest;Y con 20,53? &iquest;Y con 20,531?</li>
+      </ul>
+
+      <div class="reto-piensa">
+        <span class="n-tag">El problema de verdad</span>
+        <p>La temperatura <b>no va a saltos</b>. Entre 20 y 21 grados hay infinitos valores, y lo mismo
+           pasa con la luz que entra por la ventana y con el sonido de tu voz. La m&aacute;quina, en
+           cambio, <b>solo tiene escalones</b>. &iquest;C&oacute;mo se mete algo que no tiene escalones
+           en una caja que solo sabe contar escalones?</p>
+      </div>
+
+      <p>La respuesta honrada es que <b>no se mete</b>. Lo que entra en la m&aacute;quina no es el mundo:
+         es una <b>copia con escalones</b>, hecha a prop&oacute;sito, y el oficio consiste en que los
+         escalones sean tan peque&ntilde;os que ya no se noten. Hoy vas a ver exactamente cu&aacute;nto
+         se pierde por el camino, porque se puede medir.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Primero: algo que traduzca el mundo a voltios</h3>
+      <p>Antes de haber n&uacute;meros tiene que haber <b>electricidad</b>, porque es el &uacute;nico
+         idioma que entiende la m&aacute;quina. De eso se encargan unos componentes cuya propiedad
+         el&eacute;ctrica cambia cuando cambia el mundo:</p>
+      <ul>
+        <li>Una <b>LDR</b>: cuanta m&aacute;s luz le da, menos resistencia tiene.</li>
+        <li>Un <b>termistor</b>: su resistencia cambia con la temperatura.</li>
+        <li>Un <b>micr&oacute;fono</b>: el aire empuja una l&aacute;mina y eso genera una tensi&oacute;n
+            que sube y baja igual que el sonido.</li>
+      </ul>
+      <p>Todav&iacute;a no hay ni un n&uacute;mero. Lo que hay es una tensi&oacute;n que sube y baja
+         <b>igual que sube y baja el mundo</b>, sin escalones. A eso se le llama se&ntilde;al
+         anal&oacute;gica, y es lo que hay que convertir.</p>
+
+      <div class="copiar">
+        <h4>Las dos clases de se&ntilde;al</h4>
+        <p><b>Se&ntilde;al anal&oacute;gica</b>: var&iacute;a de forma continua y puede tomar
+           <b>infinitos valores</b>. La temperatura, el sonido, la luz.</p>
+        <p><b>Se&ntilde;al digital</b>: solo puede tomar <b>unos valores concretos</b>, contados. Los
+           ceros y unos de la sesi&oacute;n 3.</p>
+        <p><b>Sensor</b>: componente que convierte una magnitud f&iacute;sica en una magnitud
+           el&eacute;ctrica. Es la puerta de <b>entrada</b> del mundo a la m&aacute;quina.</p>
+      </div>
+
+      <h3>Segundo: alguien que le ponga n&uacute;meros a esa tensi&oacute;n</h3>
+      <p>El <b>conversor anal&oacute;gico-digital</b> hace dos cosas, y las dos son decisiones que
+         alguien tom&oacute;. Cambia los dos controles de la escena y mira los n&uacute;meros de abajo:
+         no son adornos, est&aacute;n medidos sobre lo que acabas de dibujar.</p>
+
+
+      <div class="escena" id="esc-adc">
+        <div class="escena-barra">
+          <span class="escena-titulo">De la onda a la lista de n&uacute;meros</span>
+          <div class="seg" id="seg-adc-bits">
+            <button type="button" data-b="2">2 bits</button>
+            <button type="button" data-b="4" aria-pressed="true">4 bits</button>
+            <button type="button" data-b="8">8 bits</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 366" id="svg-adc" role="img"
+               aria-label="Una onda continua medida a intervalos y anotada con un n&uacute;mero entero en cada medida"></svg>
+        </div>
+        <div class="escena-barra" id="seg-adc-mu-caja">
+          <span class="escena-titulo">Cada cu&aacute;nto se mira</span>
+          <div class="seg" id="seg-adc-mu">
+            <button type="button" data-m="8">8 medidas</button>
+            <button type="button" data-m="16" aria-pressed="true">16 medidas</button>
+            <button type="button" data-m="32">32 medidas</button>
+          </div>
+        </div>
+        <div class="pie" id="pie-adc"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-adc');
+        if(!svg) return;
+        var pie  = document.getElementById('pie-adc');
+        var segB = document.getElementById('seg-adc-bits');
+        var segM = document.getElementById('seg-adc-mu');
+
+        var X0 = 64, X1 = 604, Y0 = 44, Y1 = 244;   /* caja de los ejes */
+        var VMAX = 5;                                /* el sensor da de 0 a 5 V */
+        var bits = 4, muestras = 16;
+
+        /* La onda. t va de 0 a 1 y son los mil primeros microsegundos. */
+        function onda(t){
+          return 2.5 + 1.6 * Math.sin(2 * Math.PI * t)
+                     + 0.6 * Math.sin(6 * Math.PI * t + 1);
+        }
+        function px(t){ return X0 + (X1 - X0) * t; }
+        function py(v){ return Y1 - (Y1 - Y0) * v / VMAX; }
+
+        function es(x, dec){
+          return x.toFixed(dec).replace('.', ',');
+        }
+        function miles(x){
+          return Math.round(x).toLocaleString('es-ES');
+        }
+
+        /* Todo lo que la escena dice sale de aqui: se mide, se redondea al
+           escalon mas cercano y se compara con lo que habia de verdad.      */
+        function calcula(){
+          var niveles = Math.pow(2, bits);
+          var escalon = VMAX / (niveles - 1);
+          var m = [], suma = 0, peor = 0;
+          for(var i = 0; i < muestras; i++){
+            var t = i / muestras;
+            var v = onda(t);
+            var codigo = Math.round(v / escalon);
+            if(codigo < 0) codigo = 0;
+            if(codigo > niveles - 1) codigo = niveles - 1;
+            var rec = codigo * escalon;
+            var err = Math.abs(v - rec);
+            suma += err;
+            if(err > peor) peor = err;
+            m.push({t:t, v:v, codigo:codigo, rec:rec, err:err});
+          }
+          return {niveles:niveles, escalon:escalon, m:m,
+                  medio:suma / muestras, peor:peor,
+                  porSeg:muestras * 1000,                    /* 1 ms de ventana */
+                  bytesSeg:muestras * 1000 * bits / 8};
+        }
+
+        function pinta(){
+          var R = calcula(), m = '', i;
+
+          /* ---- rejilla de escalones: solo si se pueden contar ---- */
+          if(R.niveles <= 16){
+            for(i = 0; i < R.niveles; i++){
+              var y = py(i * R.escalon);
+              m += '<path d="M' + X0 + ' ' + y.toFixed(1) + ' H' + X1 + '" stroke="var(--line-soft)" '
+                 + 'stroke-width="1" stroke-dasharray="2 4"></path>';
+            }
+          }
+
+          /* ---- ejes ---- */
+          m += '<path d="M' + X0 + ' ' + Y0 + ' V' + Y1 + ' H' + X1 + '" fill="none" '
+             + 'stroke="var(--line)" stroke-width="1.5"></path>';
+          for(i = 0; i <= 5; i++){
+            m += '<text x="' + (X0 - 8) + '" y="' + (py(i) + 4) + '" text-anchor="end" '
+               + 'class="rotulo-svg" style="font-size:10px">' + i + ' V</text>';
+          }
+          m += '<text x="' + X0 + '" y="' + (Y1 + 16) + '" class="rotulo-svg" '
+             + 'style="font-size:10px">0</text>';
+          m += '<text x="' + X1 + '" y="' + (Y1 + 16) + '" text-anchor="end" class="rotulo-svg" '
+             + 'style="font-size:10px">1 mil\u00e9sima de segundo</text>';
+          m += '<text x="' + X0 + '" y="' + (Y0 - 14) + '" class="rotulo-svg" '
+             + 'style="font-size:10px;fill:var(--c-analog)">LO QUE LLEGA DEL MICR\u00d3FONO</text>';
+          m += '<text x="' + X1 + '" y="' + (Y0 - 14) + '" text-anchor="end" class="rotulo-svg" '
+             + 'style="font-size:10px;fill:var(--c-digital)">LO QUE GUARDA LA M\u00c1QUINA</text>';
+
+          /* ---- la onda de verdad: 270 trozos, que a esta escala es una curva ---- */
+          var d = '';
+          for(i = 0; i <= 270; i++){
+            var t = i / 270;
+            d += (i ? ' L' : 'M') + px(t).toFixed(1) + ' ' + py(onda(t)).toFixed(1);
+          }
+          m += '<path d="' + d + '" fill="none" stroke="var(--c-analog)" stroke-width="2"></path>';
+
+          /* ---- la escalera: cada medida se mantiene hasta la siguiente ---- */
+          var e = '';
+          for(i = 0; i < R.m.length; i++){
+            var xa = px(R.m[i].t), xb = px((i + 1) / muestras), yv = py(R.m[i].rec);
+            e += (i ? ' L' : 'M') + xa.toFixed(1) + ' ' + yv.toFixed(1)
+               + ' L' + xb.toFixed(1) + ' ' + yv.toFixed(1);
+          }
+          m += '<path d="' + e + '" fill="none" stroke="var(--c-digital)" stroke-width="2"></path>';
+
+          /* ---- el error de cada medida, dibujado a escala ---- */
+          for(i = 0; i < R.m.length; i++){
+            var x = px(R.m[i].t);
+            m += '<path d="M' + x.toFixed(1) + ' ' + py(R.m[i].v).toFixed(1)
+               + ' V' + py(R.m[i].rec).toFixed(1) + '" stroke="var(--c-analog)" '
+               + 'stroke-width="1" stroke-dasharray="2 2" opacity=".8"></path>';
+            m += '<circle cx="' + x.toFixed(1) + '" cy="' + py(R.m[i].v).toFixed(1)
+               + '" r="2.6" fill="var(--c-analog)"></circle>';
+          }
+
+          /* ---- la tira de lo que de verdad se guarda ---- */
+          m += '<text x="64" y="286" class="rotulo-svg" style="font-size:10px">'
+             + 'LO QUE SE ESCRIBE EN LA MEMORIA</text>';
+          var caben = Math.min(12, R.m.length);
+          if(R.m.length > caben){
+            m += '<text x="604" y="286" text-anchor="end" class="rotulo-svg" '
+               + 'style="font-size:10px">\u2026 y ' + (R.m.length - caben)
+               + ' MEDIDAS M\u00c1S</text>';
+          }
+          for(i = 0; i < caben; i++){
+            var cx = 64 + i * 45;
+            m += '<rect x="' + cx + '" y="296" width="42" height="40" rx="2" '
+               + 'fill="var(--surface-2)" stroke="var(--line)" stroke-width="1"></rect>';
+            m += '<text x="' + (cx + 21) + '" y="322" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:15px;fill:var(--c-digital);font-weight:500">'
+               + R.m[i].codigo + '</text>';
+          }
+          m += '<text x="64" y="354" class="rotulo-svg" style="font-size:10.5px">'
+             + 'n\u00fameros enteros de 0 a ' + (R.niveles - 1)
+             + ' \u00b7 ni ondas, ni voltios: n\u00fameros</text>';
+
+          svg.innerHTML = m;
+
+          pie.innerHTML =
+              'Con <b>' + bits + ' bits</b> hay <b>' + R.niveles + ' valores</b> posibles, que se '
+            + 'reparten los 5 V en <b>' + (R.niveles - 1) + ' escalones</b> de <b>' + es(R.escalon, 3)
+            + ' V</b> cada uno. Midiendo <b>' + muestras + ' veces</b> en esa mil\u00e9sima de segundo, '
+            + 'el error <b>medio</b> que sale es de <b>' + es(R.medio, 3) + ' V</b> y el peor de todos, '
+            + '<b>' + es(R.peor, 3) + ' V</b>.'
+            + '<br><span style="font-size:12.5px">A ese ritmo ser\u00edan <b>'
+            + miles(R.porSeg) + ' medidas por segundo</b>, o sea <b>' + miles(R.bytesSeg)
+            + ' bytes cada segundo</b> y <b>' + es(R.bytesSeg * 60 / 1e6, 2)
+            + ' MB por minuto</b>. Sube los bits y baja el error; sube las medidas y la escalera se '
+            + 'pega m\u00e1s a la curva. Las dos cosas <b>cuestan sitio</b>, y ah\u00ed est\u00e1 '
+            + 'todo el problema.</span>';
+        }
+
+        function elige(seg, b){
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        }
+        segB.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-b]'); if(!b) return;
+          elige(segB, b); bits = +b.dataset.b; pinta();
+        });
+        segM.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-m]'); if(!b) return;
+          elige(segM, b); muestras = +b.dataset.m; pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>C&oacute;mo se convierte el mundo en n&uacute;meros</h4>
+        <p><b>Muestreo</b>: cada cu&aacute;nto se mira. Se mide un n&uacute;mero de veces por segundo y
+           entre medida y medida <b>no se sabe nada</b> de lo que hizo la se&ntilde;al.</p>
+        <p><b>Cuantificaci&oacute;n</b>: con cu&aacute;nta finura se anota cada medida. Con <b>n</b> bits
+           hay <b>2<sup>n</sup></b> valores posibles, que se reparten toda la escala en
+           <b>2<sup>n</sup> &minus; 1</b> escalones.</p>
+        <p>La copia <b>nunca</b> es exacta: a la diferencia entre lo que hab&iacute;a y lo que se anota se
+           le llama <b>error de cuantificaci&oacute;n</b>, y como mucho es <b>medio escal&oacute;n</b>.</p>
+        <p>M&aacute;s bits y m&aacute;s medidas dan una copia m&aacute;s fiel, y <b>siempre</b> cuestan
+           m&aacute;s bytes. No hay forma de escapar de ese trato.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Cu&aacute;ntas veces hay que medir</span>
+        No vale medir &laquo;a ojo&raquo;: hay una regla. Para no perder un sonido hay que medir
+        <b>m&aacute;s del doble de veces por segundo</b> que la frecuencia m&aacute;s alta que se quiera
+        guardar. Por eso el tel&eacute;fono, que llega hasta unos 3.400&nbsp;Hz, mide <b>8.000 veces por
+        segundo</b>, y un CD, que quiere llegar a los 20.000&nbsp;Hz que oye un o&iacute;do joven, mide
+        <b>44.100</b>.
+      </div>
+
+      <h3>Tercero: el camino de vuelta</h3>
+      <p>Para sacar algo fuera se hace lo mismo al rev&eacute;s. La m&aacute;quina suelta n&uacute;meros y
+         un <b>conversor digital-anal&oacute;gico</b> los convierte en una tensi&oacute;n que mueve algo:
+         el cono de un altavoz, un motor, la luz de un p&iacute;xel.</p>
+
+      <div class="copiar">
+        <h4>Sensores y actuadores</h4>
+        <p><b>Sensor</b> &middot; el mundo &rarr; electricidad &rarr; n&uacute;meros. Es
+           <b>entrada</b>: LDR, termistor, micr&oacute;fono, sensor de distancia por ultrasonidos,
+           bot&oacute;n.</p>
+        <p><b>Actuador</b> &middot; n&uacute;meros &rarr; electricidad &rarr; el mundo. Es
+           <b>salida</b>: motor, servo, altavoz, LED, electrov&aacute;lvula, resistencia calefactora.</p>
+        <p>Un robot no es m&aacute;s que esto: <b>sensores</b> que le cuentan qu&eacute; pasa,
+           un programa que decide y <b>actuadores</b> que hacen algo al respecto.</p>
+      </div>
+
+      <h3>Y por d&oacute;nde entra y sale todo eso: perif&eacute;ricos y puertos</h3>
+      <div class="copiar">
+        <h4>Perif&eacute;ricos</h4>
+        <p>Perif&eacute;rico es todo aparato que se conecta al ordenador y no es el ordenador.</p>
+        <ul>
+          <li><b>De entrada</b>: teclado, rat&oacute;n, micr&oacute;fono, c&aacute;mara,
+              esc&aacute;ner, lector de c&oacute;digos.</li>
+          <li><b>De salida</b>: pantalla, altavoces, impresora, proyector.</li>
+          <li><b>Mixtos</b>, que hacen las dos cosas: pantalla t&aacute;ctil, tarjeta de red,
+              memoria USB, disco externo, impresora multifunci&oacute;n.</li>
+        </ul>
+        <p>El <b>puerto</b> es la conexi&oacute;n por la que se enchufan: USB, HDMI, jack de 3,5&nbsp;mm,
+           RJ45 de red, ranura de tarjeta SD.</p>
+      </div>
+
+      <p>Y aqu&iacute; vuelve una palabra de la sesi&oacute;n 3. Un puerto <b>no es solo un agujero con
+         una forma</b>: es un <b>acuerdo</b> sobre cu&aacute;ntos voltios significan 1, en qu&eacute;
+         orden van los bits, a qu&eacute; velocidad y qui&eacute;n habla primero. Que cada uno tenga una
+         forma distinta es a prop&oacute;sito: as&iacute; no puedes enchufar algo donde su acuerdo no
+         vale.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u7-puertos.jpg" alt="Panel trasero de un ordenador peque&ntilde;o con interruptor, cuatro conectores USB, tres jacks de audio de colores y un conector serie" loading="lazy">
+        <figcaption>La trasera de un ordenador. Cuenta las formas distintas: cuatro <b>USB</b> rectangulares, tres <b>jacks</b> de audio (verde la salida, azul la entrada, rosa el micr&oacute;fono) y un conector <b>serie</b> de nueve patillas, de los antiguos. Ninguno entra en el hueco de otro, y eso <b>no es casualidad</b>: cada uno lleva dentro un acuerdo distinto.
+          <span class="credito">VIA Gallery, Hsintien (Taiw&aacute;n) &middot; CC BY 2.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:VIA_AMOS-3000_Back_Panel_I-O_(3305466345).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="../../../img/u7-ldr.jpg" alt="Primer plano de una LDR: una c&aacute;psula redonda con una pista naranja en zigzag bajo un cristal y dos patillas" loading="lazy">
+        <figcaption>Una <b>LDR</b> de 25&nbsp;mm vista de cerca. Esa pista naranja en zigzag es el sensor: cuando le da la luz conduce mejor, y cuando se queda a oscuras conduce peor. No sabe qu&eacute; es la luz ni cu&aacute;nta hay; solo <b>cambia de resistencia</b>. Poner un n&uacute;mero a ese cambio es trabajo del conversor.
+          <span class="credito">Suyash Dwivedi &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(1).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>&iquest;Por qu&eacute; al tel&eacute;fono hay que deletrear &laquo;<i>ese</i>, de Soria&raquo;?
+           Porque la voz por tel&eacute;fono se mide <b>8.000 veces por segundo</b> y eso obliga a cortar
+           todo lo que suene por encima de unos 3.400&nbsp;Hz. El problema es que la <b>s</b> y la
+           <b>f</b> tienen casi toda su energ&iacute;a <b>por encima</b> de esa frecuencia: al cortarlas,
+           las dos se quedan en el mismo soplido y dejan de distinguirse.</p>
+        <p>No es que el tel&eacute;fono suene mal: es que alguien <b>decidi&oacute;</b> cu&aacute;nto se
+           iba a tirar a la basura, a cambio de que la llamada ocupara poco. Esa decisi&oacute;n es
+           exactamente la de la escena de arriba, y se tom&oacute; en <b>1962</b>, en Chicago, con el
+           primer sistema telef&oacute;nico digital del mundo. Sesenta a&ntilde;os despu&eacute;s sigues
+           deletreando por su culpa.</p>
+      </div>
+
+      <div class="video" id="video-adc" data-vid="9GxcNyGQsuk">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Muestreo / Cuantificaci&oacute;n / Codificaci&oacute;n">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Muestreo / Cuantificaci&oacute;n / Codificaci&oacute;n</b>
+            <span>Universitat Polit&egrave;cnica de Val&egrave;ncia &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Los mismos tres pasos de hoy, contados con la se&ntilde;al delante. Es de un canal universitario y el nivel est&aacute; por encima del de clase: m&iacute;ralo para fijar el vocabulario, no para aprender de cero. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=9GxcNyGQsuk" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-adc');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+                + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7.4 &middot; Elegir un sensor con la cuenta hecha</span>
+          <span class="chips"><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>El encargo</h4>
+          <p>El instituto quiere que un ordenador vigile el <b>invernadero</b> y avise si la temperatura
+             se sale de lo normal. Hay que elegir con qu&eacute; finura se mide, y se elige
+             <b>calculando</b>, no opinando.</p>
+          <div class="copiar">
+            <h4>El sensor que os han dado</h4>
+            <table>
+              <tr><th>Dato</th><th>Valor</th></tr>
+              <tr><td>Tensi&oacute;n que da a 0&nbsp;&deg;C</td><td>0 V</td></tr>
+              <tr><td>Tensi&oacute;n que da a 50&nbsp;&deg;C</td><td>5 V</td></tr>
+              <tr><td>Entre esos dos puntos</td><td>proporcional</td></tr>
+            </table>
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>&iquest;Cu&aacute;ntos <b>grados por voltio</b> da este sensor?</li>
+            <li>Lo conect&aacute;is a un conversor de <b>8 bits</b>. Calculad cu&aacute;ntos valores
+                distintos puede dar, <b>cu&aacute;ntos voltios</b> mide cada escal&oacute;n y, sobre todo,
+                <b>a cu&aacute;ntos grados</b> equivale ese escal&oacute;n. Comprobadlo con la escena de
+                arriba antes de seguir.</li>
+            <li>Os piden distinguir <b>d&eacute;cimas de grado</b>. &iquest;Cu&aacute;ntos escalones hacen
+                falta en los 50&nbsp;&deg;C? &iquest;Y cu&aacute;ntos <b>bits</b>? Probad con 8 y con 9
+                y decid cu&aacute;l es el primero que vale.</li>
+            <li>Ahora el muestreo. Decid <b>cu&aacute;ntas veces por segundo</b> hay que medir la
+                temperatura de un invernadero, y cu&aacute;ntas habr&iacute;a que medir el sonido de un
+                micr&oacute;fono. Justificadlo con una sola idea: <b>&iquest;cu&aacute;nto puede cambiar
+                eso mientras no miras?</b></li>
+            <li>Con <b>16 bits</b> (2 bytes por medida) calculad lo que ocupa un d&iacute;a entero
+                midiendo <b>una vez por minuto</b>, y lo que ocupar&iacute;a midiendo <b>mil veces por
+                segundo</b>. Pasad el segundo a MB. Escribid una frase: medir de m&aacute;s no es
+                &laquo;por si acaso&raquo;, &iquest;qu&eacute; es?</li>
+            <li>Haced una tabla con <b>ocho aparatos</b> del aula. Para cada uno: si es de
+                <b>entrada</b>, de <b>salida</b> o <b>mixto</b>, y <b>por qu&eacute; puerto</b> se
+                conecta. Al menos uno tiene que ser mixto, y hay que explicar por qu&eacute; lo es.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los grados por voltio est&aacute;n bien <b>(1 punto)</b>.</li>
+            <li>La cuenta de los 8 bits llega hasta los <b>grados</b>, no se queda en los voltios
+                <b>(2 puntos)</b>.</li>
+            <li>El n&uacute;mero de bits para la d&eacute;cima de grado est&aacute; justificado con la
+                cuenta de escalones <b>(2 puntos)</b>.</li>
+            <li>Las dos frecuencias de muestreo se razonan por lo que puede cambiar la magnitud, no
+                &laquo;porque el sonido es m&aacute;s r&aacute;pido&raquo; <b>(2 puntos)</b>.</li>
+            <li>Las dos cuentas de tama&ntilde;o est&aacute;n bien y con unidades <b>(2 puntos)</b>.</li>
+            <li>La tabla de los ocho aparatos distingue bien el mixto <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Pista para el paso 3</span>
+            Ojo con una trampa: <b>256 valores no son 256 escalones</b>. Si pon&eacute;is los dos
+            extremos de la escala, entre ellos quedan <b>255</b>. Con 4 dedos hay 3 huecos.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; una foto o una canci&oacute;n guardadas en un ordenador no son <b>exactamente</b> lo que hab&iacute;a fuera?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el mundo cambia de forma continua y la m&aacute;quina solo sabe anotar valores contados. Se mira <b>cada cierto tiempo</b> (muestreo) y cada medida se redondea al <b>escal&oacute;n</b> m&aacute;s cercano (cuantificaci&oacute;n). Lo que se pierde entre medida y medida, y al redondear, ya no vuelve.</p></div></details></li>
+        <li>Un conversor de 8 bits y otro de 16 miden el mismo sensor. &iquest;Qu&eacute; cambia?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El de 8 bits reparte la escala en 255 escalones y el de 16, en 65.535: los escalones del segundo son unas <b>257 veces m&aacute;s finos</b>, as&iacute; que se equivoca mucho menos. A cambio, cada medida ocupa <b>2 bytes en vez de 1</b>. Fidelidad y tama&ntilde;o van siempre juntos.</p></div></details></li>
+        <li>Una pantalla t&aacute;ctil, &iquest;es perif&eacute;rico de entrada o de salida?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Las dos cosas: es <b>mixto</b>. Como pantalla saca informaci&oacute;n (salida) y como superficie t&aacute;ctil mete d&oacute;nde has puesto el dedo (entrada). Lo mismo pasa con una memoria USB, de la que se lee y en la que se escribe.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes c&oacute;mo entra la informaci&oacute;n y c&oacute;mo sale. Ahora mira el ordenador que
+        tienes delante: hay <b>una</b> CPU, <b>una</b> memoria, <b>un</b> disco y <b>un</b> teclado, y hay
+        doscientos programas abiertos queriendo las cuatro cosas <b>a la vez</b>. No se pelean nunca.
+        &iquest;Qui&eacute;n reparte?
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>El sistema operativo: qui&eacute;n reparte la m&aacute;quina</h2>
+      <p>Doscientos programas, cuatro n&uacute;cleos y ninguna pelea. Detr&aacute;s hay un programa que no pide las cosas por favor: las quita, las separa y las reparte.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">D.1&ndash;D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Empieza mirando, no leyendo. En el equipo del aula abre el administrador de tareas o el monitor
+         del sistema y <b>cuenta los procesos</b>. Van a salir decenas, y en Windows m&aacute;s de cien
+         &mdash;marca la casilla de ver los de todos los usuarios y crecen otra vez&mdash;. Ahora mira
+         cu&aacute;ntos n&uacute;cleos tiene el procesador: cuatro, con suerte ocho.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Sois <b>doscientos</b> y hay <b>cuatro sillas</b>. Escribe las <b>reglas</b> del reparto: qui&eacute;n
+        se sienta, cu&aacute;nto rato, qui&eacute;n decide y qu&eacute; pasa si uno no quiere levantarse.
+      </div>
+
+      <p>Las reglas que escribe todo el mundo la primera vez son estas tres. Y las tres se rompen por el
+         mismo sitio:</p>
+      <ul>
+        <li><b>&laquo;Que cada uno avise cuando termine&raquo;.</b> Basta con que <b>uno</b> no avise
+            &mdash;porque se ha colgado, o porque est&aacute; mal escrito&mdash; para que la m&aacute;quina
+            entera se quede muerta. Y no es un cuento: los ordenadores <b>personales</b> funcionaron
+            as&iacute; hasta los a&ntilde;os noventa, y por eso se colgaban enteros y hab&iacute;a que
+            apagarlos a lo bruto.</li>
+        <li><b>&laquo;Que cada uno coja la memoria que necesite&raquo;.</b> Dos programas eligen el mismo
+            hueco y se machacan los datos el uno al otro. Nadie ha hecho nada mal y los dos fallan.</li>
+        <li><b>&laquo;Que cada uno escriba en el disco donde quiera&raquo;.</b> Uno escribe encima de los
+            ficheros de otro. O de los tuyos.</li>
+      </ul>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Lo que falla en las tres</span>
+        <p>En las tres est&aacute;s <b>pidiendo que se porten bien</b>. &iquest;Y si uno no quiere? &iquest;Y
+           si uno simplemente est&aacute; roto? Un reparto que solo funciona cuando todos colaboran
+           <b>no es un reparto</b>: es un deseo.</p>
+      </div>
+
+      <p>As&iacute; que hace falta alguien que no pida por favor: que pueda <b>quitar</b> la CPU a un
+         programa aunque no quiera soltarla, que <b>impida</b> tocar la memoria del vecino y que sea el
+         <b>&uacute;nico</b> que toca el disco. Ese alguien es tambi&eacute;n un programa &mdash;no hay
+         magia&mdash;, pero manda sobre los dem&aacute;s: es el <b>sistema operativo</b>.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Repartir la CPU: el turno</h3>
+      <p>La escena de abajo reparte una sola CPU entre cinco programas. Los tiempos que salen no
+         est&aacute;n escritos: se calculan simulando el reparto, turno a turno. Mira <b>las dos cifras a
+         la vez</b>, la de tu tecla y la del porcentaje, y busca el turno que las deje bien a las dos.
+         Spoiler: no existe.</p>
+
+
+      <div class="escena" id="esc-plan">
+        <div class="escena-barra">
+          <span class="escena-titulo">Una CPU, cinco programas: qui&eacute;n entra y cu&aacute;nto</span>
+          <div class="seg" id="seg-plan">
+            <button type="button" data-q="0.1">Turnos de 0,1 ms</button>
+            <button type="button" data-q="10" aria-pressed="true">de 10 ms</button>
+            <button type="button" data-q="100">de 100 ms</button>
+            <button type="button" data-q="nada">Sin repartir</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 326" id="svg-plan" role="img"
+               aria-label="Reparto del tiempo de una CPU entre cinco programas, con el tiempo que tarda cada uno en terminar"></svg>
+        </div>
+        <div class="pie" id="pie-plan"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-plan');
+        if(!svg) return;
+        var pie = document.getElementById('pie-plan');
+        var seg = document.getElementById('seg-plan');
+
+        /* Lo que pide cada programa de CPU, en milisegundos. La tecla va la
+           ultima de la cola a proposito: es la que menos pide y la que mas
+           prisa tiene, que es el caso incomodo de verdad.                    */
+        var P = [
+          {n:'Antivirus',      ms:120, c:'var(--goo-verde)'},
+          {n:'Navegador',      ms:40,  c:'var(--goo-azul)'},
+          {n:'Actualizaci\u00f3n', ms:200, c:'var(--goo-amarillo)'},
+          {n:'M\u00fasica',        ms:15,  c:'var(--ink-soft)'},
+          {n:'Tu tecla',       ms:2,   c:'var(--goo-rojo)'}
+        ];
+        var CAMBIO = 0.05;      /* ms que cuesta cambiar de programa */
+        var X0 = 20, X1 = 620, YA = 44, HA = 52;
+        var q = 10;             /* ms de turno; el texto 'nada' = sin repartir */
+
+        function es(x, dec){ return x.toFixed(dec).replace('.', ','); }
+
+        /* El reparto de verdad: se va dando turno a cada programa que aun tenga
+           trabajo, y se cobra el cambio cada vez que entra otro.              */
+        function simula(turno){
+          var queda = P.map(function(p){ return p.ms; });
+          var tramos = [], t = 0, util = 0, fin = P.map(function(){ return 0; });
+          var vivo = function(){ return queda.some(function(r){ return r > 1e-9; }); };
+          var vueltas = 0;
+          while(vivo() && vueltas < 100000){
+            vueltas++;
+            for(var i = 0; i < P.length; i++){
+              if(queda[i] <= 1e-9) continue;
+              var d = (turno === null) ? queda[i] : Math.min(turno, queda[i]);
+              tramos.push({i:i, t0:t, d:d});
+              t += d; util += d; queda[i] -= d;
+              if(queda[i] <= 1e-9) fin[i] = t;
+              if(vivo()){ tramos.push({i:-1, t0:t, d:CAMBIO}); t += CAMBIO; }
+            }
+          }
+          return {tramos:tramos, total:t, util:util, fin:fin,
+                  cambios:tramos.filter(function(x){ return x.i < 0; }).length};
+        }
+
+        function pinta(){
+          var turno = (q === 'nada') ? null : q;
+          var R = simula(turno), m = '', i;
+
+          /* Se dibujan los primeros tramos, no los miles que salen con turnos
+             cortos: la franja es una ventana, y debajo pone de cuanto es.     */
+          var n = Math.min(R.tramos.length, 130);
+          var ventana = R.tramos[n - 1].t0 + R.tramos[n - 1].d;
+          var ex = function(t){ return X0 + (X1 - X0) * t / ventana; };
+
+          m += '<text x="' + X0 + '" y="28" class="rotulo-svg" style="font-size:10px">'
+             + 'QUI\u00c9N TIENE LA CPU, MILISEGUNDO A MILISEGUNDO</text>';
+
+          for(i = 0; i < n; i++){
+            var s = R.tramos[i], xa = ex(s.t0), w = Math.max(0.6, ex(s.t0 + s.d) - xa);
+            m += '<rect x="' + xa.toFixed(2) + '" y="' + YA + '" width="' + w.toFixed(2)
+               + '" height="' + HA + '" fill="'
+               + (s.i < 0 ? 'var(--line)' : P[s.i].c) + '"></rect>';
+          }
+          m += '<rect x="' + X0 + '" y="' + YA + '" width="' + (X1 - X0) + '" height="' + HA
+             + '" fill="none" stroke="var(--line)" stroke-width="1.5"></rect>';
+          m += '<text x="' + X0 + '" y="' + (YA + HA + 16) + '" class="rotulo-svg" '
+             + 'style="font-size:10px">0 ms</text>';
+          m += '<text x="' + X1 + '" y="' + (YA + HA + 16) + '" text-anchor="end" '
+             + 'class="rotulo-svg" style="font-size:10px">' + es(ventana, 2) + ' ms'
+             + (R.tramos.length > n ? ' \u00b7 de ' + es(R.total, 1) + ' ms en total' : '')
+             + '</text>';
+          m += '<rect x="' + X0 + '" y="' + (YA + HA + 24) + '" width="13" height="11" '
+             + 'fill="var(--line)"></rect>';
+          m += '<text x="' + (X0 + 19) + '" y="' + (YA + HA + 34) + '" class="rotulo-svg" '
+             + 'style="font-size:10px">gris = cambiar de programa, que no calcula nada</text>';
+
+          /* ---- la leyenda, con lo que ha tardado cada uno ---- */
+          m += '<text x="' + X0 + '" y="162" class="rotulo-svg" style="font-size:10px">'
+             + 'PROGRAMA \u00b7 LO QUE PIDE \u00b7 CU\u00c1NDO ACABA</text>';
+          for(i = 0; i < P.length; i++){
+            var y = 170 + i * 30;
+            m += '<rect x="' + X0 + '" y="' + y + '" width="14" height="14" rx="2" fill="'
+               + P[i].c + '"></rect>';
+            m += '<text x="' + (X0 + 24) + '" y="' + (y + 12) + '" class="rotulo-svg" '
+               + 'style="font-size:12px;fill:var(--ink)">' + P[i].n + '</text>';
+            m += '<text x="300" y="' + (y + 12) + '" text-anchor="end" class="rotulo-svg" '
+               + 'style="font-size:11.5px">pide ' + P[i].ms + ' ms</text>';
+            m += '<text x="' + X1 + '" y="' + (y + 12) + '" text-anchor="end" class="rotulo-svg" '
+               + 'style="font-size:12px;fill:'
+               + (i === 4 ? 'var(--goo-rojo);font-weight:500' : 'var(--ink)') + '">acaba a los '
+               + es(R.fin[i], 1) + ' ms</text>';
+            m += '<path d="M' + X0 + ' ' + (y + 22) + ' H' + X1 + '" stroke="var(--line-soft)" '
+               + 'stroke-width="1"></path>';
+          }
+
+          svg.innerHTML = m;
+
+          var rend = 100 * R.util / R.total;
+          var tecla = R.fin[4];
+          pie.innerHTML = (turno === null
+              ? '<b>Sin repartir:</b> cada programa se queda la CPU hasta que acaba. '
+              : '<b>Turnos de ' + es(turno, 1) + ' ms:</b> cada programa calcula ese rato y le toca al '
+                + 'siguiente. ')
+            + 'Tu tecla aparece en pantalla a los <b>' + es(tecla, 1) + ' ms</b>'
+            + (tecla > 120 ? ' &mdash;eso ya se nota al escribir&mdash;' : '')
+            + ', y de todo el tiempo transcurrido la m&aacute;quina dedica el <b>' + es(rend, 1)
+            + ' %</b> a calcular: el resto se va en los <b>' + R.cambios.toLocaleString('es-ES')
+            + ' cambios</b> de programa.'
+            + '<br><span style="font-size:12.5px">Prueba los cuatro botones y mira las dos cifras a '
+            + 'la vez: <b>no hay un valor bueno</b>. Turno corto, responde al momento y se gasta la '
+            + 'm&aacute;quina en cambiar; turno largo, se aprovecha entera y se nota el tir&oacute;n. '
+            + 'Los sistemas de verdad se quedan en unos pocos milisegundos, por esto mismo. Modelo '
+            + 'simplificado: aqu&iacute; hay un solo n&uacute;cleo, nadie espera al disco y todos los '
+            + 'programas valen lo mismo.</span>';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-q]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          q = (b.dataset.q === 'nada') ? 'nada' : +b.dataset.q;
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>El planificador</h4>
+        <p><b>Proceso</b>: un programa que se est&aacute; ejecutando, con su trozo de memoria y una anotaci&oacute;n
+           de por d&oacute;nde iba.</p>
+        <p>El <b>planificador</b> del sistema operativo le da a cada proceso un <b>turno</b> de unos pocos
+           milisegundos y, cuando se acaba, <b>se lo quita</b> aunque no haya terminado. Eso se llama
+           <b>multitarea con desalojo</b>.</p>
+        <p>Como los turnos son cort&iacute;simos, parece que todos los programas van a la vez. <b>No van a
+           la vez</b>: van por turnos, muy deprisa.</p>
+        <p>Cambiar de programa <b>cuesta tiempo</b>: hay que guardar por d&oacute;nde iba uno y recuperar
+           por d&oacute;nde iba el otro. Turnos m&aacute;s cortos responden antes y gastan m&aacute;s
+           m&aacute;quina en cambiar.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Y los n&uacute;cleos, entonces</span>
+        Un procesador de <b>cuatro n&uacute;cleos</b> s&iacute; hace cuatro cosas a la vez de verdad: son
+        cuatro CPU en la misma pastilla. Lo que no cambia es el problema: con 200 procesos y 4
+        n&uacute;cleos siguen sobrando 196, y hay que repartir igual. Cuatro sillas, no doscientas.
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p><b>20 de julio de 1969</b>, m&oacute;dulo lunar del Apolo 11, a unos minutos de posarse. El
+           ordenador de a bordo empieza a dar una alarma: <b>1202</b>. Luego otra, 1201. Significan que
+           <b>se ha quedado sin sitio para tanto trabajo</b>: un radar que no hac&iacute;a falta en ese
+           momento le estaba robando alrededor del <b>13 %</b> del tiempo de c&aacute;lculo.</p>
+        <p>Un ordenador normal de la &eacute;poca se habr&iacute;a colgado, y con &eacute;l el
+           alunizaje. Este no, porque su reparto estaba hecho <b>por prioridades</b>: al ver que no
+           llegaba, tir&oacute; por la borda las tareas menos importantes, se reinici&oacute; y
+           sigui&oacute; calculando lo &uacute;nico que no pod&iacute;a fallar, que era guiar la nave.
+           Desde tierra dieron el &laquo;go&raquo; y aterrizaron.</p>
+        <p>El programa lo hab&iacute;a escrito el equipo de <b>Margaret Hamilton</b> en el MIT. Lo que
+           salv&oacute; el alunizaje no fue un ordenador m&aacute;s potente: fue haber decidido antes
+           <b>qu&eacute; se tira cuando no se llega</b>. Eso es exactamente lo que hace el planificador de
+           la escena de arriba, solo que en tu mesa nadie se estrella.</p>
+      </div>
+
+      <figure class="foto">
+        <img src="../../../img/u7-hamilton.jpg" alt="Margaret Hamilton de pie junto a una pila de listados de programa impresos tan alta como ella" loading="lazy">
+        <figcaption><b>Margaret Hamilton</b>, 1969, junto a los listados del programa de vuelo del Apolo que dirigi&oacute; su equipo en el MIT. Todo eso son instrucciones, impresas. Ella fue quien empez&oacute; a llamar <b>ingenier&iacute;a de software</b> a lo que hac&iacute;an, cuando nadie se tomaba en serio que escribir programas fuera ingenier&iacute;a.
+          <span class="credito">Restauraci&oacute;n de Adam Cuerden sobre foto del MIT &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Margaret_Hamilton_-_restoration.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="../../../img/u7-dsky.jpg" alt="Panel DSKY del ordenador del Apolo: luces de aviso a la izquierda, un visor num&eacute;rico arriba a la derecha y un teclado de cifras con teclas VERB y NOUN" loading="lazy">
+        <figcaption>El <b>DSKY</b>, la pantalla y el teclado del ordenador del Apolo. En ese visor de la derecha es donde apareci&oacute; el <b>1202</b>. F&iacute;jate en lo que hay: n&uacute;meros y nada m&aacute;s. Todo el perif&eacute;rico de entrada y salida de un ordenador que llev&oacute; gente a la Luna cabe en esta placa.
+          <span class="credito">Arnold Reinhold (Computer History Museum) &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Apollo_DSKY_CHM.agr.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <h3>Repartir la memoria: cada uno en su sitio</h3>
+      <div class="copiar">
+        <h4>Memoria separada</h4>
+        <p>El sistema operativo le da a cada proceso <b>su propio trozo de RAM</b> y, con ayuda del
+           hardware, <b>impide</b> que toque el de los dem&aacute;s. Un programa que se sale de lo suyo no
+           rompe nada ajeno: el sistema <b>lo cierra a &eacute;l</b> y los dem&aacute;s siguen.</p>
+        <p>Por eso hoy se cierra <b>una</b> aplicaci&oacute;n y el resto sigue. Antes de que esto
+           existiera, un fallo en cualquier programa se llevaba por delante el ordenador entero.</p>
+      </div>
+
+      <h3>Repartir el disco: ficheros, carpetas y permisos</h3>
+      <div class="copiar">
+        <h4>C&oacute;mo se organiza lo guardado</h4>
+        <p><b>Fichero</b>: una tira de bytes con un nombre. Nada m&aacute;s.</p>
+        <p><b>Carpeta</b>: un fichero especial que contiene una lista de nombres. Por eso se pueden meter
+           unas dentro de otras.</p>
+        <p><b>Ruta</b>: el camino completo hasta un fichero, carpeta a carpeta
+           (<i>Documentos / tema7 / pruebas / notas.txt</i>).</p>
+        <p><b>Permisos</b>: para cada fichero, qui&eacute;n puede <b>leerlo</b>, qui&eacute;n puede
+           <b>escribirlo</b> y qui&eacute;n puede <b>ejecutarlo</b>. Es lo que evita que un alumno borre
+           el sistema o lea el trabajo de otro.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">La extensi&oacute;n no es el fichero</span>
+        El <b>.jpg</b> del final del nombre no hace que algo sea una foto: es solo una <b>pista</b> para
+        que el sistema sepa <b>con qu&eacute; programa</b> abrirlo, es decir, <b>qu&eacute; acuerdo</b> aplicar
+        &mdash;la misma palabra de la sesi&oacute;n 3&mdash;. Cambiarle el nombre a <b>.txt</b> no
+        convierte la foto en texto; lo &uacute;nico que consigue es que la abra el programa equivocado y
+        salga basura. Lo vas a comprobar en la pr&aacute;ctica.
+      </div>
+
+      <h3>Y esconderlo todo</h3>
+      <p>Falta el trabajo m&aacute;s invisible. Tu programa de dibujo no sabe nada de tu impresora, ni
+         falta que le haga: le pide al sistema operativo &laquo;imprime esto&raquo; y el sistema, a
+         trav&eacute;s del <b>controlador</b> (el <i>driver</i>) de ese modelo concreto, se entiende con
+         ella. Ah&iacute; est&aacute; enganchada la sesi&oacute;n anterior: <b>el sistema operativo es
+         quien habla con los perif&eacute;ricos</b>, y por eso puedes cambiar de impresora sin cambiar de
+         programas.</p>
+
+      <div class="copiar">
+        <h4>Qu&eacute; hace un sistema operativo</h4>
+        <ol>
+          <li><b>Arrancar</b> la m&aacute;quina y dejarla lista.</li>
+          <li><b>Repartir la CPU</b> entre los procesos, por turnos.</li>
+          <li><b>Repartir la memoria</b> y que nadie toque la del vecino.</li>
+          <li><b>Gestionar ficheros</b>, carpetas y permisos.</li>
+          <li><b>Hablar con los perif&eacute;ricos</b> a trav&eacute;s de los controladores.</li>
+          <li><b>Dar una interfaz</b> para que t&uacute; solo tengas que pulsar un icono.</li>
+        </ol>
+        <p>Ejemplos: Windows, macOS, <b>GNU/Linux</b> (el de eduAndos), Android, iOS.</p>
+      </div>
+
+      <div class="video" id="video-so" data-vid="vnJCudAed08">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Microaprendizaje: &iquest;Qu&eacute; es un sistema operativo?">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Microaprendizaje: &iquest;Qu&eacute; es un sistema operativo?</b>
+            <span>Educar Portal &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Un repaso corto de las funciones que acabas de copiar, por si alguna se ha quedado a medias. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=vnJCudAed08" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-so');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+                + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7.5 &middot; Destripar el equipo del aula</span>
+          <span class="chips"><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <div class="aviso">
+            <span class="n-tag">Antes de tocar nada</span>
+            <b>No se cierra ning&uacute;n proceso</b>, <b>no se borra nada</b> y <b>no se usa la
+            contrase&ntilde;a de administrador</b>. Cerrar un proceso del sistema al azar puede dejar el
+            equipo inservible hasta que se reinicie, y el paso 6 est&aacute; pensado precisamente para
+            que os <b>digan que no</b>.
+          </div>
+          <h4>C&oacute;mo se abre el monitor</h4>
+          <p>En Windows, <b>Ctrl + May&uacute;s + Esc</b>. En GNU/Linux, <i>Monitor del sistema</i>. En
+             ChromeOS, <b>Buscar + Esc</b>. Anotad cu&aacute;l hab&eacute;is usado.</p>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Con nada abierto, anotad tres cifras: <b>cu&aacute;ntos procesos</b> hay, <b>qu&eacute; %
+                de CPU</b> se est&aacute; usando y <b>cu&aacute;nta RAM</b> hay ocupada del total.
+                &iquest;Cuadra con lo que esperabais de una m&aacute;quina &laquo;parada&raquo;?</li>
+            <li>Ordenad la lista <b>por memoria</b>. Copiad los <b>cinco primeros</b> con lo que ocupa
+                cada uno, sumadlos y calculad <b>qu&eacute; porcentaje</b> de la RAM total son. Se&ntilde;alad
+                el que m&aacute;s os sorprenda y decid por qu&eacute;.</li>
+            <li>Abrid <b>diez pesta&ntilde;as</b> del navegador y volved a mirar la RAM ocupada. Calculad
+                <b>cu&aacute;nto ha subido</b> y <b>cu&aacute;nto por pesta&ntilde;a</b>. Comparadlo con
+                los 0,35&nbsp;GB por pesta&ntilde;a que daba la actividad 7.2: &iquest;se parece a lo
+                que gasta este equipo?</li>
+            <li>En vuestra carpeta personal cread el &aacute;rbol <b>tema7 / pruebas /</b> y dentro un
+                fichero de texto con una frase vuestra. Anotad su <b>ruta completa</b> y su
+                <b>tama&ntilde;o en bytes</b>. Contad las letras de la frase: &iquest;cu&aacute;ntos bytes
+                sale por letra? &iquest;Cuadra con la sesi&oacute;n 3?</li>
+            <li>Copiad una foto a esa carpeta, cambiadle la extensi&oacute;n a <b>.txt</b> y abridla con
+                el editor de texto. Copiad en el cuaderno las <b>tres primeras l&iacute;neas</b> de lo que
+                salga y explicad <b>por qu&eacute;</b> sale eso usando la palabra <b>acuerdo</b>.</li>
+            <li>Buscad un fichero del sistema (en <i>C:\Windows</i> o en <i>/usr/bin</i>), mirad sus
+                <b>permisos</b> e intentad borrarlo. <b>Aceptad el no.</b> Copiad el mensaje exacto y
+                contestad: &iquest;qui&eacute;n lo est&aacute; impidiendo y para proteger a qui&eacute;n?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las tres cifras del paso 1 est&aacute;n anotadas con sus unidades <b>(1 punto)</b>.</li>
+            <li>La suma de los cinco y el porcentaje est&aacute;n bien <b>(2 puntos)</b>.</li>
+            <li>La medida de las pesta&ntilde;as se compara de verdad con la estimaci&oacute;n anterior
+                <b>(2 puntos)</b>.</li>
+            <li>La ruta es <b>completa</b> y la cuenta de bytes por letra est&aacute; explicada
+                <b>(2 puntos)</b>.</li>
+            <li>La explicaci&oacute;n del fichero renombrado usa bien la idea de acuerdo y no dice que
+                &laquo;se ha roto&raquo; <b>(2 puntos)</b>.</li>
+            <li>La respuesta sobre los permisos dice qui&eacute;n lo impide <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso sobre el paso 5</span>
+            La foto <b>no se estropea</b>: sigue siendo exactamente los mismos bytes. Devolvedle la
+            extensi&oacute;n <b>.jpg</b> al terminar y comprobad que se abre igual que antes. Eso es
+            parte de la respuesta.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>Tienes cuarenta programas abiertos y un procesador de cuatro n&uacute;cleos. &iquest;Van los cuarenta a la vez?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. Van <b>cuatro</b> a la vez de verdad, y los cuarenta se turnan en esos cuatro sitios con turnos de unos pocos milisegundos. Lo parece porque los turnos son tan cortos que el ojo no los distingue.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; no vale con pedir a cada programa que suelte la CPU cuando termine?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque basta con que <b>uno</b> no la suelte &mdash;por un fallo o por estar mal escrito&mdash; para colgar la m&aacute;quina entera. El sistema operativo <b>se la quita</b>, no se la pide. Ese es todo el invento.</p></div></details></li>
+        <li>Renombras <i>gato.jpg</i> como <i>gato.txt</i>. &iquest;Qu&eacute; ha cambiado dentro del fichero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Nada en absoluto</b>: son los mismos bytes en el mismo orden. Lo &uacute;nico que has cambiado es la <b>pista</b> que le das al sistema sobre qu&eacute; acuerdo usar para leerlo, as&iacute; que lo abre el programa equivocado y sale basura. Es el mismo byte con otra lectura, otra vez.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya tienes el mapa entero: una m&aacute;quina que obedece listas, dos memorias, ceros y unos,
+        perif&eacute;ricos que traducen y un sistema que lo reparte. La &uacute;ltima sesi&oacute;n es la
+        que vas a usar de verdad fuera de clase: <b>una de esas piezas falla y hay que averiguar
+        cu&aacute;l</b>, sin tocar cosas al azar y sin gastarse un euro de m&aacute;s.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Diagnosticar: acotar en vez de adivinar</h2>
+      <p>&laquo;No va&raquo; no es un s&iacute;ntoma. La sesi&oacute;n no ense&ntilde;a ninguna pieza nueva: ense&ntilde;a el m&eacute;todo para averiguar cu&aacute;l de las que ya conoces ha fallado, y cierra el tema con el test.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>15'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>12'</b> Test</span><span class="min"><b>3'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">D.1&ndash;D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Entras en el aula 12 y te dicen esto, literal:</p>
+      <div class="aviso">
+        <span class="n-tag">El parte de aver&iacute;a</span>
+        &laquo;El ordenador <b>no va</b>.&raquo;
+      </div>
+      <p>Tienes dos minutos y el cuaderno. Escribe <b>qu&eacute; haces primero</b>. Sin leer lo de abajo.</p>
+
+      <p>Lo que se escribe casi siempre, y por qu&eacute; ninguna de las cuatro sirve:</p>
+      <ul>
+        <li><b>&laquo;Reiniciar&raquo;.</b> A veces funciona, y eso es lo peor que te puede pasar:
+            funciona y <b>no sabes por qu&eacute;</b>, as&iacute; que volver&aacute; el jueves.</li>
+        <li><b>&laquo;Reinstalar el sistema&raquo;.</b> Tres horas de trabajo para arreglar, quiz&aacute;,
+            un cable suelto que costaba cero euros y diez segundos.</li>
+        <li><b>&laquo;Cambiar la pieza que yo creo&raquo;.</b> Si aciertas es suerte; si no, has cambiado
+            una pieza que estaba buena y sigues igual, pero con menos dinero.</li>
+        <li><b>&laquo;Mirarlo todo&raquo;.</b> No tienes toda la tarde, y en un taller esa tarde se cobra.</li>
+      </ul>
+
+      <div class="reto-piensa">
+        <span class="n-tag">D&oacute;nde est&aacute; la trampa</span>
+        <p>&laquo;No va&raquo; <b>no es un s&iacute;ntoma</b>: es la falta de informaci&oacute;n. La
+           primera pregunta de quien sabe reparar no es <i>&iquest;qu&eacute; cambio?</i>, es
+           <b>&iquest;qu&eacute; es exactamente lo que no va?</b></p>
+      </div>
+
+      <p>Hoy no se aprende ninguna pieza nueva: ya las conoces todas. Se aprende un <b>m&eacute;todo</b>,
+         que es lo &uacute;nico que sigue sirviendo cuando la aver&iacute;a es de un aparato que no
+         hab&iacute;as visto nunca.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 15 min</div>
+
+      <h3>El s&iacute;ntoma no es la aver&iacute;a</h3>
+      <div class="copiar">
+        <h4>Dos palabras que no son lo mismo</h4>
+        <p><b>S&iacute;ntoma</b>: lo que se ve. &laquo;La pantalla est&aacute; negra.&raquo;</p>
+        <p><b>Causa</b>: lo que hay que arreglar. El cable de v&iacute;deo, la fuente, la RAM&hellip;</p>
+        <p>Un mismo s&iacute;ntoma puede venir de <b>muchas</b> causas, y una misma causa puede dar
+           s&iacute;ntomas distintos. Por eso no se puede ir del s&iacute;ntoma a la pieza de un salto:
+           hay que <b>acotar</b>.</p>
+      </div>
+
+      <h3>Un ordenador no es una caja: es una cadena</h3>
+      <p>Abre el equipo con la mirada antes que con el destornillador. Cada pieza <b>necesita que
+         funcione la anterior</b>: sin corriente no hay fuente, sin fuente no hay placa, sin placa no se
+         lee la RAM, sin RAM no arranca el sistema y sin sistema no hay programa.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u7-pc-dentro.jpg" alt="Interior de una torre de ordenador con la fuente de alimentaci&oacute;n arriba, la placa base con el ventilador del procesador, un m&oacute;dulo de RAM, cables de colores y un disco duro abajo a la derecha" loading="lazy">
+        <figcaption>Se&ntilde;ala la cadena en la foto antes de seguir: arriba a la izquierda la <b>fuente de alimentaci&oacute;n</b> con sus cables de colores; en el centro la <b>placa base</b> con el ventilador del procesador encima; a su derecha, de canto, el m&oacute;dulo de <b>RAM</b>; y abajo a la derecha el <b>disco</b>. Todo lo del tema est&aacute; en esta foto.
+          <span class="credito">DmitroCzegovets &middot; CC BY 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Computer_2008_inside.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>En la escena hay una pieza rota, y no sabes cu&aacute;l. Tampoco vas a abrir nada: solo puedes
+         <b>preguntarle a la m&aacute;quina</b>. Prueba primero como saldr&iacute;a de forma natural, de
+         la 1 a la 6, y luego vuelve a intentarlo <b>empezando por la 4</b>. Mira el contador de
+         sospechosos en las dos.</p>
+
+
+      <div class="escena" id="esc-diag">
+        <div class="escena-barra">
+          <span class="escena-titulo">Un ordenador que no arranca: ac&oacute;talo</span>
+          <div class="seg" id="seg-diag">
+            <button type="button" data-d="otra">&#9888; Otra aver&iacute;a</button>
+            <button type="button" data-d="reset">&#8635; Empezar de nuevo</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 410" id="svg-diag" role="img"
+               aria-label="Cadena de siete piezas de un ordenador y seis pruebas para averiguar en cu&aacute;l est&aacute; la aver&iacute;a"></svg>
+        </div>
+        <div class="pie" id="pie-diag"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-diag');
+        if(!svg) return;
+        var pie = document.getElementById('pie-diag');
+        var seg = document.getElementById('seg-diag');
+
+        /* La cadena de arranque, en orden. Cada eslabon necesita que el
+           anterior funcione: por eso se puede partir por la mitad.        */
+        var CADENA = [
+          ['Corriente',  'enchufe'],
+          ['Fuente',     'de la torre'],
+          ['Placa',      'y CPU'],
+          ['Memoria',    'RAM'],
+          ['Disco',      'SSD'],
+          ['Sistema',    'operativo'],
+          ['Aplicaci\u00f3n', 'el programa']
+        ];
+        /* Cada prueba comprueba que TODO lo anterior al corte funciona.
+           Tope: 64 caracteres. Del principio del texto (x = 52) al borde
+           izquierdo de la respuesta hay unos 460 px, y Roboto Mono a 11,5 px
+           gasta 7,2 px por caracter. Con 69 se monta encima de "probar".   */
+        var PRUEBAS = [
+          '\u00bfTiene corriente el enchufe? Prueba otro aparato en la regleta.',
+          '\u00bfSe enciende el piloto de la torre y gira el ventilador?',
+          '\u00bfDa el pitido de arranque y sale el logotipo de la BIOS?',
+          '\u00bfCuenta la BIOS toda la memoria que deber\u00eda haber?',
+          '\u00bfAparece el disco en la lista de arranque de la BIOS?',
+          '\u00bfLlega hasta el escritorio del sistema operativo?'
+        ];
+
+        var roto, hechas, sospechosos;
+
+        function nueva(){
+          roto = 1 + Math.floor(Math.random() * CADENA.length);   /* 1..7 */
+          hechas = {};
+          sospechosos = [];
+          for(var i = 1; i <= CADENA.length; i++) sospechosos.push(i);
+          pinta();
+        }
+
+        /* La respuesta no esta escrita en ningun sitio: se deduce. La senal
+           llega hasta el corte j si el eslabon roto viene despues.          */
+        function responde(j){ return roto > j; }
+
+        function prueba(j){
+          if(hechas[j] !== undefined) return;
+          var llega = responde(j);
+          hechas[j] = llega;
+          sospechosos = sospechosos.filter(function(k){
+            return llega ? (k > j) : (k <= j);
+          });
+          pinta();
+        }
+
+        function pinta(){
+          var m = '', i;
+          var resuelto = (sospechosos.length === 1);
+          var usadas = Object.keys(hechas).length;
+
+          m += '<text x="21" y="28" class="rotulo-svg" style="font-size:10px">'
+             + 'LA CADENA: CADA PIEZA NECESITA QUE FUNCIONE LA ANTERIOR</text>';
+
+          for(i = 0; i < CADENA.length; i++){
+            var x = 21 + i * 87, n = i + 1;
+            var vivo = sospechosos.indexOf(n) >= 0;
+            var culpable = resuelto && sospechosos[0] === n;
+            m += '<rect x="' + x + '" y="46" width="76" height="70" rx="2" fill="'
+               + (culpable ? 'var(--goo-rojo)' : (vivo ? 'var(--surface)' : 'var(--surface-2)'))
+               + '" stroke="' + (culpable ? 'var(--goo-rojo)' : (vivo ? 'var(--goo-azul)' : 'var(--line)'))
+               + '" stroke-width="' + (vivo ? 2 : 1) + '"' + (vivo ? '' : ' opacity=".55"') + '></rect>';
+            var col = culpable ? '#fff' : (vivo ? 'var(--ink)' : 'var(--ink-soft)');
+            m += '<text x="' + (x + 38) + '" y="66" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:10px;fill:' + col + '">' + n + '</text>';
+            m += '<text x="' + (x + 38) + '" y="88" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:11.5px;font-weight:500;fill:' + col + '">' + CADENA[i][0] + '</text>';
+            m += '<text x="' + (x + 38) + '" y="104" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:9.5px;fill:' + col + '">' + CADENA[i][1] + '</text>';
+            if(i < CADENA.length - 1){
+              m += '<path d="M' + (x + 78) + ' 81 h7" stroke="var(--line)" stroke-width="1.5"></path>';
+            }
+          }
+
+          /* ---- las seis pruebas ---- */
+          for(i = 0; i < PRUEBAS.length; i++){
+            var y = 146 + i * 37, r = hechas[i + 1];
+            var hecho = (r !== undefined);
+            m += '<g class="pr-fila" data-j="' + (i + 1) + '" style="cursor:'
+               + (hecho || resuelto ? 'default' : 'pointer') + '">';
+            m += '<rect x="20" y="' + y + '" width="600" height="32" rx="2" fill="'
+               + (hecho ? 'var(--surface-2)' : 'var(--surface)') + '" stroke="'
+               + (hecho ? (r ? 'var(--goo-verde)' : 'var(--goo-rojo)') : 'var(--line)')
+               + '" stroke-width="1.5"></rect>';
+            m += '<text x="34" y="' + (y + 21) + '" class="rotulo-svg" style="font-size:11px">'
+               + (i + 1) + '</text>';
+            m += '<text x="52" y="' + (y + 21) + '" class="rotulo-svg" style="font-size:11.5px;fill:'
+               + (hecho ? 'var(--ink-soft)' : 'var(--ink)') + '">' + PRUEBAS[i] + '</text>';
+            m += '<text x="606" y="' + (y + 21) + '" text-anchor="end" class="rotulo-svg" '
+               + 'style="font-size:11.5px;font-weight:500;fill:'
+               + (hecho ? (r ? 'var(--goo-verde)' : 'var(--goo-rojo)') : 'var(--ink-soft)') + '">'
+               + (hecho ? (r ? 'S\u00cd llega' : 'NO llega') : 'probar') + '</text>';
+            m += '</g>';
+          }
+
+          var minimo = Math.ceil(Math.log(CADENA.length) / Math.log(2));
+          m += '<text x="20" y="382" class="rotulo-svg" style="font-size:11.5px;fill:var(--ink)">'
+             + 'Sospechosos: ' + sospechosos.length + ' de ' + CADENA.length
+             + '  \u00b7  pruebas usadas: ' + usadas
+             + '  \u00b7  con ' + minimo + ' bien elegidas se acota siempre</text>';
+          m += '<text x="20" y="400" class="rotulo-svg" style="font-size:10.5px">'
+             + (resuelto ? 'Aver\u00eda acotada.'
+                         : 'Elige la prueba que deje menos sospechosos salga lo que salga.')
+             + '</text>';
+
+          svg.innerHTML = m;
+
+          if(resuelto){
+            /* Cuantas habrian hecho falta yendo de una en una desde el principio. */
+            var unaAuna = (roto < CADENA.length) ? roto : CADENA.length - 1;
+            pie.innerHTML = '<b>Lo has acotado: la aver&iacute;a est&aacute; en la pieza '
+              + sospechosos[0] + ', ' + CADENA[sospechosos[0] - 1][0].toLowerCase() + '.</b> '
+              + 'Has gastado <b>' + usadas + (usadas === 1 ? ' prueba' : ' pruebas') + '</b>. '
+              + 'Probando de una en una desde el principio habr&iacute;as necesitado <b>' + unaAuna
+              + '</b>. Con siete piezas, <b>' + minimo + ' pruebas bien elegidas</b> bastan '
+              + '<i>siempre</i>, salga la aver&iacute;a que salga, porque cada prueba parte en dos lo '
+              + 'que queda. Dale a &laquo;otra aver&iacute;a&raquo; e int&eacute;ntalo empezando por '
+              + 'la prueba 4.';
+          } else if(usadas === 0){
+            pie.innerHTML = 'Hay <b>una</b> pieza rota y no sabes cu&aacute;l: siete sospechosos. Cada '
+              + 'prueba contesta <b>s&iacute; o no</b>, y con eso se van cayendo sospechosos. La '
+              + 'pregunta no es &laquo;qu&eacute; toco primero&raquo;, es <b>qu&eacute; prueba me '
+              + 'quita m&aacute;s dudas</b>.';
+          } else {
+            var ultima = Math.max.apply(null, Object.keys(hechas).map(Number));
+            pie.innerHTML = 'Quedan <b>' + sospechosos.length + ' sospechosos</b>: '
+              + sospechosos.map(function(k){ return CADENA[k - 1][0].toLowerCase(); }).join(', ')
+              + '. ' + (hechas[ultima]
+                  ? 'Como la se&ntilde;al <b>s&iacute;</b> llegaba hasta ah&iacute;, todo lo anterior '
+                    + 'funciona y ya no hace falta volver a mirarlo.'
+                  : 'Como la se&ntilde;al <b>no</b> llegaba, el fallo est&aacute; antes de ese punto: '
+                    + 'lo de despu&eacute;s puede estar perfecto y no se sabr&iacute;a.');
+          }
+        }
+
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('.pr-fila'); if(!g) return;
+          if(sospechosos.length === 1) return;
+          prueba(+g.dataset.j);
+        });
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-d]'); if(!b) return;
+          if(b.dataset.d === 'otra'){ nueva(); }
+          else {
+            hechas = {};
+            sospechosos = [];
+            for(var i = 1; i <= CADENA.length; i++) sospechosos.push(i);
+            pinta();
+          }
+        });
+        nueva();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Acotar</h4>
+        <p><b>Acotar</b> es reducir el n&uacute;mero de sospechosos con cada prueba, en vez de adivinar.</p>
+        <p>La cadena de arranque, en orden: <b>corriente &rarr; fuente &rarr; placa y CPU &rarr; RAM
+           &rarr; disco &rarr; sistema operativo &rarr; aplicaci&oacute;n</b>.</p>
+        <p>Una prueba <b>buena</b> es la que <b>parte la cadena por la mitad</b>: conteste lo que
+           conteste, te quita la mitad de los sospechosos. Una prueba mala es la que solo descarta uno.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Y esto no es un truco, es una cuenta</span>
+        Con <b>siete</b> piezas, mirando de una en una puedes gastar <b>seis</b> pruebas; partiendo por la
+        mitad bastan <b>tres</b>, siempre. La diferencia parece poca hasta que crece el problema: con
+        <b>mil</b> piezas ser&iacute;an <b>mil</b> pruebas frente a <b>diez</b>. Cada prueba que parte por
+        la mitad <b>dobla</b> lo que puedes abarcar, igual que cada bit doblaba las combinaciones en la
+        sesi&oacute;n 3. Es la misma cuenta.
+      </div>
+
+      <h3>Las cuatro reglas que no se saltan</h3>
+      <div class="copiar">
+        <h4>C&oacute;mo se busca una aver&iacute;a</h4>
+        <ol>
+          <li><b>Pregunta y reproduce.</b> Qu&eacute; estabas haciendo, desde cu&aacute;ndo pasa, si pasa
+              <b>siempre</b> o a veces. Una aver&iacute;a que no sabes provocar no sabr&aacute;s si la has
+              arreglado.</li>
+          <li><b>Cambia una sola cosa cada vez.</b> Si cambias tres y empieza a ir, no sabes cu&aacute;l
+              era, y las otras dos las has cambiado para nada.</li>
+          <li><b>Deshaz lo que no era.</b> Vuelve a dejarlo como estaba antes de probar otra cosa.</li>
+          <li><b>An&oacute;talo.</b> Qu&eacute; has probado y qu&eacute; ha salido. Sin eso repites pruebas
+              y te enga&ntilde;as.</li>
+        </ol>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">La trampa de la pantalla</span>
+        Si no hay imagen <b>no sabes nada</b> de lo que pasa dentro: la m&aacute;quina puede estar
+        arrancando perfectamente y todos los s&iacute;ntomas se ven igual, negros. Por eso lo primero que
+        se descarta es <b>lo que te impide ver</b>: el monitor, su cable y la entrada elegida. Es la rama
+        que la escena deja fuera <b>a prop&oacute;sito</b>, porque en la vida real es la que m&aacute;s
+        confunde.
+      </div>
+
+      <h3>La pregunta que m&aacute;s acota de todas</h3>
+      <p>Y es gratis, de la sesi&oacute;n 1: <b>&iquest;falla en todo o solo en un sitio?</b> Si el
+         teclado no escribe en <b>ning&uacute;n</b> programa, el problema est&aacute; abajo &mdash;el
+         perif&eacute;rico, su cable o el sistema&mdash;. Si escribe en todos menos en uno, est&aacute;
+         arriba: es <b>software</b> de esa aplicaci&oacute;n. Con una sola pregunta has partido el
+         ordenador en dos.</p>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p><b>9 de septiembre de 1947</b>, Universidad de Harvard. El ordenador Mark II se equivoca. Se
+           ponen a acotar, llegan al panel F, abren el <b>rel&eacute; 70</b> y encuentran dentro una
+           <b>polilla</b> aplastada. La pegan con cinta adhesiva en el cuaderno de
+           incidencias y escriben al lado: <i>&laquo;primer caso real de encontrar un bicho&raquo;</i>. La
+           p&aacute;gina se conserva.</p>
+        <p>Cuidado con el remate f&aacute;cil: <b>la palabra ya exist&iacute;a</b>. Los ingenieros
+           llamaban <i>bugs</i> a los fallos desde los tiempos de Edison, casi setenta a&ntilde;os antes. Lo
+           que tiene gracia de aquella anotaci&oacute;n es justo lo contrario de lo que se cuenta: que
+           por una vez el bicho <b>era un bicho</b>. Y que para dar con &eacute;l hicieron lo mismo que
+           has hecho t&uacute; en la escena: ir cerrando el cerco hasta un rel&eacute; concreto.</p>
+      </div>
+
+      <div class="video" id="video-diag" data-vid="pMG7x0XnCU8">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: C&oacute;mo diagnosticar problemas en mi PC">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>C&oacute;mo diagnosticar problemas en mi PC</b>
+            <span>Edutin Academy &middot; curso de mantenimiento &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">El mismo m&eacute;todo aplicado a un equipo real, con las herramientas delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=pMG7x0XnCU8" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-diag');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+                + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7.6 &middot; Cuatro aver&iacute;as y un m&eacute;todo</span>
+          <span class="chips"><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 20 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <div class="aviso">
+            <span class="n-tag">Seguridad</span>
+            Aqu&iacute; <b>no se abre ning&uacute;n equipo</b> ni se desenchufa nada sin que el profesor
+            est&eacute; delante. Dentro de una fuente de alimentaci&oacute;n hay tensi&oacute;n peligrosa
+            <b>incluso desenchufada</b>. Esta actividad es de papel y de escena.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Para <b>cada uno</b> de los cuatro casos, escribid las cuatro cosas: <b>(a)</b> qu&eacute;
+             pregunt&aacute;is primero al que lo usa; <b>(b)</b> cu&aacute;l es la prueba que m&aacute;s
+             acota, diciendo <b>qu&eacute; concluir&iacute;ais con cada una de las dos respuestas
+             posibles</b>; <b>(c)</b> vuestra hip&oacute;tesis principal; <b>(d)</b> c&oacute;mo la
+             confirmar&iacute;ais <b>cambiando una sola cosa</b>.</p>
+          <ol class="pasos">
+            <li>&laquo;Pulso el bot&oacute;n y no pasa <b>absolutamente nada</b>: ni luces, ni ruido, ni
+                ventilador.&raquo;</li>
+            <li>&laquo;Enciende, oigo el ventilador y las luces van, pero la <b>pantalla sigue
+                negra</b>.&raquo;</li>
+            <li>&laquo;Arranca bien y llega al escritorio, pero al abrir el <b>programa de dibujo</b> se
+                cierra solo. Los dem&aacute;s programas van perfectos.&raquo;</li>
+            <li>&laquo;Va bien <b>media hora</b> y se apaga de golpe. Si lo dejo un rato quieto, vuelve a
+                encender y otra vez lo mismo.&raquo;</li>
+            <li>Volved a la escena. Acotad <b>tres aver&iacute;as distintas</b> y anotad cu&aacute;ntas
+                pruebas hab&eacute;is gastado en cada una. Escribid una frase diciendo si hab&eacute;is
+                mejorado de la primera a la tercera y <b>qu&eacute; hab&eacute;is cambiado</b> para
+                mejorar.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cuatro casos llevan sus cuatro apartados <b>(4 puntos, uno por caso)</b>.</li>
+            <li>En al menos tres casos, la prueba elegida <b>descarta varias piezas</b> a la vez y se dice
+                qu&eacute; significa cada respuesta <b>(3 puntos)</b>.</li>
+            <li>El caso 3 se identifica como problema <b>de software</b>, y se dice en qu&eacute; se nota
+                <b>(1 punto)</b>.</li>
+            <li>El caso 4 relaciona el fallo con <b>el tiempo que lleva encendido</b> y no con lo que se
+                estaba haciendo <b>(1 punto)</b>.</li>
+            <li>El recuento de la escena est&aacute; hecho y la frase final explica la mejora
+                <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso</span>
+            No se puntúa acertar la aver&iacute;a: se puntúa el <b>m&eacute;todo</b>. Una hip&oacute;tesis
+            equivocada con una buena prueba detr&aacute;s vale m&aacute;s que acertar de casualidad, porque
+            la primera se puede comprobar y la segunda no.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Test &middot; 12 min</div>
+
+      <p>Diez preguntas de <b>todo el tema</b>. Se corrigen aqu&iacute; mismo, y cada una explica por
+         qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota: es para que sepas
+         por d&oacute;nde andas antes del examen.</p>
+      <div class="test" id="test-u7">
+        <h4>Lo que tiene que haber quedado del tema</h4>
+        <div class="test-p" data-ok="1">
+          <p>1. &iquest;Por qu&eacute; se dice que un ordenador es una m&aacute;quina de <b>prop&oacute;sito general</b>?</p>
+          <label class="test-op"><input type="radio" name="u7-0" value="0">porque lleva muchos componentes distintos dentro</label>
+          <label class="test-op"><input type="radio" name="u7-0" value="1">porque la m&aacute;quina es siempre la misma y lo que cambia es la lista de instrucciones</label>
+          <label class="test-op"><input type="radio" name="u7-0" value="2">porque sirve para trabajar y para jugar</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Es la idea que abre el tema. El comportamiento no est&aacute; <b>en los cables</b>, est&aacute; <b>escrito</b>; por eso el mismo aparato hace hoy una cosa y ma&ntilde;ana otra sin coger el soldador.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>2. Un procesador de <b>3 GHz</b> hace cada segundo&hellip;</p>
+          <label class="test-op"><input type="radio" name="u7-1" value="0">3.000 millones de instrucciones</label>
+          <label class="test-op"><input type="radio" name="u7-1" value="1">3.000 millones de pulsos de reloj, que no es lo mismo</label>
+          <label class="test-op"><input type="radio" name="u7-1" value="2">3.000 millones de operaciones de memoria</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Los gigahercios miden el <b>ritmo</b>, no el trabajo. Hay instrucciones que gastan varios pulsos y procesadores que resuelven varias a la vez, as&iacute; que de la frecuencia sola no se deduce cu&aacute;nto rinde.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>3. Se va la luz de golpe. Pierdes lo que llevabas escrito, pero el fichero de ayer sigue ah&iacute;. &iquest;Por qu&eacute;?</p>
+          <label class="test-op"><input type="radio" name="u7-2" value="0">porque el disco guarda copias de seguridad autom&aacute;ticas</label>
+          <label class="test-op"><input type="radio" name="u7-2" value="1">porque lo de hoy estaba en la RAM, que es vol&aacute;til, y lo de ayer en el almacenamiento, que no lo es</label>
+          <label class="test-op"><input type="radio" name="u7-2" value="2">porque el procesador no ha tenido tiempo de terminar</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> La <b>RAM</b> necesita corriente para acordarse y al cortarla se borra entera. <i>Guardar</i> es exactamente eso: copiar de la mesa a la estanter&iacute;a.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>4. Tu ordenador se arrastra con quince pesta&ntilde;as, y en el disco te sobran 800 GB. &iquest;Qu&eacute; compras?</p>
+          <label class="test-op"><input type="radio" name="u7-3" value="0">un disco m&aacute;s grande, que nunca sobra</label>
+          <label class="test-op"><input type="radio" name="u7-3" value="1">m&aacute;s memoria RAM, que es lo que se ha llenado</label>
+          <label class="test-op"><input type="radio" name="u7-3" value="2">un procesador m&aacute;s r&aacute;pido</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Lo que se llena es la <b>mesa</b>, no la estanter&iacute;a. Cuando no cabe, el sistema empieza a bajar cosas al disco y a subirlas, y cada viaje cuesta <b>miles de veces m&aacute;s</b>. Sobrar disco no ayuda en nada.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>5. Con <b>8 interruptores</b> salen 256 combinaciones. &iquest;Por qu&eacute; ese n&uacute;mero?</p>
+          <label class="test-op"><input type="radio" name="u7-4" value="0">porque 8 &times; 32 = 256</label>
+          <label class="test-op"><input type="radio" name="u7-4" value="1">porque cada interruptor dobla las posibilidades del anterior: 2<sup>8</sup></label>
+          <label class="test-op"><input type="radio" name="u7-4" value="2">porque es el n&uacute;mero de letras de la tabla ASCII</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Cada bit que a&ntilde;ades <b>multiplica por dos</b> lo que hab&iacute;a. Con 8 bits van del 0 al 255, que son 256 valores contando el cero.</div>
+        </div>
+        <div class="test-p" data-ok="2">
+          <p>6. El byte <b>0100 0001</b>, &iquest;qu&eacute; significa?</p>
+          <label class="test-op"><input type="radio" name="u7-5" value="0">el n&uacute;mero 65, siempre</label>
+          <label class="test-op"><input type="radio" name="u7-5" value="1">la letra A, siempre</label>
+          <label class="test-op"><input type="radio" name="u7-5" value="2">depende del acuerdo con el que se lea: puede ser 65, la A o un gris oscuro</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Un byte por s&iacute; solo <b>no significa nada</b>. Es el programa que lo abre quien aplica un acuerdo u otro, y por eso una foto abierta con un editor de texto sale como basura.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>7. Mides un sensor con un conversor de 4 bits y luego con uno de 8. &iquest;Qu&eacute; ha mejorado?</p>
+          <label class="test-op"><input type="radio" name="u7-6" value="0">mide m&aacute;s veces por segundo</label>
+          <label class="test-op"><input type="radio" name="u7-6" value="1">los escalones son mucho m&aacute;s finos, as&iacute; que se equivoca menos al anotar cada medida</label>
+          <label class="test-op"><input type="radio" name="u7-6" value="2">no pierde informaci&oacute;n: la copia pasa a ser exacta</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> M&aacute;s bits es <b>cuantificaci&oacute;n</b> m&aacute;s fina: 255 escalones en vez de 15. Cu&aacute;ntas veces se mide es otra cosa, el <b>muestreo</b>. Y exacta no es nunca: el error se reduce, no desaparece.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>8. Un motor que mueve la rueda de un robot es&hellip;</p>
+          <label class="test-op"><input type="radio" name="u7-7" value="0">un sensor, porque lo controla el ordenador</label>
+          <label class="test-op"><input type="radio" name="u7-7" value="1">un actuador: convierte una orden el&eacute;ctrica en algo que pasa en el mundo</label>
+          <label class="test-op"><input type="radio" name="u7-7" value="2">un perif&eacute;rico mixto</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Los <b>sensores</b> meten el mundo en la m&aacute;quina y los <b>actuadores</b> lo sacan. Un robot es exactamente eso: sensores, un programa que decide y actuadores.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>9. &iquest;Por qu&eacute; el sistema operativo <b>quita</b> la CPU a un programa en vez de ped&iacute;rsela?</p>
+          <label class="test-op"><input type="radio" name="u7-8" value="0">para que los programas no se hagan demasiado grandes</label>
+          <label class="test-op"><input type="radio" name="u7-8" value="1">porque si dependiera de que cada uno la suelte, bastar&iacute;a uno colgado para parar la m&aacute;quina entera</label>
+          <label class="test-op"><input type="radio" name="u7-8" value="2">porque as&iacute; gasta menos bater&iacute;a</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Un reparto que solo funciona si todos colaboran no es un reparto. Con el turno impuesto, un programa colgado se lleva por delante <b>solo a s&iacute; mismo</b>.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>10. Un ordenador no arranca y sospechas de siete piezas encadenadas. &iquest;Cu&aacute;l es la primera prueba?</p>
+          <label class="test-op"><input type="radio" name="u7-9" value="0">la de la pieza m&aacute;s barata de cambiar</label>
+          <label class="test-op"><input type="radio" name="u7-9" value="1">la que parta la cadena por la mitad, porque descarta la mitad conteste lo que conteste</label>
+          <label class="test-op"><input type="radio" name="u7-9" value="2">la primera de la cadena, e ir avanzando una a una</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Mirando de una en una puedes gastar seis pruebas; partiendo por la mitad bastan <b>tres</b>, y siempre. Con mil piezas ser&iacute;an mil frente a diez: por eso no es un truco, es el m&eacute;todo.</div>
+        </div>
+        <div class="test-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="test-nota"></span>
+        </div>
+        <p class="test-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre &middot; 3 min</div>
+
+      <div class="copiar">
+        <h4>El tema en tres frases</h4>
+        <ol>
+          <li>Un ordenador es <b>una sola m&aacute;quina</b> que no sabe hacer nada en concreto: obedece
+              listas de instrucciones, y por eso sirve para todo.</li>
+          <li>Dentro <b>solo hay ceros y unos</b>. Lo que significan depende siempre de un
+              <b>acuerdo</b>, y todo lo que entra y sale hay que traducirlo.</li>
+          <li>Todo lo dem&aacute;s es <b>reparto</b>: la RAM entre lo que est&aacute;s usando, la CPU entre
+              los programas, el disco entre los ficheros. Y cuando algo falla, se <b>acota</b>: no se
+              adivina.</li>
+        </ol>
+      </div>
+      <div class="nota">
+        <span class="n-tag">Siguiente tema</span>
+        Tienes una m&aacute;quina que procesa informaci&oacute;n ella sola. La pregunta que abre el tema
+        siguiente es: <b>&iquest;y si hay miles de millones de estas m&aacute;quinas y quieren hablar entre
+        ellas?</b> Eso es <b>Internet</b>, y con &eacute;l llegan dos cosas que aqu&iacute; no
+        hac&iacute;an falta: saber <b>de qui&eacute;n</b> te f&iacute;as y saber <b>qu&eacute;</b> est&aacute;s
+        regalando.
+      </div>
+  
+    </section>
+
+  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
@@ -1570,9 +3050,9 @@ footer .wrap{padding-block:18px 26px}
   <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 7 &middot; El ordenador y sus componentes</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema7/. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
   <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
-  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
-     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
-     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
      autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
      propia licencia.</p>
   <h3>Otros usos</h3>
@@ -1597,6 +3077,67 @@ footer .wrap{padding-block:18px 26px}
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
     });
     window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.test').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.test-nota');
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.test-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.test-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.test-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
   });
 })();
 </script>

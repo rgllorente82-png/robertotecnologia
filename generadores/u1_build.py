@@ -1,288 +1,18 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tema 1 &middot; El proceso tecnol&oacute;gico</title>
-<meta name="description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: el m&eacute;todo para pasar de una necesidad a un objeto que la resuelve, empezando por los requisitos.">
-<meta name="license" content="CC BY-SA 4.0">
-<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
-<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
-<meta name="author" content="Roberto P. García Llorente">
-<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
-<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
-<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 1 &middot; El proceso tecnol&oacute;gico","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/","inLanguage":"es",
- "license":"https://creativecommons.org/licenses/by-sa/4.0/",
- "creditText":"Roberto P. García Llorente (2026) &middot; Tema 1 &middot; El proceso tecnol&oacute;gico &middot; CC BY-SA 4.0","copyrightYear":"2026",
- "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
- "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
- "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
-</script>
-<style>
-:root{
-  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
-  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
-  --grid:rgba(66,133,244,.09);
-  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
-  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
-  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
-  --grid:rgba(138,180,248,.09)}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
-.wrap{max-width:900px;margin:0 auto;padding:0 20px}
-header.top{background:var(--surface);border-bottom:2px solid var(--ink);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:24px 24px;position:sticky;top:0;z-index:50}
-header.top .wrap{padding-block:16px 0}
-.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
-.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
-.eyebrow a:hover{border-bottom-color:currentColor}
-h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
-nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
-nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
-  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-nav.sesiones button[disabled]{opacity:.45;cursor:default}
-main{padding-block:26px 70px}
-.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
-.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
-.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
-.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
-.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
-.chip.sab{border-color:var(--line);color:var(--ink-soft)}
-.bloque{margin-bottom:34px}
-.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
-.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
-  display:inline-grid;place-items:center;font-weight:500}
-.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
-.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
-.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
-.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
-.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
-h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
-h4{font-size:15.5px;margin:16px 0 4px}
-.bloque ul,.bloque ol{padding-left:22px}
-.bloque li{margin-bottom:5px}
-.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
-.nota{border-left:5px solid var(--goo-azul)}
-.aviso{border-left:5px solid var(--goo-amarillo)}
-.def{border-left:5px solid var(--goo-verde)}
-.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-soft);margin-bottom:5px}
-.nota .n-tag{color:var(--goo-azul)}
-.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
-.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
-  padding:12px 16px;border-bottom:1px solid var(--line)}
-.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
-.seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
-  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
-.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-.lienzo{padding:10px;background:var(--surface);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:20px 20px}
-.lienzo svg{width:100%;height:auto;display:block}
-.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
-.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
-.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
-  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
-  letter-spacing:.08em;text-transform:uppercase}
-.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
-.ficha-cuerpo{padding:16px}
-.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
-.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--ink-soft)}
-.resp summary::-webkit-details-marker{display:none}
-.resp-cuerpo{padding:0 13px 13px}
-.resp-cuerpo p:last-child{margin-bottom:0}
+# -*- coding: utf-8 -*-
+import io, os, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from unidad_base import pagina, bloque, ficha, pregunta
 
-.narra{display:flex;gap:14px;align-items:flex-start}
-.avatar-caja{flex:none;width:104px}
-.avatar-caja svg.avatar{width:104px;height:72px;display:block}
-.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
-@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
-.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
-.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
-  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
-.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
-.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
-@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+S = []
 
-.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
-  border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
-.reto-piensa p{margin:0}
-.resp.revela summary{color:var(--goo-azul);font-weight:500}
-.resp.revela[open] summary{color:var(--ink-soft)}
-.resp.revela table{margin:0}
-.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
-.secuencia li.oculto *{visibility:hidden}
-.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
-#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
-  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
-#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
-
-/* series del grafico de coste: validadas con el script de dataviz
-   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
-   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
-:root{--c-analog:#ea4335;--c-digital:#1a73e8}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
-.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
-.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
-
-
-.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
-.foto img{width:100%;height:auto;display:block}
-.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
-.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
-.credito a{color:var(--ink-soft)}
-.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
-.galeria-ri .foto{margin:0}
-.galeria-ri figcaption{font-size:13.5px}
-
-.video{margin:16px 0}
-.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
-  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
-  transition:border-color .18s ease}
-.video-play:hover{border-color:var(--goo-rojo)}
-.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
-.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
-  border-top:8px solid transparent;border-bottom:8px solid transparent}
-.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
-.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
-.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
-.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
-
-/* lo que se copia en la libreta, frente a lo que es solo para entender */
-.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
-  padding:16px 18px;margin:18px 0;position:relative}
-.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
-  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
-  padding:3px 9px;border-radius:2px}
-.copiar > :first-child{margin-top:6px}
-.copiar > :last-child{margin-bottom:0}
-.copiar h4{font-size:15px;margin:10px 0 4px}
-.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
-.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
-.entender b{color:var(--ink)}
-@media print{
-  .entender,.escena,.video,.narra,nav.sesiones{display:none}
-  .copiar{border-width:1.5px;break-inside:avoid}
-}
-
-/* ---- avatar narrador, plano y sincronizado con la voz ---- */
-.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
-  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
-.narrador-fig{flex:none;width:110px}
-.narrador-fig svg{width:110px;height:120px;display:block}
-.narrador-txt{flex:1;min-width:0}
-.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
-.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
-.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
-.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
-.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
-@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
-  .narrador-txt{text-align:center}}
-
-/* ---- test de autoevaluacion ---- */
-.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
-  background:var(--surface);position:relative}
-.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
-  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
-.test h4{margin:8px 0 14px;font-size:16px}
-.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
-.test-p:first-of-type{border-top:0}
-.test-p > p{margin:0 0 9px;font-weight:500}
-.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
-  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
-.test-op:hover{border-color:var(--goo-azul)}
-.test-op input{margin-right:9px}
-.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
-.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
-.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
-  background:var(--surface-2);font-size:14.5px;line-height:1.55}
-.test.corregido .test-por{display:block}
-.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
-.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
-  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
-.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
-.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
-.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
-@media print{.test{break-inside:avoid}.test-por{display:block}}
-
-/* ---- banco de programacion ---- */
-.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
-.prog-izq{flex:1 1 380px;min-width:300px}
-.prog-der{flex:0 1 230px;min-width:200px}
-.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
-  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
-.prog-lista ol{margin:0;padding:0 0 0 26px}
-.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
-.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
-.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
-.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
-.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
-  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
-.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
-.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
-.prog-bot button.ir:hover{color:#fff}
-.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
-.prog-est b{font-size:13.5px}
-.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
-.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
-.hito.on{fill:var(--goo-azul)}
-.eje-t{fill:none;stroke:var(--line);stroke-width:2}
-.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
-  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
-  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
-.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
-.cc-sello .cc-autor{opacity:.75;font-weight:400}
-@media (max-width:620px){.cc-sello .cc-autor{display:none}}
-.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
-.cc-aviso h2{font-size:17px;margin:0 0 8px}
-.cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
-footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
-footer .wrap{padding-block:18px 26px}
-@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
-</style>
-</head>
-<body>
-<header class="top">
-  <div class="wrap">
-    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 1</div>
-    <h1>El proceso tecnol&oacute;gico</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; un m&eacute;todo?</button><button type="button" data-ses="2">S2 &middot; Ideas y decisi&oacute;n</button><button type="button" data-ses="3" disabled>S3 &middot; Dise&ntilde;o</button><button type="button" data-ses="4" disabled>S4 &middot; Planificaci&oacute;n y taller</button><button type="button" data-ses="5" disabled>S5 &middot; Construcci&oacute;n</button><button type="button" data-ses="6" disabled>S6 &middot; Evaluaci&oacute;n y test</button></nav>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <div id="ses-1">
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
-      <h2>Por qu&eacute; hace falta un m&eacute;todo</h2>
-      <p>Todo el mundo sabe resolver problemas. Lo que no todo el mundo sabe es hacerlo de forma que el resultado no dependa de la suerte.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>15'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE1 &middot; 1.1</span><span class="chip">CE2 &middot; 2.1</span><span class="chip sab">A.1</span><span class="chip sab">A.8</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+# ---------------------------------------------------------------- SESION 1
+S.append(dict(
+ corto=u'&iquest;Por qu&eacute; un m&eacute;todo?', titulo=u'Por qu&eacute; hace falta un m&eacute;todo',
+ entradilla=u'Todo el mundo sabe resolver problemas. Lo que no todo el mundo sabe es hacerlo de forma que el resultado no dependa de la suerte.',
+ minutado=[(u"10'", u'Reto'), (u"15'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"10'", u'Cierre')],
+ chips=[u'CE1 &middot; 1.1', u'CE2 &middot; 2.1', u'A.1', u'A.8'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
       <p>Un problema de verdad, de los que pasan en un instituto:</p>
       <div class="aviso">
         <span class="n-tag">El problema</span>
@@ -300,11 +30,8 @@ footer .wrap{padding-block:18px 26px}
       <p>No se puede saber. Y ese es el problema: no porque las ideas sean malas, sino porque
          <b>no hay forma de compararlas</b>. Nadie ha dicho cu&aacute;ntos abrigos, ni cu&aacute;nto puede costar, ni
          de qu&eacute; se hace, ni c&oacute;mo se sabr&iacute;a si funciona.</p>
-  
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 15 min</div>
-
+  ''') +
+  bloque('01', u'Teor&iacute;a &middot; 15 min', u'''
       <h3>Lo que acaba de fallar</h3>
       <p>No os ha fallado la creatividad. Os ha fallado el <b>orden</b>. Os hab&eacute;is puesto a dar soluciones
          antes de saber qu&eacute; ten&iacute;a que cumplir la soluci&oacute;n.</p>
@@ -562,17 +289,10 @@ footer .wrap{padding-block:18px 26px}
       <p>Casi siempre se vuelve atr&aacute;s. Construyes y descubres que la madera no aguanta: vuelves al
          dise&ntilde;o. Eso <b>no es fracasar</b>, es c&oacute;mo funciona. Lo que ser&iacute;a un fallo es descubrirlo
          cuando ya has fabricado mil unidades.</p>
-  
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 1 &middot; Los requisitos del perchero</span>
-          <span class="chips"><span class="chip">1.1</span><span class="chip">2.1</span></span>
-          <span>Parejas &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+  ''') +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 1 &middot; Los requisitos del perchero',
+    [u'1.1', u'2.1'], u'Parejas &middot; 25 min', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Volved al problema de los abrigos. <b>Sin proponer ninguna soluci&oacute;n todav&iacute;a</b>, escribid la
              lista de requisitos que tendr&iacute;a que cumplir.</p>
@@ -596,26 +316,20 @@ footer .wrap{padding-block:18px 26px}
             s&iacute;, no est&aacute; bien escrito. Un requisito bueno se comprueba con una regla, un cron&oacute;metro o
             un s&iacute;/no.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 10 min</div>
-
+  ''')) +
+  bloque('03', u'Cierre &middot; 10 min', u'''
       <p>Comparad ahora la lista de requisitos de cada pareja. Ver&eacute;is algo interesante: <b>las listas se
          parecen mucho m&aacute;s entre s&iacute; que las soluciones de hace media hora</b>.</p>
       <p>Eso es exactamente lo que aporta el m&eacute;todo. Las soluciones pueden y deben ser distintas; los
          requisitos, si el problema est&aacute; bien analizado, son casi los mismos para todos. Por eso se empieza
          por ah&iacute;.</p>
       <ol>
-              <li>&iquest;Por qu&eacute; se escriben los requisitos antes de pensar soluciones?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque son el <b>criterio</b> con el que se compara despu&eacute;s. Sin ellos no se puede decidir qu&eacute; soluci&oacute;n es mejor, solo cu&aacute;l gusta m&aacute;s.</p></div></details></li>
-        <li>&laquo;Que sea resistente&raquo;: &iquest;es un buen requisito?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. No es comprobable. S&iacute; lo ser&iacute;a: <b>&laquo;que aguante cinco abrigos de 600 g sin deformarse&raquo;</b>.</p></div></details></li>
-        <li>&iquest;Qu&eacute; se hace si al construir descubres que el dise&ntilde;o no funciona?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se vuelve al paso de dise&ntilde;o. El proceso tecnol&oacute;gico <b>no es una l&iacute;nea recta</b>: volver atr&aacute;s forma parte de &eacute;l.</p></div></details></li>
-
+      ''' + pregunta(u'&iquest;Por qu&eacute; se escriben los requisitos antes de pensar soluciones?',
+                     u'<p>Porque son el <b>criterio</b> con el que se compara despu&eacute;s. Sin ellos no se puede decidir qu&eacute; soluci&oacute;n es mejor, solo cu&aacute;l gusta m&aacute;s.</p>')
+        + pregunta(u'&laquo;Que sea resistente&raquo;: &iquest;es un buen requisito?',
+                   u'<p>No. No es comprobable. S&iacute; lo ser&iacute;a: <b>&laquo;que aguante cinco abrigos de 600 g sin deformarse&raquo;</b>.</p>')
+        + pregunta(u'&iquest;Qu&eacute; se hace si al construir descubres que el dise&ntilde;o no funciona?',
+                   u'<p>Se vuelve al paso de dise&ntilde;o. El proceso tecnol&oacute;gico <b>no es una l&iacute;nea recta</b>: volver atr&aacute;s forma parte de &eacute;l.</p>') + u'''
       </ol>
 
       <div class="copiar" style="border-color:var(--goo-verde)">
@@ -632,22 +346,16 @@ footer .wrap{padding-block:18px 26px}
         de texto. En la pr&oacute;xima sesi&oacute;n: <b>c&oacute;mo se generan muchas ideas y c&oacute;mo se elige una sin que sea
         por votaci&oacute;n a mano alzada</b>.
       </div>
-  
-    </section>
+  '''))))
 
-  </div>
 
-  <div id="ses-2" hidden>
-    <div class="ses-head">
-      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
-      <h2>Muchas ideas, y una forma de elegir</h2>
-      <p>Tener ideas es f&aacute;cil. Lo dif&iacute;cil es no quedarse con la primera, y poder explicar por qu&eacute; eliges la que eliges.</p>
-      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
-      <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE1 &middot; 1.1</span><span class="chip sab">A.1</span><span class="chip sab">A.8</span></div>
-    </div>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
-
+S.append(dict(
+ corto=u'Ideas y decisi&oacute;n', titulo=u'Muchas ideas, y una forma de elegir',
+ entradilla=u'Tener ideas es f&aacute;cil. Lo dif&iacute;cil es no quedarse con la primera, y poder explicar por qu&eacute; eliges la que eliges.',
+ minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+ chips=[u'CE2 &middot; 2.1', u'CE1 &middot; 1.1', u'A.1', u'A.8'],
+ cuerpo=(
+  bloque('00', u'Reto inicial &middot; 10 min', u"""
       <p>Ayer acabasteis con una lista de requisitos y <b>una sola idea</b> escrita en tres l&iacute;neas.
          Sacad esa hoja.</p>
       <div class="aviso">
@@ -663,11 +371,8 @@ footer .wrap{padding-block:18px 26px}
            Por eso los m&eacute;todos de generaci&oacute;n de ideas no sirven para tener ideas &mdash;eso ya lo sabes hacer&mdash;
            sino para <b>obligarte a seguir buscando cuando ya tienes una que vale</b>.</p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
+""") +
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u"""
       <h3>Primero muchas, luego se elige</h3>
       <p>La regla es contraintuitiva: <b>separar el momento de proponer del momento de juzgar</b>. Mientras
          se proponen ideas, no se critica ninguna. Ni las malas. Sobre todo las malas, porque una idea
@@ -797,17 +502,10 @@ footer .wrap{padding-block:18px 26px}
            por qu&eacute; &mdash;y responder si sale mal&mdash;. La matriz no garantiza acertar. Garantiza que la
            decisi&oacute;n sea <b>rastreable</b>.</p>
       </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
-      <div class="ficha">
-        <div class="ficha-cab">
-          <span>Actividad 2 &middot; Seis ideas y una matriz</span>
-          <span class="chips"><span class="chip">2.1</span><span class="chip">1.1</span></span>
-          <span>Parejas &middot; 25 min</span>
-        </div>
-        <div class="ficha-cuerpo">
+""") +
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 2 &middot; Seis ideas y una matriz',
+    [u'2.1', u'1.1'], u'Parejas &middot; 25 min', u"""
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
             <li><b>Seis ideas en seis minutos</b> para el problema de los abrigos. Una por minuto, sin
@@ -831,158 +529,44 @@ footer .wrap{padding-block:18px 26px}
             que de verdad os importa, o ten&iacute;ais una preferencia que no hab&iacute;ais puesto por escrito.
             <b>Las dos cosas merecen descubrirse ahora</b> y no cuando est&eacute; construido.
           </div>
-  </div>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
-
+  """)) +
+  bloque('03', u'Cierre &middot; 5 min', u"""
       <p>Comparad la idea ganadora con la que hab&iacute;ais escrito ayer a bote pronto. En bastantes parejas
          no ser&aacute; la misma.</p>
       <p>Eso no quiere decir que la de ayer fuera mala. Quiere decir que <b>no sab&iacute;ais por qu&eacute; la hab&iacute;ais
          elegido</b>, y ahora s&iacute;.</p>
       <ol>
-              <li>&iquest;Por qu&eacute; no se critican las ideas mientras se proponen?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque criticar corta la generaci&oacute;n. Y porque una idea imposible dicha en voz alta suele darle a otro una <b>idea posible</b>.</p></div></details></li>
-        <li>&iquest;Qu&eacute; es el peso de un criterio y para qu&eacute; sirve?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Un n&uacute;mero que dice <b>cu&aacute;nto importa</b> ese criterio frente a los dem&aacute;s. Sin pesos, «que sea barato» valdr&iacute;a lo mismo que «que aguante», y no es as&iacute;.</p></div></details></li>
-        <li>&iquest;La matriz elige por ti?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. Te obliga a <b>decir con qu&eacute; criterio eliges</b> y deja la decisi&oacute;n por escrito para poder discutirla. Si cambias los pesos, cambia el resultado: por eso los pesos hay que justificarlos.</p></div></details></li>
-
+      """ + pregunta(u'&iquest;Por qu&eacute; no se critican las ideas mientras se proponen?',
+                     u'<p>Porque criticar corta la generaci&oacute;n. Y porque una idea imposible dicha en voz alta suele darle a otro una <b>idea posible</b>.</p>')
+        + pregunta(u'&iquest;Qu&eacute; es el peso de un criterio y para qu&eacute; sirve?',
+                   u'<p>Un n&uacute;mero que dice <b>cu&aacute;nto importa</b> ese criterio frente a los dem&aacute;s. Sin pesos, «que sea barato» valdr&iacute;a lo mismo que «que aguante», y no es as&iacute;.</p>')
+        + pregunta(u'&iquest;La matriz elige por ti?',
+                   u'<p>No. Te obliga a <b>decir con qu&eacute; criterio eliges</b> y deja la decisi&oacute;n por escrito para poder discutirla. Si cambias los pesos, cambia el resultado: por eso los pesos hay que justificarlos.</p>') + u"""
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         Ya ten&eacute;is <b>una</b> idea elegida y con argumentos. Pero sigue siendo una frase. En la pr&oacute;xima
         sesi&oacute;n hay que convertirla en algo que se pueda construir: medidas, piezas y materiales.
       </div>
-  
-    </section>
+  """))))
 
-  </div>
+# ------------------------------------------------- sesiones 2 a 5, pendientes
+for c in [u'Dise&ntilde;o', u'Planificaci&oacute;n y taller',
+          u'Construcci&oacute;n', u'Evaluaci&oacute;n y test']:
+    S.append(dict(corto=c, pendiente=True))
 
-  <div id="ses-3" hidden><div class="ses-head"><h2>Sesi&oacute;n 3 en preparaci&oacute;n</h2></div></div>
+CFG = dict(
+ ruta='2eso/TyD/tema1/',
+ migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 1',
+ h1=u'El proceso tecnol&oacute;gico',
+ titulo=u'Tema 1 &middot; El proceso tecnol&oacute;gico',
+ tema=u'Tema 1', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: el m&eacute;todo para pasar de una necesidad a un objeto que la resuelve, empezando por los requisitos.',
+ sesiones=S)
 
-  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
-
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
-
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
-
-  <section class="cc-aviso" id="licencia"
-  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
-  <h2>Licencia y uso</h2>
-  <p><span property="dct:title">Tema 1 &middot; El proceso tecnol&oacute;gico</span> &middot; &copy; 2026
-     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
-  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
-     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
-     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
-     derivadas con esta misma licencia.</p>
-  <h3>C&oacute;mo citar</h3>
-  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 1 &middot; El proceso tecnol&oacute;gico</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/. Bajo licencia CC BY-SA 4.0.</code></p>
-  <h3>Qu&eacute; cubre</h3>
-  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
-  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
-     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
-     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
-     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
-     propia licencia.</p>
-  <h3>Otros usos</h3>
-  <p>Para usos que excedan la licencia, abre una incidencia en
-     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
-</section>
-</main>
-
-<footer><div class="wrap">Tema 1 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
-
-<script>
-(function(){
-  var nav = document.getElementById('nav');
-  if(!nav) return;
-  nav.addEventListener('click', function(e){
-    var b = e.target.closest('button[data-ses]');
-    if(!b || b.disabled) return;
-    nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
-    });
-    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
-      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
-    });
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  });
-})();
-</script>
-
-<script>
-/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
-   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
-(function(){
-  document.querySelectorAll('.video[data-vid]').forEach(function(c){
-    var b = c.querySelector('.video-play');
-    if(!b) return;
-    b.addEventListener('click', function(){
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
-      f.title = b.querySelector('.video-txt b').textContent;
-      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
-      f.referrerPolicy = 'strict-origin-when-cross-origin';
-      f.allowFullscreen = true;
-      b.replaceWith(f);
-    });
-  });
-})();
-</script>
-
-<script>
-/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
-(function(){
-  document.querySelectorAll('.test').forEach(function(T){
-    var corregir = T.querySelector('[data-a="corregir"]');
-    var otra = T.querySelector('[data-a="otra"]');
-    var nota = T.querySelector('.test-nota');
-
-    corregir.addEventListener('click', function(){
-      var bien = 0, total = 0, sinContestar = 0;
-      T.querySelectorAll('.test-p').forEach(function(P){
-        total++;
-        var ok = +P.dataset.ok;
-        var marcada = P.querySelector('input:checked');
-        if(!marcada) sinContestar++;
-        P.querySelectorAll('.test-op').forEach(function(L, i){
-          L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
-        });
-        if(marcada && +marcada.value === ok) bien++;
-      });
-      T.classList.add('corregido');
-      nota.textContent = bien + ' de ' + total
-        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
-      otra.hidden = false;
-    });
-
-    otra.addEventListener('click', function(){
-      T.classList.remove('corregido');
-      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.test-op').forEach(function(L){ L.classList.remove('bien','mal'); });
-      nota.textContent = '';
-      otra.hidden = true;
-      T.scrollIntoView({block:'start', behavior:'smooth'});
-    });
-  });
-})();
-</script>
-
-<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
-   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
-  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
-</a>
-<script>
-(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
-new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
-.observe(document.body,{childList:true,subtree:true});})();
-</script>
-</body>
-</html>
+BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
+os.makedirs(os.path.join(BASE, '2eso/TyD/tema1'), exist_ok=True)
+html = pagina(CFG)
+io.open(os.path.join(BASE, '2eso/TyD/tema1/index.html'), 'w', encoding='utf-8', newline='').write(html)
+print('U1 generada: %d bytes, %d sesiones (%d escritas)' % (
+    len(html), len(S), sum(1 for x in S if not x.get('pendiente'))))

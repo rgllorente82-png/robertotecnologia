@@ -272,9 +272,9 @@ def aviso_licencia(titulo, canon):
   <p class="cc-cita"><code>%s (2026). <i>%s</i>. %s. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
   <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
-  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
-     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
-     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
      autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
      propia licencia.</p>
   <h3>Otros usos</h3>

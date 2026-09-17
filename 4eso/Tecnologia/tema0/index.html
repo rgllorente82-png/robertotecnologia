@@ -197,6 +197,51 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.test h4{margin:8px 0 14px;font-size:16px}
+.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.test-p:first-of-type{border-top:0}
+.test-p > p{margin:0 0 9px;font-weight:500}
+.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.test-op:hover{border-color:var(--goo-azul)}
+.test-op input{margin-right:9px}
+.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.test.corregido .test-por{display:block}
+.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.test{break-inside:avoid}.test-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -673,9 +718,9 @@ footer .wrap{padding-block:18px 26px}
   <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 0 &middot; Tecnolog&iacute;a, t&eacute;cnica y sociedad</i>. https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema0/. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
   <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
-  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
-     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
-     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
      autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
      propia licencia.</p>
   <h3>Otros usos</h3>
