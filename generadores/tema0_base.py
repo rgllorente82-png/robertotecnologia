@@ -182,6 +182,32 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.test::before{content:"AUTOEVALUACI\00D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.test h4{margin:8px 0 14px;font-size:16px}
+.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.test-p:first-of-type{border-top:0}
+.test-p > p{margin:0 0 9px;font-weight:500}
+.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.test-op:hover{border-color:var(--goo-azul)}
+.test-op input{margin-right:9px}
+.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.test.corregido .test-por{display:block}
+.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.test{break-inside:avoid}.test-por{display:block}}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}

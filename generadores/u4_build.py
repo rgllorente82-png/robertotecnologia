@@ -9,6 +9,7 @@ from u4_s2 import S2
 from u4_s3 import S3
 from u4_s4 import S4
 from u4_s5 import S5
+from u4_s6 import S6
 
 INTRO = u'''
       <div class="escena">
@@ -270,7 +271,11 @@ S.append(dict(corto=u'Construir', titulo=u'El puente de 40 cent&iacute;metros',
               minutado=[(u"10'", u'Reto'), (u"25'", u'Dise&ntilde;o'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
               chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5'],
               cuerpo=S5))
-S.append(dict(corto=u'Proyecto y test', pendiente=True))
+S.append(dict(corto=u'Ensayo y test', titulo=u'Romperlo, entender por qu&eacute; y cerrar el tema',
+              entradilla=u'El ensayo no es un espect&aacute;culo: es la &uacute;nica forma de saber si el dise&ntilde;o era bueno. Y por eso la predicci&oacute;n se entreg&oacute; antes.',
+              minutado=[(u"20'", u'Ensayo'), (u"15'", u'An&aacute;lisis'), (u"20'", u'Test'), (u"5'", u'Cierre')],
+              chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5'],
+              cuerpo=S6))
 
 CFG = dict(
  ruta='2eso/TyD/tema4/',

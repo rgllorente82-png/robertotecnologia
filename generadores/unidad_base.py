@@ -3,6 +3,7 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tema0_base import cabeza, SELLO, aviso_licencia, SITIO
+import test_auto
 
 NAV_JS = u"""
 <script>
@@ -103,7 +104,7 @@ def pagina(cfg):
 </body>
 </html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos,
                aviso_licencia(cfg['titulo'], canon),
-               cfg['tema'], cfg['curso'], cfg['materia'], NAV_JS + VIDEO_JS, SELLO)
+               cfg['tema'], cfg['curso'], cfg['materia'], NAV_JS + VIDEO_JS + test_auto.JS, SELLO)
 
 
 def bloque(num, rotulo, html):

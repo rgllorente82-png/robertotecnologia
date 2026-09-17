@@ -197,6 +197,32 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.test h4{margin:8px 0 14px;font-size:16px}
+.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.test-p:first-of-type{border-top:0}
+.test-p > p{margin:0 0 9px;font-weight:500}
+.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.test-op:hover{border-color:var(--goo-azul)}
+.test-op input{margin-right:9px}
+.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.test.corregido .test-por{display:block}
+.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.test{break-inside:avoid}.test-por{display:block}}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -221,7 +247,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 4</div>
     <h1>Estructuras</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; no se cae?</button><button type="button" data-ses="2">S2 &middot; Tipos de estructura</button><button type="button" data-ses="3">S3 &middot; Perfiles y secciones</button><button type="button" data-ses="4">S4 &middot; Estabilidad</button><button type="button" data-ses="5">S5 &middot; Construir</button><button type="button" data-ses="6" disabled>S6 &middot; Proyecto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; no se cae?</button><button type="button" data-ses="2">S2 &middot; Tipos de estructura</button><button type="button" data-ses="3">S3 &middot; Perfiles y secciones</button><button type="button" data-ses="4">S4 &middot; Estabilidad</button><button type="button" data-ses="5">S5 &middot; Construir</button><button type="button" data-ses="6">S6 &middot; Ensayo y test</button></nav>
   </div>
 </header>
 
@@ -2017,7 +2043,195 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Romperlo, entender por qu&eacute; y cerrar el tema</h2>
+      <p>El ensayo no es un espect&aacute;culo: es la &uacute;nica forma de saber si el dise&ntilde;o era bueno. Y por eso la predicci&oacute;n se entreg&oacute; antes.</p>
+      <div class="minutado"><span class="min"><b>20'</b> Ensayo</span><span class="min"><b>15'</b> An&aacute;lisis</span><span class="min"><b>20'</b> Test</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.4</span><span class="chip sab">A.5</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> El ensayo &middot; 20 min</div>
+
+      <p>Hoy se rompen los puentes. Y se rompen en serio: hasta el final, no hasta que da miedo.</p>
+      <div class="aviso">
+        <span class="n-tag">Protocolo, igual para todos</span>
+        El puente se apoya en dos mesas separadas <b>40 cm</b>. Del centro del cord&oacute;n inferior
+        cuelga una bolsa. Se van a&ntilde;adiendo pesas <b>de 100 en 100 gramos</b>, esperando cinco
+        segundos entre una y otra. Se anota el peso de la <b>&uacute;ltima que aguant&oacute;</b>.
+      </div>
+      <ol class="pasos">
+        <li>Antes de cargar: <b>pesad el puente</b> y anotadlo. Sin ese dato no hay nota.</li>
+        <li>Leed en voz alta vuestra <b>predicci&oacute;n</b>: cu&aacute;ntos gramos y por d&oacute;nde va a
+            romper. La escribisteis la sesi&oacute;n pasada y no se puede cambiar.</li>
+        <li>Cargad. Cuando rompa, <b>parad y mirad</b>: &iquest;qu&eacute; barra ha fallado primero?</li>
+        <li>Anotad si esa barra <b>se ha partido</b>, <b>se ha doblado</b> o <b>se ha despegado
+            del nudo</b>. No es lo mismo, y lo veremos ahora.</li>
+      </ol>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>En un laboratorio de verdad esto se llama <b>ensayo destructivo</b>, y se hace igual: se
+           lleva la pieza hasta la rotura porque es la &uacute;nica manera de saber d&oacute;nde estaba el
+           l&iacute;mite. Lo que no se puede hacer es ensayar el puente de verdad: por eso se ensayan
+           <b>maquetas</b> y probetas, y por eso vuestro trabajo de hoy se parece bastante al de un
+           ingeniero.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> An&aacute;lisis &middot; 15 min</div>
+
+      <h3>Por d&oacute;nde ha roto, y qu&eacute; significa</h3>
+      <p>Casi todos los fallos que ver&eacute;is hoy son uno de estos cuatro, y cada uno se&ntilde;ala un
+         error de dise&ntilde;o distinto:</p>
+      <div class="copiar">
+        <h4>Los cuatro fallos y qu&eacute; hay que arreglar</h4>
+        <ul>
+          <li><b>Una barra comprimida se ha doblado de golpe</b> &rarr; <b>pandeo</b>. La barra era
+              demasiado larga y delgada. Se arregla acort&aacute;ndola (m&aacute;s nudos) o engros&aacute;ndola
+              (dos palillos pegados).</li>
+          <li><b>Una barra estirada se ha partido en seco</b> &rarr; se super&oacute; su
+              <b>resistencia a tracci&oacute;n</b>. Es el fallo m&aacute;s honrado: el material ha dado todo
+              lo que ten&iacute;a.</li>
+          <li><b>Se ha despegado un nudo</b> &rarr; el fallo no era de las barras, sino de la
+              <b>uni&oacute;n</b>. Muy com&uacute;n, y muy fastidiado: significa que el puente val&iacute;a m&aacute;s
+              de lo que ha demostrado.</li>
+          <li><b>El puente se ha tumbado de lado</b> &rarr; falt&oacute; <b>arriostramiento</b>. No es un
+              problema de resistencia: es de <b>estabilidad</b>, como la sesi&oacute;n 4.</li>
+        </ul>
+      </div>
+      <p>Ahora comparad con lo que predijisteis:</p>
+      <ol class="pasos">
+        <li>&iquest;Acertasteis <b>el sitio</b>? Acertar el sitio vale m&aacute;s que acertar el peso: quiere
+            decir que hab&iacute;ais entendido por d&oacute;nde iban las fuerzas.</li>
+        <li>Calculad vuestro <b>rendimiento</b>: gramos aguantados entre gramos de puente.</li>
+        <li>Escribid <b>una sola cosa</b> que cambiar&iacute;ais, y por qu&eacute;. Una, la que m&aacute;s
+            hubiera cambiado el resultado.</li>
+      </ol>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Es muy probable que el puente m&aacute;s pesado de la clase <b>no</b> sea el que gane. Y que
+           alguno que parec&iacute;a fr&aacute;gil quede arriba. Eso no es mala suerte ni chiripa: es
+           exactamente lo que dice el tema desde la primera sesi&oacute;n. <b>Una estructura no aguanta
+           porque sea fuerte: aguanta porque reparte.</b></p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Test &middot; 20 min</div>
+
+      <p>Diez preguntas sobre todo el tema. Se corrigen aqu&iacute; mismo, y cada una explica por
+         qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota: es para que sepas por
+         d&oacute;nde andas antes del examen.</p>
+      <div class="test" id="test-u4">
+        <h4>Lo que tiene que haber quedado del tema</h4>
+        <div class="test-p" data-ok="1">
+          <p>1. Una estructura aguanta, sobre todo, porque&hellip;</p>
+          <label class="test-op"><input type="radio" name="u4-0" value="0">tiene mucho material y es muy pesada</label>
+          <label class="test-op"><input type="radio" name="u4-0" value="1">reparte la fuerza entre sus piezas hasta llevarla al suelo</label>
+          <label class="test-op"><input type="radio" name="u4-0" value="2">est&aacute; hecha de un material muy duro</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Es la idea que organiza el tema entero. Una torre de celos&iacute;a est&aacute; casi hueca y aguanta m&aacute;s viento que un muro macizo del mismo peso.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>2. Una pieza larga y delgada que se comprime&hellip;</p>
+          <label class="test-op"><input type="radio" name="u4-1" value="0">se aplasta poco a poco</label>
+          <label class="test-op"><input type="radio" name="u4-1" value="1">se dobla de golpe hacia un lado: pandea</label>
+          <label class="test-op"><input type="radio" name="u4-1" value="2">se estira por el centro</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> El <b>pandeo</b> es el fallo t&iacute;pico de la compresi&oacute;n en piezas esbeltas, y ocurre mucho antes de que el material llegue a aplastarse. Por eso los pilares altos son gruesos.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>3. &iquest;Por qu&eacute; el tri&aacute;ngulo es indeformable y el cuadrado no?</p>
+          <label class="test-op"><input type="radio" name="u4-2" value="0">porque el tri&aacute;ngulo tiene menos lados y pesa menos</label>
+          <label class="test-op"><input type="radio" name="u4-2" value="1">porque fijados los tres lados, los tres &aacute;ngulos quedan determinados</label>
+          <label class="test-op"><input type="radio" name="u4-2" value="2">porque los tri&aacute;ngulos se hacen siempre con material m&aacute;s resistente</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Un cuadrado articulado se desploma en rombo <b>sin que ning&uacute;n lado cambie de longitud</b>. En el tri&aacute;ngulo eso es imposible: no hay otra forma con esos tres lados.</div>
+        </div>
+        <div class="test-p" data-ok="0">
+          <p>4. La piedra aguanta muy bien comprimida y se parte estirada. &iquest;Qu&eacute; forma le da eso?</p>
+          <label class="test-op"><input type="radio" name="u4-3" value="0">el arco, que la mantiene siempre apretada</label>
+          <label class="test-op"><input type="radio" name="u4-3" value="1">la viga recta, que es la m&aacute;s sencilla</label>
+          <label class="test-op"><input type="radio" name="u4-3" value="2">el cable, que es la m&aacute;s ligera</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Es el invento romano: dar a la piedra una forma curva para que cada pieza est&eacute; <b>aplastada contra la siguiente</b> y ninguna reciba un tir&oacute;n. A cambio, el arco empuja hacia fuera y hay que sujetarlo con contrafuertes.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>5. Un arco de piedra, adem&aacute;s de bajar la carga, hace algo molesto en sus apoyos:</p>
+          <label class="test-op"><input type="radio" name="u4-4" value="0">los levanta hacia arriba</label>
+          <label class="test-op"><input type="radio" name="u4-4" value="1">los empuja hacia fuera</label>
+          <label class="test-op"><input type="radio" name="u4-4" value="2">los retuerce</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> De ah&iacute; los <b>contrafuertes</b> de las catedrales y los estribos de los puentes de piedra: si el arco se puede abrir por abajo, se cae.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>6. Con la misma cantidad de acero, &iquest;qu&eacute; secci&oacute;n aguanta m&aacute;s a flexi&oacute;n?</p>
+          <label class="test-op"><input type="radio" name="u4-5" value="0">un cuadrado macizo, porque est&aacute; lleno</label>
+          <label class="test-op"><input type="radio" name="u4-5" value="1">un perfil en I, con el material lejos del eje</label>
+          <label class="test-op"><input type="radio" name="u4-5" value="2">da igual: lo que cuenta es cu&aacute;nto acero hay</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> El material que est&aacute; junto al eje neutro <b>no trabaja, solo pesa</b>. Con 400 mm&sup2; de acero, el perfil en I aguanta unas <b>doce veces</b> m&aacute;s que el cuadrado macizo.</div>
+        </div>
+        <div class="test-p" data-ok="2">
+          <p>7. Dos armarios id&eacute;nticos, uno vac&iacute;o y otro lleno de libros repartidos por igual. &iquest;Cu&aacute;l vuelca antes?</p>
+          <label class="test-op"><input type="radio" name="u4-6" value="0">el lleno, porque pesa m&aacute;s</label>
+          <label class="test-op"><input type="radio" name="u4-6" value="1">el vac&iacute;o, porque pesa menos</label>
+          <label class="test-op"><input type="radio" name="u4-6" value="2">los dos al mismo &aacute;ngulo</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> El peso total <b>no aparece</b> en la condici&oacute;n de vuelco. Lo que decide es la anchura de la base y la <b>altura</b> del centro de gravedad, y en los dos est&aacute; a la misma altura.</div>
+        </div>
+        <div class="test-p" data-ok="0">
+          <p>8. Un cuerpo no vuelca mientras&hellip;</p>
+          <label class="test-op"><input type="radio" name="u4-7" value="0">la vertical de su centro de gravedad caiga dentro de su base de sustentaci&oacute;n</label>
+          <label class="test-op"><input type="radio" name="u4-7" value="1">su centro de gravedad est&eacute; dentro del material</label>
+          <label class="test-op"><input type="radio" name="u4-7" value="2">ninguna de sus piezas se rompa</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Volcar y romperse son <b>dos problemas distintos</b>. Una estructura con todas sus piezas perfectas se cae igual si la vertical del CDG se sale de la base.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>9. En una celos&iacute;a, la cuenta de barras sale justa. &iquest;Seguro que es r&iacute;gida?</p>
+          <label class="test-op"><input type="radio" name="u4-8" value="0">s&iacute;: si la cuenta sale, aguanta</label>
+          <label class="test-op"><input type="radio" name="u4-8" value="1">no: pueden estar mal repartidas y quedar un cuadro sin diagonal</label>
+          <label class="test-op"><input type="radio" name="u4-8" value="2">solo si es de acero</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> La cuenta es <b>necesaria pero no suficiente</b>. Con dos diagonales en un cuadro y ninguna en otro sale el n&uacute;mero justo y la estructura se mueve igual.</div>
+        </div>
+        <div class="test-p" data-ok="1">
+          <p>10. En el ensayo, un puente rompe porque una barra <b>se dobla de golpe</b>. &iquest;Qu&eacute; hab&iacute;a que haber hecho?</p>
+          <label class="test-op"><input type="radio" name="u4-9" value="0">usar m&aacute;s cinta en los nudos</label>
+          <label class="test-op"><input type="radio" name="u4-9" value="1">acortar esa barra con un nudo intermedio, o doblarla con otro palillo</label>
+          <label class="test-op"><input type="radio" name="u4-9" value="2">hacer todo el puente m&aacute;s pesado</label>
+          <div class="test-por"><b>Por qu&eacute;:</b> Doblarse de golpe es <b>pandeo</b>, y el pandeo depende sobre todo de lo <b>larga y delgada</b> que sea la pieza comprimida. M&aacute;s cinta no arregla un pandeo, y m&aacute;s peso empeora la nota.</div>
+        </div>
+        <div class="test-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="test-nota"></span>
+        </div>
+        <p class="test-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Con esto se cierra el tema. Si te quedas con tres frases, que sean estas:</p>
+      <div class="copiar">
+        <h4>El tema en tres frases</h4>
+        <ol>
+          <li>Una estructura <b>no aguanta porque sea fuerte: aguanta porque reparte</b>, y lo que
+              decide es d&oacute;nde est&aacute; el material, no cu&aacute;nto hay.</li>
+          <li>La <b>forma</b> se elige para que cada material trabaje en el esfuerzo que aguanta
+              bien, y el <b>tri&aacute;ngulo</b> es la &uacute;nica figura que no se deforma.</li>
+          <li>Hay que aprobar <b>dos ex&aacute;menes</b>: no romperse (resistencia) y no volcarse
+              (estabilidad). Son problemas distintos.</li>
+        </ol>
+      </div>
+      <div class="nota">
+        <span class="n-tag">Siguiente tema</span>
+        Todo lo que has construido hasta ahora ten&iacute;a que <b>quedarse quieto</b>: una estructura
+        que se mueve es una estructura que ha fallado. En el tema siguiente pasa justo lo
+        contrario &mdash;queremos que se mueva, y que se mueva donde nosotros digamos&mdash;, y eso
+        son los <b>mecanismos</b>.
+      </div>
+
+    </section>
+
+  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
@@ -2079,6 +2293,46 @@ footer .wrap{padding-block:18px 26px}
       f.referrerPolicy = 'strict-origin-when-cross-origin';
       f.allowFullscreen = true;
       b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.test').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.test-nota');
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.test-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.test-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.test-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
     });
   });
 })();
