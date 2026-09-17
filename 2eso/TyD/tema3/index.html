@@ -329,6 +329,10 @@ footer .wrap{padding-block:18px 26px}
              + '</g>';
           m += '<circle cx="'+PED.x+'" cy="'+PED.y+'" r="6.5" fill="'+d.col+'"></circle>';
 
+          /* nombre del material, bajo la bici */
+          m += '<text x="120" y="232" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:14px;fill:var(--ink);font-weight:500">' + d.nom + '</text>';
+
           var y = 34;
           m += barra(250, y, 0, 'Peso',        d.peso,  2.5, d.col, d.peso + ' kg'); y += 26;
           m += barra(250, y, 0, 'Precio',      d.precio, 1000, d.col, d.precio + ' &euro;'); y += 26;
