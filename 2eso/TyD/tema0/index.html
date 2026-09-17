@@ -120,6 +120,20 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
 .voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
 @media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -795,6 +809,21 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
     pinta();
   });
   pinta();
+})();
+
+(function(){
+  var ol = document.getElementById('secuencia-hist');
+  var b  = document.getElementById('btn-secuencia');
+  if(!ol || !b) return;
+  var items = Array.prototype.slice.call(ol.querySelectorAll('li'));
+  var n = 0;
+  b.addEventListener('click', function(){
+    if(n >= items.length) return;
+    items[n].classList.remove('oculto');
+    n++;
+    if(n >= items.length){ b.disabled = true; b.textContent = 'Los cuatro pasos'; }
+    else b.textContent = 'Destapar el paso ' + (n + 1) + ' ▶';
+  });
 })();
 </script>
 <a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"

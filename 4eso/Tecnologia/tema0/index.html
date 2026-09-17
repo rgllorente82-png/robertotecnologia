@@ -120,6 +120,20 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
 .voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
 @media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -189,6 +203,13 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <h3>Tres conceptos que conviene no mezclar</h3>
+      <div class="reto-piensa">
+        <span class="n-tag">Antes de mirar</span>
+        <p>Copia esta tabla en el cuaderno y compl&eacute;tala t&uacute;. Para cada uno de los tres conceptos:
+           <b>&iquest;qu&eacute; pregunta responde?</b>, <b>&iquest;qu&eacute; busca?</b> y <b>&iquest;c&oacute;mo se transmite
+           de una persona a otra?</b></p>
+      </div>
+      <details class="resp revela"><summary>Comprobar la tabla</summary><div class="resp-cuerpo">
       <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:14px 0">
         <tr style="text-align:left;border-bottom:2px solid var(--ink)">
           <th style="padding:8px 6px"></th><th style="padding:8px 6px">Pregunta</th>
@@ -205,43 +226,69 @@ footer .wrap{padding-block:18px 26px}
       <p>La t&eacute;cnica es <b>anterior</b> a la ciencia en millones de a&ntilde;os: se tallaba piedra sin saber nada de
          mineralog&iacute;a y se fund&iacute;a bronce sin conocer la tabla peri&oacute;dica. Solo desde el siglo XVIII la ciencia
          empieza a guiar sistem&aacute;ticamente a la t&eacute;cnica, y de esa uni&oacute;n nace la tecnolog&iacute;a moderna.</p>
+      </div></details>
 
-      <div class="aviso">
-        <span class="n-tag">Matiz importante</span>
-        La relaci&oacute;n no es de una sola direcci&oacute;n. La m&aacute;quina de vapor funcionaba d&eacute;cadas antes de que existiera
-        la termodin&aacute;mica: fue la m&aacute;quina la que oblig&oacute; a formular la ciencia, y no al rev&eacute;s. <b>La tecnolog&iacute;a
-        tambi&eacute;n empuja a la ciencia.</b>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa</span>
+        <p>Parece l&oacute;gico que la ciencia vaya primero y la tecnolog&iacute;a aplique lo que aquella descubre.
+           <b>&iquest;Se te ocurre alg&uacute;n caso en que ocurriera al rev&eacute;s?</b> Una tecnolog&iacute;a que funcionara
+           antes de que nadie supiera explicar por qu&eacute;.</p>
       </div>
+      <details class="resp revela"><summary>Ver un caso</summary><div class="resp-cuerpo">
+        <p>La <b>m&aacute;quina de vapor</b>. Watt vend&iacute;a m&aacute;quinas que mov&iacute;an f&aacute;bricas enteras d&eacute;cadas antes
+           de que Carnot y Clausius formularan la termodin&aacute;mica. De hecho fue al rev&eacute;s de lo esperable:
+           la necesidad de mejorar el rendimiento de esas m&aacute;quinas es lo que <b>oblig&oacute; a crear la
+           ciencia</b> que las explicaba.</p>
+        <p>Conclusi&oacute;n: la relaci&oacute;n no es de una sola direcci&oacute;n. <b>La tecnolog&iacute;a tambi&eacute;n empuja a
+           la ciencia.</b></p>
+      </div></details>
 
       <h3>Por qu&eacute; la tecnolog&iacute;a explica la historia</h3>
       <p>Los grandes cortes hist&oacute;ricos no los marcan las batallas, sino los cambios en <b>c&oacute;mo se produce</b>.
          Cada tecnolog&iacute;a decisiva desencadena la misma secuencia:</p>
-      <ol class="pasos">
-        <li>Cambia <b>lo que se puede producir</b> y con cu&aacute;nto esfuerzo.</li>
-        <li>Eso genera <b>excedente</b> y modifica qui&eacute;n trabaja en qu&eacute;.</li>
-        <li>La estructura social se reorganiza: aparecen oficios, clases y poderes nuevos.</li>
-        <li>Surgen <b>problemas in&eacute;ditos</b> que la sociedad tarda en regular.</li>
+      <div class="reto-piensa">
+        <span class="n-tag">Antes de mirar</span>
+        <p>Toda tecnolog&iacute;a decisiva desencadena la misma secuencia de cuatro pasos.
+           <b>&iquest;Cu&aacute;les dir&iacute;as que son?</b> Piensa en la agricultura o en la imprenta y ve
+           destapando uno a uno.</p>
+      </div>
+      <ol class="pasos secuencia" id="secuencia-hist">
+        <li class="oculto"><b>Cambia lo que se puede producir</b> y con cu&aacute;nto esfuerzo.</li>
+        <li class="oculto">Eso genera <b>excedente</b> y modifica qui&eacute;n trabaja en qu&eacute;.</li>
+        <li class="oculto">La <b>estructura social se reorganiza</b>: aparecen oficios, clases y poderes nuevos.</li>
+        <li class="oculto">Surgen <b>problemas in&eacute;ditos</b> que la sociedad tarda en regular.</li>
       </ol>
+      <div class="seg"><button type="button" id="btn-secuencia">Destapar el siguiente paso &#9654;</button></div>
       <p>Ese cuarto punto es el que m&aacute;s te interesa hoy: la agricultura trajo el hambre estacional y la guerra
          por la tierra; la industria, la contaminaci&oacute;n y el trabajo infantil; lo digital, la desinformaci&oacute;n y
          la brecha. <b>Ninguna tecnolog&iacute;a es neutral en sus consecuencias</b>, aunque s&iacute; lo sea en su intenci&oacute;n.</p>
       <h3>La digitalizaci&oacute;n como tecnolog&iacute;a de &eacute;poca</h3>
       <p>Conviene precisar el t&eacute;rmino, porque se usa con tres sentidos que no son intercambiables:</p>
-      <ul>
-        <li><b>Digitalizar</b>, en sentido estricto: convertir una se&ntilde;al o un soporte anal&oacute;gico en una
-            representaci&oacute;n num&eacute;rica discreta &mdash;muestrear y cuantificar&mdash;. Escanear un plano.</li>
-        <li><b>Digitalizaci&oacute;n de procesos</b>: redise&ntilde;ar una actividad para que el flujo de informaci&oacute;n
-            sea digital de principio a fin. No consiste en escanear la factura, sino en que ya no haya factura
-            en papel.</li>
-        <li><b>Transformaci&oacute;n digital</b>, en sentido amplio: el cambio estructural que todo eso provoca en
-            la econom&iacute;a, el trabajo, la cultura y el poder.</li>
-      </ul>
+      <p>Son estos tres. Intenta definirlos antes de destaparlos:</p>
+      <details class="resp revela"><summary>1 &middot; Digitalizar, en sentido estricto</summary>
+        <div class="resp-cuerpo"><p>Convertir una se&ntilde;al o un soporte anal&oacute;gico en una representaci&oacute;n
+        num&eacute;rica discreta &mdash;muestrear y cuantificar&mdash;. Escanear un plano.</p></div></details>
+      <details class="resp revela"><summary>2 &middot; Digitalizaci&oacute;n de procesos</summary>
+        <div class="resp-cuerpo"><p>Redise&ntilde;ar una actividad para que el flujo de informaci&oacute;n sea digital
+        de principio a fin. <b>No consiste en escanear la factura, sino en que ya no haya factura en
+        papel.</b></p></div></details>
+      <details class="resp revela"><summary>3 &middot; Transformaci&oacute;n digital, en sentido amplio</summary>
+        <div class="resp-cuerpo"><p>El cambio estructural que todo eso provoca en la econom&iacute;a, el trabajo,
+        la cultura y el poder.</p></div></details>
       <p>Lo que hace singular a esta tecnolog&iacute;a es una propiedad econ&oacute;mica poco intuitiva: el <b>coste
          marginal de reproducci&oacute;n es pr&aacute;cticamente cero</b>. Producir la copia n&uacute;mero un mill&oacute;n cuesta
-         lo mismo que producir la segunda. Ninguna tecnolog&iacute;a anterior tuvo esa propiedad, y de ella se
-         derivan casi todos los fen&oacute;menos que observas a tu alrededor: plataformas globales, contenidos
+         lo mismo que producir la segunda.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Antes de mirar</span>
+        <p>Esa sola propiedad explica casi todo lo que ves a tu alrededor en internet.
+           <b>&iquest;Qu&eacute; consecuencias se te ocurren?</b> Piensa en por qu&eacute; hay servicios enormes que no te
+           cobran nada, y en por qu&eacute; son siempre las mismas cuatro empresas.</p>
+      </div>
+      <details class="resp revela"><summary>Ver las consecuencias</summary><div class="resp-cuerpo">
+      <p>De esa propiedad se derivan casi todos los fen&oacute;menos que observas: plataformas globales, contenidos
          aparentemente gratuitos financiados con datos, concentraci&oacute;n de mercado en muy pocas empresas y
          una propiedad intelectual dif&iacute;cil de hacer cumplir.</p>
+      </div></details>
       <p>A esto se suma una segunda propiedad: la informaci&oacute;n digital es <b>procesable por m&aacute;quinas</b>.
          No solo se guarda y se transmite, sino que se puede buscar, cruzar, analizar y usar para entrenar
          sistemas que toman decisiones. Ah&iacute; es donde la digitalizaci&oacute;n deja de ser una cuesti&oacute;n t&eacute;cnica
@@ -549,6 +596,21 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
     pinta();
   });
   pinta();
+})();
+
+(function(){
+  var ol = document.getElementById('secuencia-hist');
+  var b  = document.getElementById('btn-secuencia');
+  if(!ol || !b) return;
+  var items = Array.prototype.slice.call(ol.querySelectorAll('li'));
+  var n = 0;
+  b.addEventListener('click', function(){
+    if(n >= items.length) return;
+    items[n].classList.remove('oculto');
+    n++;
+    if(n >= items.length){ b.disabled = true; b.textContent = 'Los cuatro pasos'; }
+    else b.textContent = 'Destapar el paso ' + (n + 1) + ' ▶';
+  });
 })();
 </script>
 <a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
