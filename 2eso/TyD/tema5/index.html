@@ -2332,7 +2332,11 @@ footer .wrap{padding-block:18px 26px}
         /* ------------- los tres perfiles de leva, en mm de radio --------------
            Los tres con el mismo radio minimo y la misma carrera, para poder
            compararlos: lo unico que cambia es la LEY con la que suben.        */
-        var RMIN = 20, H = 20;
+        /* Base ancha y poca carrera: asi el circulo base se ve como un circulo
+           y el lobulo se ve como un escalon pegado a el. Con la base estrecha
+           y la carrera grande que habia antes, la pieza sal&iacute;a con forma de
+           patata y no se reconoc&iacute;a como una leva.                         */
+        var RMIN = 26, H = 18;
         function perfil(a){
           if(modo === 'suave'){
             /* exc&eacute;ntrica de verdad: un circulo con el eje descentrado. Su
@@ -2349,10 +2353,16 @@ footer .wrap{padding-block:18px 26px}
              se escribe.                                                        */
           var g = norm(-a - Math.PI/2)*180/Math.PI;
           if(modo === 'prog'){
-            /* sube en 150 grados, se queda arriba 90, cae en 60 y descansa 60 */
-            if(g < 150) return RMIN + H*(1 - Math.cos(Math.PI*g/150))/2;
-            if(g < 240) return RMIN + H;
-            if(g < 300) return RMIN + H*(1 + Math.cos(Math.PI*(g-240)/60))/2;
+            /* Reparto: sube 90, se queda arriba 90 (un cuarto de vuelta), cae de
+               golpe en 45 y descansa 135 abajo.
+               Antes suba 150 y se quedaba arriba 90, o sea que dos tercios de la
+               leva estaban al radio maximo y la pieza salia con forma de bulto
+               en vez de con forma de leva. Con el descanso de abajo ocupando mas
+               de un tercio de la vuelta, el circulo base se ve, y el lobulo
+               tambien: la forma vuelve a leerse como el programa que es.       */
+            if(g < 30)  return RMIN + H*(1 - Math.cos(Math.PI*g/30))/2;
+            if(g < 120) return RMIN + H;
+            if(g < 132) return RMIN + H*(1 + Math.cos(Math.PI*(g-120)/12))/2;
             return RMIN;
           }
           /* cuatro lobulos de 50 grados, uno cada 90: la leva del martinete.
@@ -2369,7 +2379,7 @@ footer .wrap{padding-block:18px 26px}
              Las alturas estan calculadas para que el muelle se COMPRIMA al subir
              el seguidor (de 56 px estirado a 12 px comprimido) y para que ni la
              leva ni el vastago pisen el bloque de numeros de arriba.           */
-          var E = 2.2, cx = 180, cy = 248, m = '', fase = ang;
+          var E = 1.9, cx = 180, cy = 248, m = '', fase = ang;
           var YG = 110;                          /* cara de abajo de la guia fija */
           /* El seguidor esta en la vertical de arriba, o sea en el angulo -90 de
              pantalla. Un punto de la leva de angulo propio alfa se dibuja en
@@ -2452,7 +2462,8 @@ footer .wrap{padding-block:18px 26px}
               + 'descentrado el eje.';
           } else if(modo === 'prog'){
             pie.innerHTML = 'Aqu&iacute; est&aacute; la gracia de la leva: <b>la forma es el programa</b>. Esta '
-              + 'sube despacio, <b>se queda arriba un cuarto de vuelta</b>, cae de golpe y descansa. Ninguno de '
+              + 'sube, <b>se queda arriba un cuarto de vuelta</b>, cae de golpe y descansa el resto '
+              + 'de la vuelta. Ninguno de '
               + 'los mecanismos anteriores sabe hacer eso: la biela-manivela solo sabe ir y venir siempre igual. '
               + 'Si quieres otro movimiento, <b>recortas otra leva</b>.';
           } else {
