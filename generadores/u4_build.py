@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
 from escena_hierro import ESCENA_HIERRO
+from u4_s2 import S2
 
 INTRO = u'''
       <div class="escena">
@@ -246,7 +247,12 @@ S = [dict(corto=u'&iquest;Por qu&eacute; no se cae?', titulo=u'Por qu&eacute; no
           minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
           chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5'],
           cuerpo=S1)]
-for c in [u'Tipos de estructura', u'Perfiles y secciones', u'Estabilidad', u'Construir', u'Proyecto y test']:
+S.append(dict(corto=u'Tipos de estructura', titulo=u'Las seis familias: por qu&eacute; cada una tiene esa forma',
+              entradilla=u'La forma no se elige por gusto: se elige para que el material trabaje en el esfuerzo que aguanta.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.4', u'A.5', u'A.7'],
+              cuerpo=S2))
+for c in [u'Perfiles y secciones', u'Estabilidad', u'Construir', u'Proyecto y test']:
     S.append(dict(corto=c, pendiente=True))
 
 CFG = dict(
