@@ -1,0 +1,11 @@
+En la unidad anterior aprendiste cómo viaja por la red lo que pides y quién lo ve pasar por el camino. Todo eso lo mirabas tú. Esta unidad le da la vuelta a la pregunta: ya no eres el que mira, eres el que publica.
+
+Y produciendo algo pasa una cosa que todo el mundo ha vivido. Terminas el trabajo en casa, lo abres el lunes en el ordenador del instituto y no es el mismo: los títulos han cambiado de letra, la foto se ha ido sola a la página siguiente. Pero mira bien: no falta ni una palabra. No hay ninguna avería. Lo que pasa es que un documento no guarda una foto de la página, guarda el texto y unas marcas, y la página se vuelve a dibujar cada vez que alguien lo abre.
+
+De ahí sale la idea que ordena el tema entero: lo que una cosa dice y cómo se ve son dos cosas distintas, y conviene tenerlas separadas. Vale para un documento, vale para una imagen y vale para una presentación.
+
+Porque después viene lo segundo. Metes once fotos y la presentación pesa cuarenta y ocho megas. Y ahí también hay una cuenta, no una queja: una foto de móvil son doce millones de puntos, y en una diapositiva proyectada caben dos millones. Los otros diez viajan, ocupan y no los ve nadie.
+
+Y lo tercero es hablar delante de la clase. Ahí hay un dato que casi nadie tiene en cuenta: leer va más rápido que escuchar. Si pones en la diapositiva lo que vas a decir, la clase termina de leerlo antes de que tú acabes la frase, y desde ese momento dejas de hacer falta.
+
+Ninguna de las tres cosas es cuestión de gusto. Las tres se miden, y eso es justo lo que vamos a hacer.

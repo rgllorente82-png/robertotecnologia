@@ -1,0 +1,2580 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 9 &middot; Herramientas digitales y difusi&oacute;n</title>
+<meta name="description" content="Tema 9 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: formatos de fichero, estilos frente a formato a mano y por qu&eacute; un PDF se ve igual en todas partes; mapa de bits y vectorial, resoluci&oacute;n y compresi&oacute;n; y c&oacute;mo se hace una presentaci&oacute;n que se pueda evaluar con n&uacute;meros.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema9/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 9 &middot; Herramientas digitales y difusi&oacute;n","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema9/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 9 &middot; Herramientas digitales y difusi&oacute;n &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.ta::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.ta h4{margin:8px 0 14px;font-size:16px}
+.ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.ta-p:first-of-type{border-top:0}
+.ta-p > p{margin:0 0 9px;font-weight:500}
+.ta-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.ta-op:hover{border-color:var(--goo-azul)}
+.ta-op input{margin-right:9px}
+.ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.ta.corregido .ta-por{display:block}
+.ta-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.ta-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.ta-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.ta{break-inside:avoid}.ta-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* tablas de datos dentro de los bloques que se copian */
+.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
+.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.copiar td:first-child{width:38%}
+@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
+/* listas dentro de una lista de pasos: que no se peguen al texto de arriba */
+.pasos ul{margin:6px 0 2px}
+/* la caja de texto de la escena de la carrera: que no desborde a lo ancho */
+.escena-barra textarea{max-width:100%;box-sizing:border-box}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 9</div>
+    <h1>Herramientas digitales y difusi&oacute;n</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El documento que no se rompe</button><button type="button" data-ses="2">S2 &middot; Una imagen pesa lo que pesa</button><button type="button" data-ses="3">S3 &middot; Presentar sin aburrir</button><button type="button" data-ses="4" disabled>S4 &middot; Lo que se puede copiar</button><button type="button" data-ses="5" disabled>S5 &middot; A varias manos</button><button type="button" data-ses="6" disabled>S6 &middot; Publicar y que llegue</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>El documento que no se rompe</h2>
+      <p>Un trabajo se descoloca al abrirlo en otro ordenador y no falta ni una palabra. La explicaci&oacute;n reparte la unidad entera: lo que dice y c&oacute;mo se ve son dos cosas.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">B.2 &middot; D.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>De la unidad de internet sales sabiendo c&oacute;mo llega a tu pantalla lo que pides y
+         qui&eacute;n lo ve pasar por el camino. Todo eso lo mirabas t&uacute;. A partir de hoy le
+         damos la vuelta a la pregunta: <b>ya no eres el que mira, eres el que publica</b>.</p>
+      <p>Y produciendo pasa una cosa que todo el mundo ha vivido.</p>
+
+
+      <div class="narrador" id="narr-u9">
+        <div class="narrador-fig" id="narr-u9-fig"></div>
+        <div class="narrador-txt">
+          <h4>De d&oacute;nde sale esta unidad</h4>
+          <span class="narrador-quien">Hasta ahora eras el que mira; a partir de aqu&iacute; eres el que publica</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada sobre gui&oacute;n propio. La boca sigue el volumen real de la voz: se mueve cuando habla y se para en los silencios.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-u9');
+        if(!C) return;
+        var fig = document.getElementById('narr-u9-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.368, 1.0, 1.0, 1.0, 0.942, 1.0, 0.787, 0.801, 0.272, 0.732, 0.567, 0.529, 0.719, 0.786, 0.988, 0.717, 0.244, 0.706, 0.636, 0.486, 0.469, 0.231, 0.346, 0.341, 0.184, 0.63, 0.533, 0.334, 0.523, 0.882, 0.401, 0.121, 0.392, 0.154, 0.454, 0.379, 0.488, 0.465, 0.685, 0.649, 0.396, 0.829, 0.205, 0.5, 0.098, 1.0, 0.568, 0.534, 0.253, 0.452, 0.26, 0.503, 0.997, 0.96, 0.805, 0.679, 0.624, 0.543, 0.474, 0.292, 0.704, 0.326, 0.056, 0.486, 0.317, 0.268, 0.221, 0.402, 0.265, 0.322, 0.254, 0.185, 0.067, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.961, 0.985, 1.0, 1.0, 0.632, 0.379, 0.628, 0.849, 0.9, 0.72, 0.553, 0.872, 0.445, 0.298, 0.174, 0.198, 0.368, 0.146, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.185, 0.956, 0.29, 0.386, 0.907, 0.867, 1.0, 0.732, 1.0, 0.523, 0.401, 0.722, 0.533, 0.937, 0.812, 0.762, 0.652, 1.0, 0.771, 0.394, 0.491, 0.384, 0.318, 0.292, 0.429, 0.499, 0.833, 0.524, 0.234, 0.353, 0.165, 0.026, 0.001, 0.074, 0.241, 0.935, 0.777, 0.819, 0.853, 0.935, 0.848, 0.384, 0.475, 0.33, 0.261, 0.5, 0.65, 0.542, 0.379, 0.235, 0.052, 0.002, 0.0, 0.581, 0.886, 0.921, 0.399, 0.513, 0.411, 0.14, 0.466, 0.282, 0.407, 0.286, 0.361, 0.063, 0.302, 0.193, 0.046, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.381, 0.686, 0.639, 0.978, 0.741, 0.914, 0.136, 0.8, 0.675, 0.68, 0.961, 0.954, 0.621, 0.803, 0.449, 0.632, 0.814, 0.309, 0.463, 0.759, 0.751, 0.815, 0.464, 0.326, 0.779, 0.34, 0.325, 0.346, 0.04, 0.649, 0.314, 0.637, 0.736, 0.826, 0.982, 0.655, 0.95, 0.937, 0.582, 0.478, 0.319, 0.395, 0.34, 0.36, 0.238, 0.299, 0.119, 0.016, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.056, 0.932, 0.756, 0.901, 0.688, 0.66, 0.31, 0.742, 0.58, 0.295, 0.55, 0.67, 0.777, 0.117, 0.595, 0.541, 0.19, 0.65, 0.466, 0.203, 0.226, 0.15, 0.025, 0.001, 0.21, 0.78, 1.0, 0.801, 0.452, 0.477, 0.289, 0.695, 0.556, 0.934, 0.904, 0.77, 0.331, 0.499, 0.633, 0.499, 0.551, 0.307, 0.438, 0.423, 0.274, 0.706, 0.622, 0.529, 0.816, 0.739, 0.355, 0.155, 0.417, 0.101, 0.883, 0.319, 0.476, 0.459, 0.34, 0.551, 0.67, 0.534, 0.26, 0.369, 0.359, 0.336, 0.305, 0.155, 0.259, 0.208, 0.057, 0.002, 0.001, 0.0, 0.0, 0.0, 0.002, 0.549, 1.0, 0.407, 0.076, 0.596, 0.238, 0.772, 0.847, 0.383, 0.536, 0.705, 0.241, 0.824, 0.742, 0.761, 1.0, 0.632, 0.79, 0.525, 0.465, 0.842, 0.16, 0.316, 0.245, 0.08, 0.005, 0.002, 0.002, 0.297, 0.864, 0.434, 0.326, 0.813, 0.066, 0.582, 0.302, 0.515, 0.764, 0.938, 0.536, 0.878, 0.335, 0.282, 0.904, 0.672, 0.474, 0.319, 0.374, 0.081, 0.702, 0.264, 0.302, 0.455, 0.28, 0.247, 0.356, 0.324, 0.334, 0.264, 0.144, 0.234, 0.091, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.921, 0.95, 0.956, 0.988, 0.694, 0.842, 0.533, 0.968, 0.755, 0.377, 0.176, 0.01, 0.042, 0.661, 1.0, 0.308, 0.78, 1.0, 0.327, 0.515, 0.416, 0.373, 0.581, 0.664, 0.6, 0.269, 0.376, 0.31, 0.304, 0.233, 0.216, 0.143, 0.038, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.412, 0.873, 1.0, 1.0, 0.722, 0.983, 0.772, 0.936, 1.0, 0.845, 0.727, 0.455, 0.349, 0.403, 0.331, 0.236, 0.095, 0.015, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.003, 0.6, 1.0, 0.143, 0.842, 0.406, 0.713, 0.269, 0.445, 0.711, 0.366, 0.086, 0.811, 0.732, 0.598, 0.693, 0.071, 0.666, 0.796, 0.791, 0.497, 0.305, 0.324, 0.319, 0.825, 0.659, 0.978, 0.757, 0.454, 0.764, 0.671, 0.726, 0.13, 0.554, 0.654, 0.322, 0.395, 0.379, 0.314, 0.208, 0.425, 0.49, 0.092, 0.325, 0.247, 0.196, 0.071, 0.004, 0.0, 0.126, 0.323, 1.0, 0.567, 0.754, 0.496, 0.091, 0.596, 0.384, 0.233, 0.108, 0.498, 0.379, 0.706, 0.678, 0.349, 0.197, 0.309, 0.314, 0.129, 0.156, 0.194, 0.074, 0.043, 0.002, 0.0, 0.0, 0.0, 0.0, 0.002, 1.0, 0.923, 1.0, 0.074, 0.972, 0.243, 0.352, 0.638, 0.622, 0.282, 0.567, 0.516, 0.801, 1.0, 0.653, 1.0, 0.648, 0.582, 0.36, 0.414, 0.126, 0.745, 0.794, 0.253, 0.564, 0.624, 0.591, 0.507, 0.882, 0.265, 0.055, 0.204, 0.708, 0.724, 0.42, 0.441, 0.333, 0.371, 0.403, 0.358, 0.283, 0.237, 0.242, 0.081, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.09, 0.401, 1.0, 0.989, 0.542, 0.378, 0.562, 0.566, 0.745, 0.757, 0.785, 0.464, 0.814, 0.884, 0.317, 0.202, 0.509, 0.417, 0.322, 0.822, 0.608, 0.712, 0.471, 0.136, 0.64, 0.703, 0.726, 0.501, 0.349, 0.241, 0.771, 0.362, 0.323, 0.143, 0.009, 0.0, 0.001, 0.424, 1.0, 0.296, 0.73, 0.923, 0.625, 0.541, 0.064, 0.616, 0.356, 0.426, 0.472, 0.751, 0.4, 0.24, 0.593, 0.297, 0.115, 0.822, 0.546, 0.442, 0.272, 0.519, 0.502, 0.562, 0.28, 0.3, 0.607, 0.461, 0.636, 0.506, 0.169, 0.505, 0.515, 0.394, 0.38, 0.197, 0.35, 0.15, 0.299, 0.454, 0.289, 0.201, 0.206, 0.085, 0.052, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.67, 0.23, 0.662, 0.883, 0.64, 0.899, 0.63, 0.647, 0.173, 0.86, 0.726, 0.847, 0.42, 0.548, 0.261, 0.315, 0.371, 0.455, 0.391, 0.408, 0.218, 0.242, 0.122, 0.09, 0.048, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.082, 0.252, 1.0, 0.808, 0.704, 0.384, 0.929, 0.721, 0.735, 0.798, 0.758, 0.343, 0.498, 0.51, 0.463, 0.432, 0.148, 0.291, 0.193, 0.032, 0.001, 0.0, 0.097, 0.57, 0.944, 0.91, 0.295, 0.769, 0.661, 0.757, 0.587, 0.611, 0.709, 0.659, 0.722, 0.208, 0.25, 0.665, 0.728, 0.422, 0.903, 0.637, 0.492, 0.35, 0.414, 0.439, 0.491, 0.518, 0.266, 0.235, 0.224, 0.205, 0.319, 0.186, 0.255, 0.105, 0.343, 0.261, 0.19, 0.126, 0.014, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.006, 1.0, 0.554, 0.273, 1.0, 0.84, 0.493, 0.108, 0.787, 0.725, 0.33, 0.713, 1.0, 0.723, 0.51, 0.485, 0.318, 0.378, 0.301, 0.397, 0.319, 0.282, 0.248, 0.089, 0.005, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.35, 0.958, 0.802, 0.59, 0.685, 0.435, 0.987, 0.536, 0.532, 0.475, 0.489, 0.998, 0.17, 0.567, 0.301, 0.591, 0.848, 0.681, 0.484, 0.427, 0.547, 0.541, 0.56, 0.342, 0.153, 0.864, 0.622, 0.263, 0.649, 0.619, 0.289, 0.482, 0.051, 0.731, 0.616, 0.555, 0.261, 0.515, 0.497, 0.711, 0.248, 0.231, 0.486, 0.374, 0.345, 0.201, 0.297, 0.195, 0.099, 0.084, 0.025, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.089, 0.528, 0.957, 0.856, 0.163, 0.645, 0.67, 0.578, 0.898, 0.557, 0.582, 0.714, 0.692, 0.573, 0.048, 0.717, 0.754, 0.369, 0.298, 0.234, 0.073, 0.002, 0.0, 0.314, 0.841, 0.927, 0.664, 0.733, 0.168, 0.587, 0.429, 0.094, 0.293, 0.165, 0.028, 0.001, 0.0, 0.111, 0.765, 0.878, 0.477, 0.162, 0.963, 0.14, 0.846, 0.597, 0.678, 0.702, 0.755, 0.758, 0.634, 0.271, 0.31, 0.718, 0.639, 0.58, 0.49, 0.264, 0.747, 0.685, 0.256, 0.9, 0.713, 0.483, 0.215, 0.308, 0.212, 0.443, 0.297, 0.101, 0.261, 0.16, 0.093, 0.029, 0.0, 0.0, 0.0, 0.0, 0.0, 0.378, 1.0, 0.904, 0.932, 0.852, 0.555, 1.0, 0.396, 0.615, 0.33, 0.491, 0.095, 0.976, 0.55, 0.47, 0.057, 0.553, 0.462, 0.464, 0.086, 0.319, 0.914, 0.505, 0.425, 0.049, 0.67, 0.588, 0.789, 0.718, 0.518, 0.878, 0.293, 0.752, 0.547, 0.407, 0.36, 0.238, 0.186, 0.096, 0.086, 0.035, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.292, 1.0, 0.643, 0.414, 0.828, 0.396, 0.892, 0.366, 0.551, 1.0, 0.483, 0.403, 0.84, 0.769, 0.188, 0.312, 0.317, 0.255, 0.12, 0.002, 0.252, 0.583, 0.055, 0.846, 0.421, 0.668, 0.7, 0.903, 0.782, 0.956, 0.981, 1.0, 0.336, 0.485, 0.49, 0.334, 0.333, 0.231, 0.281, 0.169, 0.034, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.27, 1.0, 1.0, 1.0, 0.451, 0.805, 0.36, 0.287, 0.947, 0.684, 0.851, 0.593, 0.4, 0.788, 0.509, 0.93, 0.772, 0.618, 0.692, 0.8, 0.865, 0.516, 0.495, 0.398, 0.424, 0.363, 0.142, 0.302, 0.323, 0.182, 0.148, 0.238, 0.115, 0.009, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.322, 0.81, 0.947, 0.972, 0.644, 0.771, 0.712, 0.741, 1.0, 0.259, 0.395, 0.239, 0.242, 0.319, 0.255, 0.719, 0.326, 0.392, 0.69, 0.793, 0.558, 0.468, 0.341, 0.034, 0.667, 0.772, 0.619, 0.632, 0.255, 0.519, 0.832, 0.542, 0.294, 0.279, 0.122, 0.016, 0.001, 0.324, 0.826, 0.902, 0.796, 0.442, 0.715, 0.487, 0.709, 0.3, 0.497, 0.783, 0.321, 0.541, 0.414, 0.178, 0.338, 0.269, 0.049, 0.37, 0.128, 0.267, 0.335, 0.181, 0.052, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.084, 0.295, 0.771, 0.072, 1.0, 0.772, 0.681, 0.309, 0.627, 0.77, 0.848, 0.515, 0.572, 0.293, 0.407, 0.397, 0.258, 0.645, 0.846, 0.611, 0.433, 0.381, 0.22, 0.462, 0.733, 0.475, 0.352, 0.551, 0.619, 0.148, 0.536, 0.564, 0.18, 0.032, 0.001, 0.0, 0.032, 0.63, 0.595, 0.175, 0.717, 0.358, 0.502, 0.324, 0.782, 0.583, 0.824, 0.739, 0.684, 0.57, 0.68, 0.602, 0.784, 0.38, 0.784, 0.836, 0.8, 0.658, 0.38, 0.397, 0.192, 0.395, 0.249, 0.309, 0.325, 0.585, 0.235, 0.428, 0.688, 0.64, 0.328, 0.282, 0.382, 0.074, 0.532, 0.41, 0.213, 0.175, 0.19, 0.034, 0.001, 0.0, 0.0, 0.0, 0.0, 0.476, 1.0, 1.0, 0.786, 0.388, 1.0, 0.754, 0.372, 0.884, 0.83, 0.703, 0.773, 0.859, 0.414, 0.669, 0.543, 0.731, 0.447, 0.293, 0.663, 0.225, 0.47, 0.25, 0.269, 0.597, 0.239, 0.09, 0.52, 0.287, 0.135, 0.243, 0.189, 0.061, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.601, 1.0, 0.922, 0.795, 1.0, 0.865, 0.625, 0.875, 0.714, 0.233, 0.236, 0.794, 0.502, 0.196, 0.461, 0.878, 0.319, 0.623, 0.348, 0.463, 0.49, 0.213, 0.319, 0.847, 0.189, 0.537, 0.831, 0.509, 0.458, 0.353, 0.35, 0.15, 0.145, 0.291, 0.13, 0.012, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.004, 0.532, 0.654, 0.236, 0.352, 0.887, 0.506, 0.374, 0.765, 0.916, 1.0, 0.515, 0.409, 0.311, 0.062, 0.002, 0.001, 0.422, 1.0, 0.562, 0.349, 0.707, 0.563, 0.382, 0.086, 0.804, 0.466, 0.154, 0.621, 0.797, 0.676, 0.098, 0.533, 0.745, 0.789, 0.546, 0.324, 0.251, 0.413, 0.164, 0.225, 0.312, 0.141, 0.029, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/u9-digitales.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Terminas el trabajo el domingo en casa. El lunes lo abres en el ordenador del aula para
+        imprimirlo y <b>no es el mismo</b>: los t&iacute;tulos han cambiado de letra, la segunda
+        foto se ha ido sola a la p&aacute;gina siguiente y donde ten&iacute;as seis p&aacute;ginas
+        ahora hay ocho. Escribe en el cuaderno <b>tres explicaciones posibles</b> de qu&eacute; ha
+        pasado. Cinco minutos, y sin mirar a nadie.
+      </div>
+
+      <p>Las tres que salen siempre son estas: <i>se ha corrompido el fichero</i>, <i>el programa
+         del instituto es una versi&oacute;n vieja</i> y <i>lo guard&eacute; mal</i>. Las tres
+         suenan razonables y las tres son falsas, y hay una prueba que las tumba de golpe:</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Mira el texto antes de seguir</span>
+        <p>&iquest;Falta alguna <b>palabra</b>? &iquest;Ha cambiado alguna <b>letra</b>?
+           &iquest;Se ha perdido alg&uacute;n <b>p&aacute;rrafo</b>?</p>
+        <p style="margin-top:8px">No. Est&aacute; <b>todo</b>, entero y en orden. Si el fichero
+           estuviera roto faltar&iacute;a algo; si se hubiera guardado mal, tambi&eacute;n. Lo
+           &uacute;nico que ha cambiado es <b>c&oacute;mo est&aacute; repartido encima del
+           papel</b>.</p>
+      </div>
+
+      <p>Eso ya no es una aver&iacute;a: es una pista. Quiere decir que el fichero <b>no guarda una
+         foto de la p&aacute;gina</b>. Guarda otra cosa, y la p&aacute;gina se <b>vuelve a
+         construir</b> cada vez que alguien lo abre. Si se construye otra vez, se construye con lo
+         que haya en <b>ese</b> ordenador. Y ah&iacute; est&aacute; el l&iacute;o.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Lo mismo, y sin embargo distinto</h3>
+      <p>Abajo tienes el mismo documento en dos ordenadores. El de la izquierda es donde lo
+         escribiste y no se toca. En el de la derecha cambia la <b>letra</b>, el <b>papel</b> y el
+         <b>cuerpo</b>, y fíjate en tres cosas: cu&aacute;ntas l&iacute;neas salen, cu&aacute;ntas
+         hojas, y <b>en qu&eacute; hoja acaba la segunda foto</b>.</p>
+
+
+      <div class="escena" id="esc-maqueta">
+        <div class="escena-barra">
+          <span class="escena-titulo">El mismo documento en dos ordenadores</span>
+          <div class="seg" id="seg-maq-f">
+            <button type="button" data-f="helv">Helvetica</button>
+            <button type="button" data-f="times" aria-pressed="true">Times</button>
+            <button type="button" data-f="cour">Courier</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">Y adem&aacute;s, en ese ordenador</span>
+          <div class="seg" id="seg-maq-o">
+            <button type="button" data-p="a4">A4</button>
+            <button type="button" data-p="carta" aria-pressed="true">Carta</button>
+            <button type="button" data-c="11">11 pt</button>
+            <button type="button" data-c="14" aria-pressed="true">14 pt</button>
+            <button type="button" data-pdf="1">&#128196; Mandarlo en PDF</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 440" id="svg-maqueta" role="img"
+               aria-label="El mismo documento maquetado en dos ordenadores distintos, con las l&iacute;neas y las hojas que salen en cada uno"></svg>
+        </div>
+        <div class="pie" id="pie-maqueta"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-maqueta');
+        if(!svg) return;
+        var pie = document.getElementById('pie-maqueta');
+
+        /* anchuras reales de cada letra, en milesimas de em: son las AFM de
+           Adobe, sacadas por generadores/u9_metricas.py. Courier no lleva
+           tabla porque mide 600 en TODAS, y por eso es la mas ancha. */
+        var W_helv = {" ": 278, "!": 278, "\"": 355, "#": 556, "$": 556, "%": 889, "&": 667, "'": 191, "(": 333, ")": 333, "*": 389, "+": 584, ",": 278, "-": 333, ".": 278, "/": 278, "0": 556, "1": 556, "2": 556, "3": 556, "4": 556, "5": 556, "6": 556, "7": 556, "8": 556, "9": 556, ":": 278, ";": 278, "<": 584, "=": 584, ">": 584, "?": 556, "@": 1015, "A": 667, "B": 667, "C": 722, "D": 722, "E": 667, "F": 611, "G": 778, "H": 722, "I": 278, "J": 500, "K": 667, "L": 556, "M": 833, "N": 722, "O": 778, "P": 667, "Q": 778, "R": 722, "S": 667, "T": 611, "U": 722, "V": 667, "W": 944, "X": 667, "Y": 667, "Z": 611, "[": 278, "\\": 278, "]": 278, "^": 469, "_": 556, "`": 333, "a": 556, "b": 556, "c": 500, "d": 556, "e": 556, "f": 278, "g": 556, "h": 556, "i": 222, "j": 222, "k": 500, "l": 222, "m": 833, "n": 556, "o": 556, "p": 556, "q": 556, "r": 333, "s": 500, "t": 278, "u": 556, "v": 500, "w": 722, "x": 500, "y": 500, "z": 500, "{": 334, "|": 260, "}": 334, "~": 584, "¡": 333, "«": 556, "»": 556, "¿": 611, "Á": 667, "É": 667, "Í": 278, "Ñ": 722, "Ó": 778, "Ú": 722, "Ü": 722, "á": 556, "é": 556, "í": 278, "ñ": 556, "ó": 556, "ú": 556, "ü": 556, "—": 333, "’": 191};
+        var W_times = {" ": 250, "!": 333, "\"": 408, "#": 500, "$": 500, "%": 833, "&": 778, "'": 180, "(": 333, ")": 333, "*": 500, "+": 564, ",": 250, "-": 333, ".": 250, "/": 278, "0": 500, "1": 500, "2": 500, "3": 500, "4": 500, "5": 500, "6": 500, "7": 500, "8": 500, "9": 500, ":": 278, ";": 278, "<": 564, "=": 564, ">": 564, "?": 444, "@": 921, "A": 722, "B": 667, "C": 667, "D": 722, "E": 611, "F": 556, "G": 722, "H": 722, "I": 333, "J": 389, "K": 722, "L": 611, "M": 889, "N": 722, "O": 722, "P": 556, "Q": 722, "R": 667, "S": 556, "T": 611, "U": 722, "V": 722, "W": 944, "X": 722, "Y": 722, "Z": 611, "[": 333, "\\": 278, "]": 333, "^": 469, "_": 500, "`": 333, "a": 444, "b": 500, "c": 444, "d": 500, "e": 444, "f": 333, "g": 500, "h": 500, "i": 278, "j": 278, "k": 500, "l": 278, "m": 778, "n": 500, "o": 500, "p": 500, "q": 500, "r": 333, "s": 389, "t": 278, "u": 500, "v": 500, "w": 722, "x": 500, "y": 500, "z": 444, "{": 480, "|": 200, "}": 480, "~": 541, "¡": 333, "«": 500, "»": 500, "¿": 444, "Á": 722, "É": 611, "Í": 333, "Ñ": 722, "Ó": 722, "Ú": 722, "Ü": 722, "á": 444, "é": 444, "í": 278, "ñ": 500, "ó": 500, "ú": 500, "ü": 500, "—": 333, "’": 180};
+
+        var PT_MM = 25.4 / 72;        /* lo que mide un punto, en mil\u00edmetros */
+        var K = 0.95;                 /* px del lienzo por mil\u00edmetro de papel */
+        var MARGEN = 25;              /* mm por los cuatro lados */
+
+        var PAPEL = {
+          a4   : {w:210,   h:297,   n:'A4'},
+          carta: {w:215.9, h:279.4, n:'Carta'}
+        };
+        var FUENTE = {
+          helv : {n:'Helvetica', w:W_helv,
+                  fam:"'Nimbus Sans','Liberation Sans',Helvetica,Arial,sans-serif"},
+          times: {n:'Times',     w:W_times,
+                  fam:"'Nimbus Roman','Liberation Serif','Times New Roman',Times,serif"},
+          cour : {n:'Courier',   w:null,
+                  fam:"'Nimbus Mono PS','Liberation Mono','Courier New',Courier,monospace"}
+        };
+
+        var DOC = [
+          {t:'h',   pt:18, txt:'El documento que no se rompe'},
+          {t:'p',   pt:0,  txt:'La imprenta de tipos m\u00f3viles separ\u00f3 dos cosas que hasta entonces iban juntas: lo que el texto dice y la forma que tiene encima del papel. El escriba copiaba las dos a la vez, letra a letra. El impresor compone primero las palabras y decide despu\u00e9s con qu\u00e9 tipos las imprime. Un documento de ordenador funciona igual: por eso se descoloca al abrirlo en otro sitio, y por eso deja de descolocarse en cuanto se separan otra vez las dos cosas.'},
+          {t:'img', mm:78},
+          {t:'pie', pt:-2, txt:'Una caja de tipos: cada letra, una pieza suelta.'},
+          {t:'p',   pt:0,  txt:'Un fichero de texto plano no guarda nada de todo eso: solo las letras, una detr\u00e1s de otra. Un documento de procesador guarda adem\u00e1s las marcas que dicen qu\u00e9 papel hace cada trozo, y deja para el final la decisi\u00f3n de con qu\u00e9 letra se dibuja. Esa decisi\u00f3n la toma el programa al abrirlo, con lo que tenga instalado ese ordenador concreto.'},
+          {t:'img', mm:52},
+          {t:'pie', pt:-2, txt:'La misma frase, compuesta con otros tipos.'},
+          {t:'p',   pt:0,  txt:'De ah\u00ed sale la regla que ordena la sesi\u00f3n entera: lo que dice el documento y c\u00f3mo se ve son dos cosas distintas, y conviene tenerlas separadas. Cuando se mezclan, cada ordenador dibuja una cosa.'}
+        ];
+
+        /* ---- lo que ocupa un texto, en puntos, letra a letra ---- */
+        function ancho(txt, f, pt){
+          var t = FUENTE[f].w, s = 0;
+          for(var i = 0; i < txt.length; i++){
+            var c = txt.charAt(i);
+            s += t ? (t[c] !== undefined ? t[c] : 500) : 600;
+          }
+          return s * pt / 1000;
+        }
+
+        /* ---- corte de lineas: la linea se cierra cuando la palabra
+               siguiente ya no cabe. Es lo que hace un procesador ---- */
+        function corta(txt, f, pt, max){
+          var pal = txt.split(' '), lin = [], act = '';
+          for(var i = 0; i < pal.length; i++){
+            var cand = act ? act + ' ' + pal[i] : pal[i];
+            if(act && ancho(cand, f, pt) > max){ lin.push(act); act = pal[i]; }
+            else act = cand;
+          }
+          if(act) lin.push(act);
+          return lin;
+        }
+
+        /* ---- paginado ---- */
+        function maqueta(cfg){
+          var p = PAPEL[cfg.papel];
+          var maxW = (p.w - 2*MARGEN) / PT_MM;     /* anchura util, en puntos */
+          var maxH = (p.h - 2*MARGEN) / PT_MM;     /* altura util, en puntos  */
+          var pags = [[]], y = 0, lineas = 0, fotos = [];
+
+          function salta(){ pags.push([]); y = 0; }
+          function pon(it){ pags[pags.length - 1].push(it); }
+
+          for(var b = 0; b < DOC.length; b++){
+            var bl = DOC[b];
+            if(bl.t === 'img'){
+              var h = bl.mm / PT_MM;
+              if(y + h > maxH + 0.01 && y > 0) salta();
+              pon({t:'img', y:y, alto:h});
+              fotos.push(pags.length);
+              y += h + 6;
+              continue;
+            }
+            var pt = bl.pt > 0 ? bl.pt : cfg.pt + bl.pt;
+            var inter = pt * 1.35;
+            var lin = corta(bl.txt, cfg.f, pt, maxW);
+            for(var i = 0; i < lin.length; i++){
+              if(y + inter > maxH + 0.01) salta();
+              pon({t:'lin', y:y, pt:pt, an:ancho(lin[i], cfg.f, pt), titulo:(bl.t === 'h')});
+              y += inter; lineas++;
+            }
+            y += pt * 0.7;
+          }
+          return {pags:pags, lineas:lineas, hoja:p, fotos:fotos,
+                  primera: corta(DOC[1].txt, cfg.f, cfg.pt, maxW)[0]};
+        }
+
+        /* ---- dibujo de la primera hoja ---- */
+        function hoja(x, y, m){
+          var p = m.hoja, s = '';
+          s += '<rect x="'+x+'" y="'+y+'" width="'+(p.w*K).toFixed(1)+'" height="'
+             + (p.h*K).toFixed(1)+'" fill="var(--surface)" stroke="var(--line)" '
+             + 'stroke-width="1.5"></rect>';
+          var ix = x + MARGEN*K, iy = y + MARGEN*K, iw = (p.w - 2*MARGEN)*K;
+          s += '<rect x="'+ix.toFixed(1)+'" y="'+iy.toFixed(1)+'" width="'+iw.toFixed(1)
+             + '" height="'+((p.h - 2*MARGEN)*K).toFixed(1)
+             + '" fill="none" stroke="var(--line-soft)" stroke-width="1" '
+             + 'stroke-dasharray="3 3"></rect>';
+          var it = m.pags[0];
+          for(var i = 0; i < it.length; i++){
+            var o = it[i], oy = iy + o.y*PT_MM*K;
+            if(o.t === 'img'){
+              var oh = o.alto*PT_MM*K;
+              s += '<rect x="'+ix.toFixed(1)+'" y="'+oy.toFixed(1)+'" width="'+iw.toFixed(1)
+                 + '" height="'+oh.toFixed(1)+'" fill="var(--surface-2)" '
+                 + 'stroke="var(--line)" stroke-width="1"></rect>';
+              var cx = ix + iw/2, cy = oy + oh/2;
+              s += '<path d="M'+(cx-17).toFixed(1)+' '+(cy+10).toFixed(1)
+                 + ' l12 -14 l7 8 l5 -6 l10 12 Z" fill="var(--line)"></path>';
+              s += '<circle cx="'+(cx+13).toFixed(1)+'" cy="'+(cy-9).toFixed(1)
+                 + '" r="4" fill="var(--line)"></circle>';
+            } else {
+              var bh = Math.max(1.4, o.pt*PT_MM*K*0.56);
+              s += '<rect x="'+ix.toFixed(1)+'" y="'+oy.toFixed(1)+'" width="'
+                 + (o.an*PT_MM*K).toFixed(1)+'" height="'+bh.toFixed(1)+'" fill="'
+                 + (o.titulo ? 'var(--goo-azul)' : 'var(--ink-soft)')+'" opacity="'
+                 + (o.titulo ? '.95' : '.5')+'"></rect>';
+            }
+          }
+          s += '<text x="'+(x + p.w*K/2).toFixed(1)+'" y="'+(y + p.h*K + 15).toFixed(1)
+             + '" text-anchor="middle" class="rotulo-svg" style="font-size:10.5px">'
+             + 'HOJA 1 DE ' + m.pags.length + '  \u00b7  ' + m.lineas + ' L\u00cdNEAS</text>';
+          return s;
+        }
+
+        var A = {f:'helv', papel:'a4', pt:11};      /* donde se escribi\u00f3 */
+        var sel = {f:'times', papel:'carta', pt:14};
+        var pdf = false;
+
+        function escapa(s){
+          return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function pinta(){
+          var B = pdf ? A : sel;
+          var mA = maqueta(A), mB = maqueta(B);
+          var s = '';
+
+          s += '<text x="140" y="20" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:11.5px;fill:var(--goo-azul);font-weight:500">'
+             + 'DONDE LO ESCRIBISTE</text>';
+          s += '<text x="140" y="38" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">Helvetica 11 pt  \u00b7  A4</text>';
+          s += '<text x="462" y="20" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:11.5px;font-weight:500;fill:'
+             + (pdf ? 'var(--goo-verde)' : 'var(--goo-rojo)')+'">'
+             + (pdf ? 'EL ORDENADOR DEL AULA, CON EL PDF' : 'EL ORDENADOR DEL AULA')+'</text>';
+          s += '<text x="462" y="38" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">' + FUENTE[B.f].n + ' ' + B.pt + ' pt  \u00b7  '
+             + PAPEL[B.papel].n + '</text>';
+
+          s += hoja(40, 52, mA);
+          s += hoja(360, 52, mB);
+
+          if(pdf){
+            s += '<rect x="424" y="60" width="76" height="24" fill="var(--goo-verde)" '
+               + 'opacity=".92"></rect>';
+            s += '<text x="462" y="77" text-anchor="middle" '
+               + 'style="font-family:var(--f-m);font-size:12px;fill:#fff;font-weight:500">'
+               + 'PDF</text>';
+          }
+
+          s += '<text x="20" y="366" class="rotulo-svg" style="font-size:10px">'
+             + 'LA PRIMERA L\u00cdNEA DEL PRIMER P\u00c1RRAFO, DE CERCA: MIRA D\u00d3NDE CORTA'
+             + '</text>';
+          var filas = [[A, mA, 'var(--goo-azul)', 392],
+                       [B, mB, pdf ? 'var(--goo-verde)' : 'var(--goo-rojo)', 424]];
+          for(var q = 0; q < filas.length; q++){
+            var cfg = filas[q][0], m = filas[q][1], col = filas[q][2], fy = filas[q][3];
+            s += '<rect x="20" y="'+(fy-17)+'" width="600" height="24" fill="var(--surface-2)">'
+               + '</rect>';
+            s += '<rect x="20" y="'+(fy-17)+'" width="3" height="24" fill="'+col+'"></rect>';
+            s += '<text x="30" y="'+fy+'" style="font-family:'+FUENTE[cfg.f].fam
+               + ';font-size:13px;fill:var(--ink)">' + escapa(m.primera) + '</text>';
+          }
+
+          svg.innerHTML = s;
+
+          var na = mA.pags.length, nb = mB.pags.length;
+          var t = 'A la izquierda, <b>'+mA.lineas+' l&iacute;neas</b> en <b>'+na
+                + (na === 1 ? ' hoja' : ' hojas')+'</b>. A la derecha, <b>'+mB.lineas
+                + ' l&iacute;neas</b> en <b>'+nb+(nb === 1 ? ' hoja' : ' hojas')+'</b>. ';
+          if(pdf){
+            t += 'En PDF <b>no queda nada por decidir</b>: el fichero lleva dentro la letra y '
+               + 'la posici&oacute;n exacta de cada cosa, as&iacute; que los botones de arriba ya '
+               + 'no lo mueven. Por eso se manda en PDF lo que tiene que verse igual en todas '
+               + 'partes &mdash;y por eso luego cuesta tanto editarlo.';
+          } else if(mA.lineas === mB.lineas && na === nb){
+            t += 'Aqu&iacute; coinciden por poco. Ponle <b>Courier</b> y vuelve a mirar.';
+          } else {
+            t += 'Es el <b>mismo texto</b>, letra por letra: no se ha estropeado nada ni se ha '
+               + 'perdido nada. Lo que ha cambiado es <b>con qu&eacute; se dibuja</b>, y el '
+               + 'documento se ha repartido solo otra vez. ';
+            t += (mA.fotos[1] !== mB.fotos[1])
+              ? 'Y ah&iacute; est&aacute; la queja de siempre: la <b>segunda foto</b> estaba en la '
+                + 'hoja ' + mA.fotos[1] + ' y ahora se ha ido a la <b>hoja ' + mB.fotos[1]
+                + '</b>. Nadie la ha movido.'
+              : 'Las dos fotos siguen cayendo en la misma hoja que antes; cambia algo m&aacute;s '
+                + 'y mira qu&eacute; pasa con la segunda.';
+          }
+          t += '<br><span style="font-size:12.5px">Las anchuras de cada letra son las de verdad, '
+             + 'las que publica Adobe para esas tres tipograf&iacute;as. El corte de l&iacute;nea '
+             + 'se hace aqu&iacute;, palabra a palabra, igual que en un procesador de textos.'
+             + '</span>';
+          pie.innerHTML = t;
+        }
+
+        function marca(caja, attr, valor){
+          caja.querySelectorAll('button['+attr+']').forEach(function(b){
+            b.setAttribute('aria-pressed',
+              b.getAttribute(attr) === String(valor) ? 'true' : 'false');
+          });
+        }
+
+        var cajaF = document.getElementById('seg-maq-f');
+        var cajaO = document.getElementById('seg-maq-o');
+        cajaF.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-f]'); if(!b) return;
+          sel.f = b.dataset.f; pdf = false;
+          marca(cajaF, 'data-f', sel.f); marca(cajaO, 'data-pdf', 'x'); pinta();
+        });
+        cajaO.addEventListener('click', function(e){
+          var b = e.target.closest('button'); if(!b) return;
+          if(b.dataset.p){ sel.papel = b.dataset.p; pdf = false; marca(cajaO, 'data-p', sel.papel); }
+          else if(b.dataset.c){ sel.pt = +b.dataset.c; pdf = false; marca(cajaO, 'data-c', sel.pt); }
+          else if(b.dataset.pdf){ pdf = !pdf; }
+          else return;
+          marca(cajaO, 'data-pdf', pdf ? '1' : 'x');
+          pinta();
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <p>Ninguna palabra se ha movido de sitio en el fichero. Lo que se mueve es el
+         <b>dibujo</b>, porque el dibujo se hace en el &uacute;ltimo momento.</p>
+
+      <div class="copiar">
+        <h4>La idea que ordena toda la unidad</h4>
+        <p>Un documento guarda <b>dos cosas distintas</b>, y conviene no mezclarlas:</p>
+        <ul>
+          <li><b>Lo que dice</b>: las letras, las palabras, y qu&eacute; papel hace cada trozo
+              &mdash;esto es un t&iacute;tulo, esto es un p&aacute;rrafo, esto es un pie de
+              foto&mdash;.</li>
+          <li><b>C&oacute;mo se ve</b>: con qu&eacute; tipo de letra, de qu&eacute; tama&ntilde;o,
+              con cu&aacute;nto margen, en qu&eacute; papel.</li>
+        </ul>
+        <p>Lo primero viaja dentro del fichero. Lo segundo lo <b>decide el programa al abrirlo</b>,
+           con lo que tenga ese ordenador. Por eso el mismo fichero se ve distinto en dos sitios
+           sin que nadie lo haya estropeado.</p>
+      </div>
+
+      <h3>Esto no lo invent&oacute; el ordenador</h3>
+      <p>Separar lo que un texto dice de la forma que tiene encima del papel es una idea vieja. Un
+         escriba copiaba las dos cosas a la vez: cada letra que dibujaba era, al mismo tiempo, el
+         contenido y su forma. Con los <b>tipos m&oacute;viles</b> eso se parte en dos oficios: uno
+         <b>compone</b> las palabras y otro decide <b>con qu&eacute; tipos</b> se imprimen.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u9-tipos-moviles.jpg" alt="Cajas de madera llenas de tipos de plomo y un componedor met&aacute;lico con una frase compuesta al rev&eacute;s" loading="lazy">
+        <figcaption>Una <b>caja de tipos</b>: cada letra es una pieza suelta de plomo, y est&aacute;n guardadas por letras, no por palabras. En el componedor met&aacute;lico hay una frase ya compuesta &mdash;se lee del rev&eacute;s y boca abajo, porque al imprimir se da la vuelta&mdash;. Lo importante para hoy: <b>la frase y los tipos son cosas distintas</b>. La misma frase se puede componer con otros tipos sin cambiar una palabra, que es exactamente lo que le pasa a tu trabajo al abrirlo en otro ordenador.
+          <span class="credito">Willi Heidelbach &middot; CC BY 2.5 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Metal_movable_type.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <h3>Tres maneras de guardar un texto</h3>
+      <div class="copiar">
+        <h4>Formatos de fichero</h4>
+        <p><b>Formato</b>: la manera acordada de ordenar los bytes dentro de un fichero para que
+           otro programa sepa leerlos. La extensi&oacute;n del nombre &mdash;<i>.txt</i>,
+           <i>.odt</i>, <i>.pdf</i>&mdash; solo es una <b>etiqueta</b> que avisa de cu&aacute;l es.</p>
+        <table>
+          <tr><th>Familia</th><th>Qu&eacute; guarda</th><th>Para qu&eacute; sirve</th></tr>
+          <tr><td><b>Texto plano</b> (.txt, .csv)</td>
+              <td>Solo las letras, una detr&aacute;s de otra. Nada m&aacute;s.</td>
+              <td>Lo abre cualquier cosa y durar&aacute; siempre. No tiene t&iacute;tulos ni
+                  negritas.</td></tr>
+          <tr><td><b>Documento con marcas</b> (.odt, .docx)</td>
+              <td>Las letras <b>y</b> las marcas que dicen qu&eacute; papel hace cada trozo.</td>
+              <td>Para escribir y seguir cambiando. Se redibuja al abrirlo.</td></tr>
+          <tr><td><b>P&aacute;gina fija</b> (.pdf)</td>
+              <td>D&oacute;nde va cada letra, y las letras mismas <b>metidas dentro</b>.</td>
+              <td>Para entregar. Se ve igual en todas partes; cuesta editarlo.</td></tr>
+        </table>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Un fichero <i>.odt</i> o <i>.docx</i> no es un bloque m&aacute;gico: es una
+           <b>carpeta comprimida</b>. Si le cambias la extensi&oacute;n a <i>.zip</i> y lo abres,
+           dentro hay ficheros de texto con el contenido por un lado y el aspecto por otro. Lo
+           vais a hacer en la pr&aacute;ctica, y es la manera m&aacute;s r&aacute;pida de creerse
+           todo lo de hoy.</p>
+        <p>El de <i>.odt</i> se llama <b>OpenDocument</b>, y es una <b>norma p&uacute;blica</b>
+           desde 2006: cualquiera puede leer c&oacute;mo est&aacute; hecho y escribir un programa
+           que lo abra. Eso importa m&aacute;s de lo que parece cuando el trabajo que quieres
+           recuperar tiene quince a&ntilde;os y el programa con el que lo hiciste ya no existe.</p>
+      </div>
+
+      <h3>Marcar no es pintar</h3>
+      <p>Aqu&iacute; est&aacute; el h&aacute;bito que hay que cambiar. Casi todo el mundo hace los
+         t&iacute;tulos as&iacute;: seleccionar, negrita, subir el tama&ntilde;o, centrar. El
+         resultado <b>parece</b> un t&iacute;tulo. Pero el programa no ha entendido que sea un
+         t&iacute;tulo: para &eacute;l sigue siendo texto normal que resulta que est&aacute; en
+         negrita.</p>
+      <p>Compru&eacute;balo. En la escena de abajo, pide el &iacute;ndice de las dos maneras.</p>
+
+
+      <div class="escena" id="esc-estilos">
+        <div class="escena-barra">
+          <span class="escena-titulo">Lo mismo, de dos maneras</span>
+          <div class="seg" id="seg-est-m">
+            <button type="button" data-m="mano" aria-pressed="true">Formato a mano</button>
+            <button type="button" data-m="estilos">Con estilos</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">Y ahora te piden esto</span>
+          <div class="seg" id="seg-est-a">
+            <button type="button" data-a="indice">&#9776; Generar el &iacute;ndice</button>
+            <button type="button" data-a="aspecto">&#9998; Cambiar el aspecto</button>
+            <button type="button" data-a="mete">&#10133; Meter un apartado al principio</button>
+            <button type="button" data-a="reset">&#8635; Reiniciar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 430" id="svg-estilos" role="img"
+               aria-label="Un documento con sus apartados y el &iacute;ndice que se genera a partir de ellos"></svg>
+        </div>
+        <div class="pie" id="pie-estilos"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-estilos');
+        if(!svg) return;
+        var pie = document.getElementById('pie-estilos');
+
+        var LINEAS_HOJA = 34;      /* lineas que caben en una hoja */
+        var PESO = {h1:3, h2:2};   /* lo que ocupa un titulo, en lineas */
+
+        function documento(){
+          return [
+            {n:'h1', t:'\u00bfQu\u00e9 es un formato?'},
+            {n:'p',  l:7},
+            {n:'h2', t:'Texto plano y texto con marcas'},
+            {n:'p',  l:9},
+            {n:'h2', t:'Por qu\u00e9 el PDF se ve igual'},
+            {n:'p',  l:8},
+            {n:'h1', t:'Las im\u00e1genes'},
+            {n:'p',  l:6},
+            {n:'h2', t:'Mapa de bits'},
+            {n:'p',  l:11},
+            {n:'h2', t:'Vectorial'},
+            {n:'p',  l:7},
+            {n:'h1', t:'Presentar'},
+            {n:'p',  l:9},
+            {n:'h2', t:'Una idea por diapositiva'},
+            {n:'p',  l:8}
+          ];
+        }
+
+        var doc = documento();
+        var modo = 'mano', indice = null, aviso = '', metido = false;
+
+        /* ---- paginado: en que hoja cae cada apartado ---- */
+        function pagina(){
+          var acc = 0, r = [];
+          for(var i = 0; i < doc.length; i++){
+            var b = doc[i];
+            var alto = (b.n === 'p') ? b.l : PESO[b.n];
+            /* un titulo no se queda solo al final de la hoja */
+            if(b.n !== 'p' && (acc % LINEAS_HOJA) + alto + 2 > LINEAS_HOJA){
+              acc += LINEAS_HOJA - (acc % LINEAS_HOJA);
+            }
+            if(b.n !== 'p') r.push({n:b.n, t:b.t, pag: Math.floor(acc / LINEAS_HOJA) + 1});
+            acc += alto;
+          }
+          return r;
+        }
+
+        /* ---- retoques para cambiar el aspecto de todo el documento ---- */
+        function retoques(){
+          if(modo === 'estilos') return 2;    /* el estilo T\u00edtulo y el estilo Normal */
+          return doc.length;                  /* a mano, bloque por bloque */
+        }
+        function titulos(){
+          return doc.filter(function(b){ return b.n !== 'p'; }).length;
+        }
+
+        function texto(x, y, t, op){
+          op = op || {};
+          return '<text x="'+x+'" y="'+y+'" class="rotulo-svg" style="font-size:'
+               + (op.s || 11)+'px'+(op.c ? ';fill:'+op.c : '')
+               + (op.p ? ';font-weight:500' : '')
+               + (op.a ? ';text-anchor:'+op.a : '')+'">'+t+'</text>';
+        }
+
+        function pinta(){
+          var s = '', estilos = (modo === 'estilos');
+          var col = estilos ? 'var(--goo-verde)' : 'var(--goo-rojo)';
+
+          s += texto(16, 22, 'EL DOCUMENTO  \u00b7  ' + (estilos
+                ? 'MARCADO CON ESTILOS' : 'PINTADO A MANO'), {s:10.5, p:1, c:col});
+          s += texto(338, 22, 'EL \u00cdNDICE QUE SALE', {s:10.5, p:1});
+
+          /* Filas: un titulo ocupa 20 px y un parrafo 13. Con los 18 bloques
+             que hay despues de meter uno nuevo salen 9*20 + 9*13 = 297 px, y
+             desde y = 44 llegan justo a 341, el borde de la caja del indice. */
+          var y = 44;
+          for(var i = 0; i < doc.length; i++){
+            var b = doc[i];
+            if(b.n === 'p'){
+              for(var k = 0; k < 2; k++){
+                s += '<rect x="34" y="'+(y + 3 + k*5)+'" width="'+(232 - k*54)
+                   + '" height="3" fill="var(--ink-soft)" opacity=".30"></rect>';
+              }
+              s += texto(322, y + 10, b.l + ' l\u00edn.', {s:9, a:'end'});
+              y += 13;
+              continue;
+            }
+            var grande = (b.n === 'h1');
+            s += '<rect x="16" y="'+(y + 2)+'" width="6" height="15" fill="'+col+'"></rect>';
+            s += texto(30, y + 14, b.t, {s: grande ? 11.5 : 10.5, p:1});
+            s += texto(322, y + 14, estilos
+                 ? (grande ? 'T\u00edtulo 1' : 'T\u00edtulo 2')
+                 : 'Normal', {s:9.5, a:'end', c: estilos ? col : 'var(--ink-soft)'});
+            y += 20;
+          }
+
+          s += '<rect x="338" y="34" width="286" height="308" fill="var(--surface)" '
+             + 'stroke="var(--line)" stroke-width="1.5"></rect>';
+          if(!indice){
+            s += texto(481, 182, 'Pulsa \u00abGenerar el \u00edndice\u00bb',
+                       {s:11, a:'middle'});
+          } else if(indice.length === 0){
+            s += texto(481, 160, 'El programa no encuentra', {s:11.5, a:'middle',
+                 c:'var(--goo-rojo)', p:1});
+            s += texto(481, 178, 'ning\u00fan t\u00edtulo.', {s:11.5, a:'middle',
+                 c:'var(--goo-rojo)', p:1});
+            s += texto(481, 204, 'Para \u00e9l todo eso es texto normal', {s:10, a:'middle'});
+            s += texto(481, 220, 'que resulta que est\u00e1 en negrita.', {s:10, a:'middle'});
+          } else {
+            var iy = 58;
+            if(indice[0].mano){
+              s += texto(352, 50, 'ESCRITO A MANO POR TI, CON LOS N\u00daMEROS DE ANTES',
+                         {s:9, c:'var(--goo-rojo)'});
+              iy = 74;
+            }
+            for(var j = 0; j < indice.length; j++){
+              var e = indice[j];
+              var mal = (e.viejo !== undefined && e.viejo !== e.pag);
+              var ex = (e.n === 'h1') ? 352 : 368;
+              s += texto(ex, iy, e.t, {s: e.n === 'h1' ? 11.5 : 10.5, p: e.n === 'h1' ? 1 : 0});
+              s += '<path d="M'+ex+' '+(iy+3)+' H594" stroke="var(--line-soft)" '
+                 + 'stroke-width="1" stroke-dasharray="1.5 2.5"></path>';
+              s += texto(610, iy, String(e.viejo !== undefined ? e.viejo : e.pag),
+                         {s:11.5, a:'end', p:1, c: mal ? 'var(--goo-rojo)' : 'var(--ink)'});
+              iy += 19;
+            }
+          }
+
+          s += '<rect x="16" y="356" width="608" height="60" fill="var(--surface-2)"></rect>';
+          s += texto(30, 377, 'CAMBIAR EL ASPECTO DE TODO EL DOCUMENTO CUESTA', {s:9.5});
+          s += texto(30, 402, retoques() + (retoques() === 1 ? ' retoque' : ' retoques'),
+                     {s:17, p:1, c:col});
+          s += texto(340, 377, 'APARTADOS QUE EL PROGRAMA RECONOCE COMO T\u00cdTULOS', {s:9.5});
+          s += texto(340, 402, (estilos ? titulos() : 0) + ' de ' + titulos(),
+                     {s:17, p:1, c:col});
+
+          svg.innerHTML = s;
+          pie.innerHTML = aviso || ('Los n&uacute;meros de p&aacute;gina no est&aacute;n escritos '
+            + 'en ning&uacute;n sitio: se cuentan aqu&iacute; mismo, sumando las l&iacute;neas de '
+            + 'cada apartado a raz&oacute;n de <b>' + LINEAS_HOJA + ' l&iacute;neas por hoja</b>. '
+            + 'Prueba a generar el &iacute;ndice en los dos modos.');
+        }
+
+        function accion(a){
+          if(a === 'indice'){
+            indice = (modo === 'estilos') ? pagina() : [];
+            aviso = (modo === 'estilos')
+              ? 'El programa <b>s&iacute; sabe</b> cu&aacute;les son los t&iacute;tulos, porque se '
+                + 'lo dijiste al marcarlos con un estilo. Con esa marca hace la lista y le pone al '
+                + 'lado la hoja en la que cae cada uno.'
+              : 'Nada, y no es un fallo del programa. <b>Nunca le has dicho</b> cu&aacute;les de '
+                + 'esas l&iacute;neas son t&iacute;tulos: poner algo en negrita y m&aacute;s grande '
+                + 'lo cambia de <b>aspecto</b>, no de <b>papel</b>.';
+          } else if(a === 'aspecto'){
+            aviso = (modo === 'estilos')
+              ? '<b>Dos retoques</b>: cambias el estilo <i>T&iacute;tulo</i> y el estilo '
+                + '<i>Normal</i>, y se mueve el documento entero, tenga las p&aacute;ginas que '
+                + 'tenga.'
+              : '<b>' + retoques() + ' retoques</b>, uno por bloque. Y en un trabajo de verdad, de '
+                + 'treinta p&aacute;ginas, son cientos. Ah&iacute; es donde se queda siempre '
+                + 'alg&uacute;n t&iacute;tulo distinto de los dem&aacute;s.';
+          } else if(a === 'mete'){
+            if(metido){
+              aviso = 'Ya lo has metido. Pulsa <b>Reiniciar</b> si quieres empezar otra vez.';
+            } else {
+              var antes = pagina();          /* los numeros de antes de tocar nada */
+              doc.unshift({n:'h1', t:'Introducci\u00f3n'}, {n:'p', l:12});
+              metido = true;
+              var nuevo = pagina();
+              if(modo === 'estilos'){
+                indice = nuevo;
+                aviso = 'Pulsas <b>actualizar</b> y ya est&aacute;: el &iacute;ndice se rehace '
+                      + 'solo, entra el apartado nuevo y todos los n&uacute;meros salen bien.';
+              } else {
+                /* A mano el indice lo habrias escrito tu, con los numeros de
+                   antes. Ahora se comparan con los que tocan de verdad. */
+                indice = antes.map(function(e, i){
+                  return {n:e.n, t:e.t, pag:nuevo[i + 1].pag, viejo:e.pag, mano:1};
+                });
+                var fallan = indice.filter(function(e){ return e.viejo !== e.pag; }).length;
+                aviso = 'Este es el &iacute;ndice que habr&iacute;as escrito t&uacute;, con los '
+                      + 'n&uacute;meros de antes. Al meter un apartado al principio, <b>' + fallan
+                      + ' n&uacute;meros</b> han dejado de valer (van en rojo) y falta la entrada '
+                      + 'nueva. Hay que arreglarlo <b>a mano, uno a uno</b>, y cada vez que el '
+                      + 'documento crezca.';
+              }
+            }
+          } else {
+            doc = documento(); indice = null; aviso = ''; metido = false;
+          }
+          pinta();
+        }
+
+        var cajaM = document.getElementById('seg-est-m');
+        cajaM.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-m]'); if(!b) return;
+          modo = b.dataset.m;
+          doc = documento(); indice = null; aviso = ''; metido = false;
+          cajaM.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        document.getElementById('seg-est-a').addEventListener('click', function(e){
+          var b = e.target.closest('button[data-a]'); if(!b) return;
+          accion(b.dataset.a);
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Estilo</h4>
+        <p><b>Estilo</b>: una <b>etiqueta</b> que le pones a un trozo de texto para decir
+           qu&eacute; es &mdash;T&iacute;tulo 1, T&iacute;tulo 2, Normal, Cita&mdash;. El aspecto
+           de cada etiqueta se define <b>una sola vez</b>, aparte.</p>
+        <p>De ah&iacute; salen tres cosas que a mano no se pueden hacer:</p>
+        <ul>
+          <li>El <b>&iacute;ndice se genera solo</b>, con sus n&uacute;meros de p&aacute;gina, y se
+              actualiza cuando el documento crece.</li>
+          <li>Cambiar el aspecto de todos los t&iacute;tulos cuesta <b>un retoque</b>, no uno por
+              t&iacute;tulo.</li>
+          <li>Un lector de pantalla &mdash;lo que usa una persona ciega&mdash; puede ir
+              <b>saltando de apartado en apartado</b>. Si no hay estilos, no hay apartados a los
+              que saltar.</li>
+        </ul>
+        <p>Regla corta: <b>marcar lo que algo es, no pintar lo que parece</b>.</p>
+      </div>
+
+      <h3>Y entonces, &iquest;por qu&eacute; el PDF se ve igual?</h3>
+      <p>Porque hace justo lo contrario, y a prop&oacute;sito. Un PDF no deja nada por decidir: ya
+         lleva calculada la posici&oacute;n de cada letra, y adem&aacute;s se lleva <b>las letras
+         dentro</b>, incrustadas, para no depender de las que tenga el ordenador de enfrente.
+         Vuelve a la escena de arriba y pulsa <b>&laquo;Mandarlo en PDF&raquo;</b>: los botones
+         siguen funcionando y la hoja ya no se mueve.</p>
+
+      <div class="copiar">
+        <h4>PDF</h4>
+        <p><b>PDF</b> (<i>formato de documento port&aacute;til</i>): un formato que guarda la
+           <b>p&aacute;gina ya maquetada</b> &mdash;posiciones y tipograf&iacute;as
+           incluidas&mdash;, en vez de guardar el texto y dejar que se redibuje.</p>
+        <p>Lo que ganas: se ve <b>igual en cualquier sitio</b> y se imprime igual. Es el formato
+           para <b>entregar</b>.</p>
+        <p>Lo que pierdes, y hay que saberlo:</p>
+        <ul>
+          <li><b>Editarlo cuesta</b>: est&aacute; pensado para leerse, no para seguir
+              escribi&eacute;ndolo. El original se guarda aparte.</li>
+          <li><b>No se adapta</b> a una pantalla peque&ntilde;a: en el m&oacute;vil hay que hacer
+              zoom, porque la p&aacute;gina es fija por definici&oacute;n.</li>
+          <li>Si se hace mal &mdash;por ejemplo escaneando papel&mdash;, dentro no hay texto sino
+              una foto: no se puede buscar ni copiar, y un lector de pantalla no puede leerlo.</li>
+        </ul>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Los tipos m&oacute;viles no son de Gutenberg: en China ya los usaba <b>Bi Sheng</b> hacia
+           <b>1040</b>, de cer&aacute;mica, y el libro impreso con tipos de metal m&aacute;s antiguo
+           que se conserva es coreano, el <i>Jikji</i>, de <b>1377</b>. Lo que Gutenberg mont&oacute;
+           en Maguncia hacia <b>1450</b> fue el <b>sistema entero</b>: la aleaci&oacute;n para
+           fundir tipos iguales miles de veces, la tinta que agarraba en el metal y una prensa que
+           apretaba fuerte y parejo.</p>
+        <p>El PDF es mucho m&aacute;s reciente. Lo sac&oacute; la empresa <b>Adobe</b> en
+           <b>1993</b>, y al principio hab&iacute;a que pagar por el programa que lo le&iacute;a.
+           Les fue mal: nadie manda un fichero que el otro no puede abrir. Cuando regalaron el
+           lector, el formato se comi&oacute; el mundo. En <b>2008</b> dej&oacute; de ser suyo y
+           pas&oacute; a ser una <b>norma internacional</b> (ISO 32000), o sea, de nadie. Esa es la
+           raz&oacute;n de fondo por la que hoy puedes mandar un PDF a cualquiera sin preguntar
+           qu&eacute; tiene instalado.</p>
+      </div>
+
+      <div class="video" id="video-pdf" data-vid="pSBpSSbx9Ps">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: &iquest;Qu&eacute; es un PDF?">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>&iquest;Qu&eacute; es un PDF?</b>
+            <span>Micro Conocimiento &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Un minuto y medio para fijar por qu&eacute; se manda en PDF lo que tiene que verse igual en todas partes. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=pSBpSSbx9Ps" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 9.1 &middot; Abrir un documento por dentro</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <div class="nota">
+            <span class="n-tag">Con qu&eacute; se hace</span>
+            Con el procesador de textos que tengas en el aula o con el de la suite del centro. No
+            hace falta instalar nada, y los pasos no dependen de qu&eacute; programa sea: lo que se
+            eval&uacute;a es la cuenta y la explicaci&oacute;n, no d&oacute;nde est&aacute; el
+            bot&oacute;n.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>El mismo p&aacute;rrafo, dos veces.</b> Copiad un p&aacute;rrafo cualquiera de
+                esta p&aacute;gina en un <b>editor de texto plano</b> y gu&aacute;rdadlo como
+                <i>.txt</i>. Pegadlo tambi&eacute;n en el procesador y guardadlo como <i>.odt</i>.
+                Anotad <b>lo que ocupa cada fichero</b> y contestad: si el texto es el mismo,
+                &iquest;<b>qu&eacute; hay</b> en la diferencia?</li>
+            <li><b>Abrid el documento por dentro.</b> Haced una copia del <i>.odt</i>,
+                cambiadle la extensi&oacute;n a <i>.zip</i> y abridlo. Apuntad <b>cu&aacute;ntos
+                ficheros</b> hay dentro y <b>c&oacute;mo se llaman</b>. Buscad en cu&aacute;l
+                est&aacute; vuestro texto y en cu&aacute;l est&aacute; el aspecto. Una frase:
+                &iquest;por qu&eacute; est&aacute;n en ficheros distintos?</li>
+            <li><b>Estilos.</b> Escribid un documento con <b>seis apartados</b> (basta una l&iacute;nea
+                de relleno en cada uno). Marcad los t&iacute;tulos con el estilo <i>T&iacute;tulo
+                1</i> y <i>T&iacute;tulo 2</i>, y generad el <b>&iacute;ndice autom&aacute;tico</b>.
+                Despu&eacute;s cambiad el estilo <i>T&iacute;tulo 1</i> &mdash;otra letra y otro
+                color&mdash; y contad <b>cu&aacute;ntos retoques</b> os ha costado.</li>
+            <li><b>La cuenta de lo que costar&iacute;a a mano.</b> Cronometrad lo que tard&aacute;is
+                en cambiarle el aspecto a <b>dos</b> t&iacute;tulos a mano. Multiplicad por los
+                t&iacute;tulos que tendr&iacute;a un trabajo de treinta p&aacute;ginas (contad unos
+                <b>dos por p&aacute;gina</b>) y decid el resultado en minutos.</li>
+            <li><b>La escena, con n&uacute;meros.</b> En la escena de las dos hojas, anotad las
+                <b>l&iacute;neas</b> y las <b>hojas</b> con <i>Helvetica 11 pt en A4</i> y con
+                <i>Courier 14 pt en Carta</i>. Calculad en <b>qu&eacute; porcentaje</b> aumentan las
+                l&iacute;neas, y decid en qu&eacute; hoja cae la segunda foto en cada caso.</li>
+            <li><b>Entregadlo en PDF.</b> Exportad el documento del paso 3 a PDF, abridlo y
+                contestad a dos preguntas: &iquest;funciona el &iacute;ndice como enlaces?
+                &iquest;Se puede <b>buscar</b> una palabra dentro? Y la importante:
+                &iquest;<b>qu&eacute; hab&eacute;is perdido</b> al exportar?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los dos tama&ntilde;os est&aacute;n anotados y la explicaci&oacute;n de la
+                diferencia habla de <b>marcas</b>, no de &laquo;el programa ocupa m&aacute;s&raquo;
+                <b>(2 puntos)</b>.</li>
+            <li>El <i>.odt</i> se ha abierto por dentro y se distingue <b>d&oacute;nde est&aacute;
+                el texto</b> de d&oacute;nde est&aacute; el aspecto <b>(2 puntos)</b>.</li>
+            <li>El &iacute;ndice autom&aacute;tico funciona y el cambio de estilo se ha hecho
+                <b>desde el estilo</b> <b>(2 puntos)</b>.</li>
+            <li>Las dos cuentas &mdash;los minutos a mano y el porcentaje de la escena&mdash;
+                est&aacute;n bien hechas y con unidades <b>(2 puntos)</b>.</li>
+            <li>La respuesta sobre el PDF dice qu&eacute; se gana y qu&eacute; se pierde, sin
+                quedarse en &laquo;es mejor&raquo; <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso sobre el paso 2</span>
+            Trabajad siempre sobre una <b>copia</b>. Cambiarle la extensi&oacute;n al original y
+            luego no saber volver atr&aacute;s es la manera m&aacute;s tonta de perder un trabajo.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Vuelve a las tres explicaciones que escribiste al principio. Ninguna hac&iacute;a falta:
+         no hab&iacute;a aver&iacute;a. Hab&iacute;a un documento que <b>se vuelve a dibujar cada
+         vez</b>, y un aspecto que estaba pegado a mano en vez de estar dicho con estilos.</p>
+      <ol>
+              <li>El mismo fichero se ve distinto en dos ordenadores y no falta ni una palabra. &iquest;Qu&eacute; ha pasado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que el fichero no guarda una foto de la p&aacute;gina: guarda <b>el texto y sus marcas</b>, y la p&aacute;gina se <b>redibuja</b> al abrirlo con lo que ese ordenador tenga. Si la letra es otra, las palabras ocupan otra cosa, las l&iacute;neas cortan por otro sitio y todo lo de abajo se mueve. No se ha estropeado nada.</p></div></details></li>
+        <li>Pones un t&iacute;tulo en negrita y m&aacute;s grande, pero el &iacute;ndice autom&aacute;tico sale vac&iacute;o. &iquest;Por qu&eacute;?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque le has cambiado el <b>aspecto</b> y no le has dicho <b>qu&eacute; es</b>. Negrita y tama&ntilde;o son pintura; el programa solo ve texto normal. Para que sea un t&iacute;tulo hay que marcarlo con un <b>estilo</b>, y entonces el programa ya sabe qu&eacute; meter en el &iacute;ndice &mdash;y un lector de pantalla, por d&oacute;nde saltar&mdash;.</p></div></details></li>
+        <li>&iquest;Cu&aacute;ndo se manda un PDF y cu&aacute;ndo NO?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se manda en PDF lo que est&aacute; <b>terminado</b> y tiene que verse igual en todas partes: la entrega, el cartel, el documento que se imprime. No se manda en PDF lo que a&uacute;n hay que <b>seguir escribiendo</b> o lo que otra persona tiene que retocar, porque editarlo cuesta. El original se guarda siempre aparte.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        En el documento de hoy hab&iacute;a dos fotos, y hemos hablado de d&oacute;nde caen, no de
+        lo que pesan. Haz la prueba antes de la pr&oacute;xima clase: mira lo que ocupa
+        <b>una sola foto</b> de tu m&oacute;vil. Ahora multipl&iacute;calo por las once que va a
+        llevar la presentaci&oacute;n del grupo. <b>&iquest;Cabe?</b>
+      </div>
+
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Lectura del tema</h4>
+        <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>30 p&aacute;rrafos numerados</b>:
+           cada uno lee el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.</p>
+        <p style="margin-top:10px"><a href="lectura-tema9.pdf" target="_blank" rel="noopener"
+           style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
+           &#8595; Lo que dice y c&oacute;mo se ve &middot; PDF</a></p>
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>Una imagen pesa lo que pesa</h2>
+      <p>Una foto de m&oacute;vil son 35 MB en bruto y el fichero dice 3. Entre esas dos cifras est&aacute;n la rejilla de p&iacute;xeles, la compresi&oacute;n y la diferencia entre guardar casillas y guardar instrucciones.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">B.2 &middot; D.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>El grupo termina la presentaci&oacute;n: catorce diapositivas y once fotos. Al ir a
+         subirla, el aviso de siempre: <b>48 MB</b>, demasiado. Y lo raro es que ah&iacute; dentro
+         no hay 48 MB de ideas.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Antes de leer nada m&aacute;s, escribe un n&uacute;mero en el cuaderno: <b>&iquest;cu&aacute;nto
+        crees que ocupa una foto de tu m&oacute;vil?</b> Y otro: <b>&iquest;y cu&aacute;nto
+        ocupar&iacute;a esa misma foto si nadie la hubiera comprimido?</b> Si no tienes ni idea del
+        segundo, ponlo igual: vamos a comprobarlo en un minuto.
+      </div>
+
+      <p>Haz la cuenta t&uacute;, que no tiene truco. Una c&aacute;mara de m&oacute;vil corriente
+         hace fotos de <b>4.032 &times; 3.024</b> puntos. Cada punto guarda su color, y un color se
+         guarda en <b>3 bytes</b> &mdash;uno de rojo, uno de verde y uno de azul&mdash;:</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Las dos multiplicaciones</span>
+        <p><b>1.</b> 4.032 &times; 3.024 = <b>12.192.768 puntos</b>. Eso es lo que quiere decir
+           &laquo;12 megap&iacute;xeles&raquo;: doce millones de puntos.</p>
+        <p><b>2.</b> 12.192.768 &times; 3 = <b>36.578.304 bytes</b>, o sea unos <b>35 MB</b>.
+           <b>Una sola foto.</b></p>
+        <p style="margin-top:8px">Y ahora mira lo que dice tu m&oacute;vil que ocupa esa foto.
+           Suele poner entre <b>2 y 4 MB</b>. Sobran unos 32.
+           <b>&iquest;D&oacute;nde est&aacute;n?</b></p>
+      </div>
+
+      <p>Esa pregunta es la sesi&oacute;n entera, y tiene dos respuestas: una se llama
+         <b>compresi&oacute;n</b> y la otra es que a lo mejor <b>no hac&iacute;an falta</b>.</p>
+
+      <p>Antes, la soluci&oacute;n que intenta todo el mundo con la presentaci&oacute;n de 48 MB:
+         <b>arrastrar la esquina de la foto para hacerla peque&ntilde;a</b>. Prueba a hacerlo y
+         vuelve a mirar lo que ocupa el fichero. <b>Lo mismo.</b> No has cambiado la foto: has
+         cambiado <b>c&oacute;mo se dibuja</b>. Es exactamente el error de la sesi&oacute;n
+         anterior, otra vez: confundir lo que una cosa <b>es</b> con lo que <b>parece</b>.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Una foto es, literalmente, una rejilla</h3>
+      <p>No es una met&aacute;fora. Detr&aacute;s del objetivo del m&oacute;vil hay una rejilla de
+         casillas diminutas, cada una con un filtro de color delante, y cada casilla mide
+         cu&aacute;nta luz le llega. La foto es la <b>lista de esas medidas</b>.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u9-sensor-rejilla.jpg" alt="Fotograf&iacute;a a mucho aumento de un sensor de color, con su rejilla de casillas rojas, verdes y azules" loading="lazy">
+        <figcaption>Un <b>sensor de color</b> visto a mucho aumento. En el centro, debajo de la lente redonda, se ve la <b>rejilla</b>: casillas cuadradas con un filtro rojo, verde o azul delante. Cada casilla mide la luz que le llega y devuelve un n&uacute;mero. El de la foto es un sensor peque&ntilde;o, de pocas casillas; el de un m&oacute;vil es el mismo invento con <b>doce millones</b> de ellas. Cuando decimos que una imagen &laquo;son p&iacute;xeles&raquo;, esto es lo que hay debajo.
+          <span class="credito">Prosthetic Head &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Colour_Sensor_Macro.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>Guardar una rejilla tiene una consecuencia incómoda que se ve mejor ampliando. A la
+         izquierda de la escena hay un s&iacute;mbolo guardado como <b>casillas</b>; a la derecha,
+         el mismo s&iacute;mbolo guardado como <b>instrucciones de dibujo</b>. Acerca los dos.</p>
+
+
+      <div class="escena" id="esc-mapa">
+        <div class="escena-barra">
+          <span class="escena-titulo">Casillas o instrucciones</span>
+          <div class="seg" id="seg-mapa-n">
+            <button type="button" data-n="10">10 &times; 10</button>
+            <button type="button" data-n="20" aria-pressed="true">20 &times; 20</button>
+            <button type="button" data-n="40">40 &times; 40</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">Acercarse</span>
+          <div class="seg" id="seg-mapa-z">
+            <button type="button" data-z="1" aria-pressed="true">&times;1</button>
+            <button type="button" data-z="4">&times;4</button>
+            <button type="button" data-z="10">&times;10</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 352" id="svg-mapa" role="img"
+               aria-label="El mismo s&iacute;mbolo guardado como rejilla de casillas y como instrucciones de dibujo, ampliados a la vez"></svg>
+        </div>
+        <div class="pie" id="pie-mapa"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-mapa');
+        if(!svg) return;
+        var pie = document.getElementById('pie-mapa');
+
+        var VENT = 240;                 /* lado de cada ventana, en px */
+        var X1 = 26, X2 = 374, Y0 = 52;
+        var N = 20, Z = 1;
+
+        /* ---- la figura, en coordenadas de 0 a 1 ---- */
+        var CX = 0.5, CY = 0.5, R_OUT = 0.44, R_IN = 0.32;
+        var TRI = [[0.40, 0.28], [0.40, 0.72], [0.74, 0.50]];
+
+        function sig(x, y, p, q){
+          return (x - q[0])*(p[1] - q[1]) - (p[0] - q[0])*(y - q[1]);
+        }
+        function enTriangulo(x, y){
+          var d1 = sig(x, y, TRI[0], TRI[1]);
+          var d2 = sig(x, y, TRI[1], TRI[2]);
+          var d3 = sig(x, y, TRI[2], TRI[0]);
+          var neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+          var pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+          return !(neg && pos);
+        }
+        function dentro(x, y){
+          var dx = x - CX, dy = y - CY, d = Math.sqrt(dx*dx + dy*dy);
+          if(d <= R_OUT && d >= R_IN) return true;
+          return enTriangulo(x, y);
+        }
+
+        /* ---- rasterizar: cobertura de cada casilla con 4x4 muestras ---- */
+        function rasteriza(n){
+          var m = [], sub = 4;
+          for(var j = 0; j < n; j++){
+            var fila = [];
+            for(var i = 0; i < n; i++){
+              var c = 0;
+              for(var sj = 0; sj < sub; sj++){
+                for(var si = 0; si < sub; si++){
+                  if(dentro((i + (si + 0.5)/sub) / n, (j + (sj + 0.5)/sub) / n)) c++;
+                }
+              }
+              fila.push(c / (sub*sub));
+            }
+            m.push(fila);
+          }
+          return m;
+        }
+
+        /* ---- el vectorial: la cadena que se guardaria de verdad ---- */
+        function cadena(){
+          function f(v){ return (v*100).toFixed(1); }
+          return 'M' + f(CX - R_OUT) + ' ' + f(CY)
+               + 'a' + f(R_OUT) + ' ' + f(R_OUT) + ' 0 1 0 ' + f(2*R_OUT) + ' 0'
+               + 'a' + f(R_OUT) + ' ' + f(R_OUT) + ' 0 1 0 ' + f(-2*R_OUT) + ' 0'
+               + 'M' + f(CX - R_IN) + ' ' + f(CY)
+               + 'a' + f(R_IN) + ' ' + f(R_IN) + ' 0 1 0 ' + f(2*R_IN) + ' 0'
+               + 'a' + f(R_IN) + ' ' + f(R_IN) + ' 0 1 0 ' + f(-2*R_IN) + ' 0'
+               + 'M' + f(TRI[0][0]) + ' ' + f(TRI[0][1])
+               + 'L' + f(TRI[1][0]) + ' ' + f(TRI[1][1])
+               + 'L' + f(TRI[2][0]) + ' ' + f(TRI[2][1]) + 'Z';
+        }
+
+        function bytes(n){
+          if(n < 1024) return n + ' B';
+          if(n < 1048576) return (n/1024).toFixed(1).replace('.', ',') + ' KiB';
+          return (n/1048576).toFixed(2).replace('.', ',') + ' MiB';
+        }
+
+        function pinta(){
+          var m = rasteriza(N), s = '';
+          var lado = VENT * Z;                 /* lo que ocupa la figura al ampliar */
+          var off = (lado - VENT) / 2;         /* lo que se sale por cada lado      */
+          var paso = lado / N;
+
+          s += '<clipPath id="cl-bit"><rect x="'+X1+'" y="'+Y0+'" width="'+VENT
+             + '" height="'+VENT+'"/></clipPath>';
+          s += '<clipPath id="cl-vec"><rect x="'+X2+'" y="'+Y0+'" width="'+VENT
+             + '" height="'+VENT+'"/></clipPath>';
+
+          s += '<text x="'+(X1 + VENT/2)+'" y="24" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:11.5px;fill:var(--goo-rojo);font-weight:500">'
+             + 'MAPA DE BITS  \u00b7  ' + N + ' \u00d7 ' + N + ' CASILLAS</text>';
+          s += '<text x="'+(X2 + VENT/2)+'" y="24" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:11.5px;fill:var(--goo-verde);font-weight:500">'
+             + 'VECTORIAL  \u00b7  TRES INSTRUCCIONES</text>';
+          s += '<text x="'+(X1 + VENT/2)+'" y="40" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">guarda el color de cada casilla</text>';
+          s += '<text x="'+(X2 + VENT/2)+'" y="40" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">guarda c\u00f3mo se dibuja</text>';
+
+          s += '<g clip-path="url(#cl-bit)">';
+          var i0 = Math.max(0, Math.floor(off / paso));
+          var i1 = Math.min(N, Math.ceil((off + VENT) / paso));
+          for(var j = i0; j < i1; j++){
+            for(var i = i0; i < i1; i++){
+              var a = m[j][i];
+              if(a <= 0.001) continue;
+              s += '<rect x="'+(X1 - off + i*paso).toFixed(2)+'" y="'
+                 + (Y0 - off + j*paso).toFixed(2)+'" width="'+(paso + 0.4).toFixed(2)
+                 + '" height="'+(paso + 0.4).toFixed(2)+'" fill="var(--ink)" opacity="'
+                 + a.toFixed(3)+'"></rect>';
+            }
+          }
+          if(paso > 9){       /* con las casillas gordas se ve la rejilla */
+            for(var g = i0; g <= i1; g++){
+              s += '<path d="M'+(X1 - off + g*paso).toFixed(2)+' '+Y0+' v'+VENT
+                 + '" stroke="var(--goo-rojo)" stroke-width=".5" opacity=".38"></path>';
+              s += '<path d="M'+X1+' '+(Y0 - off + g*paso).toFixed(2)+' h'+VENT
+                 + '" stroke="var(--goo-rojo)" stroke-width=".5" opacity=".38"></path>';
+            }
+          }
+          s += '</g>';
+          s += '<rect x="'+X1+'" y="'+Y0+'" width="'+VENT+'" height="'+VENT
+             + '" fill="none" stroke="var(--line)" stroke-width="1.5"></rect>';
+
+          s += '<g clip-path="url(#cl-vec)"><g transform="translate('+(X2 - off).toFixed(2)
+             + ' '+(Y0 - off).toFixed(2)+') scale('+(lado/100).toFixed(4)+')">';
+          s += '<path d="'+cadena()+'" fill="var(--ink)" fill-rule="evenodd"></path>';
+          s += '</g></g>';
+          s += '<rect x="'+X2+'" y="'+Y0+'" width="'+VENT+'" height="'+VENT
+             + '" fill="none" stroke="var(--line)" stroke-width="1.5"></rect>';
+
+          var pesoBit = N*N*3, pesoVec = cadena().length;
+          s += '<text x="'+(X1 + VENT/2)+'" y="312" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:12px;fill:var(--ink)">' + (N*N)
+             + ' casillas \u00d7 3 bytes = ' + bytes(pesoBit) + '</text>';
+          s += '<text x="'+(X2 + VENT/2)+'" y="312" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:12px;fill:var(--ink)">' + pesoVec + ' letras, o sea '
+             + bytes(pesoVec) + '</text>';
+          s += '<text x="'+(X1 + VENT/2)+'" y="330" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">al ampliar, la casilla se hace grande</text>';
+          s += '<text x="'+(X2 + VENT/2)+'" y="330" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">al ampliar, se vuelve a dibujar</text>';
+
+          svg.innerHTML = s;
+
+          pie.innerHTML = 'A la izquierda hay <b>' + (N*N) + ' casillas</b> y en cada una cabe un '
+            + 'color: eso es <b>todo</b> lo que se guarda, y por eso al acercarse no aparece '
+            + 'detalle nuevo. No lo hay. A la derecha se guardan tres instrucciones '
+            + '&mdash;<span style="font-family:var(--f-m);font-size:11.5px">'
+            + cadena().slice(0, 42) + '&hellip;</span>&mdash;, <b>' + pesoVec + ' bytes</b>, y el '
+            + 'dibujo se rehace entero cada vez que cambia de tama&ntilde;o.'
+            + '<br><span style="font-size:12.5px">La cuenta que hay que ver: para que el mapa de '
+            + 'bits se viera igual de fino <b>al doble de tama&ntilde;o</b> har&iacute;an falta '
+            + (2*N) + ' &times; ' + (2*N) + ' = <b>' + (4*N*N) + ' casillas</b>, o sea '
+            + bytes(4*N*N*3) + '. Al doble de ancho, <b>cuatro veces</b> el peso. El vectorial '
+            + 'sigue pesando ' + pesoVec + ' bytes.</span>';
+        }
+
+        function conecta(id, attr, fn){
+          var caja = document.getElementById(id);
+          caja.addEventListener('click', function(e){
+            var b = e.target.closest('button['+attr+']'); if(!b) return;
+            fn(+b.getAttribute(attr));
+            caja.querySelectorAll('button').forEach(function(x){
+              x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+            });
+            pinta();
+          });
+        }
+        conecta('seg-mapa-n', 'data-n', function(v){ N = v; });
+        conecta('seg-mapa-z', 'data-z', function(v){ Z = v; });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Mapa de bits y vectorial</h4>
+        <p><b>Mapa de bits</b>: la imagen es una <b>rejilla de p&iacute;xeles</b>, y de cada uno se
+           guarda su color. Es lo que sale de una c&aacute;mara o de un esc&aacute;ner.
+           Formatos: <b>JPEG</b>, <b>PNG</b>, <b>WebP</b>.</p>
+        <p><b>Vectorial</b>: la imagen es una <b>lista de instrucciones</b> &mdash;una
+           circunferencia de tal radio aqu&iacute;, una l&iacute;nea hasta all&iacute;, rellena de
+           este color&mdash;. Se vuelve a dibujar cada vez, al tama&ntilde;o que haga falta.
+           Formato: <b>SVG</b>.</p>
+        <table>
+          <tr><th></th><th>Mapa de bits</th><th>Vectorial</th></tr>
+          <tr><td>Al ampliar</td><td>Salen las casillas: no hay m&aacute;s detalle guardado</td>
+              <td>Se redibuja y sigue fino, a cualquier tama&ntilde;o</td></tr>
+          <tr><td>Lo que pesa</td><td>Depende de cu&aacute;ntos p&iacute;xeles tenga</td>
+              <td>Depende de cu&aacute;ntas instrucciones, no del tama&ntilde;o</td></tr>
+          <tr><td>Sirve para</td><td>Fotograf&iacute;as</td>
+              <td>Logotipos, iconos, planos, esquemas, letras</td></tr>
+          <tr><td>No sirve para</td><td>Un logotipo que hay que ampliar</td>
+              <td>Una fotograf&iacute;a</td></tr>
+        </table>
+      </div>
+
+      <p>Por qu&eacute; una foto no puede ser vectorial: har&iacute;a falta una instrucci&oacute;n
+         por cada mancha de color, y en una cara hay millones que no se parecen a ning&uacute;n
+         c&iacute;rculo ni a ninguna recta. Por qu&eacute; un logotipo no deber&iacute;a ser un
+         mapa de bits: porque un logotipo acaba <b>en un carn&eacute; y en una pancarta</b>, y solo
+         uno de los dos cabe en la rejilla que guardaste.</p>
+
+      <div class="copiar">
+        <h4>Medido, no estimado</h4>
+        <p>El s&iacute;mbolo de la escena, guardado de las dos maneras:</p>
+        <table>
+          <tr><th>Guardado como</th><th>Ocupa</th></tr>
+          <tr><td>SVG (instrucciones), a cualquier tama&ntilde;o</td><td><b>244 bytes</b></td></tr>
+          <tr><td>PNG de 64 &times; 64</td><td>365 bytes</td></tr>
+          <tr><td>PNG de 256 &times; 256</td><td>1.559 bytes</td></tr>
+          <tr><td>PNG de 1.024 &times; 1.024</td><td>6.426 bytes</td></tr>
+          <tr><td>PNG de 2.048 &times; 2.048</td><td><b>15.254 bytes</b></td></tr>
+        </table>
+        <p>El vectorial pesa <b>lo mismo siempre</b>. El mapa de bits, para el mismo dibujo y a
+           gran tama&ntilde;o, <b>sesenta y dos veces m&aacute;s</b>.</p>
+      </div>
+
+      <h3>Una imagen no tiene tama&ntilde;o: tiene p&iacute;xeles</h3>
+      <p>Esta frase es la que arregla la presentaci&oacute;n de 48 MB. Preguntar
+         &laquo;&iquest;cu&aacute;ntos cent&iacute;metros mide esta foto?&raquo; no tiene respuesta
+         hasta que alguien decide <b>cu&aacute;ntos p&iacute;xeles pone en cada
+         cent&iacute;metro</b>. Y lo que se ve en una diapositiva proyectada son, como mucho,
+         <b>1.920 &times; 1.080</b>: eso es todo lo que puede ense&ntilde;ar el proyector.</p>
+
+
+      <div class="escena" id="esc-peso">
+        <div class="escena-barra">
+          <span class="escena-titulo">La foto que metes</span>
+          <div class="seg" id="seg-peso-f">
+            <button type="button" data-f="0" aria-pressed="true">M&oacute;vil 12 Mp</button>
+            <button type="button" data-f="1">M&oacute;vil 48 Mp</button>
+            <button type="button" data-f="2">C&aacute;mara 24 Mp</button>
+            <button type="button" data-f="3">Captura de pantalla</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">D&oacute;nde va a verse</span>
+          <div class="seg" id="seg-peso-d">
+            <button type="button" data-d="0" aria-pressed="true">Diapositiva proyectada</button>
+            <button type="button" data-d="1">Impresa en A4</button>
+            <button type="button" data-d="2">Miniatura en una web</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 330" id="svg-peso" role="img"
+               aria-label="Los p&iacute;xeles de una foto comparados con los que caben en su destino, y lo que pesa cada cosa"></svg>
+        </div>
+        <div class="pie" id="pie-peso"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-peso');
+        if(!svg) return;
+        var pie = document.getElementById('pie-peso');
+
+        var FOTOS = [
+          {n:'M\u00f3vil 12 Mp',       w:4032, h:3024},
+          {n:'M\u00f3vil 48 Mp',       w:8064, h:6048},
+          {n:'C\u00e1mara 24 Mp',      w:6000, h:4000},
+          {n:'Captura de pantalla', w:1920, h:1080}
+        ];
+        var DESTINOS = [
+          {n:'una diapositiva proyectada', w:1920, h:1080},
+          {n:'una p\u00e1gina A4 impresa',    w:2480, h:3508},
+          {n:'una miniatura en una web',   w:400,  h:300}
+        ];
+        var f = 0, d = 0;
+
+        function bytes(n){
+          if(n < 1024) return n + ' B';
+          if(n < 1048576) return (n/1024).toFixed(1).replace('.', ',') + ' KiB';
+          if(n < 1073741824) return (n/1048576).toFixed(1).replace('.', ',') + ' MiB';
+          return (n/1073741824).toFixed(2).replace('.', ',') + ' GiB';
+        }
+        function mil(n){
+          return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        function num(v, n){ return v.toFixed(n === undefined ? 1 : n).replace('.', ','); }
+        function texto(x, y, t, op){
+          op = op || {};
+          return '<text x="'+x+'" y="'+y+'" class="rotulo-svg" style="font-size:'+(op.s || 11)
+               + 'px'+(op.c ? ';fill:'+op.c : '')+(op.p ? ';font-weight:500' : '')
+               + (op.a ? ';text-anchor:'+op.a : '')+'">'+t+'</text>';
+        }
+
+        function pinta(){
+          var F = FOTOS[f], D = DESTINOS[d];
+          var esc = Math.min(D.w / F.w, D.h / F.h);   /* lo que cabe sin deformar */
+          var cabe = Math.min(1, esc);
+          var uw = Math.round(F.w * cabe), uh = Math.round(F.h * cabe);
+          var pxF = F.w * F.h, pxU = uw * uh;
+          var sobran = (1 - pxU / pxF) * 100;
+          var peso = pxF * 3, pesoU = pxU * 3;
+
+          var k = Math.min(262 / F.w, 210 / F.h);     /* px de lienzo por p\u00edxel */
+          var s = '';
+          s += texto(22, 34, 'LOS P\u00cdXELES QUE LLEVA LA FOTO', {s:10, p:1});
+          s += texto(22, 48, F.w + ' \u00d7 ' + F.h + ' = ' + mil(pxF) + ' p\u00edxeles',
+                     {s:10.5});
+          s += '<rect x="22" y="58" width="'+(F.w*k).toFixed(1)+'" height="'+(F.h*k).toFixed(1)
+             + '" fill="var(--goo-rojo)" opacity=".16" stroke="var(--goo-rojo)" '
+             + 'stroke-width="1.5"></rect>';
+          s += '<rect x="22" y="58" width="'+(uw*k).toFixed(1)+'" height="'+(uh*k).toFixed(1)
+             + '" fill="var(--goo-verde)" opacity=".34" stroke="var(--goo-verde)" '
+             + 'stroke-width="1.5"></rect>';
+          s += texto(22, 296, 'En verde, lo que de verdad llega a verse.', {s:10});
+          s += texto(22, 310, 'En rojo, lo que viaja dentro del fichero.', {s:10});
+
+          var X = 320, y = 34;
+          s += texto(X, y, 'PARA ' + D.n.toUpperCase() + ' CABEN', {s:10, p:1}); y += 18;
+          s += texto(X, y, uw + ' \u00d7 ' + uh + ' = ' + mil(pxU) + ' p\u00edxeles',
+                     {s:13, c:'var(--goo-verde)', p:1}); y += 26;
+          s += texto(X, y, 'O SEA QUE SOBRAN', {s:10, p:1}); y += 18;
+          s += texto(X, y, esc > 1 ? 'nada: la foto se queda corta'
+                : (sobran < 0.05 ? 'ninguno: encaja justo'
+                   : num(sobran) + ' % de los p\u00edxeles'),
+                {s:13, p:1, c: sobran > 50 ? 'var(--goo-rojo)' : 'var(--ink)'});
+          y += 30;
+
+          s += texto(X, y, 'PESO EN BRUTO, A 3 BYTES POR P\u00cdXEL', {s:10, p:1}); y += 12;
+          s += '<rect x="'+X+'" y="'+y+'" width="300" height="20" fill="var(--goo-rojo)" '
+             + 'opacity=".55"></rect>';
+          s += texto(X + 8, y + 14, bytes(peso) + '  \u00b7  la foto entera', {s:11});
+          y += 26;
+          s += '<rect x="'+X+'" y="'+y+'" width="'+Math.max(2, 300*pesoU/peso).toFixed(1)
+             + '" height="20" fill="var(--goo-verde)" opacity=".55"></rect>';
+          s += texto(X + 8, y + 14, bytes(pesoU) + '  \u00b7  lo que se ve', {s:11});
+          y += 36;
+          s += texto(X, y, 'IMPRESA A 300 PUNTOS POR PULGADA MEDIR\u00cdA', {s:10, p:1}); y += 18;
+          s += texto(X, y, num(F.w / 300 * 2.54) + ' cm de ancho', {s:12.5, p:1});
+
+          svg.innerHTML = s;
+
+          var t = 'Una foto no tiene tama&ntilde;o: tiene <b>p&iacute;xeles</b>. ';
+          if(esc > 1){
+            t += 'Aqu&iacute; la foto <b>se queda corta</b> para ese destino. No sobran '
+               + 'p&iacute;xeles: faltan, y al estirarla se ver&aacute; blanda.';
+          } else if(sobran < 0.05){
+            t += 'Aqu&iacute; encaja justo: ni sobra ni falta un p&iacute;xel.';
+          } else {
+            t += 'De los <b>' + mil(pxF) + '</b> p&iacute;xeles que llevas, ah&iacute; solo se '
+               + 'pueden ense&ntilde;ar <b>' + mil(pxU) + '</b>. Los otros <b>' + mil(pxF - pxU)
+               + '</b> viajan en el fichero, ocupan sitio, tardan en abrirse&hellip; y '
+               + '<b>no los ve nadie</b>.';
+          }
+          t += '<br><span style="font-size:12.5px">El peso en bruto es exacto: un p&iacute;xel de '
+             + 'color son 3 bytes &mdash;uno de rojo, uno de verde y uno de azul&mdash;, as&iacute; '
+             + 'que basta multiplicar. Lo que el fichero pesa <i>de verdad</i> es menos, porque va '
+             + 'comprimido, y cu&aacute;nto menos depende de la foto: eso se mide, no se '
+             + 'calcula.</span>';
+          pie.innerHTML = t;
+        }
+
+        function conecta(id, attr, fn){
+          var caja = document.getElementById(id);
+          caja.addEventListener('click', function(e){
+            var b = e.target.closest('button['+attr+']'); if(!b) return;
+            fn(+b.getAttribute(attr));
+            caja.querySelectorAll('button').forEach(function(x){
+              x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+            });
+            pinta();
+          });
+        }
+        conecta('seg-peso-f', 'data-f', function(v){ f = v; });
+        conecta('seg-peso-d', 'data-d', function(v){ d = v; });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Resoluci&oacute;n y destino</h4>
+        <p><b>P&iacute;xeles</b>: cu&aacute;ntos puntos tiene la imagen. Es lo &uacute;nico que
+           lleva dentro el fichero.</p>
+        <p><b>Puntos por pulgada (ppp)</b>: cu&aacute;ntos p&iacute;xeles decides poner en cada
+           pulgada al imprimir. De ah&iacute; sale el tama&ntilde;o en cent&iacute;metros, y no
+           antes.</p>
+        <p>Los tres destinos que hay que saberse:</p>
+        <ul>
+          <li><b>Diapositiva o pantalla</b>: 1.920 p&iacute;xeles de ancho <b>y ni uno m&aacute;s</b>.</li>
+          <li><b>Impresi&oacute;n</b>: unos <b>300 ppp</b>. Una A4 entera son 2.480 &times; 3.508.</li>
+          <li><b>Miniatura en una web</b>: unos pocos cientos de p&iacute;xeles.</li>
+        </ul>
+        <p>Todo lo que lleves por encima de eso <b>ocupa, viaja y tarda</b>, y no lo ve nadie.</p>
+      </div>
+
+      <h3>Comprimir: tirar lo que no se nota</h3>
+      <p>Faltan los 32 MB del principio. Comprimir es guardar lo mismo ocupando menos, y hay dos
+         maneras muy distintas de hacerlo.</p>
+
+      <div class="copiar">
+        <h4>Compresi&oacute;n sin p&eacute;rdida y con p&eacute;rdida</h4>
+        <p><b>Sin p&eacute;rdida</b> (PNG): se aprovecha que hay cosas repetidas &mdash;doscientos
+           p&iacute;xeles blancos seguidos se guardan como &laquo;doscientos blancos&raquo;&mdash;.
+           Al abrirla sale <b>exactamente</b> la misma imagen. Funciona muy bien con dibujos y
+           capturas de pantalla, que tienen zonas planas, y muy mal con fotos.</p>
+        <p><b>Con p&eacute;rdida</b> (JPEG): se <b>tira</b> informaci&oacute;n de la que el ojo no
+           se entera, sobre todo los cambios de color muy finos. Al abrirla sale una imagen
+           <b>parecida</b>, no la misma. Funciona muy bien con fotos.</p>
+        <p>Consecuencia que casi nadie sabe: cada vez que guardas un JPEG otra vez, <b>vuelve a
+           tirar</b>. Reguardar veinte veces la misma foto la estropea de verdad. Con PNG, no.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Medido sobre la foto de la caja de tipos de la sesi&oacute;n anterior, la que est&aacute;
+           en esta misma web (1.280 &times; 850): en bruto son <b>3.264.000 bytes</b>; el fichero
+           que servimos ocupa <b>437.940</b>. Razón: <b>7,5 a 1</b>. Con la calidad m&aacute;s baja
+           bajaba a 164.789 bytes &mdash;casi <b>20 a 1</b>&mdash;, pero ah&iacute; ya se ve
+           sucia.</p>
+        <p>La misma foto guardada en PNG, que no tira nada, ocupa <b>2.412.762 bytes</b>: apenas
+           ahorra. Esa es la prueba de por qu&eacute; las fotos van en JPEG y los dibujos en PNG,
+           y no al rev&eacute;s.</p>
+        <p>&iexcl;Ojo con el n&uacute;mero! La raz&oacute;n de compresi&oacute;n <b>depende de la
+           foto</b>: una pared lisa se comprime much&iacute;simo mejor que una multitud. Por eso
+           aqu&iacute; se dice <b>sobre qu&eacute; foto</b> est&aacute; medido, en vez de dar una
+           cifra general que no significar&iacute;a nada.</p>
+        <p>El JPEG es de <b>1992</b> y el PNG, de <b>1996</b>. El PNG naci&oacute; con prisa, como
+           recambio libre de un formato anterior cuya compresi&oacute;n result&oacute; estar
+           patentada: de un d&iacute;a para otro, usarlo en un programa pod&iacute;a costar dinero.
+           No es una an&eacute;cdota: es la misma raz&oacute;n por la que en la sesi&oacute;n
+           anterior interesaba que un formato fuera una norma p&uacute;blica y no propiedad de
+           alguien.</p>
+      </div>
+
+      <div class="video" id="video-vector" data-vid="RZywV73MDGM">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: &iquest;Qu&eacute; diferencia hay entre una imagen vectorial y un mapa de bits?">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>&iquest;Qu&eacute; diferencia hay entre una imagen vectorial y un mapa de bits?</b>
+            <span>Micro Conocimiento &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Un minuto, del mismo canal que el v&iacute;deo del PDF, para fijar la distinci&oacute;n. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=RZywV73MDGM" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 9.2 &middot; Poner una presentaci&oacute;n a dieta</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <div class="nota">
+            <span class="n-tag">Con qu&eacute; se hace</span>
+            Con el editor de im&aacute;genes del aula, o con una aplicaci&oacute;n web que no pida
+            cuenta ni instalar nada. Cualquiera sirve, siempre que permita <b>redimensionar</b> y
+            <b>guardar eligiendo la calidad</b>. Lo que se eval&uacute;a son las cuentas.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>La cuenta en bruto.</b> Mirad en los datos de una foto vuestra
+                &mdash;o de una del aula&mdash; cu&aacute;ntos p&iacute;xeles tiene de ancho y de
+                alto. Calculad los <b>p&iacute;xeles totales</b> y el <b>peso en bruto</b>
+                (&times; 3 bytes). Pasadlo a MB.</li>
+            <li><b>La raz&oacute;n de compresi&oacute;n.</b> Anotad lo que ocupa el fichero
+                <b>de verdad</b> y dividid: <i>peso en bruto &divide; peso del fichero</i>. Esa es
+                la raz&oacute;n de compresi&oacute;n de <b>esa</b> foto. Comparadla con la de otra
+                pareja y escribid una frase explicando <b>por qu&eacute; no os sale lo mismo</b>.</li>
+            <li><b>A dieta.</b> Redimensionad la foto a <b>1.920 p&iacute;xeles de ancho</b> y
+                guardadla con calidad media. Anotad el peso nuevo y calculad el <b>porcentaje
+                ahorrado</b>. Miradlas despu&eacute;s las dos a pantalla completa: &iquest;se nota
+                la diferencia?</li>
+            <li><b>Lo que sobra, con la escena.</b> Con la escena de los p&iacute;xeles, anotad
+                <b>qu&eacute; porcentaje sobra</b> de una foto de 12 Mp para los tres destinos.
+                Y contestad: para imprimirla en A4, &iquest;sobra o falta?</li>
+            <li><b>Un logotipo, de las dos maneras.</b> Dibujad un s&iacute;mbolo sencillo
+                &mdash;dos o tres figuras&mdash; en un editor de dibujo, y guardadlo en <b>SVG</b> y
+                en <b>PNG de 1.000 p&iacute;xeles</b>. Anotad los dos pesos, ampliad los dos al
+                <b>800 %</b> y describid lo que ve&iacute;s. Abrid adem&aacute;s el SVG con un
+                editor de texto y pegad en el cuaderno <b>las tres primeras l&iacute;neas</b>.</li>
+            <li><b>La presentaci&oacute;n.</b> Con lo anterior, calculad cu&aacute;nto
+                ocupar&iacute;a una presentaci&oacute;n de <b>once fotos</b> antes y despu&eacute;s
+                de la dieta, y decid si cabe en un correo (el l&iacute;mite habitual son
+                <b>25 MB</b>).</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El peso en bruto est&aacute; bien calculado, con unidades <b>(2 puntos)</b>.</li>
+            <li>La raz&oacute;n de compresi&oacute;n est&aacute; bien y la frase explica que
+                <b>depende de la foto</b> <b>(2 puntos)</b>.</li>
+            <li>El porcentaje ahorrado al redimensionar est&aacute; bien y va acompa&ntilde;ado de
+                la comparaci&oacute;n mirando las dos <b>(2 puntos)</b>.</li>
+            <li>Los datos de la escena est&aacute;n tomados de los tres destinos y la respuesta de
+                la A4 distingue <b>sobrar</b> de <b>faltar</b> <b>(2 puntos)</b>.</li>
+            <li>El logotipo est&aacute; guardado de las dos maneras, con los dos pesos y lo que se
+                ve al ampliar <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso sobre el paso 3</span>
+            Trabajad sobre una <b>copia</b>. Redimensionar tira p&iacute;xeles <b>para siempre</b>:
+            si luego hace falta la foto grande, de la peque&ntilde;a no se saca. Se puede quitar,
+            no se puede devolver.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>Arrastras la esquina de una foto en la diapositiva para hacerla peque&ntilde;a. &iquest;Pesa menos el fichero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. Has cambiado <b>c&oacute;mo se dibuja</b>, no lo que hay guardado: los doce millones de p&iacute;xeles siguen ah&iacute; enteros. Para que pese menos hay que <b>redimensionar de verdad</b>, o sea, tirar p&iacute;xeles. Es el mismo l&iacute;o de la sesi&oacute;n anterior: confundir lo que una cosa es con lo que parece.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; un logotipo se guarda en SVG y una fotograf&iacute;a no?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque un logotipo son <b>pocas figuras</b> &mdash;c&iacute;rculos, rectas, curvas&mdash; y eso se escribe con unas cuantas instrucciones que se redibujan a cualquier tama&ntilde;o, desde un carn&eacute; hasta una pancarta. Una foto son millones de manchas de color que no se parecen a ninguna figura: describirlas una a una ocupar&iacute;a m&aacute;s que guardar los p&iacute;xeles.</p></div></details></li>
+        <li>Tienes una captura de pantalla con texto. &iquest;JPEG o PNG? &iquest;Por qu&eacute;?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>PNG.</b> Una captura tiene zonas planas y bordes muy marcados, que es justo donde el PNG comprime bien <b>sin tirar nada</b>. El JPEG, en cambio, tira los detalles finos, y lo primero que estropea son los bordes de las letras: el texto sale con sombras sucias alrededor.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        La presentaci&oacute;n ya cabe. Ahora hay que <b>contarla en cinco minutos</b> delante de
+        la clase. Y ah&iacute; aparece una pregunta que nadie se hace: cuando pones el texto en la
+        diapositiva y adem&aacute;s lo dices en voz alta, <b>&iquest;qu&eacute; hace la clase, leer
+        o escuchar?</b> No puede hacer las dos cosas, y se puede medir cu&aacute;l gana.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>Presentar sin matar de aburrimiento</h2>
+      <p>Leer va m&aacute;s r&aacute;pido que escuchar, y eso se mide. De ah&iacute; sale todo lo dem&aacute;s: una idea por diapositiva, la imagen que explica y un cuerpo de letra que llega al fondo del aula.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip">CE2 &middot; 2.1</span><span class="chip sab">B.1 &middot; B.3</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Ya sabes hacer un documento que no se descoloca y meterle im&aacute;genes que no pesan
+         media vida. Queda lo m&aacute;s dif&iacute;cil: <b>cinco minutos, de pie, contando lo que
+         ha hecho tu grupo</b>.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Sin pensarlo mucho, escribe dos cosas en el cuaderno: <b>cu&aacute;ntas diapositivas</b>
+        har&iacute;as para esos cinco minutos, y <b>qu&eacute; pondr&iacute;as exactamente</b> en la
+        primera. Copia la primera diapositiva tal cual, con sus palabras.
+      </div>
+
+      <p>Lo que sale casi siempre: entre <b>doce y veinte</b> diapositivas, y en la primera, un
+         t&iacute;tulo y cuatro o cinco frases con lo que hay que decir. Tiene toda la
+         l&oacute;gica del mundo: si lo que tengo que contar est&aacute; escrito ah&iacute;, no se
+         me olvida.</p>
+
+      <p>El problema es que quien te escucha tiene <b>un solo sitio</b> donde meter palabras, y
+         t&uacute; se lo est&aacute;s llenando por dos sitios a la vez. Vamos a medirlo. Pega tu
+         primera diapositiva en la caja de abajo &mdash;o usa la que viene puesta&mdash; y mira las
+         dos barras.</p>
+
+
+      <div class="escena" id="esc-carrera">
+        <div class="escena-barra">
+          <span class="escena-titulo">Lo que pone en la diapositiva</span>
+          <div class="seg" id="seg-car-t">
+            <button type="button" data-t="cargada" aria-pressed="true">La de siempre</button>
+            <button type="button" data-t="limpia">Una idea sola</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <textarea id="car-texto" rows="3" spellcheck="false"
+            aria-label="El texto de la diapositiva"
+            style="flex:1;min-width:220px;font:400 12.5px var(--f-b);padding:8px 10px;
+                   border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+                   color:var(--ink);resize:vertical"></textarea>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">Y adem&aacute;s</span>
+          <div class="seg" id="seg-car-o">
+            <button type="button" data-v="150">Leen a 150</button>
+            <button type="button" data-v="200" aria-pressed="true">Leen a 200</button>
+            <button type="button" data-v="250">Leen a 250</button>
+            <button type="button" data-s="30">Hablas 30 s</button>
+            <button type="button" data-s="45" aria-pressed="true">Hablas 45 s</button>
+            <button type="button" data-s="60">Hablas 60 s</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 216" id="svg-carrera" role="img"
+               aria-label="Dos barras de tiempo: lo que tarda la clase en leer la diapositiva y lo que tardas t&uacute; en explicarla"></svg>
+        </div>
+        <div class="pie" id="pie-carrera"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-carrera');
+        if(!svg) return;
+        var pie = document.getElementById('pie-carrera');
+        var caja = document.getElementById('car-texto');
+
+        var TEXTOS = {
+          cargada: 'Las herramientas digitales permiten crear, editar y difundir contenidos de forma eficaz. Los formatos de fichero determinan la compatibilidad entre aplicaciones. Las im\u00e1genes pueden ser de mapa de bits o vectoriales seg\u00fan c\u00f3mo guarden la informaci\u00f3n. Una presentaci\u00f3n debe estructurarse en introducci\u00f3n, desarrollo y conclusi\u00f3n, cuidando la legibilidad y la coherencia visual del conjunto.',
+          limpia : 'Al doble de ancho, cuatro veces el peso'
+        };
+
+        var vel = 200, hablas = 45;
+
+        function palabras(){
+          var t = caja.value.trim();
+          return t ? t.split(/\s+/).length : 0;
+        }
+        function texto(x, y, t, op){
+          op = op || {};
+          return '<text x="'+x+'" y="'+y+'" class="rotulo-svg" style="font-size:'+(op.s || 11)
+               + 'px'+(op.c ? ';fill:'+op.c : '')+(op.p ? ';font-weight:500' : '')
+               + (op.a ? ';text-anchor:'+op.a : '')+'">'+t+'</text>';
+        }
+        function seg(v){ return v.toFixed(1).replace('.', ',') + ' s'; }
+
+        function pinta(){
+          var n = palabras();
+          var tLeer = n / vel * 60;
+          var max = Math.max(tLeer, hablas, 1);
+          var X0 = 132, ANCHO = 480, k = ANCHO / max;
+          var s = '';
+
+          s += texto(20, 30, 'LA CLASE LEE ' + n + (n === 1 ? ' PALABRA' : ' PALABRAS')
+               + ' A ' + vel + ' POR MINUTO', {s:10, p:1});
+
+          var paso = max > 90 ? 30 : (max > 40 ? 15 : (max > 18 ? 5 : 2));
+          for(var t = 0; t <= max + 0.001; t += paso){
+            var x = X0 + t*k;
+            s += '<path d="M'+x.toFixed(1)+' 46 V132" stroke="var(--line-soft)" '
+               + 'stroke-width="1"></path>';
+            s += texto(x, 146, t + ' s', {s:9.5, a:'middle'});
+          }
+
+          var sobra = hablas - tLeer;
+          if(sobra > 0.2){
+            s += '<rect x="'+(X0 + tLeer*k).toFixed(1)+'" y="50" width="'+(sobra*k).toFixed(1)
+               + '" height="78" fill="var(--goo-amarillo)" opacity=".22"></rect>';
+            s += texto(X0 + tLeer*k + (sobra*k)/2, 43, 'YA LO HAN LE\u00cdDO TODO',
+                       {s:9.5, a:'middle', c:'#9a7326', p:1});
+          }
+
+          /* La cifra va detras de la barra, salvo que ya no quepa: entonces se
+             mete dentro, alineada a la derecha. Si no, la barra mas larga se
+             lleva su numero fuera del lienzo. */
+          function cifra(w, y, t){
+            return (X0 + w + 60 < 632)
+              ? texto(X0 + w + 8, y, t, {s:11})
+              : texto(X0 + w - 8, y, t, {s:11, a:'end'});
+          }
+
+          s += texto(124, 71, 'LA CLASE LEE', {s:10, a:'end', p:1});
+          var wLeer = Math.max(1, tLeer*k);
+          s += '<rect x="'+X0+'" y="54" width="'+wLeer.toFixed(1)
+             + '" height="24" fill="var(--goo-rojo)" opacity=".55"></rect>';
+          s += cifra(wLeer, 71, seg(tLeer));
+
+          s += texto(124, 115, 'T\u00da HABLAS', {s:10, a:'end', p:1});
+          s += '<rect x="'+X0+'" y="98" width="'+(hablas*k).toFixed(1)
+             + '" height="24" fill="var(--goo-azul)" opacity=".55"></rect>';
+          s += cifra(hablas*k, 115, seg(hablas));
+
+          s += '<rect x="20" y="160" width="600" height="46" fill="var(--surface-2)"></rect>';
+          var frase, rojo = true;
+          if(n === 0){
+            frase = 'Escribe algo en la caja de arriba.'; rojo = false;
+          } else if(sobra > 0.2){
+            frase = 'Terminan de leer ' + seg(sobra) + ' antes de que t\u00fa acabes.';
+          } else if(sobra < -0.2){
+            frase = 'No les da tiempo: les faltan ' + seg(-sobra) + ' para acabar de leerla.';
+          } else {
+            frase = 'Van a la par, y aun as\u00ed est\u00e1n haciendo dos cosas a la vez.';
+            rojo = false;
+          }
+          s += texto(36, 190, frase, {s:14, p:1, c: rojo ? 'var(--goo-rojo)' : 'var(--ink)'});
+
+          svg.innerHTML = s;
+
+          var t2;
+          if(n === 0){
+            t2 = 'Con la diapositiva en blanco no hay carrera: toda la atenci&oacute;n es tuya.';
+          } else if(sobra > 0.2){
+            t2 = '<b>' + n + ' palabras</b> a ' + vel + ' palabras por minuto son <b>' + seg(tLeer)
+               + '</b> de lectura, y t&uacute; hablas <b>' + hablas + ' s</b>. Durante <b>'
+               + seg(sobra) + '</b> la clase ya se sabe el final y te est&aacute; esperando: has '
+               + 'contado el remate antes de contarlo.';
+          } else {
+            t2 = '<b>' + n + ' palabras</b> son <b>' + seg(tLeer) + '</b> de lectura y t&uacute; '
+               + 'hablas <b>' + hablas + ' s</b>. No les da tiempo a leerlo mientras te escuchan, '
+               + 'as&iacute; que har&aacute;n una de las dos cosas. Normalmente, leer: el ojo '
+               + 'gana.';
+          }
+          t2 += '<br><span style="font-size:12.5px">Las palabras se cuentan de lo que hay escrito '
+              + 'ah&iacute; arriba, ahora mismo: b&oacute;rralo y mira lo que pasa. La velocidad '
+              + 'de lectura la eliges t&uacute;, y por eso est&aacute; en un bot&oacute;n a la '
+              + 'vista: es el &uacute;nico dato discutible de toda la cuenta.</span>';
+          pie.innerHTML = t2;
+        }
+
+        var cajaT = document.getElementById('seg-car-t');
+        cajaT.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-t]'); if(!b) return;
+          caja.value = TEXTOS[b.dataset.t];
+          cajaT.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        var cajaO = document.getElementById('seg-car-o');
+        cajaO.addEventListener('click', function(e){
+          var b = e.target.closest('button'); if(!b) return;
+          var attr = b.dataset.v ? 'data-v' : (b.dataset.s ? 'data-s' : null);
+          if(!attr) return;
+          if(attr === 'data-v') vel = +b.dataset.v; else hablas = +b.dataset.s;
+          cajaO.querySelectorAll('button['+attr+']').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pinta();
+        });
+        caja.addEventListener('input', pinta);
+
+        caja.value = TEXTOS.cargada;
+        pinta();
+      })();
+      </script>
+
+      <p>Ese hueco amarillo es lo que hay que entender hoy. No es que la gente sea maleducada: es
+         que <b>leer va m&aacute;s r&aacute;pido que escuchar</b>, siempre. Cuando terminan de leer
+         tu diapositiva ya saben c&oacute;mo acaba la frase, y t&uacute; todav&iacute;a est&aacute;s
+         por la mitad. A partir de ah&iacute; te han dejado de escuchar, y con razón.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>La diapositiva no es el gui&oacute;n</h3>
+      <p>La soluci&oacute;n no es &laquo;poner menos texto&raquo; como quien pide un favor. Es
+         entender <b>para qu&eacute; sirve cada cosa</b>, que son tres cosas distintas y suelen
+         estar aplastadas en una.</p>
+
+      <div class="copiar">
+        <h4>Tres cosas que no son la misma</h4>
+        <ul>
+          <li>El <b>gui&oacute;n</b>: lo que vas a <b>decir</b>. Va en las notas del orador o en
+              una ficha en la mano. <b>No se proyecta.</b></li>
+          <li>La <b>diapositiva</b>: lo que la clase tiene que <b>ver</b> mientras hablas. Una
+              idea, y lo que haga falta para entenderla.</li>
+          <li>El <b>documento</b>: lo que se llevan para <b>consultar</b> despu&eacute;s. Ese
+              s&iacute; lleva todo el texto, y es el de las sesiones anteriores.</li>
+        </ul>
+        <p>Cuando alguien intenta que la diapositiva haga los tres papeles a la vez, sale una
+           p&aacute;gina de libro proyectada en una pared: mala de ver, mala de leer y mala de
+           escuchar.</p>
+      </div>
+
+      <h3>Una idea por diapositiva</h3>
+      <p>La regla pr&aacute;ctica que se deduce de la carrera de antes: si la diapositiva se lee en
+         cinco segundos, no compite contigo; si se lee en veinte, s&iacute;. Y como se tarda un
+         rato en cada diapositiva, de ah&iacute; sale tambi&eacute;n <b>cu&aacute;ntas caben</b>.</p>
+
+      <div class="copiar">
+        <h4>Cuentas que se pueden hacer antes de presentar</h4>
+        <ul>
+          <li><b>Palabras por diapositiva.</b> M&aacute;s de <b>25</b> y ya est&aacute;s compitiendo
+              contigo mismo. Se cuentan, no se calculan a ojo.</li>
+          <li><b>Ideas por diapositiva: una.</b> Si al resumirla te salen dos frases con
+              &laquo;y adem&aacute;s&raquo;, son dos diapositivas.</li>
+          <li><b>Cu&aacute;ntas diapositivas.</b> Si en cada una te vas a parar unos
+              <b>40 segundos</b>, en 5 minutos (300 s) caben <b>300 &divide; 40 &asymp; 7</b>. No
+              quince.</li>
+        </ul>
+      </div>
+
+      <h3>La imagen que explica y la que decora</h3>
+      <p>Aqu&iacute; hay una prueba que no admite discusi&oacute;n y se hace en tres segundos:</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">La prueba del pulgar</span>
+        <p><b>Tapa la imagen con la mano.</b> Si la diapositiva se entiende igual de bien, la
+           imagen <b>decoraba</b>. Si deja de entenderse, la imagen <b>explicaba</b>: eso es una
+           imagen que se gana el sitio.</p>
+      </div>
+
+      <p>Un gr&aacute;fico con los datos de tu ensayo explica. Un esquema de tu mecanismo explica.
+         Una foto de un bombillo brillando al lado de un t&iacute;tulo que pone &laquo;ideas&raquo;
+         no explica nada: est&aacute; ocupando sitio y atenci&oacute;n.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u9-ponencia.jpg" alt="Una ponente hablando ante un atril, con un mapa proyectado a su lado en el que solo hay cuatro letras rotuladas" loading="lazy">
+        <figcaption>Una ponencia de verdad, en un congreso. Mira la pantalla: <b>no hay ni una frase</b>. Hay un mapa con una l&iacute;nea amarilla y cuatro letras. Esa diapositiva no se puede leer en voz alta &mdash;no hay nada que leer&mdash;, as&iacute; que solo sirve para lo que tiene que servir: <b>ense&ntilde;ar de qu&eacute; est&aacute; hablando ella</b>. La imagen explica; la persona cuenta. Y lo que hay que retener no est&aacute; en la pared, est&aacute; en lo que dice.
+          <span class="credito">Mozel W. &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Snjezana_Kordic_keynote_presentation_Hokkaido_University.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <h3>Y una cosa que no es opini&oacute;n: si se lee o no se lee</h3>
+      <p>&laquo;Pon la letra grande&raquo; no es un consejo, es una cuenta. El cuerpo de letra que
+         eliges en la diapositiva se convierte en mil&iacute;metros sobre la pantalla, y esos
+         mil&iacute;metros o llegan a la &uacute;ltima fila o no llegan. Juega con la escena:
+         cambia el cuerpo, el tama&ntilde;o de la pantalla y la fila.</p>
+
+
+      <div class="escena" id="esc-aula">
+        <div class="escena-barra">
+          <span class="escena-titulo">El cuerpo de letra</span>
+          <div class="seg" id="seg-aula-c">
+            <button type="button" data-c="12">12 pt</button>
+            <button type="button" data-c="18" aria-pressed="true">18 pt</button>
+            <button type="button" data-c="24">24 pt</button>
+            <button type="button" data-c="32">32 pt</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">La pantalla y la fila</span>
+          <div class="seg" id="seg-aula-o">
+            <button type="button" data-p="1.5">Pantalla 1,5 m</button>
+            <button type="button" data-p="2.5" aria-pressed="true">2,5 m</button>
+            <button type="button" data-p="4">4 m</button>
+            <button type="button" data-d="2">1.&ordf; fila</button>
+            <button type="button" data-d="5">En medio</button>
+            <button type="button" data-d="9" aria-pressed="true">&Uacute;ltima fila</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 372" id="svg-aula" role="img"
+               aria-label="La planta del aula con la fila elegida y la letra dibujada al tama&ntilde;o que tiene sobre la pantalla"></svg>
+        </div>
+        <div class="pie" id="pie-aula"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-aula');
+        if(!svg) return;
+        var pie = document.getElementById('pie-aula');
+
+        var PT_MM = 25.4 / 72;     /* un punto, en mil\u00edmetros */
+        var CAP = 0.72;            /* altura de may\u00fascula de Helvetica */
+        /* Ancho de una diapositiva 16:9: 13 pulgadas y un tercio, o sea 33,867 cm.
+           Se escribe como la division y no como 0,3387 a proposito: con el valor
+           redondeado, el caso de 24 pt a 9 m -que sale EXACTO- se quedaba dos
+           millonesimas por debajo y la escena ped\u00eda 25 pt. */
+        var DIAPO_M = 40 / 3 * 0.0254;
+        var UMBRAL = 200;          /* se lee si la letra mide al menos d/200 */
+        var FONDO = 9.5;           /* fondo del aula, en metros */
+        var ANCHO = 7.0;           /* ancho del aula, en metros */
+        var PPM = 252 / FONDO;     /* px de lienzo por metro */
+        var BK = 0.48;             /* px de lienzo por mil\u00edmetro de pared */
+        var PALABRA = 'DATOS';
+
+        var cuerpo = 18, pantalla = 2.5, dist = 9;
+
+        function cuentas(){
+          var hDiapo = cuerpo * PT_MM * CAP;          /* mm sobre la diapositiva */
+          var ampl = pantalla / DIAPO_M;              /* cu\u00e1nto la agranda */
+          var hPared = hDiapo * ampl;                 /* mm sobre la pantalla */
+          var minimo = dist * 1000 / UMBRAL;          /* mm que hacen falta */
+          var ptMin = minimo / (PT_MM * CAP * ampl);  /* el cuerpo que har\u00eda falta */
+          return {hDiapo:hDiapo, ampl:ampl, hPared:hPared, minimo:minimo,
+                  ptMin:ptMin, vale:(hPared >= minimo - 0.0001)};
+        }
+
+        function texto(x, y, t, op){
+          op = op || {};
+          return '<text x="'+x+'" y="'+y+'" class="rotulo-svg" style="font-size:'+(op.s || 11)
+               + 'px'+(op.c ? ';fill:'+op.c : '')+(op.p ? ';font-weight:500' : '')
+               + (op.a ? ';text-anchor:'+op.a : '')+'">'+t+'</text>';
+        }
+        function num(v, n){ return v.toFixed(n === undefined ? 1 : n).replace('.', ','); }
+
+        function pinta(){
+          var c = cuentas(), s = '';
+          var AX = 40, AY = 56, AW = ANCHO*PPM, AH = FONDO*PPM, EJE = AX + AW/2;
+
+          /* ---------- la planta del aula, a escala ---------- */
+          s += texto(20, 24, 'EL AULA VISTA DESDE ARRIBA, A ESCALA', {s:10, p:1});
+          s += '<rect x="'+AX+'" y="'+AY+'" width="'+AW.toFixed(1)+'" height="'+AH.toFixed(1)
+             + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1"></rect>';
+          var pw = pantalla * PPM;
+          s += '<rect x="'+(EJE - pw/2).toFixed(1)+'" y="'+(AY - 7)+'" width="'+pw.toFixed(1)
+             + '" height="7" fill="var(--goo-azul)"></rect>';
+          s += texto(EJE, AY - 12, 'PANTALLA  ' + num(pantalla) + ' m',
+                     {s:9.5, a:'middle', c:'var(--goo-azul)', p:1});
+          for(var m = 2; m <= 9; m++){
+            var fy = AY + m*PPM, aqui = (m === dist);
+            for(var k = -2; k <= 2; k++){
+              s += '<rect x="'+(EJE + k*1.2*PPM - 8).toFixed(1)+'" y="'+(fy - 5).toFixed(1)
+                 + '" width="16" height="10" fill="'
+                 + (aqui ? 'var(--goo-rojo)' : 'var(--line)')+'"></rect>';
+            }
+          }
+          var dy = AY + dist*PPM;
+          s += '<path d="M'+EJE.toFixed(1)+' '+AY+' V'+dy.toFixed(1)+'" '
+             + 'stroke="var(--goo-rojo)" stroke-width="1.5" stroke-dasharray="4 3"></path>';
+          s += texto(EJE + 7, (AY + dy)/2, num(dist) + ' m',
+                     {s:11.5, c:'var(--goo-rojo)', p:1});
+          s += texto(20, AY + AH + 18, 'Aula de ' + num(ANCHO) + ' \u00d7 ' + num(FONDO)
+                     + ' m, ocho filas.', {s:10});
+
+          /* ---------- la letra, al tamano que tiene en la pared ----------
+             Dos barras a la MISMA escala de pared, apoyadas en la misma linea
+             de base: la maciza es lo que mide la mayuscula y la de rayas, lo
+             que haria falta. Comparar las dos es exacto; comparar la palabra
+             con una caja no lo era, porque el hueco que ocupa un texto no es
+             la altura de sus mayusculas. */
+          var DX = 330, BASE = 210;
+          s += texto(DX, 24, 'LA LETRA SOBRE LA PANTALLA, A SU TAMA\u00d1O', {s:10, p:1});
+          s += '<path d="M'+DX+' '+BASE+' H620" stroke="var(--line)" stroke-width="1"></path>';
+          s += '<rect x="'+DX+'" y="'+(BASE - c.hPared*BK).toFixed(1)+'" width="18" height="'
+             + (c.hPared*BK).toFixed(1)+'" fill="'
+             + (c.vale ? 'var(--goo-verde)' : 'var(--goo-rojo)')+'"></rect>';
+          s += '<rect x="'+(DX + 24)+'" y="'+(BASE - c.minimo*BK).toFixed(1)+'" width="18" '
+             + 'height="'+(c.minimo*BK).toFixed(1)+'" fill="none" stroke="var(--ink-soft)" '
+             + 'stroke-width="1.5" stroke-dasharray="3 2"></rect>';
+          /* la raya de lo que hace falta, cruzando la palabra */
+          s += '<path d="M'+DX+' '+(BASE - c.minimo*BK).toFixed(1)+' H620" '
+             + 'stroke="var(--ink-soft)" stroke-width="1" stroke-dasharray="3 2" '
+             + 'opacity=".7"></path>';
+          /* la palabra: el cuerpo en px es la altura de mayuscula dividida por CAP */
+          var fpx = c.hPared / CAP * BK;
+          s += '<text x="'+(DX + 54)+'" y="'+BASE+'" style="font-family:'
+             + "'Nimbus Sans','Liberation Sans',Helvetica,Arial,sans-serif"
+             + ';font-size:'+fpx.toFixed(2)+'px;font-weight:500;fill:'
+             + (c.vale ? 'var(--goo-verde)' : 'var(--goo-rojo)')+'">'+PALABRA+'</text>';
+          s += texto(DX, 232, 'Maciza: lo que mide, ' + num(c.hPared) + ' mm', {s:10.5,
+                     c: c.vale ? 'var(--goo-verde)' : 'var(--goo-rojo)'});
+          s += texto(DX, 248, 'De rayas: lo que hace falta, ' + num(c.minimo) + ' mm',
+                     {s:10.5});
+          s += texto(DX, 264, 'Las dos, a la escala de la pantalla.', {s:10.5});
+
+          /* ---------- veredicto ----------
+             El -1e-9 no es un apano feo: cuando el cuerpo sale EXACTO -24 pt a
+             9 m con pantalla de 2,5 m da 45,000000 mm clavados- la aritmetica
+             de coma flotante deja una basurilla en el decimo decimal, y sin el
+             margen el redondeo hacia arriba pediria 25 pt en vez de 24. */
+          s += '<rect x="330" y="284" width="290" height="44" fill="'
+             + (c.vale ? 'var(--accent-soft)' : 'var(--surface-2)')+'" stroke="'
+             + (c.vale ? 'var(--goo-verde)' : 'var(--goo-rojo)')+'" stroke-width="1.5"></rect>';
+          s += texto(344, 311, c.vale
+                ? 'S\u00cd se lee desde esa fila'
+                : 'NO se lee: har\u00edan falta ' + Math.ceil(c.ptMin - 1e-9) + ' pt',
+                {s:14, p:1, c: c.vale ? 'var(--goo-verde)' : 'var(--goo-rojo)'});
+
+          svg.innerHTML = s;
+
+          pie.innerHTML = 'La cadena entera, con sus unidades. <b>' + cuerpo + ' pt</b> &times; '
+            + '0,3528 mm/pt &times; 0,72 (lo que sube una may&uacute;scula) = <b>' + num(c.hDiapo)
+            + ' mm</b> de alto en la diapositiva. El proyector la estira hasta <b>'
+            + num(pantalla) + ' m</b> de ancho, o sea <b>&times;' + num(c.ampl) + '</b>, y en la '
+            + 'pared la may&uacute;scula mide <b>' + num(c.hPared) + ' mm</b>. Desde <b>'
+            + num(dist) + ' m</b> hace falta al menos <b>' + num(c.minimo) + ' mm</b>.'
+            + '<br><span style="font-size:12.5px">Ojo: lo de &laquo;la distancia dividida entre '
+            + '200&raquo; es una <b>regla pr&aacute;ctica nuestra</b>, no una norma; equivale a '
+            + 'que la letra te llegue con un &aacute;ngulo de unos 17 minutos de arco. Lo que no '
+            + 'es opinable es la cuenta de arriba, ni que un cuerpo peque&ntilde;o se hace '
+            + 'peque&ntilde;o tambi&eacute;n en la pared.</span>';
+        }
+
+        var cajaC = document.getElementById('seg-aula-c');
+        var cajaO = document.getElementById('seg-aula-o');
+        function marca(caja, attr, valor){
+          caja.querySelectorAll('button['+attr+']').forEach(function(b){
+            b.setAttribute('aria-pressed',
+              b.getAttribute(attr) === String(valor) ? 'true' : 'false');
+          });
+        }
+        cajaC.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]'); if(!b) return;
+          cuerpo = +b.dataset.c; marca(cajaC, 'data-c', b.dataset.c); pinta();
+        });
+        cajaO.addEventListener('click', function(e){
+          var b = e.target.closest('button'); if(!b) return;
+          if(b.dataset.p){ pantalla = +b.dataset.p; marca(cajaO, 'data-p', b.dataset.p); }
+          else if(b.dataset.d){ dist = +b.dataset.d; marca(cajaO, 'data-d', b.dataset.d); }
+          else return;
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>La cuenta del cuerpo m&iacute;nimo</h4>
+        <p>Una diapositiva 16:9 mide <b>33,87 cm de ancho</b> por dentro, y un punto
+           tipogr&aacute;fico son <b>0,3528 mm</b>. Con eso:</p>
+        <ol>
+          <li>Altura de la may&uacute;scula en la diapositiva = <i>cuerpo</i> &times; 0,3528 &times;
+              <b>0,72</b>.</li>
+          <li>El proyector lo multiplica por <i>ancho proyectado &divide; 0,3387 m</i>.</li>
+          <li>Hace falta que el resultado llegue a <b>la distancia dividida entre 200</b>.</li>
+        </ol>
+        <p>Con una pantalla de <b>2,5 m</b> y una &uacute;ltima fila a <b>9 m</b> salen
+           <b>24 pt exactos</b>, y no es casualidad del redondeo: 24 pt son un tercio de pulgada,
+           la may&uacute;scula sube 0,24 pulgadas, la pantalla agranda 2,5 m entre 13 pulgadas y
+           un tercio&hellip; y da <b>45 mm clavados</b>, que es 9 m entre 200. De ah&iacute; viene
+           el consejo de no bajar de 24, que casi siempre se da sin decir de d&oacute;nde sale.</p>
+        <p>El <b>0,72</b> es lo que sube una may&uacute;scula respecto al cuerpo. El
+           <b>&divide;&nbsp;200</b> es criterio nuestro, no una norma: equivale a que la letra
+           llegue al ojo con unos 17 minutos de arco.</p>
+      </div>
+
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Rúbrica: c&oacute;mo se mira una presentaci&oacute;n sin opinar</h4>
+        <p>Seis cosas que se <b>cuentan</b>, y que por eso valen para corregir la tuya o la de otro
+           grupo:</p>
+        <table>
+          <tr><th>Qu&eacute; se mira</th><th>C&oacute;mo se comprueba</th></tr>
+          <tr><td>Palabras por diapositiva</td><td>Se cuentan. &iquest;Pasa de 25?</td></tr>
+          <tr><td>Ideas por diapositiva</td><td>Res&uacute;mela en una frase. &iquest;Salen dos?</td></tr>
+          <tr><td>Cuerpo de letra</td><td>&iquest;Baja de 24 pt en alguna?</td></tr>
+          <tr><td>Im&aacute;genes</td><td>Prueba del pulgar: &iquest;cu&aacute;ntas decoran?</td></tr>
+          <tr><td>Ritmo</td><td>Diapositivas &divide; minutos. &iquest;Pasa de una cada 40 s?</td></tr>
+          <tr><td>Procedencia</td><td>&iquest;Est&aacute; dicho de d&oacute;nde sale cada dato y cada foto?</td></tr>
+        </table>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Esto no es una man&iacute;a de profesor. En <b>2003</b> se desintegr&oacute; al volver a
+           la atm&oacute;sfera el transbordador espacial <i>Columbia</i>, y murieron siete
+           personas. La comisi&oacute;n oficial que investig&oacute; el accidente dedic&oacute; un
+           apartado de su informe a algo inesperado: la <b>manera de comunicarse</b> dentro de la
+           NASA. Los an&aacute;lisis t&eacute;cnicos sobre el da&ntilde;o que hab&iacute;a
+           sufrido el ala se hab&iacute;an presentado en <b>diapositivas</b> en vez de en informes,
+           y en una de ellas la advertencia importante estaba metida en el tercer nivel de una
+           lista, en letra m&aacute;s peque&ntilde;a que el titular que dec&iacute;a que todo
+           estaba bajo control.</p>
+        <p>La comisi&oacute;n no dijo que las diapositivas maten. Dijo que <b>resumir</b> tiene un
+           precio: cuando algo se aplasta hasta caber en una l&iacute;nea, se pierde lo que lo
+           hac&iacute;a importante. Por eso hay una tercera cosa en la lista de arriba, el
+           <b>documento</b>: lo que no cabe en la diapositiva no desaparece, se escribe.</p>
+      </div>
+
+      <div class="video" id="video-presentar" data-vid="zRoxXHR_-Ac">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Muerte por PowerPoint: trucos para no aburrir a la audiencia">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Muerte por PowerPoint: trucos para no aburrir a la audiencia</b>
+            <span>La Hoguera Bloguera &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Los errores de siempre, vistos desde fuera. Lo que dice se solapa con la r&uacute;brica de arriba: comprobadlo mientras lo ve&iacute;s. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=zRoxXHR_-Ac" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 9.3 &middot; Rehacer una diapositiva y medir el aula</span>
+          <span class="chips"><span class="chip">4.1</span><span class="chip">2.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>Medid vuestra propia diapositiva.</b> Coged la que escribisteis al principio de
+                la sesi&oacute;n, contad sus <b>palabras</b> y calculad el tiempo de lectura a
+                <b>200 palabras por minuto</b>. Compradlo con los segundos que pensabais dedicarle.
+                Comprobadlo luego en la escena.</li>
+            <li><b>Rehacedla.</b> Partidla en dos: a la <b>diapositiva</b> se queda <b>una idea</b>
+                (menos de 25 palabras, o ninguna si hay una imagen que explique); todo lo
+                dem&aacute;s se va a las <b>notas del orador</b>. Pegad las dos versiones en el
+                cuaderno, una al lado de la otra.</li>
+            <li><b>Medid el aula de verdad.</b> Con pasos, medid <b>a qu&eacute; distancia</b>
+                est&aacute; la &uacute;ltima fila de la pizarra y <b>cu&aacute;nto mide de ancho</b>
+                la imagen proyectada. Con la escena, calculad el <b>cuerpo m&iacute;nimo</b> que
+                hay que usar en esta clase concreta. Escribid el n&uacute;mero.</li>
+            <li><b>Comprobadlo.</b> Escribid una palabra con ese cuerpo, proyectadla y que alguien
+                la lea desde el fondo. Si no se lee, subid hasta que se lea y anotad la diferencia
+                con lo calculado. Y decid a qu&eacute; puede deberse: &iquest;la luz de la clase?
+                &iquest;el contraste? &iquest;la tipograf&iacute;a?</li>
+            <li><b>Corregid a otro grupo.</b> Con la <b>r&uacute;brica</b> de las seis
+                l&iacute;neas, puntuad la presentaci&oacute;n de otra pareja. No vale
+                &laquo;est&aacute; bien&raquo;: hay que poner <b>n&uacute;meros</b> en cada fila y
+                decir qu&eacute; hay que cambiar.</li>
+            <li><b>Ensayad con reloj.</b> Contadlo en voz alta, de pie y cronometrado. Anotad
+                cu&aacute;nto os hab&eacute;is pasado o cu&aacute;nto os ha sobrado, y
+                <b>qu&eacute; diapositiva</b> sobra.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El recuento de palabras y el tiempo de lectura est&aacute;n bien hechos
+                <b>(2 puntos)</b>.</li>
+            <li>La diapositiva rehecha tiene <b>una idea</b> y el resto est&aacute; en las notas, no
+                borrado <b>(2 puntos)</b>.</li>
+            <li>El aula est&aacute; medida de verdad y el cuerpo m&iacute;nimo sale de la cuenta,
+                con unidades <b>(2 puntos)</b>.</li>
+            <li>La comprobaci&oacute;n se ha hecho proyectando, y la diferencia est&aacute;
+                razonada <b>(2 puntos)</b>.</li>
+            <li>La r&uacute;brica del otro grupo lleva <b>n&uacute;meros en las seis filas</b> y una
+                propuesta concreta <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Sobre el paso 5</span>
+            Corregir a otro grupo es f&aacute;cil si se hace con n&uacute;meros y desagradable si se
+            hace con adjetivos. &laquo;Ocho diapositivas tienen m&aacute;s de 25 palabras&raquo; se
+            puede arreglar; &laquo;es aburrida&raquo;, no.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>Si en la diapositiva pones lo que vas a decir, &iquest;por qu&eacute; dejan de escucharte?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque leer va m&aacute;s r&aacute;pido que escuchar. La clase termina de leer la diapositiva antes de que t&uacute; acabes la frase, y desde ese momento ya sabe c&oacute;mo acaba: no le queda nada que sacar de lo que dices. El texto que ibas a decir <b>no se borra</b>, se pasa a las <b>notas del orador</b>.</p></div></details></li>
+        <li>&iquest;C&oacute;mo se sabe si una imagen se gana el sitio en una diapositiva?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Con la prueba del pulgar: <b>t&aacute;pala</b>. Si la diapositiva se entiende igual, esa imagen <b>decoraba</b> y estorba. Si al taparla deja de entenderse, es que la imagen estaba <b>explicando</b> algo, y esa se queda.</p></div></details></li>
+        <li>&iquest;De d&oacute;nde sale lo de &laquo;no bajes de 24 puntos&raquo;?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>De una cuenta, no de una costumbre. El cuerpo se convierte en mil&iacute;metros de may&uacute;scula sobre la diapositiva, el proyector lo multiplica por lo que estire la imagen, y desde la &uacute;ltima fila hace falta una altura m&iacute;nima para leer sin esfuerzo. Con una pantalla de 2,5 m y un aula de 9 m de fondo, salen justo 24 pt. En otra clase sale <b>otro n&uacute;mero</b>, y por eso se mide.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que llevas del tema</span>
+        Las tres piezas de producir algo: un <b>documento</b> que no se descoloca porque lo que
+        dice va separado de c&oacute;mo se ve; unas <b>im&aacute;genes</b> que pesan lo que tienen
+        que pesar porque sabes cu&aacute;ntos p&iacute;xeles llegan a verse; y una
+        <b>presentaci&oacute;n</b> que se puede corregir con n&uacute;meros en vez de con opiniones.
+      </div>
+      <div class="nota">
+        <span class="n-tag">Lo que falta</span>
+        Quedan tres sesiones y van todas de lo mismo: <b>difundir</b>. Qu&eacute; se puede copiar y
+        con qu&eacute; condiciones &mdash;derechos de autor, licencias libres y c&oacute;mo se cita
+        una foto&mdash;; c&oacute;mo se trabaja <b>a varias manos</b> en el mismo documento sin
+        pisarse y sin perder el trabajo de nadie; y c&oacute;mo se <b>publica</b> algo para que
+        llegue y para que lo pueda usar todo el mundo, incluida la gente que no ve la pantalla.
+      </div>
+      <div class="nota">
+        <span class="n-tag">Y con esto se cierra un c&iacute;rculo</span>
+        Al principio del curso, en la unidad de representaci&oacute;n gr&aacute;fica, aprendiste a
+        <b>explicar una idea con un dibujo</b> para que otra persona pudiera construirla sin
+        preguntarte nada. Es el <b>mismo criterio del curr&iacute;culo</b> que esta unidad, y no es
+        casualidad: aquello era comunicar con un l&aacute;piz y esto es comunicar con un ordenador.
+        Lo que no cambia es la exigencia: que quien lo reciba <b>entienda exactamente lo que
+        quer&iacute;as decir</b>, sin estar t&uacute; delante.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 9 &middot; Herramientas digitales y difusi&oacute;n</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 9 &middot; Herramientas digitales y difusi&oacute;n</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema9/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 9 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.ta').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.ta-nota');
+    if(!corregir || !otra || !nota) return;   /* no es un test de este molde */
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.ta-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.ta-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>
