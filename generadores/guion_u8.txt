@@ -1,0 +1,9 @@
+En la unidad anterior montaste el modelo de una máquina que procesa información: busca una instrucción, la obedece y vuelve a empezar. Una máquina sola, encima de una mesa. Pero enciendes el móvil, le das a un vídeo, y el vídeo aparece. Y el vídeo no estaba dentro.
+
+Así que la pregunta de este tema es física antes que ninguna otra cosa: qué viaja exactamente, por dónde viaja, y cómo sabe a dónde tiene que ir. La respuesta es más rara de lo que parece. Internet no manda el vídeo. Lo parte en trozos numerados, los trozos pueden ir por caminos distintos, llegan desordenados, y se recomponen al final sin que tú te enteres.
+
+De ahí salen las otras dos preguntas. Si mis trozos pasan por máquinas que no son mías, ¿quién puede leerlos por el camino? Ahí aparece el candado del navegador, que protege unas cosas sí y otras no, y conviene saber cuáles son cuáles.
+
+Y la tercera: si nadie lee lo que mandas, ¿de dónde sale todo lo que saben de ti? Pues de que no hace falta leer nada. Se lo vamos dando nosotros, a cambio de cosas que usamos todos los días y que nadie nos cobra.
+
+Aquí no vas a aprender que internet sea peligroso. Vas a aprender cómo funciona, que es otra cosa muy distinta: quien entiende cómo funciona algo decide mejor qué hacer con ello.
