@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 7 &middot; El ordenador y sus componentes</title>
+<meta name="description" content="Tema 7 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: hardware y software, la CPU y su ciclo, memoria RAM frente a almacenamiento y representaci&oacute;n binaria de la informaci&oacute;n.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema7/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 7 &middot; El ordenador y sus componentes","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema7/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 7 &middot; El ordenador y sus componentes &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* tablas de datos dentro de los bloques que se copian */
+.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
+.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.copiar td:first-child{width:52%}
+@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 7</div>
+    <h1>El ordenador y sus componentes</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Hardware y software</button><button type="button" data-ses="2">S2 &middot; RAM y almacenamiento</button><button type="button" data-ses="3">S3 &middot; Ceros y unos</button><button type="button" data-ses="4" disabled>S4 &middot; Entrada y salida</button><button type="button" data-ses="5" disabled>S5 &middot; Sistema operativo</button><button type="button" data-ses="6" disabled>S6 &middot; Diagnosticar una aver&iacute;a</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>Una m&aacute;quina que no sabe hacer nada</h2>
+      <p>Con cables, cada comportamiento nuevo exige un circuito nuevo. La salida fue construir una sola m&aacute;quina y escribirle aparte lo que tiene que hacer.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">D.1&ndash;D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>En la unidad de electricidad lo dejaste montado: una pila, un interruptor y una bombilla.
+         Pulsas, se enciende. Sueltas, se apaga. Funciona, y funciona siempre igual.</p>
+
+
+      <div class="narrador" id="narr-u7">
+        <div class="narrador-fig" id="narr-u7-fig"></div>
+        <div class="narrador-txt">
+          <h4>De d&oacute;nde sale esta unidad</h4>
+          <span class="narrador-quien">Por qu&eacute; un cable no basta y hubo que inventar la m&aacute;quina que obedece listas</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada sobre gui&oacute;n propio. La boca sigue el volumen real de la voz: se mueve cuando habla y se para en los silencios.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-u7');
+        if(!C) return;
+        var fig = document.getElementById('narr-u7-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.085, 0.325, 1.0, 0.76, 0.769, 0.323, 0.674, 0.438, 0.456, 0.23, 0.077, 0.008, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.789, 1.0, 1.0, 0.551, 0.7, 0.895, 0.755, 0.8, 0.521, 0.724, 0.625, 1.0, 0.958, 0.423, 0.669, 0.719, 0.355, 0.632, 0.506, 1.0, 0.299, 0.222, 0.423, 0.047, 0.63, 0.749, 0.852, 0.826, 0.515, 0.169, 0.161, 0.698, 0.653, 0.583, 0.663, 0.703, 0.698, 0.796, 0.099, 0.763, 0.834, 0.964, 0.603, 0.23, 0.926, 0.611, 0.684, 0.76, 0.468, 0.662, 0.584, 0.216, 0.568, 0.603, 0.451, 1.0, 0.771, 0.823, 0.517, 0.487, 0.35, 0.413, 0.317, 0.367, 0.291, 0.216, 0.289, 0.142, 0.028, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.643, 0.934, 0.234, 0.609, 0.588, 0.016, 0.318, 0.206, 0.008, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.669, 1.0, 0.868, 0.757, 0.402, 0.831, 0.468, 0.869, 0.847, 0.978, 0.641, 0.386, 0.611, 0.109, 0.768, 0.372, 0.251, 0.292, 0.123, 0.017, 0.001, 0.0, 0.0, 0.0, 0.393, 1.0, 0.539, 0.365, 0.645, 0.834, 0.802, 0.695, 0.869, 0.615, 0.596, 0.592, 0.649, 0.129, 0.565, 0.433, 0.827, 0.806, 0.364, 0.614, 0.268, 0.62, 0.79, 0.088, 0.403, 0.257, 0.108, 0.532, 0.613, 0.423, 0.284, 0.325, 1.0, 0.648, 0.282, 0.356, 0.194, 0.097, 0.006, 0.0, 0.0, 0.001, 0.355, 0.975, 0.501, 0.36, 0.816, 0.261, 0.543, 0.349, 0.326, 0.802, 0.825, 0.57, 0.149, 0.841, 0.866, 0.612, 0.289, 0.419, 0.374, 0.425, 0.467, 0.26, 0.316, 0.112, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.375, 0.788, 0.081, 1.0, 0.746, 0.885, 0.858, 0.749, 0.33, 0.391, 1.0, 0.756, 0.819, 0.85, 0.116, 0.712, 0.955, 0.544, 0.531, 0.363, 0.367, 0.229, 1.0, 0.763, 0.446, 0.587, 0.238, 0.471, 0.667, 0.268, 0.553, 0.21, 0.434, 0.575, 0.621, 0.467, 0.333, 0.788, 0.489, 0.229, 0.605, 0.43, 0.697, 0.424, 0.453, 0.359, 0.303, 0.213, 0.065, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.575, 1.0, 0.754, 0.493, 1.0, 0.626, 0.738, 0.444, 0.481, 0.977, 1.0, 0.786, 0.516, 0.436, 0.317, 0.321, 0.273, 0.175, 0.05, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.436, 0.752, 0.674, 0.113, 0.842, 0.487, 0.74, 0.602, 0.487, 0.731, 0.826, 0.627, 0.16, 0.772, 0.727, 0.948, 0.718, 0.478, 0.244, 0.231, 0.826, 0.518, 0.922, 0.577, 0.598, 0.699, 0.685, 0.59, 0.353, 0.576, 0.709, 0.814, 0.573, 0.104, 0.657, 0.234, 0.389, 1.0, 0.114, 0.605, 0.459, 0.415, 0.328, 0.256, 0.253, 0.104, 0.003, 0.0, 0.0, 0.0, 0.002, 0.673, 0.124, 0.84, 0.752, 0.758, 0.975, 0.561, 0.659, 0.99, 0.49, 0.915, 0.85, 0.384, 0.2, 0.293, 0.494, 0.552, 0.728, 0.081, 0.548, 0.063, 0.54, 0.533, 0.512, 0.673, 0.516, 0.877, 0.7, 0.305, 0.518, 0.348, 0.161, 0.961, 0.507, 0.368, 0.275, 0.395, 0.316, 0.33, 0.252, 0.352, 0.253, 0.073, 0.005, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.226, 0.932, 0.517, 0.494, 0.833, 0.99, 0.171, 0.564, 0.974, 0.43, 0.212, 0.646, 0.322, 0.794, 0.531, 0.186, 0.657, 0.423, 0.314, 0.79, 0.637, 0.313, 0.468, 0.877, 0.767, 0.628, 0.865, 0.706, 0.693, 0.747, 0.313, 0.499, 0.576, 0.193, 0.806, 0.314, 0.642, 0.744, 0.297, 0.673, 0.449, 0.259, 0.635, 0.598, 0.813, 0.622, 0.386, 0.178, 0.343, 0.43, 0.511, 0.667, 0.227, 0.251, 0.212, 0.291, 0.12, 0.002, 0.0, 0.0, 0.36, 0.935, 0.593, 0.391, 0.853, 0.412, 0.348, 0.741, 0.745, 0.849, 0.595, 0.194, 0.859, 0.829, 0.759, 0.262, 0.594, 0.287, 0.48, 0.343, 0.083, 0.522, 0.245, 0.277, 0.209, 0.071, 0.002, 0.0, 0.0, 0.0, 0.0, 0.082, 0.997, 0.89, 0.333, 0.061, 0.739, 1.0, 0.486, 0.832, 0.808, 0.892, 0.794, 0.781, 0.097, 0.728, 0.557, 0.897, 0.28, 0.391, 0.571, 0.365, 0.131, 0.348, 0.632, 0.728, 0.334, 0.477, 0.312, 0.675, 0.539, 0.081, 0.779, 0.527, 0.54, 0.795, 0.621, 0.663, 0.359, 0.328, 0.392, 0.142, 0.66, 0.769, 0.118, 0.34, 0.161, 0.006, 0.0, 0.0, 0.327, 1.0, 1.0, 0.573, 0.574, 0.537, 0.438, 0.587, 0.654, 0.325, 0.6, 0.523, 0.17, 0.398, 0.265, 0.083, 0.559, 0.756, 0.649, 0.323, 0.547, 0.075, 0.785, 0.48, 0.107, 0.274, 0.282, 0.084, 0.002, 0.178, 0.434, 0.263, 0.227, 0.581, 0.374, 0.254, 0.265, 0.11, 0.074, 0.018, 0.0, 0.0, 0.0, 0.0, 0.001, 0.812, 1.0, 1.0, 0.842, 0.407, 0.637, 0.409, 0.614, 0.627, 0.595, 0.697, 0.611, 0.644, 0.343, 0.665, 0.067, 0.842, 0.696, 0.61, 0.258, 0.722, 0.662, 0.587, 0.992, 0.558, 0.337, 0.519, 0.673, 0.181, 0.487, 0.113, 0.899, 0.758, 0.799, 0.638, 0.326, 0.553, 0.91, 0.81, 0.137, 0.445, 0.33, 0.233, 0.24, 0.124, 0.015, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.159, 0.984, 0.445, 0.396, 0.959, 0.961, 0.374, 0.503, 0.874, 0.825, 0.611, 0.602, 0.429, 0.315, 0.396, 0.28, 0.125, 0.015, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.22, 0.761, 0.793, 1.0, 0.514, 0.285, 0.743, 0.767, 0.409, 0.427, 0.481, 0.845, 0.865, 0.763, 0.237, 0.422, 0.926, 0.638, 0.558, 0.492, 0.33, 0.117, 0.003, 0.001, 0.783, 0.876, 0.823, 0.327, 0.645, 0.441, 0.099, 0.522, 0.094, 0.149, 1.0, 0.837, 0.479, 0.213, 0.111, 0.008, 0.0, 0.001, 0.128, 0.282, 1.0, 0.244, 0.189, 0.369, 0.252, 0.089, 0.012, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.628, 0.902, 0.846, 0.235, 0.67, 0.613, 0.316, 0.684, 0.375, 0.674, 0.787, 0.666, 0.329, 0.66, 0.81, 0.854, 0.842, 0.671, 0.386, 0.433, 0.631, 0.394, 0.722, 0.994, 0.335, 0.43, 0.603, 0.365, 0.788, 0.621, 0.188, 0.294, 0.231, 0.047, 0.001, 0.0, 0.0, 0.035, 0.878, 0.835, 0.414, 0.331, 0.479, 0.246, 0.881, 0.362, 0.771, 0.516, 0.245, 0.54, 0.283, 0.642, 0.448, 0.089, 0.422, 0.102, 0.086, 0.963, 0.732, 0.339, 0.176, 0.098, 0.032, 0.0, 0.0, 0.209, 0.888, 0.988, 0.797, 0.46, 0.519, 0.497, 0.932, 0.721, 0.436, 0.645, 0.736, 0.801, 0.459, 0.292, 0.302, 0.121, 0.548, 0.397, 0.161, 0.249, 0.215, 0.05, 0.001, 0.0, 0.0, 0.0, 0.0, 0.516, 0.856, 0.072, 0.826, 0.83, 0.542, 1.0, 0.404, 0.097, 0.5, 1.0, 0.118, 0.873, 0.697, 0.94, 0.912, 0.734, 1.0, 0.61, 0.454, 0.611, 0.497, 0.396, 0.4, 0.316, 0.419, 0.298, 0.027, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.388, 1.0, 0.765, 0.927, 0.779, 0.903, 0.522, 0.444, 0.923, 0.881, 0.668, 0.829, 0.362, 0.588, 0.415, 0.349, 0.193, 0.03, 0.001, 0.0, 0.003, 0.055, 0.146, 1.0, 0.85, 0.768, 0.335, 0.599, 0.601, 0.362, 0.272, 0.179, 0.09, 0.082, 0.029, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.467, 0.937, 1.0, 0.778, 0.781, 0.606, 0.314, 0.159, 0.164, 0.083, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/u7-ordenador.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Coge ese circuito y haz que la bombilla <b>parpadee dos veces</b> cuando pulsas,
+        <b>tres veces</b> si mantienes el dedo, y que adem&aacute;s <b>lleve la cuenta</b> de cu&aacute;ntas
+        veces la has encendido hoy. Dib&uacute;jalo.
+      </div>
+
+      <p>Int&eacute;ntalo de verdad durante cinco minutos, con lo que sabes de electricidad. Vais a llegar
+         todos al mismo sitio, y conviene llegar para verlo:</p>
+      <ul>
+        <li>Para el parpadeo hace falta <b>otro montaje</b>: algo que corte y devuelva la corriente solo.</li>
+        <li>Para distinguir el toque del dedo mantenido, <b>otro m&aacute;s</b>.</li>
+        <li>Para contar, <b>otro</b>.</li>
+        <li>Y ma&ntilde;ana, cuando te pida una cosa distinta, <b>vuelta a empezar con el soldador</b>.</li>
+      </ul>
+
+      <div class="reto-piensa">
+        <span class="n-tag">La pregunta que abre el tema</span>
+        <p>Si cada comportamiento nuevo obliga a un circuito nuevo, <b>&iquest;cu&aacute;ntos circuitos
+           distintos habr&iacute;a que fabricar</b> para que una sola m&aacute;quina pudiera hacer todo lo que
+           hace un m&oacute;vil?</p>
+      </div>
+
+      <p>La respuesta es que no hay n&uacute;mero: son infinitos, porque cada d&iacute;a se inventa un
+         comportamiento nuevo. Por ese camino no se llega. Hac&iacute;a falta otra idea, y cost&oacute; siglo y medio
+         encontrarla.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>La idea: una m&aacute;quina que no sepa hacer nada en concreto</h3>
+      <p>Si el problema es que el comportamiento est&aacute; <b>en los cables</b>, la salida es sacarlo de
+         ah&iacute;. Se construye <b>una sola m&aacute;quina</b>, siempre la misma, que por s&iacute; sola no hace nada
+         interesante: solo sabe leer una lista de &oacute;rdenes muy simples y obedecerlas una detr&aacute;s de otra.
+         El comportamiento ya no est&aacute; soldado: est&aacute; <b>escrito</b>, y lo escrito se cambia en un segundo.</p>
+
+      <p>Prueba la m&aacute;quina de abajo. Tiene seis &oacute;rdenes y nada m&aacute;s. Cambia de programa arriba y
+         fíjate en <b>qu&eacute; cambia del dibujo</b>: la respuesta es que nada del procesador, solo la lista.</p>
+
+
+      <div class="escena" id="esc-cpu">
+        <div class="escena-barra">
+          <span class="escena-titulo">La misma m&aacute;quina, otro programa</span>
+          <div class="seg" id="seg-cpu-prog">
+            <button type="button" data-p="0" aria-pressed="true">Luz fija</button>
+            <button type="button" data-p="1">Parpadeo</button>
+            <button type="button" data-p="2">Contador</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 344" id="svg-cpu" role="img"
+               aria-label="Un procesador ejecutando paso a paso las instrucciones guardadas en la memoria"></svg>
+        </div>
+        <div class="escena-barra" id="seg-cpu-ctrl-caja">
+          <span class="escena-titulo">Controles</span>
+          <div class="seg" id="seg-cpu-ctrl">
+            <button type="button" data-c="paso">&#9654;&#124; Un paso</button>
+            <button type="button" data-c="auto">&#9654;&#9654; Autom&aacute;tico</button>
+            <button type="button" data-c="reset">&#8635; Reiniciar</button>
+          </div>
+        </div>
+        <div class="pie" id="pie-cpu"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-cpu');
+        if(!svg) return;
+        var pie  = document.getElementById('pie-cpu');
+        var segP = document.getElementById('seg-cpu-prog');
+        var segC = document.getElementById('seg-cpu-ctrl');
+
+        /* Tres programas para UNA sola maquina. El dibujo del procesador no
+           cambia nunca: lo unico que cambia es la lista de la izquierda.      */
+        var PROGS = [
+          {nom:'Luz fija',  ins:['ENCIENDE', 'PARA']},
+          {nom:'Parpadeo',  ins:['ENCIENDE', 'ESPERA', 'APAGA', 'ESPERA', 'VUELVE A 1']},
+          {nom:'Contador',  ins:['SUMA 1', 'ENCIENDE', 'APAGA', 'VUELVE A 1']}
+        ];
+        var QUE = {
+          'ENCIENDE'  : 'poner la bombilla a 1',
+          'APAGA'     : 'poner la bombilla a 0',
+          'ESPERA'    : 'no hacer nada durante un paso',
+          'SUMA 1'    : 'sumar 1 a la cuenta',
+          'VUELVE A 1': 'volver a la instrucci\u00f3n 1',
+          'PARA'      : 'detenerse'
+        };
+        var FASES = ['BUSCA', 'DESCODIFICA', 'EJECUTA'];
+
+        var prog = 0, pc = 0, fase = 0, luz = 0, cuenta = 0, parado = false, timer = null;
+
+        /* Parte un texto en lineas de como mucho n caracteres, sin cortar palabras.
+           Hace falta porque SVG no sabe hacer saltos de linea el solo.           */
+        function parte(t, n){
+          var pal = t.split(' '), l = [''];
+          for(var i = 0; i < pal.length; i++){
+            var cand = (l[l.length - 1] + ' ' + pal[i]).trim();
+            if(l[l.length - 1] && cand.length > n) l.push(pal[i]);
+            else l[l.length - 1] = cand;
+          }
+          return l;
+        }
+
+        function lineas(t, x, y, salto, estilo){
+          return parte(t, 44).slice(0, 2).map(function(s, i){
+            return '<text x="' + x + '" y="' + (y + i * salto) + '" class="rotulo-svg" style="'
+                 + estilo + '">' + s + '</text>';
+          }).join('');
+        }
+
+        function caja(x, y, w, h, etq){
+          return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="2" '
+               + 'fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"></rect>'
+               + '<text x="'+(x+10)+'" y="'+(y+16)+'" class="rotulo-svg">'+etq+'</text>';
+        }
+
+        function pinta(){
+          var P = PROGS[prog], m = '';
+
+          /* ---- columna de memoria: una celda por instruccion ---- */
+          m += caja(16, 26, 242, 306, 'MEMORIA');
+          for(var i = 0; i < P.ins.length; i++){
+            var y = 46 + i * 32;
+            var activa = (i === pc && !parado);
+            m += '<rect x="28" y="'+y+'" width="218" height="27" rx="2" fill="'
+               + (activa ? 'var(--accent-soft)' : 'var(--surface-2)')
+               + '" stroke="'+(activa ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="'
+               + (activa ? '2' : '1')+'"></rect>';
+            m += '<text x="38" y="'+(y+18)+'" class="rotulo-svg" style="font-size:11px">'+(i+1)+'</text>';
+            m += '<text x="58" y="'+(y+18)+'" class="rotulo-svg" style="font-size:12px;fill:var(--ink)'
+               + (activa ? ';font-weight:500' : '')+'">'+P.ins[i]+'</text>';
+          }
+          m += '<text x="28" y="322" class="rotulo-svg" style="font-size:10.5px">'
+             + 'software \u00b7 se cambia sin tocar nada</text>';
+
+          /* ---- el procesador ---- */
+          m += caja(278, 26, 346, 200, 'PROCESADOR (CPU)');
+          for(var f = 0; f < 3; f++){
+            var fx = 292 + f * 109, on = (f === fase && !parado);
+            m += '<rect x="'+fx+'" y="54" width="100" height="26" rx="2" fill="'
+               + (on ? 'var(--goo-azul)' : 'var(--surface-2)')+'" stroke="'
+               + (on ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="1.5"></rect>';
+            m += '<text x="'+(fx+50)+'" y="71" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:9.5px;font-weight:500;fill:'+(on ? '#fff' : 'var(--ink-soft)')
+               + '">'+FASES[f]+'</text>';
+          }
+          /* El ciclo vuelve al principio: de debajo de EJECUTA (centro x=560) a
+             debajo de BUSCA (centro x=342), con la punta de flecha hacia arriba. */
+          m += '<path d="M560 82 v12 H342 v-6" fill="none" stroke="var(--line)" '
+             + 'stroke-width="1.5" stroke-dasharray="4 3"></path>';
+          m += '<path d="M342 79 l-5 9 h10 Z" fill="var(--line)"></path>';
+          m += '<text x="451" y="118" text-anchor="middle" class="rotulo-svg" style="font-size:10px">'
+             + 'y vuelta a empezar, sin parar</text>';
+
+          m += '<text x="292" y="142" class="rotulo-svg" style="font-size:11.5px;fill:var(--ink)">'
+             + 'Contador de programa \u00b7 PC = '+(parado ? '\u2014' : (pc+1))+'</text>';
+          m += '<text x="292" y="164" class="rotulo-svg" style="font-size:11.5px;fill:var(--ink)">'
+             + 'Instrucci\u00f3n en curso \u00b7 '+(parado ? 'ninguna' : P.ins[pc])+'</text>';
+          m += lineas(parado ? 'La m\u00e1quina se ha detenido.'
+                             : ('Ahora ' + FASES[fase].toLowerCase() + ': ' + textoFase()),
+                      292, 186, 15, 'font-size:11px');
+          m += '<text x="292" y="218" class="rotulo-svg" style="font-size:10.5px">'
+             + 'hardware \u00b7 siempre el mismo, no cambia nunca</text>';
+
+          /* ---- salida: la bombilla y la cuenta ---- */
+          m += caja(278, 240, 346, 92, 'SALIDA');
+          var cx = 322, cy = 296;
+          if(luz){
+            for(var r = 0; r < 8; r++){
+              var a = r * Math.PI / 4;
+              m += '<path d="M'+(cx+Math.cos(a)*26).toFixed(1)+' '+(cy+Math.sin(a)*26).toFixed(1)
+                 + ' L'+(cx+Math.cos(a)*33).toFixed(1)+' '+(cy+Math.sin(a)*33).toFixed(1)
+                 + '" stroke="var(--goo-amarillo)" stroke-width="2.5" stroke-linecap="round"></path>';
+            }
+          }
+          m += '<circle cx="'+cx+'" cy="'+cy+'" r="20" fill="'
+             + (luz ? 'var(--goo-amarillo)' : 'var(--surface-2)')
+             + '" stroke="var(--line)" stroke-width="1.5"></circle>';
+          m += '<path d="M'+(cx-7)+' '+(cy+4)+' q7 -14 14 0" fill="none" stroke="'
+             + (luz ? '#8a6d00' : 'var(--line)')+'" stroke-width="2"></path>';
+          m += '<text x="362" y="301" class="rotulo-svg" style="font-size:11.5px;fill:var(--ink)">'
+             + 'bombilla: '+(luz ? '1' : '0')+'</text>';
+          m += '<text x="492" y="286" class="rotulo-svg" style="font-size:11px">CUENTA</text>';
+          m += '<text x="492" y="318" class="rotulo-svg" '
+             + 'style="font-size:26px;fill:var(--ink);font-weight:500">'+cuenta+'</text>';
+
+          svg.innerHTML = m;
+          pie.innerHTML = parado
+            ? '<b>Programa terminado.</b> Cambia de programa ah&iacute; arriba: ver&aacute;s que el dibujo del '
+              + 'procesador no cambia ni un p&iacute;xel. Lo &uacute;nico distinto es la lista de la memoria.'
+            : 'La CPU repite tres pasos sin parar: <b>busca</b> la instrucci&oacute;n que toca, la '
+              + '<b>descodifica</b> para saber qu&eacute; pide, y la <b>ejecuta</b>. Dale a &laquo;un paso&raquo; '
+              + 'tres veces y habr&aacute;s ejecutado una instrucci&oacute;n entera.';
+        }
+
+        function textoFase(){
+          var ins = PROGS[prog].ins[pc];
+          if(fase === 0) return 'traer de la memoria la instrucci\u00f3n ' + (pc+1);
+          if(fase === 1) return 'es ' + ins + ', o sea ' + QUE[ins];
+          return QUE[ins];
+        }
+
+        function paso(){
+          if(parado) return;
+          var P = PROGS[prog], ins = P.ins[pc];
+          if(fase < 2){ fase++; pinta(); return; }
+          /* fase EJECUTA: se aplica el efecto y se decide la siguiente instruccion */
+          if(ins === 'ENCIENDE') luz = 1;
+          else if(ins === 'APAGA') luz = 0;
+          else if(ins === 'SUMA 1') cuenta++;
+          if(ins === 'PARA'){ parado = true; para(); pinta(); return; }
+          pc = (ins === 'VUELVE A 1') ? 0 : pc + 1;
+          if(pc >= P.ins.length) pc = 0;
+          fase = 0;
+          pinta();
+        }
+
+        function para(){
+          if(timer){ clearInterval(timer); timer = null; }
+          var b = segC.querySelector('[data-c="auto"]');
+          b.setAttribute('aria-pressed', 'false');
+          b.innerHTML = '\u25b6\u25b6 Autom\u00e1tico';
+        }
+
+        function reinicia(){
+          para(); pc = 0; fase = 0; luz = 0; cuenta = 0; parado = false; pinta();
+        }
+
+        segP.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          segP.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          prog = +b.dataset.p; reinicia();
+        });
+        segC.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]'); if(!b) return;
+          if(b.dataset.c === 'paso'){ para(); paso(); }
+          else if(b.dataset.c === 'reset'){ reinicia(); }
+          else {
+            if(timer){ para(); }
+            else {
+              b.setAttribute('aria-pressed', 'true');
+              b.innerHTML = '\u25a0 Parar';
+              timer = setInterval(paso, 520);
+            }
+          }
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Las dos mitades de un ordenador</h4>
+        <p><b>Hardware</b>: todo lo que se puede tocar. La placa, los chips, los cables, la pantalla.
+           Si falla, se cambia la pieza.</p>
+        <p><b>Software</b>: las instrucciones. No se toca, no pesa y no se gasta. Si falla, se corrige
+           y se vuelve a cargar.</p>
+        <p>Un ordenador es <b>una m&aacute;quina de prop&oacute;sito general</b>: no est&aacute; hecha para una tarea,
+           sino para ejecutar cualquier lista de instrucciones que le des.</p>
+      </div>
+
+      <h3>Qui&eacute;n obedece la lista: la CPU</h3>
+      <p>La pieza que lee la lista y la obedece es el <b>procesador</b>. No es un cerebro y no decide
+         nada: hace tres cosas, en este orden, y vuelve a empezar. Sin parar, mientras tenga corriente.</p>
+
+      <div class="copiar">
+        <h4>La CPU y su ciclo</h4>
+        <p><b>CPU</b> (<i>unidad central de proceso</i>): el componente que ejecuta las instrucciones
+           del programa.</p>
+        <p>Repite siempre el mismo <b>ciclo de tres pasos</b>:</p>
+        <ol>
+          <li><b>Busca</b> en la memoria la instrucci&oacute;n que toca.</li>
+          <li>La <b>descodifica</b>: averigua qu&eacute; orden es y qu&eacute; hay que hacer.</li>
+          <li>La <b>ejecuta</b>, y anota cu&aacute;l es la siguiente.</li>
+        </ol>
+        <p>El <b>reloj</b> marca el ritmo de ese ciclo. Una CPU de <b>3 GHz</b> recibe
+           <b>3.000 millones de pulsos de reloj por segundo</b>.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Ojo con una frase que se oye mucho</span>
+        &laquo;3 GHz son 3.000 millones de instrucciones por segundo&raquo; <b>no es cierto</b>. Son
+        3.000 millones de <i>pulsos de reloj</i>. Hay instrucciones que gastan varios pulsos y CPU
+        modernas que resuelven varias a la vez. Los gigahercios miden el <b>ritmo</b>, no el trabajo.
+      </div>
+
+      <figure class="foto">
+        <img src="../../../img/u7-eniac.jpg" alt="Dos personas trabajando junto al ENIAC en 1947, con paneles llenos de cables conectados a mano" loading="lazy">
+        <figcaption>El <b>ENIAC</b>, hacia 1947. Mira los paneles de la izquierda: esa mara&ntilde;a de cables <b>es</b> el programa. Cambiarlo significaba desenchufar y volver a enchufar a mano, y eso llevaba d&iacute;as. Exactamente el problema del reto de hoy, pero ocupando la sala entera que ves.
+          <span class="credito">Autor desconocido (US Army) &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>La idea de sacar las instrucciones fuera de la m&aacute;quina no naci&oacute; en la inform&aacute;tica: naci&oacute;
+           <b>tejiendo</b>. Hacia 1805 Joseph Marie Jacquard mont&oacute; un telar que le&iacute;a <b>tarjetas
+           perforadas</b>: el dibujo de la tela no estaba en el telar, estaba en las tarjetas. Cambiabas
+           las tarjetas y el mismo telar tej&iacute;a otra cosa.</p>
+        <p>En 1945 el ENIAC ya calculaba, pero se programaba recableando. La alternativa que gan&oacute; la
+           escribi&oacute; ese mismo a&ntilde;o <b>John von Neumann</b> en un informe sobre la m&aacute;quina siguiente,
+           el EDVAC: guardar el programa <b>en la misma memoria que los datos</b>. Si el programa es un
+           n&uacute;mero m&aacute;s, se carga y se cambia igual de r&aacute;pido que un n&uacute;mero.</p>
+        <p>La primera m&aacute;quina que lo hizo de verdad ech&oacute; a andar en Manchester el <b>21 de junio de
+           1948</b>. Casi todo lo que hoy llamamos ordenador sigue ese mismo esquema, ochenta a&ntilde;os
+           despu&eacute;s.</p>
+      </div>
+
+      <figure class="foto">
+        <img src="../../../img/ri3-intel4004.jpg" alt="Microprocesador Intel 4004 de 1971 visto de cerca sobre fondo blanco" loading="lazy">
+        <figcaption>El <b>Intel 4004</b>, 1971: la primera vez que una CPU entera cupo en una sola pastilla. Llevaba unos <b>2.300 transistores</b>. Un procesador de m&oacute;vil de hoy lleva <b>decenas de miles de millones</b>, y hace exactamente lo mismo que este: buscar, descodificar, ejecutar.
+          <span class="credito">Thomas Nguyen &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Intel%20C4004.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+      <div class="video" id="video-cpu" data-vid="-ZTekGoR8uQ">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: &iquest;C&oacute;mo funciona un procesador? Desde un transistor hasta una CPU">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>&iquest;C&oacute;mo funciona un procesador? Desde un transistor hasta una CPU</b>
+            <span>Hardware 360&ordm; &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Para ver qu&eacute; hay debajo del ciclo de tres pasos: c&oacute;mo un mont&oacute;n de interruptores microsc&oacute;picos acaban siendo un procesador. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=-ZTekGoR8uQ" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-cpu');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+                + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7.1 &middot; Escribe un programa para una m&aacute;quina tonta</span>
+          <span class="chips"><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Con qu&eacute; cuentas</h4>
+          <p>Solo con estas seis &oacute;rdenes, las mismas de la escena de arriba. No hay m&aacute;s.</p>
+          <div class="copiar">
+            <h4>Juego de instrucciones</h4>
+            <ul>
+              <li><b>ENCIENDE</b> &middot; pone la bombilla a 1</li>
+              <li><b>APAGA</b> &middot; pone la bombilla a 0</li>
+              <li><b>ESPERA</b> &middot; deja pasar un paso sin hacer nada</li>
+              <li><b>SUMA 1</b> &middot; suma 1 a la cuenta</li>
+              <li><b>VUELVE A n</b> &middot; la siguiente instrucci&oacute;n ser&aacute; la n&uacute;mero <i>n</i>
+                  (en la escena solo aparece <i>VUELVE A 1</i>, pero vosotros pod&eacute;is saltar a
+                  cualquiera)</li>
+              <li><b>PARA</b> &middot; la m&aacute;quina se detiene</li>
+            </ul>
+          </div>
+          <div class="nota">
+            <span class="n-tag">Antes de empezar</span>
+            La escena de arriba <b>no es un editor</b>: trae tres programas hechos y no se le pueden
+            escribir otros. Los vuestros van en el cuaderno, y se comprueban <b>ejecut&aacute;ndolos a
+            mano</b>, fase por fase, igual que hace ella.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Escribid, numerada, la lista de instrucciones que hace que la bombilla
+                <b>parpadee tres veces y luego se pare</b>. Mirad antes el programa
+                &laquo;Parpadeo&raquo; de la escena: hace casi eso, pero no para nunca.</li>
+            <li>Escribid otra que <b>parpadee sin parar y vaya contando</b> los parpadeos.</li>
+            <li>Haced la <b>tabla del ciclo</b> de la primera: una fila por paso, con tres columnas
+                &mdash;<i>PC</i>, <i>fase</i> y <i>qu&eacute; pasa</i>&mdash; hasta completar
+                <b>las cuatro primeras instrucciones</b> (doce filas).</li>
+            <li>Con estas seis &oacute;rdenes hay cosas que <b>no se pueden</b> programar. Poned un ejemplo
+                concreto, e inventad <b>la instrucci&oacute;n que har&iacute;a falta</b> para resolverlo,
+                explicando qu&eacute; hace exactamente.</li>
+            <li>Una frase final: en todo lo que hab&eacute;is hecho, <b>&iquest;qu&eacute; era hardware y qu&eacute; era
+                software?</b></li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El primer programa funciona y para donde debe <b>(2 puntos)</b>.</li>
+            <li>El segundo usa bien el salto y no se olvida de contar <b>(2 puntos)</b>.</li>
+            <li>La tabla del ciclo tiene las doce filas y las fases en orden <b>(3 puntos)</b>.</li>
+            <li>La instrucci&oacute;n inventada resuelve de verdad el ejemplo que hab&eacute;is puesto
+                <b>(2 puntos)</b>.</li>
+            <li>La frase final distingue bien las dos mitades <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso</span>
+            &laquo;El programa es software y el ordenador es hardware&raquo; no puntúa: eso ya lo pon&iacute;a
+            el enunciado. Hay que se&ntilde;alarlo <b>en lo vuestro</b>, y la lista de instrucciones que
+            hab&eacute;is escrito en el cuaderno tambi&eacute;n cuenta.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Vuelve al dibujo imposible del principio. Ya no hace falta: una sola m&aacute;quina, y el
+         comportamiento escrito aparte.</p>
+      <ol>
+              <li>&iquest;Por qu&eacute; se dice que un ordenador es una m&aacute;quina &laquo;de prop&oacute;sito general&raquo;?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no est&aacute; construido para una tarea concreta. La m&aacute;quina es siempre la misma y lo que cambia es la <b>lista de instrucciones</b>, as&iacute; que vale para cualquier cosa que se pueda escribir como lista.</p></div></details></li>
+        <li>Los tres pasos del ciclo de la CPU, en orden.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Busca</b> la instrucci&oacute;n en la memoria, la <b>descodifica</b> para saber qu&eacute; pide y la <b>ejecuta</b>. Y vuelve a empezar.</p></div></details></li>
+        <li>Se te estropea el altavoz del m&oacute;vil. &iquest;Hardware o software? &iquest;Y si el m&oacute;vil suena, pero una aplicaci&oacute;n concreta no?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El altavoz roto es <b>hardware</b>: hay que cambiar la pieza. Si el resto suena y falla solo una aplicaci&oacute;n, es <b>software</b>: se corrige la instrucci&oacute;n equivocada y se vuelve a cargar. Distinguirlo es lo primero que se hace al reparar algo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        La CPU <b>busca</b> la instrucci&oacute;n. &iquest;D&oacute;nde? La escena ten&iacute;a una caja llamada
+        &laquo;memoria&raquo; y la hemos usado sin preguntar qu&eacute; hay dentro. Resulta que no hay una
+        memoria, hay <b>dos</b>, y confundirlas explica las dos cosas que m&aacute;s te molestan de un
+        ordenador.
+      </div>
+
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Lectura del tema</h4>
+        <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>30 p&aacute;rrafos numerados</b>: cada uno
+           lee el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.</p>
+        <p style="margin-top:10px"><a href="lectura-tema7.pdf" target="_blank" rel="noopener"
+           style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
+           &#8595; De una tecla que no responde a los ceros y unos &middot; PDF</a></p>
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>D&oacute;nde se guarda: la mesa y la estanter&iacute;a</h2>
+      <p>Que el ordenador se arrastre con quince pesta&ntilde;as y que pierdas lo que no has guardado no son dos desgracias: son la misma pieza, la memoria RAM.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">D.1&ndash;D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Dos cosas que ya te han pasado, y que todo el mundo cuenta como si fueran mala suerte:</p>
+      <ol>
+        <li>Abres muchas pesta&ntilde;as y el ordenador empieza a <b>arrastrarse</b>. No se apaga, no da
+            error: va lento y punto.</li>
+        <li>Se va la luz y <b>pierdes el trabajo</b> que no hab&iacute;as guardado. El fichero de ayer sigue
+            ah&iacute;; lo de hace dos minutos, no.</li>
+      </ol>
+
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        &iquest;Son <b>dos problemas distintos</b> o son <b>el mismo</b>? Cont&eacute;stalo por escrito, y
+        a&ntilde;ade: &iquest;arreglar&iacute;a alguno de los dos comprar un <b>disco m&aacute;s grande</b>?
+      </div>
+
+      <p>Comparad las respuestas. Van a salir dos, y las dos son falsas:</p>
+      <ul>
+        <li><b>&laquo;Va lento porque el procesador es malo&raquo;.</b> Si fuera eso, ir&iacute;a igual de
+            lento con una sola pesta&ntilde;a. Y no: con una va bien.</li>
+        <li><b>&laquo;Va lento porque no tengo espacio&raquo;.</b> Ponle un disco de 4 TB: el fichero de
+            ayer seguir&aacute; ah&iacute;, seguir&aacute;s perdiendo lo de hace dos minutos y seguir&aacute; arrastr&aacute;ndose
+            con quince pesta&ntilde;as. No has tocado el problema.</li>
+      </ul>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa antes de seguir</span>
+        <p>Si el disco grande no arregla ninguno de los dos, es que <b>el sitio donde est&aacute; lo que se
+           pierde no es el disco</b>. Entonces, &iquest;d&oacute;nde est&aacute;?</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Por qu&eacute; hacen falta dos memorias y no una</h3>
+      <p>Lo ideal ser&iacute;a una sola memoria enorme, instant&aacute;nea y que no se borre. No existe: lo r&aacute;pido
+         sale car&iacute;simo y lo barato sale lento. As&iacute; que se hacen <b>dos</b>, con papeles distintos.</p>
+      <p>La comparaci&oacute;n que lo explica es tu propia mesa de estudio. En la <b>mesa</b> caben pocos
+         libros, pero los tienes a mano. En la <b>estanter&iacute;a</b> cabe todo, pero hay que levantarse.</p>
+
+
+      <div class="escena" id="esc-ram">
+        <div class="escena-barra">
+          <span class="escena-titulo">La mesa de trabajo y la estanter&iacute;a</span>
+          <div class="seg" id="seg-ram">
+            <button type="button" data-r="abre">+ Abrir un programa</button>
+            <button type="button" data-r="cierra">&#8722; Cerrar uno</button>
+            <button type="button" data-r="apaga">&#9211; Apagar y encender</button>
+            <button type="button" data-r="reset">&#8635; Reiniciar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 330" id="svg-ram" role="img"
+               aria-label="Comparaci&oacute;n entre la memoria RAM, con pocos huecos y muy r&aacute;pida, y el almacenamiento, enorme y lento"></svg>
+        </div>
+        <div class="pie" id="pie-ram"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-ram');
+        if(!svg) return;
+        var pie = document.getElementById('pie-ram');
+        var seg = document.getElementById('seg-ram');
+
+        var HUECOS = 6;              /* huecos de la mesa */
+        var T_RAM  = 80;             /* ns */
+        var T_SSD  = 100000;         /* ns  = 0,1 ms */
+        var NOMBRES = ['Navegador', 'Pesta\u00f1a 1', 'Pesta\u00f1a 2', 'Editor', 'M\u00fasica',
+                       'Pesta\u00f1a 3', 'Pesta\u00f1a 4', 'Pesta\u00f1a 5', 'V\u00eddeo', 'Juego'];
+        var COLOR = ['var(--goo-azul)', 'var(--goo-verde)', 'var(--goo-amarillo)',
+                     'var(--goo-rojo)', 'var(--goo-azul)', 'var(--goo-verde)'];
+        var abiertos = 0, apagado = false;
+
+        function medio(){
+          if(abiertos === 0) return T_RAM;
+          var dentro = Math.min(abiertos, HUECOS), fuera = abiertos - dentro;
+          return (dentro * T_RAM + fuera * T_SSD) / abiertos;
+        }
+
+        function caja(x, y, w, h, etq, sub){
+          return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="2" fill="var(--surface)" '
+               + 'stroke="var(--line)" stroke-width="1.5"></rect>'
+               + '<text x="'+(x+12)+'" y="'+(y+18)+'" class="rotulo-svg" '
+               + 'style="font-size:11.5px;fill:var(--ink);font-weight:500">'+etq+'</text>'
+               + '<text x="'+(x+12)+'" y="'+(y+34)+'" class="rotulo-svg" style="font-size:10.5px">'+sub+'</text>';
+        }
+
+        function pinta(){
+          var m = '', i, x, y;
+          var dentro = apagado ? 0 : Math.min(abiertos, HUECOS);
+          var fuera  = apagado ? 0 : Math.max(0, abiertos - HUECOS);
+
+          /* ---- la mesa: la RAM ---- */
+          m += caja(16, 26, 296, 288, 'MESA DE TRABAJO &#183; memoria RAM',
+                    '6 huecos &#183; 80 ns &#183; se borra al apagar');
+          for(i = 0; i < HUECOS; i++){
+            x = 30 + (i % 2) * 138;
+            y = 74 + Math.floor(i / 2) * 72;
+            var lleno = i < dentro;
+            m += '<rect x="'+x+'" y="'+y+'" width="130" height="62" rx="2" fill="'
+               + (lleno ? COLOR[i % COLOR.length] : 'var(--surface-2)')
+               + '" stroke="var(--line)" stroke-width="1.5" '
+               + (lleno ? '' : 'stroke-dasharray="4 3"')+'></rect>';
+            if(lleno){
+              m += '<text x="'+(x+65)+'" y="'+(y+30)+'" text-anchor="middle" class="rotulo-svg" '
+                 + 'style="font-size:11.5px;fill:#fff;font-weight:500">'+NOMBRES[i]+'</text>';
+              m += '<text x="'+(x+65)+'" y="'+(y+46)+'" text-anchor="middle" class="rotulo-svg" '
+                 + 'style="font-size:10px;fill:#fff;opacity:.9">80 ns</text>';
+            } else {
+              m += '<text x="'+(x+65)+'" y="'+(y+36)+'" text-anchor="middle" class="rotulo-svg" '
+                 + 'style="font-size:10.5px">hueco libre</text>';
+            }
+          }
+
+          /* ---- la estanteria: el almacenamiento ---- */
+          m += caja(332, 26, 292, 288, 'ESTANTER&#205;A &#183; almacenamiento',
+                    'enorme &#183; 0,1 ms &#183; no se borra nunca');
+          for(i = 0; i < 96; i++){
+            x = 344 + (i % 12) * 22;
+            y = 52 + Math.floor(i / 12) * 22;
+            var ocupado = (i % 3 !== 2);            /* la estanteria esta casi llena */
+            m += '<rect x="'+x+'" y="'+y+'" width="20" height="20" rx="1" fill="'
+               + (ocupado ? 'var(--line)' : 'var(--surface)')
+               + '" stroke="var(--line)" stroke-width="1"></rect>';
+          }
+          /* lo que no cabe en la mesa y ha tenido que bajar a la estanteria */
+          for(i = 0; i < fuera && i < 4; i++){
+            x = 344 + i * 68;
+            m += '<rect x="'+x+'" y="234" width="64" height="44" rx="2" fill="var(--goo-rojo)" '
+               + 'stroke="var(--goo-rojo)" stroke-width="1.5"></rect>';
+            m += '<text x="'+(x+32)+'" y="252" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:9.5px;fill:#fff;font-weight:500">'+NOMBRES[HUECOS+i]+'</text>';
+            m += '<text x="'+(x+32)+'" y="268" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:9px;fill:#fff;opacity:.95">0,1 ms</text>';
+          }
+          if(fuera > 0){
+            m += '<text x="344" y="300" class="rotulo-svg" style="font-size:10.5px;fill:var(--goo-rojo)">'
+               + 'No caben en la mesa: se buscan aqu\u00ed.</text>';
+          }
+
+          /* ---- flecha entre las dos cajas ---- */
+          m += '<path d="M312 168 h20" stroke="var(--ink-soft)" stroke-width="1.5" '
+             + 'stroke-dasharray="3 3" fill="none"></path>';
+
+          svg.innerHTML = m;
+
+          var t = medio(), veces = t / T_RAM;
+          var txt;
+          if(apagado){
+            txt = '<b>Has apagado y vuelto a encender.</b> La mesa est&aacute; vac&iacute;a: la RAM es '
+                + '<b>vol&aacute;til</b>, necesita corriente para acordarse y al cortarla pierde todo lo que '
+                + 'ten&iacute;a. La estanter&iacute;a sigue igual de llena: el almacenamiento <b>no</b> es vol&aacute;til. '
+                + 'Por eso lo que no hab&iacute;as guardado ya no est&aacute;.';
+          } else if(abiertos === 0){
+            txt = 'Nada abierto. Ve abriendo programas y mira qu&eacute; pasa cuando se acaben los huecos.';
+          } else if(fuera === 0){
+            txt = 'Abiertos: <b>'+abiertos+' de 6</b>. Todo cabe en la mesa, as&iacute; que el procesador tiene '
+                + 'todo a mano: <b>80 ns</b> por acceso. El ordenador va fino.';
+          } else {
+            txt = 'Abiertos: <b>'+abiertos+'</b>, y en la mesa solo caben 6. El sistema baja '+fuera
+                + ' a la estanter&iacute;a y los sube cuando hacen falta. Tiempo medio de acceso: '
+                + '<b>'+Math.round(t).toLocaleString('es-ES')+' ns</b>, es decir <b>'+Math.round(veces)
+                + ' veces m&aacute;s lento</b>. Esto es exactamente lo que notas cuando el ordenador se arrastra.';
+          }
+          pie.innerHTML = txt + '<br><span style="font-size:12.5px">Modelo simplificado: en un ordenador '
+            + 'de verdad no todo se vuelve lento a la vez, y el intercambio se hace por trozos, no por '
+            + 'programas enteros. La idea s&iacute; es exacta: cuando la mesa se llena hay que ir a la '
+            + 'estanter&iacute;a, y eso cuesta <b>miles de veces m&aacute;s</b>.</span>';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-r]'); if(!b) return;
+          var c = b.dataset.r;
+          if(c === 'abre'){ apagado = false; if(abiertos < 10) abiertos++; }
+          else if(c === 'cierra'){ apagado = false; if(abiertos > 0) abiertos--; }
+          else if(c === 'apaga'){ apagado = true; abiertos = 0; }
+          else { apagado = false; abiertos = 0; }
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Las dos memorias</h4>
+        <p><b>Memoria RAM</b>: donde est&aacute; lo que se est&aacute; usando <b>ahora mismo</b>. Muy r&aacute;pida,
+           peque&ntilde;a y <b>vol&aacute;til</b>: al cortar la corriente se borra entera.</p>
+        <p><b>Almacenamiento</b> (disco duro o SSD): donde se guarda lo que tiene que <b>seguir ah&iacute;
+           ma&ntilde;ana</b>. Enorme, mucho m&aacute;s lento y <b>no vol&aacute;til</b>.</p>
+        <p>Un programa no se ejecuta desde el disco: primero se <b>carga</b> en la RAM, y la CPU trabaja
+           siempre contra la RAM.</p>
+      </div>
+
+      <h3>Cu&aacute;nto es &laquo;m&aacute;s lento&raquo;, en n&uacute;meros</h3>
+      <p>&laquo;R&aacute;pido&raquo; y &laquo;lento&raquo; no dicen nada hasta que se miden. Estos son los
+         &oacute;rdenes de magnitud t&iacute;picos de hoy:</p>
+
+      <div class="copiar">
+        <h4>Tiempo en llegar a un dato</h4>
+        <table>
+          <tr><th>D&oacute;nde est&aacute;</th><th>Tarda</th><th>Veces m&aacute;s que la RAM</th></tr>
+          <tr><td>Memoria RAM</td><td>80 ns</td><td>1</td></tr>
+          <tr><td>SSD</td><td>0,1 ms</td><td>1.250</td></tr>
+          <tr><td>Disco duro con platos</td><td>10 ms</td><td>125.000</td></tr>
+        </table>
+        <p>Un <b>nanosegundo</b> (ns) es la mil millon&eacute;sima parte de un segundo; un
+           <b>milisegundo</b> (ms), la mil&eacute;sima.</p>
+      </div>
+
+      <p>Esos n&uacute;meros son tan peque&ntilde;os que no significan nada. As&iacute; que se estiran: imagina que ir a
+         buscar un dato a la RAM te costara <b>un segundo</b>. Multiplicando los tres por el mismo
+         factor, que es 12,5 millones:</p>
+
+      <div class="copiar">
+        <h4>Lo mismo, a escala humana</h4>
+        <ul>
+          <li>Buscar en la <b>RAM</b>: <b>1 segundo</b>. Alargas el brazo.</li>
+          <li>Buscar en el <b>SSD</b>: <b>21 minutos</b>. Bajas a la biblioteca.</li>
+          <li>Buscar en el <b>disco duro</b>: <b>35 horas</b>. Vas a otra ciudad y vuelves.</li>
+        </ul>
+      </div>
+
+      <p>Con eso las dos molestias del principio dejan de ser mala suerte y pasan a ser
+         <b>consecuencias</b>. Se te llena la mesa: el sistema empieza a bajar cosas a la estanter&iacute;a y a
+         subirlas, y cada viaje cuesta mil veces m&aacute;s. Se va la luz: la mesa se vac&iacute;a, porque la RAM
+         necesita corriente para acordarse.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u7-ram-ddr4.jpg" alt="M&oacute;dulo de memoria RAM DDR4 visto de frente, con ocho chips negros sobre la placa verde" loading="lazy">
+        <figcaption>Un m&oacute;dulo de <b>RAM</b> de 16 GB. Los ocho rect&aacute;ngulos negros son los chips donde est&aacute;n las celdas; la tira dorada de abajo es por donde se enchufa a la placa. Se cambia en un minuto y sin soldar: es de las pocas reparaciones que puedes hacer t&uacute;.
+          <span class="credito">PantheraLeo1359531 &middot; CC BY 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:16_GiB-DDR4-RAM-Riegel_RAM019FIX_Small_Crop_90_PCNT.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="../../../img/u7-disco-abierto.jpg" alt="Disco duro abierto donde se ve el plato met&aacute;lico brillante y el brazo con el cabezal de lectura" loading="lazy">
+        <figcaption>Un <b>disco duro</b> abierto. El plato gira a miles de vueltas por minuto y el brazo lleva el cabezal hasta la pista que toca. Ah&iacute; est&aacute; el problema: hay que <b>mover algo f&iacute;sico</b>, y mover algo tarda milisegundos. Un <b>SSD</b> no tiene ninguna pieza que se mueva, y por eso arranca el sistema en segundos.
+          <span class="credito">Zzubnik &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Open_hard-drive.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Antes de los chips, la memoria de trabajo de los ordenadores fue esto: una rejilla de
+           <b>anillos de ferrita</b> ensartados en hilos de cobre. Cada anillo se imanta en un sentido o
+           en el otro, y eso guarda <b>un bit</b>. Uno. Y a diferencia de la RAM de hoy,
+           <b>no se borraba al apagar</b>.</p>
+        <p>Lo impresionante es c&oacute;mo se fabricaba: <b>ensartando los anillos a mano</b>, uno a uno, con
+           aguja. Haz la cuenta con el m&oacute;dulo de la foto de arriba. Tiene 16 GB, o sea
+           <b>137.438.953.472 bits</b>. A un anillo por segundo, sin dormir ni parar,
+           ser&iacute;an m&aacute;s de <b>4.300 a&ntilde;os</b>.</p>
+      </div>
+
+      <figure class="foto">
+        <img src="../../../img/u7-nucleos-ferrita.jpg" alt="Primer plano de una memoria de n&uacute;cleos de ferrita: peque&ntilde;os anillos oscuros ensartados en una rejilla de hilos rojos" loading="lazy">
+        <figcaption>Memoria de <b>n&uacute;cleos de ferrita</b>, conservada en el Museo de Inform&aacute;tica Hist&oacute;rica de la Universidad de Zaragoza. Cada anillo oscuro es <b>un bit</b>. Cu&eacute;ntalos en la foto y ver&aacute;s la memoria completa de un ordenador entero.
+          <span class="credito">Jos&eacute; Luis Briz Velasco &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Museo_de_Inform%C3%A1tica_Hist%C3%B3rica_(MIH)_-_UNIZAR_-_Magnetic-core_memory_close_up.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+      <div class="video" id="video-mem" data-vid="o3gGXwY-1uI">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Diferencias entre SSD, disco duro y memoria RAM">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Diferencias entre SSD, disco duro y memoria RAM</b>
+            <span>Inform&aacute;ticaI3J &middot; en espa&ntilde;ol &middot; unos 6 minutos</span>
+          </span>
+        </button>
+        <p class="video-nota">Repasa los tres componentes con piezas reales en la mano. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=o3gGXwY-1uI" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-mem');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+                + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7.2 &middot; La factura de la lentitud</span>
+          <span class="chips"><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>El caso</h4>
+          <p>Un ordenador del aula tiene <b>8 GB de RAM</b> y un <b>disco duro de platos de 500 GB</b>,
+             del que est&aacute;n usados 180 GB. Un alumno lo tiene as&iacute; ahora mismo:</p>
+          <div class="copiar">
+            <h4>Lo que ocupa cada cosa en la RAM</h4>
+            <table>
+              <tr><th>Programa</th><th>RAM</th></tr>
+              <tr><td>Sistema operativo</td><td>2,5 GB</td></tr>
+              <tr><td>Navegador con 12 pesta&ntilde;as, a 0,35 GB cada una</td><td>?</td></tr>
+              <tr><td>Editor de textos</td><td>0,8 GB</td></tr>
+              <tr><td>Reproductor de m&uacute;sica</td><td>0,4 GB</td></tr>
+              <tr><td>Antivirus</td><td>0,6 GB</td></tr>
+            </table>
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li>Calculad cu&aacute;nta RAM <b>pide en total</b>, y decid si cabe en los 8 GB. Si no cabe,
+                <b>cu&aacute;nto falta</b>.</li>
+            <li>Con lo que no cabe el sistema tiene que ir al disco. Con los datos de la tabla de
+                tiempos, decid <b>cu&aacute;ntas veces m&aacute;s</b> tarda en llegar a un dato que est&eacute; en ese
+                disco duro que a uno que est&eacute; en la RAM.</li>
+            <li>El alumno <b>cierra dos pesta&ntilde;as</b>. Rehaced la cuenta. &iquest;Cabe ya? Escribid en una
+                frase qu&eacute; acaba de demostrar eso.</li>
+            <li>Hay <b>60 euros</b> y dos opciones, que cuestan lo mismo:
+                <b>(A)</b> a&ntilde;adir 8 GB de RAM, o <b>(B)</b> cambiar el disco duro por un SSD de 500 GB.
+                Elegid una y <b>justificadla con n&uacute;meros</b>, no con opiniones. Decid tambi&eacute;n qu&eacute;
+                problema <b>no</b> arregla la que hab&eacute;is elegido.</li>
+            <li>Al alumno se le apaga el ordenador de golpe. Decid <b>exactamente qu&eacute; pierde</b> y
+                <b>qu&eacute; no</b>, y por qu&eacute;.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La suma est&aacute; bien y se dice cu&aacute;nto falta <b>(2 puntos)</b>.</li>
+            <li>El factor de lentitud est&aacute; bien sacado de la tabla <b>(2 puntos)</b>.</li>
+            <li>La conclusi&oacute;n del paso 3 no se queda en &laquo;cabe&raquo;: explica <b>por qu&eacute;</b> importa
+                <b>(2 puntos)</b>.</li>
+            <li>La elecci&oacute;n de compra va con n&uacute;meros y admite qu&eacute; deja sin resolver <b>(3 puntos)</b>.</li>
+            <li>La respuesta sobre el apag&oacute;n distingue vol&aacute;til de no vol&aacute;til <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Aviso</span>
+            En el paso 4 <b>no hay una respuesta correcta &uacute;nica</b>: las dos se pueden defender. Lo que
+            se puntúa es el razonamiento. Lo que no vale es &laquo;el SSD porque es mejor&raquo;.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; se pierde lo que no has guardado, pero no lo de ayer?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo que est&aacute;s escribiendo est&aacute; en la <b>RAM</b>, que es <b>vol&aacute;til</b>: necesita corriente para acordarse. Lo de ayer est&aacute; en el <b>almacenamiento</b>, que no la necesita. <i>Guardar</i> es precisamente copiar de una a otro.</p></div></details></li>
+        <li>Tienes 8 GB de RAM y un disco de 1 TB. &iquest;Por qu&eacute; el ordenador va lento con muchas pesta&ntilde;as si te sobra tanto disco?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lo que se llena es la <b>RAM</b>, no el disco. Cuando no cabe, el sistema empieza a mover datos al disco y a traerlos de vuelta, y el disco es miles de veces m&aacute;s lento. Sobrar disco no ayuda: el problema es el tama&ntilde;o de la mesa, no el de la estanter&iacute;a.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; un SSD arranca el sistema mucho antes que un disco duro de platos?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque en el disco duro hay que <b>mover piezas</b>: el plato gira y el brazo se coloca. Eso tarda milisegundos. En un SSD no se mueve nada, todo es electr&oacute;nico, y cada acceso cuesta unas cien veces menos.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes que hay huecos en la RAM y huecos en el disco. Queda la pregunta inc&oacute;moda:
+        <b>&iquest;qu&eacute; hay escrito dentro de un hueco?</b> No hay letras, ni n&uacute;meros, ni fotos. Solo hay
+        cables, y un cable nada m&aacute;s sabe decir dos cosas.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>Ceros y unos: c&oacute;mo se escribe algo con solo dos s&iacute;mbolos</h2>
+      <p>Un cable solo sabe decir dos cosas. Con eso hay que guardar textos, fotos y canciones &mdash;y se puede, porque las combinaciones se multiplican.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">D.1&ndash;D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>De la unidad de electricidad te llevaste un hecho que ahora vale oro: por un cable
+         <b>pasa corriente o no pasa</b>. Eso es todo lo que un cable sabe distinguir con seguridad.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Tienes una m&aacute;quina hecha de cables. Inv&eacute;ntate una forma de guardar ah&iacute; dentro
+        <b>tu nombre</b>. Escribe tu m&eacute;todo en el cuaderno antes de seguir leyendo.
+      </div>
+
+      <p>La idea que se le ocurre a casi todo el mundo es <b>una tensi&oacute;n para cada letra</b>: 0,2 V
+         para la A, 0,4 V para la B, y as&iacute; hasta la Z. Es ingeniosa, y no funciona. Hagamos la cuenta
+         que lo demuestra.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">La cuenta que rompe la idea</span>
+        <p>El circuito trabaja a <b>5 V</b> y hacen falta <b>27 letras</b>. Reparte los 5 V entre las
+           27: quedan <b>26 escalones</b>, uno cada <b>0,19 V</b>. Ahora piensa en un cable de verdad,
+           que se calienta, que tiene un motor al lado y al que le llega ruido el&eacute;ctrico. Con un ruido
+           de 0,3 V, <b>&iquest;qu&eacute; letra ha llegado?</b></p>
+      </div>
+
+      <p>No hay manera de saberlo: 0,3 V es m&aacute;s de <b>un escal&oacute;n y medio</b>, as&iacute; que la letra
+         que llega no tiene por qu&eacute; ser la que sali&oacute;. Y no se arregla midiendo mejor, porque el
+         problema no es el aparato, es la <b>distancia entre escalones</b>. Cuantos m&aacute;s s&iacute;mbolos
+         metes, m&aacute;s juntos quedan y m&aacute;s f&aacute;cil es confundirlos.</p>
+
+      <p>La salida es rendirse en lo que parec&iacute;a una ventaja: <b>usar solo dos s&iacute;mbolos</b>. Con 0 V y
+         5 V los escalones quedan a 5 V de distancia. Ese mismo ruido de 0,3 V ya no confunde
+         absolutamente nada. Renuncias a meter mucho por un cable, y a cambio ganas <b>no equivocarte
+         nunca</b>.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Con dos s&iacute;mbolos, &iquest;hasta d&oacute;nde se llega?</h3>
+      <p>La objeci&oacute;n evidente es que con dos s&iacute;mbolos no cabe nada. Y es falsa, por una raz&oacute;n de
+         aritm&eacute;tica: no se usa <b>un</b> cable, se usan <b>varios a la vez</b>, y las combinaciones se
+         multiplican.</p>
+      <p>Pulsa los ocho interruptores de abajo. Y fíjate en las tres cajas del final: es
+         <b>el mismo byte</b> le&iacute;do de tres maneras distintas.</p>
+
+
+      <div class="escena" id="esc-bits">
+        <div class="escena-barra">
+          <span class="escena-titulo">Ocho interruptores, tres significados</span>
+          <div class="seg" id="seg-bits">
+            <button type="button" data-b="cero">Todos a 0</button>
+            <button type="button" data-b="reto">&#9873; Reto</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 306" id="svg-bits" role="img"
+               aria-label="Ocho interruptores que forman un byte, le&iacute;do como n&uacute;mero, como letra y como nivel de gris"></svg>
+        </div>
+        <div class="pie" id="pie-bits"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-bits');
+        if(!svg) return;
+        var pie = document.getElementById('pie-bits');
+        var seg = document.getElementById('seg-bits');
+
+        var bits = [0,0,0,0,0,0,0,0];      /* bits[0] es el de peso 128 */
+        var PESOS = [128, 64, 32, 16, 8, 4, 2, 1];
+        var objetivo = null;
+
+        function valor(){
+          var v = 0;
+          for(var i = 0; i < 8; i++) if(bits[i]) v += PESOS[i];
+          return v;
+        }
+
+        /* ASCII imprimible: del 32 al 126. Lo de fuera no se dibuja. */
+        function letra(v){
+          if(v === 32) return ['espacio', true];
+          if(v === 10) return ['salto de l\u00ednea', true];
+          if(v < 32 || v > 126) return ['no imprimible', false];
+          var c = String.fromCharCode(v);
+          return [(c === '<' ? '&#60;' : c === '&' ? '&#38;' : c), true];
+        }
+
+        function pinta(){
+          var v = valor(), m = '', i;
+
+          m += '<text x="30" y="24" class="rotulo-svg">PULSA LOS INTERRUPTORES</text>';
+          m += '<text x="610" y="24" text-anchor="end" class="rotulo-svg" style="font-size:10.5px">'
+             + 'cerrado = pasa corriente = 1</text>';
+
+          for(i = 0; i < 8; i++){
+            var x = 30 + i * 72.5, on = bits[i];
+            m += '<g class="bit-sw" data-i="'+i+'" style="cursor:pointer">';
+            m += '<rect x="'+x.toFixed(1)+'" y="36" width="60" height="118" rx="3" fill="'
+               + (on ? 'var(--accent-soft)' : 'var(--surface-2)')+'" stroke="'
+               + (on ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="'+(on ? 2 : 1.5)+'"></rect>';
+            /* peso de la posicion */
+            m += '<text x="'+(x+30).toFixed(1)+'" y="54" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:11px">'+PESOS[i]+'</text>';
+            /* Interruptor con la simbologia de la unidad de electricidad:
+               palanca TUMBADA y tocando el otro borne = cerrado = pasa = 1;
+               palanca LEVANTADA, con hueco de aire = abierto = no pasa = 0.
+               Los dos bornes van en x = bx y bx+18, ambos a y = 112.         */
+            var bx = x + 21, col = on ? 'var(--goo-azul)' : 'var(--ink-soft)';
+            m += '<path d="M'+(x+6).toFixed(1)+' 112 H'+(bx-3.5).toFixed(1)+'" stroke="'+col+'" '
+               + 'stroke-width="2"></path>';
+            m += '<path d="M'+(bx+21.5).toFixed(1)+' 112 H'+(x+54).toFixed(1)+'" stroke="'+col+'" '
+               + 'stroke-width="2"></path>';
+            /* La palanca mide 18 y pivota en el borne izquierdo: cerrada llega al
+               otro borne, y abierta gira 35 grados -> (18*cos35, 18*sin35) =
+               (14,7 ; 10,3), o sea que se queda a 3,3 px del borne. Se ve el hueco. */
+            m += '<path d="M'+bx.toFixed(1)+' 112 L'+(on ? (bx+18).toFixed(1)+' 112'
+                                                         : (bx+14.7).toFixed(1)+' 101.7')+'" stroke="'
+               + col+'" stroke-width="3" stroke-linecap="round"></path>';
+            m += '<circle cx="'+bx.toFixed(1)+'" cy="112" r="3.5" fill="'+col+'"></circle>';
+            m += '<circle cx="'+(bx+18).toFixed(1)+'" cy="112" r="3.5" fill="'+col+'"></circle>';
+            /* el bit que sale de ahi */
+            m += '<text x="'+(x+30).toFixed(1)+'" y="146" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:20px;font-weight:500;fill:'
+               + (on ? 'var(--goo-azul)' : 'var(--ink-soft)')+'">'+(on ? 1 : 0)+'</text>';
+            m += '</g>';
+          }
+
+          /* el byte escrito, en dos grupos de cuatro para poder leerlo */
+          var b = bits.join('');
+          m += '<text x="320" y="182" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:17px;letter-spacing:.22em;fill:var(--ink);font-weight:500">'
+             + b.slice(0,4)+' '+b.slice(4)+'</text>';
+
+          /* las tres lecturas del mismo byte */
+          m += '<rect x="30" y="196" width="580" height="100" rx="2" fill="var(--surface)" '
+             + 'stroke="var(--line)" stroke-width="1.5"></rect>';
+          m += '<path d="M223.3 196 v100 M416.7 196 v100" stroke="var(--line)" stroke-width="1"></path>';
+
+          m += '<text x="126.7" y="220" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">COMO N&#218;MERO</text>';
+          m += '<text x="126.7" y="262" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:30px;fill:var(--ink);font-weight:500">'+v+'</text>';
+          m += '<text x="126.7" y="284" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10.5px">de 0 a 255</text>';
+
+          var L = letra(v);
+          m += '<text x="320" y="220" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">COMO LETRA (ASCII)</text>';
+          m += '<text x="320" y="264" text-anchor="middle" class="rotulo-svg" style="font-size:'
+             + (L[0].length > 2 ? '15' : '32')+'px;fill:'+(L[1] ? 'var(--ink)' : 'var(--ink-soft)')
+             + ';font-weight:500">'+L[0]+'</text>';
+          m += '<text x="320" y="284" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10.5px">tabla ASCII</text>';
+
+          m += '<text x="513.3" y="220" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10px">COMO NIVEL DE GRIS</text>';
+          m += '<rect x="485.3" y="230" width="56" height="40" rx="2" fill="rgb('+v+','+v+','+v+')" '
+             + 'stroke="var(--line)" stroke-width="1.5"></rect>';
+          m += '<text x="513.3" y="284" text-anchor="middle" class="rotulo-svg" '
+             + 'style="font-size:10.5px">0 negro &#183; 255 blanco</text>';
+
+          svg.innerHTML = m;
+
+          var txt;
+          if(objetivo !== null && v === objetivo){
+            txt = '<b>&#161;Eso es!</b> Has formado el ' + objetivo + '. Prueba otro reto, o fíjate en '
+                + 'una cosa: solo hay <b>una</b> manera de formar cada n&uacute;mero. Ocho interruptores dan '
+                + '<b>256</b> combinaciones distintas, ni una m&aacute;s ni una menos.';
+          } else if(objetivo !== null){
+            txt = 'Reto: forma el <b>' + objetivo + '</b>. Vas por el ' + v + '. Truco: empieza por el '
+                + 'interruptor m&aacute;s gordo que quepa y sigue con los siguientes.';
+          } else {
+            txt = 'El mismo byte, <b>tres lecturas distintas</b>. Los ocho interruptores no cambian; lo que '
+                + 'cambia es el <b>acuerdo</b> sobre c&oacute;mo hay que leerlos. Prueba el 65, el 97 y el 32.';
+          }
+          pie.innerHTML = txt;
+        }
+
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('.bit-sw'); if(!g) return;
+          var i = +g.dataset.i; bits[i] = bits[i] ? 0 : 1; pinta();
+        });
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-b]'); if(!b) return;
+          if(b.dataset.b === 'cero'){ bits = [0,0,0,0,0,0,0,0]; objetivo = null; }
+          else { objetivo = 1 + Math.floor(Math.random() * 254); bits = [0,0,0,0,0,0,0,0]; }
+          pinta();
+        });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Bit y byte</h4>
+        <p><b>Bit</b>: la unidad m&iacute;nima de informaci&oacute;n. Dos estados posibles: <b>0</b> o <b>1</b>.
+           Es un interruptor.</p>
+        <p><b>Byte</b>: un grupo de <b>8 bits</b>. Es la unidad con la que se mide todo lo dem&aacute;s.</p>
+        <p>Con <b>n</b> bits salen <b>2<sup>n</sup></b> combinaciones distintas. Con 8 bits,
+           <b>2<sup>8</sup> = 256</b>.</p>
+        <table>
+          <tr><th>Bits</th><th>Combinaciones</th><th>Para qu&eacute; da</th></tr>
+          <tr><td>1</td><td>2</td><td>s&iacute; o no</td></tr>
+          <tr><td>4</td><td>16</td><td>las cifras del 0 al 15</td></tr>
+          <tr><td>8</td><td>256</td><td>una letra, o un nivel de gris</td></tr>
+          <tr><td>16</td><td>65.536</td><td>casi cualquier idioma escrito</td></tr>
+          <tr><td>24</td><td>16.777.216</td><td>un color de pantalla</td></tr>
+        </table>
+      </div>
+
+      <h3>C&oacute;mo se lee un byte: el acuerdo</h3>
+      <p>Un byte por s&iacute; solo <b>no significa nada</b>. El mismo <b>0100 0001</b> es el n&uacute;mero 65, es
+         la letra A y es un gris oscuro. Lo que decide cu&aacute;l de las tres cosas es un <b>acuerdo</b>
+         previo sobre c&oacute;mo hay que interpretarlo.</p>
+
+      <div class="copiar">
+        <h4>C&oacute;mo se guarda cada cosa</h4>
+        <ul>
+          <li><b>N&uacute;meros</b>: en <b>binario</b>. Cada posici&oacute;n vale el doble que la de su derecha:
+              128, 64, 32, 16, 8, 4, 2, 1. Se suman las que valen 1.</li>
+          <li><b>Texto</b>: con una <b>tabla</b> acordada que asigna un n&uacute;mero a cada car&aacute;cter. La
+              cl&aacute;sica es <b>ASCII</b>: la A es el 65, la a es el 97, el espacio es el 32.</li>
+          <li><b>Im&aacute;genes</b>: la foto se parte en <b>p&iacute;xeles</b> y de cada uno se guarda su color con
+              <b>3 bytes</b> (rojo, verde y azul, de 0 a 255 cada uno).</li>
+          <li><b>Sonido</b>: se mide la onda <b>miles de veces por segundo</b> y cada medida se guarda
+              como un n&uacute;mero.</li>
+        </ul>
+        <p>Y las unidades: <b>1 kB</b> son mil bytes, <b>1 MB</b> un mill&oacute;n, <b>1 GB</b> mil millones.</p>
+      </div>
+
+      <figure class="foto">
+        <img src="../../../img/u7-tarjeta-perforada.jpg" alt="Tarjeta perforada de ordenador IBM usada, con agujeros rectangulares recortados sobre las filas de cifras impresas" loading="lazy">
+        <figcaption>Una <b>tarjeta perforada</b> de verdad, de las que se usaron hasta los a&ntilde;os ochenta. Tiene 80 columnas y, en cada posici&oacute;n de cada columna, <b>hay agujero o no lo hay</b>: no existe el medio agujero. Es la misma decisi&oacute;n del reto de hoy, tomada con cartulina en vez de con cables, y por el mismo motivo: dos estados no se confunden nunca.
+          <span class="credito">Pete Birkinshaw &middot; CC BY 2.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Used_Punchcard_(5151286161).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Que ganara el binario no era obvio, y hubo quien lo intent&oacute; de otra forma. El <b>ENIAC</b>
+           era <b>decimal</b>: gastaba diez tubos por cada cifra. Y en 1958, en la Universidad de Mosc&uacute;,
+           Nikol&aacute;i Brus&eacute;ntsov construy&oacute; el <b>Setun</b>, un ordenador <b>ternario</b>, de tres estados.
+           Sobre el papel era m&aacute;s eficiente, se fabricaron unas cincuenta m&aacute;quinas y funcionaban.</p>
+        <p>Perdi&oacute; igual, y no por ser peor idea: porque construir un componente que distinga
+           <b>dos</b> estados es much&iacute;simo m&aacute;s barato y m&aacute;s fiable que uno que distinga tres, y esa
+           ventaja se multiplica por los miles de millones de componentes que lleva un chip. Gan&oacute; lo
+           <b>tonto y seguro</b> sobre lo elegante, que en tecnolog&iacute;a pasa a menudo.</p>
+      </div>
+
+      <div class="video" id="video-bin" data-vid="iRpB3TVCCtE">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: &iquest;Por qu&eacute; los ordenadores usan el sistema binario?">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>&iquest;Por qu&eacute; los ordenadores usan el sistema binario?</b>
+            <span>EDteam &middot; en espa&ntilde;ol</span>
+          </span>
+        </button>
+        <p class="video-nota">Cuenta la misma historia del reto de hoy: por qu&eacute; dos estados y no diez. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=iRpB3TVCCtE" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+      <script>
+      (function(){
+        var c = document.getElementById('video-bin');
+        if(!c) return;
+        var b = c.querySelector('.video-play');
+        b.addEventListener('click', function(){
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+                + '?autoplay=1&rel=0&modestbranding=1';
+          f.title = b.querySelector('.video-txt b').textContent;
+          f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+          f.referrerPolicy = 'strict-origin-when-cross-origin';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      })();
+      </script>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7.3 &middot; Cu&aacute;nto ocupa lo que haces</span>
+          <span class="chips"><span class="chip">6.1</span></span>
+          <span>Parejas &middot; 25 min &middot; sobre 10</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Para la parte de letras pod&eacute;is usar la escena de los ocho interruptores: poned el n&uacute;mero
+             y leed la letra, o al rev&eacute;s.</p>
+          <ol class="pasos">
+            <li>Escribid <b>vuestro nombre de pila</b> en ASCII, dos veces: primero en n&uacute;meros y
+                despu&eacute;s en binario de 8 bits. Sin acentos y sin e&ntilde;e, que esos no est&aacute;n en la tabla
+                b&aacute;sica &mdash;y esa ya es una conclusi&oacute;n: escribid una frase diciendo qu&eacute; problema
+                revela eso.</li>
+            <li>Calculad <b>cu&aacute;ntos bytes ocupa</b> vuestro nombre.</li>
+            <li>Una foto de m&oacute;vil tiene <b>4.000 &times; 3.000 p&iacute;xeles</b>. Calculad cu&aacute;ntos p&iacute;xeles
+                son, y cu&aacute;ntos <b>bytes</b> ocupar&iacute;a sin comprimir <b>en color</b> (3 bytes por p&iacute;xel).
+                Pasadlo a <b>MB</b>.</li>
+            <li>Rehaced la cuenta <b>en blanco y negro</b> (1 byte por p&iacute;xel). &iquest;Cu&aacute;ntas veces menos
+                ocupa? Decid <b>por qu&eacute;</b> sale ese factor exacto.</li>
+            <li>En una tarjeta de <b>64 GB</b>, &iquest;cu&aacute;ntas de esas fotos en color caben? (Usad
+                1 GB = mil millones de bytes.)</li>
+            <li>Abrid la galer&iacute;a de un m&oacute;vil y mirad lo que ocupa una foto de verdad: unos
+                <b>4 MB</b>, no los que os han salido. <b>&iquest;D&oacute;nde ha ido el resto?</b> No hace falta
+                que sep&aacute;is la respuesta t&eacute;cnica; escribid vuestra hip&oacute;tesis.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El nombre est&aacute; bien codificado en las dos formas <b>(2 puntos)</b>.</li>
+            <li>La frase sobre los acentos entiende el problema y no lo despacha <b>(1 punto)</b>.</li>
+            <li>La cuenta de la foto en color est&aacute; bien, con las unidades puestas <b>(3 puntos)</b>.</li>
+            <li>El factor entre color y blanco y negro est&aacute; bien <b>explicado</b>, no solo calculado
+                <b>(2 puntos)</b>.</li>
+            <li>El n&uacute;mero de fotos en la tarjeta est&aacute; bien <b>(1 punto)</b>.</li>
+            <li>La hip&oacute;tesis final es razonable <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Pista para el paso 6</span>
+            Mira una foto tuya del cielo. &iquest;Cu&aacute;ntos p&iacute;xeles seguidos crees que son <b>exactamente
+            del mismo azul</b>? Guardar tres bytes por cada uno de ellos, uno detr&aacute;s de otro, es
+            tirar sitio.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; los ordenadores usan dos s&iacute;mbolos y no diez, si con diez cabr&iacute;a m&aacute;s?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque con dos los estados quedan <b>lo m&aacute;s separados posible</b> y el ruido el&eacute;ctrico no los confunde. Con diez, los escalones quedan tan juntos que cualquier interferencia cambia el dato. Se renuncia a capacidad por cable a cambio de <b>fiabilidad</b>, y se compensa poniendo muchos cables.</p></div></details></li>
+        <li>&iquest;Cu&aacute;ntas combinaciones distintas dan 8 bits, y por qu&eacute; sale ese n&uacute;mero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>256</b>, porque cada bit duplica las posibilidades del anterior: 2<sup>8</sup> = 256. Van del 0 al 255, que son 256 valores contando el cero.</p></div></details></li>
+        <li>El byte 0100 0001 &iquest;es el n&uacute;mero 65, la letra A o un gris oscuro?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Las tres cosas, y ninguna por s&iacute; sola. Un byte no significa nada hasta que hay un <b>acuerdo</b> sobre c&oacute;mo leerlo. El programa que lo abre es quien sabe qu&eacute; acuerdo toca: por eso una foto abierta con un editor de texto sale como basura.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que falta del tema</span>
+        Con esto ya tienes el n&uacute;cleo: <b>una m&aacute;quina</b> que obedece listas, <b>dos memorias</b> donde
+        vive lo que obedece, y <b>ceros y unos</b> como &uacute;nico material. Quedan tres sesiones para
+        cerrarlo: c&oacute;mo <b>entra y sale</b> la informaci&oacute;n (los perif&eacute;ricos), qui&eacute;n <b>reparte</b> la
+        m&aacute;quina entre todos los programas a la vez (el sistema operativo) y c&oacute;mo se <b>diagnostica</b>
+        una aver&iacute;a sabiendo todo esto.
+      </div>
+      <div class="nota">
+        <span class="n-tag">Y despu&eacute;s del tema</span>
+        Ya tienes una m&aacute;quina que procesa informaci&oacute;n ella sola. La pregunta siguiente es la que abre
+        la unidad de <b>Internet, datos y seguridad</b>: <b>&iquest;y si hay millones de estas m&aacute;quinas
+        y quieren hablar entre ellas?</b>
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 7 &middot; El ordenador y sus componentes</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 7 &middot; El ordenador y sus componentes</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema7/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
+     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
+     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 7 &middot; 2.&ordm; de ESO &middot; Tecnolog&iacute;a y Digitalizaci&oacute;n</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>
