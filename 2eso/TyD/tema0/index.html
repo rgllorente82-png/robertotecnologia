@@ -219,6 +219,99 @@ footer .wrap{padding-block:18px 26px}
          del surco pierde un poco de calidad, y si se raya, se estrope&oacute; para siempre. Un archivo de m&uacute;sica
          guarda esa misma canci&oacute;n como una <b>lista de n&uacute;meros</b>. Y los n&uacute;meros se copian exactos,
          infinitas veces, sin perder nada y casi sin coste. Ah&iacute; est&aacute; toda la diferencia.</p>
+      <h4>Qué hay dentro de cada uno</h4>
+      <p>Los dos guardan la misma canción. Pero si te acercas con una lupa, lo que encuentras no se parece
+         en nada.</p>
+
+      <div class="escena">
+        <div class="escena-barra">
+          <span class="escena-titulo">El surco y la lista de números</span>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 330" role="img"
+               aria-label="Un disco de vinilo con su surco continuo ampliado, y un archivo de audio con su lista de números ampliada">
+
+            <!-- ================= VINILO ================= -->
+            <text class="rotulo-svg" x="110" y="22" text-anchor="middle" style="font-size:11px">DISCO DE VINILO</text>
+
+            <circle cx="110" cy="130" r="88" fill="#1b1b1f" stroke="var(--ink)" stroke-width="1.5"/>
+            <g fill="none" stroke="#3a3a42" stroke-width="1">
+              <circle cx="110" cy="130" r="80"/><circle cx="110" cy="130" r="74"/>
+              <circle cx="110" cy="130" r="68"/><circle cx="110" cy="130" r="62"/>
+              <circle cx="110" cy="130" r="56"/><circle cx="110" cy="130" r="50"/>
+              <circle cx="110" cy="130" r="44"/><circle cx="110" cy="130" r="38"/>
+            </g>
+            <circle cx="110" cy="130" r="30" fill="var(--goo-rojo)"/>
+            <circle cx="110" cy="130" r="30" fill="none" stroke="var(--ink)" stroke-width="1"/>
+            <text x="110" y="126" text-anchor="middle" style="font-size:8px;fill:#fff;font-family:var(--f-m)">LA MISMA</text>
+            <text x="110" y="137" text-anchor="middle" style="font-size:8px;fill:#fff;font-family:var(--f-m)">CANCI&Oacute;N</text>
+            <circle cx="110" cy="130" r="3.6" fill="#1b1b1f"/>
+
+            <!-- brazo y aguja -->
+            <path d="M196 56 L150 106" stroke="var(--ink-soft)" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="198" cy="54" r="6" fill="var(--ink-soft)"/>
+            <path d="M150 106 L146 114" stroke="var(--ink)" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- lupa sobre el surco -->
+            <circle cx="110" cy="252" r="46" fill="var(--surface)" stroke="var(--goo-rojo)" stroke-width="2"/>
+            <path d="M143 285 L163 305" stroke="var(--goo-rojo)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M143 219 L146 114" stroke="var(--goo-rojo)" stroke-width=".9" stroke-dasharray="4 3"/>
+            <clipPath id="lupaV"><circle cx="110" cy="252" r="46"/></clipPath>
+            <g clip-path="url(#lupaV)">
+              <path d="M62 252 C72 230 82 274 92 250 C102 226 112 276 122 248 C132 224 142 272 152 250 C160 232 164 262 170 252"
+                    fill="none" stroke="var(--goo-rojo)" stroke-width="2.4"/>
+              <path d="M62 268 C72 246 82 290 92 266 C102 242 112 292 122 264 C132 240 142 288 152 266 C160 248 164 278 170 268"
+                    fill="none" stroke="#c9ccd1" stroke-width="1.6"/>
+              <path d="M62 236 C72 214 82 258 92 234 C102 210 112 260 122 232 C132 208 142 256 152 234 C160 216 164 246 170 236"
+                    fill="none" stroke="#c9ccd1" stroke-width="1.6"/>
+            </g>
+            <text class="rotulo-svg" x="110" y="316" text-anchor="middle" style="font-size:9.5px;fill:var(--goo-rojo)">UN SURCO CONTINUO</text>
+
+            <!-- ================= ARCHIVO ================= -->
+            <text class="rotulo-svg" x="440" y="22" text-anchor="middle" style="font-size:11px">ARCHIVO DE AUDIO</text>
+
+            <!-- movil -->
+            <rect x="386" y="36" width="108" height="188" rx="12" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
+            <rect x="394" y="48" width="92" height="164" rx="5" fill="var(--surface-2)"/>
+            <rect x="404" y="58" width="72" height="52" rx="4" fill="var(--goo-verde)" opacity=".35"/>
+            <text x="440" y="88" text-anchor="middle" style="font-size:8px;fill:var(--ink-soft);font-family:var(--f-m)">LA MISMA</text>
+            <text x="440" y="99" text-anchor="middle" style="font-size:8px;fill:var(--ink-soft);font-family:var(--f-m)">CANCI&Oacute;N</text>
+            <!-- onda -->
+            <g stroke="var(--goo-verde)" stroke-width="2.4" stroke-linecap="round">
+              <path d="M408 136 v12"/><path d="M415 128 v28"/><path d="M422 132 v20"/><path d="M429 122 v40"/>
+              <path d="M436 130 v24"/><path d="M443 124 v36"/><path d="M450 134 v16"/><path d="M457 126 v32"/>
+              <path d="M464 131 v22"/><path d="M471 137 v10"/>
+            </g>
+            <!-- barra de reproduccion -->
+            <rect x="404" y="172" width="72" height="4" rx="2" fill="var(--line)"/>
+            <rect x="404" y="172" width="42" height="4" rx="2" fill="var(--goo-verde)"/>
+            <circle cx="446" cy="174" r="4.5" fill="var(--goo-verde)"/>
+            <path d="M406 192 l11 7 l-11 7 Z" fill="var(--ink-soft)"/>
+            <text x="476" y="203" text-anchor="end" style="font-size:8.5px;fill:var(--ink-soft);font-family:var(--f-m)">cancion.mp3</text>
+
+            <!-- lupa sobre los numeros -->
+            <circle cx="440" cy="252" r="46" fill="var(--surface)" stroke="var(--goo-verde)" stroke-width="2"/>
+            <path d="M473 285 L493 305" stroke="var(--goo-verde)" stroke-width="4" stroke-linecap="round"/>
+            <path d="M474 222 L466 212" stroke="var(--goo-verde)" stroke-width=".9" stroke-dasharray="4 3"/>
+            <clipPath id="lupaD"><circle cx="440" cy="252" r="46"/></clipPath>
+            <g clip-path="url(#lupaD)" style="font-family:var(--f-m);font-size:11px;fill:var(--goo-verde)">
+              <text x="404" y="232">18 42 61</text>
+              <text x="404" y="248">57 33 09</text>
+              <text x="404" y="264">-12 -45 -60</text>
+              <text x="404" y="280">-38 -07 25</text>
+            </g>
+            <text class="rotulo-svg" x="440" y="316" text-anchor="middle" style="font-size:9.5px;fill:var(--goo-verde)">UNA LISTA DE N&Uacute;MEROS</text>
+
+            <!-- separador -->
+            <path d="M275 40 L275 300" stroke="var(--line)" stroke-width="1" stroke-dasharray="5 5"/>
+            <text class="rotulo-svg" x="275" y="168" text-anchor="middle" style="font-size:13px;fill:var(--ink)">vs</text>
+          </svg>
+        </div>
+        <div class="pie">A la izquierda, una <b>onda física</b> tallada en plástico: la aguja la recorre y la convierte
+          en sonido. A la derecha, <b>números</b>: 42 quiere decir que en ese instante el altavoz debe estar en esa
+          posición. Un plato lee un surco; un móvil lee una lista.</div>
+      </div>
+
       <h4>Escúchalo</h4>
       <p>La misma melodía, guardada de las dos maneras. Dale a copiar varias veces y vuelve a escuchar
          las dos: ahí está toda la diferencia.</p>
