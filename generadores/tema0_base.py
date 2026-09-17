@@ -208,6 +208,25 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
 .test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
 @media print{.test{break-inside:avoid}.test-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
