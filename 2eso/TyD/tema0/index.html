@@ -134,6 +134,24 @@ h4{font-size:15.5px;margin:16px 0 4px}
 #btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
   border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
 #btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -221,6 +239,65 @@ footer .wrap{padding-block:18px 26px}
         de qu&iacute;mica. Un qu&iacute;mico de hoy tiene <b>ciencia</b>: sabe qu&eacute; le pasa a la arcilla a 900&nbsp;&deg;C. Una
         f&aacute;brica de cer&aacute;mica usa <b>tecnolog&iacute;a</b>: junta las dos cosas para producir mil platos iguales.
       </div>
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">C&oacute;mo se relacionan los tres</span></div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" role="img"
+               aria-label="La t&eacute;cnica y la ciencia confluyen en la tecnolog&iacute;a, que a su vez devuelve preguntas a la ciencia">
+
+            <!-- TECNICA -->
+            <rect x="26" y="26" width="220" height="92" rx="3" fill="var(--surface)" stroke="var(--goo-amarillo)" stroke-width="2.5"/>
+            <text x="46" y="52" style="font:500 14px var(--f-b);fill:var(--ink)">T&Eacute;CNICA</text>
+            <text x="46" y="72" style="font:400 12px var(--f-m);fill:var(--goo-amarillo)">&iquest;C&Oacute;MO SE HACE?</text>
+            <text x="46" y="94" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Saber hacerlo con las manos.</text>
+            <text x="46" y="110" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Se aprende imitando.</text>
+            <!-- mano con herramienta -->
+            <g transform="translate(196,58)" stroke="#9a7326" stroke-width="2.2" fill="none" stroke-linecap="round">
+              <path d="M0 22 q-6 -4 -6 -12 v-8 M4 22 v-22 M10 22 v-18 M16 22 q6 -2 6 -10"/>
+              <path d="M-8 22 h30 v8 h-30 Z" fill="#fbbc04" opacity=".3" stroke="none"/>
+            </g>
+
+            <!-- CIENCIA -->
+            <rect x="394" y="26" width="220" height="92" rx="3" fill="var(--surface)" stroke="var(--goo-verde)" stroke-width="2.5"/>
+            <text x="414" y="52" style="font:500 14px var(--f-b);fill:var(--ink)">CIENCIA</text>
+            <text x="414" y="72" style="font:400 12px var(--f-m);fill:var(--goo-verde)">&iquest;POR QU&Eacute; OCURRE?</text>
+            <text x="414" y="94" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Explicar la naturaleza.</text>
+            <text x="414" y="110" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Se publica y se comprueba.</text>
+            <!-- lupa -->
+            <g transform="translate(566,58)" stroke="#1e6b33" stroke-width="2.4" fill="none">
+              <circle cx="8" cy="10" r="10"/><path d="M16 18 l10 10" stroke-linecap="round"/>
+            </g>
+
+            <!-- flechas de entrada -->
+            <path d="M136 122 L136 152 L290 152 L290 176" fill="none" stroke="var(--goo-amarillo)" stroke-width="2.2"/>
+            <path d="M290 184 l-5 -10 h10 Z" fill="var(--goo-amarillo)"/>
+            <path d="M504 122 L504 152 L350 152 L350 176" fill="none" stroke="var(--goo-verde)" stroke-width="2.2"/>
+            <path d="M350 184 l-5 -10 h10 Z" fill="var(--goo-verde)"/>
+
+            <!-- TECNOLOGIA -->
+            <rect x="152" y="186" width="336" height="88" rx="3" fill="var(--accent-soft)" stroke="var(--goo-azul)" stroke-width="2.5"/>
+            <text x="176" y="214" style="font:500 15px var(--f-b);fill:var(--ink)">TECNOLOG&Iacute;A</text>
+            <text x="176" y="234" style="font:400 12px var(--f-m);fill:var(--goo-azul)">&iquest;C&Oacute;MO LO RESUELVO?</text>
+            <text x="176" y="256" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Junta las dos para resolver un problema real.</text>
+            <g transform="translate(436,206)" stroke="#1a5fb4" stroke-width="2.4" fill="none">
+              <circle cx="14" cy="22" r="11"/><circle cx="14" cy="22" r="3.4" fill="#1a5fb4"/>
+              <path d="M14 8 v5 M14 31 v5 M0 22 h5 M23 22 h5 M4 12 l3.5 3.5 M20.5 28.5 l3.5 3.5 M24 12 l-3.5 3.5 M7.5 28.5 l-3.5 3.5" stroke-linecap="round"/>
+            </g>
+
+            <!-- flecha de vuelta -->
+            <path d="M488 230 L560 230 L560 160 L560 122" fill="none" stroke="var(--goo-azul)"
+                  stroke-width="1.8" stroke-dasharray="6 4"/>
+            <path d="M560 114 l-5 10 h10 Z" fill="var(--goo-azul)"/>
+            <text x="572" y="180" style="font:400 10px var(--f-m);fill:var(--goo-azul)">y a veces</text>
+            <text x="572" y="193" style="font:400 10px var(--f-m);fill:var(--goo-azul)">va por</text>
+            <text x="572" y="206" style="font:400 10px var(--f-m);fill:var(--goo-azul)">delante</text>
+          </svg>
+        </div>
+        <div class="pie">La t&eacute;cnica aporta el <b>saber hacer</b> y la ciencia el <b>saber por qu&eacute;</b>. La tecnolog&iacute;a
+          los junta para resolver un problema concreto. Y la flecha de puntos importa: a veces la tecnolog&iacute;a
+          funciona antes de que la ciencia sepa explicarla, y es ella la que obliga a investigar.</div>
+      </div>
+
 
       <h3>La tecnolog&iacute;a siempre empieza por una necesidad</h3>
       <p>Nadie inventa por inventar. Detr&aacute;s de cada objeto hay alguien que ten&iacute;a un problema:</p>
@@ -230,6 +307,59 @@ footer .wrap{padding-block:18px 26px}
         <li>Se <b>fabrica</b> y se prueba.</li>
         <li>Si funciona, se <b>mejora</b> y se ense&ntilde;a a otros. Si no, se cambia.</li>
       </ol>
+
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">El bucle que lleva funcionando 2,6 millones de a&ntilde;os</span></div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 260" role="img"
+               aria-label="Ciclo: necesidad, soluci&oacute;n, fabricar y probar, mejorar, y vuelta a empezar">
+            <g font-family="var(--f-b)">
+              <!-- 1 -->
+              <circle cx="90" cy="130" r="52" fill="var(--surface)" stroke="var(--goo-rojo)" stroke-width="2.5"/>
+              <text x="90" y="118" text-anchor="middle" style="font:500 13px var(--f-b);fill:var(--ink)">NECESIDAD</text>
+              <text x="90" y="138" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">tengo fr&iacute;o,</text>
+              <text x="90" y="152" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">no llego</text>
+              <circle cx="90" cy="130" r="52" fill="none" stroke="var(--goo-rojo)" stroke-width="2.5"/>
+              <text x="90" y="62" text-anchor="middle" style="font:500 15px var(--f-m);fill:var(--goo-rojo)">1</text>
+
+              <!-- 2 -->
+              <circle cx="250" cy="130" r="52" fill="var(--surface)" stroke="var(--goo-amarillo)" stroke-width="2.5"/>
+              <text x="250" y="118" text-anchor="middle" style="font:500 13px var(--f-b);fill:var(--ink)">IDEA</text>
+              <text x="250" y="138" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">con lo que s&eacute;</text>
+              <text x="250" y="152" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">y lo que hay</text>
+              <text x="250" y="62" text-anchor="middle" style="font:500 15px var(--f-m);fill:#9a7326">2</text>
+
+              <!-- 3 -->
+              <circle cx="410" cy="130" r="52" fill="var(--surface)" stroke="var(--goo-verde)" stroke-width="2.5"/>
+              <text x="410" y="118" text-anchor="middle" style="font:500 13px var(--f-b);fill:var(--ink)">FABRICO</text>
+              <text x="410" y="138" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">y lo pruebo</text>
+              <text x="410" y="62" text-anchor="middle" style="font:500 15px var(--f-m);fill:var(--goo-verde)">3</text>
+
+              <!-- 4 -->
+              <circle cx="570" cy="130" r="52" fill="var(--surface)" stroke="var(--goo-azul)" stroke-width="2.5"/>
+              <text x="570" y="118" text-anchor="middle" style="font:500 13px var(--f-b);fill:var(--ink)">MEJORO</text>
+              <text x="570" y="138" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">y lo ense&ntilde;o</text>
+              <text x="570" y="152" text-anchor="middle" style="font:400 11px var(--f-b);fill:var(--ink-soft)">a otros</text>
+              <text x="570" y="62" text-anchor="middle" style="font:500 15px var(--f-m);fill:var(--goo-azul)">4</text>
+
+              <!-- flechas -->
+              <path d="M146 130 h44" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>
+              <path d="M198 130 l-10 -5 v10 Z" fill="var(--ink-soft)"/>
+              <path d="M306 130 h44" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>
+              <path d="M358 130 l-10 -5 v10 Z" fill="var(--ink-soft)"/>
+              <path d="M466 130 h44" fill="none" stroke="var(--ink-soft)" stroke-width="2"/>
+              <path d="M518 130 l-10 -5 v10 Z" fill="var(--ink-soft)"/>
+
+              <!-- vuelta -->
+              <path d="M570 186 v34 H90 v-34" fill="none" stroke="var(--ink-soft)" stroke-width="2" stroke-dasharray="7 5"/>
+              <path d="M90 184 l-5 10 h10 Z" fill="var(--ink-soft)"/>
+              <text x="330" y="238" text-anchor="middle" style="font:400 11px var(--f-m);fill:var(--ink-soft)">Y SI NO FUNCIONA, VUELTA A EMPEZAR</text>
+            </g>
+          </svg>
+        </div>
+        <div class="pie">Es el mismo bucle para una piedra tallada y para un cohete. Y es exactamente lo que
+          vas a hacer t&uacute; en cada proyecto de este curso.</div>
+      </div>
       <p>Ese bucle lleva funcionando dos millones y medio de a&ntilde;os, y es exactamente lo que vas a hacer t&uacute;
          este curso en cada proyecto.</p>
       <h3>Y la digitalizaci&oacute;n, &iquest;qu&eacute; es?</h3>
@@ -555,6 +685,50 @@ footer .wrap{padding-block:18px 26px}
       La tecnolog&iacute;a no avanza a ritmo constante: <b>se acelera</b>, porque cada invento se apoya en todos
       los anteriores.
     </div>
+    <h3>Las cuatro revoluciones industriales</h3>
+    <p>Cuatro momentos en que cambi&oacute; <b>la forma de fabricar</b>, y con ella el mundo entero. F&iacute;jate en qui&eacute;n hace el trabajo en cada foto.</p>
+    <div class="galeria-ri">
+        <figure class="foto">
+          <img src="../../../img/ri1-telar.jpg" alt="Telar mec&aacute;nico en una f&aacute;brica textil de 1835" loading="lazy">
+          <figcaption><b>1.&ordf; revoluci&oacute;n</b> &middot; Telar mec&aacute;nico, 1835. El vapor mueve las m&aacute;quinas; las personas pasan a vigilarlas.
+            <span class="credito">T. Allom y J. Tingle &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Powerloom%20weaving%20in%201835.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../../img/ri2-ford.jpg" alt="Cadena de montaje de la f&aacute;brica Ford en 1913" loading="lazy">
+          <figcaption><b>2.&ordf; revoluci&oacute;n</b> &middot; Cadena de montaje de Ford, 1913. Electricidad y producci&oacute;n en serie: el coche deja de ser un lujo.
+            <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Ford%20assembly%20line%20-%201913.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../../img/ri3-intel4004.jpg" alt="Microprocesador Intel 4004 de 1971 visto de cerca" loading="lazy">
+          <figcaption><b>3.&ordf; revoluci&oacute;n</b> &middot; El Intel 4004, 1971. Un ordenador entero en una pieza del tama&ntilde;o de una u&ntilde;a.
+            <span class="credito">Thomas Nguyen &middot; CC BY-SA 4.0 &middot; <a href="https://commons.wikimedia.org/wiki/File:Intel%20C4004.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../../img/ri4-robots.jpg" alt="Brazos rob&oacute;ticos industriales apilando pan en una f&aacute;brica" loading="lazy">
+          <figcaption><b>4.&ordf; revoluci&oacute;n</b> &middot; Robots coordinados por software. Las m&aacute;quinas ya no solo ejecutan: deciden.
+            <span class="credito">KUKA Roboter GmbH &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:Factory%20Automation%20Robotics%20Palettizing%20Bread.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+    </div>
+
+    <h3>La m&aacute;quina que lo empez&oacute; todo</h3>
+    <p>De todos los hitos de la l&iacute;nea, ninguno cambi&oacute; tanto en tan poco tiempo. Merece una mirada de cerca.</p>
+        <figure class="foto">
+          <img src="../../../img/vapor-watt.jpg" alt="M&aacute;quina de vapor de Watt conservada en Madrid" loading="lazy">
+          <figcaption>Una m&aacute;quina de vapor de Watt conservada en la Escuela de Ingenieros Industriales de Madrid. No es una r&eacute;plica: es una de aquellas m&aacute;quinas, y puedes ir a verla.
+            <span class="credito">Nicol&aacute;s P&eacute;rez &middot; CC BY-SA 3.0 &middot; <a href="https://commons.wikimedia.org/wiki/File:Maquina_vapor_Watt_ETSIIM.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../../img/vapor-grabado.png" alt="Grabado t&eacute;cnico de la m&aacute;quina de Boulton y Watt de 1784" loading="lazy">
+          <figcaption>El grabado original de la m&aacute;quina de Boulton &amp; Watt, 1784. Es un <b>plano t&eacute;cnico</b>, y por eso sabemos hoy exactamente c&oacute;mo estaba hecha. Sin ese dibujo, la m&aacute;quina se habr&iacute;a perdido con quien la construy&oacute;.
+            <span class="credito">Robert Henry Thurston &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:SteamEngine%20Boulton%26Watt%201784.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+
   </section>
 
   <section class="bloque">
@@ -613,9 +787,12 @@ footer .wrap{padding-block:18px 26px}
   <h3>C&oacute;mo citar</h3>
   <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 0 &middot; &iquest;Qu&eacute; es la tecnolog&iacute;a?</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema0/. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
-  <p>Textos, dibujos y c&oacute;digo de esta p&aacute;gina. No cubre obras de terceros enlazadas, que
-     conservan su propia condici&oacute;n legal. Las tipograf&iacute;as proceden de Google Fonts con su
-     licencia correspondiente.</p>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as hist&oacute;ricas</b>, que proceden de Wikimedia Commons y conservan su
+     propia licencia, indicada bajo cada una. Dos son de dominio p&uacute;blico por su antig&uuml;edad; las
+     otras est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
   <h3>Otros usos</h3>
   <p>Para usos que excedan la licencia, abre una incidencia en
      <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
