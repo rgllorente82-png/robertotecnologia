@@ -207,7 +207,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3</div>
     <h1>Materiales de uso t&eacute;cnico</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2" disabled>S2 &middot; Medir propiedades</button><button type="button" data-ses="3" disabled>S3 &middot; La madera</button><button type="button" data-ses="4" disabled>S4 &middot; Metales</button><button type="button" data-ses="5" disabled>S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6" disabled>S6 &middot; Impacto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3" disabled>S3 &middot; La madera</button><button type="button" data-ses="4" disabled>S4 &middot; Metales</button><button type="button" data-ses="5" disabled>S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6" disabled>S6 &middot; Impacto y test</button></nav>
   </div>
 </header>
 
@@ -452,7 +452,237 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-2" hidden><div class="ses-head"><h2>Sesi&oacute;n 2 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>Medir, no opinar: los ensayos</h2>
+      <p>Una propiedad solo sirve para elegir un material si se puede medir. Y medir significa que cualquiera repita la prueba y le salga lo mismo.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip sab">A.3</span><span class="chip sab">A.7</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>En la sesi&oacute;n anterior qued&oacute; claro que un material se elige <b>comparando propiedades</b>.
+         Bien. Coge estas dos cosas de la mesa:</p>
+      <div class="aviso">
+        <span class="n-tag">La pregunta</span>
+        <b>&iquest;Cu&aacute;l es m&aacute;s duro, tu boli o la mesa?</b> Cont&eacute;stalo, y sobre todo: <b>&iquest;c&oacute;mo lo
+        sabes?</b>
+      </div>
+      <p>Aqu&iacute; empiezan los problemas. Casi todos contestar&aacute;n «la mesa, porque se nota». Pero <i>notarlo</i>
+         no es saberlo. Si dos personas discrepan, &iquest;qui&eacute;n decide?</p>
+      <p>Mientras la respuesta sea «se nota», seguimos en las opiniones del tema anterior. Una propiedad
+         solo sirve para elegir si se puede <b>medir</b> &mdash;y medir significa que cualquiera repita la
+         prueba y le salga lo mismo.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Medir la dureza sin ning&uacute;n aparato</h3>
+      <p>La dureza fue de las primeras propiedades que se consiguieron medir, y se hizo de la forma m&aacute;s
+         simple imaginable: <b>ver qui&eacute;n raya a qui&eacute;n</b>. Si A raya a B, A es m&aacute;s duro. Sin discusi&oacute;n
+         posible.</p>
+
+      <div class="escena" id="esc-mohs">
+        <div class="escena-barra">
+          <span class="escena-titulo">Ensayo de rayado &middot; elige con qu&eacute; rayas y a qui&eacute;n</span>
+          <div class="seg" id="seg-mohs">
+            <button type="button" data-m="reset">&#8635; Empezar de nuevo</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 240" id="svg-mohs" role="img"
+               aria-label="Ensayo de rayado entre materiales seg&uacute;n la escala de Mohs"></svg>
+        </div>
+        <div class="pie" id="pie-mohs"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-mohs');
+        var pie = document.getElementById('pie-mohs');
+        var seg = document.getElementById('seg-mohs');
+        if(!svg) return;
+
+        /* dureza en la escala de Mohs, de 1 a 10 */
+        var MAT = [
+          {n:'U&ntilde;a',      d:2.5, c:'#f3d3b3'},
+          {n:'Cobre',     d:3.0, c:'#c98a4b'},
+          {n:'Hierro',    d:4.5, c:'#8d99a6'},
+          {n:'Vidrio',    d:5.5, c:'#bfe0e8'},
+          {n:'Acero',     d:6.5, c:'#7a8590'},
+          {n:'Cuarzo',    d:7.0, c:'#e8e4da'},
+          {n:'Diamante',  d:10,  c:'#dff1f7'}
+        ];
+        var raya = null, rayado = null;
+
+        function pinta(){
+          var m = '', X = 30, W = 82;
+          MAT.forEach(function(x, i){
+            var px = X + i*W;
+            var sel = (raya === i) ? 'var(--goo-azul)' : ((rayado === i) ? 'var(--goo-rojo)' : 'var(--line)');
+            m += '<g class="mat" data-i="' + i + '" style="cursor:pointer">';
+            m += '<rect x="' + px + '" y="60" width="66" height="58" rx="4" fill="' + x.c +
+                 '" stroke="' + sel + '" stroke-width="' + ((raya===i||rayado===i) ? 3.5 : 1.5) + '"></rect>';
+            /* si esta siendo rayado y pierde, se le dibuja el arana~zo */
+            if(rayado === i && raya !== null && MAT[raya].d > x.d){
+              m += '<path d="M' + (px+12) + ' 78 L' + (px+54) + ' 100" stroke="#5f6368" stroke-width="2.5"></path>';
+              m += '<path d="M' + (px+14) + ' 92 L' + (px+50) + ' 106" stroke="#5f6368" stroke-width="1.8"></path>';
+            }
+            m += '<text x="' + (px+33) + '" y="134" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:10.5px">' + x.n + '</text>';
+            m += '<text x="' + (px+33) + '" y="148" text-anchor="middle" class="rotulo-svg" '
+               + 'style="font-size:9.5px;opacity:.65">' + x.d + '</text>';
+            m += '</g>';
+          });
+          m += '<text x="30" y="30" class="rotulo-svg" style="font-size:11px">'
+             + 'DUREZA CRECIENTE &#8594; &nbsp;&nbsp;escala de Mohs, de 1 a 10</text>';
+          m += '<text x="30" y="186" class="rotulo-svg" style="font-size:11px;fill:var(--goo-azul)">'
+             + '1 &middot; pulsa el material con el que rayas</text>';
+          m += '<text x="30" y="204" class="rotulo-svg" style="font-size:11px;fill:var(--goo-rojo)">'
+             + '2 &middot; pulsa el material al que rayas</text>';
+          svg.innerHTML = m;
+
+          if(raya === null){
+            pie.innerHTML = 'La dureza no se mide con un aparato: se mide <b>a ver qui&eacute;n raya a qui&eacute;n</b>. '
+              + 'Elige primero el material con el que rayas.';
+          } else if(rayado === null){
+            pie.innerHTML = 'Rayas con <b>' + MAT[raya].n + '</b> (dureza ' + MAT[raya].d + '). '
+              + 'Ahora elige a qui&eacute;n intentas rayar.';
+          } else {
+            var a = MAT[raya], b = MAT[rayado];
+            if(a.d > b.d){
+              pie.innerHTML = '<b>' + a.n + ' raya a ' + b.n + '.</b> ' + a.d + ' es mayor que ' + b.d
+                + ', as&iacute; que deja marca. Y esto es una <b>medida</b>, no una opini&oacute;n: lo repite cualquiera '
+                + 'y sale lo mismo.';
+            } else if (a.d === b.d){
+              pie.innerHTML = 'Misma dureza: <b>ninguno raya al otro</b>. Cuando eso pasa, se les asigna el '
+                + 'mismo n&uacute;mero en la escala.';
+            } else {
+              pie.innerHTML = '<b>' + a.n + ' no puede rayar a ' + b.n + '.</b> ' + a.d + ' es menor que '
+                + b.d + '. Aqu&iacute; el que se lleva la marca es el que raya.';
+            }
+          }
+        }
+
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('.mat'); if(!g) return;
+          var i = +g.dataset.i;
+          if(raya === null) raya = i;
+          else if(rayado === null) rayado = i;
+          else { raya = i; rayado = null; }
+          pinta();
+        });
+        seg.addEventListener('click', function(){ raya = null; rayado = null; pinta(); });
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Ensayo</h4>
+        <p><b>Ensayo</b>: prueba normalizada que se hace sobre un material para <b>medir</b> una de sus
+           propiedades, de forma que el resultado sea el mismo lo haga quien lo haga.</p>
+        <p><b>Dureza</b>: resistencia a ser rayado. Se mide con la <b>escala de Mohs</b>, del 1 (talco) al
+           10 (diamante). Cada material raya a los de n&uacute;mero menor y es rayado por los de n&uacute;mero mayor.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>La escala la propuso el mineralogista <b>Friedrich Mohs</b> en 1812, y su genialidad no fue
+           cient&iacute;fica sino pr&aacute;ctica: no necesita ning&uacute;n instrumento. Un ge&oacute;logo en mitad del campo pod&iacute;a
+           identificar un mineral con la u&ntilde;a, una moneda de cobre y una navaja.</p>
+        <p>Es una escala <b>ordinal</b>: dice qui&eacute;n va delante de qui&eacute;n, no cu&aacute;nto. El diamante es un 10 y
+           el corind&oacute;n un 9, pero el diamante no es «uno m&aacute;s duro»: es unas cuatro veces m&aacute;s duro. Por eso
+           en la industria se usan hoy otras escalas &mdash;Brinell, Rockwell, Vickers&mdash; que s&iacute; dan
+           n&uacute;meros proporcionales. La de Mohs sobrevive porque sigue siendo la &uacute;nica que funciona
+           sin enchufe.</p>
+      </div>
+
+      <h3>Los otros ensayos</h3>
+      <div class="copiar">
+        <h4>Ensayos mec&aacute;nicos que hay que conocer</h4>
+        <ul>
+          <li><b>Tracci&oacute;n</b>: se estira la probeta hasta romperla. Mide la resistencia y si el material
+              <b>avisa</b> antes de romper.</li>
+          <li><b>Compresi&oacute;n</b>: se aplasta. Importa en pilares y estructuras.</li>
+          <li><b>Flexi&oacute;n</b>: se apoya por los extremos y se carga en el centro.</li>
+          <li><b>Resiliencia</b>: se golpea de un martillazo. Distingue lo <b>tenaz</b> de lo <b>fr&aacute;gil</b>.</li>
+          <li><b>Fatiga</b>: se carga y descarga miles de veces. Un material puede aguantar un golpe fuerte
+              y romperse por muchos golpes flojos.</li>
+        </ul>
+      </div>
+      <div class="nota">
+        <span class="n-tag">De aqu&iacute; sal&iacute;a lo del aluminio</span>
+        En la sesi&oacute;n anterior el cuadro de aluminio dec&iacute;a «se fatiga: puede fallar sin aviso». Ahora ya
+        sabes de d&oacute;nde sale ese dato: de un <b>ensayo de fatiga</b>, no de la impresi&oacute;n de nadie.
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 &middot; Montar una escala de dureza del aula</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">2.2</span></span>
+          <span>Grupos de tres &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Vais a construir <b>vuestra propia escala de Mohs</b> con lo que hay en el aula. Nada de
+             aparatos: solo rayar.</p>
+          <ol class="pasos">
+            <li>Reunid <b>seis objetos</b> de materiales distintos: u&ntilde;a, goma, moneda, l&aacute;piz, llave,
+                tijeras, un trozo de baldosa, lo que ten&eacute;is.</li>
+            <li>Rayad <b>cada uno con cada uno</b>. Son quince parejas. Anotad en una tabla qui&eacute;n raya a
+                qui&eacute;n.</li>
+            <li><b>Ordenadlos</b> de menos a m&aacute;s duro a partir de esos resultados.</li>
+            <li>Comprobad que el orden es <b>coherente</b>: si A raya a B y B raya a C, A tiene que rayar
+                a C. Si no se cumple, algo hab&eacute;is medido mal. Repetid esa pareja.</li>
+            <li>Intercambiad la tabla con otro grupo. &iquest;Os sale el mismo orden?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla de quince parejas est&aacute; completa <b>(3 puntos)</b>.</li>
+            <li>El orden final se deduce de la tabla, no de lo que os parec&iacute;a <b>(3 puntos)</b>.</li>
+            <li>Hab&eacute;is comprobado la coherencia y repetido lo que fallaba <b>(2 puntos)</b>.</li>
+            <li>Est&aacute; anotada la comparaci&oacute;n con el otro grupo <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Lo que de verdad se est&aacute; evaluando</span>
+            El paso 5. Si a dos grupos les sale el mismo orden con los mismos objetos, acab&aacute;is de
+            demostrar que eso <b>es una medida</b>. Si os sale distinto, hay que averiguar por qu&eacute; &mdash;y
+            esa investigaci&oacute;n vale m&aacute;s que la tabla.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Volved a la pregunta del principio: &iquest;qu&eacute; es m&aacute;s duro, el boli o la mesa?</p>
+      <p>Ya no hace falta contestar «se nota». Ahora se contesta <b>rayando</b>, y si alguien discrepa, se
+         repite la prueba delante de &eacute;l.</p>
+      <ol>
+              <li>&iquest;Qu&eacute; es un ensayo y en qu&eacute; se diferencia de una impresi&oacute;n?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es una prueba <b>normalizada</b>: hecha siempre igual, de modo que el resultado no dependa de qui&eacute;n la haga. Una impresi&oacute;n s&iacute; depende de qui&eacute;n la tenga.</p></div></details></li>
+        <li>Un material aguanta un martillazo pero se rompe tras meses de vibraci&oacute;n. &iquest;Qu&eacute; ensayo lo detecta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El de <b>fatiga</b>, que carga y descarga miles de veces. El de resiliencia solo mide el golpe &uacute;nico, y ese lo aguantaba.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se dice que la escala de Mohs es ordinal?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque dice <b>qui&eacute;n va delante de qui&eacute;n, pero no cu&aacute;nto</b>. Del 9 al 10 hay mucha m&aacute;s diferencia que del 1 al 2, aunque el salto de n&uacute;mero sea el mismo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes elegir un material y medir sus propiedades. Toca mirar los materiales uno a uno,
+        empezando por el m&aacute;s antiguo de todos: <b>la madera</b>.
+      </div>
+  
+    </section>
+
+  </div>
 
   <div id="ses-3" hidden><div class="ses-head"><h2>Sesi&oacute;n 3 en preparaci&oacute;n</h2></div></div>
 
