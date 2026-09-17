@@ -94,7 +94,69 @@ introductoria, que no corresponde a ninguna unidad del libro.
 
 ## 4.º de ESO · Tecnología
 
-*Pendiente de extraer de la presentación de 4.º (19 diapositivas).*
+Seis competencias específicas, trece criterios. El peso está claramente en el
+**proyecto real**: detectar un problema del entorno, fabricar, defender lo hecho,
+automatizarlo y evaluar lo que le cuesta al planeta.
+
+| CE | Enunciado corto | Criterios |
+|----|-----------------|-----------|
+| 1 | Detectar un problema de tu entorno y planificar una solución que sirva para algo | 1.1 · 1.2 · 1.3 |
+| 2 | Fabricarla de verdad: del material y la técnica al producto terminado | 2.1 · 2.2 |
+| 3 | Contarlo bien: presentar y defender tu proyecto ante otra gente | 3.1 · 3.2 |
+| 4 | Automatizar: que la máquina funcione sola, con electrónica y programación | 4.1 · 4.2 |
+| 5 | Sacarle partido a las herramientas digitales, ajustándolas a lo que necesitas | 5.1 |
+| 6 | Mirar qué cuesta al planeta lo que fabricamos, y hacerlo mejor | 6.1 · 6.2 · 6.3 |
+
+### Criterios, saberes y unidades
+
+| Criterio | Saberes | Unidades |
+|----------|---------|----------|
+| 1.1 | A.1 | U1 |
+| 1.2 | A.1 | U1 |
+| 1.3 | A.1 | U1 |
+| 2.1 | A.2 · A.3.1 · D.4 | U2 · U3 · U9 |
+| 2.2 | A.2.2 · A.3 | U2 · U3 |
+| 3.1 | A.1.1 · A.1.4 · A.3.1 · A.4 | U1 · U2 |
+| 3.2 | A.1.4 · A.4 | U1 · U2 |
+| 4.1 | B.1 · B.2 · B.3 · B.4 | U4 · U5 · U7 |
+| 4.2 | C.1 · C.2 · C.3 · C.4 | U6 |
+| 5.1 | A.1.4 · A.3 · C.1 · C.2 | U1 · U2 · U6 |
+| 6.1 | A.2 · D.1 · D.2 · D.3 | U3 · U8 · U9 |
+| 6.2 | A.2 · D.1 · D.2 · D.3 | U3 · U8 · U9 |
+| 6.3 | D.2 · D.3 · D.4 | U8 · U9 |
+
+### Mapa inverso
+
+**Nueve unidades**, no diez como estimé antes. Con ~90 sesiones útiles salen
+**8 sesiones por unidad** más la lectura: el curso más holgado de los tres.
+
+Títulos: hipótesis a partir de los saberes, pendientes de contrastar con el índice.
+
+| U | Título probable | Criterios |
+|---|-----------------|-----------|
+| U1 | El proyecto tecnológico: detectar, idear, planificar | 1.1 · 1.2 · 1.3 · 3.1 · 3.2 · 5.1 |
+| U2 | Diseño y fabricación: del material al producto | 2.1 · 2.2 · 3.1 · 3.2 · 5.1 |
+| U3 | Materiales y ciclo de vida | 2.1 · 2.2 · 6.1 · 6.2 |
+| U4 | Mecanismos y sistemas de control | 4.1 |
+| U5 | Electrónica y neumática | 4.1 |
+| U6 | Programación, IoT e inteligencia artificial | 4.2 · 5.1 |
+| U7 | Robótica y automatismos | 4.1 |
+| U8 | Sostenibilidad y accesibilidad | 6.1 · 6.2 · 6.3 |
+| U9 | Tecnología y sociedad: proyectos de servicio | 2.1 · 6.1 · 6.2 · 6.3 |
+
+Está publicado un **Tema 0 · Tecnología, técnica y sociedad**, sesión única
+introductoria, fuera del libro.
+
+### Diferencia con 2.º, y por qué importa
+
+En 2.º las siete competencias reparten el curso entre conocer, comunicar,
+construir, programar y usar aparatos. En 4.º las seis giran **todas alrededor de
+un proyecto**: detectarlo, fabricarlo, contarlo, automatizarlo, digitalizarlo y
+medir su impacto.
+
+Consecuencia para la producción: en 4.º el proyecto no es la última unidad, es
+**el hilo de todo el curso**. Conviene que las unidades se escriban como fases de
+un mismo proyecto largo y no como temas sueltos.
 
 ---
 
