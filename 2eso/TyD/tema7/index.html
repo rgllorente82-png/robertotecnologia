@@ -199,30 +199,30 @@ h4{font-size:15.5px;margin:16px 0 4px}
   .narrador-txt{text-align:center}}
 
 /* ---- test de autoevaluacion ---- */
-.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+.ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
   background:var(--surface);position:relative}
-.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+.ta::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
   color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
-.test h4{margin:8px 0 14px;font-size:16px}
-.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
-.test-p:first-of-type{border-top:0}
-.test-p > p{margin:0 0 9px;font-weight:500}
-.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+.ta h4{margin:8px 0 14px;font-size:16px}
+.ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.ta-p:first-of-type{border-top:0}
+.ta-p > p{margin:0 0 9px;font-weight:500}
+.ta-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
   cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
-.test-op:hover{border-color:var(--goo-azul)}
-.test-op input{margin-right:9px}
-.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
-.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
-.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+.ta-op:hover{border-color:var(--goo-azul)}
+.ta-op input{margin-right:9px}
+.ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
-.test.corregido .test-por{display:block}
-.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
-.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+.ta.corregido .ta-por{display:block}
+.ta-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.ta-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
   background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
-.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
-.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
-.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
-@media print{.test{break-inside:avoid}.test-por{display:block}}
+.ta-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.ta{break-inside:avoid}.ta-por{display:block}}
 
 /* ---- banco de programacion ---- */
 .prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
@@ -2927,84 +2927,84 @@ footer .wrap{padding-block:18px 26px}
       <p>Diez preguntas de <b>todo el tema</b>. Se corrigen aqu&iacute; mismo, y cada una explica por
          qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota: es para que sepas
          por d&oacute;nde andas antes del examen.</p>
-      <div class="test" id="test-u7">
+      <div class="ta" id="test-u7">
         <h4>Lo que tiene que haber quedado del tema</h4>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>1. &iquest;Por qu&eacute; se dice que un ordenador es una m&aacute;quina de <b>prop&oacute;sito general</b>?</p>
-          <label class="test-op"><input type="radio" name="u7-0" value="0">porque lleva muchos componentes distintos dentro</label>
-          <label class="test-op"><input type="radio" name="u7-0" value="1">porque la m&aacute;quina es siempre la misma y lo que cambia es la lista de instrucciones</label>
-          <label class="test-op"><input type="radio" name="u7-0" value="2">porque sirve para trabajar y para jugar</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Es la idea que abre el tema. El comportamiento no est&aacute; <b>en los cables</b>, est&aacute; <b>escrito</b>; por eso el mismo aparato hace hoy una cosa y ma&ntilde;ana otra sin coger el soldador.</div>
+          <label class="ta-op"><input type="radio" name="u7-0" value="0">porque lleva muchos componentes distintos dentro</label>
+          <label class="ta-op"><input type="radio" name="u7-0" value="1">porque la m&aacute;quina es siempre la misma y lo que cambia es la lista de instrucciones</label>
+          <label class="ta-op"><input type="radio" name="u7-0" value="2">porque sirve para trabajar y para jugar</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es la idea que abre el tema. El comportamiento no est&aacute; <b>en los cables</b>, est&aacute; <b>escrito</b>; por eso el mismo aparato hace hoy una cosa y ma&ntilde;ana otra sin coger el soldador.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>2. Un procesador de <b>3 GHz</b> hace cada segundo&hellip;</p>
-          <label class="test-op"><input type="radio" name="u7-1" value="0">3.000 millones de instrucciones</label>
-          <label class="test-op"><input type="radio" name="u7-1" value="1">3.000 millones de pulsos de reloj, que no es lo mismo</label>
-          <label class="test-op"><input type="radio" name="u7-1" value="2">3.000 millones de operaciones de memoria</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Los gigahercios miden el <b>ritmo</b>, no el trabajo. Hay instrucciones que gastan varios pulsos y procesadores que resuelven varias a la vez, as&iacute; que de la frecuencia sola no se deduce cu&aacute;nto rinde.</div>
+          <label class="ta-op"><input type="radio" name="u7-1" value="0">3.000 millones de instrucciones</label>
+          <label class="ta-op"><input type="radio" name="u7-1" value="1">3.000 millones de pulsos de reloj, que no es lo mismo</label>
+          <label class="ta-op"><input type="radio" name="u7-1" value="2">3.000 millones de operaciones de memoria</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Los gigahercios miden el <b>ritmo</b>, no el trabajo. Hay instrucciones que gastan varios pulsos y procesadores que resuelven varias a la vez, as&iacute; que de la frecuencia sola no se deduce cu&aacute;nto rinde.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>3. Se va la luz de golpe. Pierdes lo que llevabas escrito, pero el fichero de ayer sigue ah&iacute;. &iquest;Por qu&eacute;?</p>
-          <label class="test-op"><input type="radio" name="u7-2" value="0">porque el disco guarda copias de seguridad autom&aacute;ticas</label>
-          <label class="test-op"><input type="radio" name="u7-2" value="1">porque lo de hoy estaba en la RAM, que es vol&aacute;til, y lo de ayer en el almacenamiento, que no lo es</label>
-          <label class="test-op"><input type="radio" name="u7-2" value="2">porque el procesador no ha tenido tiempo de terminar</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> La <b>RAM</b> necesita corriente para acordarse y al cortarla se borra entera. <i>Guardar</i> es exactamente eso: copiar de la mesa a la estanter&iacute;a.</div>
+          <label class="ta-op"><input type="radio" name="u7-2" value="0">porque el disco guarda copias de seguridad autom&aacute;ticas</label>
+          <label class="ta-op"><input type="radio" name="u7-2" value="1">porque lo de hoy estaba en la RAM, que es vol&aacute;til, y lo de ayer en el almacenamiento, que no lo es</label>
+          <label class="ta-op"><input type="radio" name="u7-2" value="2">porque el procesador no ha tenido tiempo de terminar</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La <b>RAM</b> necesita corriente para acordarse y al cortarla se borra entera. <i>Guardar</i> es exactamente eso: copiar de la mesa a la estanter&iacute;a.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>4. Tu ordenador se arrastra con quince pesta&ntilde;as, y en el disco te sobran 800 GB. &iquest;Qu&eacute; compras?</p>
-          <label class="test-op"><input type="radio" name="u7-3" value="0">un disco m&aacute;s grande, que nunca sobra</label>
-          <label class="test-op"><input type="radio" name="u7-3" value="1">m&aacute;s memoria RAM, que es lo que se ha llenado</label>
-          <label class="test-op"><input type="radio" name="u7-3" value="2">un procesador m&aacute;s r&aacute;pido</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Lo que se llena es la <b>mesa</b>, no la estanter&iacute;a. Cuando no cabe, el sistema empieza a bajar cosas al disco y a subirlas, y cada viaje cuesta <b>miles de veces m&aacute;s</b>. Sobrar disco no ayuda en nada.</div>
+          <label class="ta-op"><input type="radio" name="u7-3" value="0">un disco m&aacute;s grande, que nunca sobra</label>
+          <label class="ta-op"><input type="radio" name="u7-3" value="1">m&aacute;s memoria RAM, que es lo que se ha llenado</label>
+          <label class="ta-op"><input type="radio" name="u7-3" value="2">un procesador m&aacute;s r&aacute;pido</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Lo que se llena es la <b>mesa</b>, no la estanter&iacute;a. Cuando no cabe, el sistema empieza a bajar cosas al disco y a subirlas, y cada viaje cuesta <b>miles de veces m&aacute;s</b>. Sobrar disco no ayuda en nada.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>5. Con <b>8 interruptores</b> salen 256 combinaciones. &iquest;Por qu&eacute; ese n&uacute;mero?</p>
-          <label class="test-op"><input type="radio" name="u7-4" value="0">porque 8 &times; 32 = 256</label>
-          <label class="test-op"><input type="radio" name="u7-4" value="1">porque cada interruptor dobla las posibilidades del anterior: 2<sup>8</sup></label>
-          <label class="test-op"><input type="radio" name="u7-4" value="2">porque es el n&uacute;mero de letras de la tabla ASCII</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Cada bit que a&ntilde;ades <b>multiplica por dos</b> lo que hab&iacute;a. Con 8 bits van del 0 al 255, que son 256 valores contando el cero.</div>
+          <label class="ta-op"><input type="radio" name="u7-4" value="0">porque 8 &times; 32 = 256</label>
+          <label class="ta-op"><input type="radio" name="u7-4" value="1">porque cada interruptor dobla las posibilidades del anterior: 2<sup>8</sup></label>
+          <label class="ta-op"><input type="radio" name="u7-4" value="2">porque es el n&uacute;mero de letras de la tabla ASCII</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Cada bit que a&ntilde;ades <b>multiplica por dos</b> lo que hab&iacute;a. Con 8 bits van del 0 al 255, que son 256 valores contando el cero.</div>
         </div>
-        <div class="test-p" data-ok="2">
+        <div class="ta-p" data-ok="2">
           <p>6. El byte <b>0100 0001</b>, &iquest;qu&eacute; significa?</p>
-          <label class="test-op"><input type="radio" name="u7-5" value="0">el n&uacute;mero 65, siempre</label>
-          <label class="test-op"><input type="radio" name="u7-5" value="1">la letra A, siempre</label>
-          <label class="test-op"><input type="radio" name="u7-5" value="2">depende del acuerdo con el que se lea: puede ser 65, la A o un gris oscuro</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Un byte por s&iacute; solo <b>no significa nada</b>. Es el programa que lo abre quien aplica un acuerdo u otro, y por eso una foto abierta con un editor de texto sale como basura.</div>
+          <label class="ta-op"><input type="radio" name="u7-5" value="0">el n&uacute;mero 65, siempre</label>
+          <label class="ta-op"><input type="radio" name="u7-5" value="1">la letra A, siempre</label>
+          <label class="ta-op"><input type="radio" name="u7-5" value="2">depende del acuerdo con el que se lea: puede ser 65, la A o un gris oscuro</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Un byte por s&iacute; solo <b>no significa nada</b>. Es el programa que lo abre quien aplica un acuerdo u otro, y por eso una foto abierta con un editor de texto sale como basura.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>7. Mides un sensor con un conversor de 4 bits y luego con uno de 8. &iquest;Qu&eacute; ha mejorado?</p>
-          <label class="test-op"><input type="radio" name="u7-6" value="0">mide m&aacute;s veces por segundo</label>
-          <label class="test-op"><input type="radio" name="u7-6" value="1">los escalones son mucho m&aacute;s finos, as&iacute; que se equivoca menos al anotar cada medida</label>
-          <label class="test-op"><input type="radio" name="u7-6" value="2">no pierde informaci&oacute;n: la copia pasa a ser exacta</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> M&aacute;s bits es <b>cuantificaci&oacute;n</b> m&aacute;s fina: 255 escalones en vez de 15. Cu&aacute;ntas veces se mide es otra cosa, el <b>muestreo</b>. Y exacta no es nunca: el error se reduce, no desaparece.</div>
+          <label class="ta-op"><input type="radio" name="u7-6" value="0">mide m&aacute;s veces por segundo</label>
+          <label class="ta-op"><input type="radio" name="u7-6" value="1">los escalones son mucho m&aacute;s finos, as&iacute; que se equivoca menos al anotar cada medida</label>
+          <label class="ta-op"><input type="radio" name="u7-6" value="2">no pierde informaci&oacute;n: la copia pasa a ser exacta</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> M&aacute;s bits es <b>cuantificaci&oacute;n</b> m&aacute;s fina: 255 escalones en vez de 15. Cu&aacute;ntas veces se mide es otra cosa, el <b>muestreo</b>. Y exacta no es nunca: el error se reduce, no desaparece.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>8. Un motor que mueve la rueda de un robot es&hellip;</p>
-          <label class="test-op"><input type="radio" name="u7-7" value="0">un sensor, porque lo controla el ordenador</label>
-          <label class="test-op"><input type="radio" name="u7-7" value="1">un actuador: convierte una orden el&eacute;ctrica en algo que pasa en el mundo</label>
-          <label class="test-op"><input type="radio" name="u7-7" value="2">un perif&eacute;rico mixto</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Los <b>sensores</b> meten el mundo en la m&aacute;quina y los <b>actuadores</b> lo sacan. Un robot es exactamente eso: sensores, un programa que decide y actuadores.</div>
+          <label class="ta-op"><input type="radio" name="u7-7" value="0">un sensor, porque lo controla el ordenador</label>
+          <label class="ta-op"><input type="radio" name="u7-7" value="1">un actuador: convierte una orden el&eacute;ctrica en algo que pasa en el mundo</label>
+          <label class="ta-op"><input type="radio" name="u7-7" value="2">un perif&eacute;rico mixto</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Los <b>sensores</b> meten el mundo en la m&aacute;quina y los <b>actuadores</b> lo sacan. Un robot es exactamente eso: sensores, un programa que decide y actuadores.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>9. &iquest;Por qu&eacute; el sistema operativo <b>quita</b> la CPU a un programa en vez de ped&iacute;rsela?</p>
-          <label class="test-op"><input type="radio" name="u7-8" value="0">para que los programas no se hagan demasiado grandes</label>
-          <label class="test-op"><input type="radio" name="u7-8" value="1">porque si dependiera de que cada uno la suelte, bastar&iacute;a uno colgado para parar la m&aacute;quina entera</label>
-          <label class="test-op"><input type="radio" name="u7-8" value="2">porque as&iacute; gasta menos bater&iacute;a</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Un reparto que solo funciona si todos colaboran no es un reparto. Con el turno impuesto, un programa colgado se lleva por delante <b>solo a s&iacute; mismo</b>.</div>
+          <label class="ta-op"><input type="radio" name="u7-8" value="0">para que los programas no se hagan demasiado grandes</label>
+          <label class="ta-op"><input type="radio" name="u7-8" value="1">porque si dependiera de que cada uno la suelte, bastar&iacute;a uno colgado para parar la m&aacute;quina entera</label>
+          <label class="ta-op"><input type="radio" name="u7-8" value="2">porque as&iacute; gasta menos bater&iacute;a</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Un reparto que solo funciona si todos colaboran no es un reparto. Con el turno impuesto, un programa colgado se lleva por delante <b>solo a s&iacute; mismo</b>.</div>
         </div>
-        <div class="test-p" data-ok="1">
+        <div class="ta-p" data-ok="1">
           <p>10. Un ordenador no arranca y sospechas de siete piezas encadenadas. &iquest;Cu&aacute;l es la primera prueba?</p>
-          <label class="test-op"><input type="radio" name="u7-9" value="0">la de la pieza m&aacute;s barata de cambiar</label>
-          <label class="test-op"><input type="radio" name="u7-9" value="1">la que parta la cadena por la mitad, porque descarta la mitad conteste lo que conteste</label>
-          <label class="test-op"><input type="radio" name="u7-9" value="2">la primera de la cadena, e ir avanzando una a una</label>
-          <div class="test-por"><b>Por qu&eacute;:</b> Mirando de una en una puedes gastar seis pruebas; partiendo por la mitad bastan <b>tres</b>, y siempre. Con mil piezas ser&iacute;an mil frente a diez: por eso no es un truco, es el m&eacute;todo.</div>
+          <label class="ta-op"><input type="radio" name="u7-9" value="0">la de la pieza m&aacute;s barata de cambiar</label>
+          <label class="ta-op"><input type="radio" name="u7-9" value="1">la que parta la cadena por la mitad, porque descarta la mitad conteste lo que conteste</label>
+          <label class="ta-op"><input type="radio" name="u7-9" value="2">la primera de la cadena, e ir avanzando una a una</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Mirando de una en una puedes gastar seis pruebas; partiendo por la mitad bastan <b>tres</b>, y siempre. Con mil piezas ser&iacute;an mil frente a diez: por eso no es un truco, es el m&eacute;todo.</div>
         </div>
-        <div class="test-pie">
+        <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="test-nota"></span>
+          <span class="ta-nota"></span>
         </div>
-        <p class="test-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
       </div>
 
@@ -3105,19 +3105,20 @@ footer .wrap{padding-block:18px 26px}
 <script>
 /* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
 (function(){
-  document.querySelectorAll('.test').forEach(function(T){
+  document.querySelectorAll('.ta').forEach(function(T){
     var corregir = T.querySelector('[data-a="corregir"]');
     var otra = T.querySelector('[data-a="otra"]');
-    var nota = T.querySelector('.test-nota');
+    var nota = T.querySelector('.ta-nota');
+    if(!corregir || !otra || !nota) return;   /* no es un test de este molde */
 
     corregir.addEventListener('click', function(){
       var bien = 0, total = 0, sinContestar = 0;
-      T.querySelectorAll('.test-p').forEach(function(P){
+      T.querySelectorAll('.ta-p').forEach(function(P){
         total++;
         var ok = +P.dataset.ok;
         var marcada = P.querySelector('input:checked');
         if(!marcada) sinContestar++;
-        P.querySelectorAll('.test-op').forEach(function(L, i){
+        P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
           if(i === ok) L.classList.add('bien');
           else if(marcada && +marcada.value === i) L.classList.add('mal');
@@ -3133,7 +3134,7 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.test-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
