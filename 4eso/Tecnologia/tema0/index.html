@@ -152,6 +152,19 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
 .galeria-ri .foto{margin:0}
 .galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -532,6 +545,7 @@ footer .wrap{padding-block:18px 26px}
         </figure>
     </div>
 
+
     <h3>La m&aacute;quina que lo empez&oacute; todo</h3>
     <p>De todos los hitos de la l&iacute;nea, ninguno cambi&oacute; tanto en tan poco tiempo. Merece una mirada de cerca.</p>
         <figure class="foto">
@@ -820,6 +834,21 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
     n++;
     if(n >= items.length){ b.disabled = true; b.textContent = 'Los cuatro pasos'; }
     else b.textContent = 'Destapar el paso ' + (n + 1) + ' ▶';
+  });
+})();
+
+(function(){
+  var c = document.getElementById('video-ri');
+  if(!c) return;
+  var b = c.querySelector('.video-play');
+  b.addEventListener('click', function(){
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+    f.title = 'La Revolución Industrial · Happy Learning Español';
+    f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    f.allowFullscreen = true;
+    b.replaceWith(f);
   });
 })();
 </script>
