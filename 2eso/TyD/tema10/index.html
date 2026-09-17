@@ -259,6 +259,20 @@ h4{font-size:15.5px;margin:16px 0 4px}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
 </style>
 </head>
 <body>
@@ -266,7 +280,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 10</div>
     <h1>Programaci&oacute;n y rob&oacute;tica</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Dec&iacute;rselo a una m&aacute;quina</button><button type="button" data-ses="2">S2 &middot; Repetir y decidir</button><button type="button" data-ses="3" disabled>S3 &middot; La placa: micro:bit</button><button type="button" data-ses="4" disabled>S4 &middot; Sensores y entradas</button><button type="button" data-ses="5" disabled>S5 &middot; El robot</button><button type="button" data-ses="6" disabled>S6 &middot; Proyecto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Dec&iacute;rselo a una m&aacute;quina</button><button type="button" data-ses="2">S2 &middot; Repetir y decidir</button><button type="button" data-ses="3">S3 &middot; La placa: micro:bit</button><button type="button" data-ses="4" disabled>S4 &middot; Sensores y entradas</button><button type="button" data-ses="5" disabled>S5 &middot; El robot</button><button type="button" data-ses="6" disabled>S6 &middot; Proyecto y test</button></nav>
   </div>
 </header>
 
@@ -282,6 +296,100 @@ footer .wrap{padding-block:18px 26px}
     </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <div class="narrador" id="narr-u10">
+        <div class="narrador-fig" id="narr-u10-fig"></div>
+        <div class="narrador-txt">
+          <h4>De qu&eacute; va este tema</h4>
+          <span class="narrador-quien">Programar no es aprender un idioma raro: es decir las cosas sin dejar huecos</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada y audio propio. La boca sigue el volumen real de la voz.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-u10');
+        if(!C) return;
+        var fig = document.getElementById('narr-u10-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.149, 0.91, 1.0, 0.85, 0.897, 0.928, 1.0, 0.652, 1.0, 0.789, 0.237, 0.66, 0.917, 0.785, 0.383, 0.616, 0.918, 0.231, 0.024, 0.001, 0.0, 0.001, 0.262, 0.884, 0.605, 0.585, 0.549, 0.385, 0.091, 1.0, 0.898, 0.965, 0.494, 0.88, 0.56, 0.499, 0.158, 0.279, 0.115, 0.262, 0.121, 0.017, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.291, 0.879, 0.634, 0.527, 1.0, 0.482, 0.534, 0.881, 0.361, 1.0, 0.998, 1.0, 0.64, 0.785, 0.516, 0.131, 0.52, 0.5, 0.319, 0.287, 0.301, 0.171, 0.025, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.14, 0.743, 1.0, 0.959, 0.433, 0.855, 0.139, 0.768, 0.529, 0.862, 0.597, 0.052, 0.875, 0.623, 0.301, 0.486, 0.753, 0.311, 0.505, 0.211, 0.44, 0.622, 0.722, 0.634, 0.576, 0.094, 0.775, 0.66, 0.665, 0.706, 0.331, 0.418, 0.62, 0.34, 0.385, 0.447, 0.201, 0.403, 0.211, 0.314, 0.664, 0.536, 0.298, 0.144, 0.089, 0.008, 0.0, 0.0, 0.0, 0.693, 0.197, 0.519, 1.0, 0.799, 0.935, 0.789, 0.538, 0.402, 0.628, 0.608, 0.518, 0.287, 0.818, 0.644, 0.484, 0.561, 0.463, 0.459, 0.254, 0.366, 0.237, 0.292, 0.424, 0.359, 0.248, 0.126, 0.025, 0.001, 0.0, 0.0, 0.0, 0.0, 0.176, 0.89, 0.984, 1.0, 0.23, 0.858, 0.364, 0.728, 0.755, 0.159, 0.488, 0.525, 0.866, 0.547, 0.118, 0.795, 0.702, 0.664, 0.795, 0.327, 0.356, 0.847, 0.758, 0.282, 0.414, 0.217, 0.041, 0.001, 0.117, 0.329, 0.635, 0.461, 0.845, 0.966, 0.688, 0.448, 0.487, 0.332, 0.369, 0.247, 0.507, 0.602, 0.355, 0.277, 0.324, 0.11, 0.488, 0.265, 0.271, 0.16, 0.017, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.741, 0.502, 1.0, 0.758, 0.943, 0.797, 0.877, 0.946, 0.254, 0.616, 0.076, 0.723, 0.78, 1.0, 0.684, 0.397, 0.653, 0.095, 0.977, 0.755, 0.581, 0.076, 0.771, 0.106, 0.843, 0.496, 0.817, 0.151, 0.429, 0.713, 0.692, 0.341, 0.614, 0.388, 0.985, 0.811, 0.492, 0.254, 0.268, 0.433, 0.408, 0.328, 0.357, 0.263, 0.436, 0.296, 0.057, 0.232, 0.189, 0.032, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.871, 0.993, 1.0, 0.832, 1.0, 0.179, 0.577, 0.775, 0.814, 0.793, 0.878, 0.907, 0.842, 0.101, 0.768, 0.706, 0.626, 0.465, 0.355, 0.411, 0.34, 0.22, 0.166, 0.234, 0.108, 0.01, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.616, 0.637, 0.086, 0.947, 0.379, 0.339, 0.774, 0.197, 0.431, 0.831, 0.858, 0.898, 0.415, 0.561, 0.589, 0.292, 0.426, 0.091, 0.847, 0.712, 0.393, 0.212, 0.037, 0.001, 0.0, 0.0, 0.5, 0.756, 0.901, 0.884, 1.0, 0.503, 0.55, 0.683, 0.827, 0.439, 0.447, 0.231, 0.79, 0.893, 0.518, 0.281, 0.088, 0.003, 0.0, 0.0, 0.004, 0.737, 0.416, 0.774, 0.194, 0.771, 0.8, 0.699, 0.705, 0.808, 0.41, 0.769, 0.692, 0.321, 0.516, 0.704, 0.72, 0.398, 0.146, 0.012, 0.0, 0.0, 0.399, 0.654, 0.089, 0.6, 0.514, 0.249, 0.404, 0.258, 0.232, 0.386, 0.356, 0.307, 0.258, 0.106, 0.014, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.366, 0.79, 1.0, 0.49, 0.423, 0.909, 0.945, 0.992, 0.702, 0.396, 0.995, 0.868, 0.701, 0.115, 0.719, 0.116, 0.036, 0.384, 0.197, 0.016, 0.001, 0.0, 0.422, 0.631, 0.402, 0.083, 0.978, 0.265, 0.308, 0.896, 0.88, 0.506, 0.505, 0.102, 0.977, 0.748, 0.227, 0.571, 0.341, 0.468, 0.169, 0.372, 0.309, 0.463, 0.348, 0.249, 0.285, 0.129, 0.008, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.575, 1.0, 0.938, 0.689, 1.0, 0.38, 0.517, 0.764, 0.471, 0.083, 0.693, 0.55, 0.494, 0.34, 0.607, 0.898, 1.0, 0.989, 0.237, 0.528, 0.257, 0.288, 0.412, 0.285, 0.965, 0.686, 0.547, 0.359, 0.283, 0.724, 0.781, 0.975, 0.875, 0.615, 0.196, 0.547, 0.507, 0.433, 0.424, 0.326, 0.196, 0.019, 0.001, 0.032, 0.757, 1.0, 1.0, 0.962, 0.875, 0.594, 0.48, 0.435, 0.312, 0.327, 0.281, 0.179, 0.205, 0.084, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.391, 0.526, 0.378, 0.655, 0.113, 0.816, 0.225, 0.879, 0.628, 0.574, 0.6, 0.91, 0.645, 0.598, 0.829, 0.759, 0.355, 0.494, 0.347, 0.613, 0.828, 0.772, 1.0, 0.573, 0.538, 0.57, 0.423, 1.0, 0.81, 0.534, 0.313, 0.296, 0.352, 0.235, 0.199, 0.067, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.733, 0.344, 0.771, 0.406, 0.837, 0.759, 0.807, 1.0, 0.81, 0.505, 0.643, 0.183, 0.829, 0.858, 0.514, 0.786, 0.306, 0.096, 0.772, 0.444, 0.439, 0.72, 0.266, 0.314, 0.737, 0.482, 0.439, 0.13, 0.623, 0.496, 0.278, 0.403, 0.277, 0.074, 0.317, 0.185, 0.122, 0.078, 0.007, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.205, 0.838, 0.943, 0.59, 0.146, 0.786, 0.407, 0.293, 0.695, 0.365, 0.956, 0.829, 0.514, 0.275, 0.155, 0.779, 0.478, 0.267, 0.637, 0.283, 0.087, 0.652, 0.592, 1.0, 0.449, 0.094, 0.777, 0.604, 0.757, 0.769, 0.521, 0.238, 0.412, 0.271, 0.37, 0.261, 0.383, 0.314, 0.061, 0.001, 0.0, 0.0, 0.0, 0.0, 0.408, 1.0, 0.906, 0.939, 0.783, 0.641, 0.612, 0.744, 0.869, 0.943, 0.786, 0.459, 0.991, 0.586, 0.924, 0.499, 0.044, 0.069, 0.571, 0.632, 0.688, 0.686, 0.782, 0.764, 0.562, 0.155, 0.468, 0.276, 0.317, 0.845, 0.513, 0.304, 0.293, 0.314, 0.506, 0.324, 0.1, 0.518, 0.826, 0.302, 0.12, 0.384, 0.719, 0.868, 0.685, 0.635, 0.47, 0.236, 0.769, 0.555, 0.17, 0.346, 0.066, 0.393, 0.494, 0.763, 0.293, 0.561, 0.12, 0.649, 0.543, 0.526, 0.429, 0.327, 0.343, 0.289, 0.306, 0.281, 0.247, 0.158, 0.035, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.399, 0.689, 0.375, 1.0, 1.0, 0.637, 0.248, 0.776, 0.864, 0.762, 0.698, 0.4, 0.208, 0.656, 0.635, 0.808, 0.105, 0.614, 0.627, 0.402, 0.855, 0.334, 0.696, 0.528, 0.9, 0.801, 0.312, 0.173, 0.051, 0.682, 0.607, 0.212, 0.732, 0.806, 0.639, 0.475, 0.314, 0.187, 0.321, 0.315, 0.241, 0.195, 0.059, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.182, 0.839, 0.694, 0.506, 0.834, 0.909, 0.715, 0.626, 0.242, 0.046, 0.001, 0.058, 0.321, 0.633, 0.584, 0.476, 0.481, 0.565, 0.956, 0.54, 0.869, 0.974, 0.623, 0.288, 0.507, 0.395, 0.402, 0.396, 0.254, 0.092, 0.013, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.503, 1.0, 0.412, 0.61, 0.63, 0.958, 0.88, 0.616, 0.38, 0.22, 0.02, 0.0, 0.0, 0.767, 0.868, 1.0, 0.728, 0.912, 0.075, 0.5, 0.773, 0.454, 0.219, 1.0, 0.716, 0.721, 0.731, 0.285, 0.412, 0.431, 0.636, 0.448, 0.129, 0.007, 0.0, 0.0, 0.0, 0.74, 0.927, 0.699, 0.277, 0.718, 0.769, 0.338, 0.371, 0.713, 0.787, 0.774, 0.703, 0.338, 0.48, 0.308, 0.351, 0.215, 0.407, 0.494, 0.013, 0.639, 0.674, 0.701, 0.533, 0.147, 0.31, 0.047, 0.4, 0.156, 0.439, 0.791, 0.482, 0.1, 0.378, 0.267, 0.327, 0.333, 0.282, 0.124, 0.034, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.045, 0.314, 1.0, 0.919, 0.945, 0.385, 0.611, 0.458, 0.458, 0.285, 0.092, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/u10-programacion.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
 
       <p>Vamos a jugar a una cosa antes de tocar nada. Por parejas: uno explica y otro obedece.</p>
       <div class="aviso">
@@ -931,7 +1039,368 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-3" hidden><div class="ses-head"><h2>Sesi&oacute;n 3 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>Un programa, solo, no toca nada del mundo</h2>
+      <p>Le falta cuerpo: entradas para enterarse de lo que pasa y salidas para cambiar algo.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE5 &middot; 5.1</span><span class="chip">CE5 &middot; 5.2</span><span class="chip sab">C.1</span><span class="chip sab">C.2</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Tu robot de las dos sesiones anteriores hace lo que le mandas. Pero pru&eacute;balo con esto:</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Haz que tu programa <b>encienda una luz de verdad</b>. O que sepa si hace fr&iacute;o. O que se
+        entere de que alguien ha pulsado un bot&oacute;n.
+      </div>
+      <p>No puede. Y no es que le falte una instrucci&oacute;n: es que <b>le falta cuerpo</b>. Un programa,
+         solo, no toca nada del mundo. Para que lo toque hacen falta dos cosas que el ordenador de
+         la sesi&oacute;n del tema 7 ya ten&iacute;a, pero que aqu&iacute; se ven much&iacute;simo mejor:</p>
+      <ul>
+        <li><b>Entradas</b>: por donde le llega al programa lo que pasa fuera. Un bot&oacute;n, un
+            sensor de luz, un term&oacute;metro.</li>
+        <li><b>Salidas</b>: por donde el programa cambia algo fuera. Una luz, un altavoz, un motor.</li>
+      </ul>
+      <p>Una placa como la <b>micro:bit</b> es exactamente eso: un ordenador min&uacute;sculo con las
+         entradas y las salidas <b>a la vista</b>, para que se entienda qu&eacute; est&aacute; pasando.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <p>La micro:bit es una placa del tama&ntilde;o de media tarjeta de cr&eacute;dito. Lo interesante es
+         que todo lo que tiene <b>se ve</b>:</p>
+      <div class="copiar">
+        <h4>Qu&eacute; lleva una micro:bit</h4>
+        <ul>
+          <li><b>25 LED</b> en cuadr&iacute;cula de 5 &times; 5: la salida m&aacute;s visible.</li>
+          <li><b>Dos botones</b>, A y B: las entradas m&aacute;s sencillas.</li>
+          <li><b>Sensores</b> dentro: aceler&oacute;metro (sabe si la mueves), br&uacute;jula, term&oacute;metro,
+              micr&oacute;fono y sensor de luz.</li>
+          <li><b>Pines</b> en el borde dorado: por ah&iacute; se le conectan cosas de fuera.</li>
+          <li><b>Radio</b>: puede hablar con otras micro:bit sin cables.</li>
+        </ul>
+        <h4>Los dos bloques que lo organizan todo</h4>
+        <p><b>Al iniciar</b>: lo que se hace <b>una sola vez</b>, al encender.</p>
+        <p><b>Para siempre</b>: lo que se repite <b>sin parar</b> mientras la placa tenga corriente.
+           Es un <b>bucle infinito</b>, y aqu&iacute; no es un error: es lo normal. Una m&aacute;quina que
+           vigila algo tiene que estar mirando siempre.</p>
+      </div>
+      <p>Prueba la placa aqu&iacute; mismo. Los tres programas funcionan de verdad, y a la derecha
+         tienes los bloques que los escriben.</p>
+
+      <div class="escena" id="esc-mb">
+        <div class="escena-barra">
+          <span class="escena-titulo">La placa, funcionando &middot; elige un programa</span>
+          <div class="seg" id="seg-mb">
+            <button type="button" data-p="0" aria-pressed="true">Dibujo libre</button>
+            <button type="button" data-p="1">Contador</button>
+            <button type="button" data-p="2">Dado</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="mb">
+            <div class="mb-izq">
+              <svg viewBox="0 0 320 250" id="svg-mb" role="img"
+                   aria-label="Placa micro:bit con sus 25 LED y sus botones A y B"></svg>
+              <div class="mb-bot">
+                <button type="button" data-b="A">Bot&oacute;n A</button>
+                <button type="button" data-b="B">Bot&oacute;n B</button>
+                <button type="button" data-b="R">Reiniciar</button>
+              </div>
+            </div>
+            <div class="mb-der">
+              <div class="mb-prog" id="prog-mb"></div>
+              <p class="mb-nota" id="nota-mb"></p>
+            </div>
+          </div>
+        </div>
+        <div class="pie" id="pie-mb"></div>
+      </div>
+
+      <style>
+      .mb{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+      .mb-izq{flex:1 1 320px;min-width:280px}
+      .mb-der{flex:1 1 280px;min-width:250px}
+      .mb-bot{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+      .mb-bot button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+        background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 15px;cursor:pointer}
+      .mb-bot button[data-b="R"]{background:var(--surface);color:var(--ink-soft);border-color:var(--line)}
+      .mb-prog{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:10px 12px;
+        font-family:var(--f-m);font-size:13px;line-height:1.75}
+      .mb-prog .blq{display:block;padding:3px 8px;border-left:4px solid var(--line);margin:2px 0;border-radius:2px}
+      .mb-prog .blq.ev{border-left-color:var(--goo-azul);background:var(--accent-soft)}
+      .mb-prog .blq.act{border-left-color:var(--goo-verde);background:rgba(52,168,83,.12)}
+      .mb-prog .sang{margin-left:18px}
+      .mb-nota{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin:10px 0 0}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-mb');
+        if(!svg) return;
+        var caja = document.getElementById('esc-mb');
+        var prog = document.getElementById('prog-mb');
+        var nota = document.getElementById('nota-mb');
+        var pie  = document.getElementById('pie-mb');
+        var seg  = document.getElementById('seg-mb');
+
+        var AZ='var(--goo-azul)', RO='var(--goo-rojo)', GR='var(--ink-soft)', TI='var(--ink)';
+
+        /* --- las 25 luces, como en la placa: fila 0 arriba --- */
+        var luz = [], k;
+        for(k = 0; k < 25; k++) luz.push(0);
+        var modo = 0, cuenta = 0, dado = 0, resaltado = -1, temp = null;
+
+        /* Digitos de 3x5, que es lo que hace la placa de verdad con un numero
+           de una cifra: mas ancho no cabe y por eso los numeros largos pasan
+           desfilando.                                                        */
+        var CIF = ['111101101101111','010110010010111','111001111100111','111001111001111',
+                   '101101111001001','111100111001111','111100111101111','111001001001001',
+                   '111101111101111','111101111001111'];
+        /* Las caras del dado, en la cuadricula de 5 por 5 */
+        var CARA = {1:[[2,2]], 2:[[0,0],[4,4]], 3:[[0,0],[2,2],[4,4]],
+                    4:[[0,0],[4,0],[0,4],[4,4]], 5:[[0,0],[4,0],[2,2],[0,4],[4,4]],
+                    6:[[0,0],[4,0],[0,2],[4,2],[0,4],[4,4]]};
+
+        function apaga(){ for(var i = 0; i < 25; i++) luz[i] = 0; }
+        function pon(x, y, v){ if(x>=0 && x<5 && y>=0 && y<5) luz[y*5+x] = v; }
+
+        function muestraCifra(n){
+          apaga();
+          var g = CIF[n], i;
+          for(i = 0; i < 15; i++) if(g[i] === '1') pon(1 + (i % 3), Math.floor(i/3), 1);
+        }
+        function muestraCara(n){
+          apaga();
+          (CARA[n] || []).forEach(function(p){ pon(p[0], p[1], 1); });
+        }
+
+        function patron(){
+          /* el mismo formato que usa MakeCode para el bloque "mostrar LEDs" */
+          var t = '', y, x;
+          for(y = 0; y < 5; y++){
+            for(x = 0; x < 5; x++) t += luz[y*5+x] ? '#' : '.';
+            t += (y < 4 ? '<br>' : '');
+          }
+          return t;
+        }
+
+        var PROG = [
+          {n:'Dibujo libre',
+           blq: function(){
+             return '<span class="blq ev">al iniciar</span>'
+                  + '<span class="blq sang' + (resaltado===0?' act':'') + '">mostrar LEDs</span>'
+                  + '<span class="blq sang" style="border-left-color:transparent">'
+                  + '<code>' + patron() + '</code></span>'; },
+           d:'Pulsa en las luces para dibujar. A la derecha tienes el bloque <b>mostrar LEDs</b> tal '
+            +'y como lo escribe MakeCode: cada almohadilla es un LED encendido. Eso es lo que hay '
+            +'dentro del bloque bonito que arrastras.'},
+          {n:'Contador',
+           blq: function(){
+             return '<span class="blq ev">al iniciar</span>'
+                  + '<span class="blq sang">poner <b>cuenta</b> a 0</span>'
+                  + '<span class="blq ev' + (resaltado===1?' act':'') + '">al pulsar el bot&oacute;n A</span>'
+                  + '<span class="blq sang' + (resaltado===1?' act':'') + '">cambiar <b>cuenta</b> en 1</span>'
+                  + '<span class="blq ev' + (resaltado===2?' act':'') + '">al pulsar el bot&oacute;n B</span>'
+                  + '<span class="blq sang' + (resaltado===2?' act':'') + '">cambiar <b>cuenta</b> en -1</span>'
+                  + '<span class="blq ev">para siempre</span>'
+                  + '<span class="blq sang">mostrar n&uacute;mero <b>cuenta</b></span>'; },
+           d:'Aqu&iacute; aparece la pieza que faltaba: una <b>variable</b>. <b>cuenta</b> es un cajón con '
+            +'nombre donde la placa guarda un n&uacute;mero entre pulsaci&oacute;n y pulsaci&oacute;n. Sin ella, '
+            +'la placa no recordar&iacute;a nada y siempre mostrar&iacute;a lo mismo.'},
+          {n:'Dado',
+           blq: function(){
+             return '<span class="blq ev' + (resaltado===3?' act':'') + '">al pulsar el bot&oacute;n B</span>'
+                  + '<span class="blq sang' + (resaltado===3?' act':'') + '">poner <b>tirada</b> a n&uacute;mero al azar entre 1 y 6</span>'
+                  + '<span class="blq sang' + (resaltado===3?' act':'') + '">mostrar la cara de <b>tirada</b></span>'; },
+           d:'Un dado de verdad, en tres bloques. En la placa el bot&oacute;n B se cambia por '
+            +'<b>al agitar</b>, que usa el aceler&oacute;metro: el mismo programa, con otra entrada.'}
+        ];
+
+        function pinta(){
+          var m = '', x, y, i;
+          /* la placa */
+          m += '<rect x="26" y="14" width="268" height="176" rx="14" fill="#1a1a1a"></rect>';
+          m += '<rect x="26" y="190" width="268" height="34" fill="#1a1a1a"></rect>';
+          for(i = 0; i < 5; i++){
+            m += '<rect x="' + (40 + i*54) + '" y="196" width="34" height="28" rx="3" fill="#caa54a"></rect>';
+          }
+          /* las 25 luces */
+          for(y = 0; y < 5; y++){
+            for(x = 0; x < 5; x++){
+              var on = luz[y*5+x];
+              m += '<rect x="' + (112 + x*20) + '" y="' + (44 + y*20) + '" width="13" height="13" rx="2" '
+                 + 'fill="' + (on ? '#ff3b30' : '#3a3a3a') + '" stroke="' + (on ? '#ff8a80' : '#4a4a4a')
+                 + '" stroke-width="1" style="cursor:pointer" data-luz="' + (y*5+x) + '"></rect>';
+            }
+          }
+          /* los dos botones */
+          [['A', 62], ['B', 246]].forEach(function(b){
+            m += '<circle cx="' + b[1] + '" cy="102" r="20" fill="#333" stroke="#666" stroke-width="2"></circle>';
+            m += '<text x="' + b[1] + '" y="107" text-anchor="middle" '
+               + 'style="font:600 15px var(--f-m);fill:#eee">' + b[0] + '</text>';
+          });
+          m += '<text x="160" y="240" text-anchor="middle" style="font:11px var(--f-m);fill:' + GR
+             + '">los 25 LED son la salida &middot; A y B son entradas</text>';
+          svg.innerHTML = m;
+          prog.innerHTML = PROG[modo].blq();
+          pie.innerHTML = '<b>' + PROG[modo].n + '.</b> ' + PROG[modo].d;
+        }
+
+        function marca(n){
+          resaltado = n; pinta();
+          if(temp) clearTimeout(temp);
+          temp = setTimeout(function(){ resaltado = -1; pinta(); }, 700);
+        }
+
+        function reinicia(){
+          apaga(); cuenta = 0; dado = 0; resaltado = -1;
+          if(modo === 1){ muestraCifra(0); nota.innerHTML = 'La cuenta va por <b>0</b>.'; }
+          else if(modo === 2){ nota.innerHTML = 'Pulsa <b>B</b> para tirar.'; }
+          else { nota.innerHTML = 'Pulsa en las luces para dibujar tu icono.'; }
+          pinta();
+        }
+
+        svg.addEventListener('click', function(e){
+          var r = e.target.closest('[data-luz]');
+          if(!r || modo !== 0) return;
+          var i = +r.dataset.luz;
+          luz[i] = luz[i] ? 0 : 1;
+          marca(0);
+        });
+
+        caja.querySelectorAll('[data-b]').forEach(function(b){
+          b.addEventListener('click', function(){
+            var q = b.dataset.b;
+            if(q === 'R'){ reinicia(); return; }
+            if(modo === 1){
+              if(q === 'A'){ cuenta++; marca(1); }
+              else { cuenta--; marca(2); }
+              if(cuenta > 9 || cuenta < 0){
+                nota.innerHTML = 'La cuenta va por <b>' + cuenta + '</b>. En la placa de verdad un '
+                  + 'n&uacute;mero de m&aacute;s de una cifra <b>pasa desfilando</b>, porque en 5 por 5 no cabe.';
+                apaga(); pinta(); return;
+              }
+              muestraCifra(cuenta);
+              nota.innerHTML = 'La cuenta va por <b>' + cuenta + '</b>.';
+              pinta();
+            } else if(modo === 2){
+              if(q !== 'B'){ nota.innerHTML = 'Este programa solo escucha al bot&oacute;n <b>B</b>. '
+                  + 'El A no hace nada porque <b>no hay ning&uacute;n bloque</b> que lo escuche.'; return; }
+              dado = 1 + Math.floor(Math.random()*6);
+              muestraCara(dado); marca(3);
+              nota.innerHTML = 'Ha salido un <b>' + dado + '</b>. Vuelve a pulsar: sale otro, '
+                + 'y ese es el sentido de <i>al azar</i>.';
+            } else {
+              nota.innerHTML = 'En este programa los botones no hacen nada: no hay ning&uacute;n bloque '
+                + 'que los escuche. Dibuja pulsando en las luces.';
+            }
+          });
+        });
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          modo = +b.dataset.p; reinicia();
+        });
+
+        reinicia();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Definici&oacute;n</h4>
+        <p><b>Variable</b>: un caj&oacute;n con nombre donde el programa guarda un dato para
+           <b>acordarse de &eacute;l m&aacute;s tarde</b>. Sin variables, un programa no puede recordar
+           nada entre una cosa y la siguiente.</p>
+        <h4>Los tres bloques que ya sabes usar</h4>
+        <ul>
+          <li><b>Secuencia</b>: una instrucci&oacute;n detr&aacute;s de otra. Sesi&oacute;n 1.</li>
+          <li><b>Bucle</b>: repetir. Sesi&oacute;n 2, y aqu&iacute; el <i>para siempre</i>.</li>
+          <li><b>Evento</b>: <i>al pulsar el bot&oacute;n A</i>. El programa <b>espera</b> a que pase
+              algo, en vez de ir seguido.</li>
+        </ul>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>F&iacute;jate en el programa del dado: si pulsas <b>A</b>, no pasa nada. Y no es que est&eacute;
+           roto: es que <b>no hay ning&uacute;n bloque que escuche al bot&oacute;n A</b>. La placa no
+           ignora el bot&oacute;n por capricho; sencillamente nadie le ha dicho qu&eacute; hacer con &eacute;l.</p>
+        <p>Y prueba a subir el contador por encima de 9. El n&uacute;mero deja de caber en 5 &times; 5, y
+           la placa de verdad lo hace <b>pasar desfilando</b> de derecha a izquierda. Eso tambi&eacute;n
+           es una decisi&oacute;n de dise&ntilde;o de alguien: con 25 luces, o desfila o no se puede.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 &middot; Tu primer programa en MakeCode</span>
+          <span class="chips"><span class="chip">5.1</span><span class="chip">5.2</span><span class="chip">C.1</span><span class="chip">C.2</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>D&oacute;nde se hace</h4>
+          <p>En <b>makecode.microbit.org</b>, que funciona en el navegador y <b>no hay que instalar
+             nada</b>. Trae su propia placa simulada, as&iacute; que se puede probar todo aunque no
+             haya placas suficientes.</p>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>El icono.</b> Dibuja el tuyo en la escena de arriba, c&oacute;pialo al bloque
+                <b>mostrar LEDs</b> de MakeCode y ponlo dentro de <b>al iniciar</b>.</li>
+            <li><b>El contador.</b> Crea la variable <b>cuenta</b> y haz que A sume, B reste y la
+                placa muestre el n&uacute;mero. Comprueba qu&eacute; pasa al pasar de 9.</li>
+            <li><b>El dado.</b> Cambia el bot&oacute;n B por <b>al agitar</b> y usa
+                <i>n&uacute;mero al azar entre 1 y 6</i>. Mu&eacute;stralo con <b>mostrar n&uacute;mero</b>
+                primero, y luego dibuja t&uacute; las seis caras con <b>mostrar LEDs</b>.</li>
+            <li><b>El fallo buscado.</b> Quita el bloque <i>poner cuenta a 0</i> del contador y
+                anota qu&eacute; pasa y por qu&eacute;.</li>
+          </ol>
+          <div class="nota">
+            <span class="n-tag">Si hay placas</span>
+            Descargad el archivo <b>.hex</b> y arrastradlo a la unidad MICROBIT, que aparece como
+            un pendrive. No hay que instalar nada ni configurar nada.
+          </div>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El icono se muestra al iniciar <b>(2 puntos)</b>.</li>
+            <li>El contador usa una <b>variable</b> y responde a los dos botones <b>(3 puntos)</b>.</li>
+            <li>El dado funciona con <b>al agitar</b> y con las caras dibujadas <b>(3 puntos)</b>.</li>
+            <li>La explicaci&oacute;n del fallo buscado es correcta <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; diferencia hay entre <i>al iniciar</i> y <i>para siempre</i>?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><i>Al iniciar</i> se ejecuta <b>una sola vez</b>, al encender la placa. <i>Para siempre</i> se repite <b>sin parar</b> mientras haya corriente: es un bucle infinito, y aqu&iacute; es justo lo que se quiere.</p></div></details></li>
+        <li>&iquest;Para qu&eacute; sirve una variable?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Para que el programa <b>recuerde</b> un dato de una vez para otra. Sin la variable <i>cuenta</i>, la placa no sabr&iacute;a por qu&eacute; n&uacute;mero iba y siempre mostrar&iacute;a lo mismo.</p></div></details></li>
+        <li>En el programa del dado pulsas A y no pasa nada. &iquest;Est&aacute; estropeada la placa?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>No.</b> No hay ning&uacute;n bloque que escuche al bot&oacute;n A, as&iacute; que la placa no tiene nada que hacer con &eacute;l. Una m&aacute;quina no ignora: es que no se le ha dicho.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Los botones los pulsas t&uacute;. Pero la placa tiene <b>sensores</b>, y eso es otra cosa: puede
+        enterarse de que hace fr&iacute;o, de que se ha quedado a oscuras o de que la han movido,
+        <b>sin que nadie le diga nada</b>. Ah&iacute; empieza a parecerse a un robot.
+      </div>
+
+    </section>
+
+  </div>
 
   <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
 

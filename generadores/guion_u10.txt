@@ -1,0 +1,11 @@
+Bienvenido al tema diez: programación y robótica.
+
+Empiezo por algo incómodo. Durante todo el curso has estado diciéndole cosas a personas, y cuando le pides algo a una persona, la mitad del trabajo la hace ella: rellena lo que te has dejado, adivina lo que querías decir y te corrige los errores sin avisarte.
+
+Una máquina no hace nada de eso. Hace exactamente lo que pone, en el orden en que pone, y si pone una tontería, hace la tontería. Y eso no es un defecto: es justo la razón por la que sirve. Una máquina que decidiera por su cuenta sería un peligro, no una herramienta.
+
+Así que programar no es aprender un idioma raro. Es aprender a decir las cosas sin dejar huecos.
+
+En estas sesiones vas a escribir programas de verdad: primero para un robot que vive en la pantalla y después para una placa que vas a tener en la mano. Y por el camino aparecen dos ideas que lo cambian todo. La primera: repetir no es copiar. La segunda: una máquina puede decidir, pero solo si le dices exactamente qué tiene que mirar.
+
+Vamos allá.

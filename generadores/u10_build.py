@@ -9,12 +9,31 @@ Las tres sesiones no empiezan por "un algoritmo es...". Empiezan por el
 problema de decirle algo a alguien que obedece al pie de la letra, que es
 exactamente el problema de programar.
 """
-import io, os, sys
+import io, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
 from u10_robot import banco
+from u10_s3 import S3
+import avatar_flat
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+USA_AVATAR = [False]
+
+
+def narrador():
+    """La voz de la unidad. Solo se monta si estan el mp3 y su envolvente."""
+    env = os.path.join(RAIZ, '_env_u10-programacion.json')
+    mp3 = os.path.join(RAIZ, 'audio', 'u10-programacion.mp3')
+    if not (os.path.exists(env) and os.path.exists(mp3)):
+        return u''
+    USA_AVATAR[0] = True
+    return avatar_flat.componente(
+        'narr-u10', u'De qu&eacute; va este tema',
+        u'Programar no es aprender un idioma raro: es decir las cosas sin dejar huecos',
+        '../../../audio/u10-programacion.mp3',
+        json.load(io.open(env, encoding='utf-8')),
+        u'Voz sintetizada y audio propio. La boca sigue el volumen real de la voz.')
 
 # Mapas: S = salida, G = meta, # = pared, . = libre.
 # El 1 se resuelve en linea recta; el 2 obliga a girar; el 3 es largo a proposito,
@@ -236,7 +255,7 @@ S2_CIERRE = u'''
 # ==========================================================================
 # la unidad
 # ==========================================================================
-S1 = (bloque('00', u'Reto inicial &middot; 10 min', S1_RETO) +
+S1 = (bloque('00', u'Reto inicial &middot; 10 min', narrador() + S1_RETO) +
       bloque('01', u'Teor&iacute;a &middot; 25 min', S1_TEORIA) +
       bloque('02', u'Pr&aacute;ctica &middot; 20 min', S1_PRACTICA) +
       bloque('03', u'Cierre &middot; 5 min', S1_CIERRE))
@@ -260,7 +279,13 @@ S = [
          chips=[u'CE5 &middot; 5.1', u'C.1', u'C.2'],
          cuerpo=S2),
 ]
-for c in [u'La placa: micro:bit', u'Sensores y entradas', u'El robot', u'Proyecto y test']:
+S.append(dict(corto=u'La placa: micro:bit',
+              titulo=u'Un programa, solo, no toca nada del mundo',
+              entradilla=u'Le falta cuerpo: entradas para enterarse de lo que pasa y salidas para cambiar algo.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE5 &middot; 5.1', u'CE5 &middot; 5.2', u'C.1', u'C.2'],
+              cuerpo=S3))
+for c in [u'Sensores y entradas', u'El robot', u'Proyecto y test']:
     S.append(dict(corto=c, pendiente=True))
 
 CFG = dict(
@@ -279,6 +304,8 @@ if __name__ == '__main__':
     if not os.path.isdir(destino):
         os.makedirs(destino)
     html = pagina(CFG)
+    if USA_AVATAR[0]:
+        html = html.replace(u'</style>', avatar_flat.CSS + u'</style>', 1)
     io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8', newline='').write(html)
     print('Tema 10 generado: %d bytes, %d sesiones (%d escritas)'
           % (len(html), len(S), sum(1 for x in S if not x.get('pendiente'))))
