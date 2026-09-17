@@ -220,8 +220,8 @@ def banco(idb, mapas, bucles=False, alto=300):
           b.addEventListener('click', function(){
             if(corriendo) return;
             if(b.dataset.i === 'R'){
-              var n = prompt('¿Cuántas veces se repite el avance?', '4');
-              n = parseInt(n, 10);
+              var campo = document.getElementById('n-%(id)s');
+              var n = parseInt(campo && campo.value, 10);
               if(!n || n < 1 || n > 20) return;
               prog.push({n: n, c: ['A']});
             } else prog.push(b.dataset.i);
@@ -249,7 +249,9 @@ def banco(idb, mapas, bucles=False, alto=300):
       </script>
 ''' % dict(id=idb, alto=alto, mapas=json.dumps(mapas),
            bucles='true' if bucles else 'false',
-           botrepite=(u'<button type="button" data-i="R">&#8635; Repite N veces</button>'
+           botrepite=(u'<label class="prog-n">&#8635; Repite <input type="number" '
+                      u'id="n-%s" value="4" min="1" max="20" step="1"> veces '
+                      u'<button type="button" data-i="R">A&ntilde;adir</button></label>' % idb
                       if bucles else u''),
            botmapas=u''.join(
                u'<button type="button" data-m="%d"%s>Mapa %d</button>'

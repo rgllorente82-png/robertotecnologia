@@ -504,8 +504,8 @@ footer .wrap{padding-block:18px 26px}
           b.addEventListener('click', function(){
             if(corriendo) return;
             if(b.dataset.i === 'R'){
-              var n = prompt('¿Cuántas veces se repite el avance?', '4');
-              n = parseInt(n, 10);
+              var campo = document.getElementById('n-r1');
+              var n = parseInt(campo && campo.value, 10);
               if(!n || n < 1 || n > 20) return;
               prog.push({n: n, c: ['A']});
             } else prog.push(b.dataset.i);
@@ -660,7 +660,7 @@ footer .wrap{padding-block:18px 26px}
                 <button type="button" data-i="A">&#8593; Avanza</button>
                 <button type="button" data-i="I">&#8630; Gira izq.</button>
                 <button type="button" data-i="D">&#8631; Gira der.</button>
-                <button type="button" data-i="R">&#8635; Repite N veces</button>
+                <label class="prog-n">&#8635; Repite <input type="number" id="n-r2" value="4" min="1" max="20" step="1"> veces <button type="button" data-i="R">A&ntilde;adir</button></label>
               </div>
               <div class="prog-lista" id="lista-r2"></div>
               <div class="prog-bot">
@@ -824,8 +824,8 @@ footer .wrap{padding-block:18px 26px}
           b.addEventListener('click', function(){
             if(corriendo) return;
             if(b.dataset.i === 'R'){
-              var n = prompt('¿Cuántas veces se repite el avance?', '4');
-              n = parseInt(n, 10);
+              var campo = document.getElementById('n-r2');
+              var n = parseInt(campo && campo.value, 10);
               if(!n || n < 1 || n > 20) return;
               prog.push({n: n, c: ['A']});
             } else prog.push(b.dataset.i);

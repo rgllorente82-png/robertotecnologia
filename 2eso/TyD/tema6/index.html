@@ -183,6 +183,65 @@ h4{font-size:15.5px;margin:16px 0 4px}
   .entender,.escena,.video,.narra,nav.sesiones{display:none}
   .copiar{border-width:1.5px;break-inside:avoid}
 }
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.test{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.test::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.test h4{margin:8px 0 14px;font-size:16px}
+.test-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.test-p:first-of-type{border-top:0}
+.test-p > p{margin:0 0 9px;font-weight:500}
+.test-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.test-op:hover{border-color:var(--goo-azul)}
+.test-op input{margin-right:9px}
+.test-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.test-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.test-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.test.corregido .test-por{display:block}
+.test-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.test-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.test-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.test-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.test-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.test{break-inside:avoid}.test-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -221,7 +280,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 6</div>
     <h1>Electricidad y electr&oacute;nica</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El circuito</button><button type="button" data-ses="2">S2 &middot; V, I, R y Ohm</button><button type="button" data-ses="3">S3 &middot; Serie y paralelo</button><button type="button" data-ses="4" disabled>S4 &middot; Potencia y consumo</button><button type="button" data-ses="5" disabled>S5 &middot; LED y pulsadores</button><button type="button" data-ses="6" disabled>S6 &middot; Proyecto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El circuito</button><button type="button" data-ses="2">S2 &middot; V, I, R y Ohm</button><button type="button" data-ses="3">S3 &middot; Serie y paralelo</button><button type="button" data-ses="4">S4 &middot; Potencia y consumo</button><button type="button" data-ses="5">S5 &middot; LED y pulsadores</button><button type="button" data-ses="6">S6 &middot; Proyecto y test</button></nav>
   </div>
 </header>
 
@@ -1669,11 +1728,1841 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-4" hidden><div class="ses-head"><h2>Sesi&oacute;n 4 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>Lo que cuesta tenerlo encendido</h2>
+      <p>La misma electricidad de siempre, ahora medida en euros y en gramos de CO&#8322;. Hacen falta dos magnitudes m&aacute;s: una dice lo deprisa que gastas y otra lo que llevas gastado.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.6</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+      <p>Ya sabes qu&eacute; corriente circula por un circuito y c&oacute;mo se reparte. Hoy la electricidad
+         deja de ser un dibujo en la libreta: hoy son <b>euros</b> y son <b>gramos de CO&#8322;</b>.</p>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <div class="aviso">
+        <span class="n-tag">El reto</span>
+        <p style="margin:0">&iquest;Qu&eacute; gasta m&aacute;s electricidad: la <b>bombilla del pasillo</b> encendida
+           toda la noche, o el <b>microondas</b> calentando un vaso de leche <b>cinco minutos</b>?
+           Contesta en la libreta antes de seguir leyendo, y escribe por qu&eacute;.</p>
+      </div>
+
+      <p>Casi todo el mundo dice el microondas, y lo dice con un argumento que suena impecable: el
+         microondas es <b>mil vatios</b> y la bombilla son nueve. Es m&aacute;s de cien veces m&aacute;s. No hay
+         color.</p>
+      <p>Hagamos la cuenta de verdad. Ocho horas de bombilla LED: 9 W durante 8 h son <b>72</b>
+         unidades de algo. Cinco minutos de microondas: 1.000 W durante 5/60 de hora son <b>83</b>
+         de ese mismo algo. <b>Gana el microondas, pero por los pelos</b>, no por cien veces.</p>
+      <p>Y ahora cambia la bombilla por una de las viejas, de 60 W: 60 &times; 8 = <b>480</b>. Casi
+         <b>seis veces</b> el microondas. La misma pregunta, la misma bombilla encendida el mismo
+         rato, y la respuesta se da la vuelta.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa antes de seguir</span>
+        <p>Si con los vatios solos no se puede contestar, <b>&iquest;qu&eacute; hace falta?</b> Y una segunda,
+           m&aacute;s fina: cuando en casa dicen &laquo;esta bombilla gasta mucho&raquo;, &iquest;est&aacute;n hablando de
+           <b>vatios</b> o de otra cosa?</p>
+      </div>
+
+      <p>Hacen falta <b>dos</b> magnitudes, no una. Una dice <b>lo deprisa</b> que gastas, y es la
+         que viene escrita en el aparato. La otra dice <b>lo que llevas gastado</b>, y es la que
+         viene escrita en la factura. Confundirlas es el error que hace que una casa pague de m&aacute;s
+         todos los meses.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Lo deprisa que gastas: la potencia</h3>
+      <p>En la sesi&oacute;n 2 te quedaste con dos n&uacute;meros: el empuj&oacute;n (V) y el caudal (I). Multiplicarlos
+         no es un capricho de f&oacute;rmula: si empujas <b>m&aacute;s fuerte</b> y adem&aacute;s pasa <b>m&aacute;s
+         cantidad</b>, la energ&iacute;a que entregas cada segundo crece por los dos lados a la vez.</p>
+
+      <div class="copiar">
+        <h4>Potencia el&eacute;ctrica</h4>
+        <p><b>Potencia (P)</b>: energ&iacute;a que un aparato transforma <b>cada segundo</b>. Se mide en
+           <b>vatios (W)</b>.</p>
+        <p style="font-family:var(--f-m);font-size:17px;text-align:center;margin:10px 0">
+           P = V &times; I</p>
+        <p>Juntando la ley de Ohm salen las otras dos formas, &uacute;tiles cuando no tienes los dos datos:
+           &nbsp;<b>P = I&sup2; &times; R</b>&nbsp; y &nbsp;<b>P = V&sup2; / R</b>.</p>
+        <p><b>Ejemplo.</b> Un secador de 2.000 W enchufado a 230 V: &nbsp;I = P / V = 2.000 / 230 =
+           <b>8,7 A</b>. Por eso los secadores llevan el cable gordo y los cargadores de m&oacute;vil no.</p>
+      </div>
+
+      <p>Y aqu&iacute; se cierra algo que qued&oacute; abierto en la sesi&oacute;n 2: <b>por el hilo del tostador y por
+         su cable pasa la misma corriente, y solo uno se pone al rojo</b>. Ahora se puede decir con
+         una f&oacute;rmula: como P = I&sup2; &times; R y la I es la misma en los dos, el que tiene
+         <b>mucha R</b> se lleva casi toda la potencia. El hilo del tostador tiene mucha; el cable de
+         cobre, casi ninguna. Ese es exactamente el motivo de que los cables no calienten y las
+         resistencias s&iacute;.</p>
+
+      <h3>Lo que llevas gastado: la energ&iacute;a</h3>
+      <p>La potencia no dice nada del rato. Para saber lo que has gastado hay que multiplicarla por
+         el <b>tiempo</b>, que es justo lo que le faltaba a la pregunta del principio.</p>
+
+      <div class="copiar">
+        <h4>Energ&iacute;a y kilovatio-hora</h4>
+        <p><b>Energ&iacute;a (E) = P &times; t</b>. En el Sistema Internacional se mide en <b>julios</b>:
+           un vatio durante un segundo es un julio.</p>
+        <p>El problema del julio es que es <b>rid&iacute;culamente peque&ntilde;o</b> para una casa. Por eso la
+           factura usa otra unidad, hecha a la medida del consumo dom&eacute;stico:</p>
+        <p style="font-family:var(--f-m);font-size:15px;text-align:center;margin:10px 0">
+           1 kWh = 1.000 W durante 1 hora = <b>3.600.000 julios</b></p>
+        <p>Para trabajar con ella, la regla pr&aacute;ctica:</p>
+        <p style="font-family:var(--f-m);font-size:15px;text-align:center;margin:10px 0">
+           E (kWh) = P (kW) &times; t (h) &nbsp;&middot;&nbsp; coste = E &times; precio del kWh</p>
+        <p>Ojo con las unidades: la potencia en <b>kilovatios</b> (2.000 W son 2 kW) y el tiempo en
+           <b>horas</b> (15 minutos son 0,25 h). Mezclarlas es el fallo m&aacute;s frecuente.</p>
+      </div>
+
+      <h3>Por qu&eacute; salta la luz cuando enchufas dos cosas grandes</h3>
+      <p>En la sesi&oacute;n anterior viste que en tu casa todo est&aacute; <b>en paralelo</b>: cada aparato
+         recibe los mismos 230 V y las corrientes <b>se suman</b>. Si las corrientes se suman y
+         P = V &times; I, entonces las <b>potencias tambi&eacute;n se suman</b>. Mira lo que pasa cuando te
+         pasas.</p>
+
+      <style>
+        #esc-regleta .ctrl{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+        #esc-regleta .ctrl label{font:400 11.5px var(--f-m);color:var(--ink-soft);
+          display:flex;align-items:center;gap:7px}
+        #esc-regleta .ctrl input[type=range]{width:104px;accent-color:var(--goo-azul)}
+        #esc-regleta .ctrl b{font:500 12px var(--f-m);color:var(--ink);min-width:62px;display:inline-block}
+        #esc-regleta .tabla{width:100%;border-collapse:collapse;font:400 13px var(--f-m);margin-top:8px}
+        #esc-regleta .tabla td{padding:4px 8px 4px 0;border-bottom:1px solid var(--line-soft);color:var(--ink-soft)}
+        #esc-regleta .tabla td:last-child{text-align:right;color:var(--ink);font-weight:500}
+        #esc-regleta [data-a]{cursor:pointer}
+      </style>
+      <div class="escena" id="esc-regleta">
+        <div class="escena-barra">
+          <span class="escena-titulo">La regleta &middot; enchufa aparatos y mira la corriente</span>
+          <div class="seg" id="seg-regleta">
+            <button type="button" data-p="2.3" aria-pressed="false">2,3 kW</button>
+            <button type="button" data-p="3.45" aria-pressed="true">3,45 kW</button>
+            <button type="button" data-p="4.6" aria-pressed="false">4,6 kW</button>
+            <button type="button" data-p="5.75" aria-pressed="false">5,75 kW</button>
+            <button type="button" data-p="nada">Desenchufar todo</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <span class="escena-titulo">potencia contratada &#8593;</span>
+          <div class="ctrl">
+            <label>Horas encendido
+              <input type="range" id="reg-h" min="0.5" max="8" step="0.5" value="2"
+                     aria-label="Horas que est&aacute;n encendidos los aparatos">
+              <b id="reg-ht">2 h</b></label>
+            <label>Precio del kWh
+              <input type="range" id="reg-p" min="0.05" max="0.45" step="0.01" value="0.27"
+                     aria-label="Precio del kilovatio hora en euros">
+              <b id="reg-pt">0,27 &euro;</b></label>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" id="svg-regleta" role="img"
+               aria-label="Ocho aparatos que se pueden enchufar a una regleta, con la corriente de cada uno y un indicador de la corriente total"></svg>
+        </div>
+        <div class="pie" id="pie-regleta"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-regleta');
+        if(!svg || !window.U6) return;
+        var S = window.U6, pie = document.getElementById('pie-regleta');
+        var seg = document.getElementById('seg-regleta');
+        var sH = document.getElementById('reg-h'), sP = document.getElementById('reg-p');
+        var tH = document.getElementById('reg-ht'), tP = document.getElementById('reg-pt');
+
+        /* Datos de partida. Las potencias son TIPICAS: la de verdad esta en la
+           placa de caracteristicas de cada aparato.                           */
+        var AP = [
+          {n: 'Cargador m\u00f3vil', w: 5},
+          {n: 'Bombilla LED',        w: 9},
+          {n: 'Port\u00e1til',       w: 45},
+          {n: 'Televisor',           w: 100},
+          {n: 'Consola',             w: 150},
+          {n: 'Microondas',          w: 1000},
+          {n: 'Secador de pelo',     w: 2000},
+          {n: 'Estufa',              w: 2000}
+        ];
+        var V = 230;          /* tension de la red en Espana */
+        var IBASE = 16;       /* una base de enchufe normal es de 16 A */
+        var GCO2 = 258;       /* g de CO2eq por kWh: mix electrico espanol 2025 */
+        var IESC = 25;        /* fondo de escala del indicador, en amperios */
+
+        var on = [false, false, false, false, false, false, false, false];
+        var contratada = 3.45;   /* kW */
+
+        function coma(x, d){ return x.toFixed(d).replace('.', ','); }
+
+        /* ---- las cuentas: nada de esto esta escrito a mano --------------- */
+        function calcula(){
+          var P = 0;
+          for(var i = 0; i < AP.length; i++) if(on[i]) P += AP[i].w;
+          var I = P / V;
+          var h = parseFloat(sH.value), precio = parseFloat(sP.value);
+          var salta = P > contratada * 1000;
+          var kWh = salta ? 0 : P / 1000 * h;
+          return {P: P, I: I, h: h, precio: precio, salta: salta,
+                  caliente: !salta && I > IBASE,
+                  kWh: kWh, euros: kWh * precio, co2: kWh * GCO2,
+                  Icontrat: contratada * 1000 / V};
+        }
+
+        /* ---- geometria: columna de aparatos a la izquierda --------------- */
+        var FX = 18, FW = 274, FY0 = 54, FPASO = 29;
+
+        function fila(i, c){
+          var y = FY0 + i * FPASO, a = AP[i], enc = on[i] && !c.salta;
+          var col = on[i] ? (c.salta ? 'var(--goo-rojo)' : 'var(--ink)') : 'var(--ink-soft)';
+          var m = '<rect x="' + FX + '" y="' + (y - 13) + '" width="' + FW + '" height="26" rx="2"'
+                + ' fill="' + (on[i] ? 'var(--surface-2)' : 'none') + '" stroke="var(--line-soft)"'
+                + ' stroke-width="1"></rect>';
+          /* casilla de enchufado */
+          m += '<rect x="' + (FX + 8) + '" y="' + (y - 7) + '" width="14" height="14" rx="2" fill="'
+             + (on[i] ? 'var(--goo-verde)' : 'var(--surface)') + '" stroke="' + col
+             + '" stroke-width="1.6"></rect>';
+          if(on[i]){
+            m += S.trazo('M' + (FX + 11) + ' ' + y + ' L' + (FX + 14) + ' ' + (y + 4)
+                       + ' L' + (FX + 19) + ' ' + (y - 4), '#fff', 2);
+          }
+          m += S.texto(FX + 30, y + 4, a.n, ' style="font-size:11.5px;fill:' + col + '"');
+          m += S.texto(FX + 205, y + 4, a.w + ' W',
+                       ' text-anchor="end" style="font-size:11.5px;fill:' + col + '"');
+          /* la corriente de cada aparato, calculada */
+          m += S.texto(FX + FW - 8, y + 4, coma(a.w / V, 2) + ' A',
+                       ' text-anchor="end" style="font-size:11.5px;fill:'
+                       + (enc ? 'var(--goo-azul)' : 'var(--ink-soft)') + '"');
+          /* La zona de clic es tambien la de teclado: con el tabulador se
+             recorren los ocho aparatos y se enchufan con Intro o espacio.   */
+          m += '<rect x="' + FX + '" y="' + (y - 13) + '" width="' + FW + '" height="26"'
+             + ' fill="#000" fill-opacity="0" pointer-events="all" data-a="' + i + '"'
+             + ' tabindex="0" role="switch" aria-checked="' + (on[i] ? 'true' : 'false')
+             + '" aria-label="' + a.n + ', ' + a.w + ' vatios"></rect>';
+          return m;
+        }
+
+        /* ---- la regleta, arriba a la derecha ----------------------------- */
+        var RX = 336, RW = 268, RY = 72, RH = 42;
+
+        function regleta(c){
+          var col = c.salta ? 'var(--goo-rojo)' : (c.caliente ? 'var(--goo-amarillo)' : 'var(--ink)');
+          var m = '<rect x="' + RX + '" y="' + RY + '" width="' + RW + '" height="' + RH
+                + '" rx="6" fill="var(--surface)" stroke="' + col + '" stroke-width="2.4"></rect>';
+          /* ocho tomas repartidas con paso constante dentro de la regleta */
+          var paso = RW / AP.length, r = 11;
+          for(var i = 0; i < AP.length; i++){
+            var cx = RX + paso * (i + 0.5), cy = RY + RH / 2;
+            var vivo = on[i] && !c.salta;
+            m += '<circle cx="' + cx.toFixed(1) + '" cy="' + cy + '" r="' + r + '" fill="'
+               + (vivo ? 'var(--goo-verde)' : 'var(--surface-2)') + '" fill-opacity="'
+               + (vivo ? '.85' : '1') + '" stroke="' + col + '" stroke-width="1.6"></circle>';
+            m += '<circle cx="' + (cx - 4).toFixed(1) + '" cy="' + cy + '" r="1.8" fill="'
+               + (vivo ? '#fff' : 'var(--ink-soft)') + '"></circle>';
+            m += '<circle cx="' + (cx + 4).toFixed(1) + '" cy="' + cy + '" r="1.8" fill="'
+               + (vivo ? '#fff' : 'var(--ink-soft)') + '"></circle>';
+            m += '<rect x="' + (cx - 13) + '" y="' + (RY + 3) + '" width="26" height="' + (RH - 6)
+               + '" fill="#000" fill-opacity="0" pointer-events="all" data-a="' + i + '"></rect>';
+          }
+          /* El cable que la alimenta, hasta la base de la pared: por el pasa
+             TODA la corriente sumada, y por eso se dibuja mas gordo cuando se
+             calienta. Un cable no se deja acabado en el aire.                */
+          var xc = RX - 18, yb = RY + RH + 32;
+          m += S.trazo('M' + RX + ' ' + (RY + RH / 2) + ' L' + xc + ' ' + (RY + RH / 2)
+                     + ' L' + xc + ' ' + yb, col, c.caliente ? 4.5 : 3);
+          m += '<rect x="' + (xc - 12) + '" y="' + yb + '" width="24" height="20" rx="3"'
+             + ' fill="var(--surface-2)" stroke="' + col + '" stroke-width="1.6"></rect>';
+          m += '<circle cx="' + (xc - 5) + '" cy="' + (yb + 10) + '" r="2" fill="' + col + '"></circle>';
+          m += '<circle cx="' + (xc + 5) + '" cy="' + (yb + 10) + '" r="2" fill="' + col + '"></circle>';
+          m += S.texto(RX, RY + RH + 22, 'por aqu\u00ed pasa la suma de todas las corrientes',
+                       ' style="font-size:10px;fill:' + col + '"');
+          return m;
+        }
+
+        /* ---- el indicador de corriente, abajo a la derecha --------------- */
+        var GX = 346, GW = 258, GY = 214, GH = 15;
+
+        function indicador(c){
+          var m = '<rect x="' + GX + '" y="' + GY + '" width="' + GW + '" height="' + GH
+                + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.2"></rect>';
+          var f = Math.min(c.I, IESC) / IESC;
+          var col = c.salta ? 'var(--goo-rojo)'
+                  : (c.caliente ? 'var(--goo-amarillo)' : 'var(--goo-verde)');
+          m += '<rect x="' + GX + '" y="' + GY + '" width="' + (GW * f).toFixed(1) + '" height="'
+             + GH + '" fill="' + col + '"></rect>';
+          /* marca de los 16 A de la base y de la potencia contratada */
+          function marca(I, etq, c2, arriba){
+            var x = GX + Math.min(I, IESC) / IESC * GW;
+            var s = S.cable(x, GY - (arriba ? 9 : 0), x, GY + GH + (arriba ? 0 : 9), c2, 1.8);
+            /* el rotulo se centra en la marca, pero sin salirse del lienzo */
+            var xt = Math.max(GX + 46, Math.min(x, GX + GW - 46));
+            s += S.texto(xt, arriba ? GY - 13 : GY + GH + 21, etq,
+                         ' text-anchor="middle" style="font-size:9.5px;fill:' + c2 + '"');
+            return s;
+          }
+          m += marca(IBASE, '16 A \u00b7 la base', 'var(--goo-rojo)', true);
+          m += marca(c.Icontrat, coma(c.Icontrat, 1) + ' A \u00b7 lo contratado',
+                     'var(--goo-azul)', false);
+          m += S.texto(GX, GY - 13, '0', ' style="font-size:9.5px"');
+          m += S.texto(GX + GW, GY - 13, IESC + ' A', ' text-anchor="end" style="font-size:9.5px"');
+          return m;
+        }
+
+        function pinta(){
+          var c = calcula(), m = '';
+          for(var i = 0; i < AP.length; i++) m += fila(i, c);
+          m += S.texto(FX, 34, 'APARATOS \u00b7 potencia t\u00edpica \u00b7 I = P / 230',
+                       ' style="font-size:10.5px;letter-spacing:.1em"');
+          m += regleta(c);
+          m += indicador(c);
+
+          /* la cuenta, escrita con los numeros de este momento */
+          m += S.texto(RX, 158, 'P = ' + c.P + ' W',
+                       ' style="font-size:15px;fill:var(--ink)"');
+          m += S.texto(RX, 180, 'I = P / V = ' + c.P + ' / 230 = ' + coma(c.I, 2) + ' A',
+                       ' style="font-size:13px;fill:var(--goo-azul)"');
+
+          var etq, ecol;
+          if(c.salta){ etq = 'SALTA EL AUTOM\u00c1TICO'; ecol = 'var(--goo-rojo)'; }
+          else if(c.caliente){ etq = 'LA BASE, PASADA DE VUELTAS'; ecol = 'var(--goo-amarillo)'; }
+          else if(c.P === 0){ etq = 'NADA ENCHUFADO'; ecol = 'var(--ink-soft)'; }
+          else { etq = 'TODO EN ORDEN'; ecol = 'var(--goo-verde)'; }
+          m += S.texto(RX, 34, etq,
+                       ' style="font-size:13px;letter-spacing:.12em;fill:' + ecol + '"');
+
+          svg.innerHTML = m;
+          tH.innerHTML = coma(c.h, 1).replace(',0', '') + ' h';
+          tP.innerHTML = coma(c.precio, 2) + ' &euro;';
+          pinta_pie(c);
+          seg.querySelectorAll('button[data-p]').forEach(function(b){
+            if(b.dataset.p !== 'nada')
+              b.setAttribute('aria-pressed',
+                             parseFloat(b.dataset.p) === contratada ? 'true' : 'false');
+          });
+        }
+
+        function f2(a, b){ return '<tr><td>' + a + '</td><td>' + b + '</td></tr>'; }
+
+        function pinta_pie(c){
+          var t;
+          if(c.P === 0){
+            t = '<b>No has enchufado nada.</b> Enchufa aparatos y mira dos cosas: lo que suman '
+              + 'las potencias y lo que suman las corrientes. Est&aacute;n todos <b>en paralelo</b>, '
+              + 'as&iacute; que todos reciben los mismos 230 V y sus corrientes se suman &mdash; lo que '
+              + 'viste en la sesi&oacute;n anterior, ahora con la factura delante.';
+          } else if(c.salta){
+            t = '<b>Salta el autom&aacute;tico.</b> Has pedido ' + c.P + ' W y tienes contratados '
+              + coma(contratada * 1000, 0) + ' W. El interruptor de control abre el circuito y te '
+              + 'quedas sin luz en toda la casa: no es una aver&iacute;a, es lo que has contratado. '
+              + 'Apaga algo o contrata m&aacute;s potencia &mdash; y contratar m&aacute;s potencia se paga '
+              + '<b>todos los d&iacute;as del mes</b>, la uses o no.';
+          } else if(c.caliente){
+            t = '<b>' + coma(c.I, 2) + ' A por un cable pensado para 16 A.</b> No salta nada: '
+              + 'la potencia contratada te llega. Lo que pasa es que toda esa corriente atraviesa '
+              + 'el <b>&uacute;nico cable</b> de la regleta, que se calienta. As&iacute; es como empiezan los '
+              + 'incendios por regleta: no por un cortocircuito, sino por sumar aparatos grandes '
+              + 'en una sola toma.';
+          } else {
+            t = '<b>Todo en orden.</b> ' + coma(c.I, 2) + ' A por el cable de la regleta, por '
+              + 'debajo de los 16 A de la base, y ' + c.P + ' W por debajo de los '
+              + coma(contratada * 1000, 0) + ' W contratados.';
+          }
+          var f = '<table class="tabla">';
+          f += f2('Potencia total &nbsp;<i>P = suma de las potencias</i>', c.P + ' W');
+          f += f2('Corriente por el cable &nbsp;<i>I = P / V</i>', coma(c.I, 2) + ' A');
+          f += f2('Energ&iacute;a en ' + coma(c.h, 1).replace(',0', '') + ' h &nbsp;<i>E = P &times; t</i>',
+                  coma(c.kWh, 3) + ' kWh');
+          f += f2('Lo que cuesta &nbsp;<i>E &times; precio</i>', coma(c.euros, 2) + ' &euro;');
+          f += f2('CO&#8322; que ha costado &nbsp;<i>E &times; 258 g/kWh</i>',
+                  (c.co2 >= 1000 ? coma(c.co2 / 1000, 2) + ' kg' : Math.round(c.co2) + ' g'));
+          f += '</table>';
+          pie.innerHTML = t + f;
+        }
+
+        function conmuta(t){
+          var i = parseInt(t.dataset.a, 10);
+          on[i] = !on[i];
+          pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve al mismo aparato para poder seguir con el tabulador.   */
+          var nuevo = svg.querySelector('[data-a="' + i + '"][tabindex]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
+        svg.addEventListener('click', function(e){
+          var t = e.target.closest('[data-a]');
+          if(t) conmuta(t);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var t = e.target.closest ? e.target.closest('[data-a]') : null;
+          if(!t) return;
+          e.preventDefault();
+          conmuta(t);
+        });
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]');
+          if(!b) return;
+          if(b.dataset.p === 'nada') on = on.map(function(){ return false; });
+          else contratada = parseFloat(b.dataset.p);
+          pinta();
+        });
+        sH.addEventListener('input', pinta);
+        sP.addEventListener('input', pinta);
+        pinta();
+      })();
+      </script>
+
+      <p>Dos l&iacute;mites distintos, y conviene no mezclarlos. El primero es el <b>cable</b>: una base
+         de enchufe normal es de <b>16 A</b>, o sea 16 &times; 230 = <b>3.680 W</b>; pasar de ah&iacute; no
+         hace saltar nada, simplemente calienta el cable de la regleta. El segundo es la
+         <b>potencia contratada</b>: cuando la pasas, el interruptor de control abre el circuito y
+         te quedas a oscuras. Y f&iacute;jate en un detalle bonito de las potencias que se contratan:
+         3,45 kW son exactamente <b>15 A</b>, y 4,6 kW son <b>20 A</b>. No son n&uacute;meros raros, son
+         amperios redondos disfrazados de kilovatios.</p>
+
+      <h3>La factura: d&oacute;nde est&aacute; el dinero</h3>
+      <p>Una factura de la luz no es una lista de precios: es <b>dos alquileres sumados</b>. Uno por
+         lo que consumes y otro por estar conectado, que se paga aunque te vayas todo el mes de
+         viaje. Esta es una factura de ejemplo de un mes de 30 d&iacute;as, con 250 kWh consumidos.</p>
+
+      <style>
+        #factura-ej{width:100%;border-collapse:collapse;font:400 13.5px var(--f-m);margin:14px 0}
+        #factura-ej th{text-align:left;font-weight:500;color:var(--ink-soft);font-size:11px;
+          letter-spacing:.1em;text-transform:uppercase;padding:0 8px 6px 0;border-bottom:1.5px solid var(--ink)}
+        #factura-ej td{padding:6px 8px 6px 0;border-bottom:1px solid var(--line-soft);color:var(--ink-soft)}
+        #factura-ej td:last-child{text-align:right;color:var(--ink);white-space:nowrap}
+        #factura-ej tr.suma td{color:var(--ink);font-weight:500}
+        #factura-ej tr.total td{border-bottom:0;border-top:1.5px solid var(--ink);
+          color:var(--ink);font-weight:500;font-size:15px}
+      </style>
+
+      <table id="factura-ej">
+        <thead><tr><th>Concepto</th><th>C&oacute;mo sale</th><th>Importe</th></tr></thead>
+        <tbody>
+          <tr><td>T&eacute;rmino de potencia</td>
+              <td>3,45 kW &times; 30 d&iacute;as &times; 0,10 &euro;/kW&middot;d&iacute;a</td><td>10,35 &euro;</td></tr>
+          <tr><td>T&eacute;rmino de energ&iacute;a</td>
+              <td>250 kWh &times; 0,18 &euro;/kWh</td><td>45,00 &euro;</td></tr>
+          <tr class="suma"><td>Suma de los dos t&eacute;rminos</td><td></td><td>55,35 &euro;</td></tr>
+          <tr><td>Impuesto el&eacute;ctrico</td><td>5,11 % de 55,35</td><td>2,83 &euro;</td></tr>
+          <tr><td>Alquiler del contador</td><td>0,027 &euro;/d&iacute;a &times; 30</td><td>0,81 &euro;</td></tr>
+          <tr class="suma"><td>Base imponible</td><td></td><td>58,99 &euro;</td></tr>
+          <tr><td>IVA</td><td>21 % de 58,99</td><td>12,39 &euro;</td></tr>
+          <tr class="total"><td>Total a pagar</td><td>30 d&iacute;as, 250 kWh</td><td>71,38 &euro;</td></tr>
+        </tbody>
+      </table>
+      <p>Y ahora la pregunta que cambia las decisiones de una casa: <b>&iquest;a cu&aacute;nto te ha salido de
+         verdad el kWh?</b> No a 0,18. Divide el total entre los kWh consumidos: 71,38 / 250 =
+         <b>0,2855 &euro;/kWh</b>. Un <b>59 % m&aacute;s</b> que el precio que ven&iacute;a anunciado. Todo lo que
+         calcules con el precio de la tarifa te saldr&aacute; corto.</p>
+      <p>El dato sirve de contraste: seg&uacute;n <b>Eurostat</b>, los hogares espa&ntilde;oles que consumen entre
+         2.500 y 5.000 kWh al a&ntilde;o &mdash;esta casa, justo&mdash; pagaron de media <b>0,2669 &euro;/kWh</b>
+         con todos los impuestos incluidos en el segundo semestre de 2025. Nuestra factura de ejemplo
+         cae donde tiene que caer.</p>
+
+      <div class="copiar">
+        <h4>Leer una factura</h4>
+        <ul>
+          <li><b>T&eacute;rmino de potencia</b>: se paga por los <b>kW contratados y los d&iacute;as</b>, gastes
+              o no gastes. Contratar de m&aacute;s es pagar de m&aacute;s todos los d&iacute;as del a&ntilde;o.</li>
+          <li><b>T&eacute;rmino de energ&iacute;a</b>: se paga por los <b>kWh</b> que marca el contador.</li>
+          <li>Encima van los <b>impuestos</b> y el alquiler del contador.</li>
+          <li><b>Precio real del kWh = total &divide; kWh consumidos.</b> Es el &uacute;nico n&uacute;mero con el
+              que merece la pena calcular.</li>
+        </ul>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:0">Los porcentajes de esta
+           factura son los vigentes en <b>septiembre de 2026</b> (IVA del 21 % e impuesto el&eacute;ctrico
+           del 5,11 %) y han cambiado varias veces en los &uacute;ltimos a&ntilde;os. Los precios de los dos
+           t&eacute;rminos son de ejemplo: los tuyos est&aacute;n en tu contrato.</p>
+      </div>
+
+      <h3>La etiqueta energ&eacute;tica: la letra y el n&uacute;mero</h3>
+      <p>Desde el <b>1 de marzo de 2021</b> los electrodom&eacute;sticos vuelven a llevar una escala simple
+         de la <b>A a la G</b>, sin los antiguos A+, A++ y A+++, que hab&iacute;an acabado amontonando a
+         casi todos los aparatos en la misma casilla. Lo regula el <b>Reglamento (UE) 2017/1369</b>.</p>
+      <p>De la etiqueta hay que mirar dos cosas, y la segunda es la que se ignora casi siempre:</p>
+      <ul>
+        <li>La <b>letra</b> solo sirve para comparar aparatos <b>del mismo tipo</b>. Un frigor&iacute;fico A
+            y un horno A no tienen nada que ver.</li>
+        <li>El <b>n&uacute;mero</b> de debajo es el que sirve para calcular: <b>kWh al a&ntilde;o</b> en
+            frigor&iacute;ficos, <b>kWh por cada 100 ciclos</b> en lavadoras, lavavajillas y secadoras.</li>
+      </ul>
+      <p><b>Hagamos la cuenta.</b> Dos frigor&iacute;ficos del mismo tama&ntilde;o, uno de 148 kWh/a&ntilde;o y otro de
+         296. La diferencia son <b>148 kWh al a&ntilde;o</b>, que a 0,27 &euro;/kWh son <b>39,96 &euro; cada
+         a&ntilde;o</b>, y unos <b>38 kg de CO&#8322;</b>. Si el bueno cuesta 120 &euro; m&aacute;s en la tienda, se
+         paga solo en <b>tres a&ntilde;os</b>; y un frigor&iacute;fico dura quince.</p>
+
+      <div class="copiar">
+        <h4>De los kWh al CO&#8322;</h4>
+        <p>Cada kWh que gastas tiene detr&aacute;s unas emisiones, que dependen de con qu&eacute; se ha generado
+           esa electricidad. Para el <b>mix el&eacute;ctrico espa&ntilde;ol</b>, la CNMC public&oacute; para la energ&iacute;a
+           producida en <b>2025</b> un valor de <b>258 g de CO&#8322;eq por kWh</b>.</p>
+        <p style="font-family:var(--f-m);font-size:15px;text-align:center;margin:10px 0">
+           CO&#8322; = E (kWh) &times; 258 g/kWh</p>
+        <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:0">Ese n&uacute;mero <b>baja cada
+           a&ntilde;o</b> seg&uacute;n entran renovables: en 2015 estaba en 398 g/kWh. Y ojo, es el mix de la red:
+           una comercializadora que venda electricidad 100 % renovable certificada declara un valor
+           distinto en tu factura.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>&iquest;Y c&oacute;mo se cuenta un kWh? Durante casi un siglo, con un aparato que hace la
+           multiplicaci&oacute;n <b>a mano y sin electr&oacute;nica</b>: el contador de inducci&oacute;n. Dentro hay un
+           disco de aluminio entre dos bobinas, una recorrida por la <b>tensi&oacute;n</b> y otra por la
+           <b>corriente</b>. El campo de las dos arrastra el disco, y el disco gira tanto m&aacute;s deprisa
+           cuanto mayor es el producto V &times; I. O sea, <b>la velocidad del disco es la
+           potencia</b>, y las <b>vueltas acumuladas</b> son la energ&iacute;a.</p>
+        <p>Por eso un contador viejo lleva escrito algo como <i>375 U/kWh</i>: trescientas setenta y
+           cinco vueltas del disco por cada kilovatio-hora. Con un cron&oacute;metro y esa cifra se puede
+           medir la potencia de un aparato sin ning&uacute;n instrumento m&aacute;s: se cuenta cu&aacute;nto tarda en dar
+           diez vueltas y se hace una regla de tres.</p>
+        <p>Los contadores digitales de ahora ya no tienen disco: multiplican V por I muchas veces por
+           segundo y suman. Pero conservan la costumbre de anunciar su constante en la placa, ahora
+           en forma de <b>impulsos por kWh</b> del piloto que parpadea.</p>
+      </div>
+
+      <div class="galeria-ri">
+        <figure class="foto">
+          <img src="../../../img/u6-contador-viejo.jpg" loading="lazy"
+               alt="Contador el&eacute;ctrico Siemens de inducci&oacute;n, con ruedas num&eacute;ricas marcando 65521,9 kWh
+                    y un disco met&aacute;lico girando bajo ellas">
+          <figcaption>El contador de <b>inducci&oacute;n</b>, el d&iacute;a antes de que lo retiraran. Lleva
+            contados <b>65.521,9 kWh</b>. En la placa, los datos que ahora sabes leer: <b>220 V</b>,
+            <b>10 (60) A</b> y <b>375 U/kWh</b> &mdash;375 vueltas del disco por cada kilovatio-hora&mdash;.
+            <span class="credito">RobbieIanMorrison &middot; CC BY 4.0 &middot;
+              <a href="https://commons.wikimedia.org/wiki/File:Siemens_household_electricity_meter_electromechanical_induction_type.jpg"
+                 target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../../img/u6-contador-nuevo.jpg" loading="lazy"
+               alt="Contador el&eacute;ctrico digital moderno con una pantalla que marca 000000 kWh">
+          <figcaption>Y el digital que ocup&oacute; su sitio, reci&eacute;n instalado: <b>000000 kWh</b>,
+            empezando de cero. Misma placa, otros n&uacute;meros: <b>230 V</b>, <b>50 Hz</b> y
+            <b>500 impulsos/kWh</b> en vez de vueltas.
+            <span class="credito">RobbieIanMorrison &middot; CC BY 4.0 &middot;
+              <a href="https://commons.wikimedia.org/wiki/File:Logarex_smart_household_electricity_meter_build_year_2023.jpg"
+                 target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-soft)">Las dos fotos son del mismo cuadro de una
+         vivienda de Berl&iacute;n, tomadas con un d&iacute;a de diferencia: la del contador viejo, la v&iacute;spera
+         de retirarlo; la del nuevo, el d&iacute;a de instalarlo. All&iacute; la red es la misma que aqu&iacute;
+         &mdash;230 V y 50 Hz&mdash;, as&iacute; que lo que se lee en las placas vale igual para un
+         contador espa&ntilde;ol. Y f&iacute;jate en un detalle: el viejo dice <b>220 V</b> y el nuevo
+         <b>230 V</b>. No es un error de ninguno de los dos: la red europea estaba a 220 V y se
+         armoniz&oacute; en 230 V, as&iacute; que el aparato viejo es de antes de aquello.</p>
+
+      <div class="video" id="video-9qWYeA5y_r0" data-vid="9qWYeA5y_r0">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Potencia y energ&iacute;a el&eacute;ctrica: &iquest;cu&aacute;nto costar&aacute;?">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Potencia y energ&iacute;a el&eacute;ctrica: &iquest;cu&aacute;nto costar&aacute;?</b>
+            <span>Ruben Sebastian</span>
+          </span>
+        </button>
+        <p class="video-nota">Otra explicaci&oacute;n de lo mismo, con ejercicios resueltos. Antes de darle al play, calcula t&uacute; lo que cuesta tener encendida la luz de tu habitaci&oacute;n tres horas al d&iacute;a durante un mes: as&iacute; el v&iacute;deo te corrige en vez de cont&aacute;rtelo.</p>
+        <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
+          seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=9qWYeA5y_r0" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
+          licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 &middot; La factura, y lo que cuesta tu habitaci&oacute;n</span>
+          <span class="chips"><span class="chip">3.1</span><span class="chip">A.6</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Con calculadora y con la escena de la regleta abierta. No hace falta traer ninguna
+             factura de casa: la de ejemplo de la teor&iacute;a tiene todos los datos.</p>
+          <ol class="pasos">
+            <li><b>Comprobad la factura</b> de la teor&iacute;a l&iacute;nea a l&iacute;nea. Rehaced las siete
+                operaciones y decid si el total est&aacute; bien. Copiad cada operaci&oacute;n, no solo el
+                resultado.</li>
+            <li>Calculad el <b>precio real del kWh</b> (total &divide; kWh) y decid cu&aacute;nto se
+                equivocar&iacute;a alguien que hiciera sus cuentas con los 0,18 &euro;/kWh de la tarifa.</li>
+            <li><b>Inventario de tu habitaci&oacute;n</b>: elegid <b>cuatro aparatos</b>, buscad su
+                potencia en la placa de caracter&iacute;sticas o en el cargador (si no la ten&eacute;is a mano,
+                usad las de la escena) y estimad las horas que funcionan al d&iacute;a.</li>
+            <li>Tabla: aparato &middot; P (W) &middot; h/d&iacute;a &middot; kWh/mes &middot; &euro;/mes &middot;
+                g CO&#8322;/mes. Usad el <b>precio real</b> del paso 2 y los 258 g/kWh.</li>
+            <li><b>Una decisi&oacute;n.</b> Elegid el aparato que m&aacute;s gasta y proponed un cambio concreto
+                (sustituirlo, usarlo menos, apagarlo de otra forma). Calculad cu&aacute;nto se ahorra al
+                a&ntilde;o <b>en euros y en kg de CO&#8322;</b>.</li>
+            <li>En la escena, encontrad una combinaci&oacute;n de aparatos que <b>caliente la regleta sin
+                que salte el autom&aacute;tico</b>, y otra que lo haga saltar. Anotad las dos y explicad
+                la diferencia en dos l&iacute;neas.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las siete operaciones de la factura est&aacute;n rehechas y bien <b>(2 puntos)</b>.</li>
+            <li>El precio real del kWh est&aacute; calculado y comparado con el de la tarifa
+                <b>(2 puntos)</b>.</li>
+            <li>La tabla de los cuatro aparatos est&aacute; completa, con <b>unidades correctas</b>
+                <b>(3 puntos)</b>.</li>
+            <li>La decisi&oacute;n del paso 5 viene con su ahorro calculado, no con una opini&oacute;n
+                <b>(2 puntos)</b>.</li>
+            <li>Las dos combinaciones de la escena est&aacute;n anotadas y explicadas <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Cuidado con esto</span>
+            Un fallo de unidades cuesta la mitad del ejercicio: la potencia va en <b>kW</b> y el
+            tiempo en <b>horas</b>. 1.500 W son 1,5 kW, y 20 minutos son 0,33 h. Si en alguna
+            casilla os sale un n&uacute;mero absurdo &mdash;una bombilla que cuesta 300 &euro; al mes&mdash;,
+            no lo tach&eacute;is: escribid al lado qu&eacute; unidad hab&eacute;is mezclado.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>La bombilla del pasillo y el microondas ya se pueden comparar, y no hace falta discutir:
+         se multiplica y se mira.</p>
+      <ol>
+              <li>Una estufa de 1.500 W funciona 4 horas al d&iacute;a durante 20 d&iacute;as. &iquest;Cu&aacute;nta energ&iacute;a gasta y cu&aacute;nto cuesta a 0,27 &euro;/kWh?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>E = 1,5 kW &times; 4 h &times; 20 d&iacute;as = <b>120 kWh</b>. Coste = 120 &times; 0,27 = <b>32,40 &euro;</b>. Y de paso: 120 &times; 258 = <b>30,9 kg de CO&#8322;</b>.</p></div></details></li>
+        <li>&iquest;Qu&eacute; corriente pide una vitrocer&aacute;mica de 2.300 W a 230 V? &iquest;Se puede enchufar a una regleta junto a un secador de 2.000 W?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>I = P / V = 2.300 / 230 = <b>10 A</b>. Con el secador ser&iacute;an 10 + 8,7 = <b>18,7 A</b>, por encima de los <b>16 A</b> de la base: el cable de la regleta se calentar&iacute;a. Y adem&aacute;s 4.300 W superan la potencia contratada m&aacute;s habitual, as&iacute; que probablemente saltar&iacute;a el autom&aacute;tico antes.</p></div></details></li>
+        <li>Un frigor&iacute;fico de clase A y otro de clase F. &iquest;Qu&eacute; dato de la etiqueta te dice lo que vas a pagar, la letra o el n&uacute;mero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El <b>n&uacute;mero</b>: los <b>kWh al a&ntilde;o</b>. La letra solo te dice si es de los buenos o de los malos <b>dentro de su familia</b>, y no se puede multiplicar por el precio del kWh. Con el n&uacute;mero s&iacute;: (kWh/a&ntilde;o) &times; precio = euros al a&ntilde;o.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Todo lo que has encendido hasta ahora ha sido una l&aacute;mpara, y una l&aacute;mpara aguanta lo que le
+        eches: si le das poco alumbra poco y si le das de m&aacute;s se funde y ya est&aacute;. La pr&oacute;xima
+        sesi&oacute;n montas un componente que <b>no perdona</b>: se rompe en el primer segundo si no
+        haces la cuenta antes. Es el <b>LED</b>, y est&aacute; en todas las pantallas que miras.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>El componente que no perdona</h2>
+      <p>Una l&aacute;mpara aguanta lo que le eches. Un LED se muere en el primer segundo si no has hecho la cuenta antes.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.6</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Encima de la mesa, una pila de petaca y un <b>LED</b>. Nada m&aacute;s.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El reto</span>
+        <p style="margin:0 0 8px">Dibuja en la libreta c&oacute;mo lo conectar&iacute;as para que se encienda.
+           Tienes treinta segundos: es el mismo circuito de la primera sesi&oacute;n cambiando la l&aacute;mpara
+           por el LED.</p>
+        <p style="margin:0"><b>No lo montes todav&iacute;a.</b> Sigue leyendo.</p>
+      </div>
+
+      <p>Ese dibujo est&aacute; bien y es exactamente lo que no hay que hacer. Si lo montas, el LED se
+         enciende <b>un instante</b> &mdash;a veces ni eso&mdash; y se queda muerto para siempre. No se
+         funde como una bombilla, con su filamento partido y su ruidito: simplemente deja de
+         alumbrar, y por fuera sigue igual de nuevo.</p>
+      <p>Y en la mesa de al lado alguien ha puesto <b>una resistencia</b> en serie y el suyo luce
+         perfectamente. Pregunta obligada: &iquest;cu&aacute;l ha puesto? La respuesta que suele salir es
+         &laquo;una que hab&iacute;a en la caja&raquo;. Y as&iacute;, a veces luce, a veces alumbra tan poco que no se ve,
+         y a veces se muere igual.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa antes de seguir</span>
+        <p>Dos preguntas. La primera: <b>&iquest;por qu&eacute; la l&aacute;mpara aguanta y el LED no</b>, si los dos
+           est&aacute;n conectados a la misma pila? La segunda, la importante: si hay que ponerle una
+           resistencia, <b>&iquest;de cu&aacute;ntos ohmios?</b> Y sobre todo, <b>&iquest;de d&oacute;nde sale ese
+           n&uacute;mero?</b></p>
+      </div>
+
+      <p>Pista de la sesi&oacute;n 2, donde ya lo avisamos sin darle importancia: la gr&aacute;fica de la ley de
+         Ohm es una recta <b>en un conductor met&aacute;lico</b>, y dijimos que en un LED <b>no lo es</b>.
+         Ah&iacute; est&aacute; todo el problema de hoy.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <h3>Un LED no es una bombilla peque&ntilde;a</h3>
+      <p>Un LED es un <b>diodo</b>: un componente que deja pasar la corriente en <b>un solo
+         sentido</b>. Si lo conectas al rev&eacute;s no es que alumbre menos, es que no pasa nada en
+         absoluto. Por eso sus dos patas no son intercambiables y tiene dos maneras de dec&iacute;rtelo:
+         la <b>pata larga es el &aacute;nodo</b> (por ah&iacute; entra la corriente, al polo +) y el borde de la
+         c&aacute;psula tiene un <b>chafl&aacute;n plano</b> junto al <b>c&aacute;todo</b> (al polo &minus;).</p>
+      <p>Pero lo que de verdad lo diferencia de una l&aacute;mpara es esto: <b>el LED no tiene un valor de
+         resistencia</b>. Una l&aacute;mpara de 9 &#8486; tiene 9 &#8486; le pongas la tensi&oacute;n que le pongas
+         (mientras no cambie mucho de temperatura), y por eso puedes calcular su corriente con la ley
+         de Ohm. Un LED, no. Un LED se comporta as&iacute;:</p>
+      <ul>
+        <li>Por debajo de cierta tensi&oacute;n, llamada <b>tensi&oacute;n directa</b> (V<sub>f</sub>),
+            pr&aacute;cticamente <b>no conduce</b> y no alumbra.</li>
+        <li>En cuanto la pasas, la corriente <b>se dispara</b>: unas d&eacute;cimas de voltio de m&aacute;s
+            multiplican la corriente por diez.</li>
+      </ul>
+      <p>Por eso conectarlo directamente a 4,5 V es una sentencia: la pila empuja con 4,5 y el LED
+         &laquo;solo quiere&raquo; unos 2, as&iacute; que la corriente sube hasta que algo se rompe. Y por eso mismo
+         <b>no puedes calcular la corriente del LED con la ley de Ohm</b>: no hay una R que poner.</p>
+
+      <div class="copiar">
+        <h4>El diodo LED</h4>
+        <ul>
+          <li><b>Conduce en un solo sentido.</b> Pata larga = &aacute;nodo (+). Chafl&aacute;n = c&aacute;todo (&minus;).</li>
+          <li>Tiene una <b>tensi&oacute;n directa V<sub>f</sub></b> que depende del <b>color</b>, y que
+              apenas cambia aunque cambie la corriente.</li>
+          <li><b>No es &oacute;hmico</b>: su corriente no es proporcional a la tensi&oacute;n, as&iacute; que hay que
+              <b>limitarla desde fuera</b>.</li>
+          <li>Un LED de 5 mm de los normales trabaja bien entre <b>5 y 20 mA</b>. Por encima
+              alumbra m&aacute;s y dura mucho menos.</li>
+        </ul>
+        <h4>Tensiones directas t&iacute;picas</h4>
+        <p>Rojo <b>2,0 V</b> &middot; amarillo <b>2,1 V</b> &middot; verde <b>2,2 V</b> &middot; azul y
+           blanco <b>3,2 V</b>. Son valores t&iacute;picos para orientarse: el de tu LED est&aacute; en su
+           <b>hoja de caracter&iacute;sticas</b>, y dos LED del mismo color de fabricantes distintos pueden
+           diferir en varias d&eacute;cimas.</p>
+      </div>
+
+      <h3>La resistencia limitadora, y de d&oacute;nde sale su n&uacute;mero</h3>
+      <p>La soluci&oacute;n no es un truco: es la ley de Ohm aplicada donde s&iacute; vale. Pon una resistencia
+         <b>en serie</b> con el LED. Est&aacute;n en serie, luego por los dos pasa la <b>misma
+         corriente</b>, y la tensi&oacute;n de la pila <b>se reparte</b> entre los dos &mdash;exactamente lo
+         que viste en la sesi&oacute;n 3&mdash;. Como el LED se queda con su V<sub>f</sub> pase lo que pase,
+         <b>todo lo dem&aacute;s cae en la resistencia</b>.</p>
+      <p>Y en la resistencia s&iacute; puedes usar Ohm, porque la resistencia s&iacute; es &oacute;hmica. As&iacute; que t&uacute;
+         <b>decides</b> la corriente que quieres, y despejas:</p>
+
+      <div class="copiar">
+        <h4>C&aacute;lculo de la resistencia limitadora</h4>
+        <p style="font-family:var(--f-m);font-size:17px;text-align:center;margin:10px 0">
+           R = (V<sub>fuente</sub> &minus; V<sub>f</sub>) / I</p>
+        <p>Con la tensi&oacute;n en <b>voltios</b> y la corriente en <b>amperios</b> (10 mA son 0,010 A).</p>
+        <p><b>Ejemplo.</b> LED rojo (2,0 V) en un pin de la micro:bit (3 V), y queremos 5 mA:</p>
+        <ul>
+          <li>Tensi&oacute;n que sobra: 3 &minus; 2,0 = <b>1,0 V</b>.</li>
+          <li>R = 1,0 / 0,005 = <b>200 &#8486;</b>.</li>
+          <li>De 200 &#8486; no hay: el valor normalizado m&aacute;s pr&oacute;ximo <b>por encima</b> es
+              <b>220 &#8486;</b>.</li>
+          <li>Con 220 &#8486; la corriente real es 1,0 / 220 = <b>4,5 mA</b>. Perfecto.</li>
+        </ul>
+        <p><b>Siempre hacia arriba.</b> Si eliges el valor de debajo pasar&aacute; <b>m&aacute;s</b> corriente de
+           la que hab&iacute;as decidido, que es justo de lo que te estabas protegiendo.</p>
+      </div>
+
+      <p>Eso de que &laquo;de 200 &#8486; no hay&raquo; no es una pega de la tienda del barrio: las resistencias
+         se fabrican en <b>series de valores normalizados</b>. La m&aacute;s com&uacute;n en el aula es la
+         <b>E12</b>, que solo tiene doce valores por cada d&eacute;cada &mdash;10, 12, 15, 18, 22, 27, 33, 39,
+         47, 56, 68 y 82&mdash; multiplicados por 1, 10, 100, 1.000&hellip; De un valor al siguiente hay
+         un salto de un 20 % largo, y cada resistencia se fabrica con una tolerancia de
+         <b>&plusmn;10 %</b>: una de 100 &#8486; puede ser en realidad de 110 y una de 120 puede ser de
+         108. Los m&aacute;rgenes de dos valores vecinos <b>se tocan</b>, as&iacute; que fabricar valores
+         intermedios no servir&iacute;a de nada.</p>
+
+      <p>Prueba aqu&iacute; todas las combinaciones que quieras. La escena hace la cuenta entera y luego
+         busca la resistencia que existe de verdad. Y el mando de abajo funciona como el que
+         elijas: el <b>pulsador</b> solo alumbra <b>mientras lo tienes apretado</b>.</p>
+
+      <style>
+        #esc-led .ctrl{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+        #esc-led .ctrl label{font:400 11.5px var(--f-m);color:var(--ink-soft);
+          display:flex;align-items:center;gap:7px}
+        #esc-led .ctrl input[type=range]{width:116px;accent-color:var(--goo-azul)}
+        #esc-led .ctrl b{font:500 12px var(--f-m);color:var(--ink);min-width:56px;display:inline-block}
+        #esc-led .tabla{width:100%;border-collapse:collapse;font:400 13px var(--f-m);margin-top:8px}
+        #esc-led .tabla td{padding:4px 8px 4px 0;border-bottom:1px solid var(--line-soft);color:var(--ink-soft)}
+        #esc-led .tabla td:last-child{text-align:right;color:var(--ink);font-weight:500}
+        #esc-led [data-clic]{cursor:pointer}
+      </style>
+      <div class="escena" id="esc-led">
+        <div class="escena-barra">
+          <span class="escena-titulo">Banco del LED &middot; calcula su resistencia</span>
+          <div class="seg" id="seg-led-f">
+            <button type="button" data-f="0" aria-pressed="true">micro:bit 3 V</button>
+            <button type="button" data-f="1" aria-pressed="false">Pila 4,5 V</button>
+            <button type="button" data-f="2" aria-pressed="false">USB 5 V</button>
+            <button type="button" data-f="3" aria-pressed="false">Pila 9 V</button>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <div class="seg" id="seg-led-c">
+            <button type="button" data-c="0" aria-pressed="true">Rojo</button>
+            <button type="button" data-c="1" aria-pressed="false">Amarillo</button>
+            <button type="button" data-c="2" aria-pressed="false">Verde</button>
+            <button type="button" data-c="3" aria-pressed="false">Azul</button>
+            <button type="button" data-c="4" aria-pressed="false">Blanco</button>
+          </div>
+          <div class="ctrl">
+            <label>Corriente que quieres
+              <input type="range" id="led-i" min="2" max="20" step="1" value="5"
+                     aria-label="Corriente que quieres que pase por el LED, en miliamperios">
+              <b id="led-it">5 mA</b></label>
+          </div>
+        </div>
+        <div class="escena-barra">
+          <div class="seg" id="seg-led-m">
+            <button type="button" data-m="pulsador" aria-pressed="true">Pulsador</button>
+            <button type="button" data-m="interruptor" aria-pressed="false">Interruptor</button>
+            <button type="button" data-m="sinr" aria-pressed="false">Quitar la resistencia</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 300" id="svg-led" role="img"
+               aria-label="Circuito con una fuente, un pulsador, un LED y su resistencia limitadora, y la escala de valores de resistencia que existen en el comercio"></svg>
+        </div>
+        <div class="pie" id="pie-led"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-led');
+        if(!svg || !window.U6) return;
+        var S = window.U6, pie = document.getElementById('pie-led');
+        var segF = document.getElementById('seg-led-f'), segC = document.getElementById('seg-led-c');
+        var segM = document.getElementById('seg-led-m');
+        var sI = document.getElementById('led-i'), tI = document.getElementById('led-it');
+
+        /* Datos de partida. Las tensiones directas son TIPICAS de cada color:
+           la del LED que tengas en la mano esta en su hoja de caracteristicas. */
+        /* El nombre se rotula a la izquierda de la fuente y se sale del lienzo
+           si es largo: por eso van cortos.                                   */
+        var FUENTES = [
+          {n: 'micro:bit P0', v: 3,   celdas: 0, tope: 5},
+          {n: 'Pila petaca',  v: 4.5, celdas: 3, tope: 0},
+          {n: 'USB',          v: 5,   celdas: 0, tope: 0},
+          {n: 'Pila de 9 V',  v: 9,   celdas: 6, tope: 0}
+        ];
+        var COLORES = [
+          {n: 'rojo',     vf: 2.0, c: '#ea4335'},
+          {n: 'amarillo', vf: 2.1, c: '#fbbc04'},
+          {n: 'verde',    vf: 2.2, c: '#34a853'},
+          {n: 'azul',     vf: 3.2, c: '#4285f4'},
+          {n: 'blanco',   vf: 3.2, c: '#e8eaed'}
+        ];
+        var IMAXLED = 20;      /* un LED de 5 mm corriente aguanta 20 mA */
+        /* Serie E12: los valores de resistencia que existen en la caja. */
+        var E12B = [10, 12, 15, 18, 22, 27, 33, 39, 47, 56, 68, 82], E12 = [];
+        for(var d = 0; d < 5; d++)
+          for(var q = 0; q < E12B.length; q++) E12.push(E12B[q] * Math.pow(10, d));
+
+        var fu = 0, co = 0, modo = 'pulsador', sinR = false, cerrado = false;
+
+        function coma(x, d){ return x.toFixed(d).replace('.', ','); }
+        function rot(r){ return r >= 1000 ? coma(r / 1000, r % 1000 ? 1 : 0) + ' k\u2126'
+                                          : r + ' \u2126'; }
+
+        /* ---- la cuenta entera, paso por paso ---------------------------- */
+        function calcula(){
+          var Vs = FUENTES[fu].v, Vf = COLORES[co].vf, Iobj = parseFloat(sI.value) / 1000;
+          var sobra = Vs - Vf;
+          if(sobra <= 0.05){
+            return {Vs: Vs, Vf: Vf, Iobj: Iobj, sobra: sobra, imposible: true, I: 0};
+          }
+          var Rteo = sobra / Iobj, Rreal = null;
+          for(var i = 0; i < E12.length; i++){
+            if(E12[i] >= Rteo){ Rreal = E12[i]; break; }
+          }
+          if(Rreal === null) Rreal = E12[E12.length - 1];
+          var I = sinR ? null : sobra / Rreal;           /* A */
+          return {Vs: Vs, Vf: Vf, Iobj: Iobj, sobra: sobra, imposible: false,
+                  Rteo: Rteo, Rreal: Rreal, I: I,
+                  Pr: I === null ? 0 : I * I * Rreal,    /* W disipados en R */
+                  pasado: I !== null && I * 1000 > IMAXLED,
+                  pin: FUENTES[fu].tope > 0 && I !== null && I * 1000 > FUENTES[fu].tope};
+        }
+
+        /* ---- geometria del circuito ------------------------------------- */
+        var AX = 140, TY = 84, BY = 226, DX = 550;   /* anillo */
+        var PX1 = 210, PX2 = 270;                    /* contactos del mando */
+        var LEDX = 410;                              /* el LED, en el cable de arriba */
+
+        function pinta(){
+          var c = calcula();
+          /* Sin resistencia el LED no "luce": se quema. Se dibuja fundido.  */
+          var quemado = cerrado && sinR && !c.imposible;
+          var luce = cerrado && !c.imposible && !sinR;
+          var brillo = 0;
+          if(luce && c.I !== null) brillo = Math.min(1, (c.I * 1000) / 12);
+          var col = 'var(--ink)', m = '';
+          var colFallo = quemado ? 'var(--goo-rojo)' : col;
+
+          /* --- fuente --- */
+          var F = FUENTES[fu];
+          if(F.celdas){
+            var p = S.pila(AX, 155, F.celdas, colFallo);
+            m += p.svg;
+            m += S.cable(AX, TY, AX, p.mas, colFallo, 2.4);
+            m += S.cable(AX, p.menos, AX, BY, colFallo, 2.4);
+          } else {
+            m += '<rect x="' + (AX - 30) + '" y="125" width="60" height="60" rx="3"'
+               + ' fill="var(--surface)" stroke="' + colFallo + '" stroke-width="2.4"></rect>';
+            m += S.texto(AX, 150, fu === 0 ? 'P0' : 'USB',
+                         ' text-anchor="middle" style="font-size:13px;fill:var(--ink)"');
+            m += S.texto(AX, 168, 'GND', ' text-anchor="middle" style="font-size:11px"');
+            m += S.cable(AX, TY, AX, 125, colFallo, 2.4);
+            m += S.cable(AX, 185, AX, BY, colFallo, 2.4);
+          }
+          m += S.texto(AX - 34, 112, F.n, ' text-anchor="end" style="font-size:11px"');
+          m += S.texto(AX - 34, 128, coma(F.v, 1) + ' V',
+                       ' text-anchor="end" style="font-size:13px;fill:var(--ink)"');
+
+          /* --- cable de arriba: mando, LED y resistencia --- */
+          m += S.cable(AX, TY, PX1, TY, colFallo, 2.4);
+          if(modo === 'interruptor'){
+            m += S.interruptor(PX1, PX2, TY, cerrado, colFallo);
+            m += S.texto((PX1 + PX2) / 2, TY + 26, 'interruptor',
+                         ' text-anchor="middle" style="font-size:10px"');
+          } else {
+            /* pulsador normalmente abierto; al apretarlo, los contactos se
+               tocan, y por eso cerrado se dibuja como un puente recto.      */
+            if(cerrado){
+              m += S.nodo(PX1, TY, colFallo) + S.nodo(PX2, TY, colFallo);
+              m += S.cable(PX1, TY, PX2, TY, colFallo, 2.4);
+              var xm = (PX1 + PX2) / 2;
+              m += S.cable(xm, TY - 6, xm, TY - 18, colFallo, 2);
+              m += S.cable(xm - 9, TY - 18, xm + 9, TY - 18, colFallo, 2.8);
+            } else {
+              m += S.pulsador(PX1, PX2, TY, colFallo);
+            }
+            m += S.texto((PX1 + PX2) / 2, TY + 26, 'pulsador',
+                         ' text-anchor="middle" style="font-size:10px"');
+          }
+          m += '<rect x="' + (PX1 - 14) + '" y="' + (TY - 46) + '" width="' + (PX2 - PX1 + 28)
+             + '" height="62" fill="#000" fill-opacity="0" pointer-events="all"'
+             + ' data-clic="mando" tabindex="0" role="button"'
+             + ' aria-label="Accionar el mando del circuito"></rect>';
+
+          m += S.cable(PX2, TY, LEDX - 11, TY, colFallo, 2.4);
+          /* el LED, con su color y su brillo */
+          if(quemado){
+            m += S.led(LEDX, TY, 'var(--goo-rojo)');
+            m += S.texto(LEDX, TY + 30, 'quemado',
+                         ' text-anchor="middle" style="font-size:11px;fill:var(--goo-rojo)"');
+          } else {
+            if(brillo > 0){
+              m += '<circle cx="' + LEDX + '" cy="' + TY + '" r="30" fill="' + COLORES[co].c
+                 + '" opacity="' + (0.5 * brillo).toFixed(3) + '"></circle>';
+            }
+            m += S.led(LEDX, TY, col);
+            m += S.texto(LEDX, TY + 30, 'LED ' + COLORES[co].n + ' \u00b7 Vf = '
+                       + coma(c.Vf, 1) + ' V',
+                         ' text-anchor="middle" style="font-size:10.5px"');
+          }
+          m += S.cable(LEDX + 11, TY, DX, TY, colFallo, 2.4);
+
+          /* --- lado derecho: la resistencia, o el hueco que deja --- */
+          m += S.cable(DX, TY, DX, 127, colFallo, 2.4);
+          if(sinR){
+            m += S.trazo('M' + DX + ' 127 L' + DX + ' 183', 'var(--goo-rojo)', 2.4, true);
+            m += S.texto(DX - 12, 158, 'sin resistencia',
+                         ' text-anchor="end" style="font-size:10.5px;fill:var(--goo-rojo)"');
+          } else {
+            m += S.resistencia(DX, 155, colFallo, true);
+            if(!c.imposible){
+              m += S.texto(DX - 16, 152, rot(c.Rreal),
+                           ' text-anchor="end" style="font-size:13px;fill:var(--ink)"');
+            }
+            m += S.texto(DX - 16, 168, 'limitadora', ' text-anchor="end" style="font-size:10px"');
+          }
+          m += S.cable(DX, 183, DX, BY, colFallo, 2.4);
+          m += S.cable(DX, BY, AX, BY, colFallo, 2.4);
+
+          /* corriente calculada, escrita sobre el cable de vuelta */
+          var txtI;
+          if(!cerrado) txtI = 'circuito abierto \u00b7 I = 0';
+          else if(c.imposible) txtI = 'I = 0 \u00b7 no hay tensi\u00f3n de sobra';
+          else if(sinR) txtI = 'I = descontrolada';
+          else txtI = 'I = ' + coma(c.I * 1000, 1) + ' mA';
+          m += S.texto(320, BY - 10, txtI, ' text-anchor="middle" style="font-size:12px;fill:'
+                     + (cerrado && !c.imposible && !sinR ? 'var(--goo-azul)' : 'var(--ink-soft)') + '"');
+
+          /* --- la regla de valores que existen de verdad --- */
+          if(!c.imposible && !sinR) m += reglaE12(c);
+
+          /* --- veredicto --- */
+          var v = veredicto(c);
+          m += S.texto(18, 34, v.etq,
+                       ' style="font-size:13px;letter-spacing:.12em;fill:' + v.col + '"');
+
+          svg.innerHTML = m;
+          tI.innerHTML = Math.round(parseFloat(sI.value)) + ' mA';
+          pinta_pie(c, v);
+          marca(segF, 'f', String(fu));
+          marca(segC, 'c', String(co));
+          segM.querySelectorAll('button[data-m]').forEach(function(b){
+            b.setAttribute('aria-pressed',
+              b.dataset.m === 'sinr' ? (sinR ? 'true' : 'false')
+                                     : (b.dataset.m === modo ? 'true' : 'false'));
+          });
+        }
+
+        function marca(cont, attr, val){
+          cont.querySelectorAll('button[data-' + attr + ']').forEach(function(b){
+            b.setAttribute('aria-pressed', b.dataset[attr] === val ? 'true' : 'false');
+          });
+        }
+
+        /* Ventana de cinco valores E12 alrededor del elegido, colocados en
+           escala logaritmica: es como estan repartidos de verdad.           */
+        function reglaE12(c){
+          var i = E12.indexOf(c.Rreal);
+          var a = Math.max(0, Math.min(i - 2, E12.length - 5)), ven = E12.slice(a, a + 5);
+          var X0 = 150, X1 = 520, Y = 268;
+          var l0 = Math.log(ven[0]), l1 = Math.log(ven[4]);
+          function px(r){ return X0 + (Math.log(r) - l0) / (l1 - l0) * (X1 - X0); }
+          var m = S.cable(X0 - 14, Y, X1 + 14, Y, 'var(--line)', 1.6);
+          m += S.texto(X0 - 22, Y + 4, 'E12', ' text-anchor="end" style="font-size:10px"');
+          for(var k = 0; k < 5; k++){
+            var x = px(ven[k]), es = ven[k] === c.Rreal;
+            m += S.cable(x, Y - 5, x, Y + 5, es ? 'var(--goo-verde)' : 'var(--line)', es ? 2.6 : 1.6);
+            m += S.texto(x, Y + 19, rot(ven[k]), ' text-anchor="middle" style="font-size:9.5px;fill:'
+                       + (es ? 'var(--goo-verde)' : 'var(--ink-soft)') + '"');
+          }
+          /* donde cae la cuenta exacta, si entra en la ventana dibujada */
+          var rt = c.Rteo;
+          if(rt >= ven[0] && rt <= ven[4]){
+            var xt = px(rt);
+            m += S.trazo('M' + xt.toFixed(1) + ' ' + (Y - 20) + ' L' + xt.toFixed(1) + ' ' + (Y - 7),
+                         'var(--goo-azul)', 2);
+            m += S.texto(xt, Y - 24, 'tu cuenta: ' + rot(Math.round(rt)),
+                         ' text-anchor="middle" style="font-size:9.5px;fill:var(--goo-azul)"');
+          }
+          return m;
+        }
+
+        function veredicto(c){
+          if(c.imposible)
+            return {etq: 'NO PUEDE ENCENDER', col: 'var(--goo-rojo)', k: 'imposible'};
+          if(sinR) return {etq: 'SIN RESISTENCIA \u00b7 NO LO HAGAS', col: 'var(--goo-rojo)', k: 'sinr'};
+          if(c.pin) return {etq: 'PASA DEL L\u00cdMITE DEL PIN', col: 'var(--goo-amarillo)', k: 'pin'};
+          if(c.pasado) return {etq: 'DEMASIADA CORRIENTE', col: 'var(--goo-amarillo)', k: 'pasado'};
+          if(c.I * 1000 < 3) return {etq: 'ENCIENDE, PERO POCO', col: 'var(--goo-azul)', k: 'flojo'};
+          return {etq: 'CALCULADO Y CORRECTO', col: 'var(--goo-verde)', k: 'bien'};
+        }
+
+        function f2(a, b){ return '<tr><td>' + a + '</td><td>' + b + '</td></tr>'; }
+
+        function pinta_pie(c, v){
+          var t, f = '';
+          if(c.imposible){
+            t = '<b>Con ' + coma(c.Vs, 1) + ' V no puedes encender un LED de '
+              + coma(c.Vf, 1) + ' V.</b> Al LED le hace falta su tensi&oacute;n directa para empezar '
+              + 'a conducir, y aqu&iacute; la fuente se queda corta: le faltan <b>'
+              + coma(Math.abs(c.sobra), 1) + ' V</b>. No hay resistencia que lo arregle, '
+              + 'porque la resistencia solo puede <b>quitar</b> tensi&oacute;n, nunca a&ntilde;adirla. '
+              + 'Cambia de color o de fuente.';
+          } else {
+            f = '<table class="tabla">';
+            f += f2('Tensi&oacute;n que sobra &nbsp;<i>V<sub>s</sub> &minus; V<sub>f</sub></i>',
+                    coma(c.Vs, 1) + ' &minus; ' + coma(c.Vf, 1) + ' = ' + coma(c.sobra, 1) + ' V');
+            f += f2('Resistencia que sale &nbsp;<i>R = (V<sub>s</sub> &minus; V<sub>f</sub>) / I</i>',
+                    coma(c.sobra, 1) + ' / ' + coma(c.Iobj, 3) + ' = ' + coma(c.Rteo, 0)
+                    + ' &#8486;');
+            f += f2('La que existe en la caja &nbsp;<i>serie E12</i>', rot(c.Rreal));
+            f += f2('Corriente de verdad &nbsp;<i>I = (V<sub>s</sub> &minus; V<sub>f</sub>) / R</i>',
+                    sinR ? 'sin control' : coma(c.I * 1000, 1) + ' mA');
+            f += f2('Calor en la resistencia &nbsp;<i>P = I&sup2; &times; R</i>',
+                    sinR ? '&mdash;' : coma(c.Pr * 1000, 0) + ' mW');
+            f += '</table>';
+
+            if(v.k === 'sinr'){
+              t = '<b>Sin resistencia, la ley de Ohm no te salva.</b> Y no porque la ley falle, '
+                + 'sino porque <b>el LED no es &oacute;hmico</b>: su corriente no es proporcional a la '
+                + 'tensi&oacute;n, se dispara en cuanto pasas de su tensi&oacute;n directa. No hay un n&uacute;mero '
+                + 'que poner aqu&iacute;, y por eso mismo el LED se destruye en un instante. La '
+                + 'resistencia s&iacute; es &oacute;hmica: la pones para que sea <b>ella</b> la que decida la '
+                + 'corriente.';
+            } else if(v.k === 'pin'){
+              t = '<b>' + coma(c.I * 1000, 1) + ' mA es demasiado para un pin de la micro:bit.</b> '
+                + 'El fabricante da un m&aacute;ximo de <b>5 mA por pin</b>. El LED lucir&iacute;a, pero est&aacute;s '
+                + 'forzando la placa. Baja la corriente que pides hasta 5 mA o menos, y la '
+                + 'resistencia te saldr&aacute; m&aacute;s grande.';
+            } else if(v.k === 'pasado'){
+              t = '<b>Te has pasado del LED.</b> Un LED de 5 mm normal aguanta unos <b>20 mA</b> '
+                + 'de forma continua. Con ' + coma(c.I * 1000, 1) + ' mA alumbra m&aacute;s, s&iacute;, y dura '
+                + 'menos. Pide menos corriente.';
+            } else if(v.k === 'flojo'){
+              t = '<b>Enciende, pero se ve poco.</b> Con ' + coma(c.I * 1000, 1) + ' mA el LED '
+                + 'alumbra d&eacute;bil. Es lo que pasa cuando eliges una resistencia por costumbre en '
+                + 'vez de calcularla: no se rompe nada, simplemente no hace su trabajo.';
+            } else {
+              t = '<b>Bien calculado.</b> Pides ' + Math.round(c.Iobj * 1000) + ' mA, la cuenta da '
+                + coma(c.Rteo, 0) + ' &#8486;, coges la primera que existe por encima &mdash;'
+                + rot(c.Rreal) + '&mdash; y por el LED pasan ' + coma(c.I * 1000, 1) + ' mA. '
+                + '<b>Siempre hacia arriba</b>: si cogieras la de abajo pasar&iacute;a m&aacute;s corriente '
+                + 'de la que pediste.';
+            }
+            if(!cerrado){
+              t = '<b>El circuito est&aacute; abierto.</b> ' + (modo === 'pulsador'
+                ? 'Mant&eacute;n apretado el pulsador del dibujo para que luzca: en cuanto lo sueltes, se apaga.'
+                : 'Pulsa el interruptor del dibujo: se queda como lo dejes.') + '<br><br>' + t;
+            }
+          }
+          pie.innerHTML = t + f;
+        }
+
+        /* ---- el mando: aqui esta la diferencia entre los dos ------------- */
+        function aprieta(){ cerrado = true; pinta(); }
+        function suelta(){ if(modo === 'pulsador'){ cerrado = false; pinta(); } }
+
+        svg.addEventListener('mousedown', function(e){
+          if(!e.target.closest('[data-clic="mando"]')) return;
+          e.preventDefault();
+          if(modo === 'interruptor'){ cerrado = !cerrado; pinta(); }
+          else aprieta();
+        });
+        svg.addEventListener('touchstart', function(e){
+          if(!e.target.closest('[data-clic="mando"]')) return;
+          e.preventDefault();
+          if(modo === 'interruptor'){ cerrado = !cerrado; pinta(); }
+          else aprieta();
+        }, {passive: false});
+        document.addEventListener('mouseup', suelta);
+        document.addEventListener('touchend', suelta);
+        /* Con el teclado, el pulsador se queda pulsado mientras se mantiene
+           la barra o el Enter, igual que con el raton.                      */
+        svg.addEventListener('keydown', function(e){
+          if(!e.target.closest || !e.target.closest('[data-clic="mando"]')) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
+          if(e.repeat) return;
+          if(modo === 'interruptor'){ cerrado = !cerrado; pinta(); }
+          else aprieta();
+        });
+        svg.addEventListener('keyup', function(e){
+          if(e.key === ' ' || e.key === 'Enter') suelta();
+        });
+
+        segF.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-f]');
+          if(!b) return;
+          fu = parseInt(b.dataset.f, 10);
+          pinta();
+        });
+        segC.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]');
+          if(!b) return;
+          co = parseInt(b.dataset.c, 10);
+          pinta();
+        });
+        segM.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-m]');
+          if(!b) return;
+          if(b.dataset.m === 'sinr') sinR = !sinR;
+          else { modo = b.dataset.m; cerrado = false; }
+          pinta();
+        });
+        sI.addEventListener('input', pinta);
+        pinta();
+      })();
+      </script>
+
+      <p>Tres cosas que merece la pena que pruebes ah&iacute; antes de seguir: pon un <b>LED azul en la
+         micro:bit</b> y mira por qu&eacute; no hay resistencia que lo arregle; <b>quita la resistencia</b>
+         y lee lo que dice el pie; y pasa del pulsador al interruptor para ver la diferencia con el
+         dedo, no con la definici&oacute;n.</p>
+
+      <h3>Pulsador e interruptor: parecen lo mismo y no lo son</h3>
+      <p>Los dos abren y cierran un circuito. La diferencia est&aacute; en <b>qu&eacute; hacen cuando los
+         sueltas</b>, y es una diferencia mec&aacute;nica: el pulsador lleva un <b>muelle</b> dentro.</p>
+
+      <div class="copiar">
+        <h4>Los dos elementos de control</h4>
+        <ul>
+          <li><b>Interruptor</b>: es <b>biestable</b>. Se queda como lo dejes, abierto o cerrado, sin
+              que nadie lo sujete. La luz del techo, la l&aacute;mpara de la mesilla.</li>
+          <li><b>Pulsador</b>: vuelve solo a su posici&oacute;n de reposo. El m&aacute;s com&uacute;n es el
+              <b>normalmente abierto (NA)</b>: cerrado mientras lo aprietas, abierto en cuanto lo
+              sueltas. El timbre, el claxon, cada tecla del teclado.</li>
+          <li>Tambi&eacute;n hay pulsadores <b>normalmente cerrados (NC)</b>, que hacen lo contrario: el
+              bot&oacute;n que detecta que la puerta del frigor&iacute;fico se ha cerrado y apaga la luz.</li>
+        </ul>
+        <p>Regla para elegir: si lo que mandas tiene que <b>pararse cuando sueltes</b>, pulsador. Si
+           tiene que <b>quedarse</b>, interruptor. Un timbre con interruptor suena hasta que alguien
+           vuelve a subir; una l&aacute;mpara con pulsador se apaga en cuanto quitas el dedo.</p>
+      </div>
+
+      <h3>Con la micro:bit</h3>
+      <p>En 2.&ordm; la placa que usamos es la <b>micro:bit</b>. Para lo de hoy nos interesa solo su
+         borde inferior: los <b>cinco anillos grandes</b>, que son los que se pinzan con cocodrilo.
+         Tres son pines de trabajo (<b>P0</b>, <b>P1</b> y <b>P2</b>) y los otros dos son la
+         alimentaci&oacute;n (<b>3V</b> y <b>GND</b>).</p>
+      <p>Dos n&uacute;meros que hay que respetar, y que da el propio fabricante: los pines trabajan a
+         <b>3 V</b> y cada uno puede dar como mucho <b>5 mA</b>. Con esos dos datos y la f&oacute;rmula de
+         arriba ya tienes tu resistencia: 220 &#8486; para un LED rojo. Y tambi&eacute;n tienes la
+         explicaci&oacute;n de algo que descubrir&aacute;s en cuanto lo pruebes: un <b>LED azul o blanco no
+         funciona</b> en un pin de la micro:bit, porque pide 3,2 V y la placa solo da 3.</p>
+      <p>La micro:bit trae adem&aacute;s <b>dos pulsadores ya montados</b>, el A y el B, as&iacute; que para
+         empezar no hace falta ni cablear uno.</p>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>&iquest;Por qu&eacute; el azul pide m&aacute;s tensi&oacute;n que el rojo? Porque en un LED <b>el color y la
+           tensi&oacute;n son la misma cosa vista dos veces</b>. La luz sale cuando una carga cae de un
+           escal&oacute;n de energ&iacute;a al de abajo, y la altura de ese escal&oacute;n decide a la vez el
+           <b>color</b> del fot&oacute;n que sale y la <b>tensi&oacute;n</b> que hace falta para subir la carga
+           ah&iacute;. Azul es m&aacute;s energ&iacute;a por fot&oacute;n que rojo; luego m&aacute;s voltios. No es una casualidad
+           del fabricante: no se puede hacer un LED azul de 2 V.</p>
+        <p>Y ah&iacute; est&aacute; la historia. Rojos hab&iacute;a desde 1962, y verdes y amarillos poco despu&eacute;s. El
+           azul se resisti&oacute; <b>treinta a&ntilde;os</b>: hac&iacute;a falta un material capaz de dar ese escal&oacute;n
+           tan alto y que adem&aacute;s se pudiera fabricar sin defectos, y nadie lo consegu&iacute;a. Lo
+           resolvieron a principios de los noventa <b>Isamu Akasaki, Hiroshi Amano y Shuji
+           Nakamura</b> con nitruro de galio, y por eso les dieron el <b>Nobel de F&iacute;sica de
+           2014</b>.</p>
+        <p>Que suene a poco: sin azul <b>no hay blanco</b>, porque la luz blanca de un LED se fabrica
+           poniendo un f&oacute;sforo amarillo delante de un chip azul. Sin aquel invento no existir&iacute;an ni
+           las bombillas LED de tu casa ni la pantalla desde la que lees esto, y la sesi&oacute;n anterior
+           &mdash;la de los 9 W frente a los 60 W&mdash; no tendr&iacute;a de qu&eacute; hablar.</p>
+      </div>
+
+      <div class="galeria-ri">
+        <figure class="foto">
+          <img src="../../../img/u6-led.jpg" loading="lazy"
+               alt="Diodo LED rojo de 5 mil&iacute;metros con sus dos patas met&aacute;licas, sobre fondo blanco">
+          <figcaption>Un <b>LED rojo de 5 mm</b>, el que vas a montar. La c&aacute;psula de pl&aacute;stico no es
+            solo una carcasa: hace de lente y de color. En este ejemplar las dos patas est&aacute;n cortadas
+            casi a la misma altura, y entonces <b>ya no puedes fiarte de la pata larga</b>: hay que
+            buscar el chafl&aacute;n del borde, que marca el c&aacute;todo.
+            <span class="credito">oomlout &middot; CC BY-SA 2.0 &middot;
+              <a href="https://commons.wikimedia.org/wiki/File:5mm_Red_LED.jpg"
+                 target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+        <figure class="foto">
+          <img src="../../../img/u6-microbit.jpg" loading="lazy"
+               alt="Placa micro:bit v2 vista por detr&aacute;s, con los cinco anillos grandes del conector
+                    de borde en la parte inferior">
+          <figcaption>La <b>micro:bit v2</b> por detr&aacute;s. Abajo se ven los <b>cinco anillos
+            grandes</b> del conector de borde: son P0, P1, P2, 3V y GND, y est&aacute;n rotulados por la
+            otra cara. Los dientes dorados finos de entre medias son otros veinte contactos que solo
+            se alcanzan con un conector especial.
+            <span class="credito">SimonWaldherr &middot; CC BY 4.0 &middot;
+              <a href="https://commons.wikimedia.org/wiki/File:BBC_micro_bit_v2.jpg"
+                 target="_blank" rel="noopener">Wikimedia Commons</a></span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="video" id="video-Bw4nVt8eQkw" data-vid="Bw4nVt8eQkw">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: C&oacute;mo calcular la resistencia para un LED (ley de Ohm f&aacute;cil)">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>C&oacute;mo calcular la resistencia para un LED (ley de Ohm f&aacute;cil)</b>
+            <span>ITC MENTOR Academy</span>
+          </span>
+        </button>
+        <p class="video-nota">La misma cuenta que acabas de hacer, contada por otra persona. Ve con la libreta delante y comprueba que usa <b>exactamente</b> la misma f&oacute;rmula: tensi&oacute;n de la fuente menos tensi&oacute;n del LED, dividido entre la corriente que t&uacute; decides.</p>
+        <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
+          seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=Bw4nVt8eQkw" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
+          licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 5 &middot; Calcula, monta y mide</span>
+          <span class="chips"><span class="chip">3.1</span><span class="chip">A.6</span></span>
+          <span>Parejas &middot; 25 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que hacer</h4>
+          <p>Con material de verdad si lo hay (micro:bit o pila, LED, resistencias, pulsador,
+             interruptor y pinzas de cocodrilo) y, si no, en
+             <a href="https://www.tinkercad.com/circuits" target="_blank" rel="noopener">Tinkercad
+             Circuits</a>. <b>El orden no es negociable: primero la cuenta, luego el montaje.</b></p>
+          <ol class="pasos">
+            <li><b>La cuenta, en la libreta.</b> Con la fuente que os toque y el color de LED que os
+                den: escribid V<sub>fuente</sub>, V<sub>f</sub>, la corriente que eleg&iacute;s y el
+                c&aacute;lculo completo de R. Decid cu&aacute;l es el valor E12 que usar&eacute;is y por qu&eacute; el de
+                arriba y no el de abajo.</li>
+            <li><b>El esquema</b>, con simbolog&iacute;a normalizada: fuente, pulsador, resistencia y LED,
+                rotulados con sus valores. Que se note d&oacute;nde est&aacute; el c&aacute;todo.</li>
+            <li><b>Montadlo</b> y comprobad que enciende. Si no enciende, <b>antes de tocar nada</b>
+                escribid las tres cosas que vais a comprobar y en qu&eacute; orden.</li>
+            <li><b>Medid la corriente</b> con el pol&iacute;metro en serie y comparadla con la que
+                hab&iacute;ais calculado. Anotad las dos y la diferencia en tanto por ciento.</li>
+            <li><b>Cambiad el pulsador por el interruptor</b> y describid en dos l&iacute;neas la
+                diferencia, sin usar la palabra &laquo;bot&oacute;n&raquo;.</li>
+            <li><b>Si hay micro:bit</b>: en <a href="https://makecode.microbit.org" target="_blank"
+                rel="noopener">MakeCode</a>, haced que el LED de P0 parpadee con
+                <i>escritura digital</i> y una pausa. Y luego que se encienda solo mientras se
+                aprieta el bot&oacute;n A.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El c&aacute;lculo de R est&aacute; completo y <b>hecho antes</b> de montar <b>(3 puntos)</b>.</li>
+            <li>La elecci&oacute;n del valor E12 est&aacute; justificada <b>(1 punto)</b>.</li>
+            <li>El esquema usa los s&iacute;mbolos normalizados y respeta la polaridad <b>(2 puntos)</b>.</li>
+            <li>El montaje enciende y la corriente medida se parece a la calculada <b>(2 puntos)</b>.</li>
+            <li>La diferencia entre pulsador e interruptor est&aacute; bien explicada <b>(1 punto)</b>.</li>
+            <li>El programa de MakeCode funciona, o el montaje est&aacute; simulado en Tinkercad
+                <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Seguridad y material</span>
+            El LED va <b>siempre</b> con su resistencia, aunque sea &laquo;un momento para probar&raquo;: ese
+            momento es justo lo que tarda en morirse. Y nada de esto se enchufa <b>jam&aacute;s</b> a la
+            red: 230 V no es una versi&oacute;n grande de 4,5 V, es otra cosa y mata.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <p>Ya no hace falta preguntarle a nadie qu&eacute; resistencia le pone a su LED: se calcula, y sale
+         un n&uacute;mero distinto para cada fuente y cada color.</p>
+      <ol>
+              <li>LED verde (V<sub>f</sub> = 2,2 V) en una pila de 9 V, y quieres que pasen 10 mA. &iquest;Qu&eacute; resistencia le pones?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Sobra 9 &minus; 2,2 = <b>6,8 V</b>. R = 6,8 / 0,010 = <b>680 &#8486;</b>, que adem&aacute;s existe tal cual en la serie E12. Con ella pasan exactamente los 10 mA.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; no se puede calcular la corriente de un LED con la ley de Ohm, si es un componente el&eacute;ctrico como los dem&aacute;s?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque <b>no es &oacute;hmico</b>: su corriente no es proporcional a la tensi&oacute;n. Por debajo de su tensi&oacute;n directa no conduce y por encima la corriente se dispara, as&iacute; que no hay una R que meter en la f&oacute;rmula. Lo que s&iacute; es &oacute;hmico es la resistencia que le pones al lado, y por eso es ella la que fija la corriente.</p></div></details></li>
+        <li>Quieres que un zumbador suene <b>solo mientras</b> tienes el dedo puesto. &iquest;Pulsador o interruptor? &iquest;Y de qu&eacute; tipo?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Pulsador normalmente abierto (NA)</b>: cierra el circuito mientras lo aprietas y lo abre en cuanto lo sueltas, porque lleva un muelle que lo devuelve a su sitio. Con un interruptor sonar&iacute;a hasta que volvieras a accionarlo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes montar y calcular. La &uacute;ltima sesi&oacute;n es la que junta las cinco anteriores:
+        <b>un montaje que resuelva un problema de verdad</b>, con su esquema, sus cuentas y su
+        presupuesto. Ve pensando d&oacute;nde te hace falta una luz o un aviso que ahora no existe.
+      </div>
+  
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Que sirva para algo</h2>
+      <p>El &uacute;ltimo circuito lo eliges t&uacute;, y tiene que resolver un problema de verdad: con su esquema, sus cuentas y su presupuesto.</p>
+      <div class="minutado"><span class="min"><b>5'</b> Reto</span><span class="min"><b>35'</b> Proyecto</span><span class="min"><b>15'</b> Entrega</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.6</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 5 min</div>
+
+      <p>Cinco sesiones montando circuitos que te ponemos nosotros. Hoy el circuito lo eliges
+         t&uacute;, y hay una condici&oacute;n: <b>tiene que servir para algo</b>.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El reto</span>
+        <p style="margin:0">Tres minutos, la libreta y nada m&aacute;s. Escribe <b>tres sitios</b> de tu
+           casa, de tu mochila o de esta clase donde falte <b>una luz o un aviso</b> que ahora no
+           existe. Sitios de verdad, con nombre: no &laquo;una habitaci&oacute;n&raquo;, sino &laquo;el fondo del
+           armario, que no se ve nada cuando busco algo por la ma&ntilde;ana&raquo;.</p>
+      </div>
+
+      <p>Comparad la lista. Va a pasar casi seguro que la mayor&iacute;a haya escrito <b>el aparato</b> en
+         vez del problema: &laquo;quiero hacer un timbre&raquo;, &laquo;una linterna&raquo;. Y eso, que parece lo mismo,
+         te cierra la puerta antes de empezar.</p>
+      <p>Porque &laquo;quiero hacer un timbre&raquo; ya ha decidido la soluci&oacute;n. &laquo;<b>Desde mi cuarto no oigo
+         cuando llaman a la puerta</b>&raquo; deja abiertas todas: un zumbador, una luz que parpadee &mdash;que
+         es mejor si alguien no oye bien&mdash;, o las dos cosas. Esto no es nuevo: es exactamente el
+         <b>proceso tecnol&oacute;gico</b> del primer tema. Se empieza por la necesidad, no por el cacharro.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa antes de seguir</span>
+        <p>Coge el mejor de tus tres y reescr&iacute;belo en <b>una frase que no nombre ning&uacute;n
+           componente</b>. Si no puedes, es que ten&iacute;as un cacharro y no un problema.</p>
+      </div>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> El proyecto &middot; 35 min</div>
+
+      <h3>Qu&eacute; se entrega, y por qu&eacute; cada cosa</h3>
+      <p>Un proyecto de Tecnolog&iacute;a no es el montaje: el montaje es solo la parte que se ve. Lo que
+         se entrega es el montaje <b>m&aacute;s los papeles que permiten que otra persona lo repita</b>. Si
+         tu circuito funciona y nadie puede reconstruirlo, no has terminado el trabajo.</p>
+
+      <div class="copiar">
+        <h4>El dossier del proyecto &middot; seis apartados</h4>
+        <ol>
+          <li><b>El problema</b>, en una frase y sin nombrar componentes. Qui&eacute;n lo tiene y cu&aacute;ndo.</li>
+          <li><b>Las condiciones</b>: qu&eacute; tiene que hacer, con qu&eacute; alimentaci&oacute;n, cu&aacute;nto puede
+              costar y de qu&eacute; tama&ntilde;o puede ser.</li>
+          <li><b>El esquema el&eacute;ctrico</b> en simbolog&iacute;a normalizada, con los valores rotulados.</li>
+          <li><b>Los c&aacute;lculos</b>: la resistencia limitadora, la corriente que circula y la
+              potencia. Con sus operaciones, no solo el resultado.</li>
+          <li><b>La lista de materiales</b> con cantidades y precios, y el total.</li>
+          <li><b>La prueba</b>: qu&eacute; hiciste para comprobar que funciona, qu&eacute; fall&oacute; la primera vez
+              y qu&eacute; cambiaste.</li>
+        </ol>
+      </div>
+
+      <p>El punto 3 no es decoraci&oacute;n. Un esquema en s&iacute;mbolos normalizados es un <b>plano</b>: no
+         dice d&oacute;nde est&aacute; cada pieza ni de qu&eacute; color es, dice <b>qu&eacute; est&aacute; conectado con qu&eacute;</b>,
+         y lo entiende alguien que no hable tu idioma. Es la misma idea que el tema de
+         <b>representaci&oacute;n gr&aacute;fica</b>: dibujar para que no haya dos interpretaciones posibles. Un
+         dibujo bonito de tu montaje, con los cables tal como quedaron, sirve para una foto; para
+         que otro lo construya, no.</p>
+
+      <h3>Cuatro proyectos que caben en una sesi&oacute;n</h3>
+      <p>Puedes proponer el tuyo, pero tiene que llevar <b>al menos un LED con su resistencia
+         calculada y un elemento de control bien elegido</b>. Estos cuatro cumplen y caben en el
+         tiempo que hay:</p>
+      <ul>
+        <li><b>Luz de armario.</b> Un LED blanco o rojo que se enciende <b>mientras</b> la puerta
+            est&aacute; abierta. Control: pulsador <b>normalmente cerrado</b> apretado por la puerta.
+            La gracia est&aacute; en darse cuenta de que aqu&iacute; el pulsador va al rev&eacute;s.</li>
+        <li><b>Aviso de puerta.</b> Un zumbador o un LED que avisa en tu cuarto de que llaman.
+            Control: pulsador NA. Si usas LED, tendr&aacute;s que discutir si se ve estando de espaldas.</li>
+        <li><b>Luz de la bici o de la mochila.</b> LED rojo, interruptor (tiene que quedarse
+            encendido) y pila. Calcula cu&aacute;ntas horas dura la pila con tu corriente.</li>
+        <li><b>Sem&aacute;foro de dos luces.</b> Un LED verde y uno rojo, cada uno con <b>su</b>
+            resistencia &mdash;que no es la misma, porque V<sub>f</sub> no es la misma&mdash; y un
+            conmutador que pasa de uno a otro.</li>
+      </ul>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Hay una pregunta que aparece siempre en este punto: &laquo;&iquest;y si le pongo <b>dos</b> LED, les
+           pongo una resistencia a los dos o una a cada uno?&raquo;. La respuesta corta es <b>una a cada
+           uno</b>, y el motivo es bonito.</p>
+        <p>Si pones dos LED <b>en paralelo</b> compartiendo una sola resistencia, los dos reciben la
+           misma tensi&oacute;n, s&iacute;; pero como no son &oacute;hmicos, unas d&eacute;cimas de diferencia entre ellos
+           &mdash;y las hay, aunque sean de la misma bolsa&mdash; hacen que uno se lleve <b>bastante
+           m&aacute;s corriente</b> que el otro. Resultado: uno alumbra m&aacute;s, se calienta m&aacute;s, conduce
+           todav&iacute;a mejor y se lleva a&uacute;n m&aacute;s corriente. Acaba muriendo el que m&aacute;s luc&iacute;a.</p>
+        <p>En <b>serie</b> s&iacute; comparten resistencia sin problema, porque la corriente es
+           forzosamente la misma para los dos. Lo que hay que comprobar entonces es que la fuente
+           llegue: dos LED rojos en serie ya piden 4 V solo para ellos, y de un pin de 3 V no salen.</p>
+      </div>
+
+      <h3>Antes de entregar: comprueba si te lo sabes</h3>
+      <p>Este test se corrige solo, aqu&iacute; mismo. Las preguntas de calcular <b>cambian de n&uacute;meros
+         cada vez</b>, as&iacute; que no vale aprenderse las respuestas: solo vale saber hacerlas. Tira
+         dos o tres tandas.</p>
+
+      <style>
+        #esc-test .preg{border-bottom:1px solid var(--line-soft);padding:13px 0}
+        #esc-test .preg:last-of-type{border-bottom:0}
+        #esc-test .preg > p{margin:0 0 8px;font-size:15px;color:var(--ink)}
+        #esc-test .preg .num{font:500 11px var(--f-m);color:var(--ink-soft);
+          letter-spacing:.1em;margin-right:8px}
+        #esc-test .ops{display:flex;flex-direction:column;gap:5px}
+        #esc-test .ops label{display:flex;gap:8px;align-items:flex-start;font-size:14.5px;
+          cursor:pointer;color:var(--ink-soft)}
+        #esc-test .ops input{margin-top:4px;accent-color:var(--goo-azul)}
+        #esc-test .num-resp{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+        #esc-test .num-resp input{width:120px;background:var(--surface);color:var(--ink);
+          border:1.5px solid var(--line);border-radius:2px;padding:7px 9px;font:400 14px var(--f-m)}
+        #esc-test .unidad{font:400 13px var(--f-m);color:var(--ink-soft)}
+        #esc-test .juicio{margin-top:8px;font-size:14px;padding:8px 11px;border-radius:2px;
+          border-left:4px solid var(--line);background:var(--surface-2)}
+        #esc-test .juicio.si{border-left-color:var(--goo-verde)}
+        #esc-test .juicio.no{border-left-color:var(--goo-rojo)}
+        #esc-test .cuerpo{padding:4px 16px 14px}
+        #esc-test .botones{display:flex;gap:8px;flex-wrap:wrap;padding:12px 16px;
+          border-top:1px solid var(--line)}
+        #esc-test .botones button{background:var(--surface);border:1.5px solid var(--goo-azul);
+          color:var(--goo-azul);border-radius:2px;padding:8px 16px;font:500 12px var(--f-m);cursor:pointer}
+        #esc-test .botones button.flojo{border-color:var(--line);color:var(--ink-soft)}
+      </style>
+      <div class="escena" id="esc-test">
+        <div class="escena-barra">
+          <span class="escena-titulo">Autoevaluaci&oacute;n &middot; se corrige sola y cambia cada vez</span>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 120" id="svg-test" role="img"
+               aria-label="Marcador con las diez preguntas y la nota"></svg>
+        </div>
+        <div class="cuerpo" id="test-cuerpo"></div>
+        <div class="botones">
+          <button type="button" id="test-corrige">Corregir</button>
+          <button type="button" id="test-otra" class="flojo">Otra tanda</button>
+        </div>
+        <div class="pie" id="pie-test"></div>
+      </div>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-test');
+        if(!svg) return;
+        var cuerpo = document.getElementById('test-cuerpo');
+        var pie = document.getElementById('pie-test');
+        var S = window.U6;
+
+        function coma(x, d){ return x.toFixed(d).replace('.', ','); }
+        function az(a){ return a[Math.floor(Math.random() * a.length)]; }
+        function baraja(a){
+          a = a.slice();
+          for(var i = a.length - 1; i > 0; i--){
+            var j = Math.floor(Math.random() * (i + 1)), t = a[i];
+            a[i] = a[j]; a[j] = t;
+          }
+          return a;
+        }
+
+        /* ------------------------------------------------------------------
+           Las cinco preguntas de calculo. Cada una inventa sus numeros y
+           calcula su propia solucion: no hay ninguna respuesta escrita.
+        ------------------------------------------------------------------ */
+        var CALCULO = [
+          function(){                                   /* ley de Ohm */
+            var V = az([4.5, 6, 9, 12]), R = az([15, 20, 24, 30, 45, 60]);
+            return {t: 'Una pila de <b>' + coma(V, 1) + ' V</b> alimenta una resistencia de <b>'
+                     + R + ' &#8486;</b>. &iquest;Qu&eacute; intensidad circula?',
+                    u: 'A', sol: V / R, dec: 3,
+                    como: 'I = V / R = ' + coma(V, 1) + ' / ' + R + ' = ' + coma(V / R, 3) + ' A'};
+          },
+          function(){                                   /* serie */
+            var R1 = az([4, 5, 6, 8, 10]), R2 = az([6, 12, 15, 20]), V = az([9, 12, 18]);
+            var Rt = R1 + R2;
+            return {t: 'Dos resistencias de <b>' + R1 + ' &#8486;</b> y <b>' + R2
+                     + ' &#8486;</b> <b>en serie</b>, con una pila de <b>' + V
+                     + ' V</b>. &iquest;Cu&aacute;nto vale la resistencia total?',
+                    u: '&#8486;', sol: Rt, dec: 0,
+                    como: 'En serie se suman: R = ' + R1 + ' + ' + R2 + ' = ' + Rt
+                        + ' &#8486;. (Y por el circuito circular&iacute;an ' + coma(V / Rt, 3) + ' A.)'};
+          },
+          function(){                                   /* paralelo */
+            var R = az([12, 18, 24, 30, 60]), n = az([2, 3, 4]), V = az([4.5, 9, 12]);
+            var Rt = R / n, It = V / Rt;
+            return {t: '<b>' + n + ' l&aacute;mparas iguales</b> de <b>' + R
+                     + ' &#8486;</b> cada una, conectadas <b>en paralelo</b> a una pila de <b>'
+                     + coma(V, 1) + ' V</b>. &iquest;Qu&eacute; corriente total da la pila?',
+                    u: 'A', sol: It, dec: 3,
+                    como: 'Iguales y en paralelo: R = ' + R + ' / ' + n + ' = ' + coma(Rt, 2)
+                        + ' &#8486;, y entonces I = ' + coma(V, 1) + ' / ' + coma(Rt, 2) + ' = '
+                        + coma(It, 3) + ' A. Tambi&eacute;n vale sumar las ' + n + ' corrientes de '
+                        + coma(V / R, 3) + ' A.'};
+          },
+          function(){                                   /* potencia */
+            var V = az([230, 12, 24]), I = az([0.5, 1.5, 2, 3, 5]);
+            return {t: 'Por un aparato conectado a <b>' + V + ' V</b> pasan <b>' + coma(I, 1)
+                     + ' A</b>. &iquest;Qu&eacute; potencia tiene?',
+                    u: 'W', sol: V * I, dec: 0,
+                    como: 'P = V &times; I = ' + V + ' &times; ' + coma(I, 1) + ' = '
+                        + coma(V * I, 0) + ' W'};
+          },
+          function(){                                   /* energia y dinero */
+            var P = az([1000, 1200, 1500, 2000, 2200]), h = az([0.5, 1, 1.5, 2]);
+            var dias = az([10, 20, 30]), pr = az([0.15, 0.2, 0.25, 0.3]);
+            var kWh = P / 1000 * h * dias;
+            return {t: 'Un aparato de <b>' + P + ' W</b> funciona <b>' + coma(h, 1)
+                     + ' h al d&iacute;a</b> durante <b>' + dias + ' d&iacute;as</b>. Si el kWh cuesta <b>'
+                     + coma(pr, 2) + ' &euro;</b>, &iquest;cu&aacute;nto cuesta tenerlo funcionando?',
+                    u: '&euro;', sol: kWh * pr, dec: 2,
+                    como: 'E = ' + coma(P / 1000, 1) + ' kW &times; ' + coma(h, 1) + ' h &times; '
+                        + dias + ' d&iacute;as = ' + coma(kWh, 2) + ' kWh; y ' + coma(kWh, 2)
+                        + ' &times; ' + coma(pr, 2) + ' = ' + coma(kWh * pr, 2) + ' &euro;'};
+          },
+          function(){                                   /* resistencia del LED */
+            /* Las mismas tensiones directas que la escena del LED y la teoria. */
+            var Vs = az([4.5, 5, 9, 12]), Vf = az([2.0, 2.1, 2.2, 3.2]), I = az([5, 10, 15, 20]);
+            var R = (Vs - Vf) / (I / 1000);
+            return {t: 'Quieres que por un LED de <b>' + coma(Vf, 1)
+                     + ' V</b> pasen <b>' + I + ' mA</b>, y lo conectas a <b>' + coma(Vs, 1)
+                     + ' V</b>. &iquest;Qu&eacute; resistencia hay que ponerle en serie?',
+                    u: '&#8486;', sol: R, dec: 0,
+                    como: 'R = (' + coma(Vs, 1) + ' &minus; ' + coma(Vf, 1) + ') / ' + coma(I / 1000, 3)
+                        + ' = ' + coma(R, 0) + ' &#8486;. En la caja cogemos el primer valor '
+                        + 'normalizado por encima.'};
+          }
+        ];
+
+        /* ---- las de razonar. La correcta es siempre la primera de la lista
+           y las opciones se barajan al montarlas.                           */
+        var CONCEPTO = [
+          {t: '&iquest;Qu&eacute; es exactamente un <b>cortocircuito</b>?',
+           o: ['Un camino de vuelta al generador <b>sin receptor</b>, solo cable.',
+               'Un circuito demasiado corto, con poco cable.',
+               'Un circuito abierto por el que no circula corriente.',
+               'Cualquier circuito en el que la corriente es alta.'],
+           p: 'Lo que lo define no es la corriente alta: la corriente alta es la consecuencia '
+            + 'de que no haya receptor que se oponga al paso.'},
+          {t: 'Se funde una l&aacute;mpara de las tres que hay <b>en paralelo</b>. &iquest;Qu&eacute; pasa?',
+           o: ['Las otras dos siguen luciendo igual, y la pila da menos corriente total.',
+               'Se apagan las tres, porque se abre el circuito.',
+               'Las otras dos lucen m&aacute;s, porque les llega m&aacute;s tensi&oacute;n.',
+               'Las otras dos lucen menos, porque se reparten peor la corriente.'],
+           p: 'Cada rama tiene su propio camino y sigue recibiendo la misma tensi&oacute;n. Lo que '
+            + 'cambia es el total: una puerta menos, menos corriente en el cable principal.'},
+          {t: '&iquest;Por qu&eacute; el <b>amper&iacute;metro</b> se conecta en serie?',
+           o: ['Porque mide lo que pasa por un punto, y tiene que estar en el camino.',
+               'Porque as&iacute; no se estropea con tensiones altas.',
+               'Porque en paralelo marcar&iacute;a siempre cero.',
+               'Porque mide la diferencia entre dos puntos del circuito.'],
+           p: 'La &uacute;ltima opci&oacute;n describe al volt&iacute;metro, que por eso s&iacute; va en paralelo.'},
+          {t: 'La diferencia entre un <b>pulsador</b> y un <b>interruptor</b> es que&hellip;',
+           o: ['el pulsador vuelve solo a su posici&oacute;n; el interruptor se queda como lo dejas.',
+               'el pulsador deja pasar menos corriente que el interruptor.',
+               'el interruptor sirve para corriente alterna y el pulsador para continua.',
+               'el pulsador no corta del todo el circuito, solo lo debilita.'],
+           p: 'Por eso el timbre lleva pulsador y la l&aacute;mpara del techo lleva interruptor: uno '
+            + 'quieres que se apague al soltar y el otro no.'},
+          {t: 'Un <b>kWh</b> es&hellip;',
+           o: ['una cantidad de <b>energ&iacute;a</b>: la que gasta un aparato de 1.000 W en una hora.',
+               'una cantidad de <b>potencia</b>, la que puede dar la instalaci&oacute;n.',
+               'lo mismo que un kW, pero escrito de otra forma.',
+               'la corriente que pasa por el contador en una hora.'],
+           p: 'El kW mide lo deprisa que gastas; el kWh, lo que llevas gastado. Es la diferencia '
+            + 'entre la velocidad del coche y los kil&oacute;metros que llevas hechos.'},
+          {t: 'En la <b>etiqueta energ&eacute;tica</b> de un frigor&iacute;fico, la letra sirve para&hellip;',
+           o: ['comparar aparatos del mismo tipo entre s&iacute;: la A gasta menos que la G.',
+               'saber cu&aacute;ntos vatios consume el aparato en cada momento.',
+               'saber si el aparato es seguro y cumple la normativa el&eacute;ctrica.',
+               'comparar cualquier aparato con cualquier otro, sea del tipo que sea.'],
+           p: 'La letra solo compara dentro de la misma familia de productos. El dato que sirve '
+            + 'para calcular dinero es el de <b>kWh al a&ntilde;o</b> que viene debajo.'}
+        ];
+
+        var preguntas = [];
+
+        function monta(){
+          /* cuatro de calculo y seis de concepto, escogidas al azar */
+          var c = baraja(CALCULO).slice(0, 4).map(function(f){
+            var q = f(); q.tipo = 'num'; return q;
+          });
+          var k = baraja(CONCEPTO).slice(0, 6).map(function(q){
+            var correcta = q.o[0], ops = baraja(q.o);
+            return {tipo: 'op', t: q.t, ops: ops, i: ops.indexOf(correcta), p: q.p};
+          });
+          preguntas = baraja(c.concat(k));
+
+          var h = '';
+          preguntas.forEach(function(q, n){
+            h += '<div class="preg" id="preg-' + n + '">';
+            h += '<p><span class="num">' + (n + 1) + '</span>' + q.t + '</p>';
+            if(q.tipo === 'num'){
+              h += '<div class="num-resp"><input type="text" inputmode="decimal" data-n="' + n
+                 + '" aria-label="Respuesta de la pregunta ' + (n + 1) + '" placeholder="0,00">'
+                 + '<span class="unidad">' + q.u + '</span></div>';
+            } else {
+              h += '<div class="ops">';
+              q.ops.forEach(function(o, j){
+                h += '<label><input type="radio" name="p' + n + '" value="' + j + '"><span>'
+                   + o + '</span></label>';
+              });
+              h += '</div>';
+            }
+            h += '</div>';
+          });
+          cuerpo.innerHTML = h;
+          pie.innerHTML = 'Contesta las diez y pulsa <b>Corregir</b>. Los n&uacute;meros se pueden '
+            + 'escribir con coma o con punto. En las de calcular se da por buena una diferencia '
+            + 'de hasta el <b>2 %</b>, para que redondear no te cueste un punto: lo que se '
+            + 'corrige es la cuenta, no los decimales.';
+          marcador(null);
+        }
+
+        /* Acepta 0,5 y 0.5, y tambien "0,5 A" o "270 ohmios": se queda con las
+           cifras. El punto de los miles se distingue del decimal mirando si
+           detras van exactamente tres cifras.                               */
+        function leeNum(s){
+          if(s === null || s === undefined) return null;
+          s = String(s).replace(/[^0-9.,\-]/g, '');
+          if(!s) return null;
+          if(s.indexOf(',') >= 0) s = s.replace(/\./g, '').replace(',', '.');
+          else if(/^-?\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, '');
+          var x = parseFloat(s);
+          return isNaN(x) ? null : x;
+        }
+
+        function corrige(){
+          var res = preguntas.map(function(q, n){
+            var caja = document.getElementById('preg-' + n);
+            var bien = false, dicho = null;
+            if(q.tipo === 'num'){
+              dicho = leeNum(caja.querySelector('input').value);
+              /* tolerancia del 2 % sobre la solucion calculada */
+              bien = dicho !== null && Math.abs(dicho - q.sol) <= Math.abs(q.sol) * 0.02 + 1e-9;
+            } else {
+              var m = caja.querySelector('input:checked');
+              dicho = m ? parseInt(m.value, 10) : null;
+              bien = dicho === q.i;
+            }
+            var j = caja.querySelector('.juicio');
+            if(!j){
+              j = document.createElement('div');
+              j.className = 'juicio';
+              caja.appendChild(j);
+            }
+            j.className = 'juicio ' + (bien ? 'si' : 'no');
+            if(q.tipo === 'num'){
+              j.innerHTML = (bien ? '<b>Bien.</b> ' : (dicho === null
+                   ? '<b>Sin contestar.</b> ' : '<b>No.</b> Has puesto ' + coma(dicho, q.dec)
+                     + ' ' + q.u + '. ')) + q.como;
+            } else {
+              /* La opcion ya acaba en punto: no se le pone otro detras. */
+              j.innerHTML = (bien ? '<b>Bien.</b> ' : '<b>No.</b> La buena era: <i>'
+                   + q.ops[q.i].replace(/<[^>]+>/g, '') + '</i> ') + q.p;
+            }
+            return bien;
+          });
+          marcador(res);
+          var nota = res.filter(Boolean).length;
+          var cierre;
+          if(nota === 10) cierre = 'Diez de diez. Pulsa <b>Otra tanda</b>: los n&uacute;meros cambian.';
+          else if(nota >= 7) cierre = 'Vas bien. Mira las falladas, corrige en la libreta y tira '
+            + 'otra tanda: las preguntas de calcular <b>no son las mismas</b> la segunda vez.';
+          else if(nota >= 5) cierre = 'Aprobado justo. Rep&aacute;salo: casi siempre lo que falla no es '
+            + 'la cuenta, es saber <b>qu&eacute; f&oacute;rmula</b> toca.';
+          else cierre = 'Vuelve a la teor&iacute;a de las sesiones 2, 3 y 4 antes de repetir. Lee las '
+            + 'explicaciones de abajo una a una: cada una dice el porqu&eacute;, no solo la respuesta.';
+          pie.innerHTML = '<b>Nota: ' + nota + ' de 10.</b> ' + cierre;
+        }
+
+        /* El marcador se dibuja a partir del resultado, no al reves. */
+        function marcador(res){
+          var m = '', X0 = 20, W = 600, n = 10, paso = W / n;
+          for(var i = 0; i < n; i++){
+            var x = X0 + i * paso + 3, w = paso - 6;
+            var col = 'var(--surface-2)', bor = 'var(--line)';
+            if(res){
+              col = res[i] ? 'var(--goo-verde)' : 'var(--goo-rojo)';
+              bor = col;
+            }
+            m += '<rect x="' + x.toFixed(1) + '" y="30" width="' + w.toFixed(1) + '" height="30"'
+               + ' rx="2" fill="' + col + '" stroke="' + bor + '" stroke-width="1.4"></rect>';
+            m += '<text x="' + (x + w / 2).toFixed(1) + '" y="50" text-anchor="middle"'
+               + ' class="rotulo-svg" style="font-size:12px;fill:'
+               + (res ? '#202124' : 'var(--ink-soft)') + '">' + (i + 1) + '</text>';
+          }
+          var nota = res ? res.filter(Boolean).length : null;
+          var txt = res ? 'NOTA: ' + nota + ' DE 10' : 'SIN CORREGIR';
+          m += '<text x="20" y="18" class="rotulo-svg" style="font-size:12px;letter-spacing:.12em;'
+             + 'fill:' + (res ? (nota >= 5 ? 'var(--goo-verde)' : 'var(--goo-rojo)')
+                              : 'var(--ink-soft)') + '">' + txt + '</text>';
+          /* barra de la nota, con la longitud que le toca */
+          if(res){
+            m += '<rect x="20" y="78" width="600" height="10" rx="2" fill="var(--surface-2)"'
+               + ' stroke="var(--line)" stroke-width="1"></rect>';
+            m += '<rect x="20" y="78" width="' + (600 * nota / 10) + '" height="10" rx="2"'
+               + ' fill="' + (nota >= 5 ? 'var(--goo-verde)' : 'var(--goo-rojo)') + '"></rect>';
+            m += '<text x="320" y="106" text-anchor="middle" class="rotulo-svg"'
+               + ' style="font-size:11px">aprobado a partir de 5</text>';
+            m += '<rect x="' + (20 + 600 * 0.5) + '" y="72" width="1.6" height="22"'
+               + ' fill="var(--ink-soft)"></rect>';
+          }
+          svg.innerHTML = m;
+        }
+
+        document.getElementById('test-corrige').addEventListener('click', corrige);
+        document.getElementById('test-otra').addEventListener('click', monta);
+        monta();
+      })();
+      </script>
+
+      <p>Si algo se te resiste, no repitas el test: vuelve a la sesi&oacute;n donde estaba. Las de
+         calcular con V, I y R son la <b>sesi&oacute;n 2</b>; las de serie y paralelo, la <b>3</b>; las de
+         potencia, kWh y dinero, la <b>4</b>; la del LED, la <b>5</b>.</p>
+  
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Entrega &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 6 &middot; Proyecto final de la unidad</span>
+          <span class="chips"><span class="chip">3.1</span><span class="chip">A.6</span></span>
+          <span>Parejas &middot; se entrega al final</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Qu&eacute; hay que entregar</h4>
+          <p>El <b>dossier de seis apartados</b> de la teor&iacute;a y el montaje funcionando, real o
+             simulado en <a href="https://www.tinkercad.com/circuits" target="_blank"
+             rel="noopener">Tinkercad Circuits</a>. Si el montaje no llega a funcionar, se entrega
+             igual: el apartado 6 explica hasta d&oacute;nde llegasteis y qu&eacute; hab&iacute;ais descartado ya.</p>
+          <ol class="pasos">
+            <li>Problema y condiciones escritos <b>antes</b> de elegir componentes.</li>
+            <li>Esquema en simbolog&iacute;a IEC, a regla o con un editor, con todos los valores
+                rotulados.</li>
+            <li>C&aacute;lculo de <b>cada</b> resistencia limitadora, con la corriente que hab&eacute;is
+                elegido y por qu&eacute; esa.</li>
+            <li>Lista de materiales con precios reales de una tienda de electr&oacute;nica, y el total.</li>
+            <li>Montaje y prueba. Una foto o una captura.</li>
+            <li>Una frase final: <b>qu&eacute; cambiar&iacute;ais</b> si tuvierais otra sesi&oacute;n.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El problema est&aacute; planteado como necesidad y no como cacharro <b>(1 punto)</b>.</li>
+            <li>El esquema es correcto, normalizado y se entiende sin explicaciones
+                <b>(3 puntos)</b>.</li>
+            <li>Los c&aacute;lculos est&aacute;n hechos, con sus operaciones y sus unidades <b>(3 puntos)</b>.</li>
+            <li>El montaje funciona, o el fallo est&aacute; diagnosticado por escrito <b>(2 puntos)</b>.</li>
+            <li>La lista de materiales est&aacute; completa y sumada <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">El criterio que m&aacute;s cuenta</span>
+            Un montaje que funciona por casualidad, sin c&aacute;lculos, vale <b>menos</b> que uno que no
+            llega a encender pero trae el esquema bien, la cuenta bien y el fallo localizado por
+            escrito. En Tecnolog&iacute;a se eval&uacute;a el m&eacute;todo, porque el m&eacute;todo es lo que sirve la
+            pr&oacute;xima vez.
+          </div>
+  </div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre del tema &middot; 5 min</div>
+
+      <p>Repasa de d&oacute;nde vienes. Empezaste con una pila, una bombilla y un cable que no encend&iacute;a
+         nada, y acabas calculando cu&aacute;nta corriente puede dar un pin de una placa y cu&aacute;nto cuesta
+         al a&ntilde;o dejar una luz puesta. Todo eso con <b>tres magnitudes y una regla</b>.</p>
+
+      <div class="copiar">
+        <h4>El tema entero, en seis l&iacute;neas</h4>
+        <ul>
+          <li>La corriente necesita un <b>camino cerrado</b>; sin receptor, es un cortocircuito.</li>
+          <li><b>V</b> empuja, <b>I</b> circula, <b>R</b> estorba, y los ata la <b>ley de Ohm</b>.</li>
+          <li>En <b>serie</b> se suman las resistencias; en <b>paralelo</b>, las corrientes.</li>
+          <li><b>P = V &times; I</b> dice lo deprisa que gastas; <b>E = P &times; t</b>, lo que llevas
+              gastado, y se paga en <b>kWh</b>.</li>
+          <li>Un <b>LED</b> no es &oacute;hmico: su corriente la fija la resistencia que le pongas.</li>
+          <li>El <b>pulsador</b> vuelve solo; el <b>interruptor</b> se queda.</li>
+        </ul>
+      </div>
+
+      <ol>
+              <li>Tu montaje enciende cuando lo tocas y se apaga solo al rato. Enumera, en orden, las tres cosas que comprobar&iacute;as.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Una respuesta razonable: <b>1)</b> las conexiones que se tocan sin estar sujetas (las pinzas de cocodrilo son la causa m&aacute;s frecuente); <b>2)</b> la pila, midiendo su tensi&oacute;n con el circuito <b>conectado</b>, que es cuando se ve si est&aacute; agotada; <b>3)</b> la polaridad y la temperatura del LED, por si est&aacute; trabajando pasado de corriente. Lo que se eval&uacute;a aqu&iacute; es que haya un <b>orden</b> y un motivo, no la lista exacta.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; un esquema normalizado vale m&aacute;s que una foto del montaje?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la foto ense&ntilde;a c&oacute;mo qued&oacute;, y el esquema ense&ntilde;a <b>qu&eacute; est&aacute; conectado con qu&eacute;</b>, que es lo &uacute;nico que hace falta para reconstruirlo. Adem&aacute;s se lee igual en cualquier idioma, porque los s&iacute;mbolos est&aacute;n acordados (IEC 60617).</p></div></details></li>
+        <li>Todo lo que has montado se enciende porque alguien aprieta algo. &iquest;Qu&eacute; har&iacute;a falta para que se encendiera <b>solo</b> cuando hace falta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Hacen falta dos cosas que este tema no tiene: algo que <b>mida</b> el mundo (un sensor: de luz, de temperatura, de distancia) y algo que <b>decida</b> con esa medida. Lo segundo es una m&aacute;quina que procesa informaci&oacute;n, y eso es justo el tema siguiente.</p></div></details></li>
+
+      </ol>
+
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Lectura del tema</h4>
+        <p>Si a&uacute;n no la hab&eacute;is hecho, la lectura va con este tema: <b>31 p&aacute;rrafos numerados</b>,
+           uno cada uno en voz alta, y diez preguntas por escrito.</p>
+        <p style="margin-top:10px"><a href="lectura-tema6.pdf" target="_blank" rel="noopener"
+           style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
+           &#8595; Un cable no hace nada &middot; PDF</a></p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Siguiente tema</span>
+        Ya tienes energ&iacute;a que llega por un cable y sabes gobernarla con el dedo. Lo que falta es
+        que decida <b>sola</b>: que mida algo y act&uacute;e en consecuencia. Para eso hace falta una
+        m&aacute;quina que procese informaci&oacute;n, y de eso va el <b>tema 7: el ordenador y sus
+        componentes</b>.
+      </div>
+  
+    </section>
+
+  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
@@ -1715,6 +3604,67 @@ footer .wrap{padding-block:18px 26px}
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
     });
     window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.test').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.test-nota');
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.test-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.test-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.test-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
   });
 })();
 </script>
