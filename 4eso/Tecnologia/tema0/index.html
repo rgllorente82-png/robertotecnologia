@@ -108,6 +108,18 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .resp summary::-webkit-details-marker{display:none}
 .resp-cuerpo{padding:0 13px 13px}
 .resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -256,12 +268,23 @@ footer .wrap{padding-block:18px 26px}
         <div class="seg" id="seg-tiempo">
           <button type="button" data-ir="ant" aria-pressed="false">&#9664; Anterior</button>
           <button type="button" data-ir="sig" aria-pressed="true">Siguiente &#9654;</button>
+          <button type="button" data-ir="voz" aria-pressed="false">&#128266; Que lo cuente</button>
+          <button type="button" data-ir="stop" aria-pressed="false">&#9632; Parar</button>
         </div>
       </div>
       <div class="lienzo">
         <svg viewBox="0 0 640 210" id="svg-tiempo" role="img" aria-label="L&iacute;nea del tiempo de la tecnolog&iacute;a"></svg>
       </div>
-      <div class="pie" id="pie-tiempo"></div>
+      <div class="pie" id="pie-tiempo">
+        <div class="narra">
+          <div class="avatar-caja" id="avatar-caja"></div>
+          <div class="globo"><span id="txt-tiempo"></span>
+            <div class="avatar-dice" id="avatar-dice"></div></div>
+        </div>
+        <div id="sel-voz" style="margin-top:10px"></div>
+        <p class="voz-no" id="aviso-voz" hidden>Este navegador no puede leer el texto en voz alta. El
+          contenido est&aacute; escrito arriba.</p>
+      </div>
     </div>
     <div class="nota">
       <span class="n-tag">Lo que dice la l&iacute;nea</span>
@@ -348,6 +371,143 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
   var seg = document.getElementById('seg-tiempo');
   if(!svg) return;
   var X0 = 42, X1 = 598, Y = 92, i = 0;
+  var avisoVoz = document.getElementById('aviso-voz');
+
+  /* ---------- avatar que cambia de epoca y narra ---------- */
+  var CARAS = {
+    piedra:  {pelo:'<path d="M14 26 q4 -14 18 -14 q14 0 18 14 q-6 -4 -18 -4 q-12 0 -18 4 Z" fill="#6b4f3a"/>'
+                   +'<path d="M18 20 l-5 -7 M46 20 l5 -7" stroke="#6b4f3a" stroke-width="3" stroke-linecap="round"/>',
+              prop:'<path d="M70 44 l16 -16 q4 -4 8 0 q4 4 0 8 l-16 16 q-4 4 -8 0 q-4 -4 0 -8 Z" fill="#8a6a4a" stroke="#5f472f" stroke-width="1.5"/>',
+              dice:'¡Con esto corto lo que quiera!'},
+    fuego:   {pelo:'<path d="M14 26 q4 -14 18 -14 q14 0 18 14 q-6 -4 -18 -4 q-12 0 -18 4 Z" fill="#6b4f3a"/>',
+              prop:'<path d="M78 56 v-20" stroke="#8a6a4a" stroke-width="5" stroke-linecap="round"/>'
+                   +'<path d="M78 36 q-9 -7 0 -18 q9 11 0 18 Z" fill="#fbbc04"/>'
+                   +'<path d="M78 33 q-5 -4 0 -10 q5 6 0 10 Z" fill="#ea4335"/>',
+              dice:'El fuego no se inventa: se cuida.'},
+    agri:    {pelo:'<path d="M8 22 h48 l-6 -6 h-36 Z" fill="#d9a441"/><path d="M10 22 h44" stroke="#b5862c" stroke-width="2"/>',
+              prop:'<path d="M78 58 v-26" stroke="#9a7326" stroke-width="3" stroke-linecap="round"/>'
+                   +'<path d="M78 34 q-7 -5 -6 -12 q7 2 6 12 M78 34 q7 -5 6 -12 q-7 2 -6 12" fill="#34a853"/>',
+              dice:'Ya no persigo la comida: la siembro.'},
+    rueda:   {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#4a3b2f"/>',
+              prop:'<circle cx="80" cy="44" r="16" fill="none" stroke="#8a6a4a" stroke-width="4"/>'
+                   +'<circle cx="80" cy="44" r="3.5" fill="#8a6a4a"/>'
+                   +'<path d="M80 30 v28 M66 44 h28 M70 34 l20 20 M90 34 l-20 20" stroke="#8a6a4a" stroke-width="2"/>',
+              dice:'Redonda. No parece gran cosa, pero lo es.'},
+    imprenta:{pelo:'<path d="M10 20 h44 v5 h-44 Z M20 20 v-6 h24 v6" fill="#2f3a45"/>',
+              prop:'<path d="M64 30 h30 v28 h-30 Z" fill="#fff" stroke="#5f6368" stroke-width="2"/>'
+                   +'<path d="M79 30 v28" stroke="#5f6368" stroke-width="2"/>'
+                   +'<path d="M68 38 h8 M68 44 h8 M83 38 h8 M83 44 h8" stroke="#9aa0a6" stroke-width="1.6"/>',
+              dice:'Cientos de copias en una semana.'},
+    vapor:   {pelo:'<path d="M16 22 h32 v3 h-32 Z M22 22 v-14 h20 v14" fill="#2f3a45"/>',
+              prop:'<circle cx="80" cy="44" r="13" fill="none" stroke="#5f6368" stroke-width="4"/>'
+                   +'<circle cx="80" cy="44" r="4" fill="#5f6368"/>'
+                   +'<path d="M80 27 v6 M80 55 v6 M63 44 h6 M91 44 h6 M69 33 l4 4 M87 51 l4 4 M91 33 l-4 4 M73 51 l-4 4" stroke="#5f6368" stroke-width="3" stroke-linecap="round"/>',
+              dice:'Trabaja sin cansarse. Ni un músculo.'},
+    electri: {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#3a3a42"/>',
+              prop:'<path d="M80 30 a12 12 0 0 1 8 21 v5 h-16 v-5 a12 12 0 0 1 8 -21 Z" fill="#fbbc04" stroke="#9a7326" stroke-width="1.6"/>'
+                   +'<path d="M72 58 h16 M74 62 h12" stroke="#9a7326" stroke-width="2.4" stroke-linecap="round"/>',
+              dice:'La energía llega por un cable.'},
+    electro: {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#2f3a45"/>',
+              prop:'<rect x="66" y="32" width="28" height="24" rx="2" fill="#34a853" stroke="#1e6b33" stroke-width="1.6"/>'
+                   +'<g stroke="#1e6b33" stroke-width="2"><path d="M72 32 v-5 M80 32 v-5 M88 32 v-5 M72 56 v5 M80 56 v5 M88 56 v5"/></g>'
+                   +'<rect x="74" y="40" width="12" height="8" fill="#1e6b33"/>',
+              dice:'Un interruptor diminuto. Millones de ellos.'},
+    digital: {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#2f3a45"/>',
+              prop:'<rect x="68" y="26" width="24" height="36" rx="4" fill="#fff" stroke="#202124" stroke-width="2"/>'
+                   +'<rect x="71" y="31" width="18" height="24" fill="#e8f0fe"/>'
+                   +'<path d="M74 38 h12 M74 43 h12 M74 48 h8" stroke="#4285f4" stroke-width="1.8"/>'
+                   +'<circle cx="80" cy="59" r="1.6" fill="#202124"/>',
+              dice:'Esto tiene más potencia que el Apolo 11.'}
+  };
+
+  function dibujaAvatar(id, hablando){
+    var c = CARAS[id] || CARAS.piedra;
+    var boca = hablando
+      ? '<ellipse cx="32" cy="46" rx="6" ry="5" fill="#8c3b2e"/>'
+      : '<path d="M25 45 q7 6 14 0" fill="none" stroke="#8c3b2e" stroke-width="2.6" stroke-linecap="round"/>';
+    return '<svg viewBox="0 0 104 72" class="avatar' + (hablando ? ' habla' : '') + '" aria-hidden="true">'
+      + '<ellipse cx="32" cy="38" rx="21" ry="23" fill="#f3d3b3" stroke="#c9a583" stroke-width="1.5"/>'
+      + c.pelo
+      + '<circle cx="24" cy="34" r="3.4" fill="#2f3a45"/><circle cx="40" cy="34" r="3.4" fill="#2f3a45"/>'
+      + '<circle cx="25.2" cy="32.8" r="1.2" fill="#fff"/><circle cx="41.2" cy="32.8" r="1.2" fill="#fff"/>'
+      + '<circle cx="17" cy="45" r="3.2" fill="#ea4335" opacity=".22"/>'
+      + '<circle cx="47" cy="45" r="3.2" fill="#ea4335" opacity=".22"/>'
+      + boca + c.prop + '</svg>';
+  }
+
+  /* ---------- voz ---------- */
+  var vozES = null, hayVoz = ('speechSynthesis' in window);
+  /* las voces dependen del navegador y del sistema; se ordenan por calidad conocida */
+  function puntua(v){
+    var n = (v.name || '').toLowerCase();
+    var p = 0;
+    if(/natural|neural/.test(n)) p += 100;   /* Edge: Microsoft ... Online (Natural) */
+    if(/online/.test(n))         p += 40;
+    if(/premium|enhanced/.test(n)) p += 60;  /* macOS/iOS mejoradas */
+    if(/google/.test(n))         p += 50;    /* Chrome de escritorio */
+    if(/^es-es/i.test(v.lang))   p += 10;    /* castellano antes que otras variantes */
+    if(v.localService === false) p += 5;
+    return p;
+  }
+  function vocesES(){
+    if(!hayVoz) return [];
+    return window.speechSynthesis.getVoices()
+      .filter(function(v){ return /^es/i.test(v.lang); })
+      .sort(function(a, b){ return puntua(b) - puntua(a); });
+  }
+  function eligeVoz(){
+    var vs = vocesES();
+    if(!vs.length) return;
+    var guardada = null;
+    try{ guardada = localStorage.getItem('voz-tema0'); }catch(e){}
+    vozES = vs.filter(function(v){ return v.name === guardada; })[0] || vs[0];
+    pintaSelector(vs);
+  }
+  function pintaSelector(vs){
+    var cont = document.getElementById('sel-voz');
+    if(!cont || vs.length < 2) return;
+    cont.innerHTML = '<label style="font-family:var(--f-m);font-size:11px;color:var(--ink-soft)">Voz: ' +
+      '<select id="voz-pick" style="font:inherit;padding:3px 6px;border:1px solid var(--line);' +
+      'border-radius:2px;background:var(--surface);color:var(--ink);max-width:230px">' +
+      vs.map(function(v){
+        return '<option value="' + v.name + '"' + (vozES && v.name === vozES.name ? ' selected' : '') + '>' +
+               v.name.replace(/Microsoft |Spanish \(Spain\)|- /g, '').trim() + '</option>';
+      }).join('') + '</select></label>';
+    cont.querySelector('#voz-pick').addEventListener('change', function(){
+      vozES = vs.filter(function(v){ return v.name === this.value; }.bind(this))[0] || vozES;
+      try{ localStorage.setItem('voz-tema0', vozES.name); }catch(e){}
+      calla();
+    });
+  }
+  if(hayVoz){ eligeVoz(); window.speechSynthesis.onvoiceschanged = eligeVoz; }
+
+  function limpia(html){
+    var d = document.createElement('div'); d.innerHTML = html;
+    return d.textContent.replace(/\s+/g, ' ').trim();
+  }
+
+  function calla(){
+    if(hayVoz) window.speechSynthesis.cancel();
+    pintaAvatar(false);
+  }
+
+  function narra(){
+    if(!hayVoz){
+      avisoVoz.hidden = false;
+      return;
+    }
+    window.speechSynthesis.cancel();
+    var h = HITOS[i];
+    var u = new SpeechSynthesisUtterance(limpia(h.t) + '. ' + limpia(h.ep) + '. ' + limpia(h.c));
+    u.lang = 'es-ES';
+    if(vozES) u.voice = vozES;
+    u.rate = 0.98; u.pitch = 1.06;
+    u.onstart = function(){ pintaAvatar(true); };
+    u.onend = function(){ pintaAvatar(false); };
+    u.onerror = function(){ pintaAvatar(false); };
+    window.speechSynthesis.speak(u);
+  }
+
 
   function pinta(){
     var m = '<path class="eje-t" d="M' + X0 + ' ' + Y + ' L' + X1 + ' ' + Y + '"></path>';
@@ -366,16 +526,26 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
     m += '<text class="rotulo-svg" x="' + X1 + '" y="' + (Y + 68) + '" text-anchor="end" style="font-size:9px">HOY</text>';
     svg.innerHTML = m;
     var h = HITOS[i];
-    pie.innerHTML = '<b>' + h.t + '</b> &middot; <span style="font-family:var(--f-m);font-size:12.5px">' +
-                    h.ep + '</span><br>' + h.c;
+    document.getElementById('txt-tiempo').innerHTML =
+      '<b>' + h.t + '</b> &middot; <span style="font-family:var(--f-m);font-size:12.5px">' + h.ep + '</span><br>' + h.c;
+    document.getElementById('avatar-dice').textContent = '— ' + (CARAS[h.id] ? CARAS[h.id].dice : '');
+    pintaAvatar(false);
   }
   svg.addEventListener('click', function(e){
     var c = e.target.closest('.hito'); if(!c) return;
-    i = Number(c.dataset.k); pinta();
+    calla(); i = Number(c.dataset.k); pinta();
   });
+  function pintaAvatar(hablando){
+    var caja = document.getElementById('avatar-caja');
+    if(caja) caja.innerHTML = dibujaAvatar(HITOS[i].id, hablando);
+  }
   seg.addEventListener('click', function(e){
     var b = e.target.closest('button[data-ir]'); if(!b) return;
-    i = b.dataset.ir === 'sig' ? Math.min(i + 1, HITOS.length - 1) : Math.max(i - 1, 0);
+    var a = b.dataset.ir;
+    if(a === 'voz'){ narra(); return; }
+    if(a === 'stop'){ calla(); return; }
+    calla();
+    i = a === 'sig' ? Math.min(i + 1, HITOS.length - 1) : Math.max(i - 1, 0);
     pinta();
   });
   pinta();
