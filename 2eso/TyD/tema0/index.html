@@ -1040,7 +1040,7 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
   b.addEventListener('click', function(){
     var f = document.createElement('iframe');
     f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
-    f.title = 'La Revolución Industrial · Happy Learning Español';
+    f.title = b.querySelector('.video-txt b').textContent;
     f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
     f.referrerPolicy = 'strict-origin-when-cross-origin';
     f.allowFullscreen = true;
