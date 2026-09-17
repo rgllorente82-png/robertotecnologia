@@ -162,6 +162,34 @@ clase — el **criterio 4.1 cubre U2 y U11 a la vez**. Son la misma competencia
 digital. Merece la pena decirlo en ambas, para que el alumno las vea como lo
 mismo y no como dos temas sueltos.
 
+## Reparto de sesiones
+
+Horas confirmadas por el autor (17 sep 2026):
+
+| Curso | Ses/semana | Útiles al año | Unidades | Por unidad |
+|---|---|---|---|---|
+| 2.º TyD | 3 | ~90 | 12 | **6** + lectura |
+| 3.º TyD | 2 | ~60 | 12 | **4** + lectura |
+| 4.º Tecnología | 3 | ~90 | ~10 | **7-8** + lectura |
+
+Cálculo: 35 semanas menos 5 que se pierden en evaluaciones, salidas, festivos y
+principio y fin de curso. De las útiles se descuenta una sesión de lectura por
+unidad, y en 2.º una más para el tema 0.
+
+**2.º encaja bien**: seis sesiones por unidad es justo el formato de la U2, ya
+validado en clase. No hay que rehacer nada.
+
+**3.º no cabe y hay que decidirlo antes de producir.** Con dos sesiones
+semanales y doce unidades quedan menos de cuatro sesiones por tema, y la lectura
+se lleva una de cada cuatro: el 20 % del curso. Opciones, por orden de lo que
+recomendaría:
+
+1. **Menos unidades**: agrupar las que compartan criterios y dar diez en vez de doce.
+2. **Lectura solo en algunas unidades**, las que más se presten.
+3. **Unidades de tres sesiones**, aceptando que varias se quedan en lo esencial.
+
+Decisión pendiente del autor.
+
 ## Criterios de producción
 
 Acordados para todas las unidades:
