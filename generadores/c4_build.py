@@ -33,6 +33,7 @@ from unidad_base import pagina, bloque, ficha, pregunta
 from c4_escenas import LAZO, BLOQUES, TODONADA, MOTOR
 from test_auto import test
 import avatar_flat
+import c4b_texto
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USA_AVATAR = [False]
@@ -1165,13 +1166,14 @@ S = [
          minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
                    (u"10'", u'Test'), (u"5'", u'Cierre')],
          chips=SAB, cuerpo=S4),
-
-    # --- las cuatro que faltan, con el titulo que se propone para cada una ---
-    dict(corto=u'Control proporcional', pendiente=True),
-    dict(corto=u'Programarlo en Arduino', pendiente=True),
-    dict(corto=u'Montarlo de verdad', pendiente=True),
-    dict(corto=u'El sistema entero', pendiente=True),
 ]
+
+# --- la segunda mitad, escrita aparte en c4b_texto.py ---
+# Aqui la unidad cambia de marcha: el proyecto del curso YA esta decidido
+# (PROYECTOS.md, bloque DECIDIDO del 18-sep-2026), asi que las sesiones 5 a 8
+# no rotan ejemplos: aterrizan en el riego automatico y en sus dos variantes.
+S += c4b_texto.sesiones(bloque)
+PENDIENTES.extend(c4b_texto.PENDIENTES)
 
 CFG = dict(
     ruta='4eso/Tecnologia/tema4/',

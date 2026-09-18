@@ -300,7 +300,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 4</div>
     <h1>Mecanismos y sistemas de control</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Abierto y cerrado</button><button type="button" data-ses="2">S2 &middot; Las tres piezas</button><button type="button" data-ses="3">S3 &middot; Todo-nada</button><button type="button" data-ses="4">S4 &middot; El motor que hace falta</button><button type="button" data-ses="5" disabled>S5 &middot; Control proporcional</button><button type="button" data-ses="6" disabled>S6 &middot; Programarlo en Arduino</button><button type="button" data-ses="7" disabled>S7 &middot; Montarlo de verdad</button><button type="button" data-ses="8" disabled>S8 &middot; El sistema entero</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Abierto y cerrado</button><button type="button" data-ses="2">S2 &middot; Las tres piezas</button><button type="button" data-ses="3">S3 &middot; Todo-nada</button><button type="button" data-ses="4">S4 &middot; El motor que hace falta</button><button type="button" data-ses="5">S5 &middot; Control proporcional</button><button type="button" data-ses="6">S6 &middot; Programarlo en Arduino</button><button type="button" data-ses="7">S7 &middot; Montarlo de verdad</button><button type="button" data-ses="8">S8 &middot; El sistema entero</button></nav>
   </div>
 </header>
 
@@ -2693,13 +2693,2656 @@ repetir siempre:
 
   </div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>Ni a tope ni parado</h2>
+      <p>Un grifo no es un interruptor. Tu bomba s&iacute;, y por eso la maceta sube y baja. Hay una tercera opci&oacute;n, y no cuesta un euro m&aacute;s.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <div class="aviso">
+        <span class="n-tag">A partir de aqu&iacute; esto va en serio</span>
+        Hasta la sesi&oacute;n 4 el proyecto era un ejemplo. Ya no: <b>el curso se vertebra con el
+        riego autom&aacute;tico</b> y cada grupo elige una de tres versiones del mismo problema
+        &mdash; <b>A</b> regar la planta del aula, <b>B</b> avisar de que el aula est&aacute; cargada,
+        <b>C</b> una l&aacute;mpara que se ajusta sola. Las tres son <b>sensor, decisi&oacute;n,
+        actuador</b>. Lo que aprendas en una vale en las tres.
+      </div>
+      <p>Primer d&iacute;a de montaje, y los tres grupos vienen con la misma cara:</p>
+      <ul>
+        <li><b>El de la l&aacute;mpara</b> la ha montado con todo-nada y <b>parpadea</b>. El LED
+            enciende, la LDR ve luz, el LED apaga, la LDR deja de verla. Varias veces por segundo.</li>
+        <li><b>El de la ventilaci&oacute;n</b> dice que el ventilador o est&aacute; parado o
+            est&aacute; a tope, y <b>a tope no se puede dar clase</b>: hace un ruido que tapa al
+            profesor.</li>
+        <li><b>El del riego</b> ha encharcado la maceta. La bomba echa 100&nbsp;ml por minuto, y
+            cuando la sonda se entera ya hay agua en el plato.</li>
+      </ul>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Los tres han hecho lo de la sesi&oacute;n 3: un umbral y una banda. Y los tres tienen un
+           problema. <b>&iquest;Se arregla tocando la banda?</b> Piensa en los dos extremos: la
+           estrechas, y luego la ensanchas. Escribe qu&eacute; pasa en cada caso <b>antes</b> de
+           seguir.</p>
+      </div>
+      <p>Si la <b>estrechas</b>, conmuta m&aacute;s: la l&aacute;mpara parpadea m&aacute;s r&aacute;pido
+         y el rel&eacute; del riego dura menos (eso ya lo mediste en la sesi&oacute;n 3). Si la
+         <b>ensanchas</b>, deja de conmutar tanto, pero entonces la l&aacute;mpara se pasa medio
+         minuto a oscuras y el aula llega a 1800&nbsp;ppm antes de que arranque el ventilador.</p>
+      <p><b>No hay banda buena.</b> Y no la hay porque el problema no est&aacute; en la banda:
+         est&aacute; en que el actuador <b>solo tiene dos posiciones</b>.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Imagina que el grifo de la ducha solo tuviera dos posiciones: <b>cerrado</b> y
+           <b>abierto a tope</b>. Para darte una ducha templada tendr&iacute;as que abrirlo y
+           cerrarlo sin parar, y el agua te llegar&iacute;a a golpes. Es exactamente lo que le
+           est&aacute; pasando a tu l&aacute;mpara.</p>
+        <p>Pero el grifo de tu ducha <b>no</b> es un interruptor. Lo abres <b>un poco</b>. Esta
+           sesi&oacute;n va de darle a la m&aacute;quina ese &laquo;un poco&raquo;.</p>
+      </div>
 
-  <div id="ses-7" hidden><div class="ses-head"><h2>Sesi&oacute;n 7 en preparaci&oacute;n</h2></div></div>
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
-  <div id="ses-8" hidden><div class="ses-head"><h2>Sesi&oacute;n 8 en preparaci&oacute;n</h2></div></div>
+      <p>La idea es de sentido com&uacute;n, y por eso funciona: <b>si te falta mucho, aprieta
+         mucho; si te falta poco, aprieta poco.</b> Y si no te falta nada, no aprietes.</p>
+
+      <div class="copiar">
+        <h4>Control proporcional</h4>
+        <p><b>Control proporcional</b>: el mando del actuador es <b>proporcional al error</b>, en vez
+           de estar solo encendido o apagado.</p>
+        <p style="font-size:18px;text-align:center;margin:10px 0">
+           <b>u = error / BP</b>, recortado entre <b>0</b> y <b>1</b></p>
+        <p><b>u</b> es el mando, de 0 (parado) a 1 (a tope). Se suele decir en tanto por ciento.</p>
+        <p><b>BP</b> es la <b>banda proporcional</b>: el error que hace que el actuador pase de
+           parado a tope. Se mide en las <b>mismas unidades que la magnitud</b> (en % de humedad, en
+           ppm, en lux), y por eso es la manera c&oacute;moda de ajustarlo.</p>
+        <p>Tambi&eacute;n se escribe con la <b>ganancia</b> K<sub>p</sub> = 1 / BP, que es lo mismo
+           del rev&eacute;s: <b>u = K<sub>p</sub> &middot; error</b>. Banda estrecha = ganancia
+           grande = respuesta brusca.</p>
+        <p><b>Recortar entre 0 y 1 no es un detalle:</b> es la <b>saturaci&oacute;n</b> de la
+           sesi&oacute;n 1. Fuera de la banda, un control proporcional <b>es</b> un todo-nada.</p>
+      </div>
+
+      <p>Con la consigna de humedad en el 40&nbsp;% y una banda de 40 puntos:</p>
+      <div class="copiar">
+        <h4>Tres cuentas, para ver que no tiene truco</h4>
+        <ul>
+          <li>La maceta est&aacute; al <b>38&nbsp;%</b>. Error = 40 &minus; 38 = 2.
+              u = 2 / 40 = <b>0,05</b> &rarr; la bomba al <b>5&nbsp;%</b>.</li>
+          <li>Est&aacute; al <b>20&nbsp;%</b>. Error = 20. u = 20 / 40 = <b>0,50</b> &rarr; al
+              <b>50&nbsp;%</b>.</li>
+          <li>Est&aacute; al <b>0&nbsp;%</b>. Error = 40. u = 40 / 40 = 1 &rarr; <b>a tope</b>. Y si
+              estuviera peor, seguir&iacute;a a tope: m&aacute;s del 100&nbsp;% no hay.</li>
+        </ul>
+      </div>
+
+      <h3>C&oacute;mo se le da &laquo;el 40&nbsp;%&raquo; a algo que solo sabe estar encendido o apagado</h3>
+      <p>Aqu&iacute; hay una trampa que conviene ver ahora: un pin de Arduino <b>tampoco</b> tiene
+         posiciones intermedias. O da 5&nbsp;V o da 0. Entonces, &iquest;c&oacute;mo se le pide el
+         40&nbsp;%?</p>
+      <div class="copiar">
+        <h4>PWM: modulaci&oacute;n por ancho de pulso</h4>
+        <p>Encendiendo y apagando <b>muy deprisa</b>, y cambiando <b>qu&eacute; parte del tiempo</b>
+           est&aacute; encendido. Eso se llama <b>PWM</b> (del ingl&eacute;s <i>pulse width
+           modulation</i>) y esa fracci&oacute;n es el <b>ciclo de trabajo</b>.</p>
+        <p>En Arduino: <code>analogWrite(pin, N)</code> con <b>N de 0 a 255</b>, en los pines
+           marcados con <b>~</b> (3, 5, 6, 9, 10 y 11 en un Uno). La frecuencia es de unos
+           <b>490&nbsp;Hz</b>, casi 500 veces por segundo; en los pines 5 y 6 es el doble, porque
+           los gobierna otro temporizador de dentro del chip.</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>N = redondear(u &middot; 255)</b></p>
+        <p>El 40&nbsp;% es N = 0,40 &middot; 255 = <b>102</b>. El ojo no ve 490 parpadeos por
+           segundo: ve una luz al 40&nbsp;%. Un motor peque&ntilde;o tampoco: ve un empuj&oacute;n
+           medio.</p>
+        <p><b>Cuidado: una bomba de agua no admite PWM r&aacute;pido.</b> Tiene inercia y tiene que
+           arrancar. Ah&iacute; el &laquo;40&nbsp;%&raquo; se hace con un <b>ciclo lento</b>: en vez
+           de 490 veces por segundo, <b>una vez cada media hora</b>, regando el 40&nbsp;% de la dosis
+           m&aacute;xima. Es la misma idea a otra escala de tiempo.</p>
+      </div>
+      <div class="nota">
+        <span class="n-tag">Lo que aqu&iacute; no se explica, y hay que saber que existe</span>
+        Un pin de Arduino da <b>20&nbsp;mA</b> con holgura y <b>40 como m&aacute;ximo
+        absoluto</b>, y una bomba o una tira de LED piden mucho
+        m&aacute;s. Entre el pin y el actuador hace falta <b>algo que aguante la corriente</b>: un
+        transistor o un rel&eacute;. Eso es de la <b>unidad 5</b>, y all&iacute; se monta y se
+        calcula. Aqu&iacute; se usa ya montado: nosotros decidimos <b>cu&aacute;nto</b>, no
+        <b>con qu&eacute;</b>.
+      </div>
+
+      <h3>Al banco: el mismo lazo, dos controladores</h3>
+      <p>Abajo est&aacute;n los <b>tres proyectos</b> que pod&eacute;is elegir, con el mismo modelo
+         detr&aacute;s: algo que se va solo hacia un sitio y un actuador que tira del otro lado.
+         Cambia de controlador y mira las dos cosas que importan: <b>cu&aacute;nto oscila</b> y
+         <b>cu&aacute;nto se equivoca</b>.</p>
+
+      <div class="escena" id="esc-pr">
+        <div class="escena-barra">
+          <span class="escena-titulo">El mismo lazo, dos controladores &middot; mira lo que gana y lo que pierde cada uno</span>
+          <div class="seg" id="seg-pr">
+            <button type="button" data-p="0" aria-pressed="true">Riego</button>
+            <button type="button" data-p="1">Ventilaci&oacute;n</button>
+            <button type="button" data-p="2">L&aacute;mpara</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 330" id="svg-pr" role="img"
+               aria-label="Gr&aacute;fico de la magnitud controlada y del mando del actuador frente al tiempo"></svg>
+          <div class="pr-mandos">
+            <div class="pr-fila pr-modo">
+              <label>Controlador</label>
+              <div class="seg" id="seg-prc">
+                <button type="button" data-c="0" aria-pressed="true">Todo-nada</button>
+                <button type="button" data-c="1">Proporcional</button>
+              </div>
+            </div>
+            <div class="pr-fila">
+              <label for="pr-ref" id="pr-ref-l">Consigna</label>
+              <input type="range" id="pr-ref" min="20" max="70" step="1" value="40">
+              <span class="val" id="pr-ref-v">40 %</span>
+            </div>
+            <div class="pr-fila">
+              <label for="pr-h">Hist&eacute;resis <i>(solo en todo-nada)</i></label>
+              <input type="range" id="pr-h" min="1" max="40" step="1" value="5">
+              <span class="val" id="pr-h-v">5 %</span>
+            </div>
+            <div class="pr-fila">
+              <label for="pr-bp">Banda proporcional <i>(solo en proporcional)</i></label>
+              <input type="range" id="pr-bp" min="2" max="40" step="1" value="10">
+              <span class="val" id="pr-bp-v">10 %</span>
+            </div>
+            <div class="pr-fila">
+              <label for="pr-pert" id="pr-pert-l">Perturbaci&oacute;n</label>
+              <input type="range" id="pr-pert" min="0" max="100" step="1" value="0">
+              <span class="val" id="pr-pert-v">0</span>
+            </div>
+          </div>
+          <div class="pr-tablero" id="pr-tablero"></div>
+        </div>
+        <div class="pie" id="pie-pr"></div>
+      </div>
+
+      <style>
+      .pr-mandos{margin-top:10px}
+      .pr-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .pr-fila label{min-width:250px}
+      .pr-fila label i{color:var(--ink-soft);font-style:italic}
+      .pr-fila input[type="range"]{flex:1 1 150px;min-width:130px;accent-color:var(--goo-azul)}
+      .pr-fila .val{font-weight:500;color:var(--goo-azul);min-width:86px;text-align:right}
+      .pr-modo{margin-bottom:11px}
+      .pr-tablero{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));margin-top:13px}
+      .pr-dato{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:9px 11px}
+      .pr-dato span{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;
+        text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px;line-height:1.4}
+      .pr-dato b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--ink)}
+      .pr-dato.malo b{color:var(--goo-rojo)}
+      .pr-dato.bien b{color:var(--goo-verde)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-pr');
+        if(!svg) return;
+        var caja = document.getElementById('esc-pr');
+        var seg  = document.getElementById('seg-pr');
+        var segc = document.getElementById('seg-prc');
+        var pie  = document.getElementById('pie-pr');
+        var tab  = document.getElementById('pr-tablero');
+
+        function n0(x){ return Math.round(x).toString(); }
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+        function n2(x){ return x.toFixed(2).replace('.', ','); }
+
+        /* ------------------------------------------------------------------
+           LA MISMA PLANTA PARA LOS TRES PROYECTOS
+
+             dX/dt = ( libre + gmax*u - X ) / tau
+
+           libre  = donde se queda la magnitud con el actuador apagado
+           gmax   = lo que el actuador puede moverla a tope (con su signo)
+           tau    = lo que tarda en reaccionar
+           u      = mando del actuador, de 0 a 1
+
+           Y de ahi sale, en regimen y sin saturar, el error permanente del
+           control proporcional:
+
+             e = |consigna - libre| / (1 + |gmax| / BP)
+
+           que es lo que la escena ensena al lado de lo que ha medido.
+           ------------------------------------------------------------------ */
+        var PROY = [
+          { nom:'Riego de la planta del aula',
+            mag:'Humedad del suelo', uni:' %', ejeq:'humedad del suelo, en %',
+            min:0, max:100, ini:15, xmin:0, xmax:100,
+            refMin:20, refMax:70, refIni:40,
+            hMin:1, hMax:40, hIni:5, bpMin:5, bpMax:120, bpIni:40,
+            gmax:120, sentido:1,
+            total:240, dt:0.05, periodo:0.5,   /* horas: 10 dias, paso de 3 min */
+            tEjeDiv:24, tEjePaso:48, tEjeRot:'d&iacute;as',
+            conmUni:'d&iacute;a', conmFactor:24,
+            pertL:'Calor y sol (evaporaci&oacute;n de m&aacute;s)', pertMin:0, pertMax:100, pertIni:0,
+            tau:function(p){ return 60; },
+            libreDe:function(p){ return -0.5 * p; },
+            pertV:function(p){ return n0(0.5 * p / 60 * 24 * 5) + ' ml/d&iacute;a de m&aacute;s'; },
+            gastoL:'agua', gastoF:10 * 24, gastoUni:' ml/d&iacute;a',
+            mandoL:function(u){ return 'la bomba funciona <b>' + n1(u * 3)
+                     + ' s</b> de cada 30 minutos (ciclo lento: una bomba no admite PWM r&aacute;pido)'; },
+            pie:'<b>Riego.</b> Aqu&iacute; &laquo;dar el 40&nbsp;%&raquo; no es bajarle la fuerza a la '
+              + 'bomba: es <b>regar 40 de cada 100 segundos que pod&iacute;a regar</b>. El mando es la '
+              + 'dosis, no la potencia.' },
+
+          { nom:'Aviso de aula mal ventilada',
+            mag:'CO&#8322; en el aula', uni:' ppm', ejeq:'CO&#8322; en el aula, en ppm',
+            min:400, max:3600, ini:420, xmin:420, xmax:5000,
+            refMin:600, refMax:1600, refIni:800,
+            hMin:20, hMax:800, hIni:200, bpMin:100, bpMax:2000, bpIni:400,
+            gmax:-8000, sentido:-1,
+            total:8, dt:0.005, periodo:0.05,     /* horas: 8 h, paso de 18 s */
+            tEjeDiv:1, tEjePaso:1, tEjeRot:'horas',
+            conmUni:'hora', conmFactor:1,
+            pertL:'Gente dentro del aula', pertMin:0, pertMax:30, pertIni:30,
+            tau:function(p){ return 3.33; },
+            libreDe:function(p){ return 420 + 100 * p; },
+            pertV:function(p){ return n0(p) + ' personas'; },
+            gastoL:'consumo del ventilador', gastoF:3, gastoUni:' W de media',
+            mandoL:function(u){ return 'PWM a 490&nbsp;Hz: <code>analogWrite(pin, '
+                     + n0(u * 255) + ')</code>'; },
+            pie:'<b>Ventilaci&oacute;n.</b> El ventilador s&iacute; admite media velocidad, y se nota: '
+              + 'a medio gas hace menos ruido y gasta menos. Con todo-nada solo hay dos opciones, '
+              + 'silencio o vendaval.' },
+
+          { nom:'L&aacute;mpara de estudio que se ajusta sola',
+            mag:'Luz en la mesa', uni:' lx', ejeq:'luz que llega a la mesa, en lux',
+            min:0, max:900, ini:-1, xmin:0, xmax:2000,  /* -1 = arranca donde la deje la ventana */
+            refMin:150, refMax:600, refIni:300,
+            hMin:5, hMax:300, hIni:40, bpMin:20, bpMax:500, bpIni:120,
+            gmax:500, sentido:1,
+            total:60, dt:0.02, periodo:0.1,      /* segundos: 1 min, paso de 20 ms */
+            tEjeDiv:1, tEjePaso:10, tEjeRot:'segundos',
+            conmUni:'minuto', conmFactor:60,
+            pertL:'Luz que entra por la ventana', pertMin:0, pertMax:400, pertIni:100,
+            tau:function(p){ return 0.5; },
+            libreDe:function(p){ return p; },
+            pertV:function(p){ return n0(p) + ' lx'; },
+            gastoL:'consumo del LED', gastoF:6, gastoUni:' W de media',
+            mandoL:function(u){ return 'PWM a 490&nbsp;Hz: <code>analogWrite(9, '
+                     + n0(u * 255) + ')</code>'; },
+            pie:'<b>L&aacute;mpara.</b> El LED alumbra <b>la misma mesa</b> que mira el sensor. Con '
+              + 'todo-nada eso es un parpadeo; con proporcional, la luz se queda quieta en un punto '
+              + 'que no es exactamente el que ped&iacute;as.' }
+        ];
+
+        var p = 0, modo = 0;                     /* modo 0 = todo-nada, 1 = P */
+        var v = {ref:40, h:5, bp:10, pert:0};
+
+        function P(){ return PROY[p]; }
+
+        /* ---------- la simulacion, que es de donde salen los numeros ------ */
+        function simula(){
+          var d = P();
+          var tau = d.tau(v.pert), libre = d.libreDe(v.pert);
+          var n = Math.round(d.total / d.dt);
+          var cadaN = Math.max(1, Math.round(d.periodo / d.dt));
+          var X = (d.ini < 0) ? libre : d.ini;
+          var on = false, u = 0;
+          var serie = [], i, e;
+          for(i = 0; i < n; i++){
+            if(i % cadaN === 0){
+              e = d.sentido * (v.ref - X);
+              if(modo === 0){
+                if(on && e < -v.h / 2) on = false;
+                else if(!on && e > v.h / 2) on = true;
+                u = on ? 1 : 0;
+              } else {
+                u = Math.max(0, Math.min(1, e / v.bp));
+              }
+            }
+            X += d.dt * (libre + d.gmax * u - X) / tau;
+            /* Los topes fisicos: la tierra no puede estar mas seca que seca y
+               el aula no puede tener menos CO2 que la calle. */
+            X = Math.max(d.xmin, Math.min(d.xmax, X));
+            serie.push([i * d.dt, X, u]);
+          }
+          /* las medidas, sobre el ultimo 40 %: el principio es el arranque */
+          var desde = d.total * 0.6;
+          var lo = 1e12, hi = -1e12, suma = 0, sumu = 0, cnt = 0, conmF = 0;
+          var uAnt = null;
+          for(i = 0; i < serie.length; i++){
+            if(serie[i][0] < desde) continue;
+            lo = Math.min(lo, serie[i][1]); hi = Math.max(hi, serie[i][1]);
+            suma += serie[i][1]; sumu += serie[i][2]; cnt++;
+            if(modo === 0 && uAnt !== null && serie[i][2] !== uAnt) conmF++;
+            uAnt = serie[i][2];
+          }
+          cnt = Math.max(1, cnt);
+          var media = suma / cnt, umed = sumu / cnt;
+          var ventana = d.total - desde;
+          return {serie:serie, media:media, osc:hi - lo, umed:umed,
+                  err:Math.abs(media - v.ref), uFin:serie[serie.length - 1][2],
+                  conm:conmF / 2 / ventana * d.conmFactor, libre:libre, tau:tau};
+        }
+
+        /* ---------- y lo que dice la cuenta, sin simular nada -------------
+           En regimen: X = libre + gmax*u  y  u = sentido*(consigna - X)/BP.
+           Despejando sale  u = salto / (BP + |gmax|)  con  salto =
+           sentido*(consigna - libre), y de ahi el error permanente
+             e = |consigna - libre| / (1 + |gmax|/BP).
+           Tres casos se salen de esa formula y hay que decirlos:
+             - salto <= 0: el actuador no hace falta, se queda apagado;
+             - u > 1: satura, y manda el tope del actuador;
+             - el resultado cae fuera de los topes fisicos.               */
+        function teorico(){
+          var d = P(), libre = d.libreDe(v.pert);
+          var g = Math.abs(d.gmax);
+          var salto = d.sentido * (v.ref - libre);
+          var u, Xf;
+          if(salto <= 0){ u = 0; Xf = libre; }
+          else {
+            u = Math.min(1, salto / (v.bp + g));
+            Xf = libre + d.gmax * u;
+          }
+          var Xc = Math.max(d.xmin, Math.min(d.xmax, Xf));
+          return {err:Math.abs(v.ref - Xc), u:u, X:Xc,
+                  sat:(salto > 0 && salto / (v.bp + g) >= 1),
+                  tope:(Math.abs(Xc - Xf) > 1e-9),
+                  sobra:(salto <= 0)};
+        }
+
+        function pinta(){
+          var d = P(), R = simula(), T = teorico();
+          var X0 = 58, X1 = 672, Y0 = 20, Y1 = 214, YU0 = 246, YU1 = 296;
+          /* la escala sale de lo que ha pasado de verdad, no del rango del
+             proyecto: si no, el rizado, que es lo que hay que mirar, se
+             quedaria en una raya. */
+          var lo = v.ref - v.h / 2, hi = v.ref + v.h / 2;
+          var i;
+          for(i = 0; i < R.serie.length; i++){
+            lo = Math.min(lo, R.serie[i][1]); hi = Math.max(hi, R.serie[i][1]);
+          }
+          var margen = (hi - lo) * 0.10 + 1e-6;
+          lo -= margen; hi += margen;
+          var px = function(t){ return X0 + (X1 - X0) * t / d.total; };
+          var py = function(x){ return Y1 - (Y1 - Y0) * (x - lo) / (hi - lo); };
+          var pu = function(u){ return YU1 - (YU1 - YU0) * u; };
+          var m = '', g, paso;
+
+          /* rejilla horizontal, en numeros redondos */
+          paso = Math.pow(10, Math.floor(Math.log(hi - lo) / Math.LN10)) / 2;
+          while((hi - lo) / paso > 9) paso *= 2;
+          for(g = Math.ceil(lo / paso) * paso; g <= hi; g += paso){
+            m += '<line x1="' + X0 + '" y1="' + py(g).toFixed(1) + '" x2="' + X1 + '" y2="'
+               + py(g).toFixed(1) + '" stroke="currentColor" stroke-width="1" opacity=".11"/>'
+               + '<text x="' + (X0 - 6) + '" y="' + (py(g) + 4).toFixed(1)
+               + '" class="ejeq" text-anchor="end">' + n0(g) + '</text>';
+          }
+          /* eje de tiempo. La unidad va arriba, con el rotulo de la magnitud:
+             puesta al final del eje se monta encima del ultimo numero. */
+          for(g = 0; g <= d.total / d.tEjeDiv + 1e-9; g += d.tEjePaso / d.tEjeDiv){
+            m += '<text x="' + px(g * d.tEjeDiv).toFixed(1) + '" y="' + (Y1 + 15)
+               + '" class="ejeq" text-anchor="middle">' + n0(g) + '</text>';
+          }
+          m += '<text x="' + X0 + '" y="' + (Y0 - 6) + '" class="ejeq">' + d.ejeq
+             + ' &middot; abajo, ' + d.tEjeRot + '</text>';
+
+          /* la banda de histeresis, solo cuando manda */
+          if(modo === 0){
+            var ya = py(v.ref + v.h / 2), yb = py(v.ref - v.h / 2);
+            m += '<rect x="' + X0 + '" y="' + Math.min(ya, yb).toFixed(1) + '" width="' + (X1 - X0)
+               + '" height="' + Math.max(1, Math.abs(yb - ya)).toFixed(1)
+               + '" fill="#1a73e8" opacity=".10"/>';
+          }
+          /* la consigna. El rotulo va arriba del todo, en la esquina: pegado a
+             su raya se lo comen los dientes de sierra del todo-nada. */
+          m += '<line x1="' + X0 + '" y1="' + py(v.ref).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(v.ref).toFixed(1) + '" stroke="currentColor" stroke-width="1.5"'
+             + ' stroke-dasharray="6 4" opacity=".6"/>'
+             + '<text x="' + (X1 - 4) + '" y="' + (Y0 - 6)
+             + '" class="etq" text-anchor="end">- - -  consigna ' + n0(v.ref) + d.uni + '</text>';
+
+          /* la curva de la magnitud y, debajo, el mando del actuador */
+          var salto = Math.ceil(R.serie.length / 620), dd = '', du = '';
+          for(i = 0; i < R.serie.length; i += salto){
+            dd += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][1]).toFixed(1);
+            du += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + pu(R.serie[i][2]).toFixed(1);
+          }
+          m += '<path d="' + dd + '" fill="none" stroke="#1a73e8" stroke-width="2"/>';
+          m += '<rect x="' + X0 + '" y="' + YU0 + '" width="' + (X1 - X0) + '" height="' + (YU1 - YU0)
+             + '" fill="none" stroke="currentColor" stroke-width="1" opacity=".25"/>'
+             + '<path d="' + du + '" fill="none" stroke="#ea4335" stroke-width="1.8"/>'
+             + '<text x="' + (X0 - 6) + '" y="' + (YU0 + 10) + '" class="ejeq" text-anchor="end">100 %</text>'
+             + '<text x="' + (X0 - 6) + '" y="' + (YU1 + 4) + '" class="ejeq" text-anchor="end">0 %</text>'
+             + '<text x="' + (X0 + 5) + '" y="' + (YU0 - 5) + '" class="ejeq">mando del actuador '
+             + '(rojo): con todo-nada solo puede estar arriba o abajo</text>';
+
+          /* la ventana en la que se mide */
+          m += '<line x1="' + px(d.total * 0.6).toFixed(1) + '" y1="' + Y0 + '" x2="'
+             + px(d.total * 0.6).toFixed(1) + '" y2="' + YU1 + '" stroke="currentColor"'
+             + ' stroke-width="1" stroke-dasharray="3 3" opacity=".35"/>'
+             + '<text x="' + (px(d.total * 0.6) + 5).toFixed(1) + '" y="' + (Y1 - 6)
+             + '" class="ejeq">desde aqu&iacute; se mide</text>';
+
+          svg.innerHTML = m;
+
+          /* ---------------- el tablero ---------------- */
+          var errCls = R.err < (d.max - d.min) * 0.01 ? ' bien' : ' malo';
+          var oscCls = R.osc < (d.max - d.min) * 0.01 ? ' bien' : ' malo';
+          tab.innerHTML =
+            '<div class="pr-dato"><span>valor medio</span><b id="pr-media">'
+              + n1(R.media) + d.uni + '</b></div>'
+          + '<div class="pr-dato' + oscCls + '"><span>oscilaci&oacute;n</span><b id="pr-osc">'
+              + n1(R.osc) + d.uni + '</b></div>'
+          + '<div class="pr-dato' + errCls + '"><span>error permanente</span><b id="pr-err">'
+              + n1(R.err) + d.uni + '</b></div>'
+          + '<div class="pr-dato"><span>ciclos por ' + d.conmUni + '</span><b id="pr-conm">'
+              + n1(R.conm) + '</b></div>'
+          + '<div class="pr-dato"><span>actuador, de media</span><b id="pr-u">'
+              + n0(R.umed * 100) + ' %</b></div>'
+          + '<div class="pr-dato"><span>' + d.gastoL + '</span><b id="pr-gasto">'
+              + (R.umed * d.gastoF < 10 ? n1(R.umed * d.gastoF) : n0(R.umed * d.gastoF))
+              + d.gastoUni + '</b></div>';
+
+          /* ---------------- el pie: la cuenta al lado de la medida -------- */
+          var txt = '<b>' + d.nom + '.</b> Sin actuador se quedar&iacute;a en <b>' + n0(R.libre)
+                  + d.uni + '</b> y le pides <b>' + n0(v.ref) + d.uni + '</b>. ';
+          if(modo === 0){
+            txt += 'Con <b>todo-nada</b> y una banda de ' + n0(v.h) + d.uni + ', el actuador arranca y '
+                 + 'para <b>' + n1(R.conm) + ' veces por ' + d.conmUni + '</b> y la magnitud se pasea '
+                 + '<b>' + n1(R.osc) + d.uni + '</b>. De media acierta (se queda en ' + n1(R.media)
+                 + d.uni + '), pero <b>de media</b> no es lo mismo que <b>siempre</b>.';
+          } else if(T.sobra){
+            txt += 'Con esta perturbaci&oacute;n el actuador <b>no hace falta</b>: la magnitud ya '
+                 + 'est&aacute; del lado bueno de la consigna, as&iacute; que el proporcional lo '
+                 + 'deja apagado y se queda en ' + n1(R.media) + d.uni + '. Un lazo cerrado no '
+                 + 'puede empujar hacia los dos lados si solo tiene un actuador.';
+          } else {
+            txt += 'Con <b>proporcional</b> y banda de ' + n0(v.bp) + d.uni + ', el actuador se queda '
+                 + 'quieto en el <b>' + n0(R.uFin * 100) + ' %</b> (' + d.mandoL(R.uFin) + ') y la '
+                 + 'magnitud deja de oscilar: <b>' + n1(R.osc) + d.uni + '</b>. Pero se planta en '
+                 + n1(R.media) + d.uni + ', o sea <b>' + n1(R.err) + d.uni + ' de error que no se '
+                 + 'va nunca</b>.<br>';
+            if(T.sat){
+              txt += '<b>Ojo:</b> con esta banda el actuador pide m&aacute;s del 100&nbsp;% y se '
+                   + 'queda <b>saturado</b>: la f&oacute;rmula del error permanente ya no vale, y lo '
+                   + 'que manda es el tope del actuador. Es la <b>saturaci&oacute;n</b> de la '
+                   + 'sesi&oacute;n 1, otra vez.';
+            } else if(T.tope){
+              txt += 'Aqu&iacute; la cuenta se sale de lo posible (dar&iacute;a ' + n0(T.X) + d.uni
+                   + ' y no se puede pasar de ah&iacute;), as&iacute; que lo que manda es el tope '
+                   + 'f&iacute;sico: <b>' + n1(T.err) + d.uni + '</b> de error.';
+            } else {
+              txt += 'Y eso no es un fallo de la simulaci&oacute;n: la cuenta lo predice. '
+                   + 'Error = |' + n0(v.ref) + ' &minus; ' + n0(R.libre) + '| / (1 + '
+                   + n0(Math.abs(d.gmax)) + ' / ' + n0(v.bp) + ') = <b>' + n1(T.err) + d.uni
+                   + '</b>, y la escena ha medido ' + n1(R.err) + d.uni + '.';
+            }
+          }
+          pie.innerHTML = txt + '<br>' + d.pie;
+        }
+
+        /* ---------------- los mandos ---------------- */
+        function etiquetas(){
+          var d = P();
+          document.getElementById('pr-ref-l').innerHTML = 'Consigna (' + d.mag + ')';
+          document.getElementById('pr-pert-l').innerHTML = d.pertL;
+          document.getElementById('pr-ref-v').innerHTML = n0(v.ref) + d.uni;
+          document.getElementById('pr-h-v').innerHTML = n0(v.h) + d.uni;
+          document.getElementById('pr-bp-v').innerHTML = n0(v.bp) + d.uni;
+          document.getElementById('pr-pert-v').innerHTML = d.pertV(v.pert);
+        }
+
+        function reinicia(){
+          var d = P();
+          v = {ref:d.refIni, h:d.hIni, bp:d.bpIni, pert:d.pertIni};
+          var r;
+          r = document.getElementById('pr-ref');  r.min = d.refMin; r.max = d.refMax; r.value = v.ref;
+          r = document.getElementById('pr-h');    r.min = d.hMin;   r.max = d.hMax;   r.value = v.h;
+          r = document.getElementById('pr-bp');   r.min = d.bpMin;  r.max = d.bpMax;  r.value = v.bp;
+          r = document.getElementById('pr-pert'); r.min = d.pertMin; r.max = d.pertMax; r.value = v.pert;
+          etiquetas();
+          pinta();
+        }
+
+        function mando(id, clave){
+          document.getElementById(id).addEventListener('input', function(){
+            v[clave] = +this.value;
+            etiquetas();
+            pinta();
+          });
+        }
+        mando('pr-ref', 'ref');
+        mando('pr-h', 'h');
+        mando('pr-bp', 'bp');
+        mando('pr-pert', 'pert');
+
+        seg.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-p]');
+          if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          p = +b.dataset.p;
+          reinicia();
+        });
+        segc.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-c]');
+          if(!b) return;
+          segc.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          modo = +b.dataset.c;
+          pinta();
+        });
+
+        reinicia();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; el error que no se va</span>
+        <p>Pon el riego en <b>proporcional</b> y mira el tablero. La oscilaci&oacute;n se ha ido
+           casi del todo: el actuador se queda quieto en un punto, la bomba ya no arranca y para, el
+           LED ya no parpadea. Pero hay <b>un error que no se va nunca</b>: con la banda de
+           40&nbsp;puntos la humedad se planta en el <b>30&nbsp;%</b> y ah&iacute; se queda, aunque
+           la consigna diga 40.</p>
+        <p>Y no es un fallo de la simulaci&oacute;n. Es <b>inevitable</b>, y se ve en una
+           l&iacute;nea: para que la bomba est&eacute; al 25&nbsp;% hace falta que
+           u = error / BP = 10 / 40 = 0,25, o sea que <b>el error tiene que valer algo</b>. Si el error fuera
+           cero, el mando ser&iacute;a cero, la bomba se parar&iacute;a y la maceta se secar&iacute;a.
+           <b>El control proporcional necesita equivocarse para trabajar.</b></p>
+        <p>Cu&aacute;nto se equivoca sale de una cuenta, y la escena la ense&ntilde;a al lado de lo
+           que ha medido:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>error permanente = |consigna &minus; donde se quedar&iacute;a sin actuador| /
+              (1 + G<sub>max</sub> / BP)</b></p>
+        <p>donde G<sub>max</sub> es lo que el actuador puede mover la magnitud si lo pones a tope.
+           <b>Estrechar la banda reduce el error</b> (el denominador crece)&hellip; pero lo acerca al
+           todo-nada, y vuelve la oscilaci&oacute;n. Otra negociaci&oacute;n, como la de la
+           sesi&oacute;n 3.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; y c&oacute;mo se quita</span>
+        <p>Hay tres maneras, y conviene conocer las tres.</p>
+        <ul>
+          <li><b>Estrechar la banda.</b> Gratis, y hasta cierto punto funciona. Pasado ese punto,
+              oscila.</li>
+          <li><b>Hacer trampa con la consigna.</b> Si te deja 10 puntos corto, le pides 50 en vez de
+              40. Funciona, es lo que hac&iacute;a todo el mundo antes de 1930, y se rompe en cuanto
+              cambian las condiciones: el error permanente depende de la perturbaci&oacute;n. Sube el
+              mando del calor en la escena y m&iacute;ralo.</li>
+          <li><b>A&ntilde;adir un t&eacute;rmino que <u>acumule</u> el error.</b> Si llevas una hora
+              tres puntos corto, ese &laquo;tres por una hora&raquo; se va sumando y empuja el mando
+              hacia arriba hasta que el error es cero de verdad. Se llama <b>acci&oacute;n
+              integral</b>, es la <b>I</b> del <b>PID</b>, y no entra en 4.&ordm;. Pero ahora ya sabes
+              <b>de qu&eacute; problema naci&oacute;</b>, que es lo que no cuenta casi nadie.</li>
+        </ul>
+      </div>
+
+      <h3>Un control proporcional que no lleva programa</h3>
+      <figure class="foto">
+        <img src="../../../img/c4-valvula-termostatica.jpg" alt="Cabezal termost&aacute;tico Danfoss montado en el codo de entrada de un radiador, con su rueda numerada del 1 al 5" loading="lazy">
+        <figcaption>Una <b>v&aacute;lvula termost&aacute;tica</b> de radiador. Dentro de esa rueda hay una c&aacute;psula con cera o gas que <b>se dilata con la temperatura de la habitaci&oacute;n</b> y empuja un v&aacute;stago que <b>cierra la v&aacute;lvula poco a poco</b>. No es un interruptor: cuanto m&aacute;s caliente est&aacute; la sala, m&aacute;s cerrada est&aacute; la v&aacute;lvula. Eso es <b>control proporcional</b>, y la banda es lo que tiene que subir la temperatura para pasar de abierta del todo a cerrada del todo: unos 2&nbsp;&deg;C. El n&uacute;mero de la rueda es la <b>consigna</b>. Las invent&oacute; <b>Mads Clausen</b>, el fundador de Danfoss, en <b>1943</b>, y hay millones puestas: ni un microcontrolador, ni una pila, ni una l&iacute;nea de c&oacute;digo.
+          <span class="credito">Santeri Viinam&auml;ki &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Danfoss_thermostatic_radiator_valve.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>Todo-nada o proporcional: c&oacute;mo se elige</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Todo-nada</b></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Proporcional</b></td></tr>
+          <tr><td style="padding:5px 6px">Oscila</td>
+              <td style="padding:5px 6px">S&iacute;, siempre</td>
+              <td style="padding:5px 6px">No, se queda quieto</td></tr>
+          <tr><td style="padding:5px 6px">Acierta la consigna</td>
+              <td style="padding:5px 6px">De media s&iacute;</td>
+              <td style="padding:5px 6px">Nunca del todo: deja un error fijo</td></tr>
+          <tr><td style="padding:5px 6px">Desgaste del actuador</td>
+              <td style="padding:5px 6px">Alto: arranca y para sin parar</td>
+              <td style="padding:5px 6px">Bajo</td></tr>
+          <tr><td style="padding:5px 6px">Lo que pide el actuador</td>
+              <td style="padding:5px 6px">Que sepa encender y apagar</td>
+              <td style="padding:5px 6px">Que <b>admita valores intermedios</b></td></tr>
+          <tr><td style="padding:5px 6px">Cu&aacute;ndo va bien</td>
+              <td style="padding:5px 6px">Calefacci&oacute;n, nevera, bomba de riego</td>
+              <td style="padding:5px 6px">Luz, velocidad de un ventilador o de un motor</td></tr>
+        </table>
+        <p><b>Regla pr&aacute;ctica:</b> si al usuario le molesta que aquello arranque y pare
+           (ruido, parpadeo, vibraci&oacute;n), proporcional. Si no le molesta y el actuador es de
+           dos posiciones, todo-nada, que es m&aacute;s simple y m&aacute;s barato.</p>
+      </div>
+      <div class="video" id="video-c4-s5" data-vid="wkPI1BDp63E">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: 1. Acci&oacute;n de CONTROL PROPORCIONAL &middot; Explicaci&oacute;n sencilla">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>1. Acci&oacute;n de CONTROL PROPORCIONAL &middot; Explicaci&oacute;n sencilla</b>
+            <span>Sergio A. Casta&ntilde;o Giraldo</span>
+          </span>
+        </button>
+        <p class="video-nota">La acci&oacute;n proporcional sola, que es justo la de esta sesi&oacute;n, antes de meter la integral y la derivativa. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=wkPI1BDp63E" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 5 &middot; Ajustar el control de vuestro proyecto</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Grupos de 3 &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; La tabla del error permanente (8 min)</h4>
+          <p>En la escena, poned <b>vuestro</b> proyecto y el controlador en <b>proporcional</b>.
+             Dejad la consigna y la perturbaci&oacute;n como vienen y mover <b>solo la banda</b>.
+             Rellenad en la libreta:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Banda (BP)</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Error medido</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Error calculado</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Oscilaci&oacute;n</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Actuador medio</b></td></tr>
+            <tr><td style="padding:5px 6px">la m&aacute;s estrecha</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">la de en medio</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">la m&aacute;s ancha</td><td></td><td></td><td></td><td></td></tr>
+          </table>
+          <p>La columna <b>calculado</b> se rellena <b>a mano</b>, con la f&oacute;rmula del recuadro
+             y los n&uacute;meros que da el pie de la escena. No se copia de la pantalla.</p>
+          <h4>Segunda parte &middot; Comparar y decidir (6 min)</h4>
+          <ol>
+            <li>Poned el controlador en <b>todo-nada</b> con una banda parecida y anotad
+                oscilaci&oacute;n y ciclos. Escribid <b>una l&iacute;nea</b> comparando: qu&eacute;
+                gana cada uno.</li>
+            <li>Decidid cu&aacute;l us&aacute;is en vuestro proyecto y <b>justificadlo con dos
+                n&uacute;meros de vuestra tabla</b>. &laquo;Porque es mejor&raquo; no vale.</li>
+            <li>Subid la <b>perturbaci&oacute;n</b> al m&aacute;ximo sin tocar nada m&aacute;s.
+                &iquest;Qu&eacute; le pasa al error permanente? &iquest;Sigue valiendo vuestra
+                decisi&oacute;n?</li>
+          </ol>
+          <h4>Tercera parte &middot; Traducirlo al Arduino (6 min)</h4>
+          <p>Con la banda que hab&eacute;is elegido, escribid en la libreta:</p>
+          <ul>
+            <li>La <b>l&iacute;nea de la cuenta</b>: c&oacute;mo se obtiene u a partir de la lectura
+                y la consigna, con vuestros n&uacute;meros.</li>
+            <li>El <b>N de <code>analogWrite</code></b> (de 0 a 255) para tres errores distintos:
+                el m&aacute;ximo, la mitad y casi cero.</li>
+            <li>Si vuestro actuador es la <b>bomba</b>, la traducci&oacute;n a ciclo lento:
+                &iquest;cu&aacute;ntos segundos de bomba cada media hora?</li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla completa, con la columna <b>calculada a mano</b> <b>(4 puntos)</b>.</li>
+            <li>La comparaci&oacute;n y la decisi&oacute;n, con dos n&uacute;meros <b>(3 puntos)</b>.</li>
+            <li>La traducci&oacute;n a <code>analogWrite</code> o a ciclo lento <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; es la banda proporcional?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El <b>error que hace que el actuador pase de parado a tope</b>, medido en las mismas unidades que la magnitud. Con BP = 40&nbsp;% de humedad, un error de 20 puntos pone la bomba al 50&nbsp;%.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; un control proporcional <b>tiene</b> que dejar un error?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el mando sale del error: u = error / BP. Si el error fuera cero, el actuador estar&iacute;a parado, y con el actuador parado la magnitud se va. Necesita equivocarse un poco <b>para poder trabajar</b>.</p></div></details></li>
+        <li>&iquest;C&oacute;mo se le da un 40&nbsp;% a un pin que solo sabe dar 0 o 5&nbsp;V?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Con <b>PWM</b>: encendiendo y apagando unas 490 veces por segundo y dejando encendido el 40&nbsp;% del tiempo. En Arduino, <code>analogWrite(pin, 102)</code>, porque 0,40 &middot; 255 = 102. Con una bomba, lo mismo pero con un <b>ciclo lento</b>.</p></div></details></li>
+        <li>La consigna es 40 y el proporcional se planta en 30. &iquest;Qu&eacute; tres cosas puedes hacer?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Estrechar la banda</b> (hasta que empiece a oscilar), <b>pedirle 50</b> en vez de 40 (funciona hasta que cambian las condiciones) o a&ntilde;adir un t&eacute;rmino que <b>acumule</b> el error, que es la <b>acci&oacute;n integral</b> del PID y ya no es de 4.&ordm;.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes qu&eacute; tiene que hacer el controlador. Ahora hay que <b>escribirlo</b>, y
+        ah&iacute; aparece un mundo nuevo de maneras de estropearlo. Un compa&ntilde;ero de la otra
+        clase dej&oacute; el riego funcionando el viernes; el lunes hab&iacute;a <b>un charco</b> en
+        el suelo del aula y la bomba quemada. El programa no ten&iacute;a ning&uacute;n error de
+        sintaxis: le faltaban <b>cuatro l&iacute;neas</b>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>El lunes hab&iacute;a un charco</h2>
+      <p>El programa del viernes compilaba a la primera y funcion&oacute; delante de todos. Le faltaban cuatro l&iacute;neas.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Un grupo de la otra clase dej&oacute; el riego montado y funcionando <b>el viernes a las
+         dos</b>. Lo probaron delante del profesor: la maceta estaba seca, la bomba arranc&oacute;,
+         la humedad subi&oacute;, la bomba par&oacute;. Perfecto.</p>
+      <p>El <b>lunes</b> hab&iacute;a un charco de casi dos litros en el suelo del aula, el
+         dep&oacute;sito vac&iacute;o, la bomba caliente y muerta, y la planta ahogada.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>El programa no ten&iacute;a ni un error de sintaxis: compil&oacute; a la primera y
+           funcion&oacute; delante de todos. <b>Escribe tres cosas que puedan haber pasado entre el
+           viernes y el lunes.</b> Una de ellas tiene que ser culpa del programa.</p>
+      </div>
+      <p>Este era el programa, y es exactamente el que sale de traducir el pseudoc&oacute;digo de la
+         sesi&oacute;n 3:</p>
+      <pre style="font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:10px;border-radius:2px;overflow:auto;line-height:1.6">void loop() {
+  int lectura = analogRead(A0);
+  if (lectura &gt; UMBRAL) digitalWrite(BOMBA, HIGH);
+  else                  digitalWrite(BOMBA, LOW);
+  delay(1800000);            <span style="color:var(--ink-soft)">// media hora</span>
+}</pre>
+      <p>L&eacute;elo otra vez despacio y busca el desastre. <b>Si est&aacute; seco, enciende la
+         bomba&hellip; y se duerme media hora.</b> La bomba no se apaga cuando la maceta se moja: se
+         apaga <b>media hora despu&eacute;s</b>, cuando el programa vuelve a mirar. A 100&nbsp;ml por
+         minuto, eso son <b>tres litros</b>.</p>
+      <p>Y el viernes funcion&oacute; porque el profesor estaba mirando y nadie esper&oacute; media
+         hora.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><code>delay(1800000)</code> no es una pausa: es un <b>secuestro</b>. Durante esa media
+           hora el Arduino no lee el sensor, no mira el bot&oacute;n, no comprueba el nivel del
+           dep&oacute;sito y <b>no puede apagar nada</b>. Est&aacute; dentro de un bucle vac&iacute;o
+           contando.</p>
+        <p>Toda esta sesi&oacute;n va de una &uacute;nica idea: <b>el lazo tiene que girar</b>. Si tu
+           programa se para, tu control se para.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>La forma de un programa de control</h4>
+        <p>Un programa de control <b>no espera</b>: da vueltas. En cada vuelta hace lo mismo, y
+           deprisa.</p>
+        <ol>
+          <li><b>Medir</b> &mdash; leer el sensor (y limpiar la lectura).</li>
+          <li><b>Decidir</b> &mdash; comparar con la consigna y calcular la orden.</li>
+          <li><b>Comprobar</b> &mdash; &iquest;me lo permiten los l&iacute;mites de seguridad?</li>
+          <li><b>Actuar</b> &mdash; escribir la orden en el pin.</li>
+        </ol>
+        <p>Y vuelta a empezar. <b>Nunca</b> se deja un actuador encendido y se bloquea el programa:
+           lo que enciende tiene que poder apagar en la vuelta siguiente.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>El patr&oacute;n de <code>millis()</code>: esperar sin dormirse</h4>
+        <p><code>millis()</code> devuelve los <b>milisegundos</b> que lleva encendida la placa. En
+           vez de dormir, se apunta cu&aacute;ndo toca y se comprueba en cada vuelta:</p>
+        <pre style="font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:10px;border-radius:2px;overflow:auto;line-height:1.6">unsigned long ultimo = 0;
+
+void loop() {
+  <span style="color:var(--ink-soft)">// el lazo gira miles de veces por segundo...</span>
+  if (millis() - ultimo &lt; 10000) return;   <span style="color:var(--ink-soft)">// ...pero solo decide cada 10 s</span>
+  ultimo = millis();
+
+  int lectura = mide();
+  <span style="color:var(--ink-soft)">// ... medir, decidir, comprobar, actuar ...</span>
+}</pre>
+        <p>La variable va como <code>unsigned long</code> porque <code>millis()</code> pasa de
+           32.000 en menos de un minuto y no cabe en un <code>int</code>.</p>
+        <p><b>Lo que se gana:</b> entre decisi&oacute;n y decisi&oacute;n el programa sigue vivo.
+           Puede atender un bot&oacute;n, mirar el nivel del dep&oacute;sito y, sobre todo,
+           <b>apagar la bomba</b>.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Las cuatro l&iacute;neas que no son opcionales</h4>
+        <ol>
+          <li><b>Media de varias lecturas.</b> Un sensor tiembla. Diez lecturas seguidas y su media
+              bajan el ruido a la <b>tercera parte</b> (se divide por la ra&iacute;z de 10, que es
+              3,16). Diez <code>analogRead</code> seguidas cuestan alrededor de un
+              milisegundo: nada.</li>
+          <li><b>Un margen alrededor del umbral.</b> No decidir justo en la raya: arrancar en
+              umbral&nbsp;+&nbsp;margen y parar en umbral&nbsp;&minus;&nbsp;margen. Es la
+              <b>hist&eacute;resis</b> de la sesi&oacute;n 3, escrita en dos l&iacute;neas.</li>
+          <li><b>Dosis y espera.</b> Regar una cantidad fija y <b>esperar</b> a que el agua llegue
+              antes de volver a mirar. Sin esto, el sistema riega hasta que la sonda se entere, y la
+              sonda tarda.</li>
+          <li><b>Un tope de seguridad.</b> Un m&aacute;ximo absoluto que no se puede pasar pase lo
+              que pase: <i>nunca m&aacute;s de 150 segundos de bomba al d&iacute;a</i>. No depende
+              del sensor, y por eso sigue valiendo cuando el sensor miente.</li>
+        </ol>
+        <p>Y una quinta que no es una l&iacute;nea sino una decisi&oacute;n: el <b>estado
+           seguro</b>. Si algo va mal &mdash; la lectura es imposible, el sensor no contesta &mdash;
+           &iquest;qu&eacute; hace el sistema? En un riego, <b>no regar</b>. Una planta aguanta un
+           d&iacute;a seca; un cortocircuito con dos litros de agua, no.</p>
+      </div>
+
+      <h3>Al banco: siete d&iacute;as, y el sketch al lado</h3>
+      <p>La escena ejecuta el programa de la derecha durante <b>una semana entera</b> sobre el modelo
+         de la maceta. Quita una l&iacute;nea y mira el c&oacute;digo cambiar&hellip; y mira el
+         charco.</p>
+
+      <div class="escena" id="esc-sk">
+        <div class="escena-barra">
+          <span class="escena-titulo">Siete d&iacute;as de riego, ejecutando el sketch que hay al lado</span>
+          <div class="seg" id="seg-sk">
+            <button type="button" data-l="0">Con <code>delay()</code></button>
+            <button type="button" data-l="1" aria-pressed="true">Con <code>millis()</code></button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="sk-dos">
+            <div class="sk-izq">
+              <svg viewBox="0 0 430 250" id="svg-sk" role="img"
+                   aria-label="Humedad real de la maceta y lectura de la sonda a lo largo de siete d&iacute;as"></svg>
+              <div class="sk-tablero" id="sk-tablero"></div>
+            </div>
+            <div class="sk-der">
+              <pre class="sk-cod" id="sk-cod"></pre>
+            </div>
+          </div>
+          <div class="sk-mandos">
+            <div class="sk-col">
+              <label class="sk-chk"><input type="checkbox" id="sk-media" checked>
+                <span><b>media de 10 lecturas</b> antes de decidir</span></label>
+              <label class="sk-chk"><input type="checkbox" id="sk-dosis" checked>
+                <span><b>regar por dosis</b>: 20 s de bomba y 20 min de espera, en vez de regar
+                  hasta que la sonda diga basta</span></label>
+              <label class="sk-chk"><input type="checkbox" id="sk-tope" checked>
+                <span><b>tope de seguridad</b>: nunca m&aacute;s de 150 s de bomba al d&iacute;a</span></label>
+              <label class="sk-chk"><input type="checkbox" id="sk-averia">
+                <span><b>aver&iacute;a</b>: la sonda se corroe el d&iacute;a 3 y marca &laquo;seco&raquo;
+                  para siempre</span></label>
+            </div>
+            <div class="sk-col">
+              <div class="sk-fila">
+                <label for="sk-umbral">Umbral de riego</label>
+                <input type="range" id="sk-umbral" min="20" max="60" step="1" value="35">
+                <span class="val" id="sk-umbral-v">35 %</span>
+              </div>
+              <div class="sk-fila">
+                <label for="sk-ruido">Ruido de la lectura</label>
+                <input type="range" id="sk-ruido" min="0" max="40" step="2" value="20">
+                <span class="val" id="sk-ruido-v">20 cuentas</span>
+              </div>
+              <div class="sk-fila">
+                <label for="sk-dep">Dep&oacute;sito</label>
+                <input type="range" id="sk-dep" min="250" max="3000" step="250" value="1500">
+                <span class="val" id="sk-dep-v">1500 ml</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pie" id="pie-sk"></div>
+      </div>
+
+      <style>
+      .sk-dos{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start}
+      .sk-izq{flex:1 1 330px;min-width:290px}
+      .sk-der{flex:1 1 300px;min-width:280px}
+      .sk-cod{margin:0;font-family:var(--f-m);font-size:11px;line-height:1.6;
+        background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;
+        padding:10px 12px;overflow-x:auto;color:var(--ink);white-space:pre}
+      .sk-cod .sk-new{color:var(--goo-verde)}
+      .sk-cod .sk-mal{color:var(--goo-rojo)}
+      .sk-cod .sk-com{color:var(--ink-soft)}
+      .sk-mandos{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
+      .sk-col{flex:1 1 320px;min-width:280px}
+      .sk-chk{display:flex;align-items:flex-start;gap:8px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 8px;cursor:pointer;line-height:1.5}
+      .sk-chk input{accent-color:var(--goo-azul);flex:none;margin-top:3px}
+      .sk-chk b{color:var(--ink)}
+      .sk-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .sk-fila label{min-width:130px}
+      .sk-fila input[type="range"]{flex:1 1 120px;min-width:110px;accent-color:var(--goo-azul)}
+      .sk-fila .val{font-weight:500;color:var(--goo-azul);min-width:88px;text-align:right}
+      .sk-tablero{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));margin-top:12px}
+      .sk-dato{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:9px 11px}
+      .sk-dato span{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;
+        text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px;line-height:1.4}
+      .sk-dato b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--ink)}
+      .sk-dato.malo b{color:var(--goo-rojo)}
+      .sk-dato.bien b{color:var(--goo-verde)}
+      .sk-veredicto{margin:12px 0 0;border:2px solid var(--goo-verde);border-radius:2px;padding:11px 13px;
+        font-family:var(--f-m);font-size:12.5px;line-height:1.7;background:var(--surface)}
+      .sk-veredicto.no{border-color:var(--goo-rojo)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-sk');
+        if(!svg) return;
+        var seg  = document.getElementById('seg-sk');
+        var pie  = document.getElementById('pie-sk');
+        var tab  = document.getElementById('sk-tablero');
+        var cod  = document.getElementById('sk-cod');
+
+        function n0(x){ return Math.round(x).toString(); }
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+
+        /* ---------------------------------------------------------------
+           LA MACETA, con los mismos numeros que el resto de la unidad:
+             1 punto de humedad = 5 ml de agua
+             bomba              = 100 ml/min = 0,333 puntos por segundo
+             secado             = dH/dt = -H / 60 h
+           La sonda esta a unos centimetros del gotero, asi que el agua
+           tarda 10 minutos en llegarle. Eso es TIEMPO MUERTO de verdad: la
+           lectura no se mueve ni un poco hasta que el agua llega. Es lo que
+           hunde al que riega "hasta que la sonda diga basta".
+           --------------------------------------------------------------- */
+        var DT = 10;                                  /* segundos por paso */
+        var DIAS = 7, PASOS_DIA = 8640, N = DIAS * PASOS_DIA;
+        var TAU = 60 * 3600;                          /* secado, en s      */
+        var ML_PUNTO = 5, CAUDAL = 100 / 60;          /* ml/s              */
+        var PUNTOS_S = CAUDAL / ML_PUNTO;             /* 0,333 puntos/s    */
+        var RETARDO = Math.round(600 / DT);           /* 10 min de camino  */
+        var PASO_DELAY = Math.round(1800 / DT);       /* delay(1800000)    */
+        var DOSIS = Math.round(20 / DT);              /* 20 s de bomba     */
+        var ESPERA = Math.round(1200 / DT);           /* 20 min de espera  */
+        var TOPE_S = 150;                             /* s de bomba al dia */
+        var MARGEN = 20;                              /* cuentas de margen */
+
+        var v = {millis:true, media:true, dosis:true, tope:true, averia:false,
+                 umbral:35, ruido:20, dep:1500};
+
+        /* Ruido reproducible: el mismo ajuste tiene que dar el mismo
+           resultado siempre, o el alumno no puede comparar dos pruebas. */
+        /* Lehmer (MINSTD): sem * 16807 nunca pasa de 3,6e13, que un double
+           guarda EXACTO. El multiplicador clasico 1103515245 se sale de los
+           2^53 y el resultado depende del redondeo: parece reproducible pero
+           no se puede volver a calcular fuera del navegador, y entonces el
+           verificador no puede comprobar la escena. */
+        var sem = 1;
+        function rnd(){
+          sem = (sem * 16807) % 2147483647;
+          return sem / 2147483647;
+        }
+
+        function lee(Hretrasada){
+          var n = v.media ? 10 : 1, s = 0, i;
+          for(i = 0; i < n; i++){
+            s += 620 - 3.4 * Hretrasada + (rnd() - 0.5) * 2 * v.ruido;
+          }
+          return s / n;
+        }
+
+        function simula(){
+          sem = 20260918;
+          var H = 40, cola = [], i;
+          for(i = 0; i < RETARDO; i++) cola.push(H);
+          var bomba = false, bombaHasta = -1, esperaHasta = -1;
+          var usada = 0, charco = 0, seco = 0, arranques = 0, segsDia = 0;
+          var Lumbral = 620 - 3.4 * v.umbral;
+          var serie = [], lo = 100, hi = 0, antes = false;
+          var cadaN = v.millis ? 1 : PASO_DELAY;
+          var Hret, L, pide, bombaEnTramo = false;
+
+          for(i = 0; i < N; i++){
+            if(i % PASOS_DIA === 0) segsDia = 0;          /* medianoche */
+            Hret = cola.shift();
+            cola.push(H);
+            L = (v.averia && i >= 3 * PASOS_DIA) ? 620 : lee(Hret);
+
+            if(i % cadaN === 0){
+              if(v.dosis){
+                if(i >= esperaHasta && L > Lumbral + MARGEN){
+                  bombaHasta = i + DOSIS; esperaHasta = i + ESPERA;
+                }
+              } else {                       /* riega hasta que diga basta */
+                if(L > Lumbral + MARGEN) bomba = true;
+                else if(L < Lumbral - MARGEN) bomba = false;
+              }
+            }
+            if(v.dosis) bomba = (i < bombaHasta);
+
+            /* El tope solo puede cortar si el programa esta MIRANDO. Con
+               delay() el programa esta dormido y no puede cortar nada: esa
+               es toda la diferencia entre los dos botones de arriba. */
+            if(v.tope && v.millis && segsDia >= TOPE_S){ bomba = false; bombaHasta = -1; }
+
+            if(bomba && !antes) arranques++;
+            antes = bomba;
+            if(bomba) bombaEnTramo = true;
+
+            if(bomba){
+              segsDia += DT;
+              pide = CAUDAL * DT;
+              if(usada + pide <= v.dep){
+                usada += pide;
+                H += PUNTOS_S * DT;
+              } else {
+                seco += DT;                          /* bombeando en seco */
+              }
+            }
+            H += -H / TAU * DT;
+            if(H > 100){ charco += (H - 100) * ML_PUNTO; H = 100; }
+            if(H < 0) H = 0;
+            lo = Math.min(lo, H); hi = Math.max(hi, H);
+            /* La barra de la bomba se guarda POR TRAMO, no en el instante del
+               muestreo: una dosis de 20 s cae entre dos muestras y la barra
+               saldria vacia aunque la bomba haya estado regando. */
+            if(i % 30 === 0){
+              serie.push([i * DT, H, (620 - L) / 3.4, bombaEnTramo]);
+              bombaEnTramo = false;
+            }
+          }
+          return {serie:serie, usada:usada, charco:charco, seco:seco,
+                  arranques:arranques, min:lo, max:hi, fin:H};
+        }
+
+        /* ------------------- el panel de codigo ------------------------- */
+        function codigo(){
+          var L = [];
+          var c = function(t){ return '<span class="sk-com">' + t + '</span>'; };
+          var ok = function(t, x){ return '<span class="sk-new">' + t + (x ? c(x) : '') + '</span>'; };
+          var no = function(t, x){ return '<span class="sk-mal">' + t + (x ? c(x) : '') + '</span>'; };
+          L.push(c('// Riego del aula. Sonda en A0, bomba en el pin 7.'));
+          L.push('const int UMBRAL = ' + Math.round(620 - 3.4 * v.umbral) + ';'
+                 + c('   // ' + v.umbral + ' % pasado a cuentas'));
+          L.push('const int MARGEN = ' + MARGEN + ';' + c('     // ni justo en la raya'));
+          if(v.millis){
+            L.push('unsigned long ultimo = 0, iniDia = 0;');
+            if(v.dosis) L.push('unsigned long finDosis = 0, finEspera = 0;');
+            if(v.tope)  L.push('unsigned long segsDia = 0;');
+          }
+          L.push('');
+          L.push('int mide() {');
+          if(v.media){
+            L.push(ok('  long s = 0;', '                 // 10 lecturas'));
+            L.push(ok('  for (int i=0;i&lt;10;i++) s += analogRead(A0);'));
+            L.push(ok('  return s / 10;', '             // y su media'));
+          } else {
+            L.push(no('  return analogRead(A0);', '     // una sola, con su ruido'));
+          }
+          L.push('}');
+          L.push('');
+          L.push('void loop() {');
+          L.push('  int lectura = mide();');
+          if(!v.millis){
+            if(v.dosis){
+              L.push('  if (lectura &gt; UMBRAL + MARGEN) {');
+              L.push('    digitalWrite(7, HIGH);');
+              L.push(ok('    delay(20000);', '          // la dosis: 20 s'));
+              L.push('    digitalWrite(7, LOW);');
+              L.push('  }');
+              L.push(ok('  delay(1200000);', '          // y 20 min de espera'));
+            } else {
+              L.push(no('  if (lectura &gt; UMBRAL+MARGEN)'));
+              L.push(no('    digitalWrite(7, HIGH);'));
+              L.push(no('  if (lectura &lt; UMBRAL-MARGEN)'));
+              L.push(no('    digitalWrite(7, LOW);'));
+              L.push(no('  delay(1800000);', '          // media hora DORMIDO:'));
+              L.push(no('', '                           // si la bomba se qued&oacute;'));
+              L.push(no('', '                           // encendida, sigue media'));
+              L.push(no('', '                           // hora encendida'));
+            }
+          } else {
+            L.push('  if (millis() - ultimo &lt; 10000) return;');
+            L.push('  ultimo = millis();' + c('        // decide cada 10 s'));
+            if(v.tope){
+              L.push(ok('  if (millis()-iniDia &gt; 86400000UL)'));
+              L.push(ok('    { iniDia = millis(); segsDia = 0; }'));
+              L.push(ok('  if (segsDia &gt;= ' + TOPE_S + ') {', '      // el tope'));
+              L.push(ok('    digitalWrite(7, LOW); return; }'));
+            }
+            if(v.dosis){
+              L.push(ok('  if (millis() &lt; finDosis)'));
+              L.push(ok('    { segsDia += 10; return; }'));
+              L.push('  digitalWrite(7, LOW);');
+              L.push(ok('  if (millis() &lt; finEspera) return;'));
+              L.push(ok('', '                           // dale tiempo al agua'));
+              L.push('  if (lectura &gt; UMBRAL + MARGEN) {');
+              L.push('    digitalWrite(7, HIGH);');
+              L.push(ok('    finDosis  = millis() +   20000UL;'));
+              L.push(ok('    finEspera = millis() + 1200000UL;'));
+              L.push('  }');
+            } else {
+              L.push(no('  if (lectura &gt; UMBRAL+MARGEN)'));
+              L.push(no('    { digitalWrite(7,HIGH); segsDia += 10; }'));
+              L.push(no('  if (lectura &lt; UMBRAL-MARGEN)'));
+              L.push(no('    digitalWrite(7, LOW);'));
+              L.push(no('', '  // riega sin parar hasta que la sonda se'));
+              L.push(no('', '  // entere, y la sonda tarda 10 minutos'));
+            }
+          }
+          L.push('}');
+          cod.innerHTML = L.join('\n');
+        }
+
+        function pinta(){
+          var R = simula();
+          var X0 = 40, X1 = 422, Y0 = 16, Y1 = 186, YB = 206;
+          var px = function(s){ return X0 + (X1 - X0) * s / (DIAS * 86400); };
+          var py = function(h){ return Y1 - (Y1 - Y0) * Math.max(0, Math.min(110, h)) / 110; };
+          var m = '', g, i;
+          for(g = 0; g <= 100; g += 25){
+            m += '<line x1="' + X0 + '" y1="' + py(g).toFixed(1) + '" x2="' + X1 + '" y2="'
+               + py(g).toFixed(1) + '" stroke="currentColor" stroke-width="1" opacity=".12"/>'
+               + '<text x="' + (X0 - 5) + '" y="' + (py(g) + 4).toFixed(1)
+               + '" class="ejeq" text-anchor="end">' + g + '</text>';
+          }
+          for(g = 0; g <= DIAS; g++){
+            m += '<text x="' + px(g * 86400).toFixed(1) + '" y="' + (Y1 + 15)
+               + '" class="ejeq" text-anchor="middle">' + g + '</text>';
+          }
+          m += '<text x="' + X0 + '" y="' + (Y0 - 4)
+             + '" class="ejeq">humedad, en % &middot; d&iacute;as abajo &middot; puntos = umbral</text>';
+          m += '<line x1="' + X0 + '" y1="' + py(v.umbral).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(v.umbral).toFixed(1) + '" stroke="currentColor" stroke-width="1.4"'
+             + ' stroke-dasharray="6 4" opacity=".6"/>';
+          m += '<line x1="' + X0 + '" y1="' + py(15).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(15).toFixed(1) + '" stroke="#ea4335" stroke-width="1" opacity=".55"/>'
+             + '<text x="' + (X1 - 3) + '" y="' + (py(15) + 12).toFixed(1)
+             + '" class="ejeq" text-anchor="end" style="fill:#ea4335">se marchita</text>';
+          m += '<line x1="' + X0 + '" y1="' + py(100).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(100).toFixed(1) + '" stroke="#ea4335" stroke-width="1" opacity=".55"/>'
+             + '<text x="' + (X1 - 3) + '" y="' + (py(100) - 4).toFixed(1)
+             + '" class="ejeq" text-anchor="end" style="fill:#ea4335">se sale por el plato</text>';
+
+          var dd = '', dl = '';
+          for(i = 0; i < R.serie.length; i++){
+            dd += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][1]).toFixed(1);
+            dl += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][2]).toFixed(1);
+          }
+          m += '<path d="' + dl + '" fill="none" stroke="#fbbc04" stroke-width="1"/>'
+             + '<path d="' + dd + '" fill="none" stroke="#1a73e8" stroke-width="1.8"/>';
+          var tr = null;
+          for(i = 0; i < R.serie.length; i++){
+            if(R.serie[i][3] && tr === null) tr = R.serie[i][0];
+            if((!R.serie[i][3] || i === R.serie.length - 1) && tr !== null){
+              m += '<rect x="' + px(tr).toFixed(1) + '" y="' + YB + '" width="'
+                 + Math.max(0.8, px(R.serie[i][0]) - px(tr)).toFixed(1)
+                 + '" height="13" fill="#ea4335" opacity=".8"/>';
+              tr = null;
+            }
+          }
+          m += '<rect x="' + X0 + '" y="' + YB + '" width="' + (X1 - X0)
+             + '" height="13" fill="none" stroke="currentColor" stroke-width="1" opacity=".3"/>'
+             + '<text x="' + (X0 - 5) + '" y="' + (YB + 10)
+             + '" class="ejeq" text-anchor="end">bomba</text>'
+             + '<rect x="' + X0 + '" y="234" width="10" height="2.5" fill="#1a73e8"/>'
+             + '<text x="' + (X0 + 15) + '" y="238" class="ejeq">humedad de verdad</text>'
+             + '<rect x="' + (X0 + 152) + '" y="234" width="10" height="2.5" fill="#fbbc04"/>'
+             + '<text x="' + (X0 + 167) + '" y="238" class="ejeq">lo que lee la sonda</text>';
+          svg.innerHTML = m;
+
+          codigo();
+
+          /* ------------------------ el tablero ------------------------- */
+          var falla = (R.charco > 50) || (R.seco > 60) || (R.min < 15);
+          tab.innerHTML =
+            '<div class="sk-dato"><span>agua del dep&oacute;sito</span><b id="sk-agua">'
+              + n0(R.usada) + ' ml</b></div>'
+          + '<div class="sk-dato' + (R.charco > 50 ? ' malo' : ' bien')
+              + '"><span>charco en el suelo</span><b id="sk-charco">' + n0(R.charco) + ' ml</b></div>'
+          + '<div class="sk-dato' + (R.seco > 60 ? ' malo' : ' bien')
+              + '"><span>bomba en seco</span><b id="sk-seco">' + n0(R.seco / 60) + ' min</b></div>'
+          + '<div class="sk-dato"><span>arranques de la bomba</span><b id="sk-arranques">'
+              + R.arranques + '</b></div>'
+          + '<div class="sk-dato' + (R.min < 15 ? ' malo' : '')
+              + '"><span>humedad m&iacute;nima</span><b id="sk-min">' + n1(R.min) + ' %</b></div>'
+          + '<div class="sk-dato"><span>humedad m&aacute;xima</span><b id="sk-max">'
+              + n1(R.max) + ' %</b></div>';
+
+          var lineas = [];
+          if(R.charco > 50) lineas.push('Se ha salido agua por el plato: <b>' + n0(R.charco)
+            + ' ml</b> en el suelo del aula. Eso no lo ve el sensor; lo ve el conserje.');
+          if(R.seco > 60) lineas.push('La bomba ha estado <b>' + n0(R.seco / 60)
+            + ' minutos bombeando en seco</b> con el dep&oacute;sito vac&iacute;o. Una bomba sin agua '
+            + 'se calienta y se quema.');
+          if(R.min < 15) lineas.push('La humedad ha bajado a <b>' + n1(R.min)
+            + ' %</b>, y por debajo del 15 % la planta se marchita.');
+          if(!lineas.length) lineas.push('<b>Siete d&iacute;as sin incidencias.</b> ' + n0(R.usada)
+            + ' ml de agua, ' + R.arranques + ' arranques de la bomba, y la humedad se ha quedado '
+            + 'entre ' + n1(R.min) + ' % y ' + n1(R.max) + ' %.');
+          pie.innerHTML = '<div class="sk-veredicto' + (falla ? ' no' : '') + '" id="sk-veredicto">'
+            + lineas.join('<br>') + '</div>';
+        }
+
+        function chk(id, clave){
+          document.getElementById(id).addEventListener('change', function(){
+            v[clave] = this.checked; pinta();
+          });
+        }
+        chk('sk-media', 'media');
+        chk('sk-dosis', 'dosis');
+        chk('sk-tope', 'tope');
+        chk('sk-averia', 'averia');
+
+        function mando(id, clave, sufijo){
+          document.getElementById(id).addEventListener('input', function(){
+            v[clave] = +this.value;
+            document.getElementById(id + '-v').innerHTML = this.value + sufijo;
+            pinta();
+          });
+        }
+        mando('sk-umbral', 'umbral', ' %');
+        mando('sk-ruido', 'ruido', ' cuentas');
+        mando('sk-dep', 'dep', ' ml');
+
+        seg.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-l]');
+          if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          v.millis = (b.dataset.l === '1');
+          pinta();
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; el agua tarda en llegar</span>
+        <p>Quita la <b>dosis</b> y deja el resto. El programa pasa a hacer lo que parece m&aacute;s
+           razonable del mundo: <i>riega mientras la sonda diga que est&aacute; seco</i>. Y se pasa
+           much&iacute;simo.</p>
+        <p>Es porque el agua tarda unos <b>diez minutos</b> en llegar desde el gotero hasta la sonda.
+           Durante esos diez minutos la lectura <b>no se mueve ni un poco</b>, as&iacute; que el
+           programa sigue regando. A 100&nbsp;ml por minuto son <b>un litro</b> antes de enterarse.</p>
+        <p>Eso se llama <b>tiempo muerto</b>, y no es lo mismo que el retardo de la sesi&oacute;n 3:
+           all&iacute; el sensor se enteraba <b>tarde</b>, aqu&iacute; no se entera <b>en absoluto</b>
+           durante un rato. Lo has vivido en la ducha de un hotel: giras el grifo, no pasa nada,
+           giras m&aacute;s, y tres segundos despu&eacute;s te quemas.</p>
+        <p><b>Contra el tiempo muerto no hay control que valga: hay que esperar.</b> Echa una dosis,
+           espera m&aacute;s de lo que tarda el agua, y <b>entonces</b> vuelve a medir.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; el tope no sirve para nada</span>
+        <p>Quita el <b>tope de seguridad</b> con todo lo dem&aacute;s puesto. No cambia nada: mismos
+           mililitros, mismos arranques. Parece una l&iacute;nea in&uacute;til.</p>
+        <p>Ahora marca la <b>aver&iacute;a</b> de la sonda y vuelve a probar con el tope y sin
+           &eacute;l. Con tope, el sistema hace una tonter&iacute;a acotada. Sin tope, vac&iacute;a el
+           dep&oacute;sito, inunda el aula y deja la bomba horas en seco.</p>
+        <p><b>Un l&iacute;mite de seguridad no hace nada hasta el d&iacute;a que lo hace todo.</b> Y
+           ese d&iacute;a t&uacute; no est&aacute;s delante. Es exactamente la misma raz&oacute;n por
+           la que un ascensor lleva fin de carrera y una lavadora, un presostato.</p>
+      </div>
+
+      <h3>D&oacute;nde se escribe y d&oacute;nde se prueba</h3>
+      <figure class="foto">
+        <img src="../../../img/c4-arduino-ide.png" alt="Ventana del Arduino IDE 2 mostrando el ejemplo Blink, con las funciones setup y loop y dos llamadas a delay de mil milisegundos" loading="lazy">
+        <figcaption>El <b>Arduino IDE</b> con el ejemplo <i>Blink</i>, que es lo primero que abre todo el mundo. Se ven las <b>dos funciones</b> de cualquier programa de Arduino: <code>setup()</code>, que se ejecuta una vez al encender, y <code>loop()</code>, que da vueltas para siempre. Y se ven <b>dos <code>delay(1000)</code></b>: para parpadear un LED est&aacute;n perfectos, porque el programa no tiene nada mejor que hacer. En cuanto hay un sensor y un actuador, son el error de esta sesi&oacute;n. (Los men&uacute;s salen en japon&eacute;s porque as&iacute; los ten&iacute;a quien hizo la captura; el c&oacute;digo es el mismo en todas partes.)
+          <span class="credito">&#26494;&#28006;&#30693;&#20063; (Tomoya Matsuura) &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Arduino_ide_v2_blink_screenshot.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>Probarlo sin romper nada: Tinkercad Circuits</h4>
+        <p><b>tinkercad.com &rarr; Circuits</b> simula un Arduino Uno entero con su c&oacute;digo, y
+           es gratis desde el navegador. Lo que se puede hacer all&iacute; y no en la mesa:</p>
+        <ul>
+          <li>Poner un <b>potenci&oacute;metro en A0</b> que hace de sensor: lo giras y ves la
+              lectura cambiar de 0 a 1023, sin mojarte.</li>
+          <li>Abrir el <b>Monitor Serie</b> y sacar por ah&iacute; la lectura, el error y la orden.
+              <b>Un programa de control que no imprime nada no se puede depurar.</b></li>
+          <li>Equivocarte sin consecuencias: aqu&iacute; un cortocircuito no quema nada.</li>
+        </ul>
+        <p>Lo que <b>no</b> se puede hacer all&iacute;: saber cu&aacute;nto tarda el agua en llegar a
+           tu sonda. Eso solo se mide en tu maceta, y es la sesi&oacute;n que viene.</p>
+      </div>
+      <div class="video" id="video-c4-s6" data-vid="hq999kZk3Hg">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Arduino: c&oacute;mo reemplazar delay() por millis()">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Arduino: c&oacute;mo reemplazar delay() por millis()</b>
+            <span>Guillermo Gerard: Vide&iacute;tos para mi futuro yo</span>
+          </span>
+        </button>
+        <p class="video-nota">El patr&oacute;n de <code>millis()</code> explicado despacio. La parte del desbordamiento va m&aacute;s all&aacute; de 4.&ordm;, pero merece o&iacute;rla. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=hq999kZk3Hg" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 6 &middot; El programa de vuestro control</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; Medir el da&ntilde;o (7 min)</h4>
+          <p>En la escena, con los valores de partida, apuntad en la libreta el agua gastada, el
+             charco, los minutos en seco y la humedad m&iacute;nima. Esa es vuestra
+             <b>referencia</b>. Ahora quitad <b>una sola cosa cada vez</b> y volvedla a poner:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Qu&eacute; quito</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Agua</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Charco</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Bomba en seco</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>M&iacute;nimo</b></td></tr>
+            <tr><td style="padding:5px 6px">nada (referencia)</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">la media de 10</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">la dosis</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">el tope</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">el tope, <b>y</b> con la sonda averiada</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px"><code>delay()</code> sin dosis</td><td></td><td></td><td></td><td></td></tr>
+          </table>
+          <p>Y una l&iacute;nea: <b>&iquest;cu&aacute;l de las cuatro es la que m&aacute;s da&ntilde;o
+             evita, y por qu&eacute; solo se nota cuando algo falla?</b></p>
+          <h4>Segunda parte &middot; Escribirlo (8 min)</h4>
+          <p>En Tinkercad, con el <b>potenci&oacute;metro en A0</b> (hace de vuestro sensor) y el
+             <b>LED en el pin 9</b> (hace de vuestro actuador), escribid el <code>loop()</code> de
+             <b>vuestro</b> proyecto con:</p>
+          <ul>
+            <li>el patr&oacute;n de <code>millis()</code>, sin un solo <code>delay()</code>;</li>
+            <li>la media de 10 lecturas;</li>
+            <li>vuestro umbral con su margen;</li>
+            <li>un <code>Serial.print</code> que saque <b>lectura, error y orden</b> en cada
+                decisi&oacute;n.</li>
+          </ul>
+          <p>Si en la sesi&oacute;n 5 elegisteis <b>proporcional</b>, el actuador va con
+             <code>analogWrite</code>, no con <code>digitalWrite</code>.</p>
+          <h4>Tercera parte &middot; El tope (5 min)</h4>
+          <p>A&ntilde;adid vuestro <b>tope de seguridad</b> y escribid al lado, en la libreta,
+             <b>de d&oacute;nde sale el n&uacute;mero</b>: cu&aacute;nto gasta vuestro actuador en
+             condiciones normales y por cu&aacute;nto lo hab&eacute;is multiplicado. Y una
+             l&iacute;nea con vuestro <b>estado seguro</b>: qu&eacute; hace el sistema si el sensor
+             devuelve algo imposible.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla completa y la l&iacute;nea de conclusi&oacute;n <b>(3 puntos)</b>.</li>
+            <li>El <code>loop()</code> con <code>millis()</code>, media, margen y Serial, funcionando
+                en Tinkercad <b>(4 puntos)</b>.</li>
+            <li>El tope con su justificaci&oacute;n num&eacute;rica y el estado seguro
+                <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; <code>delay()</code> es peligroso en un programa de control?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque mientras dura, el programa <b>no puede hacer nada m&aacute;s</b>: no lee el sensor, no atiende un bot&oacute;n y sobre todo <b>no puede apagar lo que dej&oacute; encendido</b>. Si la bomba se qued&oacute; en marcha, sigue en marcha todo el rato que dure el <code>delay</code>.</p></div></details></li>
+        <li>&iquest;Qu&eacute; hace exactamente el patr&oacute;n de <code>millis()</code>?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Apuntar en una variable <b>cu&aacute;ndo fue la &uacute;ltima vez</b> y comprobar en cada vuelta si ya ha pasado el tiempo. El lazo sigue girando miles de veces por segundo; lo &uacute;nico que se espacia es la <b>decisi&oacute;n</b>.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es el tiempo muerto y por qu&eacute; no se arregla controlando mejor?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es el rato en el que has actuado y el sensor <b>todav&iacute;a no se ha enterado de nada</b>: el agua va de camino. Ning&uacute;n controlador puede corregir con una informaci&oacute;n que a&uacute;n no existe. Lo &uacute;nico que funciona es <b>echar una dosis y esperar</b> a que llegue antes de volver a medir.</p></div></details></li>
+        <li>El tope de seguridad no cambia nada cuando todo va bien. &iquest;Para qu&eacute; lo pones?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Para el d&iacute;a que <b>el sensor mienta</b>. Un tope no depende del sensor: es un m&aacute;ximo absoluto. Por eso sigue valiendo justo cuando lo dem&aacute;s ha dejado de valer, que es cuando hace falta.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        El programa ya est&aacute; y en Tinkercad va fino. Pero Tinkercad no sabe c&oacute;mo es
+        <b>tu</b> tierra. El umbral de 480 cuentas que le funciona al grupo de al lado
+        <b>no te vale</b>, y d&oacute;nde claves la sonda te va a cambiar el gasto de agua en
+        cien mililitros por semana. La pr&oacute;xima sesi&oacute;n se monta de verdad, con una
+        b&aacute;scula de cocina encima de la mesa.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-7" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 7 &middot; 60 minutos</div>
+      <h2>La sonda del compa&ntilde;ero no te vale</h2>
+      <p>Su umbral es de su tierra y de su maceta. Y d&oacute;nde claves la tuya te cambia el agua de la semana en una quinta parte.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>El grupo de al lado ha terminado antes y os pasa su n&uacute;mero: <b>&laquo;el umbral es
+         480, funciona&raquo;</b>. Lo pon&eacute;is en vuestro programa, cl&aacute;vais la sonda y
+         encend&eacute;is.</p>
+      <p>Y vuestra maceta se encharca en dos d&iacute;as.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>El programa es el mismo, la sonda es del mismo paquete y el umbral es el suyo.
+           <b>&iquest;Por qu&eacute; a ellos les funciona y a vosotros no?</b> Escribe <b>tres</b>
+           diferencias posibles entre las dos macetas.</p>
+      </div>
+      <p>Puede ser <b>la tierra</b> (la vuestra tiene m&aacute;s turba y retiene m&aacute;s agua, y
+         con la misma agua conduce distinto), <b>la sonda</b> (dos sondas del mismo paquete no dan la
+         misma cuenta: se parecen, no son iguales), <b>d&oacute;nde est&aacute; clavada</b>, <b>la
+         planta</b> (un cactus y un potos no quieren lo mismo) o <b>el tama&ntilde;o del tiesto</b>.</p>
+      <p>Y hay algo peor, y es la pregunta de verdad de esta sesi&oacute;n: cuando el programa dice
+         &laquo;<b>40&nbsp;% de humedad</b>&raquo;, <b>&iquest;qui&eacute;n ha decidido que 480
+         cuentas son el 40&nbsp;%?</b></p>
+      <p>Nadie. Es un n&uacute;mero que alguien copi&oacute; de internet. Hoy lo vamos a medir.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <h3>Primero: saber qu&eacute; es el 100&nbsp;% en tu maceta</h3>
+      <p>La sonda da cuentas. T&uacute; quieres puntos de humedad. Para pasar de una cosa a la otra
+         hace falta la recta de la sesi&oacute;n 2, y para trazarla hacen falta <b>dos situaciones
+         que conozcas de verdad</b>. No valen la sonda al aire y la sonda en un vaso de agua: eso no
+         es tierra.</p>
+      <p>El truco cuesta cero euros y est&aacute; en cualquier cocina: <b>una b&aacute;scula</b>. El
+         agua pesa, y la tierra seca no cambia de peso.</p>
+
+      <div class="copiar">
+        <h4>Calibraci&oacute;n por peso (m&eacute;todo gravim&eacute;trico)</h4>
+        <ol>
+          <li><b>Peso empapado</b> (100&nbsp;%): riega hasta que salga agua por abajo, espera media
+              hora a que escurra y pesa la maceta entera. Ll&aacute;malo
+              <b>P<sub>100</sub></b>.</li>
+          <li><b>Peso seco</b> (0&nbsp;%): la misma maceta despu&eacute;s de <b>dos semanas sin
+              regar</b>, cuando la planta ya lo est&aacute; pasando mal. Ll&aacute;malo
+              <b>P<sub>0</sub></b>. (Si no ten&eacute;is dos semanas, secad un vaso de <b>la misma
+              tierra</b> en el radiador y haced la regla de tres.)</li>
+          <li>Con cada pesada, <b>anota tambi&eacute;n la lectura de la sonda</b>. Esos son tus dos
+              puntos.</li>
+        </ol>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>H (%) = 100 &middot; (P &minus; P<sub>0</sub>) / (P<sub>100</sub> &minus; P<sub>0</sub>)</b></p>
+        <p><b>Ejemplo con n&uacute;meros de clase.</b> P<sub>100</sub> = <b>780&nbsp;g</b> con la
+           sonda marcando <b>285</b>; P<sub>0</sub> = <b>620&nbsp;g</b> con la sonda marcando
+           <b>615</b>.</p>
+        <ul>
+          <li>La maceta puede guardar 780 &minus; 620 = <b>160&nbsp;g de agua</b>, que son
+              <b>160&nbsp;ml</b>. Ya sabes lo que cabe: un vaso.</li>
+          <li>Pendiente: m = (285 &minus; 615) / (100 &minus; 0) = <b>&minus;3,3</b> cuentas por
+              punto.</li>
+          <li>La recta: <b>L = 615 &minus; 3,3 &middot; H</b>, y del rev&eacute;s
+              <b>H = (615 &minus; L) / 3,3</b>.</li>
+          <li>Hoy la maceta pesa <b>700&nbsp;g</b>: H = 100 &middot; (700 &minus; 620) / 160 =
+              <b>50&nbsp;%</b>. Y la sonda deber&iacute;a marcar
+              615 &minus; 3,3 &middot; 50 = <b>450</b>. Si marca 450, tu recta es buena. Si marca
+              520, tienes un problema y hay que buscarlo.</li>
+        </ul>
+        <p><b>Y con eso el umbral deja de ser una superstici&oacute;n.</b> Si decid&iacute;s regar al
+           35&nbsp;%, vuestro umbral es 615 &minus; 3,3 &middot; 35 = <b>500 cuentas</b>. Vuestro, no
+           el del grupo de al lado.</p>
+      </div>
+
+      <h3>Segundo: d&oacute;nde se clava</h3>
+      <p>Y esto no es un detalle de montaje: <b>cambia el agua que gasta el sistema</b>. Una sonda
+         puesta en el sitio equivocado no se estropea ni da error; simplemente mide <b>otra
+         cosa</b>.</p>
+      <figure class="foto">
+        <img src="../../../img/c4-sondas-profundidad.jpg" alt="Hoyo abierto en el suelo con una cinta m&eacute;trica clavada en la pared del corte marcando los cent&iacute;metros, y tres cables de sensores colocados a distintas profundidades" loading="lazy">
+        <figcaption>Instalaci&oacute;n de sondas de humedad y temperatura de suelo en un ensayo de micrometeorolog&iacute;a de la Universidad de la Columbia Brit&aacute;nica. F&iacute;jate en lo que hay en el centro de la foto: <b>una cinta m&eacute;trica</b>. Cada sonda va a una <b>profundidad medida y apuntada</b>, porque un dato de humedad sin la profundidad a la que se tom&oacute; <b>no significa nada</b>. En vuestra maceta es exactamente igual, aunque quepa en una mano.
+          <span class="credito">UBC Micrometeorology, foto de Wesley Skeeter &middot; CC BY 2.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Installation_of_soil_sensors.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>D&oacute;nde va la sonda</h4>
+        <ul>
+          <li><b>A la profundidad de la ra&iacute;z</b>, que en un tiesto de clase son unos
+              <b>5 a 8&nbsp;cm</b>. Arriba est&aacute; la costra, que se seca en horas y no es donde
+              bebe la planta.</li>
+          <li><b>Apartada del chorro</b>, unos <b>3&nbsp;cm</b>. Justo debajo del gotero mides el
+              charco.</li>
+          <li><b>Sin tocar la pared del tiesto ni el fondo</b>: ah&iacute; hay drenaje y hay
+              pl&aacute;stico, no cepell&oacute;n.</li>
+          <li><b>Siempre en el mismo sitio.</b> Si la sacas y la vuelves a clavar dos
+              cent&iacute;metros m&aacute;s all&aacute;, tu calibraci&oacute;n ya no vale. M&aacute;rcalo.</li>
+        </ul>
+      </div>
+      <p>La escena es tu maceta en corte, con los dos trozos que importan: la <b>costra</b> de
+         arriba, que se evapora deprisa, y el <b>cepell&oacute;n</b> donde vive la ra&iacute;z. Mueve
+         la sonda y mira el agua.</p>
+
+      <div class="escena" id="esc-so">
+        <div class="escena-barra">
+          <span class="escena-titulo">La misma maceta y el mismo programa &middot; lo &uacute;nico que cambia es d&oacute;nde va la sonda</span>
+          <div class="seg" id="seg-so">
+            <button type="button" data-s="0">En el charco (1 cm, pegada al gotero)</button>
+            <button type="button" data-s="1" aria-pressed="true">En la ra&iacute;z (6 cm, a 3 cm)</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 300" id="svg-so" role="img"
+               aria-label="Maceta en corte con la costra y el cepell&oacute;n, y gr&aacute;fico de siete d&iacute;as de humedad"></svg>
+          <div class="so-mandos">
+            <div class="so-col">
+              <div class="so-fila">
+                <label for="so-prof">Profundidad de la sonda</label>
+                <input type="range" id="so-prof" min="1" max="12" step="1" value="6">
+                <span class="val" id="so-prof-v">6 cm</span>
+              </div>
+              <div class="so-fila">
+                <label for="so-dist">Distancia al gotero</label>
+                <input type="range" id="so-dist" min="0" max="8" step="1" value="3">
+                <span class="val" id="so-dist-v">3 cm</span>
+              </div>
+            </div>
+            <div class="so-col">
+              <div class="so-fila">
+                <label for="so-dosis">Dosis de cada riego</label>
+                <input type="range" id="so-dosis" min="10" max="120" step="10" value="20">
+                <span class="val" id="so-dosis-v">20 s</span>
+              </div>
+              <div class="so-fila">
+                <label for="so-umbral">Umbral de riego</label>
+                <input type="range" id="so-umbral" min="25" max="50" step="1" value="35">
+                <span class="val" id="so-umbral-v">35 %</span>
+              </div>
+            </div>
+          </div>
+          <div class="so-tablero" id="so-tablero"></div>
+        </div>
+        <div class="pie" id="pie-so"></div>
+      </div>
+
+      <style>
+      .so-mandos{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+      .so-col{flex:1 1 300px;min-width:270px}
+      .so-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .so-fila label{min-width:165px}
+      .so-fila input[type="range"]{flex:1 1 120px;min-width:110px;accent-color:var(--goo-azul)}
+      .so-fila .val{font-weight:500;color:var(--goo-azul);min-width:54px;text-align:right}
+      .so-tablero{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));margin-top:13px}
+      .so-dato{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:9px 11px}
+      .so-dato span{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;
+        text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px;line-height:1.4}
+      .so-dato b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--ink)}
+      .so-dato.malo b{color:var(--goo-rojo)}
+      .so-dato.bien b{color:var(--goo-verde)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-so');
+        if(!svg) return;
+        var seg = document.getElementById('seg-so');
+        var pie = document.getElementById('pie-so');
+        var tab = document.getElementById('so-tablero');
+
+        function n0(x){ return Math.round(x).toString(); }
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+
+        /* ---------------------------------------------------------------
+           LA MACETA, EN DOS TROZOS
+             costra   C1 = 8 % del volumen, se evapora con tau1 = 10 h
+             cepellon C2 = 92 %,            la planta bebe con tau2 = 150 h
+           El agua del gotero cae en la costra; de ahi baja al cepellon por
+           percolacion, a razon de KPER puntos por hora y por punto de
+           diferencia. Lo que no cabe arriba, baja; lo que no cabe abajo, se
+           va por el agujero del tiesto.
+           --------------------------------------------------------------- */
+        var DT = 10, DIAS = 7, PASOS_DIA = 8640, N = DIAS * PASOS_DIA;
+        var C1 = 0.08, C2 = 0.92;
+        var TAU1 = 10 * 3600, TAU2 = 150 * 3600;
+        var KPER = 0.0245 / 3600;
+        var ML_PUNTO = 5, CAUDAL = 100 / 60, PUNTOS_S = CAUDAL / ML_PUNTO;
+        var MARGEN = 20, ESPERA = Math.round(1200 / DT), RUIDO = 10;
+
+        var v = {prof:6, dist:3, dosis:20, umbral:35};
+
+        /* Lehmer (MINSTD): sem * 16807 nunca pasa de 3,6e13, que un double
+           guarda EXACTO. El multiplicador clasico 1103515245 se sale de los
+           2^53 y el resultado depende del redondeo: parece reproducible pero
+           no se puede volver a calcular fuera del navegador, y entonces el
+           verificador no puede comprobar la escena. */
+        var sem = 1;
+        function rnd(){
+          sem = (sem * 16807) % 2147483647;
+          return sem / 2147483647;
+        }
+
+        /* Cuanto de lo que mide la sonda es costra y cuanto es cepellon.
+           Pegada al gotero y en la superficie mide el charco (alfa = 1);
+           honda y apartada mide la raiz (alfa casi 0). */
+        function alfa(){
+          var a = Math.exp(-v.dist / 3) * Math.exp(-(v.prof - 1) / 6);
+          return Math.max(0, Math.min(1, a));
+        }
+
+        function simula(){
+          sem = 20260918;
+          var a = alfa(), DOSIS = Math.round(v.dosis / DT);
+          var H1 = 40, H2 = 40, i, k;
+          var bombaHasta = -1, esperaHasta = -1;
+          var usada = 0, evap = 0, drena = 0, planta = 0, seca = 0;
+          var lo2 = 100, hi2 = 0, Lum = 620 - 3.4 * v.umbral;
+          var serie = [], Hm, L, F, ev, up;
+          for(i = 0; i < N; i++){
+            Hm = a * H1 + (1 - a) * H2;
+            L = 0;
+            for(k = 0; k < 10; k++) L += 620 - 3.4 * Hm + (rnd() - 0.5) * 2 * RUIDO;
+            L /= 10;
+            if(i >= esperaHasta && L > Lum + MARGEN){
+              bombaHasta = i + DOSIS; esperaHasta = i + ESPERA;
+            }
+            if(i < bombaHasta){
+              usada += CAUDAL * DT;
+              H1 += PUNTOS_S * DT / C1;
+            }
+            F  = KPER * (H1 - H2);
+            ev = C1 * H1 / TAU1;
+            up = C2 * H2 / TAU2;
+            evap   += ev * DT * ML_PUNTO;
+            planta += up * DT * ML_PUNTO;
+            H1 += (-F - ev) * DT / C1;
+            H2 += ( F - up) * DT / C2;
+            if(H1 > 100){ H2 += (H1 - 100) * C1 / C2; H1 = 100; }
+            if(H2 > 100){ drena += (H2 - 100) * C2 * ML_PUNTO; H2 = 100; }
+            if(H1 < 0) H1 = 0;
+            if(H2 < 0) H2 = 0;
+            lo2 = Math.min(lo2, H2); hi2 = Math.max(hi2, H2);
+            if(H2 < 15) seca += DT / 3600;
+            if(i % 30 === 0) serie.push([i * DT, H1, H2, (620 - L) / 3.4]);
+          }
+          return {a:a, serie:serie, agua:usada, evap:evap, drena:drena, planta:planta,
+                  min2:lo2, max2:hi2, seca:seca, H1:H1, H2:H2,
+                  efic:100 * planta / Math.max(1, usada)};
+        }
+
+        function pinta(){
+          var R = simula();
+          var m = '', i, g;
+
+          /* ---------------- la maceta en corte ----------------
+             MX es la vertical del GOTERO, que es el origen de la distancia:
+             la sonda se mueve hacia la derecha desde ahi. La planta va al
+             otro lado para no taparlo. */
+          var MX = 86, TOPE = 78, FONDO = 250;        /* 0 cm y 12 cm      */
+          var cmY = (FONDO - TOPE) / 12;
+          var cmX = 6;
+          var ANCHO_ARR = 76, ANCHO_ABJ = 54;
+          var col = function(h){ return 'rgba(26,115,232,' + (0.10 + 0.62 * Math.min(1, h / 100)).toFixed(3) + ')'; };
+          var borde = function(y){                    /* medio ancho a la altura y */
+            var f = (y - TOPE) / (FONDO - TOPE);
+            return (ANCHO_ARR + (ANCHO_ABJ - ANCHO_ARR) * f);
+          };
+          var yCostra = TOPE + 1.5 * cmY;
+          /* cepellon */
+          m += '<path d="M ' + (MX - borde(yCostra)) + ' ' + yCostra
+             + ' L ' + (MX + borde(yCostra)) + ' ' + yCostra
+             + ' L ' + (MX + ANCHO_ABJ) + ' ' + FONDO
+             + ' L ' + (MX - ANCHO_ABJ) + ' ' + FONDO + ' Z" fill="' + col(R.H2) + '"/>';
+          /* costra */
+          m += '<path d="M ' + (MX - ANCHO_ARR) + ' ' + TOPE
+             + ' L ' + (MX + ANCHO_ARR) + ' ' + TOPE
+             + ' L ' + (MX + borde(yCostra)) + ' ' + yCostra
+             + ' L ' + (MX - borde(yCostra)) + ' ' + yCostra + ' Z" fill="' + col(R.H1) + '"/>';
+          /* el tiesto */
+          m += '<path d="M ' + (MX - ANCHO_ARR - 5) + ' ' + (TOPE - 8)
+             + ' L ' + (MX + ANCHO_ARR + 5) + ' ' + (TOPE - 8)
+             + ' L ' + (MX + ANCHO_ABJ) + ' ' + FONDO
+             + ' L ' + (MX - ANCHO_ABJ) + ' ' + FONDO
+             + ' Z" fill="none" stroke="currentColor" stroke-width="2"/>';
+          m += '<line x1="' + (MX - ANCHO_ARR) + '" y1="' + yCostra + '" x2="'
+             + (MX + ANCHO_ARR) + '" y2="' + yCostra
+             + '" stroke="currentColor" stroke-width="1" stroke-dasharray="4 3" opacity=".5"/>';
+          /* el gotero y la gota, a la izquierda del todo */
+          m += '<line x1="' + MX + '" y1="30" x2="' + MX + '" y2="' + (TOPE - 14)
+             + '" stroke="currentColor" stroke-width="2.5" opacity=".7"/>'
+             + '<line x1="' + (MX - 34) + '" y1="30" x2="' + MX + '" y2="30"'
+             + ' stroke="currentColor" stroke-width="2.5" opacity=".7"/>'
+             + '<circle cx="' + MX + '" cy="' + (TOPE - 8) + '" r="3.2" fill="#1a73e8"/>'
+             + '<text x="' + (MX - 34) + '" y="22" class="ejeq">gotero</text>';
+          /* la planta, en el lado opuesto para no tapar la sonda */
+          var TX = MX + 58;
+          m += '<path d="M ' + TX + ' ' + TOPE + ' C ' + TX + ' ' + (TOPE - 30)
+             + ', ' + (TX + 14) + ' ' + (TOPE - 40) + ', ' + (TX + 20) + ' ' + (TOPE - 52)
+             + '" fill="none" stroke="#34a853" stroke-width="2.4"/>'
+             + '<ellipse cx="' + (TX + 34) + '" cy="' + (TOPE - 56) + '" rx="14" ry="6.5"'
+             + ' fill="#34a853" opacity=".75" transform="rotate(20 ' + (TX + 34) + ' '
+             + (TOPE - 56) + ')"/>'
+             + '<ellipse cx="' + (TX - 14) + '" cy="' + (TOPE - 38) + '" rx="13" ry="6"'
+             + ' fill="#34a853" opacity=".55" transform="rotate(-22 ' + (TX - 14) + ' '
+             + (TOPE - 38) + ')"/>';
+          /* la raiz, en el cepellon */
+          m += '<path d="M ' + TX + ' ' + TOPE + ' L ' + (TX - 4) + ' ' + (TOPE + 44)
+             + ' M ' + (TX - 2) + ' ' + (TOPE + 22) + ' L ' + (TX + 20) + ' ' + (TOPE + 56)
+             + ' M ' + (TX - 2) + ' ' + (TOPE + 22) + ' L ' + (TX - 26) + ' ' + (TOPE + 62)
+             + ' M ' + (TX - 4) + ' ' + (TOPE + 44) + ' L ' + (TX + 4) + ' ' + (TOPE + 90)
+             + '" fill="none" stroke="#a1683a" stroke-width="1.5" opacity=".8"/>';
+          /* la sonda */
+          var sx = MX + v.dist * cmX, sy = TOPE + v.prof * cmY;
+          m += '<rect x="' + (sx - 7) + '" y="' + (TOPE - 30) + '" width="14" height="18" rx="2"'
+             + ' fill="var(--surface)" stroke="#ea4335" stroke-width="1.8"/>'
+             + '<line x1="' + sx + '" y1="' + (TOPE - 12) + '" x2="' + sx + '" y2="' + sy
+             + '" stroke="#ea4335" stroke-width="3" stroke-linecap="round"/>'
+             + '<circle cx="' + sx + '" cy="' + sy + '" r="4" fill="#ea4335"/>'
+             + '<text x="' + (sx + 10) + '" y="' + (TOPE - 18) + '" class="etq" style="fill:#ea4335">'
+             + 'sonda</text>';
+          /* cotas y rotulos. Todo dentro del lienzo: puestos a la izquierda
+             del tiesto se salian del viewBox. */
+          m += '<text x="' + (MX - ANCHO_ARR + 6) + '" y="' + (yCostra - 6)
+             + '" class="ejeq">costra</text>'
+             + '<text x="' + (MX - ANCHO_ARR + 6) + '" y="' + (TOPE + 92)
+             + '" class="ejeq">cepell&oacute;n</text>';
+          m += '<text x="' + (MX + ANCHO_ARR + 10) + '" y="' + (TOPE + 4)
+             + '" class="ejeq">0 cm</text>'
+             + '<text x="' + (MX + ANCHO_ARR + 10) + '" y="' + (yCostra + 12)
+             + '" class="ejeq">1,5 cm</text>'
+             + '<text x="' + (MX + ANCHO_ABJ + 24) + '" y="' + FONDO
+             + '" class="ejeq">12 cm</text>';
+          m += '<text x="6" y="' + (FONDO + 20) + '" class="ejeq">'
+             + 'ahora mismo: costra <tspan font-weight="500">' + n0(R.H1)
+             + ' %</tspan>, ra&iacute;z <tspan font-weight="500">' + n0(R.H2) + ' %</tspan></text>'
+             + '<text x="6" y="' + (FONDO + 36) + '" class="ejeq">'
+             + 'y la sonda mide un ' + n0(100 * R.a) + ' % de costra</text>';
+
+          /* ---------------- el grafico de los 7 dias ---------------- */
+          var X0 = 262, X1 = 674, Y0 = 26, Y1 = 226;
+          var px = function(s){ return X0 + (X1 - X0) * s / (DIAS * 86400); };
+          var py = function(h){ return Y1 - (Y1 - Y0) * Math.max(0, Math.min(105, h)) / 105; };
+          for(g = 0; g <= 100; g += 25){
+            m += '<line x1="' + X0 + '" y1="' + py(g).toFixed(1) + '" x2="' + X1 + '" y2="'
+               + py(g).toFixed(1) + '" stroke="currentColor" stroke-width="1" opacity=".12"/>'
+               + '<text x="' + (X0 - 5) + '" y="' + (py(g) + 4).toFixed(1)
+               + '" class="ejeq" text-anchor="end">' + g + '</text>';
+          }
+          for(g = 0; g <= DIAS; g++){
+            m += '<text x="' + px(g * 86400).toFixed(1) + '" y="' + (Y1 + 15)
+               + '" class="ejeq" text-anchor="middle">' + g + '</text>';
+          }
+          m += '<line x1="' + X0 + '" y1="' + py(v.umbral).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(v.umbral).toFixed(1) + '" stroke="currentColor" stroke-width="1.3"'
+             + ' stroke-dasharray="6 4" opacity=".6"/>';
+          m += '<line x1="' + X0 + '" y1="' + py(15).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(15).toFixed(1) + '" stroke="#ea4335" stroke-width="1" opacity=".55"/>'
+             + '<text x="' + (X1 - 3) + '" y="' + (py(15) + 12).toFixed(1)
+             + '" class="ejeq" text-anchor="end" style="fill:#ea4335">la ra&iacute;z se marchita</text>';
+          var d1 = '', d2 = '', dl = '';
+          for(i = 0; i < R.serie.length; i++){
+            d1 += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][1]).toFixed(1);
+            d2 += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][2]).toFixed(1);
+            dl += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][3]).toFixed(1);
+          }
+          m += '<path d="' + d1 + '" fill="none" stroke="#fbbc04" stroke-width="1.4"/>'
+             + '<path d="' + d2 + '" fill="none" stroke="#34a853" stroke-width="2"/>'
+             + '<path d="' + dl + '" fill="none" stroke="#ea4335" stroke-width="1.2"'
+             + ' stroke-dasharray="4 3"/>';
+          m += '<text x="' + X0 + '" y="' + (Y0 - 8)
+             + '" class="ejeq">humedad, en % &middot; abajo, d&iacute;as &middot; la raya de '
+             + 'puntos, el umbral</text>'
+             + '<rect x="' + X0 + '" y="263" width="10" height="2.5" fill="#fbbc04"/>'
+             + '<text x="' + (X0 + 15) + '" y="267" class="ejeq">costra</text>'
+             + '<rect x="' + (X0 + 72) + '" y="263" width="10" height="2.5" fill="#34a853"/>'
+             + '<text x="' + (X0 + 87) + '" y="267" class="ejeq">ra&iacute;z</text>'
+             + '<rect x="' + (X0 + 134) + '" y="263" width="10" height="2.5" fill="#ea4335"/>'
+             + '<text x="' + (X0 + 149) + '" y="267" class="ejeq">lo que lee la sonda</text>';
+
+          svg.innerHTML = m;
+
+          /* ---------------- el tablero ---------------- */
+          tab.innerHTML =
+            '<div class="so-dato"><span>agua en 7 d&iacute;as</span><b id="so-agua">'
+              + n0(R.agua) + ' ml</b></div>'
+          + '<div class="so-dato"><span>se evapora en la costra</span><b id="so-evap">'
+              + n0(R.evap) + ' ml</b></div>'
+          + '<div class="so-dato"><span>se va por el agujero</span><b id="so-drena">'
+              + n0(R.drena) + ' ml</b></div>'
+          + '<div class="so-dato' + (R.efic > 41.5 ? ' bien' : ' malo')
+              + '"><span>rendimiento del riego</span><b id="so-efic">' + n0(R.efic) + ' %</b></div>'
+          + '<div class="so-dato' + (R.min2 < 15 ? ' malo' : '')
+              + '"><span>m&iacute;nimo de la ra&iacute;z</span><b id="so-min">'
+              + n1(R.min2) + ' %</b></div>'
+          + '<div class="so-dato' + (R.max2 > 70 ? ' malo' : '')
+              + '"><span>m&aacute;ximo de la ra&iacute;z</span><b id="so-max">'
+              + n1(R.max2) + ' %</b></div>';
+
+          var txt = '<b>Sonda a ' + v.prof + ' cm de hondo y a ' + v.dist + ' cm del gotero.</b> '
+                  + 'Lo que lee es una mezcla: <b>' + n0(100 * R.a) + ' %</b> de la costra y <b>'
+                  + n0(100 - 100 * R.a) + ' %</b> del cepell&oacute;n. ';
+          if(R.a > 0.5){
+            txt += 'Est&aacute; midiendo <b>el charco</b>, no la ra&iacute;z: la costra se seca en '
+                 + 'horas, as&iacute; que la sonda pide agua mucho antes de que a la planta le haga '
+                 + 'falta. Resultado: <b>' + n0(R.agua) + ' ml</b> en siete d&iacute;as, de los que '
+                 + '<b>' + n0(R.evap) + ' ml</b> se evaporan sin llegar abajo.';
+          } else if(R.min2 < 15){
+            txt += '<b>La ra&iacute;z ha bajado al ' + n1(R.min2) + ' %</b>: con este umbral y esta '
+                 + 'dosis no le llega el agua suficiente.';
+          } else if(R.max2 > 70){
+            txt += 'La ra&iacute;z ha llegado al <b>' + n1(R.max2) + ' %</b>: la dosis de '
+                 + v.dosis + ' s es demasiado grande para esta maceta, y una ra&iacute;z encharcada '
+                 + 'se pudre igual que una seca.';
+          } else {
+            txt += 'Est&aacute; midiendo <b>donde vive la ra&iacute;z</b>, que es lo que interesa. '
+                 + '<b>' + n0(R.agua) + ' ml</b> en siete d&iacute;as con un rendimiento del <b>'
+                 + n0(R.efic) + ' %</b>.';
+          }
+          pie.innerHTML = txt + ' <i>Rendimiento = agua que se ha bebido la planta / agua que ha '
+                        + 'sacado la bomba. Nunca es el 100 %: regar por arriba siempre pierde un '
+                        + 'trozo por evaporaci&oacute;n.</i>';
+        }
+
+        function mando(id, clave, sufijo){
+          document.getElementById(id).addEventListener('input', function(){
+            v[clave] = +this.value;
+            document.getElementById(id + '-v').innerHTML = this.value + sufijo;
+            pinta();
+          });
+        }
+        mando('so-prof', 'prof', ' cm');
+        mando('so-dist', 'dist', ' cm');
+        mando('so-dosis', 'dosis', ' s');
+        mando('so-umbral', 'umbral', ' %');
+
+        seg.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-s]');
+          if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          v.prof = (b.dataset.s === '0') ? 1 : 6;
+          v.dist = (b.dataset.s === '0') ? 0 : 3;
+          document.getElementById('so-prof').value = v.prof;
+          document.getElementById('so-dist').value = v.dist;
+          document.getElementById('so-prof-v').innerHTML = v.prof + ' cm';
+          document.getElementById('so-dist-v').innerHTML = v.dist + ' cm';
+          pinta();
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="nota">
+        <span class="n-tag">Qu&eacute; es y qu&eacute; no es esta escena</span>
+        Es un <b>modelo</b> de maceta hecho para esta clase, no una medida de vuestro tiesto.
+        Las cifras que lleva dentro &mdash; que la costra es el 8&nbsp;% del volumen y se seca en
+        unas 10&nbsp;horas, que la ra&iacute;z aguanta d&iacute;as, que por debajo del 15&nbsp;% la
+        planta se marchita &mdash; son <b>valores razonables elegidos por nosotros</b>, y en una
+        maceta de verdad dependen de la tierra, de la planta y del aula. Lo que s&iacute; se sostiene
+        es <b>la forma de las curvas y la comparaci&oacute;n entre dos posiciones de la sonda</b>.
+        Los n&uacute;meros de vuestro proyecto solo salen de vuestra b&aacute;scula.
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Pon la sonda <b>a 1&nbsp;cm y pegada al gotero</b> y an&oacute;talo. Ahora ponla <b>a
+           6&nbsp;cm y a 3&nbsp;cm del gotero</b>. El agua de la semana baja de <b>500 a
+           400&nbsp;ml</b>, y la planta est&aacute; igual de bien. <b>Cien mililitros a la semana,
+           una quinta parte del gasto, por mover una sonda cinco cent&iacute;metros.</b> En las
+           tres semanas de Navidad son 300&nbsp;ml: una quinta parte del dep&oacute;sito.</p>
+        <p>La raz&oacute;n es que la costra se seca en horas y el cepell&oacute;n aguanta d&iacute;as.
+           Si mides la costra, <b>est&aacute;s regando la evaporaci&oacute;n</b>, no la planta.</p>
+        <p>Prueba tambi&eacute;n la <b>dosis</b>. Dosis muy peque&ntilde;as y muy seguidas mantienen
+           la costra siempre h&uacute;meda, y la costra es justo por donde se pierde el agua. Dosis
+           grandes y espaciadas riegan mejor&hellip; hasta que te pasas y la ra&iacute;z se queda
+           encharcada. Hay un punto bueno, y la escena deja encontrarlo.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Lista de puesta en marcha (se firma antes de enchufar el agua)</h4>
+        <ol>
+          <li><b>Prueba en seco.</b> Todo el sistema montado y funcionando <b>una hora</b> con el
+              tubo fuera de la maceta, dentro de un vaso. Se mira que la bomba arranque y pare
+              cuando toca. Si algo falla, falla dentro del vaso.</li>
+          <li><b>La placa, por encima del nivel del agua</b> y fuera de la vertical del
+              dep&oacute;sito. El agua cae; no sube.</li>
+          <li><b>El dep&oacute;sito, en una bandeja</b> con capacidad para todo su contenido. Si un
+              d&iacute;a se vuelca, que se quede en la bandeja.</li>
+          <li><b>La bomba no se alimenta del pin.</b> Va con su propia fuente. (C&oacute;mo se monta
+              eso es de la unidad 5; que no se monte de otra manera, de esta.)</li>
+          <li><b>Cables etiquetados</b> y un dibujo del montaje en la libreta. Dentro de un mes no te
+              vas a acordar de cu&aacute;l era el de la sonda.</li>
+          <li><b>Un interruptor general</b> a mano, para poder cortarlo sin desenchufar nada.</li>
+        </ol>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; por qu&eacute; se pudren las sondas baratas</span>
+        <p>La sonda de dos clavos que viene en los kits mide la <b>resistencia entre los dos
+           electrodos</b>, y para eso tiene que pasar corriente continua por la tierra mojada. Eso es
+           una <b>electr&oacute;lisis</b>: en unas semanas un electrodo se come al otro, la lectura
+           se va desplazando <b>sin que nada d&eacute; error</b>, y un buen d&iacute;a marca
+           &laquo;seco&raquo; para siempre. Es el fallo de la escena de la sesi&oacute;n pasada, y es
+           el m&aacute;s com&uacute;n de todos.</p>
+        <p>Se alarga la vida <b>aliment&aacute;ndola solo cuando se mide</b> (un pin que enciende la
+           sonda, lee y la apaga), y se evita del todo con una <b>sonda capacitiva</b>, que cuesta
+           dos euros y no mete corriente en la tierra. Si vuestro proyecto tiene que durar hasta
+           junio, la capacitiva.</p>
+        <p>Y pase lo que pase: <b>volved a pesar la maceta cada dos semanas</b> y comprobad que la
+           recta sigue valiendo. Una calibraci&oacute;n no es para siempre.</p>
+      </div>
+      <div class="video" id="video-c4-s7" data-vid="gfY_il4CW_M">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: C&oacute;mo utilizar un sensor de humedad de suelo con Arduino &middot; Sistema de riego">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>C&oacute;mo utilizar un sensor de humedad de suelo con Arduino &middot; Sistema de riego</b>
+            <span>Automatizaci&oacute;n para Todos</span>
+          </span>
+        </button>
+        <p class="video-nota">La sonda de humedad en la mano, con el mismo montaje que vais a hacer vosotros. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=gfY_il4CW_M" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7 &middot; Calibrar y montar lo vuestro</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Grupos de 3 &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; La recta de vuestra sonda (8 min)</h4>
+          <p>Con la b&aacute;scula y los dos pesos que ya ten&eacute;is tomados (o con los del
+             recuadro, si a&uacute;n no hab&eacute;is podido secar la maceta):</p>
+          <ol>
+            <li>Calculad cu&aacute;ntos <b>mililitros</b> de agua cabe en vuestra maceta.</li>
+            <li>Calculad la <b>pendiente</b> y escribid vuestra recta L = L<sub>0</sub> + m &middot; H
+                y su inversa.</li>
+            <li>Elegid el <b>umbral en puntos de humedad</b> y traducidlo a <b>cuentas</b>. Ese es el
+                n&uacute;mero que va en el programa de la sesi&oacute;n 6.</li>
+            <li><b>Comprobadla</b>: pesad la maceta ahora, sacad la humedad por el peso, sacadla
+                tambi&eacute;n por la lectura, y comparad. &iquest;Cu&aacute;nto se llevan?</li>
+          </ol>
+          <p>Si los dos n&uacute;meros se llevan m&aacute;s de <b>5 puntos</b>, algo est&aacute; mal.
+             Escribid <b>dos hip&oacute;tesis</b> de qu&eacute; puede ser.</p>
+          <h4>Segunda parte &middot; Elegir el sitio (6 min)</h4>
+          <p>En la escena, buscad la combinaci&oacute;n de <b>profundidad, distancia y dosis</b> que
+             gaste <b>menos agua</b> manteniendo la ra&iacute;z por encima del 25&nbsp;% y por debajo
+             del 70&nbsp;%. Anotad los cuatro n&uacute;meros y el agua que gasta.</p>
+          <p>Comparadlo con la sonda &laquo;en el charco&raquo;: &iquest;cu&aacute;nta agua
+             ahorr&aacute;is en una semana? &iquest;Y en las tres semanas de Navidad?</p>
+          <h4>Tercera parte &middot; La lista firmada (6 min)</h4>
+          <p>Copiad la <b>lista de puesta en marcha</b> en la libreta, recorredla con el montaje
+             delante y marcad cada punto. Los que no pod&aacute;is cumplir todav&iacute;a, escribid
+             <b>qu&eacute; os falta</b>. Firmadla los tres.</p>
+          <p>Y haced el <b>dibujo del montaje</b>: d&oacute;nde va la placa, d&oacute;nde el
+             dep&oacute;sito, por d&oacute;nde va el tubo y d&oacute;nde est&aacute; clavada la sonda,
+             con su profundidad y su distancia al gotero <b>en cent&iacute;metros</b>.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La recta, el umbral en cuentas y la comprobaci&oacute;n <b>(4 puntos)</b>.</li>
+            <li>La posici&oacute;n elegida, con el agua que ahorra <b>(3 puntos)</b>.</li>
+            <li>La lista recorrida y el dibujo acotado <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; no vale el umbral del grupo de al lado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque un umbral en <b>cuentas</b> depende de su tierra, de su sonda, de su tiesto y de d&oacute;nde la tengan clavada. Lo que s&iacute; se puede compartir es el umbral en <b>puntos de humedad</b>; las cuentas hay que sacarlas con la recta de cada uno.</p></div></details></li>
+        <li>&iquest;C&oacute;mo se sabe, sin aparatos, cu&aacute;nta agua tiene una maceta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Pes&aacute;ndola. El agua pesa y la tierra seca no cambia. Con el peso empapado y el peso seco tienes los dos extremos, y en medio, una regla de tres: H = 100 &middot; (P &minus; P<sub>0</sub>) / (P<sub>100</sub> &minus; P<sub>0</sub>).</p></div></details></li>
+        <li>&iquest;Por qu&eacute; gasta m&aacute;s agua una sonda clavada junto al gotero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque mide la <b>costra</b>, que se seca en horas mientras la ra&iacute;z sigue h&uacute;meda. La sonda pide agua que la planta no necesita, y esa agua se evapora por arriba sin llegar abajo. En la escena, 500&nbsp;ml a la semana en vez de 400: <b>100&nbsp;ml de m&aacute;s</b> para tener la misma ra&iacute;z.</p></div></details></li>
+        <li>La sonda de dos clavos lleva un mes y ahora marca siempre &laquo;seco&raquo;. &iquest;Qu&eacute; ha pasado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que se ha <b>corro&iacute;do</b>: al pasar corriente continua por la tierra mojada, un electrodo se come al otro. Y lo grave es que <b>no da error</b>: sigue devolviendo un n&uacute;mero, solo que mentira. Por eso hay que <b>recalibrar</b> cada pocas semanas, y por eso una sonda capacitiva sale a cuenta.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya est&aacute; montado, calibrado y probado en seco. Y no demuestra nada todav&iacute;a: que
+        una cosa funcione mientras t&uacute; la miras es lo m&aacute;s f&aacute;cil del mundo. La
+        &uacute;ltima sesi&oacute;n va de <b>romperlo t&uacute;</b>, a prop&oacute;sito, antes de que
+        lo rompa diciembre; y de salir a contarlo con <b>un n&uacute;mero</b> en la mano.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-8" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 8 &middot; 60 minutos</div>
+      <h2>R&oacute;mpelo t&uacute; antes de que lo rompa diciembre</h2>
+      <p>Que funcione mientras lo miras no demuestra nada. La prueba que vale es la que provocas t&uacute;.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Test</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Vuestro riego lleva tres d&iacute;as funcionando en la mesa del taller y no ha fallado ni
+         una vez. Enhorabuena.</p>
+      <p>Ahora la pregunta que importa: <b>&iquest;os la juga&iacute;s?</b> Se va la clase de
+         vacaciones. Vuelve todo el mundo el 8 de enero. &iquest;Firm&aacute;is que la planta va a
+         estar viva?</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Antes de contestar: <b>&iquest;qu&eacute; tendr&iacute;ais que haber hecho para poder
+           decir que s&iacute; con la cabeza alta?</b> No vale &laquo;probarlo m&aacute;s
+           d&iacute;as&raquo;. Escribid <b>tres pruebas concretas</b>, de las que se hacen en una
+           tarde.</p>
+      </div>
+      <p>Tres d&iacute;as en la mesa del taller demuestran que el sistema funciona <b>cuando no pasa
+         nada</b>. Y en diciembre <b>van a pasar cosas</b>: un fin de semana con la calefacci&oacute;n
+         a tope, el conserje que riega a mano de paso, el dep&oacute;sito que se acaba, la sonda que
+         se corroe, un apag&oacute;n de tres horas.</p>
+      <div class="aviso">
+        <span class="n-tag">La idea de esta sesi&oacute;n, en una l&iacute;nea</span>
+        <b>Probar no es esperar a que falle: es provocar el fallo t&uacute;</b>, con el cuaderno
+        delante, y apuntar qu&eacute; hizo el sistema. Lo que no has provocado, no lo has probado.
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <div class="copiar">
+        <h4>El protocolo de prueba</h4>
+        <p>Una tabla, hecha <b>antes</b> de probar. En la segunda columna se escribe lo que
+           <b>deber&iacute;a</b> pasar; en la tercera, lo que pas&oacute;. Si las dos coinciden, la
+           prueba est&aacute; superada; si no, hay trabajo.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+          <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Lo que provoco</b></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Lo que tiene que pasar</b></td></tr>
+          <tr><td style="padding:5px 6px">Seco la tierra con un secador</td>
+              <td style="padding:5px 6px">Riega, una dosis, y espera</td></tr>
+          <tr><td style="padding:5px 6px">Riego yo a mano medio vaso</td>
+              <td style="padding:5px 6px"><b>No</b> riega, y tarda m&aacute;s de lo normal en volver a regar</td></tr>
+          <tr><td style="padding:5px 6px">Saco la sonda de la tierra y la dejo al aire</td>
+              <td style="padding:5px 6px">Riega hasta el tope del d&iacute;a y para. <b>No vac&iacute;a el dep&oacute;sito</b></td></tr>
+          <tr><td style="padding:5px 6px">Desconecto el cable de la sonda</td>
+              <td style="padding:5px 6px">Lectura imposible &rarr; <b>estado seguro</b>: no riega y avisa</td></tr>
+          <tr><td style="padding:5px 6px">Vac&iacute;o el dep&oacute;sito</td>
+              <td style="padding:5px 6px">La bomba no puede estar horas en seco</td></tr>
+          <tr><td style="padding:5px 6px">Desenchufo y vuelvo a enchufar</td>
+              <td style="padding:5px 6px">Arranca solo, sin regar de golpe por arrancar</td></tr>
+          <tr><td style="padding:5px 6px">Doblo el tubo</td>
+              <td style="padding:5px 6px">La bomba no se quema; lo notar&aacute; la humedad, que no sube</td></tr>
+        </table>
+        <p>La tercera y la sexta son las que m&aacute;s suspenden, y son las dos que pasan de verdad
+           en vacaciones.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Modos de fallo y estado seguro</h4>
+        <p>Por cada pieza, tres preguntas: <b>&iquest;c&oacute;mo puede fallar?</b>,
+           <b>&iquest;qu&eacute; pasa si falla?</b> y <b>&iquest;c&oacute;mo me entero?</b></p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+          <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Pieza</b></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>C&oacute;mo falla</b></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Qu&eacute; lo tapa</b></td></tr>
+          <tr><td style="padding:5px 6px">Sonda</td>
+              <td style="padding:5px 6px">Se corroe y miente <b>sin dar error</b></td>
+              <td style="padding:5px 6px">Tope diario + recalibrar</td></tr>
+          <tr><td style="padding:5px 6px">Cable</td>
+              <td style="padding:5px 6px">Se suelta: la lectura salta o se queda plana</td>
+              <td style="padding:5px 6px">Descartar lecturas imposibles</td></tr>
+          <tr><td style="padding:5px 6px">Bomba</td>
+              <td style="padding:5px 6px">Se atasca, o se quema en seco</td>
+              <td style="padding:5px 6px">Tope diario + sensor de nivel</td></tr>
+          <tr><td style="padding:5px 6px">Dep&oacute;sito</td>
+              <td style="padding:5px 6px">Se acaba</td>
+              <td style="padding:5px 6px">Calcular cu&aacute;nto dura y avisar</td></tr>
+          <tr><td style="padding:5px 6px">Corriente</td>
+              <td style="padding:5px 6px">Apag&oacute;n; al volver, el reloj empieza de cero</td>
+              <td style="padding:5px 6px">Que el arranque sea inofensivo</td></tr>
+          <tr><td style="padding:5px 6px">Programa</td>
+              <td style="padding:5px 6px">Se queda colgado</td>
+              <td style="padding:5px 6px">Un LED que parpadea en cada vuelta del lazo</td></tr>
+        </table>
+        <p><b>Estado seguro</b>: lo que hace el sistema cuando no sabe qu&eacute; hacer. En un riego,
+           <b>no regar</b>. En una barrera, <b>abrirse</b>. En una caldera, <b>apagarse</b>. No hay
+           una regla universal: se elige mirando <b>qu&eacute; da&ntilde;o es peor</b>, y se escribe
+           en el proyecto.</p>
+        <p>Y el truco m&aacute;s barato de todos: <b>un LED que parpadee una vez por vuelta del
+           lazo</b>. Si est&aacute; parpadeando, el programa vive. Si est&aacute; fijo o apagado,
+           est&aacute; colgado. Cuesta una l&iacute;nea y te ahorra una tarde.</p>
+      </div>
+
+      <h3>Al banco: las vacaciones, con los tres sistemas a la vez</h3>
+      <p>Esta escena responde, con n&uacute;meros, a la pregunta con la que abri&oacute; la unidad en
+         la sesi&oacute;n 1. La <b>misma maceta</b>, el <b>mismo tiempo</b> y los <b>mismos
+         d&iacute;as</b>, regada de tres maneras.</p>
+
+      <div class="escena" id="esc-sm">
+        <div class="escena-barra">
+          <span class="escena-titulo">La misma planta, el mismo tiempo, tres maneras de regarla</span>
+          <div class="seg" id="seg-sm">
+            <button type="button" data-e="0" aria-pressed="true">Vacaciones de Navidad</button>
+            <button type="button" data-e="1">Semana normal de clase</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 300" id="svg-sm" role="img"
+               aria-label="Humedad de tres macetas regadas de tres maneras distintas durante quince d&iacute;as"></svg>
+          <div class="sm-mandos">
+            <div class="sm-col">
+              <div class="sm-fila">
+                <label for="sm-dias">D&iacute;as de la prueba</label>
+                <input type="range" id="sm-dias" min="7" max="21" step="1" value="15">
+                <span class="val" id="sm-dias-v">15 d&iacute;as</span>
+              </div>
+              <div class="sm-fila">
+                <label for="sm-dosis">Dosis del temporizador</label>
+                <input type="range" id="sm-dosis" min="0" max="300" step="10" value="100">
+                <span class="val" id="sm-dosis-v">100 ml/d&iacute;a</span>
+              </div>
+              <div class="sm-fila">
+                <label for="sm-dep">Dep&oacute;sito</label>
+                <input type="range" id="sm-dep" min="500" max="4000" step="250" value="1500">
+                <span class="val" id="sm-dep-v">1500 ml</span>
+              </div>
+            </div>
+            <div class="sm-col">
+              <label class="sm-chk"><input type="checkbox" id="sm-vac" checked>
+                <span><b>nadie viene a regar</b>: el instituto est&aacute; cerrado</span></label>
+              <label class="sm-chk"><input type="checkbox" id="sm-calor" checked>
+                <span><b>ola de calor</b> del d&iacute;a 4 al 9: la maceta se seca al doble y
+                  medio de deprisa</span></label>
+              <label class="sm-chk"><input type="checkbox" id="sm-averia">
+                <span><b>la sonda se estropea</b> el d&iacute;a 8 y marca &laquo;seco&raquo;
+                  para siempre</span></label>
+            </div>
+          </div>
+          <div class="sm-tabla" id="sm-tabla"></div>
+        </div>
+        <div class="pie" id="pie-sm"></div>
+      </div>
+
+      <style>
+      .sm-mandos{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+      .sm-col{flex:1 1 320px;min-width:280px}
+      .sm-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .sm-fila label{min-width:150px}
+      .sm-fila input[type="range"]{flex:1 1 120px;min-width:110px;accent-color:var(--goo-azul)}
+      .sm-fila .val{font-weight:500;color:var(--goo-azul);min-width:86px;text-align:right}
+      .sm-chk{display:flex;align-items:flex-start;gap:8px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 8px;cursor:pointer;line-height:1.5}
+      .sm-chk input{accent-color:var(--goo-azul);flex:none;margin-top:3px}
+      .sm-chk b{color:var(--ink)}
+      .sm-tabla{margin-top:13px;overflow:auto}
+      .sm-tabla table{width:100%;border-collapse:collapse;font-family:var(--f-m);font-size:12.5px}
+      .sm-tabla th{text-align:left;font-weight:500;color:var(--ink-soft);font-size:10.5px;
+        letter-spacing:.06em;text-transform:uppercase;padding:6px 8px;border-bottom:1.5px solid var(--line)}
+      .sm-tabla td{padding:7px 8px;border-bottom:1px solid var(--line-soft);color:var(--ink)}
+      .sm-tabla td.sm-viva{color:var(--goo-verde);font-weight:500}
+      .sm-tabla td.sm-muerta{color:var(--goo-rojo);font-weight:500}
+      .sm-tabla .sm-pin{display:inline-block;width:11px;height:3px;margin-right:7px;vertical-align:middle}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-sm');
+        if(!svg) return;
+        var seg = document.getElementById('seg-sm');
+        var pie = document.getElementById('pie-sm');
+        var tab = document.getElementById('sm-tabla');
+
+        function n0(x){ return Math.round(x).toString(); }
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+
+        var DT = 10, PASOS_DIA = 8640;
+        var ML_PUNTO = 5, CAUDAL = 100 / 60, PUNTOS_S = CAUDAL / ML_PUNTO;
+        var MARGEN = 20, DOSIS = Math.round(20 / DT), ESPERA = Math.round(1200 / DT);
+        var RETARDO = Math.round(600 / DT), TOPE_S = 150, UMBRAL = 35;
+        var COL = ['#ea4335', '#fbbc04', '#1a73e8'];
+        var NOM = ['A mano, cuando alguien se acuerda',
+                   'Temporizador (lazo abierto)',
+                   'Lazo cerrado con sonda (el vuestro)'];
+
+        var v = {dias:15, dosis:100, dep:1500, vac:true, calor:true, averia:false};
+
+        /* Lehmer (MINSTD): sem * 16807 nunca pasa de 3,6e13, que un double
+           guarda EXACTO. El multiplicador clasico 1103515245 se sale de los
+           2^53 y el resultado depende del redondeo: parece reproducible pero
+           no se puede volver a calcular fuera del navegador, y entonces el
+           verificador no puede comprobar la escena. */
+        var sem = 1;
+        function rnd(){
+          sem = (sem * 16807) % 2147483647;
+          return sem / 2147483647;
+        }
+
+        function simula(){
+          sem = 20260918;
+          var N = v.dias * PASOS_DIA;
+          var H = [40, 40, 40], agua = [0, 0, 0], seca = [0, 0, 0];
+          var lo = [100, 100, 100], hi = [0, 0, 0];
+          var dep2 = v.dep, dep3 = v.dep;
+          var bombaHasta = -1, esperaHasta = -1, segsDia = 0;
+          var Lum = 620 - 3.4 * UMBRAL;
+          var cola = [], i, k, dia, seg2, tau, d, L, Hret, pide;
+          for(i = 0; i < RETARDO; i++) cola.push(40);
+          var serie = [];
+          for(i = 0; i < N; i++){
+            dia = Math.floor(i / PASOS_DIA);
+            seg2 = (i % PASOS_DIA) * DT;
+            tau = ((v.calor && dia >= 4 && dia < 9) ? 24 : 60) * 3600;
+
+            /* 1 - a mano: 250 ml a las 8:00, los dias que hay clase */
+            if(seg2 === 8 * 3600 && !v.vac && (dia % 7) < 5){
+              H[0] += 250 / ML_PUNTO; agua[0] += 250;
+            }
+            /* 2 - temporizador: la misma dosis todos los dias, pase lo que pase */
+            if(seg2 === 8 * 3600 && dep2 > 0){
+              d = Math.min(v.dosis, dep2);
+              dep2 -= d; agua[1] += d; H[1] += d / ML_PUNTO;
+            }
+            /* 3 - lazo cerrado */
+            if(i % PASOS_DIA === 0) segsDia = 0;
+            Hret = cola.shift(); cola.push(H[2]);
+            if(v.averia && dia >= 8){
+              L = 620;
+            } else {
+              L = 0;
+              for(k = 0; k < 10; k++) L += 620 - 3.4 * Hret + (rnd() - 0.5) * 20;
+              L /= 10;
+            }
+            if(i >= esperaHasta && L > Lum + MARGEN){
+              bombaHasta = i + DOSIS; esperaHasta = i + ESPERA;
+            }
+            var bomba = (i < bombaHasta);
+            if(segsDia >= TOPE_S){ bomba = false; bombaHasta = -1; }
+            if(bomba){
+              segsDia += DT;
+              pide = CAUDAL * DT;
+              if(dep3 >= pide){ dep3 -= pide; agua[2] += pide; H[2] += PUNTOS_S * DT; }
+            }
+
+            for(k = 0; k < 3; k++){
+              H[k] += -H[k] / tau * DT;
+              if(H[k] > 100) H[k] = 100;
+              if(H[k] < 0) H[k] = 0;
+              lo[k] = Math.min(lo[k], H[k]); hi[k] = Math.max(hi[k], H[k]);
+              if(H[k] < 15) seca[k] += DT / 3600;
+            }
+            if(i % 60 === 0) serie.push([i * DT, H[0], H[1], H[2]]);
+          }
+          return {serie:serie, agua:agua, seca:seca, min:lo, max:hi, fin:H,
+                  dep2:dep2, dep3:dep3};
+        }
+
+        function pinta(){
+          var R = simula();
+          var X0 = 46, X1 = 676, Y0 = 22, Y1 = 232;
+          var TOT = v.dias * 86400;
+          var px = function(s){ return X0 + (X1 - X0) * s / TOT; };
+          var py = function(h){ return Y1 - (Y1 - Y0) * Math.max(0, Math.min(105, h)) / 105; };
+          var m = '', g, i, k;
+
+          if(v.calor && v.dias > 4){
+            m += '<rect x="' + px(4 * 86400).toFixed(1) + '" y="' + Y0 + '" width="'
+               + (px(Math.min(v.dias, 9) * 86400) - px(4 * 86400)).toFixed(1) + '" height="'
+               + (Y1 - Y0) + '" fill="#fbbc04" opacity=".13"/>'
+               + '<text x="' + (px(4.1 * 86400)).toFixed(1) + '" y="' + (Y0 + 13)
+               + '" class="ejeq">ola de calor</text>';
+          }
+          for(g = 0; g <= 100; g += 25){
+            m += '<line x1="' + X0 + '" y1="' + py(g).toFixed(1) + '" x2="' + X1 + '" y2="'
+               + py(g).toFixed(1) + '" stroke="currentColor" stroke-width="1" opacity=".12"/>'
+               + '<text x="' + (X0 - 5) + '" y="' + (py(g) + 4).toFixed(1)
+               + '" class="ejeq" text-anchor="end">' + g + '</text>';
+          }
+          for(g = 0; g <= v.dias; g += (v.dias > 14 ? 2 : 1)){
+            m += '<text x="' + px(g * 86400).toFixed(1) + '" y="' + (Y1 + 15)
+               + '" class="ejeq" text-anchor="middle">' + g + '</text>';
+          }
+          m += '<line x1="' + X0 + '" y1="' + py(15).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(15).toFixed(1) + '" stroke="#ea4335" stroke-width="1.3" opacity=".7"'
+             + ' stroke-dasharray="7 4"/>'
+             + '<text x="' + (X1 - 3) + '" y="' + (py(15) + 13).toFixed(1)
+             + '" class="etq" text-anchor="end" style="fill:#ea4335">por debajo del 15 % se marchita</text>';
+          m += '<text x="' + X0 + '" y="' + (Y0 - 8)
+             + '" class="ejeq">humedad del suelo, en % &middot; abajo, d&iacute;as &middot; '
+             + 'los tres colores, en la tabla</text>';
+
+          for(k = 0; k < 3; k++){
+            var dd = '';
+            for(i = 0; i < R.serie.length; i++){
+              dd += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' '
+                  + py(R.serie[i][k + 1]).toFixed(1);
+            }
+            m += '<path d="' + dd + '" fill="none" stroke="' + COL[k] + '" stroke-width="2"/>';
+          }
+          /* La leyenda va en la tabla de resultados, con su cuadradito de
+             color: aqui los tres nombres no caben en una linea y se pisan. */
+          svg.innerHTML = m;
+
+          /* ---------------- la tabla de resultados ---------------- */
+          var f = '<table><tr><th>Sistema</th><th>Agua</th><th>M&iacute;nimo</th>'
+                + '<th>M&aacute;ximo</th><th>Horas marchita</th><th>C&oacute;mo acaba</th></tr>';
+          for(k = 0; k < 3; k++){
+            var viva = R.seca[k] < 1 && R.max[k] < 99;
+            var estado = R.seca[k] > 24 ? 'se ha secado'
+                       : (R.seca[k] > 1 ? 'ha pasado apuros'
+                       : (R.max[k] > 99 ? 'encharcada' : 'viva y sin sustos'));
+            f += '<tr><td><span class="sm-pin" style="background:' + COL[k] + '"></span>'
+               + NOM[k] + '</td>'
+               + '<td id="sm-agua-' + k + '">' + n0(R.agua[k]) + ' ml</td>'
+               + '<td id="sm-min-' + k + '">' + n1(R.min[k]) + ' %</td>'
+               + '<td id="sm-max-' + k + '">' + n1(R.max[k]) + ' %</td>'
+               + '<td id="sm-seca-' + k + '">' + n0(R.seca[k]) + ' h</td>'
+               + '<td class="' + (viva ? 'sm-viva' : 'sm-muerta') + '" id="sm-fin-' + k + '">'
+               + estado + '</td></tr>';
+          }
+          f += '</table>';
+          tab.innerHTML = f;
+
+          var txt = '<b>' + v.dias + ' d&iacute;as, la misma maceta y el mismo tiempo para los tres.</b> ';
+          if(v.vac){
+            txt += 'Con el instituto cerrado, regar a mano <b>no riega nada</b>: la planta pasa '
+                 + n0(R.seca[0]) + ' horas por debajo del punto de marchitez. ';
+          } else {
+            txt += 'Con gente en el instituto, a mano se gastan <b>' + n0(R.agua[0])
+                 + ' ml</b> y la maceta llega al ' + n1(R.max[0]) + ' %: se riega de m&aacute;s, '
+                 + 'porque nadie mide. ';
+          }
+          txt += 'El temporizador gasta <b>' + n0(R.agua[1]) + ' ml</b> haga fr&iacute;o o calor, y '
+               + 'el lazo cerrado, <b>' + n0(R.agua[2]) + ' ml</b>. ';
+          if(R.dep3 < 1){
+            txt += '<b>Ojo:</b> el dep&oacute;sito del lazo cerrado se ha quedado vac&iacute;o. ';
+          }
+          if(v.averia){
+            txt += '<b>Con la sonda estropeada</b> el lazo cerrado deja de ser listo: riega hasta el '
+                 + 'tope de seguridad todos los d&iacute;as y vac&iacute;a el dep&oacute;sito. Un '
+                 + 'lazo cerrado no es mejor que su sensor.';
+          } else {
+            txt += 'Ese es el n&uacute;mero que se defiende: no &laquo;funciona&raquo;, sino '
+                 + '<b>cu&aacute;nta agua</b> y <b>cu&aacute;ntas horas</b> de apuro.';
+          }
+          pie.innerHTML = txt;
+        }
+
+        function mando(id, clave, sufijo){
+          document.getElementById(id).addEventListener('input', function(){
+            v[clave] = +this.value;
+            document.getElementById(id + '-v').innerHTML = this.value + sufijo;
+            pinta();
+          });
+        }
+        mando('sm-dias', 'dias', ' d&iacute;as');
+        mando('sm-dosis', 'dosis', ' ml/d&iacute;a');
+        mando('sm-dep', 'dep', ' ml');
+
+        function chk(id, clave){
+          document.getElementById(id).addEventListener('change', function(){
+            v[clave] = this.checked; pinta();
+          });
+        }
+        chk('sm-vac', 'vac');
+        chk('sm-calor', 'calor');
+        chk('sm-averia', 'averia');
+
+        seg.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-e]');
+          if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          var vac = (b.dataset.e === '0');
+          v.vac = vac; v.calor = vac;
+          document.getElementById('sm-vac').checked = vac;
+          document.getElementById('sm-calor').checked = vac;
+          pinta();
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Mueve la <b>dosis del temporizador</b> de lado a lado y busca un valor que aguante las dos
+           semanas. <b>No lo hay.</b> Si la pones peque&ntilde;a, la planta se seca durante la ola de
+           calor; si la pones grande, encharca al principio y luego vac&iacute;a el dep&oacute;sito y
+           se seca igual. Eso es, medido, lo que la sesi&oacute;n 1 dec&iacute;a con palabras:
+           <b>cualquier n&uacute;mero fijo est&aacute; calibrado para un d&iacute;a concreto</b>.</p>
+        <p>Y quita la <b>ola de calor</b>: de repente el temporizador va bien. Por eso funcionan
+           tantos aparatos de lazo abierto &mdash; <b>mientras el mundo se porte</b>.</p>
+        <p>Ahora marca la <b>aver&iacute;a de la sonda</b>. El lazo cerrado pasa a ser el peor de los
+           tres, y con raz&oacute;n: <b>un lazo cerrado no es mejor que su sensor</b>. Ese es el
+           precio de cerrar el lazo, y hay que decirlo en la defensa, no esconderlo.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; la objeci&oacute;n que os van a hacer</span>
+        <p>Con los valores de partida, el temporizador gasta <b>1500&nbsp;ml</b> y vuestro lazo
+           cerrado <b>1467</b>. Casi lo mismo. Alguien va a levantar la mano y decir: &laquo;
+           &iquest;tanto l&iacute;o para ahorrar 33 mililitros?&raquo;. Y tiene parte de
+           raz&oacute;n, as&iacute; que conviene tener preparadas las dos respuestas.</p>
+        <p><b>Primera:</b> esos 100&nbsp;ml al d&iacute;a del temporizador <b>los hab&eacute;is
+           elegido vosotros sabiendo el resultado</b>. Probad con 40 y con 250: con los dos la
+           planta se seca. El lazo cerrado <b>no necesita acertar el n&uacute;mero</b>, y esa es la
+           diferencia, no los mililitros.</p>
+        <p><b>Segunda:</b> mirad la columna del <b>m&iacute;nimo</b>, no la del agua. El
+           temporizador baja al 12&nbsp;% durante la ola de calor y pasa 13 horas por debajo del
+           punto de marchitez; el lazo cerrado no baja del 29,9&nbsp;%. Gastar lo mismo <b>no es
+           hacer lo mismo</b>.</p>
+        <p>Y una tercera, que es de la unidad 8: comparar dos sistemas solo por el agua deja fuera
+           lo que cuesta fabricar el aparato, la pila que gasta y lo que pasa con &eacute;l cuando
+           se tire. Un lazo cerrado siempre a&ntilde;ade electr&oacute;nica, y eso tambi&eacute;n
+           tiene una factura.</p>
+      </div>
+
+      <h3>Lo que se vende en la ferreter&iacute;a</h3>
+      <figure class="foto">
+        <img src="../../../img/c4-programador-riego.jpg" alt="Programador de riego de rosca conectado a un grifo de pared, con su pantalla marcando las 17:20, cuatro botones y la etiqueta de instrucciones desplegada debajo" loading="lazy">
+        <figcaption>Un <b>programador de riego</b> de los que se venden por 25 o 30 euros, enroscado en el grifo. L&eacute;ele la etiqueta: hora de inicio, duraci&oacute;n del riego y cada cu&aacute;ntos d&iacute;as. <b>Todo son relojes.</b> Ni una palabra de la maceta: es un <b>lazo abierto</b> puro, el de la sesi&oacute;n 1, y es lo que hay en casi todos los jardines. Lo &uacute;nico que lo salva un poco es la &uacute;ltima l&iacute;nea, una <i>funci&oacute;n de mal tiempo</i> a la que se le puede enchufar un sensor de lluvia: el fabricante sabe perfectamente d&oacute;nde est&aacute; el problema, y te vende el sensor aparte.
+          <span class="credito">Jarlhelm &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Gardena_irrigation_computer.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>C&oacute;mo se defiende esto en tres minutos</h4>
+        <p>No se cuenta lo que hab&eacute;is hecho por orden cronol&oacute;gico. Se cuenta as&iacute;:</p>
+        <ol>
+          <li><b>El problema</b>, con un dato del centro. &laquo;En el instituto hay 14 plantas y en
+              las Navidades pasadas se secaron 5.&raquo; Diez segundos.</li>
+          <li><b>El lazo</b>, en una frase: qu&eacute; med&iacute;s, con qu&eacute; lo
+              compar&aacute;is, qu&eacute; move&iacute;s. Con el diagrama de bloques de la
+              sesi&oacute;n 2 en la pantalla.</li>
+          <li><b>Un n&uacute;mero.</b> El que mejor os defienda: mililitros en dos semanas frente a
+              regar a mano, u horas por debajo del punto de marchitez. <b>Uno solo</b>, bien
+              explicado, vale m&aacute;s que seis.</li>
+          <li><b>Un fallo que provocasteis vosotros</b> y qu&eacute; hizo el sistema. Esto es lo que
+              separa un proyecto de una maqueta, y casi nadie lo cuenta.</li>
+          <li><b>Lo que no hab&eacute;is resuelto.</b> Decirlo vosotros primero. Si lo dice el que
+              pregunta, pierde valor.</li>
+        </ol>
+        <p><b>Lo que no hay que hacer:</b> leer el c&oacute;digo en voz alta, ense&ntilde;ar
+           fotograf&iacute;as del grupo trabajando, ni decir &laquo;funciona&raquo; sin un
+           n&uacute;mero detr&aacute;s.</p>
+      </div>
+      <div class="video" id="video-c4-s8" data-vid="MdCUvPTvpCo">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Huerto inteligente con Arduino: DHT11, humedad de suelo, bomba de agua, sensor de nivel y LCD">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Huerto inteligente con Arduino: DHT11, humedad de suelo, bomba de agua, sensor de nivel y LCD</b>
+            <span>Agricultura Electronica</span>
+          </span>
+        </button>
+        <p class="video-nota">Un sistema entero montado, con el sensor de nivel del dep&oacute;sito que aqu&iacute; sale en la lista de fallos. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=MdCUvPTvpCo" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 8 &middot; La prueba de esfuerzo, y el gui&oacute;n</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Grupos de 3 &middot; 15 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; Vuestro protocolo (5 min)</h4>
+          <p>Copiad la tabla del protocolo y adaptadla a <b>vuestro</b> proyecto: cambiad las
+             perturbaciones por las que tienen sentido en el vuestro (tapar la LDR con la mano,
+             echarle el aliento al DHT11, abrir la ventana&hellip;). <b>M&iacute;nimo cinco</b>, y
+             una de ellas tiene que ser una <b>aver&iacute;a</b>, no solo un cambio del entorno.</p>
+          <p>Rellenad la columna de &laquo;lo que tiene que pasar&raquo; <b>antes</b> de tocar nada.
+             Si no sab&eacute;is qu&eacute; deber&iacute;a pasar, no est&aacute;is en condiciones de
+             probar.</p>
+          <h4>Segunda parte &middot; Provocarlo (6 min)</h4>
+          <p>Hacedlas de verdad, con el montaje delante, y rellenad la tercera columna con
+             <b>lo que pas&oacute;</b> y con un n&uacute;mero cuando se pueda (cu&aacute;ntos
+             segundos tard&oacute;, cu&aacute;ntos mililitros ech&oacute;).</p>
+          <p>Por cada prueba <b>no superada</b>, una l&iacute;nea: qu&eacute; l&iacute;nea de
+             c&oacute;digo o qu&eacute; pieza lo arreglar&iacute;a. No hace falta arreglarlo hoy;
+             hace falta saberlo.</p>
+          <h4>Tercera parte &middot; El n&uacute;mero y el gui&oacute;n (4 min)</h4>
+          <p>Con la escena de las dos semanas, sacad <b>vuestro n&uacute;mero</b>: poned los
+             d&iacute;as que dura vuestro puente o vuestras vacaciones, vuestro dep&oacute;sito, y
+             anotad el agua y las horas de apuro de los tres sistemas.</p>
+          <p>Y escribid el <b>gui&oacute;n de tres minutos</b> en cinco l&iacute;neas, una por cada
+             punto del recuadro. Cinco l&iacute;neas, no cinco p&aacute;rrafos.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El protocolo con cinco pruebas y la columna de lo esperado rellena <b>antes</b>
+                <b>(3 puntos)</b>.</li>
+            <li>Las pruebas hechas, con resultado y n&uacute;mero <b>(4 puntos)</b>.</li>
+            <li>El n&uacute;mero de la defensa y el gui&oacute;n de cinco l&iacute;neas
+                <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
+      <div class="ta" id="test-c4b">
+        <h4>Lo que tiene que haber quedado de la unidad entera</h4>
+        <div class="ta-p" data-ok="1">
+          <p>1. Tu l&aacute;mpara con control todo-nada parpadea varias veces por segundo. &iquest;Qu&eacute; lo arregla de verdad?</p>
+          <label class="ta-op"><input type="radio" name="c4b-0" value="0">estrechar mucho la banda de hist&eacute;resis</label>
+          <label class="ta-op"><input type="radio" name="c4b-0" value="1">pasar a control proporcional: darle al LED un brillo intermedio</label>
+          <label class="ta-op"><input type="radio" name="c4b-0" value="2">poner un sensor m&aacute;s caro</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El problema no es la banda: es que el actuador <b>solo tiene dos posiciones</b>. Estrechar la banda hace que parpadee m&aacute;s r&aacute;pido; ensancharla, que se note m&aacute;s. La salida es darle valores intermedios, y para eso est&aacute; el <b>proporcional</b> con PWM.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>2. Consigna de humedad 40&nbsp;% y banda proporcional de 40 puntos. La maceta est&aacute; al 25&nbsp;%. &iquest;A qu&eacute; porcentaje manda la bomba?</p>
+          <label class="ta-op"><input type="radio" name="c4b-1" value="0">al 25&nbsp;%</label>
+          <label class="ta-op"><input type="radio" name="c4b-1" value="1">al 37,5&nbsp;%</label>
+          <label class="ta-op"><input type="radio" name="c4b-1" value="2">al 100&nbsp;%, porque est&aacute; por debajo de la consigna</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Error = 40 &minus; 25 = 15. u = error / BP = 15 / 40 = <b>0,375</b>, o sea el <b>37,5&nbsp;%</b>. Solo se pone a tope cuando el error llega a la banda entera, 40 puntos.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>3. Un control proporcional bien ajustado deja la humedad en el 37 cuando le pides 40. Eso&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c4b-2" value="0">es un fallo de ajuste: con m&aacute;s paciencia se corrige</label>
+          <label class="ta-op"><input type="radio" name="c4b-2" value="1">es inevitable, porque el mando sale del error: sin error no hay mando</label>
+          <label class="ta-op"><input type="radio" name="c4b-2" value="2">significa que el sensor est&aacute; mal calibrado</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Si el error fuera cero, u = error / BP ser&iacute;a cero, la bomba se parar&iacute;a y la maceta se secar&iacute;a. El proporcional <b>necesita equivocarse para trabajar</b>. Se reduce estrechando la banda, y se elimina con la acci&oacute;n <b>integral</b>, que ya no es de 4.&ordm;.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>4. &iquest;Qu&eacute; hace <code>analogWrite(9, 102)</code> en un Arduino Uno?</p>
+          <label class="ta-op"><input type="radio" name="c4b-3" value="0">saca 102 voltios por el pin 9</label>
+          <label class="ta-op"><input type="radio" name="c4b-3" value="1">saca una se&ntilde;al PWM en el pin 9 encendida el 40&nbsp;% del tiempo</label>
+          <label class="ta-op"><input type="radio" name="c4b-3" value="2">lee el valor 102 del pin 9</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El rango es de 0 a 255, as&iacute; que 102 / 255 = <b>0,40</b>. El pin se enciende y se apaga unas 490 veces por segundo y est&aacute; encendido el 40&nbsp;% de cada ciclo: eso es <b>PWM</b>. La tensi&oacute;n sigue siendo 5&nbsp;V cuando est&aacute; encendido.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>5. <code>if (seco) digitalWrite(BOMBA, HIGH); delay(1800000);</code> &mdash; &iquest;qu&eacute; tiene de malo?</p>
+          <label class="ta-op"><input type="radio" name="c4b-4" value="0">nada: comprueba cada media hora, que est&aacute; bien para un riego</label>
+          <label class="ta-op"><input type="radio" name="c4b-4" value="1">que si enciende la bomba, no la puede apagar hasta media hora despu&eacute;s</label>
+          <label class="ta-op"><input type="radio" name="c4b-4" value="2">que <code>delay</code> no admite n&uacute;meros tan grandes</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Durante el <code>delay</code> el programa <b>no hace nada</b>: no mide, no decide y no puede apagar lo que encendi&oacute;. A 100&nbsp;ml por minuto, media hora de bomba son <b>tres litros</b> en el suelo del aula.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>6. &iquest;Para qu&eacute; sirve el patr&oacute;n de <code>millis()</code>?</p>
+          <label class="ta-op"><input type="radio" name="c4b-5" value="0">para que el programa vaya m&aacute;s r&aacute;pido</label>
+          <label class="ta-op"><input type="radio" name="c4b-5" value="1">para espaciar las decisiones sin dejar de mirar entre una y otra</label>
+          <label class="ta-op"><input type="radio" name="c4b-5" value="2">para medir cu&aacute;nto tarda el agua en llegar a la sonda</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El lazo sigue girando miles de veces por segundo; lo &uacute;nico que se espacia es la <b>decisi&oacute;n</b>. Entre decisi&oacute;n y decisi&oacute;n el programa puede atender el bot&oacute;n, mirar el dep&oacute;sito y, sobre todo, apagar la bomba.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>7. Riegas y la sonda tarda diez minutos en notar el agua. Si el programa riega &laquo;hasta que la sonda diga basta&raquo;&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c4b-6" value="0">echar&aacute; unos diez minutos de bomba antes de enterarse: alrededor de un litro</label>
+          <label class="ta-op"><input type="radio" name="c4b-6" value="1">no pasa nada, porque acabar&aacute; parando</label>
+          <label class="ta-op"><input type="radio" name="c4b-6" value="2">hay que estrechar la banda de hist&eacute;resis</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Eso es <b>tiempo muerto</b>: la lectura no se mueve <b>nada</b> mientras el agua va de camino, as&iacute; que el programa sigue regando. A 100&nbsp;ml/min son unos <b>1000&nbsp;ml</b>. Contra el tiempo muerto no hay ajuste que valga: hay que echar una <b>dosis</b> y <b>esperar</b>.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>8. Pesas la maceta empapada (780&nbsp;g) y seca del todo (620&nbsp;g). Hoy pesa 700&nbsp;g. &iquest;Qu&eacute; humedad tiene?</p>
+          <label class="ta-op"><input type="radio" name="c4b-7" value="0">50&nbsp;%</label>
+          <label class="ta-op"><input type="radio" name="c4b-7" value="1">80&nbsp;%</label>
+          <label class="ta-op"><input type="radio" name="c4b-7" value="2">no se puede saber sin la sonda</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La maceta guarda 780 &minus; 620 = 160&nbsp;g de agua como mucho, y ahora tiene 700 &minus; 620 = 80. Entonces H = 100 &middot; 80 / 160 = <b>50&nbsp;%</b>. Una b&aacute;scula de cocina calibra una sonda mejor que cualquier n&uacute;mero copiado de internet.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>9. &iquest;Por qu&eacute; gasta m&aacute;s agua un riego con la sonda clavada junto al gotero y a un cent&iacute;metro de profundidad?</p>
+          <label class="ta-op"><input type="radio" name="c4b-8" value="0">porque ah&iacute; la sonda se moja m&aacute;s y se estropea antes</label>
+          <label class="ta-op"><input type="radio" name="c4b-8" value="1">porque mide la costra, que se seca en horas, y no el cepell&oacute;n, donde bebe la planta</label>
+          <label class="ta-op"><input type="radio" name="c4b-8" value="2">porque a esa profundidad la lectura es menos precisa</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La costra se seca en horas y el cepell&oacute;n aguanta d&iacute;as. Si mides arriba, pides agua que la planta no necesita, y esa agua se evapora sin llegar a la ra&iacute;z. En la escena son <b>100&nbsp;ml</b> a la semana: de 500 se baja a 400.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>10. Pones un tope de &laquo;nunca m&aacute;s de 150&nbsp;s de bomba al d&iacute;a&raquo; y compruebas que no cambia nada. &iquest;Lo quitas?</p>
+          <label class="ta-op"><input type="radio" name="c4b-9" value="0">no: no hace nada mientras todo va bien, y lo hace todo el d&iacute;a que el sensor miente</label>
+          <label class="ta-op"><input type="radio" name="c4b-9" value="1">s&iacute;, el c&oacute;digo que no hace nada sobra</label>
+          <label class="ta-op"><input type="radio" name="c4b-9" value="2">s&iacute;, pero solo si el sensor es capacitivo</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Un l&iacute;mite de seguridad <b>no depende del sensor</b>, y por eso sigue valiendo justo cuando el sensor ha dejado de valer. Con la sonda corro&iacute;da, el tope es la diferencia entre una tonter&iacute;a acotada y dos litros en el suelo con la bomba quemada.</div>
+        </div>
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; no basta con &laquo;lo he tenido tres d&iacute;as funcionando y no ha fallado&raquo;?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque eso demuestra que funciona <b>cuando no pasa nada</b>. Probar es <b>provocar</b> el fallo: secar la tierra, sacar la sonda, vaciar el dep&oacute;sito, desenchufar. Lo que no has provocado, no lo has probado.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es el estado seguro y c&oacute;mo se elige?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Lo que hace el sistema cuando <b>no sabe</b> qu&eacute; hacer. Se elige mirando qu&eacute; da&ntilde;o es peor: en un riego, no regar (una planta aguanta un d&iacute;a seca; un charco con electr&oacute;nica, no); en una barrera, abrirse; en una caldera, apagarse.</p></div></details></li>
+        <li>&iquest;Cu&aacute;l es la debilidad del lazo cerrado que hay que decir en la defensa?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que <b>no es mejor que su sensor</b>. Si la sonda miente, el lazo cerrado se comporta peor que un temporizador tonto, porque la sigue obedeciendo. Se tapa con un tope de seguridad, recalibrando y, si se puede, con un segundo sensor.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; el programador de riego de la ferreter&iacute;a es de lazo abierto, si cuesta 30 euros?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque le sale m&aacute;s barato y funciona <b>mientras el mundo se porte</b>. Y el fabricante lo sabe: por eso le pone una entrada para un sensor de lluvia&hellip; que te vende aparte. Lo que hab&eacute;is montado vosotros es esa entrada, pero mirando la maceta en vez del cielo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que llevas de esta unidad</span>
+        Sabes distinguir un lazo abierto de uno cerrado y decir cu&aacute;l hace falta, y por
+        qu&eacute;. Sabes dibujar el diagrama de bloques de tu proyecto y traducir entre las unidades
+        del sensor y las tuyas. Sabes elegir entre <b>todo-nada</b> y <b>proporcional</b> con dos
+        n&uacute;meros delante, y sabes que el proporcional deja un error y de d&oacute;nde sale.
+        Sabes calcular el motor. Sabes escribir el control sin bloquear el lazo, con su dosis y su
+        tope. Sabes calibrar tu sonda con una b&aacute;scula y decidir d&oacute;nde clavarla. Y
+        sabes <b>romper tu propio sistema a prop&oacute;sito</b> y contar lo que pas&oacute; con un
+        n&uacute;mero.
+      </div>
+      <div class="nota">
+        <span class="n-tag">Y lo que queda abierto</span>
+        Tres cosas se han usado aqu&iacute; sin explicarlas, y cada una tiene su unidad.
+        <b>C&oacute;mo se monta de verdad la electr&oacute;nica</b> que hay entre el pin y la bomba
+        &mdash; el divisor de la sonda, el transistor, el rel&eacute; &mdash; es la <b>unidad 5</b>.
+        <b>Programar</b> como materia, guardar los datos de cada riego y mandarlos a alg&uacute;n
+        sitio para verlos desde casa es la <b>unidad 6</b>: t&uacute; ya has escrito un lazo de
+        control, all&iacute; se convierte en un sistema que registra y avisa. Y <b>cu&aacute;nta
+        agua, cu&aacute;nta energ&iacute;a y cu&aacute;nto residuo</b> cuesta de verdad lo que has
+        montado, con su etiqueta y sus cuentas, es la <b>unidad 8</b>: el n&uacute;mero que hoy has
+        sacado para defenderte all&iacute; se convierte en el criterio para decidir.
+      </div>
+
+    </section>
+
+  </div>
 
 
   <section class="cc-aviso" id="licencia"
