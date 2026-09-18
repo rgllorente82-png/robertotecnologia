@@ -21,6 +21,11 @@
   .cc-sello .cc-autor{display:none}
 }
 @media print{.cc-sello{position:static;background:none;color:#000;box-shadow:none}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
 </style>
 <title>Del boceto al plano</title>
 <meta name="license" content="CC BY-SA 4.0">

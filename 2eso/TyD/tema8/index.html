@@ -297,6 +297,11 @@ footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 /* listas dentro de una lista de pasos: que no se peguen al texto de arriba */
 .pasos ul{margin:6px 0 2px}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
 </style>
 </head>
 <body>

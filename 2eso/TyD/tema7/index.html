@@ -295,6 +295,11 @@ footer .wrap{padding-block:18px 26px}
   letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
 .copiar td:first-child{width:52%}
 @media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
