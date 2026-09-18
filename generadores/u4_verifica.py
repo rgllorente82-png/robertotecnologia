@@ -92,9 +92,10 @@ MOLDE = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'molde-tensegridad.pdf')
 check(os.path.exists(MOLDE) and os.path.getsize(MOLDE) > 20000,
       'el molde en A4 esta donde dice el enlace')
 check('molde-tensegridad.pdf' in texto, 'y la ficha lo enlaza')
-check('7 &times; 13 cm' in texto,
-      'la tira mide 7 x 13: tres caras de 2 cm y la pestania de pegar')
+check('5,5 &times; 9 cm' in texto,
+      'la tira mide 5,5 x 9: tres caras de 15 mm y la pestania de pegar')
 check('6 &times; 13 cm' not in texto, 'y ya no queda ninguna de 6 x 13, que no daba para pegar')
+check('8 cm' in texto, 'las plataformas son de 8 cm, para que todo quepa en un A4')
 if os.path.exists(MOLDE):
     crudo = io.open(MOLDE, 'rb').read()
     cajas = set(re.findall(rb'/MediaBox\s*\[([^\]]*)\]', crudo))
@@ -103,8 +104,7 @@ if os.path.exists(MOLDE):
         v = [float(x) for x in c.split()]
         anchos.add((round((v[2]-v[0])*25.4/72), round((v[3]-v[1])*25.4/72)))
     check(anchos == {(210, 297)}, 'y sus hojas son A4 de verdad  %s' % (anchos or ''))
-    check(crudo.count(b'/Type /Page') >= 3 or crudo.count(b'/Type/Page') >= 3,
-          'con sus tres hojas')
+    check(len(cajas) == 1, 'y es una sola hoja: una fotocopia por grupo')
 
 check('Pru&eacute;balo t&uacute; antes' in texto,
       'la de los tubos avisa de que hay que probarla antes: lo que aguanta depende del alto')

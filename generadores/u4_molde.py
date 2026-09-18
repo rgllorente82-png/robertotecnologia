@@ -27,11 +27,15 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(AQUI)
 DESTINO = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'molde-tensegridad.pdf')
 
-LADO = 120.0        # el cuadrado de la plataforma
-BORDE = 10.0        # a que distancia del borde van los agujeros de las esquinas
-CARA = 20.0         # lado del tubo triangular
+# Las medidas, y por que estas. Con plataformas de 120 mm cada una ocupaba su
+# hoja y el molde eran tres A4; a 80 caben las cuatro piezas en uno solo, que es
+# una fotocopia por grupo en vez de tres. Mas pequeno tampoco interesa: el tubo
+# baja de 15 mm de lado y las lenguetas se quedan en nada.
+LADO = 80.0         # el cuadrado de la plataforma
+BORDE = 8.0         # a que distancia del borde van los agujeros de las esquinas
+CARA = 15.0         # lado del tubo triangular
 PESTANA = 10.0      # la solapa de pegar
-LARGO = 130.0       # 120 de tubo + 10 de lenguetas
+LARGO = 90.0        # 80 de tubo + 10 de lenguetas
 LENG = 10.0         # lo que se abre en el pie
 
 
@@ -62,17 +66,17 @@ def plataforma(nombre, detalle):
                          % (x, y, x - 3.5, y, x, y - 3.5))
     return u"""
   <div class="pieza">
-    <svg viewBox="-6 -6 {vb} {vb}" width="{w}" height="{w}">
+    <svg viewBox="-5 -5 {vb} {vb}" width="{w}" height="{w}">
       <rect x="0" y="0" width="{lado}" height="{lado}" class="cortar"></rect>
       {agujeros}
       <polygon points="{tri}" class="doblar"></polygon>
       <circle cx="{cx}" cy="{cy}" r="{rtab}" class="pegar"></circle>
       {rot1}{rot2}{rot3}
     </svg>
-  </div>""".format(vb=LADO + 12, w=mm(LADO + 12), lado=LADO, agujeros=agujeros, tri=tri,
+  </div>""".format(vb=LADO + 10, w=mm(LADO + 10), lado=LADO, agujeros=agujeros, tri=tri,
                    cx=cx, cy=cy, rtab=CARA / 2 + LENG,
-                   rot1=rotulo(cx, BORDE + 14, nombre),
-                   rot2=rotulo(cx, BORDE + 22, detalle.replace('&times;', 'x'), 3.2, 'rot pequeno'),
+                   rot1=rotulo(cx, BORDE + 6, nombre),
+                   rot2=rotulo(cx, BORDE + 13, detalle.replace('&times;', 'x'), 3.2, 'rot pequeno'),
                    rot3=rotulo(cx, cy + CARA / 2 + LENG + 7,
                                'huella del montante', 3.2, 'rot pequeno'))
 
@@ -94,13 +98,13 @@ def montante(n):
                % (CARA * 1.5, CARA * 1.5 - 3.5, CARA * 1.5))
     return u"""
   <div class="pieza">
-    <svg viewBox="-6 -6 {vbw} {vbh}" width="{w}" height="{h}">
+    <svg viewBox="-5 -5 {vbw} {vbh}" width="{w}" height="{h}">
       <rect x="0" y="0" width="{ancho}" height="{largo}" class="cortar"></rect>
       {pliegues}{cortes}{agujero}
       {rot1}{rot2}{rot3}
       <text x="{xp}" y="{yp}" class="rot pequeno vertical">pesta&ntilde;a de pegar</text>
     </svg>
-  </div>""".format(vbw=ancho + 12, vbh=LARGO + 12, w=mm(ancho + 12), h=mm(LARGO + 12),
+  </div>""".format(vbw=ancho + 10, vbh=LARGO + 10, w=mm(ancho + 10), h=mm(LARGO + 10),
                    ancho=ancho, largo=LARGO, pliegues=pliegues, cortes=cortes,
                    agujero=agujero, cx=ancho / 2, n=n,
                    rot1=rotulo(ancho / 2, 26, 'MONTANTE %d' % n),
@@ -112,7 +116,7 @@ def montante(n):
 HOJA = u"""
 <div class="hoja">
   <div class="sub">Tecnolog&iacute;a y Digitalizaci&oacute;n &middot; 2.&ordm; ESO &middot; Tema 4, estructuras</div>
-  <h1>Molde de la tensegridad &mdash; hoja {n} de 3: {titulo}</h1>
+  <h1>Molde de la tensegridad &mdash; {titulo}, a tama&ntilde;o real</h1>
   <p class="aviso">{aviso}</p>
   <div class="regla">{{regla}}</div>
   <div class="leyenda">{{leyenda}}</div>
@@ -199,27 +203,37 @@ LEYENDA = (u'<span><svg width="9mm" height="3mm" viewBox="0 0 30 10">'
 
 
 def main():
-    hojas = (
-        HOJA.format(n=1, titulo=u'la base', aviso=AVISO_1, pie=PIE_PLAT,
-                    piezas=plataforma(u'BASE', u'120 &times; 120 mm')),
-        HOJA.format(n=2, titulo=u'la tapa', aviso=AVISO_2, pie=PIE_PLAT,
-                    piezas=plataforma(u'TAPA', u'120 &times; 120 mm')),
-        HOJA.format(n=3, titulo=u'los dos montantes', aviso=AVISO_3, pie=PIE_MONT,
-                    piezas=montante(1) + montante(2)),
-    )
-    cuerpo = u''.join(h.format(regla=regla(), leyenda=LEYENDA) for h in hojas)
+    piezas = (plataforma(u'BASE', u'%.0f x %.0f mm' % (LADO, LADO)) +
+              plataforma(u'TAPA', u'%.0f x %.0f mm' % (LADO, LADO)) +
+              montante(1) + montante(2))
+    cuerpo = HOJA.format(n=1, titulo=u'las cuatro piezas', aviso=AVISO_1,
+                         pie=PIE_PLAT + u' ' + PIE_MONT,
+                         piezas=piezas).format(regla=regla(), leyenda=LEYENDA)
     html = CABECERA.format(cuerpo=cuerpo)
     tmp = os.path.join(AQUI, '_molde.html')
     io.open(tmp, 'w', encoding='utf-8').write(html)
     with sync_playwright() as p:
         nav = p.chromium.launch()
-        pag = nav.new_page()
+        pag = nav.new_page(viewport={'width': 794, 'height': 1123})
         pag.goto('file://' + tmp.replace(os.sep, '/'), wait_until='networkidle')
+        # que no se salga nada de la hoja: es un molde, y si una pieza se corta
+        # por el borde de la impresora no se ve hasta que ya esta pegada al carton
+        fuera = pag.evaluate("""() => {
+            const h = document.querySelector('.hoja').getBoundingClientRect();
+            return [...document.querySelectorAll('.pieza')]
+              .filter(p => { const q = p.getBoundingClientRect();
+                             return q.bottom > h.bottom + 1 || q.right > h.right + 1; }).length;
+        }""")
+        if fuera:
+            nav.close()
+            os.remove(tmp)
+            raise SystemExit(u'%d piezas se salen de la hoja: no se escribe el PDF' % fuera)
         pag.pdf(path=DESTINO, format='A4', print_background=True,
                 margin={'top': '0', 'right': '0', 'bottom': '0', 'left': '0'})
         nav.close()
     os.remove(tmp)
-    print(u'%s  (%.0f KB)' % (os.path.relpath(DESTINO, RAIZ), os.path.getsize(DESTINO) / 1024.0))
+    print(u'%s  (%.0f KB, una hoja, piezas de %.0f mm)'
+          % (os.path.relpath(DESTINO, RAIZ), os.path.getsize(DESTINO) / 1024.0, LADO))
 
 
 if __name__ == '__main__':
