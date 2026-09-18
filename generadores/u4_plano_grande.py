@@ -2,7 +2,7 @@
 u"""Plano acotado de la tensegridad grande, la de los brazos en Z.
 
 Por que otro fichero y no mas hojas del molde. La de mesa cabe a tamanio real
-en un A4 y se corta calcando; esta mide medio metro, y un molde 1:1 serian
+en un A4 y se corta calcando; esta mide 41 cm de alto, y un molde 1:1 serian
 dieciseis folios pegados con cinta. A este tamanio el carton se corta con regla
 y lapiz, asi que lo util es un PLANO ACOTADO: el dibujo a escala y las medidas
 escritas encima. Que es, de paso, lo que el tema 2 llama un plano.
@@ -24,29 +24,38 @@ RAIZ = os.path.dirname(AQUI)
 DESTINO = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'plano-tensegridad-grande.pdf')
 
 # --- las medidas, en centimetros ------------------------------------------
-# La clave de la forma: las dos puntas de los brazos tienen que caer en la MISMA
-# vertical, porque el hilo central va entre ellas y tiene que quedar vertical.
-# Si una punta se mueve, hay que mover la otra.
-BASE = 30.0          # la plataforma de abajo, cuadrada
-TAPA = 18.0          # la de arriba, cuadrada
-# 7 y 11, y no 8 y 12, por una razon de imprenta: asi cada brazo mide 17 cm de
-# ancho, cabe en el ancho util de un A4 y su molde a tamanio real sale en dos
-# hojas en vez de en cuatro. La estructura no nota la diferencia; el que tiene
-# que pegar hojas con cinta, si.
+# Base y tapa IGUALES y una encima de la otra: asi los hilos de esquina quedan
+# verticales de verdad, que es como trabajan mejor, y hay una sola plantilla de
+# plataforma en vez de dos. Antes eran 30 y 18, y los hilos salian en diagonal.
+#
+# Y la clave de la forma: las dos puntas de los brazos tienen que caer en la
+# MISMA vertical, porque el hilo central va entre ellas. Si se mueve una, hay
+# que mover la otra.
+PLATO = 24.0         # la base y la tapa, cuadradas e iguales
 ANCHO = 7.0          # ancho de brazos y columnas
 VUELO = 11.0         # lo que vuela cada brazo
+BORDE_AG = 2.0       # a que distancia del borde van los agujeros de las esquinas
+ESPESOR = 1.5        # lo que engorda un brazo al pegar sus tres capas
+CARTELA = 5.0        # el lado de las cartelas triangulares del pie
 
-COL_B = 20.0         # cara izquierda de la columna de abajo
+COL_B = 15.0         # cara izquierda de la columna de abajo
 H_COL = 34.0         # y su altura
-BRAZO_B = 26.0       # cara de abajo del brazo de abajo (el de arriba de la pieza)
+BRAZO_B = H_COL - ANCHO             # cara de abajo del brazo de abajo
 
-COL_A = 6.0          # cara izquierda de la columna de arriba
+# La columna de arriba va justo en el espejo de la de abajo. No es estetica: si
+# base y tapa son la MISMA pieza, la huella del brazo tiene que caer en el sitio
+# bueno al darle la vuelta a la plataforma. Con esto, una sola plantilla sirve
+# para las dos, marcando la huella una vez.
+COL_A = PLATO - COL_B - ANCHO       # cara izquierda de la columna de arriba
 H_TAPA = 40.0        # altura de la cara de abajo de la tapa
-BRAZO_A = 18.0       # cara de arriba del brazo de arriba
+CUERDA = 8.0         # el hilo que lo aguanta todo
+BRAZO_A = BRAZO_B - CUERDA          # cara de arriba del brazo de arriba
 
-X_HILO = 17.0        # por donde pasa el hilo central: cae en los dos brazos
-CUERDA = BRAZO_B - BRAZO_A          # el hilo que lo aguanta todo
-X_TAPA = COL_A + ANCHO / 2 - TAPA / 2
+X_HILO = 12.0        # por donde pasa el hilo: cae dentro de los dos brazos
+X_TAPA = 0.0         # la tapa, justo encima de la base
+
+# compatibilidad con lo que ya usaba estos nombres
+BASE = TAPA = PLATO
 
 ESC = 5.0            # escala del dibujo: 1:5
 
@@ -200,7 +209,7 @@ PAGINA = u"""<!doctype html><html lang="es"><head><meta charset="utf-8">
 <div class="hoja">
   <div class="sub">Tecnolog&iacute;a y Digitalizaci&oacute;n &middot; 2.&ordm; ESO &middot; Tema 4, estructuras</div>
   <h1>Tensegridad grande &mdash; alzado acotado, escala 1:5</h1>
-  <p class="aviso">Medio metro de alto, s&oacute;lo cart&oacute;n e hilo, y aguanta una lata encima.
+  <p class="aviso">Cuarenta cent&iacute;metros de alto, s&oacute;lo cart&oacute;n e hilo, y aguanta una lata encima.
      A este tama&ntilde;o el cart&oacute;n se corta con regla y l&aacute;piz, as&iacute; que esto no es un
      molde para calcar: es un <b>plano acotado</b>, con las medidas escritas en centimetros. Las cotas
      est&aacute;n en cm y el dibujo a escala 1:5.</p>

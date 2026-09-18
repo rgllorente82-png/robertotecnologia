@@ -23,6 +23,8 @@ import os
 import re
 import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from playwright.sync_api import sync_playwright
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
@@ -120,6 +122,19 @@ if os.path.exists(PLANO):
         v = [float(x) for x in c.split()]
         medidas.add((round((v[2]-v[0])*25.4/72), round((v[3]-v[1])*25.4/72)))
     check(medidas == {(210, 297)}, 'y tambien es A4  %s' % (medidas or ''))
+
+# La geometria de la grande tiene que cerrar sola, y son tres condiciones que
+# se pueden comprobar sin abrir el PDF. Si alguien cambia una medida y rompe
+# una de las tres, la estructura no se aguanta y el molde miente.
+import u4_plano_grande as PG
+check(abs((PG.PLATO - PG.COL_B - PG.ANCHO) - PG.COL_A) < 1e-9,
+      'base y tapa son la misma pieza: la columna de arriba esta en el espejo de la de abajo')
+vuelo_b = (PG.COL_B - PG.VUELO, PG.COL_B)
+vuelo_a = (PG.COL_A + PG.ANCHO, PG.COL_A + PG.ANCHO + PG.VUELO)
+check(vuelo_b[0] <= PG.X_HILO <= vuelo_b[1] and vuelo_a[0] <= PG.X_HILO <= vuelo_a[1],
+      'el hilo central cae dentro de los dos brazos, o sea que queda vertical')
+check(0 <= min(PG.COL_A, vuelo_b[0]) and max(PG.COL_B + PG.ANCHO, vuelo_a[1]) <= PG.PLATO,
+      'y nada se sale de la plataforma')
 
 MOLDE_G = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'molde-tensegridad-grande.pdf')
 check(os.path.exists(MOLDE_G) and os.path.getsize(MOLDE_G) > 20000,
