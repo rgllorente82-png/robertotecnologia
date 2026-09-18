@@ -320,6 +320,9 @@
   .cota{fill:none;stroke:var(--pencil);stroke-width:.9}
   .cifra{fill:var(--pencil);font-family:"IBM Plex Mono",monospace;font-size:11px}
   .rotulo-svg{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em}
+  .papel{fill:var(--surface-2);stroke:var(--line);stroke-width:1.4}
+  .marco{fill:none;stroke:currentColor;stroke-width:1.6}
+  .caja{fill:var(--accent-soft);stroke:currentColor;stroke-width:2.2;stroke-linejoin:round}
   .sombra{fill:none;stroke:currentColor;stroke-width:1;opacity:.5;stroke-linecap:round}
   .mancha{fill:var(--accent);opacity:.08}
 
@@ -1767,7 +1770,7 @@
     </section>
 
     <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 15 min</div>
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 10 min</div>
 
       <h3>Por qu&eacute; existen las normas</h3>
       <p>Si cada uno dibujara a su manera, un plano solo lo entender&iacute;a quien lo hizo. Por eso hay normas internacionales &mdash;las <b>ISO</b>, que en Espa&ntilde;a publica <b>UNE</b>&mdash; que fijan c&oacute;mo se dibuja. No son man&iacute;as: son lo que permite que una pieza dise&ntilde;ada en Ja&eacute;n se fabrique en Alemania sin una sola llamada de tel&eacute;fono.</p>
@@ -1809,11 +1812,43 @@
       </ol>
 
       <h3>El cajet&iacute;n</h3>
-      <p>Es el recuadro de la esquina inferior derecha. Lleva el <b>t&iacute;tulo</b> de la pieza, el <b>autor</b>, la <b>fecha</b>, la <b>escala</b> y el <b>n&uacute;mero de plano</b>. Sin cajet&iacute;n, un plano no est&aacute; terminado.</p>
+      <p>Es el recuadro donde el plano dice qui&eacute;n es. Va <b>siempre en la esquina inferior
+         derecha</b>, pegado al marco, y mide <b>180 &times; 30 mm</b> tanto si la l&aacute;mina
+         est&aacute; en vertical como en apaisado. Sin cajet&iacute;n, un plano no est&aacute; terminado.</p>
+
+      <p>Pero antes del cajet&iacute;n hay que dibujar el <b>marco</b>, y el marco no es el borde del
+         papel: se dejan <b>20 mm en el lado izquierdo</b> y <b>10 mm</b> en los otros tres. Los 20 son
+         por donde se archiva &mdash; las grapas, los agujeros de la carpeta &mdash;, y por eso ese lado
+         lleva el doble. Un dibujo que llega hasta el borde se pierde en cuanto alguien lo guarda.</p>
+
+      <p>De ah&iacute; salen dos marcos distintos con el mismo A4, y conviene saberlo antes de empezar
+         a medir:</p>
+      <ul>
+        <li><b>A4 vertical</b> (210 &times; 297): el marco mide <b>180 &times; 277 mm</b>, as&iacute; que
+            el cajet&iacute;n ocupa <b>justo todo su ancho</b>.</li>
+        <li><b>A4 apaisado</b> (297 &times; 210): el marco mide <b>267 &times; 190 mm</b>, y el
+            cajet&iacute;n, que sigue midiendo 180, deja <b>87 mm de marco libre</b> a su izquierda.</li>
+      </ul>
+
+      <p>Dentro van <b>cinco datos</b>, y se reparten con tres l&iacute;neas finas: una horizontal a los
+         <b>15 mm</b> y dos verticales, a los <b>110</b> y a los <b>145</b>.</p>
+      <ol>
+        <li><b>T&iacute;tulo de la pieza</b> &mdash; arriba a la izquierda, en la casilla grande.</li>
+        <li><b>Escala</b> &mdash; tal cual: 1:1, 1:2, 2:1.</li>
+        <li><b>N.&ordm; de plano</b> &mdash; 1/1 si es el &uacute;nico; 1/3, 2/3, 3/3 si son varios.</li>
+        <li><b>Autor y grupo</b> &mdash; abajo a la izquierda.</li>
+        <li><b>Fecha</b> &mdash; abajo a la derecha.</li>
+      </ol>
+
+      <p>Y el orden con la regla, que ahorra media l&aacute;mina de disgustos: <b>primero el marco</b>,
+         despu&eacute;s el cajet&iacute;n midiendo <b>desde la esquina de dentro</b> &mdash; 180 hacia la
+         izquierda y 30 hacia arriba &mdash;, y <b>lo &uacute;ltimo el dibujo</b>, con lo que quede. Al
+         rev&eacute;s no cabe: quien dibuja primero la pieza descubre que el cajet&iacute;n se le monta
+         encima del perfil.</p>
     </section>
 
     <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> M&iacute;ralo en movimiento &middot; 10 min</div>
+      <div class="rotulo"><span class="num">02</span> M&iacute;ralo en movimiento &middot; 15 min</div>
       <p>Tres cosas que se entienden mejor vi&eacute;ndolas que ley&eacute;ndolas: c&oacute;mo encaja la serie A, qu&eacute; hace de verdad la escala y de qu&eacute; partes se compone una cota.</p>
 
       <div class="escena" id="esc-norma">
@@ -1830,6 +1865,25 @@
         </div>
         <div class="pie" data-pie-norma>Cada formato es la mitad del anterior, doblado por el lado largo.</div>
       </div>
+
+      <p style="margin-top:18px">Y el cajet&iacute;n, que es lo que m&aacute;s puntos cuesta y lo que
+         menos se explica. Aqu&iacute; est&aacute; con todas sus medidas: las de la pantalla son las que
+         hay que llevar al papel con la regla.</p>
+
+      <div class="escena" id="esc-cajetin">
+        <div class="escena-barra">
+          <span class="escena-titulo">El cajet&iacute;n, con sus medidas</span>
+          <div class="seg" id="seg-cajetin">
+            <button type="button" data-vista="vertical" aria-pressed="true">A4 vertical</button>
+            <button type="button" data-vista="apaisado">A4 apaisado</button>
+            <button type="button" data-vista="dentro">Por dentro</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 360" id="svg-cajetin" role="img" aria-label="El A4 en vertical y en apaisado con sus m&aacute;rgenes, y el cajet&iacute;n de 180 por 30 mm con sus cinco casillas acotadas"></svg>
+        </div>
+        <div class="pie" data-pie-cajetin>El marco no es el borde del papel: 20 mm por la izquierda, que es por donde se archiva, y 10 mm por los otros tres lados.</div>
+      </div>
     </section>
 
     <section class="bloque">
@@ -1845,7 +1899,7 @@
           <ol class="pasos">
             <li>Coge las tres vistas que dibujaste en la sesi&oacute;n 3 y p&aacute;salas a limpio en un <b>A4</b>, a <b>escala 1:1</b>.</li>
             <li><b>Acota</b> las tres vistas repartiendo las medidas: el ancho en el alzado, la profundidad en la planta, las alturas en el perfil. Ninguna medida repetida.</li>
-            <li>Dibuja el <b>cajet&iacute;n</b> en la esquina inferior derecha con t&iacute;tulo, tu nombre, la fecha, la escala y el n&uacute;mero de plano.</li>
+            <li>Dibuja el <b>marco</b> &mdash;20 mm por la izquierda, 10 por los otros tres&mdash; y el <b>cajet&iacute;n de 180 &times; 30 mm</b> en la esquina inferior derecha, con sus cinco casillas: t&iacute;tulo, escala, n.&ordm; de plano, tu nombre con el grupo y la fecha.</li>
             <li>Comprueba las cinco reglas de acotaci&oacute;n una por una antes de entregar.</li>
           </ol>
           <h4>C&oacute;mo se eval&uacute;a</h4>
@@ -1955,7 +2009,7 @@
                 eje donde haga falta.</li>
             <li><b>Acota</b> repartiendo: anchos en el alzado, profundidad en la planta, alturas en el perfil.
                 Ninguna medida dos veces.</li>
-            <li><b>Cajet&iacute;n</b> en la esquina inferior derecha: t&iacute;tulo, tu nombre, fecha, escala y n.&ordm; de plano.</li>
+            <li><b>Marco</b> (20 mm a la izquierda, 10 en los otros tres lados) y <b>cajet&iacute;n de 180 &times; 30 mm</b> en la esquina inferior derecha, con las cinco casillas.</li>
           </ol>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
@@ -1998,7 +2052,7 @@
         <li>&iquest;Por qu&eacute; no se repite una medida en dos vistas?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque si una de las dos tiene una errata, <b>el taller no sabe cu&aacute;l es la buena</b>. Cada medida, una sola vez.</p></div></details></li>
         <li>&iquest;Qu&eacute; lleva el cajet&iacute;n y d&oacute;nde va?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En la <b>esquina inferior derecha</b>, con t&iacute;tulo, autor, fecha, escala y n&uacute;mero de plano. Sin &eacute;l, el plano no est&aacute; terminado.</p></div></details></li>
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En la <b>esquina inferior derecha del marco</b>, y mide <b>180 &times; 30 mm</b> en vertical y en apaisado. Lleva cinco datos: t&iacute;tulo, escala, n.&ordm; de plano, autor con su grupo y fecha. Sin &eacute;l, el plano no est&aacute; terminado.</p></div></details></li>
       </ol>
     </section>
 
@@ -2017,7 +2071,6 @@
     </section>
   </div>
 
-  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
@@ -2222,10 +2275,12 @@
       + cifra(X1+36, (Y0+YS)/2 + 4, '30', 'start')
       + '<path class="cota" d="M' + X0 + ' ' + (Y0-22) + ' L' + XS + ' ' + (Y0-22) + ' M' + X0 + ' ' + (Y0-28) + ' L' + X0 + ' ' + (Y0-16) + ' M' + XS + ' ' + (Y0-28) + ' L' + XS + ' ' + (Y0-16) + '"></path>'
       + cifra((X0+XS)/2, Y0-30, '30')
-      + '<path class="fina" d="M' + cajX + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + (cajY+cajH) + ' L' + cajX + ' ' + (cajY+cajH) + ' Z M' + cajX + ' ' + (cajY+26) + ' L' + (cajX+cajW) + ' ' + (cajY+26) + ' M' + (cajX+124) + ' ' + (cajY+26) + ' L' + (cajX+124) + ' ' + (cajY+cajH) + '"></path>'
+      + '<path class="fina" d="M' + cajX + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + (cajY+cajH) + ' L' + cajX + ' ' + (cajY+cajH) + ' Z M' + cajX + ' ' + (cajY+26) + ' L' + (cajX+cajW) + ' ' + (cajY+26) + ' M' + (cajX+127) + ' ' + cajY + ' L' + (cajX+127) + ' ' + (cajY+cajH) + ' M' + (cajX+168) + ' ' + cajY + ' L' + (cajX+168) + ' ' + (cajY+26) + '"></path>'
       + '<text x="' + (cajX+10) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:11px;fill:var(--ink)">SOPORTE EN L</text>'
-      + '<text x="' + (cajX+10) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">2.º ESO</text>'
-      + '<text x="' + (cajX+134) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">ESC. 1:2</text>'
+      + '<text x="' + (cajX+134) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:9.5px">1:2</text>'
+      + '<text x="' + (cajX+175) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:9.5px">1/1</text>'
+      + '<text x="' + (cajX+10) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">LUCÍA G. · 2.º B</text>'
+      + '<text x="' + (cajX+134) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">14/10/2026</text>'
       + texto(320, 290, 'PLANO · CON INSTRUMENTOS · A ESCALA · CON CAJETÍN')
       + '</g>';
 
@@ -2236,7 +2291,7 @@
     var textos2 = {
       boceto: '<b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.',
       croquis: '<b>Croquis:</b> el mismo dibujo a mano alzada, pero ya con las <b>cotas reales</b> (80, 50, 30) y el material anotado. Fíjate: el dibujo está deformado, las medidas no.',
-      plano: '<b>Plano:</b> trazado con instrumentos, a escala, dentro de su marco y con el <b>cajetín</b> que identifica la pieza, el curso y la escala. Este es el que va al taller.'
+      plano: '<b>Plano:</b> trazado con instrumentos, a escala, dentro de su marco y con el <b>cajetín</b>, que dice los cinco datos: pieza, escala, n.º de plano, autor y fecha. Este es el que va al taller.'
     };
     function faseActiva(nombre){
       svgF.querySelectorAll('[data-fase]').forEach(function(g){
@@ -2375,6 +2430,187 @@
     });
 
     pintaNorma('formatos');
+  }
+
+  /* ---- escena S5: el cajetin, con sus medidas ---- */
+  var svgC = document.getElementById('svg-cajetin');
+  if(svgC){
+    var segC = document.getElementById('seg-cajetin');
+    var pieC = document.querySelector('[data-pie-cajetin]');
+
+    /* Todo esta en milimetros de verdad. El dibujo solo multiplica por k, asi
+       que cada cifra que sale en pantalla es la que hay que medir con la regla
+       en el papel. Si maniana cambia una medida, se cambia aqui y el dibujo,
+       las cotas y el pie cambian solos. */
+    var MARG = {archivo:20, resto:10};                 /* margenes del A4 */
+    var CAJ  = {an:180, al:30, fila:15, v1:110, v2:145};
+    var HOJAS = {
+      vertical: {an:210, al:297, n:'A4 VERTICAL'},
+      apaisado: {an:297, al:210, n:'A4 APAISADO'}
+    };
+
+    function tC(x, y, t, cls, tam, anc){
+      return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + (anc || 'middle') +
+             '" class="' + (cls || 'rotulo-svg') + '"' +
+             (tam ? ' style="font-size:' + tam + 'px"' : '') + '>' + t + '</text>';
+    }
+
+    /* cota horizontal con sus dos flechas y la cifra encima */
+    function cotaH(x1, x2, y, cifra, arriba){
+      var d = 'M' + x1.toFixed(1) + ' ' + y.toFixed(1) + ' L' + x2.toFixed(1) + ' ' + y.toFixed(1);
+      var m = '<path class="cota" d="' + d + '"></path>';
+      if(Math.abs(x2 - x1) > 24){
+        m += '<path class="flecha-cabeza" d="M' + x1.toFixed(1) + ' ' + y.toFixed(1) +
+             ' L' + (x1+9).toFixed(1) + ' ' + (y-3.2).toFixed(1) + ' L' + (x1+9).toFixed(1) + ' ' + (y+3.2).toFixed(1) + ' Z"></path>';
+        m += '<path class="flecha-cabeza" d="M' + x2.toFixed(1) + ' ' + y.toFixed(1) +
+             ' L' + (x2-9).toFixed(1) + ' ' + (y-3.2).toFixed(1) + ' L' + (x2-9).toFixed(1) + ' ' + (y+3.2).toFixed(1) + ' Z"></path>';
+      } else {
+        m += '<path class="cota" d="M' + x1.toFixed(1) + ' ' + (y-4).toFixed(1) + ' L' + x1.toFixed(1) + ' ' + (y+4).toFixed(1) +
+             ' M' + x2.toFixed(1) + ' ' + (y-4).toFixed(1) + ' L' + x2.toFixed(1) + ' ' + (y+4).toFixed(1) + '"></path>';
+      }
+      return m + tC((x1+x2)/2, arriba === false ? y + 13 : y - 6, cifra, 'cifra');
+    }
+
+    /* cota vertical: la cifra se lee desde la derecha, girada 90 grados */
+    function cotaV(y1, y2, x, cifra){
+      var d = 'M' + x.toFixed(1) + ' ' + y1.toFixed(1) + ' L' + x.toFixed(1) + ' ' + y2.toFixed(1);
+      var m = '<path class="cota" d="' + d + '"></path>';
+      if(Math.abs(y2 - y1) > 24){
+        m += '<path class="flecha-cabeza" d="M' + x.toFixed(1) + ' ' + y1.toFixed(1) +
+             ' L' + (x-3.2).toFixed(1) + ' ' + (y1+9).toFixed(1) + ' L' + (x+3.2).toFixed(1) + ' ' + (y1+9).toFixed(1) + ' Z"></path>';
+        m += '<path class="flecha-cabeza" d="M' + x.toFixed(1) + ' ' + y2.toFixed(1) +
+             ' L' + (x-3.2).toFixed(1) + ' ' + (y2-9).toFixed(1) + ' L' + (x+3.2).toFixed(1) + ' ' + (y2-9).toFixed(1) + ' Z"></path>';
+      } else {
+        m += '<path class="cota" d="M' + (x-4).toFixed(1) + ' ' + y1.toFixed(1) + ' L' + (x+4).toFixed(1) + ' ' + y1.toFixed(1) +
+             ' M' + (x-4).toFixed(1) + ' ' + y2.toFixed(1) + ' L' + (x+4).toFixed(1) + ' ' + y2.toFixed(1) + '"></path>';
+      }
+      var ym = (y1+y2)/2;
+      return m + '<text x="' + (x-6).toFixed(1) + '" y="' + ym.toFixed(1) + '" text-anchor="middle" class="cifra"' +
+             ' transform="rotate(-90 ' + (x-6).toFixed(1) + ' ' + ym.toFixed(1) + ')">' + cifra + '</text>';
+    }
+
+    /* la hoja entera: papel, marco y cajetin, con las medidas puestas */
+    function vistaHoja(cual){
+      var H = HOJAS[cual];
+      var k = Math.min(250 / H.al, 300 / H.an);     /* mm -> unidades del lienzo */
+      var w = H.an * k, h = H.al * k;
+      var x0 = (640 - w) / 2 + 14, y0 = (360 - h) / 2 - 4;
+      var mm = function(v){ return v * k; };
+      var m = '';
+
+      /* 1. el papel */
+      m += '<rect class="papel draw" pathLength="1" x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) +
+           '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '"></rect>';
+
+      /* 2. el marco: 20 mm por el lado de archivar, 10 por los otros tres */
+      var mx = x0 + mm(MARG.archivo), my = y0 + mm(MARG.resto);
+      var mw = mm(H.an - MARG.archivo - MARG.resto), mh = mm(H.al - 2 * MARG.resto);
+      m += '<rect class="marco draw" pathLength="1" x="' + mx.toFixed(1) + '" y="' + my.toFixed(1) +
+           '" width="' + mw.toFixed(1) + '" height="' + mh.toFixed(1) + '"></rect>';
+
+      /* 3. el cajetin, pegado a la esquina inferior derecha del MARCO */
+      var cx = mx + mw - mm(CAJ.an), cy = my + mh - mm(CAJ.al);
+      m += '<rect class="caja draw" pathLength="1" x="' + cx.toFixed(1) + '" y="' + cy.toFixed(1) +
+           '" width="' + mm(CAJ.an).toFixed(1) + '" height="' + mm(CAJ.al).toFixed(1) + '"></rect>';
+      m += '<path class="fina" d="M' + cx.toFixed(1) + ' ' + (cy + mm(CAJ.fila)).toFixed(1) +
+           ' L' + (cx + mm(CAJ.an)).toFixed(1) + ' ' + (cy + mm(CAJ.fila)).toFixed(1) +
+           ' M' + (cx + mm(CAJ.v1)).toFixed(1) + ' ' + cy.toFixed(1) +
+           ' L' + (cx + mm(CAJ.v1)).toFixed(1) + ' ' + (cy + mm(CAJ.al)).toFixed(1) + '"></path>';
+
+      /* 4. las medidas */
+      m += cotaH(x0, x0 + w, y0 + h + 26, H.an, false);
+      m += cotaV(y0, y0 + h, x0 - 24, H.al);
+      m += cotaH(x0, mx, y0 - 14, MARG.archivo);
+      m += cotaH(x0 + w - mm(MARG.resto), x0 + w, y0 - 14, MARG.resto);
+      m += cotaH(cx, cx + mm(CAJ.an), cy - 10, CAJ.an);
+      m += cotaV(cy, cy + mm(CAJ.al), cx + mm(CAJ.an) + 22, CAJ.al);
+
+      /* 5. lo que hay que entender de cada orientacion */
+      m += tC(x0 + w / 2, y0 - 30, H.n, 'rotulo-svg', 12);
+      var sobra = (H.an - MARG.archivo - MARG.resto) - CAJ.an;
+      if(sobra > 0.5){
+        m += '<path class="ref" d="M' + mx.toFixed(1) + ' ' + (cy + mm(CAJ.al) / 2).toFixed(1) +
+             ' L' + cx.toFixed(1) + ' ' + (cy + mm(CAJ.al) / 2).toFixed(1) + '"></path>';
+        m += tC((mx + cx) / 2, cy + mm(CAJ.al) / 2 - 8, sobra + ' mm', 'cifra', 10);
+        m += tC((mx + cx) / 2, cy + mm(CAJ.al) + 16, 'DE MARCO LIBRE', 'rotulo-svg', 8.5);
+      } else {
+        m += tC(cx + mm(CAJ.an) / 2, cy + mm(CAJ.al) + 18, 'OCUPA TODO EL ANCHO DEL MARCO', 'rotulo-svg', 8.5);
+      }
+      m += tC(48, 44, 'MARCO', 'rotulo-svg', 10, 'start');
+      m += tC(48, 60, (H.an - MARG.archivo - MARG.resto) + ' &times; ' + (H.al - 2 * MARG.resto) + ' mm',
+              'cifra', 10, 'start');
+      m += tC(48, 84, 'CAJET&Iacute;N', 'rotulo-svg', 10, 'start');
+      m += tC(48, 100, CAJ.an + ' &times; ' + CAJ.al + ' mm', 'cifra', 10, 'start');
+      return m;
+    }
+
+    /* el cajetin a tamanio grande, con sus cinco casillas y sus reparticiones */
+    function vistaDentro(){
+      var k = 2.45;
+      var w = CAJ.an * k, h = CAJ.al * k;
+      var x0 = (640 - w) / 2, y0 = 148;
+      var mm = function(v){ return v * k; };
+      var m = '';
+
+      m += '<rect class="caja draw" pathLength="1" x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) +
+           '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '"></rect>';
+      var yF = y0 + mm(CAJ.fila), xA = x0 + mm(CAJ.v1), xB = x0 + mm(CAJ.v2);
+      m += '<path class="fina draw" pathLength="1" d="M' + x0.toFixed(1) + ' ' + yF.toFixed(1) +
+           ' L' + (x0 + w).toFixed(1) + ' ' + yF.toFixed(1) + '"></path>';
+      m += '<path class="fina draw" pathLength="1" d="M' + xA.toFixed(1) + ' ' + y0.toFixed(1) +
+           ' L' + xA.toFixed(1) + ' ' + (y0 + h).toFixed(1) + '"></path>';
+      m += '<path class="fina draw" pathLength="1" d="M' + xB.toFixed(1) + ' ' + y0.toFixed(1) +
+           ' L' + xB.toFixed(1) + ' ' + yF.toFixed(1) + '"></path>';
+
+      /* las cinco casillas: rotulo pequenio arriba, ejemplo dentro */
+      function casilla(x1, x2, y1, y2, rot, ej, tam){
+        var s = tC(x1 + 7, y1 + 13, rot, 'rotulo-svg', 8, 'start');
+        return s + tC(x1 + 7, y2 - 9, ej, 'rotulo-svg', tam || 12, 'start');
+      }
+      m += casilla(x0, xA, y0, yF, '1 &middot; T&Iacute;TULO DE LA PIEZA', 'SOPORTE DE M&Oacute;VIL', 14);
+      m += casilla(xA, xB, y0, yF, '2 &middot; ESCALA', '1:1');
+      m += casilla(xB, x0 + w, y0, yF, '3 &middot; N.&ordm; PLANO', '1/1');
+      m += casilla(x0, xA, yF, y0 + h, '4 &middot; AUTOR Y GRUPO', 'LUC&Iacute;A G. &middot; 2.&ordm; B');
+      m += casilla(xA, x0 + w, yF, y0 + h, '5 &middot; FECHA', '14 / 10 / 2026');
+
+      /* las medidas de dentro */
+      m += cotaH(x0, x0 + w, y0 + h + 44, CAJ.an, false);
+      m += cotaH(x0, xA, y0 - 16, CAJ.v1);
+      m += cotaH(xA, xB, y0 - 16, CAJ.v2 - CAJ.v1);
+      m += cotaH(xB, x0 + w, y0 - 16, CAJ.an - CAJ.v2);
+      m += cotaV(y0, yF, x0 - 20, CAJ.fila);
+      m += cotaV(yF, y0 + h, x0 - 20, CAJ.al - CAJ.fila);
+      m += tC(320, 84, 'EL CAJET&Iacute;N POR DENTRO', 'rotulo-svg', 12);
+      m += tC(320, 104, 'MEDIDAS EN MIL&Iacute;METROS, A TAMA&Ntilde;O REAL NO CABE EN LA PANTALLA', 'rotulo-svg', 8.5);
+      m += tC(320, 322, 'TODAS LAS L&Iacute;NEAS DE DENTRO SON FINAS; EL RECUADRO DE FUERA, GRUESO', 'rotulo-svg', 9.5);
+      return m;
+    }
+
+    var VISTAS_C = {
+      vertical: {f: function(){ return vistaHoja('vertical'); },
+                 pie: 'El marco no es el borde del papel: <b>20 mm</b> por la izquierda, que es por donde se archiva, y <b>10 mm</b> por los otros tres lados. En vertical el marco mide 180 &times; 277 mm, as&iacute; que el cajet&iacute;n, que mide <b>180</b>, ocupa justo todo su ancho.'},
+      apaisado: {f: function(){ return vistaHoja('apaisado'); },
+                 pie: 'La misma hoja girada. Los m&aacute;rgenes no cambian y el cajet&iacute;n tampoco: sigue midiendo <b>180 &times; 30</b> y sigue pegado a la esquina inferior derecha. Lo que cambia es que ahora le sobran <b>87 mm</b> de marco a su izquierda.'},
+      dentro:   {f: vistaDentro,
+                 pie: 'Una l&iacute;nea horizontal a los 15 mm y dos verticales, a los 110 y a los 145. Con eso salen las <b>cinco casillas</b> que pide la lista: t&iacute;tulo, escala, n.&ordm; de plano, autor y fecha.'}
+    };
+
+    function pintaCaj(nombre){
+      var v = VISTAS_C[nombre] || VISTAS_C.vertical;
+      svgC.innerHTML = v.f();
+      if(pieC) pieC.innerHTML = v.pie;
+      var trazos = Array.prototype.slice.call(svgC.querySelectorAll('.draw'));
+      trazos.forEach(function(n){ n.classList.remove('on'); });
+      trazos.forEach(function(n, i){ setTimeout(function(){ n.classList.add('on'); }, 70*i); });
+    }
+
+    segC.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-vista]'); if(!b) return;
+      segC.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+      pintaCaj(b.dataset.vista);
+    });
+
+    pintaCaj('vertical');
   }
 
   /* ---- escena S3: de la pieza a las tres vistas ---- */
