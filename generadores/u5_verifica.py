@@ -206,13 +206,18 @@ with sync_playwright() as p:
     pag.click('#seg-biela button[data-b="muerto"]'); pag.wait_for_timeout(200)
     dice(pag, '#svg-biela', 'lleva 0.0 mm recorridos', 'en el punto muerto el recorrido es cero')
 
-    # leva: la excentrica en el arranque vale raiz(Rc^2 - e^2)
+    # La leva, con sus medidas escritas otra vez aqui a partir de la definicion.
+    # Estaban puestas a mano y se quedaron viejas cuando la leva se redibujo con
+    # base ancha y poca carrera: el verificador pedia 28,3 y 20,0, que eran de la
+    # leva anterior, y llevaba rojo desde entonces sin que nadie lo mirara.
+    RMIN, H = 26.0, 18.0          # radio minimo y carrera, los mismos de la escena
+    e, Rc = H / 2, RMIN + H / 2   # la excentrica es un circulo con el eje corrido
     pag.click('#seg-transforma button[data-t="pausa"]'); pag.wait_for_timeout(120)
     pag.click('#seg-transforma button[data-t="suave"]'); pag.wait_for_timeout(250)
-    dice(pag, '#svg-transforma', 'toca la leva a %.1f mm' % math.sqrt(30.0**2 - 10.0**2),
+    dice(pag, '#svg-transforma', 'toca la leva a %.1f mm' % math.sqrt(Rc**2 - e**2),
          'leva excentrica: altura en el arranque')
     pag.click('#seg-transforma button[data-t="prog"]'); pag.wait_for_timeout(250)
-    dice(pag, '#svg-transforma', 'toca la leva a 20.0 mm',
+    dice(pag, '#svg-transforma', 'toca la leva a %.1f mm' % RMIN,
          'leva de programa: arranca abajo, como dice su texto')
 
     # tornillo-tuerca: el gato
@@ -224,6 +229,43 @@ with sync_playwright() as p:
     dice(pag, '#svg-transforma', 'haces %d N' % round(10000/VM), 'gato: la fuerza que haces')
     dice(pag, '#svg-transforma', '%d vueltas y %.1f m de mano' % (20, 20*vuelta/1000),
          'gato: lo que recorre la mano')
+
+    # Poleas: que al tirar la mano no acabe dentro de la caja.
+    # La mano baja n veces lo que sube la carga, y con cuatro tramos eso son
+    # cuatro veces; en dos y en tres tramos acababa pintada encima del cajon de
+    # los 80 kg, que es lo que se veia raro sin saber por que. Esto no mira la
+    # mecanica, que la miran las cuentas de abajo: mira que se vea.
+    pag.click('#nav button[data-ses="2"]'); pag.wait_for_timeout(250)
+    CAJAS = """() => {
+      const svg = document.querySelector('#svg-poleas');
+      const mano = [...svg.querySelectorAll('circle')].find(c => (c.getAttribute('fill')||'').includes('azul'));
+      const caja = [...svg.querySelectorAll('rect')].find(r => (r.getAttribute('fill')||'') === '#a5783f');
+      if(!mano || !caja) return null;
+      const m = mano.getBBox(), c = caja.getBBox();
+      return {solapa: m.x < c.x+c.width && m.x+m.width > c.x && m.y < c.y+c.height && m.y+m.height > c.y,
+              fuera: c.y + c.height > 330 || m.y + m.height > 330,
+              subida: c.y};
+    }"""
+    for n in ('1', '2', '3', '4'):
+        pag.click('#seg-poleas button[data-n="%s"]' % n); pag.wait_for_timeout(250)
+        antes = pag.evaluate(CAJAS)
+        pag.click('#seg-poleas button[data-n="tira"]'); pag.wait_for_timeout(1100)
+        r = pag.evaluate(CAJAS)
+        check(r is not None and not r['solapa'],
+              'poleas, %s tramos: al tirar, la mano no se pinta encima de la carga' % n)
+        check(r is not None and not r['fuera'],
+              'poleas, %s tramos: nada se sale por abajo del lienzo' % n)
+        check(r is not None and antes is not None and r['subida'] < antes['subida'],
+              'poleas, %s tramos: la carga sube' % n)
+        dice(pag, '#svg-poleas', 'F = 800 / %s = %d N' % (n, round(800.0/int(n))),
+             'poleas, %s tramos: la fuerza es 800 dividido entre los tramos' % n)
+        dice(pag, '#svg-poleas', 'hay que tirar %d cm' % (30*int(n)),
+             'poleas, %s tramos: y la cuerda que se tira, 30 cm por tramo' % n)
+
+    # y se vuelve donde estabamos: la leva y la cremallera estan en la sesion 4,
+    # y desde la 2 sus botones existen pero no se ven, asi que el click se queda
+    # esperando para siempre en vez de dar un fallo que se entienda
+    pag.click('#nav button[data-ses="4"]'); pag.wait_for_timeout(250)
 
     # pinon-cremallera
     pag.click('#seg-transforma button[data-t="crem"]'); pag.wait_for_timeout(250)

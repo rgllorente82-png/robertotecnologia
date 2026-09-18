@@ -896,7 +896,12 @@ footer .wrap{padding-block:18px 26px}
         var YT = 72;          /* eje de las poleas fijas */
         var YB0 = 200;        /* eje de las poleas moviles, en reposo */
         var YM0 = 112;        /* la mano, en reposo */
-        var SUBE = 42;        /* lo que sube la carga al tirar */
+        /* Lo que sube la carga al tirar. La mano baja SUBE*n, asi que con 42 y
+           tres tramos acababa 126 px mas abajo: dentro de la caja. Con 28, la mano
+           se queda por encima de la caja en uno, dos y tres tramos, y en cuatro
+           le pasa por el lado con holgura. La carga sube medio cajon, que se ve
+           de sobra; lo que no se puede es que la mano acabe dentro. */
+        var SUBE = 28;        /* lo que sube la carga al tirar */
         var P = 800;          /* la carga, en newtons */
         var n = 1, tirado = false;
 
@@ -959,7 +964,9 @@ footer .wrap{padding-block:18px 26px}
                + 'stroke-width="2.6"></path>';
           }
           var yc = yb + Rr + 26;
-          m += '<rect x="' + (d.carga-42) + '" y="' + yc + '" width="84" height="52" rx="3" '
+          /* 64 de ancho y no 84: con 84 la caja llegaba hasta el tramo libre de la
+             cuerda, que sale por la tangente de la ultima polea y no se puede mover. */
+          m += '<rect x="' + (d.carga-32) + '" y="' + yc + '" width="64" height="52" rx="3" '
              + 'fill="#a5783f" stroke="#7a5528" stroke-width="2"></rect>';
           m += '<text x="' + d.carga + '" y="' + (yc+31) + '" text-anchor="middle" class="rotulo-svg" '
              + 'style="fill:#fff;font-size:12.5px">80 kg</text>';
