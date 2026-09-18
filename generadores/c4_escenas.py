@@ -354,7 +354,7 @@ BLOQUES = u'''
         function n0(x){ return Math.round(x).toString(); }
 
         /* ------------------------------------------------------------------
-           Tres de los cinco proyectos del catalogo. Cada uno trae su recta de
+           Los tres proyectos del catalogo. Cada uno trae su recta de
            calibracion (la que se mide en clase con el sensor en la mano) y su
            modelo de como cambia la magnitud fisica. Lo que NO cambia de uno a
            otro es el diagrama: esa es toda la gracia.

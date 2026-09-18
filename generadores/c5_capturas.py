@@ -132,6 +132,91 @@ def main():
                                  "e => { e.value = 50; e.dispatchEvent(new Event('input')); }")
             tira(pag, '#esc-man', 'man-o-cilindro-grande')
 
+        # ------------------------------------------- S5 la placa de pruebas
+        if quiere('pla'):
+            print('S5 placa')
+            pag.click('#nav button[data-ses="5"]')
+            pag.wait_for_timeout(400)
+            tira(pag, '#esc-pla', 'pla-ok')
+            for f in ('sen', 'ce', 'canal', 'masa', 'dio'):
+                pag.click('#seg-pla-f [data-f="%s"]' % f)
+                tira(pag, '#esc-pla', 'pla-' + f)
+            pag.click('#seg-pla-f [data-f="ok"]')
+            for p in ('B', 'C', 'E', 'V'):
+                pag.click('#seg-pla-p [data-p="%s"]' % p)
+            tira(pag, '#esc-pla', 'pla-punta-pila')
+            pag.click('#seg-pla-p [data-p="P"]')
+            pag.eval_on_selector('#pla-h',
+                                 "e => { e.value = 80; e.dispatchEvent(new Event('input')); }")
+            tira(pag, '#esc-pla', 'pla-mojada')
+
+        # ---------------------------------------------- S6 el arranque
+        if quiere('arr'):
+            print('S6 arranque')
+            pag.click('#nav button[data-ses="6"]')
+            pag.wait_for_timeout(400)
+            tira(pag, '#esc-arr', 'arr-junta-sin-pd')
+            pag.check('#arr-pd')
+            tira(pag, '#esc-arr', 'arr-junta-con-pd')
+            pag.uncheck('#arr-pd')
+            pag.click('#seg-arr-pin [data-n="13"]')
+            tira(pag, '#esc-arr', 'arr-pin13')
+            pag.click('#seg-arr-pin [data-n="9"]')
+            pag.eval_on_selector('#arr-ri',
+                                 "e => { e.value = 40; e.dispatchEvent(new Event('input')); }")
+            tira(pag, '#esc-arr', 'arr-pescadilla')
+            pag.click('#seg-arr-fuente [data-u="aparte"]')
+            pag.check('#arr-pd')
+            tira(pag, '#esc-arr', 'arr-bien')
+
+        # -------------------------------------------- S7 la secuencia
+        if quiere('sec'):
+            print('S7 secuencia')
+            pag.click('#nav button[data-ses="7"]')
+            pag.wait_for_timeout(2500)
+            tira(pag, '#esc-sec', 'sec-fdc')
+            pag.click('#seg-sec-modo [data-m="tiempo"]')
+            pag.eval_on_selector('#sec-carga',
+                                 "e => { e.value = 70; e.dispatchEvent(new Event('input')); }")
+            pag.wait_for_timeout(3000)
+            tira(pag, '#esc-sec', 'sec-tiempo-choques')
+            pag.click('#seg-sec-modo [data-m="fdc"]')
+            pag.eval_on_selector('#sec-carga',
+                                 "e => { e.value = 20; e.dispatchEvent(new Event('input')); }")
+            pag.click('#seg-sec-fallo [data-a="b1"]')
+            # el vigilante salta al segundo de modelo, y va cinco veces mas
+            # despacio: sin estos siete segundos la foto sale antes de tiempo
+            pag.wait_for_timeout(7000)
+            tira(pag, '#esc-sec', 'sec-b1-aflojado')
+            pag.click('#seg-sec-fallo [data-a="no"]')
+            pag.click('#seg-sec-val [data-v="bi"]')
+            pag.click('#seg-sec-luz [data-l="off"]')
+            pag.wait_for_timeout(1200)
+            tira(pag, '#esc-sec', 'sec-corte-biestable')
+            pag.click('#seg-sec-val [data-v="mono"]')
+            pag.wait_for_timeout(1500)
+            tira(pag, '#esc-sec', 'sec-corte-monoestable')
+            pag.click('#seg-sec-luz [data-l="on"]')
+
+        # ---------------------------------------------- S8 la cadena
+        if quiere('cad'):
+            print('S8 cadena')
+            pag.click('#nav button[data-ses="8"]')
+            pag.wait_for_timeout(400)
+            tira(pag, '#esc-cad', 'cad-riego-ok')
+            for f in ('rf', 'rb', 'masa', 'dio', 'pila'):
+                pag.click('#seg-cad-f [data-a="%s"]' % f)
+                tira(pag, '#esc-cad', 'cad-' + f)
+            pag.click('#seg-cad-f [data-a="no"]')
+            pag.click('#seg-cad-var [data-v="B"]')
+            pag.eval_on_selector('#cad-m',
+                                 "e => { e.value = 80; e.dispatchEvent(new Event('input')); }")
+            tira(pag, '#esc-cad', 'cad-ventilacion')
+            pag.click('#seg-cad-var [data-v="C"]')
+            pag.eval_on_selector('#cad-m',
+                                 "e => { e.value = 10; e.dispatchEvent(new Event('input')); }")
+            tira(pag, '#esc-cad', 'cad-lampara')
+
         print('errores de JavaScript: %s' % (errores or 'ninguno'))
         nav.close()
     print('en ' + SALIDA)

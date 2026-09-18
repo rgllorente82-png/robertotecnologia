@@ -38,6 +38,7 @@ from unidad_base import pagina, bloque, ficha, pregunta
 from c5_escenas import ESCENA_DIVISOR, ESCENA_TRANSISTOR
 from c5_escenas2 import ESCENA_CILINDRO, ESCENA_MANDO
 from test_auto import test
+import c5b_texto
 import avatar_flat
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -58,6 +59,9 @@ EXTRA_CSS = u"""
 .cuenta{font-family:var(--f-m);font-size:14px;background:var(--surface-2);border-radius:2px;
   padding:10px 12px;margin:10px 0;line-height:1.8}
 .cuenta b{color:var(--goo-azul)}
+/* los 224 agujeros de la placa de pruebas de la S5: el color va aqui y no
+   repetido en cada rect, que se redibujan todos en cada cambio */
+.ag{fill:var(--surface);stroke:var(--line);stroke-width:.8}
 """
 
 
@@ -984,7 +988,7 @@ S4_TEORIA = u'''
       <h3>Lo que ha quedado montado en estas cuatro sesiones</h3>
       <div class="copiar">
         <h4>La cadena completa de un automatismo</h4>
-        <p>Cualquiera de los cinco proyectos del curso es la misma cadena:</p>
+        <p>Cualquiera de los proyectos del curso es la misma cadena:</p>
         <p class="cuenta">
           magnitud f&iacute;sica &rarr; <b>sensor</b> (S1) &rarr; <b>divisor</b> (S1) &rarr;
           <b>conversor A/D</b> (S1) &rarr; n&uacute;mero<br>
@@ -1107,8 +1111,8 @@ S4_PRACTICA = ficha(
             <li>Una 5/2 con los dos escapes (3 y 5) <b>tapados con un tap&oacute;n</b>.</li>
           </ol>
           <h4>Segunda parte &middot; dibujar (14 min)</h4>
-          <p>Elegid <b>dos</b> de los cinco proyectos del cat&aacute;logo del curso &mdash;por
-             ejemplo la <b>barrera de bicis</b> y el <b>contenedor que avisa</b>&mdash; y dibujad
+          <p>Elegid <b>dos</b> de los tres proyectos del cat&aacute;logo del curso &mdash;por
+             ejemplo el <b>riego</b> y la <b>ventilaci&oacute;n</b>&mdash; y dibujad
              a mano, con s&iacute;mbolos normalizados, su circuito neum&aacute;tico:</p>
           <ul>
             <li>Fuente de presi&oacute;n abajo, actuador arriba. <b>Siempre en ese orden</b>: es la
@@ -1236,11 +1240,13 @@ SESIONES = [
          minutado=MINUTADO_TEST,
          chips=[u'CE4 &middot; 4.1', u'B.3', u'B.4'],
          cuerpo=S4),
-    dict(corto=u'Del esquema al montaje', pendiente=True),
-    dict(corto=u'El programa que decide', pendiente=True),
-    dict(corto=u'Electrov&aacute;lvulas y secuencias', pendiente=True),
-    dict(corto=u'El automatismo completo', pendiente=True),
 ]
+
+# --- la segunda mitad, escrita aparte en c5b_texto.py ---
+# Aqui la unidad cambia de marcha: el proyecto del curso YA esta decidido
+# (PROYECTOS.md, bloque DECIDIDO del 18-sep-2026), asi que las sesiones 5 a 8
+# no rotan ejemplos: aterrizan en el riego automatico y en sus dos variantes.
+SESIONES += c5b_texto.sesiones(bloque)
 
 CFG = dict(
     ruta='4eso/Tecnologia/tema5/',

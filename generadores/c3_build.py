@@ -803,8 +803,8 @@ S3_PRACTICA = ficha(
     [u'Grupos de tres', u'20 min', u'Sobre 10'],
     u'En la libreta, con la escena al lado',
     u'''
-          <p>Elegid <b>dos</b> de los cinco proyectos del cat&aacute;logo del curso &mdash;por
-             ejemplo el <b>riego de la planta</b> y el <b>contenedor que avisa</b>&mdash; y una pieza
+          <p>Elegid <b>dos</b> de los tres proyectos del cat&aacute;logo del curso &mdash;por
+             ejemplo el <b>riego de la planta</b> y la <b>l&aacute;mpara</b>&mdash; y una pieza
              concreta de cada uno. La misma pieza en los dos si pod&eacute;is: la carcasa, o el
              soporte.</p>
           <h4>Primera parte &middot; montar la matriz (12 min)</h4>

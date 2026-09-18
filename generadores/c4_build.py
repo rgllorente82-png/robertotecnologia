@@ -297,8 +297,8 @@ S1_PRACTICA = ficha(
             <li>Una farola con c&eacute;lula fotoel&eacute;ctrica.</li>
           </ol>
           <h4>Segunda parte &middot; Rescatar un proyecto (8 min)</h4>
-          <p>Elegid <b>uno</b> de los cinco proyectos del cat&aacute;logo (riego, ventilaci&oacute;n,
-             contenedor, barrera o l&aacute;mpara) y dibujad <b>las dos versiones</b>:</p>
+          <p>Elegid <b>uno</b> de los tres proyectos del cat&aacute;logo (riego, ventilaci&oacute;n
+             o l&aacute;mpara) y dibujad <b>las dos versiones</b>:</p>
           <ul>
             <li>La versi&oacute;n en <b>lazo abierto</b>: qu&eacute; orden fija le dais.</li>
             <li>La versi&oacute;n en <b>lazo cerrado</b>: qu&eacute; med&iacute;s y con qu&eacute; lo
@@ -486,7 +486,7 @@ S2_PRACTICA = ficha(
     u'Actividad 2 &middot; Dos diagramas y una calibraci&oacute;n',
     [u'CE4 &middot; 4.1'], u'Parejas &middot; 20 min', u'''
           <h4>Primera parte &middot; Los diagramas (7 min)</h4>
-          <p>Dibujad en la libreta el diagrama de bloques de <b>dos</b> de los cinco proyectos del
+          <p>Dibujad en la libreta el diagrama de bloques de <b>dos</b> de los tres proyectos del
              cat&aacute;logo, uno debajo del otro. Cada caja, con su r&oacute;tulo y con <b>lo que hay
              dentro en ese proyecto</b>: no vale poner &laquo;sensor&raquo; a secas, hay que decir
              cu&aacute;l.</p>
@@ -934,8 +934,8 @@ S4_PRACTICA = ficha(
     u'Actividad 4 &middot; El motor de vuestro proyecto',
     [u'CE4 &middot; 4.1'], u'Grupos de 3 &middot; 15 min', u'''
           <h4>Primera parte &middot; El par, a mano (7 min)</h4>
-          <p>Elegid uno de los cinco proyectos con parte m&oacute;vil (barrera, tapa del contenedor,
-             dep&oacute;sito del riego que se inclina, brazo de la l&aacute;mpara) y calculad el
+          <p>Elegid algo que haya que mover (la <b>barrera</b> del reto, la ventana que abre el
+             ventilador, el brazo de la l&aacute;mpara) y calculad el
              <b>par necesario en el caso peor</b>, en la libreta, con <b>todos los pasos y las
              unidades en cada l&iacute;nea</b>, como en el recuadro de la teor&iacute;a.</p>
           <p>Estimad las masas a ojo si hace falta, pero <b>escribid de d&oacute;nde sale cada
@@ -1085,7 +1085,7 @@ S4_CIERRE = u'''
       <div class="nota">
         <span class="n-tag">Lo que llevas hasta aqu&iacute;</span>
         Sabes distinguir un lazo abierto de uno cerrado y decir cu&aacute;l hace falta. Sabes dibujar
-        el diagrama de bloques de cualquiera de los cinco proyectos y traducir entre las unidades del
+        el diagrama de bloques de cualquiera de los proyectos del cat&aacute;logo y traducir entre las unidades del
         sensor y las tuyas. Sabes ajustar un control todo-nada y explicar qu&eacute; te cuesta cada
         decisi&oacute;n. Y sabes calcular el motor. <b>Eso ya es un proyecto que se puede defender
         con n&uacute;meros.</b>

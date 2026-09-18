@@ -95,7 +95,7 @@ with sync_playwright() as p:
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 8, 'hay 8 botones de sesion (hay %d)' % len(bts))
     pend = [b for b in bts if b.get_attribute('disabled') is not None]
-    check(len(pend) == 4, 'las cuatro ultimas quedan en preparacion (hay %d)' % len(pend))
+    check(len(pend) == 0, 'las ocho estan escritas, ninguna en preparacion (hay %d)' % len(pend))
     check(pag.query_selector('#narr-c5') is not None, 'la sesion 1 lleva el avatar narrador')
 
     # ==================================================================== S1
@@ -356,8 +356,266 @@ with sync_playwright() as p:
     check(patron.mando(100, 50)['f_dir'] > 15,
           'con el cilindro grande el mando directo se vuelve inviable, que es lo que ensena')
 
+    # ==================================================================== S5
+    print('== Sesion 5 * la placa de pruebas')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#svg-pla', 'e => e.innerHTML')) > 8000,
+          'la escena de la placa pinta los agujeros, los componentes y el panel')
+    check(len(pag.query_selector_all('#esc-pla .seg button[data-f]')) == 6,
+          'hay seis montajes que probar')
+
+    TITULOS = {'ok': 'FUNCIONA', 'sen': 'FUNCIONA', 'ce': 'CONDUCE, PERO AL REVÉS',
+               'canal': 'EL COLECTOR NO LLEGA A LA CARGA',
+               'masa': 'LAS DOS MASAS NO SON LA MISMA', 'dio': 'CORTOCIRCUITO'}
+
+    def comprueba_placa(f, h=20):
+        pag.click('#seg-pla-f [data-f="%s"]' % f)
+        pag.wait_for_timeout(180)
+        r = patron.placa(h, f)
+        svg = texto_svg(pag, '#svg-pla')
+        pie = pag.inner_text('#pie-pla')
+        check(coma(r['vp'], 2) + ' V' in svg,
+              '%s: el nudo del sensor da %s V, como la cuenta' % (f, coma(r['vp'], 2)))
+        check(str(r['cuenta']) in svg, '   y analogRead devuelve %d' % r['cuenta'])
+        if f == 'ok':
+            check('FUNCIONA' in svg and '9 de 9' in svg,
+                  '   bien montado: las nueve conexiones estan y el circuito funciona')
+        else:
+            check(TITULOS[f] in svg, '   la escena lo llama "%s"' % TITULOS[f])
+            check('9 de 9' not in svg, '   y la lista de conexiones acusa el fallo')
+        return r, svg, pie
+
+    r, svg, pie = comprueba_placa('ok')
+    check(('%d mA' % round(r['ic'] * 1000)) in svg, '   la bomba se lleva %d mA' % round(r['ic'] * 1000))
+
+    r, svg, pie = comprueba_placa('sen')
+    check(r['cuenta'] == 1023 and 'clavada en <b>1023' in
+          pag.eval_on_selector('#pie-pla', 'e => e.innerHTML'),
+          '   la sonda puenteada por la grapa deja la cuenta clavada en 1023')
+
+    r, svg, pie = comprueba_placa('ce')
+    check(coma(r['ve'], 2) in pie, '   el emisor se queda en %s V' % coma(r['ve'], 2))
+    check(coma(r['vcarga'], 2) in pie,
+          '   y a la bomba le llegan %s V de los 6' % coma(r['vcarga'], 2))
+
+    comprueba_placa('canal')
+    comprueba_placa('masa')
+    r, svg, pie = comprueba_placa('dio')
+    check(coma(r['icorto'], 2) + ' A' in pie,
+          '   el diodo al reves cortocircuita la pila: %s A' % coma(r['icorto'], 2))
+
+    # el polimetro mide lo que dice la cuenta
+    pag.click('#seg-pla-f [data-f="ok"]')
+    pag.click('#seg-pla-p [data-p="E"]')
+    pag.wait_for_timeout(180)
+    check('0,00 V' in texto_svg(pag, '#svg-pla'), 'el polimetro: el emisor esta a 0,00 V')
+    pag.click('#seg-pla-p [data-p="C"]')
+    pag.wait_for_timeout(180)
+    check('1,00 V' in texto_svg(pag, '#svg-pla'),
+          '   y el colector a 1,00 V, que es la Vce del TIP120 saturado')
+    pag.click('#seg-pla-f [data-f="masa"]')
+    pag.click('#seg-pla-p [data-p="V"]')
+    pag.wait_for_timeout(180)
+    check('al aire' in texto_svg(pag, '#svg-pla'),
+          '   y sin masa comun, medir el + de la pila no quiere decir nada')
+    pag.click('#seg-pla-f [data-f="ok"]')
+    pag.click('#seg-pla-p [data-p="P"]')
+
+    # la humedad mueve la cuenta de verdad
+    pon(pag, '#pla-h', 80)
+    pag.wait_for_timeout(200)
+    r = patron.placa(80, 'ok')
+    check(str(r['cuenta']) in texto_svg(pag, '#svg-pla'),
+          'con la tierra al 80 %% la cuenta baja a %d' % r['cuenta'])
+    check(not r['quiere'] and 'no riega' in pag.inner_text('#pie-pla'),
+          '   y el programa deja de pedir riego')
+    pon(pag, '#pla-h', 20)
+
+    # ==================================================================== S6
+    print('== Sesion 6 * los seis primeros segundos')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#svg-arr', 'e => e.innerHTML')) > 6000,
+          'la escena del arranque pinta las tres graficas')
+
+    def comprueba_arr(ri, pd, junta, pin, etq, h=60):
+        r = patron.arranque(h, ri, pd, junta, pin)
+        svg = texto_svg(pag, '#svg-arr')
+        check(('%d ms' % r['ms_antes']) in svg,
+              '%s: %d ms de bomba antes de que mande el programa' % (etq, r['ms_antes']))
+        check(coma(r['vmin'], 2) + ' V' in svg,
+              '   y la tension baja hasta %s V' % coma(r['vmin'], 2))
+        return r
+
+    comprueba_arr(1.2, False, True, 9, 'de fabrica')
+    pag.check('#arr-pd')
+    pag.wait_for_timeout(200)
+    r = comprueba_arr(1.2, True, True, 9, 'con la resistencia de 10 k')
+    check(r['ms_antes'] == 0 and 'Arranque limpio' in pag.inner_text('#pie-arr'),
+          '   con ella, la bomba no se mueve hasta que lo manda el programa')
+    pag.uncheck('#arr-pd')
+    pag.click('#seg-arr-pin [data-n="13"]')
+    pag.wait_for_timeout(200)
+    r = comprueba_arr(1.2, False, True, 13, 'en el pin 13')
+    check(r['ms_antes'] == 300 and 'tres golpes' in pag.inner_text('#pie-arr'),
+          '   el gestor de arranque parpadea el LED del 13 y la bomba da tres golpes')
+    pag.click('#seg-arr-pin [data-n="9"]')
+    pon(pag, '#arr-ri', 40)
+    pag.wait_for_timeout(250)
+    r = patron.arranque(60, 4.0, False, True, 9)
+    check(r['resets'] > 100, 'el patron dice que con 4 ohmios el micro se reinicia sin parar')
+    svg = texto_svg(pag, '#svg-arr')
+    check(('%d veces' % r['resets']) in svg,
+          '   y la escena cuenta los mismos %d reinicios' % r['resets'])
+    check('nunca llega' in svg and 'pescadilla' in pag.inner_text('#pie-arr'),
+          '   el programa no llega a ejecutarse nunca')
+    pag.click('#seg-arr-fuente [data-u="aparte"]')
+    pag.wait_for_timeout(250)
+    r = patron.arranque(60, 4.0, False, False, 9)
+    check(r['resets'] == 0 and coma(r['vmin'], 2) + ' V' in texto_svg(pag, '#svg-arr'),
+          'con la bomba en su propia pila se acaban los reinicios')
+    pag.click('#seg-arr-fuente [data-u="junta"]')
+    pon(pag, '#arr-ri', 12)
+
+    # la medida es ratiometrica: la cuenta no se mueve con la alimentacion
+    def cuenta_arr():
+        m = re.search(r'sonda de [\d.,]+ k.*?cuenta (\d+)', pag.inner_text('#pie-arr'))
+        return int(m.group(1)) if m else -1
+
+    pag.wait_for_timeout(200)
+    c1 = cuenta_arr()
+    pon(pag, '#arr-ri', 30)
+    pag.wait_for_timeout(250)
+    c2 = cuenta_arr()
+    check(c1 > 0 and c1 == c2,
+          'la cuenta no cambia aunque baje la alimentacion: la medida es ratiometrica (%d)' % c1)
+    pon(pag, '#arr-ri', 12)
+
+    # ==================================================================== S7
+    print('== Sesion 7 * la secuencia')
+    pag.click('#nav button[data-ses="7"]')
+    pag.wait_for_timeout(1200)
+    check(len(pag.eval_on_selector('#svg-sec', 'e => e.innerHTML')) > 6000,
+          'la escena de la secuencia pinta los cilindros, las valvulas y el diagrama')
+    s = patron.secuencia(20)
+    svg = texto_svg(pag, '#svg-sec')
+    check(('%d N' % round(s['fa'])) in svg and ('%d N' % round(s['fb'])) in svg,
+          'las fuerzas de los dos cilindros son las calculadas (%d N y %d N)'
+          % (round(s['fa']), round(s['fb'])))
+    check(coma(s['ta'], 3) + ' s' in svg,
+          'con la carga al 20 %%, el empujador sale en %s s' % coma(s['ta'], 3))
+    check(coma(s['tb'], 3) + ' s' in svg,
+          '   y el punzon en %s s' % coma(s['tb'], 3))
+
+    def trazos_sec():
+        return pag.eval_on_selector('#svg-sec', "e => e.querySelectorAll('path').length")
+
+    antes = pag.eval_on_selector('#svg-sec', 'e => e.innerHTML')
+    pag.wait_for_timeout(900)
+    check(pag.eval_on_selector('#svg-sec', 'e => e.innerHTML') != antes,
+          'la escena se mueve sola: la secuencia esta corriendo')
+
+    # por final de carrera, el orden no se rompe aunque la carga suba
+    pon(pag, '#sec-carga', 70)
+    pag.wait_for_timeout(3500)
+    check('choques' in texto_svg(pag, '#svg-sec'), 'la escena cuenta los choques')
+    ch = pag.eval_on_selector('#svg-sec', """e => {
+        var t = Array.prototype.slice.call(e.querySelectorAll('text'));
+        for(var i = 0; i < t.length; i++)
+          if(t[i].textContent === 'choques') return +t[i + 1].textContent;
+        return -1; }""")
+    check(ch == 0, 'por final de carrera y con la carga al 70 %%, cero choques (hay %d)' % ch)
+
+    pag.click('#seg-sec-modo [data-m="tiempo"]')
+    pag.wait_for_timeout(4000)
+    ch = pag.eval_on_selector('#svg-sec', """e => {
+        var t = Array.prototype.slice.call(e.querySelectorAll('text'));
+        for(var i = 0; i < t.length; i++)
+          if(t[i].textContent === 'choques') return +t[i + 1].textContent;
+        return -1; }""")
+    check(ch > 0, '   y por tiempo, con la misma carga, el punzon baja antes de tiempo (%d)' % ch)
+
+    pag.click('#seg-sec-modo [data-m="fdc"]')
+    pon(pag, '#sec-carga', 20)
+    pag.click('#seg-sec-fallo [data-a="b1"]')
+    # el vigilante de la escena salta al segundo de tiempo de modelo, y la
+    # animacion va cinco veces mas despacio: hay que darle sus seis segundos
+    pag.wait_for_timeout(7000)
+    check('PARADA' in texto_svg(pag, '#svg-sec'),
+          'con el final de carrera b1 aflojado, la secuencia se para y lo dice')
+    pag.click('#seg-sec-fallo [data-a="no"]')
+
+    # el corte de corriente: monoestable vuelve, biestable se queda
+    pag.click('#seg-sec-val [data-v="mono"]')
+    pag.click('#seg-sec-luz [data-l="off"]')
+    pag.wait_for_timeout(2500)
+    svg = texto_svg(pag, '#svg-sec')
+    check('Sin corriente' in svg, 'al cortar la corriente, la escena lo dice')
+    check('muelle las devuelve al reposo' in pag.inner_text('#pie-sec'),
+          '   con monoestables, los dos cilindros se meten')
+    pag.click('#seg-sec-luz [data-l="on"]')
+    pag.wait_for_timeout(1800)
+    pag.click('#seg-sec-val [data-v="bi"]')
+    pag.click('#seg-sec-luz [data-l="off"]')
+    pag.wait_for_timeout(1200)
+    check('se quedan como estaban' in pag.inner_text('#pie-sec'),
+          '   y con biestables se quedan donde iban')
+    pag.click('#seg-sec-luz [data-l="on"]')
+    pag.click('#seg-sec-val [data-v="mono"]')
+
+    # ==================================================================== S8
+    print('== Sesion 8 * la cadena entera')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#svg-cad', 'e => e.innerHTML')) > 5000,
+          'la escena de la cadena pinta los siete eslabones')
+
+    VEREDICTO = {'no': 'LA CADENA ENTERA FUNCIONA', 'rf': 'EL DIVISOR ESTÁ CIEGO',
+                 'rb': 'EL TRANSISTOR SE QUEDA A MEDIO ABRIR',
+                 'masa': 'SIN MASA COMÚN', 'dio': 'FUNCIONA HOY',
+                 'pila': 'AL ACTUADOR LE FALTA TENSIÓN'}
+
+    def comprueba_cad(var, x, f, etq):
+        pag.click('#seg-cad-var [data-v="%s"]' % var)
+        pag.click('#seg-cad-f [data-a="%s"]' % f)
+        pon(pag, '#cad-m', x)
+        pag.wait_for_timeout(200)
+        r = patron.cadena(var, x, f)
+        svg = texto_svg(pag, '#svg-cad')
+        check(coma(r['vnodo'], 2) + ' V' in svg,
+              '%s: el divisor da %s V' % (etq, coma(r['vnodo'], 2)))
+        check(str(r['cuenta']) in svg, '   y la cuenta es %d' % r['cuenta'])
+        check(VEREDICTO[f] in svg, '   el veredicto es "%s"' % VEREDICTO[f])
+        return r, svg
+
+    r, svg = comprueba_cad('A', 18, 'no', 'riego sano')
+    check(('%d mA' % round(r['ic'] * 1000)) in svg,
+          '   y el actuador se lleva %d mA' % round(r['ic'] * 1000))
+    r, svg = comprueba_cad('A', 18, 'rf', 'con R fija de 1 M')
+    check(not r['alcanza'] and str(r['cmax']) in svg,
+          '   con 1 M la cuenta no pasa de %d y el umbral esta en 700' % r['cmax'])
+    r, svg = comprueba_cad('A', 18, 'rb', 'con Rb de 47 k')
+    check(not r['saturado'] and ('%d mW' % round(r['p'] * 1000)) in svg,
+          '   no satura y se convierten %d mW en calor' % round(r['p'] * 1000))
+    comprueba_cad('A', 18, 'masa', 'sin masa comun')
+    r, svg = comprueba_cad('A', 18, 'dio', 'sin diodo')
+    check(coma(r['pico'] / 1000, 1) + ' kV' in pag.inner_text('#pie-cad'),
+          '   al cortar aparecen %s kV' % coma(r['pico'] / 1000, 1))
+    r, svg = comprueba_cad('A', 18, 'pila', 'con la pila gastada')
+    check(coma(r['vact'], 1) + ' V' in svg,
+          '   al actuador le llegan %s V' % coma(r['vact'], 1))
+
+    pag.click('#seg-cad-f [data-a="no"]')
+    comprueba_cad('B', 80, 'no', 'ventilacion')
+    comprueba_cad('C', 18, 'no', 'lampara')
+    check('2,0 kWh' in texto_svg(pag, '#svg-cad'),
+          'la escena calcula lo que gasta la placa en un ano sin hacer nada')
+
     # ================================================================ el test
     print('== El test de la sesion 4')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(300)
     check(len(pag.query_selector_all('#test-c5 .ta-p')) == 10, 'el test tiene 10 preguntas')
     check(len(pag.query_selector_all('#test-c5 .ta-por')) == 10, 'y las 10 explican por que')
     oks = pag.eval_on_selector_all('#test-c5 .ta-p', 'ps => ps.map(p => +p.dataset.ok)')
@@ -374,9 +632,38 @@ with sync_playwright() as p:
     check(not pag.query_selector_all('#test-c5 input:checked'),
           '"borrar y repetir" deja el test limpio')
 
+    print('== El test de la unidad entera, en la sesion 8')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.query_selector_all('#test-c5b .ta-p')) == 10,
+          'el test de la unidad tiene 10 preguntas')
+    check(len(pag.query_selector_all('#test-c5b .ta-por')) == 10, 'y las 10 explican por que')
+    # los dos tests tienen que ser independientes: si comparten los id de los
+    # radios, contestar uno mueve el otro y dejan de funcionar los dos
+    nombres5 = set(pag.eval_on_selector_all('#test-c5 input',
+                                            'e => e.map(x => x.name)'))
+    nombres8 = set(pag.eval_on_selector_all('#test-c5b input',
+                                            'e => e.map(x => x.name)'))
+    check(not (nombres5 & nombres8),
+          'los dos tests no comparten ni un nombre de campo (%d y %d)'
+          % (len(nombres5), len(nombres8)))
+    oks = pag.eval_on_selector_all('#test-c5b .ta-p', 'ps => ps.map(p => +p.dataset.ok)')
+    for i, ok in enumerate(oks):
+        pag.check('#test-c5b input[name="c5b-%d"][value="%d"]' % (i, ok))
+    pag.click('#test-c5b [data-a="corregir"]')
+    pag.wait_for_timeout(200)
+    check(pag.inner_text('#test-c5b .ta-nota').strip().startswith('10 de 10'),
+          'contestando bien las diez, la nota es 10 de 10')
+    check(pag.inner_text('#test-c5 .ta-nota').strip() == '',
+          '   y corregir el de la unidad no toca el de la sesion 4')
+    pag.click('#test-c5b [data-a="otra"]')
+    pag.wait_for_timeout(200)
+    check(not pag.query_selector_all('#test-c5b input:checked'),
+          '"borrar y repetir" deja el test limpio')
+
     # ====================================================== libreta y material
     print('== Bloques de libreta, fotos y videos')
-    for n in (1, 2, 3, 4):
+    for n in (1, 2, 3, 4, 5, 6, 7, 8):
         pag.click('#nav button[data-ses="%d"]' % n)
         pag.wait_for_timeout(200)
         cop = pag.eval_on_selector_all('#ses-%d .copiar' % n, 'e => e.length')
