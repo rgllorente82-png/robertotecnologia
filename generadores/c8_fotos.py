@@ -27,6 +27,11 @@ FOTOS = [
     ('c8-rebaje-acera.jpg', 'File:Curb cut for wheelchair ramp (DSC 3500).jpg', 1200),
     ('c8-bombilla-centenaria.jpg', 'File:Livermore Centennial Light Bulb.jpg', 1000),
     ('c8-multimetro.jpg', 'File:Multimeter probes on breadboard.jpg', 1200),
+    # --- segunda mitad (sesiones 5 a 8) ---
+    ('c8-raee-pilas.jpg', 'File:Elektronikavfall.jpg', 1200),
+    ('c8-fotovoltaica.jpg', 'File:Rooftop solar photovoltaic installation.jpg', 1200),
+    ('c8-boton-peatonal.jpg', 'File:An Australian pedestrian crossing button.jpg', 1000),
+    ('c8-poster.jpg', 'File:GD09 Poster Session.jpg', 1200),
 ]
 
 CAMPOS = ('titulo', 'autor', 'licencia', 'licurl', 'uso', 'restriccion', 'px', 'mime', 'pagina')

@@ -349,6 +349,7 @@ ENERGIA = u'''
             <label><input type="checkbox" id="o4-ultra"> Ultrasonidos HC-SR04</label>
             <label><input type="checkbox" id="o4-servo"> Servo SG90</label>
             <label><input type="checkbox" id="o4-wifi"> M&oacute;dulo wifi ESP-01</label>
+            <label><input type="checkbox" id="o4-bomba" checked> Bomba del riego <span class="o4-nota">(no sigue el ciclo: 2 riegos de 30 s al d&iacute;a)</span></label>
           </div>
           <div class="o4-piezas">
             <span class="o4-rot">Entre medida y medida</span>
@@ -381,6 +382,7 @@ ENERGIA = u'''
         color:var(--ink-soft);flex:0 0 100%}
       .o4-piezas label{font-family:var(--f-m);font-size:12.5px;color:var(--ink);cursor:pointer}
       .o4-piezas input{margin-right:5px}
+      .o4-nota{color:var(--ink-soft);font-size:11.5px}
       #pila-o4{margin:2px 0 4px}
       .o4-tabla{margin-top:14px;border-top:1px solid var(--line-soft)}
       .o4-f{display:flex;gap:12px;justify-content:space-between;align-items:baseline;padding:6px 0;
@@ -422,6 +424,13 @@ ENERGIA = u'''
           {id:'o4-servo',  n:'Servo SG90',     on:250, off:6},
           {id:'o4-wifi',   n:'M&oacute;dulo wifi', on:70, off:0.02}
         ];
+        /* La bomba NO va en PIEZAS, y no es un olvido: las piezas de arriba
+           se leen en cada despertar, asi que les vale la fraccion de
+           despierto de la placa. La bomba no. Riega unas cuantas veces al
+           dia y unos segundos, asi que tiene su propio ciclo. Si se metiera
+           con las demas, la escena diria que esta conectada en cada ciclo y
+           la autonomia saldria absurda. */
+        var BOMBA = {id:'o4-bomba', n:'Bomba del riego', i:200, seg:30, veces:2};
         var PILAS = [
           {n:'pila de 9 V',        mah:500,   v:9},
           {n:'4 pilas AA',         mah:2500,  v:6},
@@ -439,6 +448,7 @@ ENERGIA = u'''
           var s = {placa:placa, pila:pila, periodo:periodo(), despierto:+elDes.value/1000,
                    duerme:document.getElementById('o4-duerme').checked, piezas:{}};
           PIEZAS.forEach(function(p){ s.piezas[p.id] = document.getElementById(p.id).checked; });
+          s.bomba = document.getElementById('o4-bomba').checked;
           return s;
         }
 
@@ -457,7 +467,14 @@ ENERGIA = u'''
             iOff += s.duerme ? p.off : p.on;
             partes.push({n:p.n, i:p.on*d + (s.duerme ? p.off : p.on)*(1 - d)});
           });
-          var media = iOn*d + iOff*(1 - d);
+          /* la bomba, con su ciclo propio: lo que pide por lo que dura,
+             repartido entre los 86.400 segundos que tiene un dia */
+          var iBomba = 0;
+          if(s.bomba){
+            iBomba = BOMBA.i * (BOMBA.seg * BOMBA.veces) / 86400;
+            partes.push({n:BOMBA.n, i:iBomba});
+          }
+          var media = iOn*d + iOff*(1 - d) + iBomba;
           var horas = media > 0 ? B.mah/media : 0;
           /* el regulador lineal pasa la MISMA corriente: lo que se pierde es
              energia, no autonomia. Son dos cosas distintas y conviene verlas. */

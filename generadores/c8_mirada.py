@@ -29,7 +29,7 @@ if __name__ == '__main__':
         pag.wait_for_timeout(800)
         # la cabecera es pegajosa y se pone encima de lo que se quiere mirar
         pag.add_style_tag(content='header.top{position:static !important}')
-        for n in (1, 2, 3, 4):
+        for n in range(1, 9):
             pag.click('#nav button[data-ses="%d"]' % n)
             pag.wait_for_timeout(500)
             pag.screenshot(path=os.path.join(SALIDA, 'ses%d.png' % n), full_page=True)

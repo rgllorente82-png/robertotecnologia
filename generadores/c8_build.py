@@ -6,9 +6,7 @@
 Escribe 4eso/Tecnologia/tema8/index.html. La "c" de los generadores de esta
 unidad es de "cuarto": no choca con los u*_ de 2.o.
 
-Ocho sesiones. Aqui estan escritas las CUATRO primeras; las otras cuatro
-aparecen en la barra con su titulo y el boton desactivado, para que se vea a
-donde va la unidad.
+Ocho sesiones, las OCHO escritas.
 
 Criterios: CE6 / 6.1, 6.2 y 6.3 (saberes A.2, D.1, D.2, D.3 y D.4). Ver
 CURRICULO.md.
@@ -27,10 +25,23 @@ El hilo, que es lo que importa:
       hay fraude documentado y hay quimica, y mezclarlos impide entender nada.
   S4  Y mientras vive, come. Cuanto exactamente, cuanto dura con pilas, y que
       medida lo arregla de verdad (dormir, pero solo si la placa deja de comer).
+  S5  Ya sabes lo que cuesta, para quien sirve y lo que come. Ahora pesa lo que
+      SOBRA: el recorte, el sobrante, las pilas y el aparato entero al final.
+      Y aparece la inversion que abre la sesion siguiente: lo que menos pesa
+      -el RAEE- es lo unico que no puede ir a la papelera.
+  S6  Seis numeros sueltos en seis libretas. La pregunta es una: compensa? Se
+      suman en la misma unidad, se compara contra lo que se hace hoy sin el
+      aparato y sale un punto de equilibrio. Que es una BANDA, porque hay un
+      dato que no existe.
+  S7  Ya hay numero. Ahora se rediseña: pero primero se escriben los cinco
+      requisitos que no se pueden romper, y luego se mira DONDE esta el kilo.
+  S8  El numero se defiende. No discutiendo: recalculando delante.
 
-El proyecto del curso NO esta decidido (ver PROYECTOS.md e INFORME.md), asi que
-ningun ejemplo se casa con uno: cada vez que hace falta un caso concreto se
-usan dos o tres de los cinco candidatos.
+El proyecto del curso SI esta decidido desde el 18-sep-2026 (PROYECTOS.md,
+bloque DECIDIDO): riego automatico, con la ventilacion y la lampara como
+variantes. Las sesiones 1 a 4 se escribieron antes y por eso alli los ejemplos
+rotan entre cinco candidatos; NO se han tocado. De la 5 a la 8 todo aterriza en
+esas tres, que son las que salen en las cuatro escenas nuevas.
 """
 import io
 import json
@@ -42,6 +53,8 @@ from unidad_base import pagina, bloque, ficha, pregunta
 import avatar_flat
 from c8_escenas import BASCULA, COMPROBADOR
 from c8_escenas2 import REPARAR, ENERGIA
+from c8_escenas3 import DATOS, INVENTARIO, CUENTA
+from c8_escenas4 import REDISENO, OBJECIONES
 from test_auto import test
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,15 +64,24 @@ USA_AVATAR = [False]
 # --------------------------------------------------------------------------
 # Piezas repetidas
 # --------------------------------------------------------------------------
-def foto(src, alt, pie, autor, licencia, commons):
-    return u'''      <figure class="foto">
+# CSS propio de esta unidad, inyectado al final para no tocar el molde comun.
+# Solo hay una regla: .foto.alta, para las fotos verticales. La del pulsador de
+# la sesion 7 es de 3.072 x 4.080 y a todo lo ancho se comia la pantalla entera.
+EXTRA_CSS = u"""
+/* ---- fotos verticales de la U8 de 4.o ---- */
+.foto.alta img{max-height:560px;width:auto;margin:0 auto}
+"""
+
+
+def foto(src, alt, pie, autor, licencia, commons, alta=False):
+    return u'''      <figure class="foto%s">
         <img src="../../../img/%s" alt="%s" loading="lazy">
         <figcaption>%s
           <span class="credito">%s &middot; %s &middot;
             <a href="%s" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
-''' % (src, alt, pie, autor, licencia, commons)
+''' % (u' alta' if alta else u'', src, alt, pie, autor, licencia, commons)
 
 
 def video(idv, vid, titulo, canal, nota):
@@ -1071,6 +1093,1002 @@ S4_PRACTICA = ficha(
           </ul>
 ''')
 
+# ==========================================================================
+# SESION 5 - El residuo que dejas
+# ==========================================================================
+S5_RETO = u'''
+      <p>Ah&iacute; est&aacute;. Vuestro riego, vuestro aviso de ventilaci&oacute;n o vuestra
+         l&aacute;mpara, montado y funcionando. Enhorabuena.</p>
+      <p>Y ahora mirad la mesa.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        <b>&iquest;Cu&aacute;ntos gramos de residuo ha generado vuestro grupo montando esto?</b>
+        Un n&uacute;mero cada uno, en la libreta, <b>antes de tocar nada</b>. Y al lado, en una
+        l&iacute;nea, c&oacute;mo lo hab&eacute;is sacado.
+      </div>
+      <p>En una clase normal salen n&uacute;meros entre <b>20 y 80 gramos</b>: lo que se ve en la
+         mesa, un pu&ntilde;ado de recortes y un trozo de cable. Ahora coged la balanza de la cocina
+         del taller y pesadlo de verdad. Va a salir, con suerte, <b>diez veces m&aacute;s</b>.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>No hab&eacute;is calculado mal: hab&eacute;is contado <b>lo que se ve</b>. Y el residuo de
+           un aparato no se genera todo el mismo d&iacute;a ni se queda todo en la misma mesa.</p>
+        <p>Dos preguntas: &iquest;d&oacute;nde est&aacute; el resto de la plancha de la que
+           sac&aacute;is la pieza? &iquest;Y qu&eacute; pasar&aacute; dentro de un mes con la pila?</p>
+      </div>
+      <p>La segunda respuesta que sale siempre es <i>&laquo;lo llevamos todo al punto limpio y ya
+         est&aacute;&raquo;</i>, y tampoco vale, por el mismo motivo que en la sesi&oacute;n 1 no
+         val&iacute;a decir &laquo;eso contamina&raquo;: <b>no dice cu&aacute;nto</b> y <b>no dice de
+         qu&eacute;</b>. Un inventario no es una intenci&oacute;n. Es una lista con una balanza al
+         lado.</p>
+'''
+
+S5_TEORIA = u'''
+      <div class="copiar">
+        <h4>Definiciones</h4>
+        <p><b>Inventario de residuo</b>: la lista de todo lo que vuestro proyecto deja fuera del
+           aparato, con <b>su masa</b> y <b>su fracci&oacute;n</b>, una l&iacute;nea por cosa. Ni
+           adjetivos ni promesas: masa y destino.</p>
+        <p><b>Fracci&oacute;n</b>: el grupo de residuos que se recoge junto porque se trata junto.
+           No es lo mismo que el material: dos cosas del mismo pl&aacute;stico pueden ir a
+           fracciones distintas, y una pieza de acero y una bomba de acero van a sitios
+           diferentes.</p>
+        <p><b>Aprovechamiento</b>: la masa que acaba dentro del aparato dividida entre la masa que
+           hubo que <b>comprar</b> para sacarla.</p>
+        <p style="font-family:var(--f-m);font-size:15px;margin-top:10px">
+           aprovechamiento = <b>masa en el objeto / masa comprada</b></p>
+      </div>
+      <p>Y hay una distinci&oacute;n que parece una tonter&iacute;a y es la que m&aacute;s masa
+         mueve de toda la sesi&oacute;n:</p>
+      <div class="copiar">
+        <h4>Recorte no es lo mismo que sobrante</h4>
+        <p><b>Recorte</b>: los trozos que quedan <b>entre</b> las piezas cuando cortas. Tiras
+           estrechas, esquinas, mordiscos. No se puede hacer nada con ellos.</p>
+        <p><b>Sobrante</b>: la parte de la plancha que <b>ni siquiera has tocado</b>. Eso no es un
+           recorte: es <b>una plancha m&aacute;s peque&ntilde;a</b>.</p>
+        <p>La diferencia no est&aacute; en el material: los dos son el mismo contrachapado. Est&aacute;
+           en <b>si alguien lo guarda</b>. El sobrante es residuo o es material seg&uacute;n lo que
+           hag&aacute;is los diez minutos siguientes a cortar, y esa es una decisi&oacute;n que no
+           cuesta un c&eacute;ntimo.</p>
+      </div>
+      <div class="copiar">
+        <h4>Tres momentos, y no se pueden sumar sin decir cu&aacute;l es cu&aacute;l</h4>
+        <ol>
+          <li><b>Residuo de montaje.</b> Hoy. Recortes, sobrante, embalajes, cable pelado, la pieza
+              que sali&oacute; torcida.</li>
+          <li><b>Residuo recurrente.</b> Cada pocas semanas, mientras el aparato vive. Aqu&iacute;
+              solo hay una cosa, y es la que nadie apunta: <b>las pilas</b>.</li>
+          <li><b>Residuo de final de vida.</b> El d&iacute;a que se desmonte: el aparato entero.</li>
+        </ol>
+        <p>Un total que mezcla los tres <b>no se puede comparar con nada</b>, porque el primero pasa
+           una vez, el segundo se multiplica por los a&ntilde;os y el tercero depende de
+           cu&aacute;ntos a&ntilde;os aguante. Es el mismo problema del <b>l&iacute;mite de la
+           cuenta</b> de la sesi&oacute;n 1, otra vez.</p>
+      </div>
+
+      <h3>A qu&eacute; contenedor va cada cosa, y qui&eacute;n lo manda</h3>
+      <div class="copiar">
+        <h4>Las cinco fracciones de vuestro proyecto</h4>
+        <ul>
+          <li><b>RAEE</b> &mdash;residuos de aparatos el&eacute;ctricos y electr&oacute;nicos&mdash;:
+              la placa, los sensores, la bomba, el alimentador y hasta los cables. <b>Real Decreto
+              110/2015</b>, que traspone la Directiva 2012/19/UE. Van al punto limpio o al
+              contenedor de la tienda; <b>nunca</b> a la papelera.</li>
+          <li><b>Pilas y bater&iacute;as</b>: contenedor propio, por el <b>Real Decreto 106/2008</b>,
+              hoy acompa&ntilde;ado del <b>Reglamento (UE) 2023/1542</b>. Tampoco son RAEE: van
+              aparte.</li>
+          <li><b>Envases</b> (amarillo): la botella de PET, las bolsas, el bl&iacute;ster en el que
+              vino el sensor.</li>
+          <li><b>Metales</b>: torniller&iacute;a, chapa, escuadras. Punto limpio o chatarra.</li>
+          <li><b>Resto</b>: y aqu&iacute; va el contrachapado, que sorprende a todo el mundo.
+              <b>No va al contenedor azul</b>: el papel y el cart&oacute;n s&iacute;, pero el
+              contrachapado lleva <b>cola y barniz</b>, y eso estropea la pasta.</li>
+        </ul>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Una cosa del <b>Real Decreto 110/2015</b> que casi nadie sabe y que pod&eacute;is
+           comprobar esta tarde: las tiendas de m&aacute;s de <b>400 m&sup2;</b> que venden aparatos
+           el&eacute;ctricos est&aacute;n obligadas a <b>recogerte gratis</b> los RAEE
+           peque&ntilde;os &mdash;los de menos de 25 cm&mdash; <b>sin que compres nada</b>. No es un
+           favor que te hacen: es una obligaci&oacute;n suya.</p>
+        <p>Y hay un motivo para tanta insistencia. Un aparato peque&ntilde;o lleva dentro
+           <b>cobre</b>, <b>esta&ntilde;o</b> de las soldaduras, algo de <b>oro</b> en los contactos
+           y, si lleva bater&iacute;a, <b>litio</b>. En la papelera eso se pierde entero y adem&aacute;s
+           va a un sitio donde no deber&iacute;a estar. En el contenedor bueno, una parte vuelve. La
+           unidad 3 os ense&ntilde;&oacute; <b>cu&aacute;nto vuelve</b> y por qu&eacute; nunca es
+           todo.</p>
+      </div>
+
+      <h3>Ahora pesadlo, que es de lo que iba la sesi&oacute;n</h3>
+      <p>Abajo est&aacute; vuestra plancha de contrachapado con el despiece de toda la clase puesto
+         encima, colocado como se corta de verdad: una tira a lo ancho y de ah&iacute; salen las
+         piezas de esa altura. Cambiad los mandos y mirad las tres &aacute;reas.</p>
+''' + INVENTARIO + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Tal y como abre, con seis grupos, de la plancha se usa un <b>27 %</b> y tu grupo se
+              lleva 60 g de pieza. Pero mira las <b>dos barras rojas de la derecha</b>: son las dos
+              que menos pesan y son las dos que no pueden ir a la papelera.</li>
+          <li>Marca <b>&laquo;el sobrante se guarda&raquo;</b>. La franja roja del dibujo se pone
+              verde y la barra de madera se desploma. <b>Eso no ha costado dinero</b>: ha costado
+              acordarse. Ojo, que en la sesi&oacute;n 7 comprobar&eacute;is que en <b>kilos de
+              CO&#8322;</b> este cambio es peque&ntilde;o: donde manda es en la <b>masa de
+              residuo</b>. Son dos preguntas distintas y no tienen por qu&eacute; dar el mismo
+              ganador.</li>
+          <li>Baja los <b>grupos a 1</b>. El aprovechamiento se hunde: una plancha entera para tres
+              piezas. Sube a 10 y mira c&oacute;mo el recorte por grupo casi no cambia, porque el
+              recorte es una propiedad del <b>despiece</b>, no del n&uacute;mero de grupos.</li>
+          <li>Pulsa <b>pila de 9 V</b> con la corriente en <b>85 mA</b>, que son exactamente los
+              45 del Uno m&aacute;s los 15 del LED m&aacute;s los 25 de la sonda del reto de la
+              sesi&oacute;n 4. Las pilas de <b>un a&ntilde;o</b> pesan m&aacute;s
+              que el aparato entero, y muchas veces m&aacute;s. Ahora baja la corriente a
+              <b>0,5 mA</b>, que es el chip dormido: la barra roja se cae sola. <b>El residuo de las
+              pilas no se arregla reciclando: se arregla programando.</b></li>
+          <li>Y con <b>alimentador de pared</b> la fila de las pilas desaparece del todo, pero
+              aparecen <b>60 g m&aacute;s de RAEE</b> al final. No hay una opci&oacute;n sin
+              residuo: hay opciones con residuos distintos, y hay que decir cu&aacute;l
+              eleg&iacute;s y por qu&eacute;.</li>
+        </ul>
+      </div>
+''' + foto('c8-raee-pilas.jpg',
+           u'Rinc&oacute;n de un punto de recogida: un mont&oacute;n de cables enrollados, '
+           u'cargadores, regletas y peque&ntilde;os electrodom&eacute;sticos amontonados sobre una '
+           u'chapa met&aacute;lica, con dos carteles encima, uno de pilas peque&ntilde;as y otro de '
+           u'residuo el&eacute;ctrico',
+           u'Un punto de recogida de un supermercado sueco. Fijaos en los <b>dos carteles</b>, que '
+           u'son dos fracciones distintas y no una: arriba a la izquierda, <i>sm&aring;batterier</i>, '
+           u'pilas peque&ntilde;as; a la derecha, <i>elavfall</i>, residuo el&eacute;ctrico, con su '
+           u'lista de <b>s&iacute;</b> y de <b>no</b>. Y mirad qu&eacute; hay debajo: sobre todo '
+           u'<b>cables</b> y <b>cargadores</b>. Eso es exactamente lo que vais a tener vosotros al '
+           u'final, y es lo que m&aacute;s se tira a la papelera por parecer poca cosa. Un cable no '
+           u'es basura: es cobre con una funda.',
+           u'Frankie Fouganthin', u'CC BY 4.0',
+           u'https://commons.wikimedia.org/wiki/File:Elektronikavfall.jpg') + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Cuidado con confundir esta sesi&oacute;n con la <b>unidad 3</b>. All&iacute;
+           aprendisteis <b>la m&aacute;quina</b>: qu&eacute; le pasa a un kilo de material desde que
+           lo sueltas hasta que vuelve a ser materia prima, con su cadena de cuatro etapas y su
+           0,581. Aqu&iacute; se hace <b>vuestro recuento</b>, con vuestra balanza. Son cosas
+           distintas y la unidad 3 ya lo dej&oacute; escrito.</p>
+        <p>Y guardaos esto para ma&ntilde;ana, porque es lo m&aacute;s raro de hoy: la fracci&oacute;n
+           que <b>menos pesa</b> es la que <b>m&aacute;s cuidado</b> pide. Si el residuo se ordenara
+           por da&ntilde;o en vez de por masa, la lista saldr&iacute;a <b>del rev&eacute;s</b>. Y
+           para ordenar por da&ntilde;o hace falta algo que la balanza no da.</p>
+      </div>
+''' + video('video-c8-raee', 'oD9QDlNhNeA',
+            u'C&oacute;mo se gestionan los residuos electr&oacute;nicos (RAEE)',
+            u'Canal: Asegre',
+            u'Para ver qu&eacute; pasa despu&eacute;s del contenedor. &#9888; <b>Ojo con '
+            u'qui&eacute;n lo firma</b>: Asegre es la asociaci&oacute;n de las empresas que '
+            u'gestionan esos residuos, o sea que tiene inter&eacute;s en que el proceso salga bien '
+            u'en el v&iacute;deo. Para <b>ver la m&aacute;quina</b> vale; para las <b>cifras</b>, '
+            u'usad la escena y decid de d&oacute;nde sale cada una.')
+
+S5_PRACTICA = ficha(
+    u'Actividad 5 &middot; El inventario de vuestro residuo, con balanza',
+    [u'6.1', u'6.2', u'D.2', u'D.3'], u'Grupos de tres &middot; 20 min', u'''
+          <h4>Primera parte &middot; la plancha (7 min)</h4>
+          <p>Con el metro y la balanza, nada de estimaciones:</p>
+          <ol class="pasos">
+            <li><b>Medid</b> la plancha de la que hab&eacute;is sacado vuestras piezas y
+                <b>pesadla</b> si pod&eacute;is levantarla; si no, pesad un trozo conocido y sacad
+                los kg/m&sup2; vosotros.</li>
+            <li>Medid vuestras piezas y calculad su masa. Comparadla con la balanza: si no coincide,
+                <b>gana la balanza</b> y hay que decir por qu&eacute; no coincide.</li>
+            <li>Escribid las tres &aacute;reas: <b>piezas</b>, <b>recorte</b> y <b>sobrante</b>, y el
+                <b>aprovechamiento</b> en las dos versiones: contando el sobrante como residuo y
+                sin contarlo.</li>
+          </ol>
+          <h4>Segunda parte &middot; el inventario entero (10 min)</h4>
+          <p>Una tabla de cuatro columnas: <b>qu&eacute;</b>, <b>masa</b>, <b>fracci&oacute;n</b> y
+             <b>cu&aacute;ndo</b> (montaje, recurrente o final de vida). Todo lo que hay:</p>
+          <ul>
+            <li>Los recortes y el sobrante, pesados.</li>
+            <li>Los embalajes de lo que hab&eacute;is comprado, incluido el bl&iacute;ster del
+                sensor y la bolsa de los cables. <b>Guardadlos desde hoy</b>, que si no, no hay
+                manera.</li>
+            <li>El aparato entero, pieza a pieza, para el d&iacute;a que se desmonte.</li>
+            <li>Las pilas de un a&ntilde;o, si va con pilas. Ese n&uacute;mero <b>se calcula</b>
+                con la autonom&iacute;a de la sesi&oacute;n 4, no se estima.</li>
+          </ul>
+          <h4>Tercera parte &middot; la comprobaci&oacute;n (3 min)</h4>
+          <p>Id al pasillo y mirad <b>qu&eacute; contenedores hay de verdad en vuestro centro</b>.
+             Para cada fracci&oacute;n de vuestra tabla, escribid d&oacute;nde ir&iacute;a. Si
+             alguna <b>no tiene contenedor</b> en el centro, eso tambi&eacute;n se escribe: es un
+             hallazgo, no un fallo vuestro.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La plancha, medida y pesada, con las tres &aacute;reas <b>(2 puntos)</b>.</li>
+            <li>El aprovechamiento, en las dos versiones, con la divisi&oacute;n escrita
+                <b>(2 puntos)</b>.</li>
+            <li>La tabla tiene las cuatro columnas y ninguna fila se deja la fracci&oacute;n
+                <b>(2 puntos)</b>.</li>
+            <li>Los tres momentos est&aacute;n separados y no sumados <b>(1 punto)</b>.</li>
+            <li>Las pilas del a&ntilde;o salen de la autonom&iacute;a calculada <b>(1 punto)</b>.</li>
+            <li>Los contenedores del centro, comprobados a pie <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S5_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Qu&eacute; diferencia hay entre un recorte y un sobrante, y por '
+                     u'qu&eacute; importa tanto?',
+                     u'<p>El <b>recorte</b> son los trozos que quedan entre las piezas: no sirven '
+                     u'para nada. El <b>sobrante</b> es la parte de la plancha que no has tocado, y '
+                     u'eso <b>es una plancha m&aacute;s peque&ntilde;a</b>. Importa porque el '
+                     u'sobrante suele ser mucha m&aacute;s masa que el recorte, y que sea residuo o '
+                     u'material <b>no depende del material</b>: depende de si alguien lo guarda. Es '
+                     u'la decisi&oacute;n m&aacute;s barata de toda la unidad.</p>') + pregunta(
+          u'&iquest;Por qu&eacute; no se pueden sumar en un solo n&uacute;mero el residuo del '
+          u'montaje, el de las pilas y el del aparato al final?',
+          u'<p>Porque los tres tienen <b>plazos distintos</b>: el del montaje pasa una vez, el de '
+          u'las pilas se multiplica por los a&ntilde;os que viva y el del final depende de '
+          u'cu&aacute;ntos a&ntilde;os aguante. Sumarlos da un n&uacute;mero que no se puede '
+          u'comparar con nada. Es el <b>l&iacute;mite de la cuenta</b> de la sesi&oacute;n 1: un '
+          u'total sin l&iacute;mite declarado no vale.</p>') + pregunta(
+          u'El contrachapado es madera. &iquest;Por qu&eacute; no va al contenedor azul?',
+          u'<p>Porque el azul es de <b>papel y cart&oacute;n</b>, y el contrachapado lleva '
+          u'<b>cola y barniz</b>, que estropean la pasta. Va a resto o a punto limpio. Es el error '
+          u'm&aacute;s frecuente del taller, y se comete <b>de buena fe</b>: por eso hay que mirar '
+          u'las reglas y no deducirlas.</p>') + pregunta(
+          u'Si baj&aacute;is la corriente media de 50 mA a 0,5 mA, &iquest;qu&eacute; le pasa al '
+          u'residuo de pilas, y por qu&eacute;?',
+          u'<p>Se divide por <b>cien</b>. La autonom&iacute;a es capacidad dividida entre corriente '
+          u'media (sesi&oacute;n 4), as&iacute; que cien veces menos corriente son cien veces '
+          u'menos pilas al a&ntilde;o. Y f&iacute;jate en lo que eso significa: <b>ese residuo se '
+          u'arregla escribiendo c&oacute;digo</b>, no separando mejor la basura.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya ten&eacute;is la masa de todo, y con eso se acaba lo que puede decir una balanza. Porque
+        dentro de ese mont&oacute;n hay una pieza de <b>25 gramos</b> &mdash;la placa&mdash; que
+        ma&ntilde;ana va a resultar ser <b>casi toda la huella del proyecto</b>, y eso la balanza no
+        lo dice ni lo puede decir. <b>La masa no ordena por da&ntilde;o.</b> Para ordenar por
+        da&ntilde;o hay que juntar todo lo de estas cinco sesiones en una sola cuenta y contestar de
+        una vez a la pregunta que os van a hacer: <b>&iquest;compensa?</b>
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 6 - La cuenta completa
+# ==========================================================================
+S6_RETO = u'''
+      <p>Abrid las libretas de las cinco sesiones. Ten&eacute;is esto, y no est&aacute; mal:</p>
+      <div class="aviso">
+        <span class="n-tag">Lo que ya sab&eacute;is de vuestro aparato</span>
+        <ul style="margin:8px 0 0">
+          <li>Los <b>megajulios</b> de sus piezas y sus <b>kilos de CO&#8322;e</b>, de la unidad 3.</li>
+          <li>Su <b>corriente media</b> y su <b>autonom&iacute;a</b>, medidas en la sesi&oacute;n 4.</li>
+          <li>Su <b>residuo</b>, pesado ayer, con su fracci&oacute;n y su plazo.</li>
+          <li>Y un <b>hueco</b>: la huella de la electr&oacute;nica, que en la unidad 3 se
+              qued&oacute; escrito como <b>&laquo;no calculado&raquo;</b>.</li>
+        </ul>
+      </div>
+      <p>Y viene alguien de otro grupo y os hace <b>una</b> pregunta, que es la &uacute;nica que se
+         hace fuera de clase:</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        <b>&iquest;Compensa?</b> Dos minutos, por escrito, con los n&uacute;meros que ya
+        ten&eacute;is.
+      </div>
+      <p>El primer intento es siempre el mismo: <b>sumarlo todo</b>. Y se rompe a los treinta
+         segundos, porque los n&uacute;meros est&aacute;n en <b>megajulios</b>, en <b>gramos</b>, en
+         <b>miliamperios</b> y en <b>litros</b>, y eso no se suma.</p>
+      <p>El segundo intento es pasarlo todo a kilos de CO&#8322;. Mejor, pero tampoco contesta. Si os
+         sale <b>6,2 kg</b>, &iquest;eso es mucho o es poco?</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>Un n&uacute;mero solo <b>no compensa nada</b>. Compensar es siempre <b>frente a
+           algo</b>: frente a lo que pasar&iacute;a si vuestro aparato no existiera.</p>
+        <p>As&iacute; que la pregunta de verdad es: <b>&iquest;qu&eacute; cuesta hoy hacer eso a
+           mano?</b> Y despu&eacute;s: &iquest;cu&aacute;nto tiene que vivir vuestro aparato para
+           devolver lo que ha costado fabricarlo?</p>
+      </div>
+'''
+
+S6_TEORIA = u'''
+      <div class="copiar">
+        <h4>La cuenta completa, y no tiene m&aacute;s</h4>
+        <p style="font-family:var(--f-m);font-size:15px">
+           lo que cuesta el aparato = <b>fabricarlo + lo que come cada a&ntilde;o &times;
+           a&ntilde;os</b></p>
+        <p style="font-family:var(--f-m);font-size:15px">
+           lo que se ahorra = <b>lo que costaba hacerlo a mano &times; a&ntilde;os</b></p>
+        <p>Fabricarlo se paga <b>una vez</b>; lo dem&aacute;s se multiplica por el tiempo. Por eso
+           las dos cosas no se pueden meter en el mismo saco, y por eso la respuesta no es un
+           n&uacute;mero: es <b>un momento</b>.</p>
+        <p><b>Punto de equilibrio</b>: el momento en el que lo ahorrado alcanza a lo que
+           cost&oacute; fabricarlo.</p>
+        <p style="font-family:var(--f-m);font-size:15px">
+           punto de equilibrio = <b>fabricaci&oacute;n / (ahorro al a&ntilde;o &minus; lo que come
+           al a&ntilde;o)</b></p>
+        <p>Y hay dos respuestas que tambi&eacute;n son respuestas: que el punto de equilibrio caiga
+           <b>despu&eacute;s</b> de que el aparato se muera, y que <b>no exista</b>, porque lo que
+           ahorra es menos que lo que come.</p>
+      </div>
+      <div class="copiar">
+        <h4>La unidad funcional: contra qu&eacute; se compara</h4>
+        <p>Antes de dividir nada hay que escribir <b>qu&eacute; trabajo</b> hace el aparato, con su
+           cantidad y su plazo. No &laquo;regar&raquo;: <b>mantener viva una planta del aula durante
+           un curso</b>. No &laquo;avisar&raquo;: <b>que el aula se ventile entre clases durante los
+           meses de calefacci&oacute;n</b>.</p>
+        <p>Con esa frase escrita, la alternativa aparece sola: es <b>la misma frase sin vuestro
+           aparato</b>.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>De <b>megajulios a kilos de CO&#8322;</b> ya sab&eacute;is pasar, y aqu&iacute; no se
+           vuelve a explicar: est&aacute; entero en la
+           <a href="../tema3/"><b>unidad 3</b></a>, sesiones 2 y 6. La cuenta es
+           kg de CO&#8322;e por kilo = <b>kWh el&eacute;ctricos por kilo &times; factor de la red +
+           la parte que no sale del enchufe</b>, y all&iacute; est&aacute; explicado por qu&eacute;
+           no hay un factor &uacute;nico y por qu&eacute; el mismo kilo de aluminio va de 4 a 18
+           kilos de CO&#8322;.</p>
+        <p>La escena de hoy usa <b>exactamente esa tabla</b>, sin tocar una cifra: contrachapado 0,5
+           kWh/kg y 0,55; acero 0,5 y 1,90; PLA 3,0 y 1,20; PET 1,2 y 1,90. Lo nuevo de hoy no es la
+           conversi&oacute;n: es <b>sumarlo todo y compararlo con algo</b>.</p>
+      </div>
+
+      <h3>El hueco que no se rellena</h3>
+      <p>Falta la electr&oacute;nica, y ah&iacute; hay que tomar una decisi&oacute;n que dice
+         m&aacute;s de vosotros que todo el resto de la cuenta.</p>
+      <p>No hay dato publicado de la huella de una placa como la vuestra. Y de los megajulios
+         <b>no se saca con un factor</b>, que es justo lo que la unidad 3 demostr&oacute; que no se
+         puede hacer. Hay tres salidas y solo una vale:</p>
+      <div class="copiar">
+        <h4>Qu&eacute; se hace con un dato que no existe</h4>
+        <ol>
+          <li><b>Poner un n&uacute;mero cualquiera.</b> Queda mejor la memoria y es <b>mentir</b>,
+              aunque el n&uacute;mero sea razonable. Un n&uacute;mero sin etiqueta se lee como
+              medido.</li>
+          <li><b>Dejarlo fuera.</b> Queda una cuenta limpia y <b>falsa por abajo</b>: lo que no
+              cuentas no desaparece.</li>
+          <li><b>Meterlo como una banda</b>, entre el valor m&aacute;s bajo y el m&aacute;s alto que
+              se puedan defender, y <b>arrastrar la banda hasta el final</b>. El resultado deja de
+              ser una raya y pasa a ser una franja.</li>
+        </ol>
+        <p>La tercera es la buena, y tiene un efecto que sorprende: <b>el ancho de la franja es un
+           resultado</b>. Si la franja es estrecha, da igual lo que valga ese dato y pod&eacute;is
+           seguir. Si la franja se come la decisi&oacute;n, ya sab&eacute;is <b>exactamente</b> lo
+           que hay que ir a medir.</p>
+      </div>
+''' + CUENTA + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Pulsa <b>Ventilaci&oacute;n</b>. El punto de equilibrio cae <b>entre dos meses y menos
+              de dos a&ntilde;os</b>, y el aparato dura cinco: compensa <b>por lo bajo y por lo
+              alto</b>. Ah&iacute; la banda no molesta, y por eso esa conclusi&oacute;n se puede
+              defender entera.</li>
+          <li>Pulsa <b>L&aacute;mpara</b>. Por lo bajo compensa a los dos a&ntilde;os y medio; por lo
+              alto, pasados los veinte. Con una vida de cinco a&ntilde;os, <b>la banda se come la
+              decisi&oacute;n</b>: la respuesta honrada es &laquo;depende de un dato que no
+              tengo&raquo;, y decir cu&aacute;l.</li>
+          <li>Pulsa <b>Riego</b>. <b>No compensa en CO&#8322;, y no por poco</b>: regar a mano no
+              cuesta casi nada, as&iacute; que no hay nada que devolver. La escena calcula al
+              rev&eacute;s cu&aacute;nto tendr&iacute;a que costar regar a mano para que
+              compensara, y sale una barbaridad.</li>
+          <li>Ahora mueve el mando de la <b>alternativa</b> hasta cero en la variante que
+              est&eacute;s mirando. La l&iacute;nea verde se tumba y el punto de equilibrio se va a
+              nunca. <b>Todo el ahorro cuelga de una suposici&oacute;n sobre personas</b>, no sobre
+              electr&oacute;nica.</li>
+          <li>Y cambia el <b>l&iacute;mite</b>: de contar la plancha entera a contar solo la pieza.
+              El mismo aparato, el mismo d&iacute;a, dos n&uacute;meros distintos. Ninguno de los
+              dos es trampa; lo que ser&iacute;a trampa es <b>no decir cu&aacute;l has usado</b>.</li>
+          <li>Prueba el <b>avi&oacute;n</b>. El transporte es lo que m&aacute;s se nombra y aqu&iacute;
+              apenas mueve la barra, porque vuestras piezas pesan gramos. <b>Nombrar mucho una cosa
+              no la hace grande.</b></li>
+        </ul>
+      </div>
+
+      <h3>Que el riego no compense en CO&#8322; no hunde vuestro proyecto</h3>
+      <div class="copiar">
+        <h4>Un n&uacute;mero es un indicador, no un veredicto</h4>
+        <p>El riego autom&aacute;tico ahorra poqu&iacute;simo CO&#8322; y poqu&iacute;simos litros.
+           Lo que hace es otra cosa, y es la buena: <b>la planta sigue viva despu&eacute;s de nueve
+           d&iacute;as sin nadie</b>. Eso no se mide en kilos de CO&#8322; ni en litros, y
+           <b>tambi&eacute;n se declara</b>, en su propia l&iacute;nea y con su propia medida
+           (&iquest;sigui&oacute; viva? &iquest;cu&aacute;ntos d&iacute;as aguant&oacute;?).</p>
+        <p>Lo que no vale es <b>disfrazarlo</b>: contar el CO&#8322; porque sale bien y callarlo
+           cuando sale mal. Una memoria que dice &laquo;en CO&#8322; no compensa, y lo que aporta es
+           esto otro&raquo; es <b>mucho m&aacute;s dif&iacute;cil de rebatir</b> que una que se
+           inventa un ahorro.</p>
+      </div>
+''' + foto('c8-fotovoltaica.jpg',
+           u'Dos paneles solares fotovoltaicos azules instalados sobre el tejado de tejas &aacute;rabes '
+           u'de una casa, con m&aacute;s tejados y el pueblo al fondo',
+           u'Dos paneles fotovoltaicos en un tejado. Son <b>el ejemplo cl&aacute;sico</b> de la '
+           u'cuenta de hoy, porque con ellos la pregunta se hizo famosa: fabricar un panel gasta '
+           u'energ&iacute;a, as&iacute; que <b>&iquest;cu&aacute;nto tarda en devolver la que '
+           u'cost&oacute; hacerlo?</b> Durante a&ntilde;os se dijo que nunca, y hoy los estudios de '
+           u'ciclo de vida dan <b>uno o dos a&ntilde;os</b> en el sur de Europa, frente a los '
+           u'veinticinco o treinta que el fabricante garantiza. &#9888; Esa cifra es un <b>orden de '
+           u'magnitud</b> tomado de la bibliograf&iacute;a, no una medida nuestra, y depende mucho '
+           u'de d&oacute;nde se fabric&oacute; el panel y de d&oacute;nde se instala: es la '
+           u'sesi&oacute;n 6 de la unidad 3 otra vez. Lo que hay que quedarse no es el n&uacute;mero: '
+           u'es que <b>la pregunta existe</b> y que se contesta dividiendo.',
+           u'Marta Victoria', u'CC BY-SA 4.0',
+           u'https://commons.wikimedia.org/wiki/File:Rooftop_solar_photovoltaic_installation.jpg') + u'''
+''' + video('video-c8-retorno', 'Cg_9mGWrsKA',
+            u'C&aacute;lculo sencillo de retorno de inversi&oacute;n con placas solares',
+            u'Canal: Carlos Codina &middot; Tu Asesor Energ&eacute;tico',
+            u'La misma cuenta de hoy, hecha en <b>euros</b> en vez de en kilos de CO&#8322;: '
+            u'inversi&oacute;n dividida entre ahorro al a&ntilde;o. F&iacute;jate en dos cosas. Una: '
+            u'es la <b>misma divisi&oacute;n</b> y da <b>otro n&uacute;mero</b>, porque la unidad es '
+            u'otra. Dos: quien lo cuenta <b>vende asesor&iacute;a energ&eacute;tica</b>, as&iacute; '
+            u'que interesa mirar qu&eacute; mete y qu&eacute; deja fuera de su cuenta. Es el '
+            u'l&iacute;mite de la sesi&oacute;n 1, aplicado a un v&iacute;deo de YouTube.')
+
+S6_PRACTICA = ficha(
+    u'Actividad 6 &middot; &iquest;Compensa? La cuenta entera de vuestro aparato',
+    [u'6.1', u'6.2', u'D.1', u'D.3'], u'Grupos de tres &middot; 20 min', u'''
+          <h4>Primera parte &middot; la unidad funcional y la alternativa (4 min)</h4>
+          <p>Dos frases escritas, y ninguna vale si no lleva cantidad y plazo:</p>
+          <ul>
+            <li><b>Qu&eacute; hace</b> vuestro aparato: la tarea, cu&aacute;nta y durante
+                cu&aacute;nto tiempo.</li>
+            <li><b>Qu&eacute; pasa si no existe</b>: la misma frase sin &eacute;l, y qui&eacute;n lo
+                hace entonces.</li>
+          </ul>
+          <h4>Segunda parte &middot; la cuenta (10 min)</h4>
+          <ol class="pasos">
+            <li><b>Fabricarlo</b>: masa de cada pieza por el factor de la unidad 3, con la fuente al
+                lado. Declarad el <b>l&iacute;mite</b>: plancha entera o solo la pieza.</li>
+            <li>La <b>electr&oacute;nica</b>, como banda. Escribid los dos extremos que
+                defend&eacute;is y <b>por qu&eacute;</b> esos.</li>
+            <li><b>Lo que come al a&ntilde;o</b>, de la corriente media de la sesi&oacute;n 4.</li>
+            <li><b>Lo que ahorra al a&ntilde;o</b>, y aqu&iacute; lo importante: escribid aparte la
+                <b>suposici&oacute;n sobre personas</b> de la que cuelga (cu&aacute;ntas veces se
+                riega a mano, a cu&aacute;ntos avisos se hace caso, cu&aacute;ntas horas se dejaba
+                encendida).</li>
+            <li>El <b>punto de equilibrio</b>, con sus dos extremos, y la respuesta: s&iacute;, no, o
+                depende.</li>
+          </ol>
+          <h4>Tercera parte &middot; la otra columna (6 min)</h4>
+          <p>Vuestro aparato hace algo que <b>no cabe en kilos de CO&#8322;</b>. Escribid
+             qu&eacute; es y, sobre todo, <b>c&oacute;mo se mide</b>: &iquest;con qu&eacute; se
+             comprueba que la planta sigui&oacute; viva, que el aula se ventil&oacute;, que se
+             estudi&oacute; con luz suficiente? Una frase que otro grupo pueda comprobar.</p>
+          <p>Y si os sale que <b>no compensa</b>, escribidlo tal cual y a&ntilde;adid qu&eacute;
+             tendr&iacute;a que pasar para que compensara. <b>Eso puntúa igual</b>.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La unidad funcional lleva tarea, cantidad y plazo <b>(1 punto)</b>.</li>
+            <li>La alternativa est&aacute; escrita y es la misma tarea <b>(1 punto)</b>.</li>
+            <li>La fabricaci&oacute;n, pieza a pieza, con factor y fuente <b>(2 puntos)</b>.</li>
+            <li>El l&iacute;mite de la cuenta, declarado <b>(1 punto)</b>.</li>
+            <li>La electr&oacute;nica va como banda y la banda llega hasta el resultado
+                <b>(2 puntos)</b>.</li>
+            <li>El punto de equilibrio, con su divisi&oacute;n escrita <b>(1 punto)</b>.</li>
+            <li>La suposici&oacute;n sobre personas, escrita aparte <b>(1 punto)</b>.</li>
+            <li>La otra columna, con una manera concreta de comprobarla <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+S6_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Por qu&eacute; un total en kilos de CO&#8322;, &eacute;l solo, no '
+                     u'contesta a &laquo;&iquest;compensa?&raquo;?',
+                     u'<p>Porque compensar es siempre <b>frente a algo</b>. 6,2 kg no es mucho ni '
+                     u'poco hasta que dices qu&eacute; pasar&iacute;a sin el aparato. Hace falta la '
+                     u'<b>alternativa</b> &mdash;la misma tarea hecha a mano&mdash; y hace falta el '
+                     u'<b>tiempo</b>, porque fabricarlo se paga una vez y el ahorro se cobra todos '
+                     u'los a&ntilde;os.</p>') + pregunta(
+          u'Fabricarlo cuesta entre 2,2 y 20,2 kg y ahorra 12,1 kg al a&ntilde;o. &iquest;Cu&aacute;l '
+          u'es el punto de equilibrio, y qu&eacute; contestas?',
+          u'<p>2,2 / 12,1 = <b>0,18 a&ntilde;os</b> (unos dos meses) por lo bajo, y 20,2 / 12,1 = '
+          u'<b>1,7 a&ntilde;os</b> por lo alto. Como el aparato va a durar cinco, <b>compensa en los '
+          u'dos extremos</b>, y por eso puedes decir que s&iacute; sin matices. Si el extremo alto '
+          u'se pasara de los cinco a&ntilde;os, la respuesta tendr&iacute;a que ser '
+          u'&laquo;depende&raquo;.</p>') + pregunta(
+          u'No existe el dato de la huella de vuestra placa. &iquest;Qu&eacute; se hace?',
+          u'<p>Se mete como <b>banda</b>, con los dos extremos que puedas defender, y se arrastra la '
+          u'banda hasta el resultado. Ni inventar un n&uacute;mero (eso es mentir aunque el '
+          u'n&uacute;mero sea razonable) ni dejarlo fuera (eso es mentir por abajo). Y el '
+          u'<b>ancho de la franja es un resultado</b>: si te come la decisi&oacute;n, ya sabes '
+          u'qu&eacute; hay que ir a medir.</p>') + pregunta(
+          u'Vuestro riego no compensa en CO&#8322;. &iquest;Eso significa que el proyecto est&aacute; '
+          u'mal?',
+          u'<p>No. Significa que <b>ese indicador no es el suyo</b>. Regar a mano casi no cuesta '
+          u'CO&#8322;, as&iacute; que no hay nada que devolver. Lo que aporta el riego es que la '
+          u'planta sigue viva sin nadie nueve d&iacute;as, y eso se declara <b>en su propia '
+          u'columna y con su propia medida</b>. Lo que estar&iacute;a mal es contar el CO&#8322; '
+          u'cuando sale bien y callarlo cuando sale mal.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya ten&eacute;is el n&uacute;mero, y con la franja puesta. Lo siguiente que hace todo el
+        mundo es querer bajarlo, y ah&iacute; se cometen los dos errores de siempre: <b>afinar la
+        barra peque&ntilde;a</b> &mdash;que es el error de la sesi&oacute;n 1&mdash; y, peor,
+        <b>bajar el n&uacute;mero hasta que el aparato deja de hacer su trabajo</b> o deja de
+        servirle a alguien. Ma&ntilde;ana se redise&ntilde;a, pero con una regla: los requisitos se
+        escriben <b>antes</b>.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 7 - Redisenar con lo medido
+# ==========================================================================
+S7_RETO = u'''
+      <p>Ten&eacute;is el n&uacute;mero. Y lo primero que pasa cuando un grupo ve su propio
+         n&uacute;mero es que quiere bajarlo. En tres minutos salen cinco ideas, y las cinco suenan
+         bien:</p>
+      <div class="aviso">
+        <span class="n-tag">Las cinco de siempre</span>
+        <ol style="margin:8px 0 0">
+          <li>&laquo;Quitamos el LED ese que est&aacute; encendido todo el rato.&raquo;</li>
+          <li>&laquo;Ponemos la caja de aluminio, que queda mucho mejor.&raquo;</li>
+          <li>&laquo;Compramos los cables m&aacute;s cortos.&raquo;</li>
+          <li>&laquo;Que mida cada media hora en vez de cada segundo.&raquo;</li>
+          <li>&laquo;Le ponemos una pegatina de reciclado.&raquo;</li>
+        </ol>
+      </div>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        <b>Ordenadlas</b> por lo que bajar&iacute;an vuestro n&uacute;mero, de la que m&aacute;s a la
+        que menos. Dos minutos. Y despu&eacute;s, la pregunta que de verdad cuenta: <b>&iquest;cu&aacute;l
+        de las cinco rompe algo?</b>
+      </div>
+      <p>Lo que pasa al medirlas es, m&aacute;s o menos, esto. La <b>2</b> <b>sube</b> el
+         n&uacute;mero, y sube mucho. La <b>3</b> y la <b>5</b> no lo mueven: son <b>gramos</b> y
+         <b>ninguno</b>. La <b>4</b> baja bastante, pero en una l&aacute;mpara significa que tardas
+         media hora en tener luz, y entonces ya no es una l&aacute;mpara. Y la <b>1</b> baja de
+         verdad&hellip; y deja vuestro aviso con un solo canal, que es exactamente lo que
+         suspendisteis en la sesi&oacute;n 2.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>De cinco ideas razonables, <b>ninguna</b> era buena tal cual. Y no es mala suerte: es que
+           hab&eacute;is empezado por el sitio equivocado. Hab&eacute;is empezado por <b>qu&eacute;
+           cambiar</b>.</p>
+        <p>&iquest;Qu&eacute; habr&iacute;a que escribir <b>antes</b> de proponer un solo cambio?</p>
+      </div>
+      <p>Y hay una sexta idea que no sale nunca, que <b>no cuesta un c&eacute;ntimo</b> y que baja el
+         n&uacute;mero <b>cuatro o cinco veces m&aacute;s</b> que la mejor de las cinco: que el
+         curso que viene <b>otro grupo monte su proyecto con vuestra placa</b>. Ah&iacute; est&aacute;
+         casi toda vuestra huella, y se reparte entre tres cursos con solo devolverla.</p>
+      <p>Pero probad a hacerlo con la caja <b>pegada con silicona</b>. La escena de hoy no os va a
+         dejar marcar esa casilla, y os va a decir por qu&eacute;.</p>
+'''
+
+S7_TEORIA = u'''
+      <div class="copiar">
+        <h4>Los requisitos se escriben antes</h4>
+        <p><b>Requisito</b>: algo que el aparato tiene que seguir haciendo <b>pase lo que pase</b>.
+           Se escribe antes de tocar nada, en una frase que se pueda comprobar con un
+           s&iacute; o un no.</p>
+        <p>Sin esa lista, bajar el n&uacute;mero es trivial: <b>el aparato que menos CO&#8322;
+           emite es el que no existe</b>. Un redise&ntilde;o sin requisitos escritos no es un
+           redise&ntilde;o: es cambiar de proyecto y no decirlo.</p>
+      </div>
+      <div class="copiar">
+        <h4>Los cinco requisitos de este curso, y de d&oacute;nde sale cada uno</h4>
+        <ol>
+          <li><b>Reacciona a tiempo.</b> Que act&uacute;e dentro del plazo en que la cosa a&uacute;n
+              importa. Media hora no significa lo mismo en una maceta que en una l&aacute;mpara.</li>
+          <li><b>Avisa por dos canales.</b> Nada importante puede ir solo por la vista, ni solo por
+              un color. Es el <b>principio 4 de Mace</b>, de la sesi&oacute;n 2.</li>
+          <li><b>Aguanta los nueve d&iacute;as.</b> El plazo del reto de la sesi&oacute;n 4. Se
+              comprueba dividiendo, no opinando.</li>
+          <li><b>Se puede abrir y reprogramar.</b> Que otro grupo pueda entrar, cambiar una pieza y
+              volver a cargarle el programa. Sale de la unidad 3 y de la sesi&oacute;n 3.</li>
+          <li><b>Lo alcanza y lo usa cualquiera.</b> Entre 0,80 y 1,20 m de altura y 12 cm&sup2;
+              como m&iacute;nimo, art&iacute;culo 23.2.a de la <b>Orden TMA/851/2021</b>,
+              sesi&oacute;n 2.</li>
+        </ol>
+      </div>
+      <div class="copiar">
+        <h4>D&oacute;nde se redise&ntilde;a: donde est&aacute; el kilo</h4>
+        <p>Ya lo sab&eacute;is de dos sitios distintos y es la misma idea: los <b>&oacute;rdenes de
+           magnitud</b> de la sesi&oacute;n 1 y la <b>pieza que m&aacute;s come</b> de la
+           sesi&oacute;n 4. Aqu&iacute; se dice en una frase:</p>
+        <p style="font-family:var(--f-m);font-size:15px">Mira primero la barra grande. Si una cosa
+           pesa cien veces menos que otra, <b>afinarla no sirve de nada</b>.</p>
+        <p>Y para poder ordenar hace falta <b>un solo n&uacute;mero</b>. El bueno es este:</p>
+        <p style="font-family:var(--f-m);font-size:15px">kg de CO&#8322;e <b>por a&ntilde;o de
+           servicio</b> = fabricaci&oacute;n / a&ntilde;os + lo que come al a&ntilde;o &minus; lo
+           que ahorra al a&ntilde;o</p>
+        <p>Por a&ntilde;o de servicio, no en total: si no, <b>durar m&aacute;s parecer&iacute;a
+           peor</b>, y es justo al rev&eacute;s.</p>
+      </div>
+      <div class="copiar">
+        <h4>Todo cambio se paga con una de estas tres</h4>
+        <ul>
+          <li><b>Dinero.</b> La m&aacute;s f&aacute;cil de ver y casi nunca la importante.</li>
+          <li><b>Trabajo.</b> Horas vuestras, o de alguien que tiene que acordarse de algo cada
+              curso.</li>
+          <li><b>Prestaci&oacute;n perdida.</b> Algo que el aparato dejaba de hacer. Es la que no se
+              apunta, y es la que rompe requisitos.</li>
+        </ul>
+        <p>Un cambio del que decís que <b>no cuesta nada</b> suele ser un cambio que no
+           hab&eacute;is pensado. Buscadle el precio: si de verdad no lo tiene, entonces
+           <b>hacedlo ya</b>, porque esos son los mejores que hay.</p>
+      </div>
+''' + REDISENO + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Tal y como abre, sin tocar nada: vuestro aparato <b>funciona y suspende tres</b> de los
+              cinco requisitos. Funcionar y estar bien hecho no son lo mismo, y esa es media
+              unidad.</li>
+          <li>Pulsa <b>&laquo;marcar solo los que no cuestan dinero&raquo;</b>. Mira lo que baja el
+              n&uacute;mero y mira cu&aacute;ntos requisitos se ponen en verde. <b>Casi todo lo
+              bueno era gratis.</b></li>
+          <li>Marca <b>quitar el LED</b> a solas: el n&uacute;mero baja y el requisito de los dos
+              canales se pone <b>en rojo</b>. Ahora marca tambi&eacute;n <b>a&ntilde;adir
+              zumbador</b>: vuelve a verde y el n&uacute;mero casi no sube. Dos cambios que por
+              separado son discutibles y juntos son mejores que el original.</li>
+          <li>Intenta marcar <b>devolver la placa al armario</b> sin haber marcado antes lo de los
+              tornillos. La escena no te deja, y te dice por qu&eacute;: <b>no se saca una placa de
+              una caja pegada</b>. Ahora marca primero los tornillos y luego la placa, y mira la
+              barra: es <b>la m&aacute;s larga de toda la lista</b>, y las dos juntas cuestan cuatro
+              tornillos. <b>El mejor redise&ntilde;o de la unidad estaba escondido detr&aacute;s de
+              otro.</b></li>
+          <li>Marca <b>medir cada media hora</b> y ve cambiando de variante arriba. En el <b>riego</b>
+              no rompe nada; en la <b>l&aacute;mpara</b> y en el <b>aviso</b> se pone en rojo. <b>El
+              mismo cambio, tres veredictos</b>: por eso no se puede copiar el redise&ntilde;o de
+              otro grupo.</li>
+          <li>Marca <b>la pieza de aluminio</b>. Es la &uacute;nica barra roja de la lista: sube el
+              n&uacute;mero, y sube mucho, porque el aluminio son 186 MJ/kg y adem&aacute;s la misma
+              superficie <b>pesa seis veces m&aacute;s</b>. Es la propuesta que m&aacute;s se hace en
+              clase porque queda bien.</li>
+          <li>Y prueba <b>quitar el cable y llevarlo a pilas</b>. El requisito de los nueve
+              d&iacute;as se pone en rojo&hellip; salvo que antes hayas marcado <b>dormir de
+              verdad</b>. Ese sem&aacute;foro no est&aacute; escrito a mano: sale de dividir la
+              capacidad de la pila entre la corriente media que queda.</li>
+        </ul>
+      </div>
+
+      <h3>El cambio que no cuesta nada y que nadie hace</h3>
+''' + foto('c8-boton-peatonal.jpg',
+           u'Primer plano del pulsador de un paso de peatones australiano: un disco azul con una '
+           u'flecha en relieve apuntando hacia el cruce y, debajo, un bot&oacute;n redondo grande de '
+           u'metal, todo montado en un poste',
+           u'El pulsador de un paso de peatones en Australia. Es un cat&aacute;logo de la '
+           u'sesi&oacute;n 2 en un solo objeto, y merece mirarlo despacio. <b>La flecha va en '
+           u'relieve</b>: se lee con la vista y tambi&eacute;n con el dedo, y adem&aacute;s te dice '
+           u'<b>hacia d&oacute;nde</b> cruzas, que es informaci&oacute;n que un bot&oacute;n a secas '
+           u'no da. El bot&oacute;n es <b>grande y redondo</b>, de los que se accionan con el '
+           u'pu&ntilde;o o con el codo. Y lo que no se ve en una foto: estos aparatos <b>vibran</b> '
+           u'cuando toca cruzar y hacen un <b>tic</b> que se acelera. Cuatro canales &mdash;vista, '
+           u'tacto, o&iacute;do y vibraci&oacute;n&mdash; para una sola informaci&oacute;n. Nada de '
+           u'eso cuesta CO&#8322;: cuesta <b>haberlo pensado antes</b>.',
+           u'James Cridland', u'CC0 (dominio p&uacute;blico)',
+           u'https://commons.wikimedia.org/wiki/File:An_Australian_pedestrian_crossing_button.jpg',
+           alta=True) + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Hay una trampa en la escena de hoy y conviene decirla en voz alta. <b>Bajar el mando a
+           1,00 m y ponerlo de 40 mm no mueve la barra de CO&#8322; ni un mil&iacute;metro.</b> En un
+           gr&aacute;fico de kilos, ese cambio <b>no existe</b>.</p>
+        <p>Y es, probablemente, el m&aacute;s importante de los diez: es la diferencia entre que
+           vuestro aparato lo pueda usar alguien o no. Lo que se mide se mejora, s&iacute;; pero
+           tambi&eacute;n pasa lo otro, y es m&aacute;s peligroso: <b>lo que no tiene barra en el
+           gr&aacute;fico desaparece de la discusi&oacute;n</b>.</p>
+        <p>Por eso los cinco requisitos van <b>arriba y en sem&aacute;foro</b>, y no dentro del
+           n&uacute;mero. No son parte de la cuenta: son la <b>condici&oacute;n</b> para que la
+           cuenta signifique algo. Un aparato con un requisito en rojo no tiene un n&uacute;mero
+           malo: tiene un n&uacute;mero que <b>no viene al caso</b>, porque es el n&uacute;mero de
+           otro aparato.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Qu&eacute; <b>no</b> es esta sesi&oacute;n, para no repetir trabajo. Buscar ideas nuevas y
+           elegir entre ellas es de la <b>unidad 1</b>. Elegir el material con una matriz de
+           criterios en conflicto es de la <b>unidad 3</b>, sesi&oacute;n 3, y dise&ntilde;ar para
+           que la pieza vuelva en ciclo cerrado, de su sesi&oacute;n 5. Y el <b>dise&ntilde;o
+           universal</b> ya est&aacute; explicado en la sesi&oacute;n 2 de esta unidad.</p>
+        <p>Lo de hoy es lo que no se puede hacer sin haber medido antes: coger <b>vuestro</b>
+           n&uacute;mero, coger <b>vuestros</b> requisitos y decidir con los dos delante.</p>
+      </div>
+''' + video('video-c8-ecodiseno', '4VReody58_0',
+            u'&iquest;Qu&eacute; es el ecodise&ntilde;o y el dise&ntilde;o sostenible? No es lo mismo',
+            u'Canal: Dise&ntilde;o industrial y estrat&eacute;gico con Irene Ramos',
+            u'Una dise&ntilde;adora industrial contando por qu&eacute; el ecodise&ntilde;o no es '
+            u'poner materiales reciclados ni pintarlo de verde, sino decidir en el momento en que '
+            u'a&uacute;n se puede decidir. Es la misma idea de la rampa de la sesi&oacute;n 2, '
+            u'contada desde el otro lado.')
+
+S7_PRACTICA = ficha(
+    u'Actividad 7 &middot; El redise&ntilde;o de vuestro aparato, con lo medido',
+    [u'6.1', u'6.3', u'D.3', u'D.4'], u'Grupos de tres &middot; 20 min', u'''
+          <h4>Primera parte &middot; los requisitos, primero (5 min)</h4>
+          <p><b>Antes de proponer un solo cambio.</b> Escribid <b>cinco requisitos</b> de vuestro
+             aparato, cada uno en una frase que se conteste con s&iacute; o con no, y al lado
+             <b>c&oacute;mo se comprueba</b>. Ejemplo de los buenos: &laquo;riega antes de que la
+             humedad baje del 30 %; se comprueba con la sonda y un cron&oacute;metro&raquo;. Ejemplo
+             de los malos: &laquo;que funcione bien&raquo;.</p>
+          <p>Marcad cu&aacute;les cumpl&iacute;s <b>hoy</b>. Si cumpl&iacute;s los cinco, revisadlos:
+             probablemente son demasiado f&aacute;ciles.</p>
+          <h4>Segunda parte &middot; cinco cambios, medidos (10 min)</h4>
+          <p>Una tabla de cinco filas y cuatro columnas:</p>
+          <ul>
+            <li><b>El cambio</b>, en una frase.</li>
+            <li><b>Cu&aacute;nto baja</b> el n&uacute;mero, en kg de CO&#8322;e por a&ntilde;o de
+                servicio, <b>calculado con la escena</b> cambiando solo esa cosa.</li>
+            <li><b>Qu&eacute; cuesta</b>: dinero, trabajo o prestaci&oacute;n perdida. Las tres
+                columnas no valen en blanco.</li>
+            <li><b>Qu&eacute; requisito toca</b>, y si lo arregla o lo rompe.</li>
+          </ul>
+          <p>Ordenadlas por lo que bajan. Y luego mirad la lista y contestad a esto por escrito:
+             <b>&iquest;el que m&aacute;s baja es el que elegir&iacute;ais?</b> Casi nunca lo es, y
+             el motivo es lo que se eval&uacute;a.</p>
+          <h4>Tercera parte &middot; el redise&ntilde;o que present&aacute;is (5 min)</h4>
+          <p>Elegid <b>tres</b> cambios que os dejen los <b>cinco requisitos en verde</b> y
+             escribid el n&uacute;mero final. Y una &uacute;ltima l&iacute;nea, que es la que
+             separa un redise&ntilde;o de una lista de deseos: <b>&iquest;cu&aacute;l de los tres
+             pod&eacute;is hacer de verdad esta semana</b>, con el material que hay en el taller?</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cinco requisitos se contestan con s&iacute; o no y dicen c&oacute;mo se
+                comprueban <b>(2 puntos)</b>.</li>
+            <li>Los cinco cambios, con su bajada calculada uno a uno <b>(2 puntos)</b>.</li>
+            <li>Cada cambio dice <b>qu&eacute; cuesta</b>, no solo qu&eacute; gana <b>(2 puntos)</b>.</li>
+            <li>Se identifica alg&uacute;n cambio que <b>rompe</b> un requisito <b>(1 punto)</b>.</li>
+            <li>La justificaci&oacute;n de por qu&eacute; el elegido no es el que m&aacute;s baja
+                <b>(2 puntos)</b>.</li>
+            <li>El redise&ntilde;o final deja los cinco en verde y dice qu&eacute; es viable esta
+                semana <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+S7_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Por qu&eacute; hay que escribir los requisitos <b>antes</b> de '
+                     u'proponer cambios?',
+                     u'<p>Porque sin ellos bajar el n&uacute;mero es trivial: <b>el aparato que '
+                     u'menos emite es el que no existe</b>. Los requisitos son la '
+                     u'<b>condici&oacute;n</b> para que la cuenta signifique algo. Un aparato con un '
+                     u'requisito en rojo no tiene un n&uacute;mero malo: tiene el n&uacute;mero de '
+                     u'<b>otro aparato</b>.</p>') + pregunta(
+          u'&iquest;Por qu&eacute; se mide en kg de CO&#8322;e <b>por a&ntilde;o de servicio</b> y '
+          u'no en kilos totales?',
+          u'<p>Porque en total, <b>durar m&aacute;s parecer&iacute;a peor</b>: cuanto m&aacute;s '
+          u'vive, m&aacute;s come y m&aacute;s suma. Y es justo al rev&eacute;s: la '
+          u'fabricaci&oacute;n se paga una vez y se reparte entre los a&ntilde;os. Es la misma idea '
+          u'de la sesi&oacute;n 3 con la bater&iacute;a del m&oacute;vil.</p>') + pregunta(
+          u'&laquo;Medir cada media hora en vez de cada segundo.&raquo; &iquest;Es un buen cambio?',
+          u'<p><b>Depende de la variante</b>, y esa es toda la respuesta. En un <b>riego</b> no pasa '
+          u'nada: la tierra tarda horas en secarse. En una <b>l&aacute;mpara</b> significa esperar '
+          u'media hora a que se encienda, o sea que ya no es una l&aacute;mpara, y en el aviso de '
+          u'ventilaci&oacute;n media hora es m&aacute;s que el hueco entre clases. El mismo cambio, '
+          u'tres veredictos: por eso no se copia el redise&ntilde;o de otro grupo.</p>') + pregunta(
+          u'Bajar el pulsador a 1,00 m no baja ni un gramo de CO&#8322;. &iquest;Entonces por '
+          u'qu&eacute; est&aacute; en la lista de redise&ntilde;os?',
+          u'<p>Porque el gr&aacute;fico no es el mundo. Ese cambio no tiene barra, no cuesta dinero y '
+          u'es la diferencia entre que alguien pueda usar vuestro aparato o no. <b>Lo que no tiene '
+          u'barra en el gr&aacute;fico desaparece de la discusi&oacute;n</b>, y por eso los '
+          u'requisitos van en sem&aacute;foro aparte y no dentro del n&uacute;mero.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya ten&eacute;is un n&uacute;mero, una franja y un redise&ntilde;o que no rompe nada. Falta
+        lo &uacute;nico que hace que todo esto sirva para algo fuera de clase: <b>que aguante cuando
+        alguien lo ataque</b>. Y os van a atacar con seis frases que ya se saben, empezando por la
+        peor de todas: <b>&laquo;eso te lo has inventado&raquo;</b>.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 8 - Defender el impacto
+# ==========================================================================
+S8_RETO = u'''
+      <p>&Uacute;ltima sesi&oacute;n. Est&aacute;is delante de la clase con vuestro n&uacute;mero
+         escrito en la pizarra, y del fondo sale la frase que sale siempre:</p>
+      <div class="aviso">
+        <span class="n-tag">La objeci&oacute;n</span>
+        &laquo;<b>&iquest;De d&oacute;nde sacas que son 6,2 kilos? Eso te lo has inventado.</b>&raquo;
+      </div>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Tres grupos contestan estas tres cosas. <b>&iquest;Cu&aacute;l se sostiene?</b> Un minuto,
+        y hay que decir <b>por qu&eacute;</b> las otras dos no.
+        <ol style="margin:8px 0 0">
+          <li>&laquo;No me lo he inventado, lo pone en internet.&raquo;</li>
+          <li>&laquo;Lo hemos calculado nosotros con la escena de clase.&raquo;</li>
+          <li>&laquo;Entre 3,8 y 22 kilos. La franja es tan ancha porque la placa no tiene dato
+              publicado; el resto est&aacute; pesado con la balanza del taller y convertido con la
+              tabla de la unidad 3, red espa&ntilde;ola de 2024. Si crees que la placa pesa
+              m&aacute;s, dime cu&aacute;nto y lo recalculo ahora.&raquo;</li>
+        </ol>
+      </div>
+      <p>La <b>1</b> no vale porque &laquo;internet&raquo; no es nadie. La <b>2</b> parece mejor y es
+         casi igual de mala: dice <b>qui&eacute;n</b> hizo la cuenta, que es lo que menos importa, y
+         no dice <b>con qu&eacute;</b>. La <b>3</b> es la &uacute;nica que se sostiene, y f&iacute;jate
+         en que <b>no es m&aacute;s segura</b>: es m&aacute;s insegura, a prop&oacute;sito, y
+         adem&aacute;s <b>invita a que le lleven la contraria</b>.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>Esa &uacute;ltima frase &mdash;&laquo;dime cu&aacute;nto y lo recalculo ahora&raquo;&mdash;
+           parece una cortes&iacute;a y es la t&eacute;cnica entera de la sesi&oacute;n.</p>
+        <p>&iquest;Qu&eacute; ha hecho el grupo 3 que los otros dos no pueden hacer? &iquest;Y
+           qu&eacute; hace falta tener preparado para poder decir eso?</p>
+      </div>
+'''
+
+S8_TEORIA = u'''
+      <div class="copiar">
+        <h4>Una cifra defendible lleva cinco cosas</h4>
+        <ol>
+          <li>El <b>n&uacute;mero</b> y su <b>unidad</b>.</li>
+          <li>El <b>l&iacute;mite</b>: qu&eacute; entra en la cuenta y qu&eacute; no (sesi&oacute;n 1).</li>
+          <li>La <b>etiqueta</b> de cada dato: medido, de fuente o estimado, y con qu&eacute;
+              (unidad 3).</li>
+          <li>El <b>rango</b>, no la raya: entre cu&aacute;nto y cu&aacute;nto (sesi&oacute;n 6).</li>
+          <li>Y <b>de qu&eacute; depende</b>: cu&aacute;l es el dato que, si cambia, te cambia la
+              conclusi&oacute;n.</li>
+        </ol>
+        <p>Lo raro de esta lista es que <b>cuatro de las cinco son formas de reconocer que no lo
+           sabes todo</b>. Una cifra defendible no es una cifra segura: es una cifra que <b>dice
+           d&oacute;nde es fr&aacute;gil</b>, y por eso no se la puede tirar nadie por ah&iacute;.</p>
+      </div>
+      <div class="copiar">
+        <h4>C&oacute;mo se contesta a una objeci&oacute;n: no se discute, se recalcula</h4>
+        <ol>
+          <li><b>Convi&eacute;rtela en un n&uacute;mero.</b> &laquo;Eso no dura tanto&raquo; no se
+              puede contestar; &laquo;&iquest;y si durara dos a&ntilde;os en vez de cinco?&raquo;,
+              s&iacute;. Pregunta: <b>&iquest;qu&eacute; valor pondr&iacute;as t&uacute;?</b></li>
+          <li><b>M&eacute;tela en la cuenta</b>, delante de quien la ha dicho, dejando todo lo
+              dem&aacute;s quieto.</li>
+          <li><b>Mira si tu conclusi&oacute;n aguanta.</b> No si el n&uacute;mero cambia &mdash;va a
+              cambiar&mdash;: si la <b>frase</b> que defiendes sigue siendo verdad.</li>
+          <li><b>Di el resultado, salga como salga.</b></li>
+        </ol>
+        <p>Esto invierte la discusi&oacute;n. Si tu conclusi&oacute;n sobrevive, acabas de
+           reforzarla <b>con la objeci&oacute;n del otro</b>, que vale mucho m&aacute;s que
+           defenderla t&uacute;. Y si no sobrevive, te acabas de ahorrar defender en p&uacute;blico
+           algo que no se sosten&iacute;a.</p>
+      </div>
+      <div class="copiar">
+        <h4>Las tres respuestas honradas, y ninguna es &laquo;s&iacute;&raquo; a secas</h4>
+        <ul>
+          <li><b>&laquo;Aguanta.&raquo;</b> Lo he metido en la cuenta y la conclusi&oacute;n no se
+              mueve. Aqu&iacute; va el n&uacute;mero nuevo.</li>
+          <li><b>&laquo;Depende, y depende de esto.&raquo;</b> Con tu valor sale una cosa y con el
+              m&iacute;o otra. Para saber cu&aacute;l es, hay que medir <b>este</b> dato.</li>
+          <li><b>&laquo;No lo s&eacute;.&raquo;</b> Y detr&aacute;s, sin pausa: <b>qu&eacute;
+              har&iacute;a falta para saberlo</b> y <b>cu&aacute;nto puede mover el resultado</b>.
+              Un hueco declarado es informaci&oacute;n; un hueco rellenado es ruido.</li>
+        </ul>
+        <p>Lo que <b>no</b> es una respuesta: subir la voz, repetir el n&uacute;mero m&aacute;s
+           despacio, o decir &laquo;bueno, es una estimaci&oacute;n&raquo; y cambiar de tema.</p>
+      </div>
+''' + OBJECIONES + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Con el <b>aviso de ventilaci&oacute;n</b> tal y como abre, la conclusi&oacute;n aguanta
+              algo m&aacute;s de la mitad de las combinaciones. Ni se sostiene sola ni se cae: lo
+              honrado es decir <b>en qu&eacute; casos s&iacute; y en cu&aacute;les no</b>, y eso es
+              exactamente lo que ense&ntilde;a la cuadr&iacute;cula.</li>
+          <li>Marca <b>&laquo;eso solo ahorra si la gente hace caso&raquo;</b> y mira. Es, casi
+              siempre, la que m&aacute;s manda, y f&iacute;jate en lo que eso significa: <b>el dato
+              m&aacute;s fr&aacute;gil de vuestro proyecto no es electr&oacute;nico</b>. Es una
+              suposici&oacute;n sobre personas.</li>
+          <li>Cambia a <b>L&aacute;mpara</b>. La cuadr&iacute;cula se pone <b>roja entera</b>: esa
+              frase <b>no se puede defender de ninguna manera</b>, y se cae sola, sin que nadie
+              objete nada. Ahora marca abajo <b>reutilizar la placa el curso que viene</b> y sube los
+              a&ntilde;os: vuelven a salir cuadritos verdes. Lee bien lo que acaba de pasar, porque
+              es el cierre de la unidad: <b>la conclusi&oacute;n no se ha salvado argumentando
+              mejor, se ha salvado cambiando el aparato</b>. Con la casilla marcada, casi toda
+              vuestra huella pasa a repartirse entre tres cursos.</li>
+          <li>Baja los <b>a&ntilde;os que dices que va a durar</b>. Toda la cuadr&iacute;cula se
+              vuelve roja. Prometer menos vida es prometer menos, pero prometer m&aacute;s de la
+              que puedes defender es lo que te tumba.</li>
+          <li>Y mira la frase de abajo: la escena no solo dice cu&aacute;ntas aguantan, dice
+              <b>cu&aacute;l es la objeci&oacute;n que m&aacute;s manda</b>, comparando las parejas
+              de combinaciones que solo se diferencian en ella. <b>Ese es el dato que hay que ir a
+              medir</b>, y no los otros cinco.</li>
+        </ul>
+      </div>
+
+      <h3>Esto no es una costumbre de instituto</h3>
+''' + foto('c8-poster.jpg',
+           u'Sala de un congreso llena de paneles con p&oacute;steres cient&iacute;ficos en '
+           u'caballetes, con gente de pie delante de ellos leyendo, preguntando y conversando en '
+           u'grupos peque&ntilde;os',
+           u'Una <b>sesi&oacute;n de p&oacute;steres</b> de un congreso cient&iacute;fico. Cada '
+           u'persona de la foto est&aacute; haciendo exactamente lo de hoy: se ha puesto <b>al lado '
+           u'de su n&uacute;mero</b> para que cualquiera venga a discut&iacute;rselo. No es un '
+           u'escaparate, es lo contrario: el formato existe <b>para que te lleven la contraria en '
+           u'la cara</b>, y por eso los p&oacute;steres llevan las barras de error, el tama&ntilde;o '
+           u'de la muestra y el m&eacute;todo, que es lo primero que va a mirar quien se acerque. '
+           u'Un cient&iacute;fico que contestara &laquo;lo pone en internet&raquo; durar&iacute;a '
+           u'unos diez segundos.',
+           u'David Eppstein', u'CC BY-SA 3.0',
+           u'https://commons.wikimedia.org/wiki/File:GD09_Poster_Session.jpg') + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Y desde hace muy poco tampoco es solo una costumbre: es <b>ley</b>. La <b>Directiva (UE)
+           2024/825</b>, sobre el empoderamiento de los consumidores para la transici&oacute;n
+           ecol&oacute;gica, prohíbe en toda la Uni&oacute;n dos cosas que hasta ahora se
+           hac&iacute;an con toda tranquilidad:</p>
+        <ul>
+          <li>Las <b>afirmaciones ambientales gen&eacute;ricas</b> &mdash;&laquo;ecol&oacute;gico&raquo;,
+              &laquo;respetuoso con el medio ambiente&raquo;, &laquo;verde&raquo;&mdash; <b>sin
+              poder demostrarlas</b>.</li>
+          <li>Decir que un producto es <b>&laquo;neutro en carbono&raquo;</b> bas&aacute;ndose en
+              <b>compensar</b> emisiones en otro sitio en vez de reducirlas.</li>
+        </ul>
+        <p>Fijaos en lo que eso quiere decir: <b>lo que vuestro grupo 1 contest&oacute; en el reto de
+           hoy es hoy una pr&aacute;ctica comercial desleal</b> si la hace una empresa. Los plazos de
+           esta directiva se est&aacute;n cumpliendo justo ahora, en 2026, as&iacute; que es de las
+           pocas normas de este curso que pod&eacute;is ver entrar en vigor.</p>
+        <p>&#9888; Comprobad las fechas exactas en el <b>DOUE</b> antes de citarlas en un trabajo:
+           las directivas se traspasan a la ley espa&ntilde;ola y ah&iacute; los plazos se mueven.
+           Es el consejo de la sesi&oacute;n 1: un dato sin fuente y sin fecha no se puede usar.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Qu&eacute; <b>no</b> es esta sesi&oacute;n. <b>Contar vuestro proyecto</b> &mdash;el
+           gui&oacute;n, los tres minutos, el ensayo, c&oacute;mo se mira al p&uacute;blico&mdash; es
+           de la <b>unidad 1</b>. Escribir la <b>memoria de impacto</b>, con sus nueve apartados, es
+           de la <b>unidad 3</b>, sesi&oacute;n 8. Y <b>entregarle el aparato a alguien</b> que lo va
+           a usar de verdad es de la <b>unidad 9</b>.</p>
+        <p>Lo de hoy es solo una cosa, y no cabe en ninguna de esas tres: <b>sostener los
+           n&uacute;meros cuando alguien los empuja</b>.</p>
+      </div>
+''' + video('video-c8-greenwashing', 'v1w23sxy5Ro',
+            u'Greenwashing e informaci&oacute;n ambiental en productos',
+            u'Canal: GIZ M&eacute;xico',
+            u'Qu&eacute; es una afirmaci&oacute;n ambiental que no se puede comprobar, contado con '
+            u'ejemplos de producto. Es el reto de hoy visto desde el otro lado: no c&oacute;mo se '
+            u'defiende un n&uacute;mero, sino c&oacute;mo se detecta a quien no puede defender el '
+            u'suyo.')
+
+S8_PRACTICA = ficha(
+    u'Actividad 8 &middot; La defensa, grupo contra grupo',
+    [u'6.2', u'6.3', u'D.2', u'D.4'], u'Dos grupos enfrentados &middot; 20 min', u'''
+          <h4>C&oacute;mo se monta (1 min)</h4>
+          <p>Los grupos se emparejan. Primero <b>A defiende y B objeta</b> durante siete minutos, y
+             luego se cambia. El profesor cronometra y no interviene.</p>
+          <h4>Primera parte &middot; la tesis (2 min)</h4>
+          <p>Quien defiende escribe en la pizarra <b>una sola frase</b>, la que va a sostener. Tiene
+             que llevar n&uacute;mero, unidad y plazo. Por ejemplo: <i>&laquo;nuestro aviso de
+             ventilaci&oacute;n devuelve lo que cost&oacute; fabricarlo en menos de dos
+             a&ntilde;os&raquo;</i>. Si no se puede escribir en una frase, es que
+             a&uacute;n no sab&eacute;is qu&eacute; defend&eacute;is.</p>
+          <h4>Segunda parte &middot; seis objeciones (7 min)</h4>
+          <p>El grupo que objeta tiene que usar <b>al menos cuatro</b> de estas seis, y puede
+             inventarse las que quiera:</p>
+          <ol class="pasos">
+            <li>&laquo;El peso de la electr&oacute;nica te lo has inventado.&raquo;</li>
+            <li>&laquo;Eso no dura lo que dices.&raquo;</li>
+            <li>&laquo;Solo ahorra si la gente hace caso.&raquo;</li>
+            <li>&laquo;No has contado todo lo que hubo que comprar.&raquo;</li>
+            <li>&laquo;Si la red se limpia, tu ahorro se cae.&raquo;</li>
+            <li>&laquo;&iquest;Y el transporte?&raquo;</li>
+          </ol>
+          <p>Reglas: quien objeta tiene que <b>proponer un n&uacute;mero</b> (no vale &laquo;eso es
+             poco&raquo;: hay que decir cu&aacute;nto). Quien defiende tiene que <b>recalcular
+             delante</b>, con la escena, y decir el resultado <b>salga como salga</b>. Est&aacute;
+             prohibido decir &laquo;bueno, es una estimaci&oacute;n&raquo; y pasar a otra cosa.</p>
+          <h4>Tercera parte &middot; el veredicto (2 min)</h4>
+          <p>El que defiende escribe la <b>frase definitiva</b>, que puede que ya no sea la del
+             principio, y <b>cu&aacute;l fue la objeci&oacute;n que m&aacute;s le dol&iacute;a</b>.
+             Esa &uacute;ltima l&iacute;nea es el resultado de la sesi&oacute;n: es lo que
+             tendr&iacute;ais que ir a medir si hubiera una semana m&aacute;s.</p>
+          <h4>C&oacute;mo se eval&uacute;a <span style="font-weight:400">(los dos papeles puntúan)</span></h4>
+          <ul>
+            <li>La tesis lleva n&uacute;mero, unidad y plazo <b>(1 punto)</b>.</li>
+            <li>Cada objeci&oacute;n se convierte en un n&uacute;mero antes de contestarla
+                <b>(2 puntos)</b>.</li>
+            <li>Se recalcula delante, no se discute <b>(2 puntos)</b>.</li>
+            <li>Se usa alguna vez la respuesta &laquo;no lo s&eacute;&raquo; <b>completa</b>: con
+                qu&eacute; har&iacute;a falta y cu&aacute;nto mueve <b>(2 puntos)</b>.</li>
+            <li>Se dice alg&uacute;n resultado que <b>va en contra</b> de quien defiende
+                <b>(1 punto)</b>.</li>
+            <li>La frase definitiva es defendible con lo que se ha visto <b>(1 punto)</b>.</li>
+            <li>Como grupo que objeta: las objeciones son concretas y con n&uacute;mero
+                <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
 PREGUNTAS_TEST = [
     dict(p=u'&iquest;Cu&aacute;l es la cuenta de una huella de carbono?',
          op=[u'Cantidad &times; factor de emisi&oacute;n.',
@@ -1199,6 +2217,199 @@ S4_CIERRE = u'''
 '''
 
 
+# --------------------------------------------------------------------------
+# El test de la sesion 8: la unidad ENTERA.
+# Identificador distinto del de la S4 ('c8'): si se repitiera, los dos tests
+# compartirian los id y los name de las opciones y dejarian de funcionar los
+# dos. Aqui es 'c8b'.
+# --------------------------------------------------------------------------
+PREGUNTAS_TEST_B = [
+    dict(p=u'Te dan un n&uacute;mero de huella de carbono sin nada m&aacute;s. &iquest;Qu&eacute; '
+           u'es lo primero que hay que preguntar?',
+         op=[u'Qui&eacute;n lo ha calculado.',
+             u'D&oacute;nde empieza y d&oacute;nde acaba la cuenta: el l&iacute;mite declarado.',
+             u'Si est&aacute; en kilos o en toneladas.'],
+         ok=1,
+         por=u'Un n&uacute;mero sin l&iacute;mite declarado <b>no se puede comparar con ning&uacute;n '
+             u'otro</b>, y casi todas las discusiones sobre esto son dos personas comparando dos '
+             u'cuentas con l&iacute;mites distintos. Es la sesi&oacute;n 1, y vuelve en la 6 con la '
+             u'plancha entera o solo la pieza.'),
+    dict(p=u'&iquest;Por qu&eacute; una rampa no se puede a&ntilde;adir al final?',
+         op=[u'Porque queda fea y nadie la usa.',
+             u'Porque la longitud sale de dividir el desnivel entre la pendiente, y para cuando el '
+             u'escal&oacute;n existe ya no hay metros de pasillo donde ponerla.',
+             u'Porque la norma prohíbe a&ntilde;adir rampas a un edificio terminado.'],
+         ok=1,
+         por=u'18 cm al 8 % son 2,25 m de rampa, m&aacute;s 1,50 m libres en cada punta: '
+             u'<b>5,25 m</b>. La diferencia entre accesibilidad y dise&ntilde;o universal no es de '
+             u'intenci&oacute;n, es de <b>cu&aacute;ndo</b>.'),
+    dict(p=u'Un port&aacute;til guardado y apagado diez a&ntilde;os tiene la bater&iacute;a '
+           u'inservible. &iquest;Qu&eacute; demuestra eso?',
+         op=[u'Que la obsolescencia programada afecta hasta a los aparatos apagados.',
+             u'Que hay un l&iacute;mite t&eacute;cnico de verdad, y que no todo lo que se estropea '
+             u'es un fraude.',
+             u'Que el fabricante puso un temporizador dentro.'],
+         ok=1,
+         por=u'Nadie ha hecho nada: es <b>qu&iacute;mica</b>. Lo que s&iacute; es una '
+             u'decisi&oacute;n de alguien es que la bater&iacute;a vaya <b>pegada</b> en vez de '
+             u'puesta con un clip. Las tres preguntas de la sesi&oacute;n 3 sirven para separar una '
+             u'cosa de la otra.'),
+    dict(p=u'Un montaje come 45 mA despierto y est&aacute; despierto 200 ms de cada minuto. '
+           u'Durmiendo se queda en 0,05 mA. &iquest;Corriente media?',
+         op=[u'22,5 mA, la mitad.', u'0,20 mA.', u'45 mA: dormir no cambia el consumo.'],
+         ok=1,
+         por=u'45 &times; (0,2/60) + 0,05 &times; el resto = 0,15 + 0,05 = <b>0,20 mA</b>. La media '
+             u'va <b>pesada por el tiempo</b>. Y ojo: eso solo pasa si la placa se duerme de '
+             u'verdad, cosa que un Arduino Uno no hace.'),
+    dict(p=u'De una plancha de 1.220 &times; 610 sac&aacute;is piezas por valor de 60 g y no se '
+           u'toca el 70 % de la plancha. &iquest;Qu&eacute; es ese 70 %?',
+         op=[u'Recorte: residuo, no hay nada que hacer.',
+             u'Sobrante: es residuo o es material seg&uacute;n si alguien lo guarda.',
+             u'No es nada, porque no lo hab&eacute;is comprado vosotros.'],
+         ok=1,
+         por=u'<b>Recorte</b> son los trozos que quedan entre las piezas y no sirven para nada; '
+             u'<b>sobrante</b> es la parte que ni se ha tocado, o sea <b>una plancha m&aacute;s '
+             u'peque&ntilde;a</b>. Que sea una cosa o la otra no depende del material: depende de '
+             u'lo que hag&aacute;is los diez minutos siguientes a cortar.'),
+    dict(p=u'&iquest;Por qu&eacute; el contrachapado no va al contenedor azul?',
+         op=[u'Porque el azul solo admite papel y cart&oacute;n, y el contrachapado lleva cola y '
+             u'barniz que estropean la pasta.',
+             u'Porque la madera se composta y va al marr&oacute;n.',
+             u'Porque va al amarillo, con los envases.'],
+         ok=0,
+         por=u'Es el error m&aacute;s frecuente del taller y se comete de buena fe: la madera '
+             u'&laquo;es como el papel&raquo;. Va a resto o a punto limpio. Las reglas de '
+             u'fracciones se miran, no se deducen.'),
+    dict(p=u'Pes&aacute;is el residuo entero del proyecto. &iquest;Qu&eacute; os dice esa masa '
+           u'sobre cu&aacute;l hace m&aacute;s da&ntilde;o?',
+         op=[u'Que el mont&oacute;n m&aacute;s pesado es el que m&aacute;s da&ntilde;o hace.',
+             u'Nada por s&iacute; sola: la balanza mide masa, y hay que a&ntilde;adir a qu&eacute; '
+             u'fracci&oacute;n va cada cosa y qu&eacute; lleva dentro.',
+             u'Que todo el da&ntilde;o est&aacute; en el RAEE, porque es lo &uacute;nico '
+             u'peligroso.'],
+         ok=1,
+         por=u'Una balanza <b>no ordena por da&ntilde;o</b>. El RAEE lleva cobre, esta&ntilde;o, '
+             u'algo de oro y a veces litio, y por eso el <b>Real Decreto 110/2015</b> lo saca de '
+             u'la basura com&uacute;n pese lo que pese. Y dentro del RAEE hay una pieza de 25 g '
+             u'&mdash;la placa&mdash; que en la sesi&oacute;n 6 resulta ser casi toda la huella.'),
+    dict(p=u'Fabricar vuestro aparato cuesta entre 2 y 20 kg de CO&#8322;e y ahorra 12 kg al '
+           u'a&ntilde;o. Va a durar cinco a&ntilde;os. &iquest;Compensa?',
+         op=[u'S&iacute;, y sin matices: hasta por el extremo malo de la banda se cruza antes del '
+             u'segundo a&ntilde;o.',
+             u'No se puede saber, porque la electr&oacute;nica no tiene dato.',
+             u'Solo si dura m&aacute;s de diez a&ntilde;os.'],
+         ok=0,
+         por=u'20 / 12 = 1,7 a&ntilde;os por lo alto y 2/12 = dos meses por lo bajo: los <b>dos '
+             u'extremos</b> caen dentro de los cinco a&ntilde;os. Cuando la banda entera est&aacute; '
+             u'del mismo lado de la decisi&oacute;n, la banda <b>deja de importar</b>.'),
+    dict(p=u'No existe el dato de la huella de vuestra placa. &iquest;Qu&eacute; se hace con '
+           u'&eacute;l?',
+         op=[u'Se pone un valor razonable, que para eso es una estimaci&oacute;n.',
+             u'Se deja fuera de la cuenta y se dice que no se ha contado.',
+             u'Se mete como una banda entre dos extremos defendibles y la banda se arrastra hasta '
+             u'el resultado.'],
+         ok=2,
+         por=u'Inventarlo es mentir aunque el n&uacute;mero sea razonable, porque <b>un n&uacute;mero '
+             u'sin etiqueta se lee como medido</b>; dejarlo fuera es mentir por abajo. Y el '
+             u'<b>ancho de la franja es un resultado</b>: si te come la decisi&oacute;n, ya sabes '
+             u'qu&eacute; hay que ir a medir.'),
+    dict(p=u'Vuestro riego no compensa en CO&#8322; frente a regar a mano. &iquest;Qu&eacute; se '
+           u'escribe en la memoria?',
+         op=[u'Nada: se cuenta el ahorro de agua, que ese s&iacute; sale bien.',
+             u'Que en CO&#8322; no compensa, y en otra columna lo que s&iacute; aporta, con una '
+             u'manera concreta de comprobarlo.',
+             u'Que compensa, porque a la larga todo aparato eficiente compensa.'],
+         ok=1,
+         por=u'Un n&uacute;mero es un indicador, no un veredicto. Lo que hace el riego &mdash;que la '
+             u'planta siga viva nueve d&iacute;as sin nadie&mdash; <b>tambi&eacute;n se declara</b>, '
+             u'con su propia medida. Lo que no vale es contar el indicador cuando sale bien y '
+             u'callarlo cuando sale mal.'),
+    dict(p=u'&iquest;Por qu&eacute; el impacto de un redise&ntilde;o se mide en kg de CO&#8322;e '
+           u'<b>por a&ntilde;o de servicio</b> y no en total?',
+         op=[u'Porque el total sale un n&uacute;mero demasiado grande.',
+             u'Porque en total durar m&aacute;s parecer&iacute;a peor, y es al rev&eacute;s: la '
+             u'fabricaci&oacute;n se paga una vez y se reparte entre los a&ntilde;os.',
+             u'Porque es lo que exige la Orden TMA/851/2021.'],
+         ok=1,
+         por=u'Es la misma idea de la bater&iacute;a de la sesi&oacute;n 3: con el doble de '
+             u'a&ntilde;os, la mitad de huella al a&ntilde;o. Si midieras el total, alargar la vida '
+             u'de un aparato saldr&iacute;a penalizado.'),
+    dict(p=u'&laquo;Quitamos el LED que est&aacute; siempre encendido.&raquo; Baja el consumo. '
+           u'&iquest;Es un buen redise&ntilde;o?',
+         op=[u'S&iacute;: baja el n&uacute;mero y no cuesta dinero.',
+             u'Depende de si deja el aviso con un solo canal, porque eso rompe un requisito que se '
+             u'escribi&oacute; antes.',
+             u'No, porque un LED consume muy poco y no vale la pena.'],
+         ok=1,
+         por=u'Los requisitos se escriben <b>antes</b> de proponer cambios: si no, bajar el '
+             u'n&uacute;mero es trivial, porque <b>el aparato que menos emite es el que no '
+             u'existe</b>. Con un zumbador al lado, el mismo cambio pasa a ser bueno.'),
+    dict(p=u'Alguien te dice &laquo;eso no dura cinco a&ntilde;os&raquo;. &iquest;C&oacute;mo se '
+           u'contesta?',
+         op=[u'Explicando otra vez por qu&eacute; va a durar cinco a&ntilde;os.',
+             u'Pidi&eacute;ndole un n&uacute;mero, meti&eacute;ndolo en la cuenta delante de '
+             u'&eacute;l y diciendo si tu conclusi&oacute;n aguanta, salga como salga.',
+             u'Diciendo que es una estimaci&oacute;n y pasando al siguiente punto.'],
+         ok=1,
+         por=u'No se discute: <b>se recalcula</b>. Si la conclusi&oacute;n sobrevive, la acabas de '
+             u'reforzar con la objeci&oacute;n del otro; si no sobrevive, te has ahorrado defender '
+             u'en p&uacute;blico algo que no se sosten&iacute;a.'),
+    dict(p=u'&iquest;Qu&eacute; tiene de bueno decir &laquo;entre 3,8 y 22 kg&raquo; en vez de '
+           u'&laquo;6,2 kg&raquo;?',
+         op=[u'Nada: es menos preciso y queda peor.',
+             u'Que dice d&oacute;nde es fr&aacute;gil la cifra, y por eso no se la puede tirar '
+             u'nadie por ah&iacute;.',
+             u'Que as&iacute; siempre aciertas, porque el valor bueno cae dentro.'],
+         ok=1,
+         por=u'Una cifra defendible <b>no es una cifra segura</b>: cuatro de sus cinco partes '
+             u'&mdash;l&iacute;mite, etiqueta, rango y de qu&eacute; depende&mdash; son formas de '
+             u'reconocer lo que no sabes. La tercera opci&oacute;n es trampa: un rango tan ancho '
+             u'que siempre acierta tampoco sirve para decidir.'),
+]
+
+S8_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Qu&eacute; cinco cosas lleva una cifra que se puede defender?',
+                     u'<p><b>N&uacute;mero y unidad</b>, el <b>l&iacute;mite</b> de la cuenta, la '
+                     u'<b>etiqueta</b> de cada dato (medido, de fuente o estimado), el '
+                     u'<b>rango</b> en vez de la raya, y <b>de qu&eacute; depende</b>. Cuatro de '
+                     u'las cinco son maneras de reconocer lo que no sabes, y por eso funcionan.</p>'
+                     ) + pregunta(
+          u'&iquest;Por qu&eacute; &laquo;lo hemos calculado nosotros&raquo; es una mala respuesta?',
+          u'<p>Porque dice <b>qui&eacute;n</b> hizo la cuenta, que es lo que menos importa, y no '
+          u'dice <b>con qu&eacute;</b>: ni el l&iacute;mite, ni la procedencia de cada dato, ni el '
+          u'rango. No permite a nadie repetirla, y una cifra que nadie puede repetir no se puede '
+          u'comprobar ni, por lo tanto, defender.</p>') + pregunta(
+          u'Metes una objeci&oacute;n en la cuenta y el n&uacute;mero cambia mucho. '
+          u'&iquest;Has perdido la discusi&oacute;n?',
+          u'<p>No necesariamente: lo que hay que mirar no es si el <b>n&uacute;mero</b> cambia '
+          u'&mdash;va a cambiar&mdash;, es si la <b>frase que defiendes</b> sigue siendo verdad. '
+          u'Puede pasar de 6 a 15 kg y seguir compensando antes de los cinco a&ntilde;os. Y si la '
+          u'frase se cae, entonces la respuesta correcta es <b>cambiar la frase</b>, no defenderla '
+          u'm&aacute;s alto.</p>') + pregunta(
+          u'De seis objeciones, la escena dice cu&aacute;l manda. &iquest;Para qu&eacute; sirve eso '
+          u'exactamente?',
+          u'<p>Para saber <b>qu&eacute; hay que ir a medir</b>. Si una sola objeci&oacute;n tumba tu '
+          u'conclusi&oacute;n en la mitad de los casos y las otras cinco casi no la mueven, el '
+          u'trabajo que falta es medir <b>ese</b> dato y no discutir los otros. Ordenar por lo que '
+          u'mueve cada dato es lo mismo que hicisteis en la unidad 3, usado aqu&iacute; para decidir '
+          u'en qu&eacute; se gasta el tiempo que queda.</p>') + u'''
+      </ol>
+''' + test('c8b', u'Toda la unidad, de la primera sesi&oacute;n a la octava', PREGUNTAS_TEST_B) + u'''
+      <div class="nota">
+        <span class="n-tag">Con esto se cierra la unidad</span>
+        Empezamos con dos preguntas inc&oacute;modas: <b>&iquest;funciona para todo el mundo?</b> y
+        <b>&iquest;a qu&eacute; coste para los dem&aacute;s?</b> Ahora las dos tienen respuesta, y
+        ninguna de las dos es un adjetivo: son una franja de kilos, cinco sem&aacute;foros y un
+        recuento de en cu&aacute;ntas hip&oacute;tesis aguanta lo que dec&iacute;s.
+        <p style="margin:10px 0 0">Queda una &uacute;ltima cosa, y es de la <b>unidad 9</b>:
+        vuestro aparato no se queda en el taller. Se lo va a quedar <b>alguien</b> &mdash;el
+        conserje, el aula de al lado, un vecino del barrio&mdash;, y a partir de ese d&iacute;a los
+        n&uacute;meros que hab&eacute;is defendido esta semana dejan de ser un ejercicio.</p>
+      </div>
+'''
+
+
 # ==========================================================================
 # La unidad
 # ==========================================================================
@@ -1221,6 +2432,29 @@ S4 = (bloque('00', u'Reto inicial &middot; 10 min', S4_RETO) +
       bloque('01', u'Teor&iacute;a &middot; 25 min', S4_TEORIA) +
       bloque('02', u'Pr&aacute;ctica &middot; 15 min', S4_PRACTICA) +
       bloque('03', u'Cierre y test &middot; 10 min', S4_CIERRE))
+
+# DATOS no dibuja nada: deja en window.C8B el modelo del proyecto y LA cuenta
+# que usan las cuatro escenas de la segunda mitad. Va aqui, en la primera de
+# ellas, porque es la primera que aparece en el documento.
+S5 = (bloque('00', u'Reto inicial &middot; 10 min', S5_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', DATOS + S5_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S5_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S5_CIERRE))
+
+S6 = (bloque('00', u'Reto inicial &middot; 10 min', S6_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S6_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S6_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S6_CIERRE))
+
+S7 = (bloque('00', u'Reto inicial &middot; 10 min', S7_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S7_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S7_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S7_CIERRE))
+
+S8 = (bloque('00', u'Reto inicial &middot; 10 min', S8_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 20 min', S8_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S8_PRACTICA) +
+      bloque('03', u'Cierre y test &middot; 10 min', S8_CIERRE))
 
 MIN = [(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')]
 
@@ -1250,10 +2484,32 @@ S = [
          minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
                    (u"10'", u'Cierre y test')],
          chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.3', u'D.3', u'D.4'], cuerpo=S4),
-    dict(corto=u'El residuo que dejas', pendiente=True),
-    dict(corto=u'La cuenta completa', pendiente=True),
-    dict(corto=u'Redise&ntilde;ar con lo medido', pendiente=True),
-    dict(corto=u'Defender el impacto', pendiente=True),
+    dict(corto=u'El residuo que dejas',
+         titulo=u'&iquest;Cu&aacute;nto residuo hab&eacute;is generado? P&eacute;salo.',
+         entradilla=u'El inventario de vuestro propio residuo, con balanza: el recorte, el '
+                    u'sobrante, las pilas y el aparato al final. Y la sorpresa: lo que menos pesa '
+                    u'es lo &uacute;nico que no puede ir a la papelera.',
+         minutado=MIN, chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'D.2', u'D.3'], cuerpo=S5),
+    dict(corto=u'La cuenta completa',
+         titulo=u'&iquest;Compensa? Un n&uacute;mero solo no contesta a eso.',
+         entradilla=u'Se suman las cinco sesiones en una cuenta, se compara con lo que se hace hoy '
+                    u'sin el aparato y sale un punto de equilibrio. Que es una banda, porque hay un '
+                    u'dato que no existe y no se rellena.',
+         minutado=MIN, chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'D.1', u'D.3'], cuerpo=S6),
+    dict(corto=u'Redise&ntilde;ar con lo medido',
+         titulo=u'El aparato que menos emite es el que no existe',
+         entradilla=u'Diez redise&ntilde;os medidos uno a uno contra cinco requisitos que se '
+                    u'escriben antes. Dos se anulan entre s&iacute;, uno depende de otro y el mejor '
+                    u'de todos no cuesta un c&eacute;ntimo.',
+         minutado=MIN, chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.3', u'D.3', u'D.4'], cuerpo=S7),
+    dict(corto=u'Defender el impacto',
+         titulo=u'&laquo;Eso te lo has inventado.&raquo; Contesta.',
+         entradilla=u'Seis objeciones reales metidas en la cuenta, una a una y luego las 64 '
+                    u'combinaciones. No se discute: se recalcula delante. Cierra la unidad con el '
+                    u'test de las ocho sesiones.',
+         minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'),
+                   (u"10'", u'Cierre y test')],
+         chips=[u'CE6 &middot; 6.2', u'CE6 &middot; 6.3', u'D.2', u'D.4'], cuerpo=S8),
 ]
 
 CFG = dict(
@@ -1265,8 +2521,10 @@ CFG = dict(
     tema=u'Tema 8', curso=u'4.&ordm; de ESO', materia=u'Tecnolog&iacute;a',
     desc=u'Tema 8 de Tecnolog&iacute;a de 4.&ordm; de ESO: huella de carbono con factores citados, '
          u'dise&ntilde;o universal con la norma delante, obsolescencia programada frente a '
-         u'l&iacute;mite t&eacute;cnico, y el presupuesto de energ&iacute;a de un proyecto con '
-         u'Arduino.',
+         u'l&iacute;mite t&eacute;cnico, el presupuesto de energ&iacute;a de un proyecto con '
+         u'Arduino y, en la segunda mitad, el impacto del proyecto del curso medido de verdad: '
+         u'inventario del residuo, cuenta completa con punto de equilibrio, redise&ntilde;o con '
+         u'requisitos y defensa de las cifras.',
     sesiones=S)
 
 
@@ -1275,6 +2533,7 @@ if __name__ == '__main__':
     if not os.path.isdir(destino):
         os.makedirs(destino)
     html = pagina(CFG)
+    html = html.replace(u'</style>', EXTRA_CSS + u'</style>', 1)
     if USA_AVATAR[0]:
         html = html.replace(u'</style>', avatar_flat.CSS + u'</style>', 1)
     io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8', newline='').write(html)

@@ -60,6 +60,31 @@ def filas(pag, sel):
     return dict(pares)
 
 
+def filas_sec(pag, sel):
+    """Igual que filas(), pero las tablas de las escenas 5 a 8 llevan ademas
+    cabeceras de seccion (.o5-h, .o6-h) que no son filas y hay que saltarse."""
+    pares = pag.eval_on_selector_all(
+        sel + ' > div',
+        "ds => ds.filter(d => d.querySelector('.et') && d.querySelector('.va'))"
+        "        .map(d => [d.querySelector('.et').innerText.trim(),"
+        "                   d.querySelector('.va').innerText.trim()])")
+    return dict(pares)
+
+
+def gramos(t):
+    """Lee una masa escrita como la escribe la escena y la devuelve SIEMPRE en
+    gramos. La escena pasa sola de g a kg al llegar a mil, y comparar 1,3
+    contra 1.300 fue el error de la primera version de estas comprobaciones."""
+    v = numeros(t)[0]
+    return v * 1000.0 if 'kg' in t else v
+
+
+def kilos(t):
+    """Lo mismo al reves: devuelve siempre kilos."""
+    v = numeros(t)[0]
+    return v / 1000.0 if ('kg' not in t and ' g' in t) else v
+
+
 def busca(d, trozo):
     for k, v in d.items():
         if trozo in k:
@@ -149,6 +174,277 @@ def periodo(v):
     return int(math.floor(10 ** (v / 36.0 * math.log10(3600)) + 0.5))
 
 
+# --------------------------------------------------------------------------
+# S5 a S8: el proyecto del curso.
+# Todo esto esta escrito OTRA VEZ a partir de la definicion (el empaquetado por
+# filas, las fracciones, la cuenta y el barrido de las 64 combinaciones), no
+# copiado del JavaScript de las escenas. Si los dos se equivocaran igual, esto
+# no servirian de nada.
+# --------------------------------------------------------------------------
+HOJA = (1220.0, 610.0)                 # media hoja de contrachapado, en mm
+KGM2 = {'contra': 1.80, 'alu': 10.8}   # kg por metro cuadrado de la plancha
+# (kWh electricos por kilo, kg de CO2 por kilo que no salen del enchufe)
+# Son los de la unidad 3: c3_escenas4.py, lista MATP.
+MATC = {'contra': (0.5, 0.55), 'acero': (0.5, 1.90), 'alu': (14.1, 4.00),
+        'pla': (3.0, 1.20), 'pet': (1.2, 1.90)}
+FRACM = {'contra': 'resto', 'acero': 'metal', 'alu': 'metal', 'pla': 'resto',
+         'pet': 'envases'}
+TRANSP = {'barco': 0.015, 'camion': 0.100, 'avion': 0.550}
+CAPILA = {'pila9': (500.0, 1, 45.0, 0.20), 'aa': (2500.0, 4, 23.0, 0.10)}
+
+VARP = {
+    'riego': dict(corte=[(200.0, 140.0), (70.0, 40.0), (70.0, 40.0)],
+                  otras=[('acero', 14.0), ('pet', 15.0)],
+                  elec=[25.0, 8.0, 25.0, 12.0], mA=85.0),
+    'aviso': dict(corte=[(120.0, 70.0), (70.0, 25.0), (70.0, 25.0)],
+                  otras=[('acero', 5.0), ('pla', 5.0)],
+                  elec=[25.0, 3.0, 2.0, 12.0], mA=62.0),
+    'lampara': dict(corte=[(160.0, 160.0), (300.0, 45.0), (90.0, 60.0)],
+                    otras=[('acero', 20.0), ('pla', 10.0)],
+                    elec=[25.0, 2.0, 15.0, 12.0], mA=60.0),
+}
+
+
+def base8(v='riego'):
+    """El estado de partida, el mismo que declara window.C8B.base()."""
+    return dict(v=v, grupos=6, fallos=0, guarda=False, botella=True, devuelve=False,
+                alimenta='pared', mA=None, limite='plancha', elecLo=2.0, elecHi=20.0,
+                vida=5, red=0.146, transporte='camion', km=1500.0, material=None,
+                eficacia=6, renov=2, diasCalef=80, horasMas=3, wLampara=8,
+                riegosMano=2, litrosMano=0.5, litrosAuto=0.12,
+                sinLED=False, zumbador=False, duerme=False, periodo=False,
+                pulsador=False, unMaterial=False)
+
+
+def con8(s, **cambios):
+    o = dict(s)
+    o.update(cambios)
+    return o
+
+
+def plancha8(s):
+    """Empaquetado por filas: se sierra una tira a lo ancho y de ahi salen las
+    piezas de esa altura. De aqui salen tres areas distintas."""
+    piezas = []
+    for _ in range(s['grupos']):
+        piezas.extend(VARP[s['v']]['corte'])
+    for i in range(s['fallos']):
+        piezas.append(VARP[s['v']]['corte'][i % len(VARP[s['v']]['corte'])])
+    piezas = sorted(piezas, key=lambda p: (-p[1], -p[0]))
+
+    AN, AL = HOJA
+    filas, x, y, alto, hoja = [], 0.0, 0.0, 0.0, 0
+    for an, al in piezas:
+        if x + an > AN:
+            if alto:
+                filas.append((alto, hoja))
+            y += alto
+            x, alto = 0.0, 0.0
+        if y + al > AL:
+            if alto:
+                filas.append((alto, hoja))
+            hoja += 1
+            x, y, alto = 0.0, 0.0, 0.0
+        x += an
+        alto = max(alto, al)
+    if alto:
+        filas.append((alto, hoja))
+
+    hojas = hoja + 1
+    a_piezas = sum(an * al for an, al in piezas)
+    a_filas = sum(AN * a for a, _ in filas)
+    a_hoja = AN * AL * hojas
+    a_recorte = max(0.0, a_filas - a_piezas)
+    a_sobrante = max(0.0, a_hoja - a_filas)
+
+    def g(mm2):
+        return mm2 / 1e6 * KGM2['contra'] * 1000.0
+
+    return dict(hojas=hojas, piezas=g(a_piezas), recorte=g(a_recorte),
+                sobrante=g(a_sobrante), hoja=g(a_hoja),
+                aprov=a_piezas / a_hoja,
+                aprov_util=a_piezas / (a_piezas + a_recorte) if a_piezas + a_recorte else 0.0)
+
+
+def corriente8(s):
+    mA = VARP[s['v']]['mA'] if s['mA'] is None else s['mA']
+    if s['sinLED']:
+        mA -= 15
+    if s['zumbador']:
+        mA += 2
+    if s['duerme']:
+        mA = mA * 0.02 + 0.5
+    if s['periodo']:
+        mA = mA * 0.35 + 0.3
+    return max(0.2, mA)
+
+
+def autonomia8(s):
+    mA = corriente8(s)
+    if s['alimenta'] == 'pared':
+        return dict(mA=mA, horas=float('inf'), pilas_ano=0.0, g_ano=0.0,
+                    co2_ano=mA / 1000.0 * 5 * 8.76 * s['red'])
+    mah, n, gram, co2 = CAPILA[s['alimenta']]
+    horas = mah / mA
+    juegos = 8760.0 / horas
+    return dict(mA=mA, horas=horas, pilas_ano=juegos * n, g_ano=juegos * n * gram,
+                co2_ano=juegos * n * co2)
+
+
+def residuo8(s):
+    P, n = plancha8(s), max(1, s['grupos'])
+    frac = {}
+
+    def suma(k, g):
+        frac[k] = frac.get(k, 0.0) + g
+
+    hoy = P['recorte'] / n + (0.0 if s['guarda'] else P['sobrante'] / n) + 6.0
+    suma('resto', P['recorte'] / n + (0.0 if s['guarda'] else P['sobrante'] / n) + 6.0)
+    suma('envases', 24.0)
+    hoy += 24.0
+    if not s['botella']:
+        suma('envases', 15.0)
+        hoy += 15.0
+    A = autonomia8(s)
+    if A['pilas_ano'] > 0:
+        suma('pilas', A['g_ano'])
+    fin = 0.0
+    for an, al in VARP[s['v']]['corte']:
+        g = an * al / 1e6 * KGM2['contra'] * 1000.0
+        suma('resto', g)
+        fin += g
+    for mat, g in VARP[s['v']]['otras']:
+        suma(FRACM[mat], g)
+        fin += g
+    for i, g in enumerate(VARP[s['v']]['elec']):
+        if s['devuelve'] and i == 0:
+            continue
+        suma('raee', g)
+        fin += g
+    if s['alimenta'] == 'pared':
+        suma('raee', 60.0)
+        fin += 60.0
+    todo = hoy + A['g_ano'] + fin
+    return dict(hoy=hoy, rec=A['g_ano'], fin=fin, todo=todo, frac=frac, P=P,
+                peligroso=frac.get('raee', 0.0) + frac.get('pilas', 0.0))
+
+
+def cuenta8(s):
+    P, n = plancha8(s), max(1, s['grupos'])
+    k = s['material'] or 'contra'
+    if s['limite'] == 'pieza':
+        g_mad = P['piezas'] / n
+    else:
+        g_mad = (P['piezas'] + P['recorte'] + (0.0 if s['guarda'] else P['sobrante'])) / n
+    if s['material'] and s['material'] in KGM2:
+        g_mad = g_mad * KGM2[s['material']] / KGM2['contra']
+    kwh, proc = MATC[k]
+    mat_kg = g_mad / 1000.0 * (kwh * s['red'] + proc)
+    masa = g_mad / 1000.0
+    kg_pet = 0.0
+    for mm, gg in VARP[s['v']]['otras']:
+        kg = gg / 1000.0
+        if mm == 'pet' and s['botella']:
+            kg = 0.0
+        if mm == 'pet':
+            kg_pet += kg
+        kwh2, proc2 = MATC[mm]
+        mat_kg += kg * (kwh2 * s['red'] + proc2)
+        masa += kg
+    masa += sum(VARP[s['v']]['elec']) / 1000.0
+
+    divide = 3.0 if s['devuelve'] else 1.0
+    e_lo, e_hi = s['elecLo'] / divide, s['elecHi'] / divide
+    co2_tra = masa / 1000.0 * s['km'] * TRANSP[s['transporte']]
+    co2_fin = kg_pet * 2.29
+    fab_lo = mat_kg + e_lo + co2_tra + co2_fin
+    fab_hi = mat_kg + e_hi + co2_tra + co2_fin
+
+    A = autonomia8(s)
+    uso_ano = A['co2_ano']
+    if s['v'] == 'aviso':
+        kwh_renov = 144 * 1.2 * 1005 * 12 / 3.6e6
+        ind = s['renov'] * kwh_renov / 0.90 * s['diasCalef'] * (s['eficacia'] / 10.0)
+        ahorro = ind * 0.202
+    elif s['v'] == 'lampara':
+        ind = s['horasMas'] * s['wLampara'] / 1000.0 * 365
+        ahorro = ind * s['red']
+    else:
+        ind = s['riegosMano'] * s['litrosMano'] * 52 - s['litrosAuto'] * 365
+        ahorro = ind * 0.0003
+    neto = ahorro - uso_ano
+    inf = float('inf')
+    return dict(mat_kg=mat_kg, e_lo=e_lo, e_hi=e_hi, co2_tra=co2_tra, co2_fin=co2_fin,
+                fab_lo=fab_lo, fab_hi=fab_hi, mA=A['mA'], uso_ano=uso_ano,
+                pilas_ano=A['pilas_ano'], ind=ind, ahorro=ahorro, neto=neto,
+                eq_lo=(fab_lo / neto if neto > 0 else inf),
+                eq_hi=(fab_hi / neto if neto > 0 else inf),
+                compensa=(neto > 0 and fab_hi / neto <= s['vida']))
+
+
+def por_ano8(s):
+    """El numero con el que se ordenan los redisenos de la S7."""
+    K = cuenta8(s)
+    return (K['fab_lo'] + K['fab_hi']) / 2 / s['vida'] + K['uso_ano'] - K['ahorro']
+
+
+def requisitos8(s):
+    A = autonomia8(s)
+    tarde = s['v'] in ('aviso', 'lampara')
+    return [not (s['periodo'] and tarde),
+            s['zumbador'],
+            s['alimenta'] == 'pared' or A['horas'] >= 9 * 24,
+            s['unMaterial'] and not s['duerme'],
+            s['pulsador']]
+
+
+# --- S8: las seis objeciones y el barrido de las 64 combinaciones ---
+def objecion8(s, k):
+    if k == 'elec':
+        return con8(s, elecLo=s['elecHi'])
+    if k == 'dura':
+        return con8(s, vida=max(1, int(round(s['vida'] / 2.0))))
+    if k == 'gente':
+        return con8(s, eficacia=2, horasMas=1, riegosMano=1)
+    if k == 'limite':
+        return con8(s, limite='plancha', guarda=False)
+    if k == 'red':
+        return con8(s, red=0.050)
+    if k == 'trans':
+        return con8(s, transporte='avion', km=9000.0)
+    raise AssertionError(k)
+
+
+OBJ8 = ['elec', 'dura', 'gente', 'limite', 'red', 'trans']
+
+
+def base_s8(v, vida, reutiliza=False):
+    """El aparato de la escena de la S8 ya lleva el rediseno de la S7."""
+    s = base8(v)
+    s.update(vida=vida, guarda=True, unMaterial=True, zumbador=True,
+             pulsador=True, devuelve=reutiliza)
+    return s
+
+
+def aguanta8(s):
+    K = cuenta8(s)
+    return K['neto'] > 0 and K['fab_hi'] / K['neto'] <= s['vida']
+
+
+def barrido8(v, vida, reutiliza=False):
+    vivos, celdas = 0, []
+    for i in range(1 << len(OBJ8)):
+        s = base_s8(v, vida, reutiliza)
+        for j, k in enumerate(OBJ8):
+            if i & (1 << j):
+                s = objecion8(s, k)
+        ok = aguanta8(s)
+        celdas.append(ok)
+        if ok:
+            vivos += 1
+    return dict(celdas=celdas, vivos=vivos, total=len(celdas))
+
+
 def s4(placa, pila, per, despierto_ms, duerme, encendidas):
     act, dor = PLACAS[placa]
     d = min(despierto_ms / 1000.0 / per, 1.0)
@@ -182,8 +478,10 @@ with sync_playwright() as p:
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 8, 'hay 8 botones de sesion (hay %d)' % len(bts))
     aptos = [b for b in bts if b.get_attribute('disabled') is None]
-    check(len(aptos) == 4, 'cuatro sesiones escritas y cuatro en preparacion (escritas: %d)'
-          % len(aptos))
+    check(len(aptos) == 8, 'las ocho sesiones estan escritas y ninguna en preparacion '
+                           '(escritas: %d)' % len(aptos))
+    check('en preparaci' not in pag.content(),
+          'no queda ningun panel de "sesion en preparacion"')
 
     print('== El narrador')
     check(pag.query_selector('#narr-c8') is not None, 'la unidad lleva su voz con avatar')
@@ -560,8 +858,371 @@ with sync_playwright() as p:
     check(len(anchos) == 3 and abs(sum(anchos) - 688) < 3,
           'los tres trozos de la barra apilada suman el ancho entero (%d de 688)' % sum(anchos))
 
+    # ---------------------------------------------------------------- S5
+    print('== Sesion 5 * el inventario del residuo')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(350)
+    check(pag.evaluate('() => typeof window.C8B') == 'object',
+          'el modelo compartido window.C8B esta cargado')
+    check(len(pag.eval_on_selector('#svg-o5', 'e => e.innerHTML')) > 1500,
+          'la escena pinta la plancha con el despiece y las barras por fraccion')
+
+    def estado_o5(v, grupos, fallos, mA, guarda, botella, devuelve, ali):
+        pag.click('#seg-o5 button[data-v="%s"]' % v)
+        pag.click('#ali-o5 button[data-a="%s"]' % ali)
+        pon(pag, 'o5-grupos', grupos)
+        pon(pag, 'o5-fallos', fallos)
+        pon(pag, 'o5-ma', mA)
+        for idc, quiero in (('o5-guarda', guarda), ('o5-botella', botella),
+                            ('o5-devuelve', devuelve)):
+            if pag.is_checked('#' + idc) != quiero:
+                pag.click('#' + idc)
+        pag.wait_for_timeout(230)
+        # los deslizadores tienen paso, y un valor que no cae en el paso lo
+        # redondea el navegador: hay que LEER lo que ha quedado, no suponerlo.
+        # Poner 0,5 mA en un mando de paso 0,2 fue lo que descuadro estas
+        # comprobaciones la primera vez.
+        s = base8(v)
+        s.update(grupos=int(pag.input_value('#o5-grupos')),
+                 fallos=int(pag.input_value('#o5-fallos')),
+                 mA=float(pag.input_value('#o5-ma')),
+                 guarda=guarda, botella=botella, devuelve=devuelve, alimenta=ali)
+        return s
+
+    casos5 = [
+        ('riego', 6, 0, 85, False, True, False, 'pared'),
+        ('riego', 6, 0, 85, True, True, False, 'pared'),
+        ('riego', 1, 0, 85, False, True, False, 'pila9'),
+        ('riego', 10, 2, 0.5, False, False, True, 'pila9'),
+        ('aviso', 6, 0, 62, True, True, False, 'aa'),
+        ('lampara', 4, 1, 60, False, True, False, 'pared'),
+        ('lampara', 10, 0, 20, True, True, True, 'pila9'),
+    ]
+    for caso in casos5:
+        s = estado_o5(*caso)
+        P, R = plancha8(s), residuo8(s)
+        F = filas_sec(pag, '#tabla-o5')
+        # la plancha: tres areas distintas que salen del empaquetado
+        for et, esp, nom in (('lo que pesa la plancha entera', P['hoja'], 'la plancha entera'),
+                             ('recorte (los huecos', P['recorte'], 'el recorte'),
+                             ('sobrante (la franja', P['sobrante'], 'el sobrante')):
+            txt = busca(F, et)
+            dicho = gramos(txt)
+            # en kilos la escena escribe un solo decimal: eso ya son +-50 g
+            tol = 55.0 if 'kg' in txt else max(1.0, esp * 0.015)
+            check(abs(dicho - esp) < tol,
+                  '%s, %d grupos: %s pesa %.0f g y dice %s'
+                  % (caso[0], caso[1], nom, esp, txt))
+        check(abs(numeros(busca(F, 'aprovechamiento si el sobrante'))[0]
+                  - round(100 * P['aprov_util'])) <= 1,
+              '  aprovechamiento util %d %%' % round(100 * P['aprov_util']))
+        # y las tres columnas de residuo
+        txt = busca(F, 'todo el residuo de tu grupo')
+        tot = gramos(txt)
+        check(abs(tot - R['todo']) < max(2.0, 55.0 if 'kg' in txt else 0, R['todo'] * 0.02),
+              '  el residuo total del grupo son %.0f g y dice %.0f' % (R['todo'], tot))
+        pel = numeros(busca(F, 'lo que NO puede'))
+        check(abs(pel[-1] - round(100 * R['peligroso'] / R['todo'])) <= 1,
+              '  y el RAEE mas las pilas son el %d %% de la masa'
+              % round(100 * R['peligroso'] / R['todo']))
+
+    # el sobrante guardado NO puede contar como residuo
+    a = estado_o5('riego', 6, 0, 85, False, True, False, 'pared')
+    ra = residuo8(a)
+    b = estado_o5('riego', 6, 0, 85, True, True, False, 'pared')
+    rb = residuo8(b)
+    check(ra['todo'] > rb['todo'] * 1.5,
+          'guardar el sobrante quita mas de un tercio del residuo (%.0f -> %.0f g)'
+          % (ra['todo'], rb['todo']))
+    # y bajar la corriente tiene que bajar las pilas en la misma proporcion
+    a1 = estado_o5('riego', 6, 0, 85, False, True, False, 'pila9')
+    p50 = gramos(busca(filas_sec(pag, '#tabla-o5'), 'Pilas gastadas'))
+    a2 = estado_o5('riego', 6, 0, 0.6, False, True, False, 'pila9')
+    p06 = gramos(busca(filas_sec(pag, '#tabla-o5'), 'Pilas gastadas'))
+    esperado = a1['mA'] / a2['mA']
+    check(abs(p50 / max(p06, 1e-9) - esperado) < esperado * 0.03,
+          'la masa de pilas baja en la misma proporcion que la corriente: %.1f veces '
+          'menos corriente, %.1f veces menos pilas' % (esperado, p50 / max(p06, 1e-9)))
+    # el dibujo: las piezas dibujadas son las que caben en la primera hoja
+    s = estado_o5('riego', 6, 0, 85, False, True, False, 'pared')
+    rects = pag.eval_on_selector_all(
+        '#svg-o5 rect', "rs => rs.map(r => [+r.getAttribute('width'), +r.getAttribute('height')])")
+    check(len(rects) >= 6 + 12, 'el dibujo pinta las %d piezas de los seis grupos' % (6 * 3))
+
+    # ---------------------------------------------------------------- S6
+    print('== Sesion 6 * la cuenta completa y el punto de equilibrio')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(350)
+    check(len(pag.eval_on_selector('#svg-o6', 'e => e.innerHTML')) > 1500,
+          'la escena pinta la cascada y las dos curvas')
+
+    def estado_o6(v, elo, ehi, vida, mando, limite, tra):
+        pag.click('#seg-o6 button[data-v="%s"]' % v)
+        pag.wait_for_timeout(120)
+        pag.click('#tra-o6 button[data-t="%s"]' % tra)
+        pag.eval_on_selector('input[name="o6-lim"][value="%s"]' % limite,
+                             "e => { e.checked = true; e.dispatchEvent("
+                             "new Event('change', {bubbles:true})); }")
+        pon(pag, 'o6-elo', elo)
+        pon(pag, 'o6-ehi', ehi)
+        pon(pag, 'o6-vida', vida)
+        pon(pag, 'o6-ef', mando)
+        pag.wait_for_timeout(250)
+        s = base8(v)
+        s.update(elecLo=elo, elecHi=max(ehi, elo), vida=vida, limite=limite, transporte=tra)
+        if v == 'aviso':
+            s['eficacia'] = mando
+        elif v == 'lampara':
+            s['horasMas'] = mando
+        else:
+            s['riegosMano'] = mando
+        return s
+
+    casos6 = [
+        ('riego', 2, 20, 5, 2, 'plancha', 'camion'),
+        ('riego', 2, 20, 5, 2, 'pieza', 'avion'),
+        ('aviso', 2, 20, 5, 6, 'plancha', 'camion'),
+        ('aviso', 2, 20, 5, 0, 'plancha', 'camion'),
+        ('aviso', 8, 40, 3, 10, 'pieza', 'barco'),
+        ('lampara', 2, 20, 5, 3, 'plancha', 'camion'),
+        ('lampara', 1, 4, 8, 6, 'pieza', 'camion'),
+    ]
+    for caso in casos6:
+        s = estado_o6(*caso)
+        K = cuenta8(s)
+        F = filas_sec(pag, '#tabla-o6')
+        fab = numeros(busca(F, 'Fabricaci'))
+        check(abs(fab[0] - K['fab_lo']) < max(0.05, K['fab_lo'] * 0.02)
+              and abs(fab[1] - K['fab_hi']) < max(0.05, K['fab_hi'] * 0.02),
+              '%s: fabricarlo son entre %.2f y %.2f kg y dice %s'
+              % (caso[0], K['fab_lo'], K['fab_hi'], fab[:2]))
+        ind = numeros(busca(F, 'lo que se ahorra de'))[0]
+        check(abs(ind - K['ind']) < max(0.05, abs(K['ind']) * 0.02),
+              '  ahorra %.2f al ano en su indicador y dice %s' % (K['ind'], ind))
+        eq = busca(F, 'punto de equilibrio')
+        if K['neto'] > 0:
+            # la escena escribe meses por debajo del ano y anos por encima, y
+            # redondea los meses a numero entero: la tolerancia lo tiene en cuenta
+            n_eq = numeros(eq)
+            esp_lo = K['eq_lo'] * (12 if K['eq_lo'] < 1 else 1)
+            esp_hi = K['eq_hi'] * (12 if K['eq_hi'] < 1 else 1)
+            tol_lo = 0.6 if K['eq_lo'] < 1 else max(0.1, esp_lo * 0.03)
+            tol_hi = 0.6 if K['eq_hi'] < 1 else max(0.1, esp_hi * 0.03)
+            check(abs(n_eq[0] - esp_lo) < tol_lo and abs(n_eq[-1] - esp_hi) < tol_hi,
+                  '  y el punto de equilibrio va de %.2f a %.2f anos (%s)'
+                  % (K['eq_lo'], K['eq_hi'], eq))
+        else:
+            check('no existe' in eq,
+                  '  y cuando no ahorra nada, la escena dice que el punto de equilibrio '
+                  'no existe (%s)' % eq)
+        veredicto = busca(F, 'compensa antes de los')
+        esperado = ('S' if K['compensa'] else
+                    ('Puede' if (K['neto'] > 0 and K['eq_lo'] <= s['vida']) else 'No'))
+        check(veredicto.startswith(esperado),
+              '  veredicto: esperaba "%s..." y dice "%s"' % (esperado, veredicto))
+
+    # los tres veredictos que dan sentido a la sesion, cada uno en su variante
+    estado_o6('riego', 2, 20, 5, 2, 'plancha', 'camion')
+    check('no existe' in busca(filas_sec(pag, '#tabla-o6'), 'punto de equilibrio'),
+          'el riego NO compensa en CO2 frente a regar a mano, y la escena lo dice')
+    estado_o6('aviso', 2, 20, 5, 6, 'plancha', 'camion')
+    check(busca(filas_sec(pag, '#tabla-o6'), 'compensa antes de los').startswith('S'),
+          'el aviso de ventilacion compensa por los dos extremos de la banda')
+    estado_o6('lampara', 2, 20, 5, 3, 'plancha', 'camion')
+    check('Puede' in busca(filas_sec(pag, '#tabla-o6'), 'compensa antes de los'),
+          'y en la lampara la banda se come la decision: puede que si, puede que no')
+    # llevar la hipotesis sobre personas a cero tiene que matar el ahorro
+    estado_o6('lampara', 2, 20, 5, 0, 'plancha', 'camion')
+    check('no existe' in busca(filas_sec(pag, '#tabla-o6'), 'punto de equilibrio'),
+          'y si la hipotesis sobre personas es cero, no hay ahorro que valga')
+
+    # ---------------------------------------------------------------- S7
+    print('== Sesion 7 * el banco de redisenos')
+    pag.click('#nav button[data-ses="7"]')
+    pag.wait_for_timeout(350)
+    check(len(pag.eval_on_selector('#svg-o7', 'e => e.innerHTML')) > 1500,
+          'la escena pinta los semaforos y el ranking de redisenos')
+
+    CAMBIOS7 = {'guarda': dict(guarda=True), 'unMaterial': dict(unMaterial=True),
+                'devuelve': dict(devuelve=True), 'pulsador': dict(pulsador=True),
+                'zumbador': dict(zumbador=True), 'sinLED': dict(sinLED=True),
+                'periodo': dict(periodo=True), 'duerme': dict(duerme=True),
+                'pilas': dict(alimenta='pila9'), 'alu': dict(material='alu')}
+
+    def estado_o7(v, marcas):
+        pag.click('#seg-o7 button[data-v="%s"]' % v)
+        pag.wait_for_timeout(150)
+        pag.click('#limpia-o7')
+        pag.wait_for_timeout(150)
+        for k in marcas:
+            pag.click('#lista-o7 input[data-k="%s"]' % k)
+            pag.wait_for_timeout(120)
+        s = base8(v)
+        for k in marcas:
+            if k == 'devuelve' and 'unMaterial' not in marcas:
+                continue           # vetado: no se saca una placa de una caja pegada
+            s.update(CAMBIOS7[k])
+        pag.wait_for_timeout(200)
+        return s
+
+    casos7 = [
+        ('riego', []),
+        ('riego', ['guarda', 'pulsador', 'zumbador']),
+        ('riego', ['unMaterial', 'devuelve']),
+        ('riego', ['devuelve']),                       # vetado a proposito
+        ('riego', ['alu']),
+        ('riego', ['pilas']),
+        ('riego', ['pilas', 'duerme']),
+        ('aviso', ['periodo']),
+        ('lampara', ['periodo', 'sinLED', 'zumbador']),
+    ]
+    for v, marcas in casos7:
+        s = estado_o7(v, marcas)
+        F = filas(pag, '#tabla-o7')
+        R = requisitos8(s)
+        check(numeros(busca(F, 'requisitos que cumple'))[0] == sum(R),
+              '%s con %s: cumple %d de 5' % (v, marcas or 'nada', sum(R)))
+        esp = por_ano8(s)
+        dicho = kilos(busca(F, 'por a'))
+        check(abs(dicho - esp) < max(0.003, abs(esp) * 0.02),
+              '  y son %.3f kg de CO2e por ano de servicio (dice %.3f)' % (esp, dicho))
+
+    # el veto: devolver la placa no se puede aplicar si la caja va pegada
+    estado_o7('riego', ['devuelve'])
+    check('veta' in pag.eval_on_selector(
+              '#lista-o7 input[data-k="devuelve"]', 'e => e.closest("label").className'),
+          'devolver la placa aparece vetado mientras la carcasa vaya pegada')
+    sin_v = por_ano8(base8('riego'))
+    con_v = por_ano8(con8(base8('riego'), devuelve=True))
+    dicho = kilos(busca(filas(pag, '#tabla-o7'), 'por a'))
+    check(abs(dicho - sin_v) < max(0.003, abs(sin_v) * 0.02),
+          'y mientras esta vetado NO se aplica: el numero se queda en %.3f (dice %.3f)'
+          % (sin_v, dicho))
+    check(con_v < sin_v * 0.6,
+          'y cuando SI se puede aplicar, reutilizar la placa es la palanca grande '
+          '(%.2f -> %.2f kg/ano)' % (sin_v, con_v))
+
+    # el mismo cambio, tres veredictos: medir cada media hora
+    for v, ok in (('riego', True), ('aviso', False), ('lampara', False)):
+        estado_o7(v, ['periodo'])
+        cumple = numeros(busca(filas(pag, '#tabla-o7'), 'requisitos que cumple'))[0]
+        base_c = sum(requisitos8(base8(v)))
+        check((cumple == base_c) == ok,
+              'medir cada media hora %s el requisito de reaccionar a tiempo en %s'
+              % ('no rompe' if ok else 'rompe', v))
+
+    # los nueve dias NO son una etiqueta: salen de dividir
+    estado_o7('riego', ['pilas'])
+    c1 = numeros(busca(filas(pag, '#tabla-o7'), 'requisitos que cumple'))[0]
+    estado_o7('riego', ['pilas', 'duerme'])
+    c2 = numeros(busca(filas(pag, '#tabla-o7'), 'requisitos que cumple'))[0]
+    a1 = autonomia8(con8(base8('riego'), alimenta='pila9'))
+    a2 = autonomia8(con8(base8('riego'), alimenta='pila9', duerme=True))
+    check(a1['horas'] < 9 * 24 <= a2['horas'],
+          'con pilas no llega a los nueve dias (%.1f h) y durmiendo si (%.0f h)'
+          % (a1['horas'], a2['horas']))
+    check(c2 > c1, 'y la escena lo refleja: durmiendo cumple un requisito mas (%d -> %d)'
+          % (c1, c2))
+
+    # el ranking: el mejor que ofrece la escena es el mejor al rehacer la cuenta aqui
+    estado_o7('riego', [])
+    base_pa = por_ano8(base8('riego'))
+    opciones = {}
+    for k, cambio in CAMBIOS7.items():
+        if k == 'devuelve':
+            continue               # vetado con la caja pegada
+        opciones[k] = por_ano8(con8(base8('riego'), **cambio))
+    rompe = {'sinLED', 'periodo', 'duerme', 'pilas'}
+    limpio = dict((k, v) for k, v in opciones.items()
+                  if k not in rompe or sum(requisitos8(con8(base8('riego'), **CAMBIOS7[k])))
+                  >= sum(requisitos8(base8('riego'))))
+    mejor = min(limpio, key=lambda k: limpio[k])
+    NOM7 = {'guarda': 'sobrante', 'unMaterial': 'tornillos', 'pulsador': '1,00 m',
+            'zumbador': 'zumbador', 'sinLED': 'LED', 'periodo': 'media hora',
+            'duerme': 'ATmega', 'pilas': 'pila', 'alu': 'aluminio'}
+    texto7 = pag.inner_text('#lee-o7')
+    check(NOM7[mejor] in texto7,
+          'la escena recomienda el cambio que mas baja sin romper nada, "%s" (%s)'
+          % (NOM7[mejor], dict((k, round(v, 3)) for k, v in sorted(limpio.items()))))
+    peor = max(opciones, key=lambda k: opciones[k])
+    check(NOM7[peor] in texto7,
+          'y avisa del que mas EMPEORA la cuenta, "%s" (%s)'
+          % (NOM7[peor], dict((k, round(v, 2)) for k, v in sorted(opciones.items()))))
+    check(opciones['alu'] > base_pa and opciones['pilas'] > base_pa,
+          'las dos propuestas "que quedan bien" -aluminio y pilas- suben el numero')
+
+    # ---------------------------------------------------------------- S8
+    print('== Sesion 8 * el banco de objeciones')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(350)
+    check(len(pag.eval_on_selector('#svg-o8', 'e => e.innerHTML')) > 1500,
+          'la escena pinta las objeciones y la cuadricula de combinaciones')
+
+    def estado_o8(v, vida, reutiliza, marcas):
+        pag.click('#seg-o8 button[data-v="%s"]' % v)
+        pag.wait_for_timeout(150)
+        for k in OBJ8:
+            if pag.is_checked('#lista-o8 input[data-k="%s"]' % k) != (k in marcas):
+                pag.click('#lista-o8 input[data-k="%s"]' % k)
+        if pag.is_checked('#o8-reutiliza') != reutiliza:
+            pag.click('#o8-reutiliza')
+        pon(pag, 'o8-vida', vida)
+        pag.wait_for_timeout(280)
+        s = base_s8(v, vida, reutiliza)
+        for k in marcas:
+            s = objecion8(s, k)
+        return s
+
+    casos8 = [
+        ('aviso', 5, False, []),
+        ('aviso', 5, False, ['gente']),
+        ('aviso', 5, False, ['elec', 'dura']),
+        ('aviso', 2, False, []),
+        ('lampara', 5, False, []),
+        ('lampara', 10, True, []),
+        ('riego', 5, False, []),
+    ]
+    for v, vida, reut, marcas in casos8:
+        s = estado_o8(v, vida, reut, marcas)
+        B = barrido8(v, vida, reut)
+        F = filas(pag, '#tabla-o8')
+        n = numeros(busca(F, 'de las 64 combinaciones'))
+        check(n[0] == B['vivos'],
+              '%s a %d anos%s: aguanta en %d de 64 combinaciones (dice %s)'
+              % (v, vida, ' reutilizando la placa' if reut else '', B['vivos'], n[0]))
+        check(busca(F, 'aguanta tu conclusi').startswith('S' if aguanta8(s) else 'N'),
+              '  y con las objeciones puestas %s aguanta'
+              % ('si' if aguanta8(s) else 'no'))
+
+    # las 64 se recorren de verdad: hay 64 cuadritos y el color es el del calculo
+    estado_o8('aviso', 5, False, [])
+    cuadros = pag.eval_on_selector_all(
+        '#svg-o8 rect', "rs => rs.filter(r => r.getAttribute('rx') === '2')"
+                        "        .map(r => r.getAttribute('fill'))")
+    B = barrido8('aviso', 5, False)
+    check(len(cuadros) == 64, 'la cuadricula tiene 64 cuadritos (tiene %d)' % len(cuadros))
+    verdes = [i for i, c in enumerate(cuadros) if 'verde' in c]
+    check(verdes == [i for i, ok in enumerate(B['celdas']) if ok],
+          'y cada cuadrito verde es exactamente una combinacion que aguanta la cuenta')
+
+    # la leccion de la sesion: la objecion que mas manda es la de las personas
+    estado_o8('aviso', 5, False, [])
+    check('hace caso' in pag.inner_text('#lee-o8'),
+          'la escena senala que la objecion que mas manda es la hipotesis sobre personas')
+    # y la lampara no se defiende argumentando: se rediseña
+    estado_o8('lampara', 5, False, [])
+    check(barrido8('lampara', 5, False)['vivos'] == 0,
+          'la lampara a cinco anos no aguanta NINGUNA de las 64')
+    estado_o8('lampara', 10, True, [])
+    check(barrido8('lampara', 10, True)['vivos'] > 0,
+          'y reutilizando la placa y prometiendo diez anos vuelve a haber combinaciones que si')
+
     # ---------------------------------------------------------------- test
     print('== El test')
+    # el test de la S4 vive dentro del panel de la sesion 4: hay que volver a
+    # el, o los radios estan en un div oculto y no se pueden marcar
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(300)
     check(len(pag.query_selector_all('#test-c8 .ta-p')) == 10, 'el test tiene 10 preguntas')
     check(len(pag.query_selector_all('#test-c8 .ta-por')) == 10, 'y las 10 explican por que')
     oks = pag.eval_on_selector_all('#test-c8 .ta-p', 'ps => ps.map(p => +p.dataset.ok)')
@@ -578,21 +1239,54 @@ with sync_playwright() as p:
     check(not pag.query_selector_all('#test-c8 input:checked'),
           '"borrar y repetir" deja el test limpio')
 
+    print('== El test de la unidad entera (S8)')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(300)
+    n_b = len(pag.query_selector_all('#test-c8b .ta-p'))
+    check(n_b >= 12, 'el test de la unidad entera tiene %d preguntas' % n_b)
+    check(len(pag.query_selector_all('#test-c8b .ta-por')) == n_b,
+          'y las %d explican por que' % n_b)
+    # el motivo de que el identificador tenga que ser OTRO: si los dos tests
+    # compartieran los name de los radios, marcar en uno desmarcaria el otro.
+    nombres_a = set(pag.eval_on_selector_all(
+        '#test-c8 input', 'es => es.map(e => e.name)'))
+    nombres_b = set(pag.eval_on_selector_all(
+        '#test-c8b input', 'es => es.map(e => e.name)'))
+    check(not (nombres_a & nombres_b),
+          'los dos tests no comparten ni un solo name de radio (%s)'
+          % sorted(nombres_a & nombres_b)[:3])
+    oks_b = pag.eval_on_selector_all('#test-c8b .ta-p', 'ps => ps.map(p => +p.dataset.ok)')
+    for i, ok in enumerate(oks_b):
+        pag.check('#test-c8b input[name="c8b-%d"][value="%d"]' % (i, ok))
+    pag.click('#test-c8b [data-a="corregir"]')
+    pag.wait_for_timeout(200)
+    check(pag.inner_text('#test-c8b .ta-nota').strip().startswith('%d de %d' % (n_b, n_b)),
+          'contestando bien las %d, la nota es %d de %d' % (n_b, n_b, n_b))
+    # y el de la sesion 4 tiene que seguir intacto: son dos tests independientes
+    check(not pag.query_selector_all('#test-c8 input:checked'),
+          'corregir el test de la unidad NO toca el de la sesion 4')
+    pag.click('#test-c8b [data-a="otra"]')
+    pag.wait_for_timeout(200)
+    check(not pag.query_selector_all('#test-c8b input:checked'),
+          '"borrar y repetir" tambien deja limpio el de la unidad')
+
     # -------------------------------------------------- libreta, fotos y videos
     print('== Bloques de libreta, fotos y videos')
-    for n in (1, 2, 3, 4):
+    for n in range(1, 9):
         pag.click('#nav button[data-ses="%d"]' % n)
         pag.wait_for_timeout(250)
         cop = pag.eval_on_selector_all('#ses-%d .copiar' % n, 'e => e.length')
         ent = pag.eval_on_selector_all('#ses-%d .entender' % n, 'e => e.length')
         esc = pag.eval_on_selector_all('#ses-%d .escena' % n, 'e => e.length')
         vid = pag.eval_on_selector_all('#ses-%d .video' % n, 'e => e.length')
+        fic = pag.eval_on_selector_all('#ses-%d .ficha' % n, 'e => e.length')
         check(cop >= 2, 'la sesion %d tiene %d bloques PARA LA LIBRETA' % (n, cop))
         check(ent >= 1, 'la sesion %d tiene %d de solo para entenderlo' % (n, ent))
         check(esc == 1, 'la sesion %d tiene su escena interactiva' % n)
         check(vid == 1, 'la sesion %d tiene su video' % n)
+        check(fic == 1, 'la sesion %d tiene su practica evaluada' % n)
 
-    for n in (1, 2, 3, 4):
+    for n in range(1, 9):
         pag.click('#nav button[data-ses="%d"]' % n)
         pag.wait_for_timeout(400)
         ims = pag.query_selector_all('#ses-%d .foto img' % n)
