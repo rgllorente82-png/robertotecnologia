@@ -3,12 +3,12 @@
 
     ~/venv/bin/python generadores/u9_verifica.py     -> sale 0 si todo va bien
 
-Comprueba: que no hay errores de JavaScript, que las seis escenas pintan SVG y
+Comprueba: que no hay errores de JavaScript, que las DIEZ escenas pintan SVG y
 CALCULAN, que lo que dicen coincide con la cuenta hecha aparte en Python
-(u9_comprueba_maqueta.py), que las imagenes cargan con su tamano real, que los
-videos se sustituyen por su iframe y que cada sesion lleva sus bloques de
-libreta. Dejarlo aqui no es un capricho: quien escriba las sesiones 4, 5 y 6
-tiene asi una red debajo.
+(u9_comprueba_maqueta.py para el maquetado, y aqui mismo para la probabilidad
+del cumpleanos y para la razon de contraste de la WCAG), que las imagenes cargan
+con su tamano real, que los videos se sustituyen por su iframe, que cada sesion
+lleva sus bloques de libreta y que el test de la sesion 6 se corrige bien.
 """
 import os
 import re
@@ -48,8 +48,8 @@ with sync_playwright() as p:
     print('== Navegacion de sesiones')
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 6, 'hay 6 botones de sesion (hay %d)' % len(bts))
-    check(sum(1 for b in bts if b.get_attribute('disabled') is not None) == 3,
-          '3 sesiones marcadas como pendientes')
+    check(sum(1 for b in bts if b.get_attribute('disabled') is not None) == 0,
+          'ninguna sesion queda pendiente')
 
     # ------------------------------------------------- escena 1 · el maquetado
     print('== Escena 1 * el mismo documento en dos ordenadores')
@@ -222,19 +222,184 @@ with sync_playwright() as p:
     check('450,0 s' not in tc() and '45,0 s' in tc(),
           '150 palabras a 200 por minuto son 45,0 s de lectura')
 
+    # ------------------------------------------ escena 7 * las licencias
+    print('== Escena 7 * el mezclador de licencias')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-licencias'), 'el mezclador es visible en la sesion 4')
+    tl = lambda: pag.eval_on_selector('#svg-licencias', 'e => e.textContent')
+    pl = lambda: pag.inner_text('#pie-licencias')
+    check('CC BY-SA 4.0, obligatoria' in tl(),
+          'de serie -texto propio + foto BY-SA + icono CC0- obliga a CC BY-SA 4.0')
+    check('3 DE 8 PIEZAS' in tl(), 'y cuenta 3 piezas de 8')
+    pag.click('#seg-lic-a button[data-p="musica"]')
+    check('no se pueden mezclar' in tl(),
+          'BY-SA + BY-NC salta como incompatible')
+    check(tl().count('choca con la otra') == 2,
+          'y marca en ambar las DOS piezas que chocan, no una')
+    pag.click('#seg-lic-a button[data-p="musica"]')      # la quitamos otra vez
+    pag.click('#seg-lic-b button[data-p="blog"]')
+    check('NO lo puedes publicar' in tl() and 'falta permiso' in tl(),
+          'una foto con todos los derechos reservados bloquea la publicacion')
+    pag.click('#seg-lic-b button[data-p="blog"]')
+    pag.click('#seg-lic-b button[data-p="grab35"]')
+    check('libre desde 2016' in tl(),
+          'el autor muerto en 1935 lleva 80 anos: dominio publico desde 2016')
+    pag.click('#seg-lic-b button[data-p="grab62"]')
+    check('protegida hasta 2042' in tl(),
+          'y el muerto en 1962 sigue protegido hasta 2042 (entra el 1-1-2043)')
+    check('1 de enero de 2043' in pl(), 'el pie lo explica con la fecha exacta')
+    pag.click('#seg-lic-b button[data-p="grab62"]')
+    pag.click('#seg-lic-b button[data-p="grab35"]')
+    pag.click('#seg-lic-a button[data-p="video"]')
+    check('sin tocarlo' in tl(), 'la pieza CC BY-ND se puede usar pero no modificar')
+    check('Colour Sensor Macro' in pl(), 'el pie genera la cita de cada pieza')
+    pag.click('#seg-lic-a button[data-p="video"]')
+
+    # ------------------------------------------ escena 8 * pisarse
+    print('== Escena 8 * si nos lo vamos pasando')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-pisar'), 'la escena del reparto es visible en la sesion 5')
+    tv = lambda: pag.eval_on_selector('#svg-pisar', 'e => e.textContent')
+    pv = lambda: pag.inner_text('#pie-pisar')
+
+    def cumple(n, s):
+        """La misma cuenta, hecha aqui: problema del cumpleanos."""
+        libre = 1.0
+        for i in range(n):
+            libre *= (s - i) / float(s)
+        return (1 - libre) * 100
+
+    def perdidos(n, s):
+        return n - s * (1 - (1 - 1.0/s) ** n)
+
+    esp = ('%.1f' % cumple(4, 8)).replace('.', ',')
+    check(('%s %%' % esp) in tv(), 'con 4 personas y 8 apartados, %s %% de choque' % esp)
+    check('5' in tv() and ('%s' % ('%.1f' % perdidos(4, 8)).replace('.', ',')) in tv(),
+          'y 5 ficheros dando vueltas y %.1f trozos perdidos de media' % perdidos(4, 8))
+    check('32 comparaciones' in tv(), 'juntar 4 copias de 8 apartados son 32 comparaciones')
+    pag.click('#seg-pis-g button[data-n="6"]')
+    esp6 = ('%.1f' % cumple(6, 8)).replace('.', ',')
+    check(('%s %%' % esp6) in tv(), 'con 6 personas sube a %s %%' % esp6)
+    pag.click('#seg-pis-g button[data-s="20"]')
+    esp20 = ('%.1f' % cumple(6, 20)).replace('.', ',')
+    check(('%s %%' % esp20) in tv(), 'y con 20 apartados baja a %s %%' % esp20)
+    pag.click('#seg-pis-m button[data-m="uno"]')
+    check(('%s %%' % esp20) in tv(), 'en un solo documento la probabilidad NO cambia')
+    check('0,0' in tv() and 'no se pierde nada' in tv(), 'pero no se pierde nada')
+    check('HISTORIAL' in tv(), 'y aparece el historial de versiones')
+    pag.click('#seg-pis-m button[data-m="pasa"]')
+    pag.click('#seg-pis-g button[data-n="4"]')
+    pag.click('#seg-pis-g button[data-s="8"]')
+
+    # ------------------------------------------ escena 9 * el lector de pantalla
+    print('== Escena 9 * lo que oye quien no ve la pantalla')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-lector'), 'la escena del lector es visible en la sesion 6')
+    tr = lambda: pag.eval_on_selector('#svg-lector', 'e => e.textContent')
+    pr = lambda: pag.inner_text('#pie-lector')
+    # la misma cuenta: 4 + 62 + 3 + 78 + 3 + 54 + 3 + 41 palabras a 180 pal/min
+    pal = 4 + 62 + 3 + 78 + 3 + 54 + 3 + 41
+    t_pint = ('%.1f' % (pal / 180.0 * 60 + 2 * 4)).replace('.', ',')
+    check(('%s s' % t_pint) in tr(),
+          'escuchar la pagina entera son %s s (%d palabras a 180 + 2 ficheros)' % (t_pint, pal))
+    check('0 de 4' in tr(), 'con los titulos pintados no llega a ninguno de los 4 apartados')
+    check('0 de 2' in tr(), 'y no hay ninguna de las dos imagenes descrita')
+    pag.click('#seg-lec-v button[data-v="salta"]')
+    check('No hay ni un solo apartado al que saltar' in tr(),
+          'pidiendo saltar de titulo en titulo no encuentra nada')
+    pag.click('#seg-lec-m button[data-m="marcado"]')
+    check('4 de 4' in tr() and '2 de 2' in tr(),
+          'marcada de verdad llega a los 4 apartados y describe las 2 imagenes')
+    t_marc = ('%.1f' % ((pal + 15 + 11) / 180.0 * 60)).replace('.', ',')
+    check(('%s s' % t_marc) in tr(),
+          'y escucharla entera cuesta un poco mas: %s s (los alt tambien se leen)' % t_marc)
+    check('un poco m' in pr(), 'el pie dice esa incomodidad en vez de esconderla')
+    pag.click('#seg-lec-v button[data-v="todo"]')
+    pag.click('#seg-lec-m button[data-m="pintado"]')
+
+    # ------------------------------------------ escena 10 * el contraste
+    print('== Escena 10 * la razon de contraste')
+    check(pag.is_visible('#svg-contraste'), 'la escena del contraste es visible en la sesion 6')
+    tk = lambda: pag.eval_on_selector('#svg-contraste', 'e => e.textContent')
+    pk = lambda: pag.inner_text('#pie-contraste')
+
+    def razon(a, b):
+        """La formula de la WCAG 2, repetida aqui para comparar."""
+        def lin(c):
+            c /= 255.0
+            return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
+
+        def lum(h):
+            return (0.2126 * lin(int(h[1:3], 16)) + 0.7152 * lin(int(h[3:5], 16))
+                    + 0.0722 * lin(int(h[5:7], 16)))
+        la, lb = lum(a), lum(b)
+        return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
+
+    r0 = ('%.2f' % razon('#9aa0a6', '#ffffff')).replace('.', ',')
+    check(('%s : 1' % r0) in tk(), 'el gris de siempre sobre blanco da %s : 1' % r0)
+    check(tk().count('no pasa') == 3, 'y no pasa ninguno de los tres umbrales')
+    pag.click('#seg-con-p button[data-t="#202124"]')
+    r1 = ('%.2f' % razon('#202124', '#ffffff')).replace('.', ',')
+    check(('%s : 1' % r1) in tk() and tk().count('pasa') - tk().count('no pasa') == 3,
+          'negro sobre blanco da %s : 1 y pasa los tres' % r1)
+    pag.click('#seg-con-p button[data-f="#4285f4"]')
+    r2 = ('%.2f' % razon('#ffffff', '#4285f4')).replace('.', ',')
+    check(('%s : 1' % r2) in tk(), 'blanco sobre el azul claro da %s : 1' % r2)
+    check(tk().count('no pasa') == 2, 'y solo vale para texto grande')
+    pag.click('#seg-con-p button[data-f="#1a73e8"]')
+    r3 = ('%.2f' % razon('#ffffff', '#1a73e8')).replace('.', ',')
+    check(('%s : 1' % r3) in tk(), 'con el azul oscuro sube a %s : 1 y ya pasa el normal' % r3)
+    pag.click('#con-gira')
+    check(('%s : 1' % r3) in tk(), 'cambiarlos de sitio no cambia la razon (es simetrica)')
+    # y un color escrito a mano, para que no valga solo con los botones
+    pag.eval_on_selector('#con-txt',
+                         "e => { e.value = '#ffffff';"
+                         "       e.dispatchEvent(new Event('input', {bubbles:true})); }")
+    pag.eval_on_selector('#con-fon',
+                         "e => { e.value = '#000000';"
+                         "       e.dispatchEvent(new Event('input', {bubbles:true})); }")
+    check('21,00 : 1' in tk(), 'blanco sobre negro puro da el maximo posible, 21,00 : 1')
+    pag.click('#seg-con-p button[data-t="#9aa0a6"]')
+
+    # ------------------------------------------------------------ el test
+    print('== Test de autoevaluacion')
+    ps = pag.query_selector_all('#test-u9 .ta-p')
+    check(len(ps) == 10, 'el test tiene 10 preguntas (tiene %d)' % len(ps))
+    check(all(p.query_selector('.ta-por') for p in ps),
+          'las 10 explican por que, tambien las acertadas')
+    check(all(len(p.query_selector_all('.ta-op')) == 3 for p in ps),
+          'las 10 tienen tres opciones')
+    # se contesta todo bien y tiene que decir 10 de 10
+    pag.evaluate("""() => {
+        document.querySelectorAll('#test-u9 .ta-p').forEach(function(P){
+          P.querySelectorAll('.ta-op input')[+P.dataset.ok].checked = true;
+        });
+    }""")
+    pag.click('#test-u9 [data-a="corregir"]')
+    check(pag.inner_text('#test-u9 .ta-nota').strip().startswith('10 de 10'),
+          'contestando por la casilla buena da 10 de 10')
+    check(len(pag.query_selector_all('#test-u9 .ta-op.mal')) == 0,
+          'y no marca ninguna en rojo')
+    pag.click('#test-u9 [data-a="otra"]')
+    check(not pag.query_selector_all('#test-u9 input:checked'),
+          'y el boton de repetir lo deja limpio')
+
     # ------------------------------------------------------ imagenes y video
     print('== Imagenes, video y avatar')
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(200)
     imgs = pag.eval_on_selector_all(
         'img', 'l => l.map(i => [i.getAttribute("src"), i.naturalWidth, i.naturalHeight])')
     for src, w, h in imgs:
         check(w > 400, 'carga %s (%dx%d)' % (src.split('/')[-1], w, h))
-    check(len(imgs) == 3, 'hay 3 fotografias (hay %d)' % len(imgs))
+    check(len(imgs) == 6, 'hay 6 fotografias (hay %d)' % len(imgs))
 
     vids = pag.query_selector_all('.video[data-vid]')
-    check(len(vids) == 3, 'hay 3 videos (hay %d)' % len(vids))
+    check(len(vids) == 5, 'hay 5 videos (hay %d)' % len(vids))
     pag.click('#nav button[data-ses="1"]')
     pag.wait_for_timeout(200)
     pag.click('#video-pdf .video-play')
@@ -253,7 +418,7 @@ with sync_playwright() as p:
     check(dur and dur > 30, 'el audio del narrador carga (%.1f s)' % (dur or 0))
 
     print('== Bloques de la libreta')
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(150)
         c = len(pag.query_selector_all('#ses-%d .copiar' % ses))
@@ -282,7 +447,7 @@ with sync_playwright() as p:
     # cuenta a proposito: es una tira con scroll horizontal propio, esta asi en
     # el molde desde la U2 y se comporta igual en los temas ya publicados.
     pag.set_viewport_size({'width': 390, 'height': 800})
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(250)
         fuera = pag.evaluate("""() => {

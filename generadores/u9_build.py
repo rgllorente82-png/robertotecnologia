@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """2.o TyD · U9 (web) · Herramientas digitales y difusion.
 
-Sesiones 1, 2 y 3 escritas; 4, 5 y 6 marcadas como pendientes.
-Las escenas interactivas viven en u9_escenas.py.
+Las seis sesiones escritas. Las escenas interactivas viven en u9_escenas.py
+(sesiones 1 a 3) y en u9_escenas2.py (sesiones 4 a 6), y el test que cierra la
+unidad sale de test_auto.py con las diez preguntas en PREGUNTAS_U9: son de TODO
+el tema, no solo de la ultima sesion.
 
     ~/venv/bin/python generadores/u9_build.py
 
@@ -28,6 +30,9 @@ from unidad_base import pagina, bloque, ficha, pregunta
 import avatar_flat
 from u9_escenas import (ESCENA_MAQUETA, ESCENA_ESTILOS, ESCENA_MAPA,
                         ESCENA_PESO, ESCENA_AULA, ESCENA_CARRERA)
+from u9_escenas2 import (ESCENA_LICENCIAS, ESCENA_PISAR, ESCENA_LECTOR,
+                         ESCENA_CONTRASTE)
+from test_auto import test
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -562,7 +567,7 @@ S2 = (
             <li><b>Un logotipo, de las dos maneras.</b> Dibujad un s&iacute;mbolo sencillo
                 &mdash;dos o tres figuras&mdash; en un editor de dibujo, y guardadlo en <b>SVG</b> y
                 en <b>PNG de 1.000 p&iacute;xeles</b>. Anotad los dos pesos, ampliad los dos al
-                <b>800 %</b> y describid lo que ve&iacute;s. Abrid adem&aacute;s el SVG con un
+                <b>800 %</b> y describid lo que veis. Abrid adem&aacute;s el SVG con un
                 editor de texto y pegad en el cuaderno <b>las tres primeras l&iacute;neas</b>.</li>
             <li><b>La presentaci&oacute;n.</b> Con lo anterior, calculad cu&aacute;nto
                 ocupar&iacute;a una presentaci&oacute;n de <b>once fotos</b> antes y despu&eacute;s
@@ -768,7 +773,7 @@ S3 = (
             u'Muerte por PowerPoint: trucos para no aburrir a la audiencia',
             u'La Hoguera Bloguera &middot; en espa&ntilde;ol',
             u'Los errores de siempre, vistos desde fuera. Lo que dice se solapa con la '
-            u'r&uacute;brica de arriba: comprobadlo mientras lo ve&iacute;s.')) +
+            u'r&uacute;brica de arriba: comprobadlo mientras lo veis.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
     u'Actividad 9.3 &middot; Rehacer una diapositiva y medir el aula',
@@ -857,6 +862,926 @@ S3 = (
 
 
 # ==========================================================================
+# SESION 4 · Lo que se puede copiar
+# ==========================================================================
+S4 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>En la r&uacute;brica de la sesi&oacute;n pasada hab&iacute;a una fila que no hemos
+         explicado: <b>procedencia</b>. &laquo;&iquest;Est&aacute; dicho de d&oacute;nde sale cada
+         dato y cada foto?&raquo;. Hoy va de eso, y no es una formalidad de profesor.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Necesitas una foto para la portada del trabajo. Sin pensarlo mucho, escribe dos cosas en el
+        cuaderno: <b>de d&oacute;nde la vas a sacar</b> y <b>qu&eacute; vas a escribir debajo</b>.
+        Un minuto, y siendo sincero: lo que har&iacute;as de verdad, no lo que queda bien.
+      </div>
+
+      <p>Lo que sale en todas las clases: <i>la busco en el buscador de im&aacute;genes, bot&oacute;n
+         derecho, guardar</i>. Y debajo, nada. Ni una l&iacute;nea.</p>
+
+      <p>Vamos a tirar de ah&iacute;, porque hay dos cosas escondidas. La primera es f&aacute;cil: el
+         buscador <b>no tiene</b> esa foto. Es un escaparate que apunta a fotos que est&aacute;n en
+         otros sitios; que te la ense&ntilde;e no quiere decir que te la d&eacute;. La segunda es la
+         importante, y se ve mejor con una pregunta sobre ti.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Contesta antes de seguir</span>
+        <p>La &uacute;ltima foto que hiciste con el m&oacute;vil, <b>&iquest;de qui&eacute;n es?</b></p>
+        <p style="margin-top:8px">Tuya, claro. Ahora la otra: para que sea tuya,
+           &iquest;registraste algo? &iquest;Pagaste algo? &iquest;Firmaste algo? &iquest;Le pusiste
+           una etiqueta? <b>No.</b> Es tuya desde el momento en que apretaste el bot&oacute;n, sin
+           hacer absolutamente nada.</p>
+        <p style="margin-top:8px">Pues entonces la del buscador tambi&eacute;n es de alguien,
+           <b>exactamente por la misma razón</b>. Nadie tuvo que decirlo.</p>
+      </div>
+
+      <p>Ah&iacute; est&aacute; el giro de hoy. No es que copiar est&eacute; prohibido por una ley
+         rara: es que el permiso para copiar <b>hay que darlo</b>, y si nadie lo ha dado, no
+         est&aacute; dado. El silencio no es un s&iacute;.</p>
+
+      <p>Y sin embargo existe la Wikipedia, de la que puedes bajarte todo. Y existe
+         <b>esta misma p&aacute;gina</b>, que te puedes copiar entera, cambiarla y volverla a
+         publicar &mdash;lo pone al final, en &laquo;Licencia y uso&raquo;&mdash;. Si por defecto no
+         se puede, &iquest;qu&eacute; han hecho estos para que s&iacute; se pueda? Eso es la
+         sesi&oacute;n.</p>
+  ''') +
+
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <h3>El derecho que nace solo</h3>
+      <p>Lo que acabas de descubrir con tu propia foto tiene nombre y est&aacute; en la ley: los
+         <b>derechos de autor</b> nacen con la obra, <b>sin tr&aacute;mite</b>. No hay que
+         registrarla, ni pagar, ni poner la <b>&copy;</b>. Se es autor por haberlo hecho.</p>
+
+      <div class="copiar">
+        <h4>Derechos de autor</h4>
+        <p><b>Derechos de autor</b>: los que tiene quien crea algo &mdash;un texto, una foto, un
+           dibujo, una canci&oacute;n, un programa&mdash; por el hecho de haberlo creado. Se
+           reparten en dos grupos que funcionan muy distinto:</p>
+        <ul>
+          <li><b>Morales</b>: que se diga que es tuyo y que no te lo estropeen. <b>No caducan</b> y
+              no se pueden vender. Por eso hay que citar al autor <b>siempre</b>, incluso cuando la
+              obra ya es de todos.</li>
+          <li><b>De explotaci&oacute;n</b>: copiar, distribuir, transformar y publicar. Estos
+              s&iacute; se pueden ceder, vender&hellip; y <b>caducan</b> al cabo de un tiempo.</li>
+        </ul>
+        <p>Consecuencia pr&aacute;ctica, y es la frase de hoy: <b>por defecto, no</b>. Cuando una
+           obra no dice nada, lo que tiene es <b>todos los derechos reservados</b>. No porque el
+           autor sea antip&aacute;tico, sino porque es lo que pasa cuando nadie ha dicho lo
+           contrario.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Que no haga falta poner la <b>&copy;</b> no siempre fue as&iacute;: en Estados Unidos, hasta
+           <b>1989</b>, una obra publicada sin ese s&iacute;mbolo pod&iacute;a caer en el dominio
+           p&uacute;blico por el simple descuido. Cuando se sumaron al <b>Convenio de Berna</b> se
+           acab&oacute; el tr&aacute;mite. Hoy el s&iacute;mbolo sigue us&aacute;ndose, pero como
+           <b>aviso</b>, no como requisito: la obra est&aacute; igual de protegida sin &eacute;l.</p>
+      </div>
+
+      <h3>El permiso, dado por adelantado</h3>
+      <p>Si el permiso hay que pedirlo, y quien hace la foto no puede estar contestando correos toda
+         la vida, hay una salida evidente: <b>darlo antes de que nadie lo pida</b>, por escrito y
+         para todo el mundo. Eso es una <b>licencia</b>.</p>
+
+      <div class="copiar">
+        <h4>Licencia, y las cuatro condiciones</h4>
+        <p><b>Licencia</b>: el permiso que el autor da por adelantado, diciendo <b>qu&eacute; se
+           puede hacer</b> con su obra y <b>con qu&eacute; condiciones</b>. La obra sigue siendo
+           suya: lo que cambia es que ya no hay que preguntarle.</p>
+        <p>Las licencias <b>Creative Commons</b> son las m&aacute;s usadas, y se montan combinando
+           cuatro condiciones:</p>
+        <table>
+          <tr><th>Condici&oacute;n</th><th>A qu&eacute; te obliga</th></tr>
+          <tr><td><b>BY</b> &middot; Reconocimiento</td>
+              <td>Citar al autor. La llevan <b>todas</b>.</td></tr>
+          <tr><td><b>SA</b> &middot; CompartirIgual</td>
+              <td>Si lo mezclas con lo tuyo, <b>lo tuyo sale con la misma licencia</b>.</td></tr>
+          <tr><td><b>NC</b> &middot; NoComercial</td>
+              <td>No se puede usar para ganar dinero.</td></tr>
+          <tr><td><b>ND</b> &middot; SinObraDerivada</td>
+              <td>Puedes copiarlo entero, pero <b>no modificarlo</b>.</td></tr>
+        </table>
+        <p>Y una que no es una licencia sino lo contrario: <b>CC0</b>, con la que el autor
+           <b>renuncia</b> a todo y deja la obra como si fuera de nadie.</p>
+      </div>
+
+      <p>Ahora lo interesante: esas condiciones <b>se suman</b>, y no todas se llevan bien. Mete
+         piezas en el trabajo y mira qu&eacute; licencia puede llevar el resultado.</p>
+
+''' + ESCENA_LICENCIAS + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Prueba a poner a la vez la <b>foto CC BY-SA</b> y la <b>m&uacute;sica CC BY-NC</b>. Las
+           dos son libres, las dos son gratis, las dos las ha regalado su autor&hellip; y
+           <b>no se pueden juntar</b>. Una te obliga a publicar en CC BY-SA, y CC BY-SA no admite la
+           condici&oacute;n de no comercial. No hay trampa ni mala fe: son dos permisos que piden
+           cosas incompatibles.</p>
+        <p>Es la lecci&oacute;n menos evidente de la sesi&oacute;n. <b>&laquo;Libre&raquo; no es una
+           sola cosa</b>, y por eso hay que leer cu&aacute;l es cada una en vez de fiarse de que
+           ponga Creative Commons.</p>
+      </div>
+
+      <h3>Cuando ya no hace falta permiso</h3>
+      <p>Los derechos de explotaci&oacute;n caducan. Cuando caducan, la obra pasa a ser <b>de
+         todos</b>: se puede copiar, vender, traducir y modificar sin pedir nada a nadie.</p>
+
+      <div class="copiar">
+        <h4>Dominio p&uacute;blico</h4>
+        <p><b>Dominio p&uacute;blico</b>: la obra cuyos derechos de explotaci&oacute;n ya han
+           caducado. En Espa&ntilde;a el plazo se cuenta desde el <b>1 de enero del a&ntilde;o
+           siguiente</b> a la muerte del autor, y son:</p>
+        <ul>
+          <li><b>80 a&ntilde;os</b> si el autor muri&oacute; <b>antes del 7 de diciembre de
+              1987</b>;</li>
+          <li><b>70 a&ntilde;os</b> si muri&oacute; despu&eacute;s.</li>
+        </ul>
+        <p>Los derechos <b>morales</b> no caducan: aunque ya no haya que pedir permiso,
+           <b>se sigue citando al autor</b>.</p>
+        <p>Cuidado con el error de siempre: <b>antiguo no es libre</b>. Un grabado de 1890 cuyo autor
+           muri&oacute; en 1962 todav&iacute;a est&aacute; protegido &mdash;compru&eacute;balo en la
+           escena&mdash;. Lo que cuenta es <b>cu&aacute;ndo muri&oacute; el autor</b>, no
+           cu&aacute;ndo se hizo la obra.</p>
+      </div>
+
+''' + foto('u9-meninas.jpg',
+           u'Las Meninas, de Vel&aacute;zquez: la infanta Margarita rodeada de sus damas, el pintor '
+           u'ante un lienzo enorme y los reyes reflejados en un espejo al fondo',
+           u'Vel&aacute;zquez muri&oacute; en <b>1660</b>. Hace much&iacute;simo que este cuadro es '
+           u'de todos: cualquiera puede copiarlo, imprimirlo en una camiseta o ponerle bigote, y no '
+           u'hay a qui&eacute;n pedir permiso. Pero fíjate en lo que est&aacute;s mirando de verdad: '
+           u'no es el cuadro, es una <b>fotograf&iacute;a</b> del cuadro, y las fotograf&iacute;as '
+           u'tienen autor. Wikimedia Commons la publica como dominio p&uacute;blico porque una '
+           u'reproducci&oacute;n fiel de una obra plana <b>no a&ntilde;ade nada nuevo</b>: no hay '
+           u'encuadre, ni luz, ni momento elegidos. Es un criterio razonable y muy discutido, y no '
+           u'todos los pa&iacute;ses lo ven igual.',
+           u'Diego Vel&aacute;zquez', u'Dominio p&uacute;blico',
+           u'https://commons.wikimedia.org/wiki/File:Las_Meninas,_by_Diego_Vel%C3%A1zquez,_from_Prado_in_Google_Earth.jpg') + u'''
+      <h3>Esta p&aacute;gina, de ejemplo</h3>
+      <p>Baja hasta el final y lee <b>&laquo;Licencia y uso&raquo;</b>. Dice tres cosas que ahora ya
+         sabes leer:</p>
+      <div class="copiar">
+        <h4>Lo que dice el pie de esta web</h4>
+        <ul>
+          <li>Est&aacute; bajo <b>CC BY-SA 4.0</b>: la puedes copiar, cambiar y volver a publicar,
+              <b>incluso cobrando</b>, con dos condiciones: <b>citar</b> y publicar tu
+              versi&oacute;n con <b>esta misma licencia</b>.</li>
+          <li>Eso vale para los <b>textos, los dibujos y el c&oacute;digo</b>, que son obra propia.</li>
+          <li><b>No vale para las fotograf&iacute;as</b>: cada una conserva la suya, y por eso todas
+              llevan debajo <b>autor y licencia</b>. Mira el pie de cualquier foto de esta unidad y
+              tienes el modelo hecho.</li>
+        </ul>
+      </div>
+
+      <div class="copiar">
+        <h4>C&oacute;mo se cita una imagen: cuatro datos</h4>
+        <ol>
+          <li><b>Qu&eacute; es</b>: el t&iacute;tulo del fichero o una descripci&oacute;n.</li>
+          <li><b>Qui&eacute;n</b>: el autor, con el nombre con el que firma.</li>
+          <li><b>Con qu&eacute; permiso</b>: la licencia exacta, con su versi&oacute;n
+              (&laquo;CC BY-SA 4.0&raquo;, no &laquo;Creative Commons&raquo; a secas).</li>
+          <li><b>De d&oacute;nde</b>: el enlace a la p&aacute;gina de la que la has sacado, no al
+              buscador.</li>
+        </ol>
+        <p>Y va <b>debajo de la imagen</b>, no al final del trabajo en una lista que no lee nadie.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Esto no lo invent&oacute; internet. Mientras copiar un libro cost&oacute; <b>meses de
+           trabajo a mano</b>, no hac&iacute;a falta ninguna ley: nadie copiaba por gusto. La
+           imprenta lo cambia: de pronto copiar sale barat&iacute;simo, y el negocio se lo llevan
+           los <b>impresores</b>. En Inglaterra la Corona les reparti&oacute; el monopolio a
+           cambio de que no imprimieran lo que no conven&iacute;a. El autor no pintaba nada.</p>
+        <p>En <b>1710</b> aparece el <b>Estatuto de la Reina Ana</b>, la primera ley de derechos de
+           autor, y trae las dos ideas que siguen en pie trescientos a&ntilde;os despu&eacute;s: el
+           derecho es <b>del autor</b>, no del impresor, y <b>caduca</b> &mdash;catorce a&ntilde;os,
+           renovables otros catorce&mdash;. No era para premiar a nadie: era para que, pasado un
+           tiempo, las obras fueran de todos.</p>
+        <p>Y ahora d&eacute;jalo caer: con internet, copiar vuelve a costar <b>cero</b>. El
+           &laquo;todos los derechos reservados&raquo; por defecto deja fuera a much&iacute;sima
+           gente que <b>quiere</b> que la copien. De ah&iacute; salen primero las licencias del
+           software libre &mdash;la <b>GPL</b>, de Richard Stallman, que ya en 1989 usaba el truco
+           de CompartirIgual&mdash; y despu&eacute;s, en <b>2002</b>, las <b>Creative
+           Commons</b>, que lo ponen al alcance de cualquiera que no sea abogado.</p>
+      </div>
+
+''' + video('video-licencias', 'ksmzVNMJhZ4',
+            u'&iquest;Qu&eacute; es Creative Commons? (y sus tipos de licencia)',
+            u'OpenWebinars &middot; en espa&ntilde;ol',
+            u'Las mismas cuatro condiciones contadas de otra manera. Mientras lo ves, ve diciendo '
+            u'en voz alta qu&eacute; obliga cada letra: si te sale sola, lo tienes.')) +
+
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 9.4 &middot; Vestir un trabajo con im&aacute;genes que s&iacute; se pueden usar',
+    [u'6.2', u'6.3'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
+          <div class="nota">
+            <span class="n-tag">Con qu&eacute; se hace</span>
+            Con Wikimedia Commons, que es un almac&eacute;n de im&aacute;genes donde <b>cada fichero
+            dice su licencia</b> en su propia p&aacute;gina. No hace falta cuenta ni instalar nada.
+            Lo que se eval&uacute;a es que la licencia est&eacute; <b>comprobada en la ficha</b>, no
+            supuesta.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>Tres im&aacute;genes.</b> Buscad <b>tres</b> que sirvan para vuestro trabajo. De
+                cada una, abrid su ficha y anotad los <b>cuatro datos</b>: qu&eacute; es, qui&eacute;n
+                la hizo, con qu&eacute; licencia exacta y el enlace. Aviso: <b>miradlas</b>. Los
+                t&iacute;tulos enga&ntilde;an m&aacute;s de lo que parece.</li>
+            <li><b>Escribid los pies.</b> Los tres, completos, como ir&iacute;an debajo de la imagen
+                en el trabajo. Copiad el formato del pie de cualquier foto de esta p&aacute;gina.</li>
+            <li><b>La licencia del resultado.</b> Con la escena, poned vuestro texto m&aacute;s las
+                tres licencias que os hayan salido y anotad <b>qu&eacute; licencia</b> puede llevar
+                vuestro trabajo. Si sale que <b>no se puede</b>, cambiad una imagen por otra y
+                volved a calcularlo: eso tambi&eacute;n es parte del oficio.</li>
+            <li><b>El plazo.</b> Elegid un pintor, un fot&oacute;grafo o un ilustrador que ya
+                haya muerto, buscad <b>el a&ntilde;o</b>, y calculad a mano en qu&eacute; a&ntilde;o
+                entra su obra en dominio p&uacute;blico. Decid si <b>hoy</b> pod&eacute;is usarla y
+                comprobadlo despu&eacute;s en la escena.</li>
+            <li><b>Leed el pie de esta web.</b> Bajad a &laquo;Licencia y uso&raquo; y contestad por
+                escrito: <b>(a)</b> &iquest;podr&iacute;ais imprimir estos apuntes y venderlos?
+                <b>(b)</b> &iquest;qu&eacute; ten&eacute;is que hacer si los copi&aacute;is en
+                vuestro blog? <b>(c)</b> &iquest;y con las fotos, que no son del autor?</li>
+            <li><b>La trampa del buscador.</b> Buscad una imagen en un buscador normal, entrad en la
+                p&aacute;gina donde est&aacute; de verdad y contestad: &iquest;dice en alg&uacute;n
+                sitio con qu&eacute; licencia est&aacute;? Si no lo dice, &iquest;qu&eacute;
+                significa eso? &iquest;Qu&eacute; habr&iacute;a que hacer para poder usarla?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cuatro datos est&aacute;n <b>comprobados en la ficha</b> de las tres
+                im&aacute;genes, con la licencia y su versi&oacute;n <b>(2 puntos)</b>.</li>
+            <li>Los tres pies est&aacute;n escritos y colocados debajo de la imagen
+                <b>(2 puntos)</b>.</li>
+            <li>La licencia del resultado est&aacute; razonada, diciendo <b>qu&eacute; condici&oacute;n
+                la obliga</b> <b>(2 puntos)</b>.</li>
+            <li>El c&aacute;lculo del dominio p&uacute;blico est&aacute; bien hecho, con el a&ntilde;o
+                de la muerte y el plazo que toca <b>(2 puntos)</b>.</li>
+            <li>Las respuestas sobre esta web y sobre el buscador distinguen <b>no decir nada</b> de
+                <b>dar permiso</b> <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Una cosa que no es un tecnicismo</span>
+            Citar no es un tr&aacute;mite para no meterse en l&iacute;os: es <b>devolverle el nombre
+            a quien ha hecho el trabajo</b>. Y hay una raz&oacute;n ego&iacute;sta, adem&aacute;s:
+            un trabajo que dice de d&oacute;nde ha sacado cada cosa se puede <b>comprobar</b>, y por
+            eso se cree. El que no lo dice, no.
+          </div>
+  ''')) +
+
+  bloque('03', u'Cierre &middot; 5 min', u'''
+      <ol>
+      ''' + pregunta(u'Una foto que est&aacute; en internet y no dice nada de licencia, &iquest;se puede usar?',
+                     u'<p><b>No.</b> Cuando una obra no dice nada, tiene <b>todos los derechos reservados</b>: el permiso hay que <b>darlo</b>, y el silencio no es un s&iacute;. Que la foto se vea, se descargue con un clic y no tenga candado no cambia de qui&eacute;n es. Para usarla habr&iacute;a que <b>pedir permiso al autor</b> por escrito.</p>')
+        + pregunta(u'Mezclas una foto CC BY-SA con una m&uacute;sica CC BY-NC. &iquest;Qu&eacute; pasa?',
+                   u'<p>Que <b>no se pueden juntar</b> en la misma obra, aunque las dos sean libres. CompartirIgual te obliga a publicar el resultado en CC BY-SA, y CC BY-SA <b>no admite</b> la condici&oacute;n NoComercial. Hay que cambiar una de las dos. Es la prueba de que <b>&laquo;libre&raquo; no es una sola cosa</b> y de que hay que mirar cu&aacute;l es cada una.</p>')
+        + pregunta(u'Un grabado de 1890 cuyo autor muri&oacute; en 1962: &iquest;es de dominio p&uacute;blico?',
+                   u'<p><b>No.</b> Lo que cuenta no es cu&aacute;ndo se hizo la obra, sino <b>cu&aacute;ndo muri&oacute; el autor</b>. Como muri&oacute; antes del 7 de diciembre de 1987, el plazo son <b>80 a&ntilde;os</b> contados desde el 1 de enero de 1963: entra en dominio p&uacute;blico el <b>1 de enero de 2043</b>. Antiguo no es lo mismo que libre.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya tienes im&aacute;genes que puedes usar y sabes qu&eacute; escribir debajo. Pero el trabajo
+        no lo haces t&uacute; solo: sois <b>cuatro</b>. Antes de la pr&oacute;xima clase, contesta a
+        esto en el cuaderno: cuando un grupo se manda el documento por el m&oacute;vil y cada uno
+        escribe su parte, <b>&iquest;cu&aacute;ntos ficheros distintos hay dando vueltas?</b> Y la
+        m&aacute;s incómoda: <b>&iquest;cu&aacute;l de ellos es el bueno?</b>
+      </div>
+  '''))
+
+
+# ==========================================================================
+# SESION 5 · A varias manos
+# ==========================================================================
+S5 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>El trabajo ya tiene sus im&aacute;genes y sus pies. Falta escribirlo, y lo escrib&iacute;s
+         <b>cuatro</b>. Esa palabra parece inofensiva y es la que lo rompe todo.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Dos l&iacute;neas en el cuaderno, ahora: <b>c&oacute;mo os repart&iacute;s</b> el trabajo y
+        <b>c&oacute;mo junt&aacute;is</b> los trozos al final. Como lo har&iacute;ais de verdad.
+      </div>
+
+      <p>La respuesta de siempre, palabra por palabra: <i>cada uno hace lo suyo, me lo mand&aacute;is
+         y yo lo junto</i>. Es razonable, es lo que hace todo el mundo, y acaba siempre en el mismo
+         sitio: un fichero llamado <b>documento_final_final2</b> y alguien enfadado porque su parte
+         no est&aacute;.</p>
+
+      <p>Hay dos aver&iacute;as ah&iacute; dentro, y ninguna es culpa de que la gente sea
+         desordenada.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">La primera: contad ficheros</span>
+        <p>Mandas el documento a tres personas. <b>Antes de que nadie escriba una sola palabra</b>,
+           &iquest;cu&aacute;ntos documentos hay?</p>
+        <p style="margin-top:8px">Cuatro. Y en cuanto cada uno guarda, son cuatro documentos
+           <b>distintos</b> que se parecen mucho. Ahora contesta sin mirar: <b>&iquest;cu&aacute;l es
+           el bueno?</b> La fecha no sirve &mdash;el &uacute;ltimo en guardar no es el que m&aacute;s
+           ha escrito&mdash;, y el nombre, menos.</p>
+      </div>
+
+      <p>La segunda aver&iacute;a no se ve venir, y es la que hace da&ntilde;o de verdad: si cada uno
+         empieza por donde le apetece, <b>dos van a tocar el mismo apartado</b>. No de vez en cuando:
+         casi siempre. Y se puede calcular exactamente cu&aacute;ntas veces.</p>
+
+''' + ESCENA_PISAR + u'''
+      <p>Cuatro personas, ocho apartados, nadie se pone de acuerdo: <b>59 de cada 100 veces</b> dos
+         escriben encima de lo mismo. Y al juntarlo a mano, qued&aacute;ndose con una sola
+         versi&oacute;n de cada apartado, alguien pierde lo que hab&iacute;a escrito.</p>
+  ''') +
+
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <h3>Mandar un fichero es hacer una copia</h3>
+      <p>Aqu&iacute; hay una idea que parece de tonto y no lo es. Cuando mandas un fichero,
+         <b>no mandas el documento</b>: mandas un <b>duplicado</b>. Desde ese segundo hay dos
+         documentos, no uno visto por dos sitios, y cada cambio que hace cada uno <b>aleja</b> uno
+         del otro.</p>
+
+      <div class="copiar">
+        <h4>Copia y original</h4>
+        <p>Un fichero que se manda se <b>duplica</b>. Lo que llega al otro lado no es tu documento:
+           es <b>otro documento</b> que empieza siendo igual. En cuanto los dos se tocan, ya no hay
+           manera de saber cu&aacute;l es el bueno mirando el fichero: hay que <b>compararlos</b>.</p>
+        <p>Por eso aparecen los nombres de siempre &mdash;<i>final</i>, <i>final2</i>,
+           <i>finalBUENO</i>&mdash;: son un intento desesperado de guardar en el <b>nombre</b> una
+           informaci&oacute;n que deber&iacute;a estar <b>dentro</b>.</p>
+      </div>
+
+      <h3>Un solo documento, y una m&aacute;quina del tiempo</h3>
+      <p>La soluci&oacute;n no es tener cuidado. Es cambiar la pregunta: en vez de repartir copias,
+         que haya <b>un &uacute;nico documento</b> y que cada uno abra una <b>ventana</b> sobre
+         &eacute;l. Nadie tiene su versi&oacute;n: todos est&aacute;n en la misma.</p>
+      <p>Vuelve a la escena y ponla en <b>&laquo;Un solo documento&raquo;</b>. Fíjate en lo que
+         <b>no</b> cambia.</p>
+
+      <div class="copiar">
+        <h4>Documento compartido e historial de versiones</h4>
+        <p><b>Documento compartido</b>: un &uacute;nico documento guardado en un sitio al que todos
+           entran. No hay copias que juntar porque no hay copias.</p>
+        <p><b>Historial de versiones</b>: el registro de <b>qui&eacute;n</b> escribi&oacute;
+           <b>qu&eacute;</b> y <b>cu&aacute;ndo</b>, guardado solo, sin que nadie lo pida. Sirve
+           para tres cosas:</p>
+        <ul>
+          <li><b>Volver atr&aacute;s</b> a como estaba ayer, o a como estaba antes de que alguien lo
+              estropeara.</li>
+          <li><b>Ver qui&eacute;n ha hecho qu&eacute;</b>, que acaba con la discusi&oacute;n de
+              &laquo;yo s&iacute; hice mi parte&raquo;.</li>
+          <li><b>Trabajar sin miedo</b>: se puede probar algo gordo sabiendo que lo de antes no se ha
+              perdido. Esto es lo que m&aacute;s cambia, aunque parezca lo m&aacute;s pequeño.</li>
+        </ul>
+        <p>Ojo con lo que la escena deja claro: el documento compartido <b>no evita</b> que dos
+           toqu&eacute;is el mismo apartado &mdash;esa probabilidad es la misma&mdash;. Lo que evita
+           es que se <b>pierda</b>.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>El historial tiene una cara que conviene saber: <b>queda todo</b>. Qui&eacute;n
+           escribi&oacute; a las tres de la ma&ntilde;ana, qui&eacute;n no escribi&oacute; nada y
+           qui&eacute;n borr&oacute; el p&aacute;rrafo de otro. Eso es estupendo cuando te sirve de
+           prueba y menos estupendo cuando la prueba va contra ti. No es un truco para pillar a
+           nadie: es que un registro <b>no puede</b> guardar solo lo que te conviene.</p>
+      </div>
+
+      <h3>Comentar no es cambiar</h3>
+      <p>Falta la pieza que hace que trabajar juntos no acabe a gritos. Cuando lees el apartado de
+         otro y algo no te cuadra, hay dos maneras muy distintas de reaccionar &mdash;y una tercera,
+         intermedia, que casi nadie usa&mdash;.</p>
+
+''' + foto('u9-glosas.jpg',
+           u'P&aacute;gina de un c&oacute;dice medieval escrita a mano, con anotaciones peque&ntilde;as '
+           u'entre las l&iacute;neas y un bloque de texto a&ntilde;adido en el margen derecho',
+           u'Esto es una p&aacute;gina del <b>C&oacute;dice Emilianense 60</b>, copiado en el '
+           u'monasterio de San Mill&aacute;n. El texto grande es lo que escribi&oacute; el copista. '
+           u'Todo lo peque&ntilde;o &mdash;entre las l&iacute;neas y en el margen de la '
+           u'derecha&mdash; lo a&ntilde;adi&oacute; <b>otra persona</b>, alrededor del a&ntilde;o '
+           u'1000, porque hab&iacute;a trozos de lat&iacute;n que ya no se entend&iacute;an. Son '
+           u'las <b>Glosas Emilianenses</b>, y las del margen est&aacute;n en romance: de las '
+           u'primeras frases que se conservan escritas en algo parecido al castellano. '
+           u'Pero mira lo que importa hoy: el glosador <b>no toc&oacute; el texto</b>. '
+           u'Escribi&oacute; al lado. Por eso, mil a&ntilde;os despu&eacute;s, se pueden leer '
+           u'<b>las dos cosas</b>: lo que dec&iacute;a el original y lo que alguien pens&oacute; de '
+           u'&eacute;l. Si lo hubiera &laquo;corregido&raquo;, hoy no tendr&iacute;amos ninguna de '
+           u'las dos.',
+           u'Rafael Nieto', u'Dominio p&uacute;blico',
+           u'https://commons.wikimedia.org/wiki/File:Codiceemil.jpg') + u'''
+      <div class="copiar">
+        <h4>Comentario frente a cambio</h4>
+        <ul>
+          <li><b>Comentario</b>: se engancha a un trozo y dice algo <b>sobre</b> &eacute;l. No toca
+              el texto. Lo lee el autor, contesta, y cuando est&aacute; resuelto se cierra.</li>
+          <li><b>Cambio</b>: toca el texto. Si es tuyo, adelante. Si es de otro, le est&aacute;s
+              borrando el trabajo aunque sea para mejorarlo.</li>
+          <li><b>Sugerencia</b>: el punto medio. Escribes el cambio, pero <b>no entra</b> hasta que
+              el autor lo acepta. Se ve lo que hab&iacute;a y lo que propones, uno al lado del otro.</li>
+        </ul>
+        <p>Regla corta, y vale para toda la vida: <b>en lo tuyo cambias; en lo de otro, comentas</b>.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Permisos: qui&eacute;n puede hacer qu&eacute;</h4>
+        <p>Un documento compartido se reparte en tres niveles, y conviene dar <b>el m&aacute;s bajo
+           que sirva</b>:</p>
+        <table>
+          <tr><th>Nivel</th><th>Qu&eacute; puede hacer</th><th>Para qui&eacute;n</th></tr>
+          <tr><td><b>Lector</b></td><td>Leer, y nada m&aacute;s</td>
+              <td>A quien se lo ense&ntilde;as</td></tr>
+          <tr><td><b>Comentarista</b></td><td>Leer y comentar, sin tocar</td>
+              <td>Quien revisa</td></tr>
+          <tr><td><b>Editor</b></td><td>Escribir y borrar</td><td>Los del grupo</td></tr>
+        </table>
+        <p>Y una cuarta cosa que no es un nivel: <b>qui&eacute;n entra</b>. No es lo mismo
+           &laquo;cualquiera con el enlace&raquo; que &laquo;estas cuatro personas&raquo;. Con la
+           primera, el enlace acaba en un grupo de mensajes y de ah&iacute; a cualquier sitio.</p>
+      </div>
+
+      <h3>El acuerdo que se escribe antes</h3>
+      <p>La probabilidad de pisarse se puede bajar a <b>cero</b>, y no hace falta ninguna
+         herramienta: hace falta decidirlo antes y <b>escribirlo</b>.</p>
+
+      <div class="copiar">
+        <h4>Cinco l&iacute;neas al principio del documento</h4>
+        <ol>
+          <li>Los <b>apartados</b>, con su t&iacute;tulo. Todos, aunque est&eacute;n vac&iacute;os.</li>
+          <li><b>Qui&eacute;n</b> escribe cada uno. Uno por apartado: dos due&ntilde;os es ninguno.</li>
+          <li><b>Para cu&aacute;ndo</b>.</li>
+          <li><b>Qui&eacute;n revisa</b> al final &mdash;y revisar es <b>comentar</b>, no
+              reescribir&mdash;.</li>
+          <li>Qu&eacute; se hace si alguien <b>no entrega</b>. Decidido en fr&iacute;o, hoy, que el
+              d&iacute;a antes ya no se decide nada.</li>
+        </ol>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>El experimento m&aacute;s grande de escribir a varias manos lleva funcionando desde
+           <b>2001</b> y lo has usado esta semana: la <b>Wikipedia</b>. Millones de art&iacute;culos
+           escritos por gente que no se conoce, sin jefe, y con el <b>historial completo y
+           p&uacute;blico</b> de cada uno: se puede ver qui&eacute;n cambi&oacute; qu&eacute; coma en
+           2009 y volver a como estaba. Eso no es un adorno t&eacute;cnico: es <b>lo que hace que
+           funcione</b>. Como todo se puede deshacer, el destrozo de un gamberro cuesta diez
+           segundos de arreglar y el trabajo de un a&ntilde;o no se puede perder.</p>
+        <p>Y cuando dos no se ponen de acuerdo, no se pelean en el art&iacute;culo: cada
+           art&iacute;culo tiene detr&aacute;s una <b>p&aacute;gina de discusi&oacute;n</b> donde se
+           habla del art&iacute;culo <b>sin tocarlo</b>. Es exactamente la diferencia entre
+           comentar y cambiar, a lo grande. Por cierto: la Wikipedia est&aacute; bajo
+           <b>CC BY-SA</b>, la misma licencia que esta web y la misma que sali&oacute; en la escena
+           de la sesi&oacute;n anterior.</p>
+      </div>
+  ''') +
+
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 9.5 &middot; Cuatro manos, un documento',
+    [u'2.1', u'4.1'], u'Grupos de 4 &middot; 25 min &middot; sobre 10', u'''
+          <div class="nota">
+            <span class="n-tag">Con qu&eacute; se hace</span>
+            Con cualquier procesador de textos que guarde en un sitio compartido y tenga historial y
+            comentarios. Lo que se eval&uacute;a no es el programa: es el <b>acuerdo escrito</b>, los
+            comentarios y que sep&aacute;is recuperar lo que se ha borrado.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>El acuerdo, primero.</b> Antes de escribir ni una palabra del trabajo, poned
+                arriba del documento las <b>cinco l&iacute;neas</b>: apartados, due&ntilde;o de cada
+                uno, plazo, quién revisa y qu&eacute; pasa si alguien falla. Con la escena, anotad la
+                <b>probabilidad de pisaros</b> con vuestro n&uacute;mero de personas y de apartados,
+                y explicad en una frase por qu&eacute; despu&eacute;s del reparto esa probabilidad
+                es <b>cero</b>.</li>
+            <li><b>A la vez.</b> Escribid los cuatro <b>al mismo tiempo</b>, cada uno en su apartado,
+                durante cinco minutos. Anotad tres cosas que se vean en la pantalla y que no
+                pasar&iacute;an trabajando cada uno en su fichero.</li>
+            <li><b>Comentad, no cambi&eacute;is.</b> Cada uno le pone al apartado del compa&ntilde;ero
+                de su derecha <b>tres comentarios</b>: uno de algo que <b>falta</b>, uno de algo que
+                <b>sobra</b> y uno de algo que <b>no se entiende</b>. Prohibido borrar texto ajeno.
+                Despu&eacute;s, cada autor contesta a los suyos y los cierra.</li>
+            <li><b>Rompedlo a prop&oacute;sito.</b> Uno del grupo <b>borra un p&aacute;rrafo entero</b>
+                y guarda. Recuperadlo desde el <b>historial</b>. Cronometradlo y anotad los segundos,
+                y anotad tambi&eacute;n qu&eacute; dice el historial sobre <b>qui&eacute;n</b> lo
+                borr&oacute;.</li>
+            <li><b>La cuenta del otro camino.</b> Con la escena en modo &laquo;nos lo pasamos&raquo;,
+                anotad cu&aacute;ntos <b>ficheros</b> habr&iacute;a, cu&aacute;ntas
+                <b>comparaciones</b> a mano har&iacute;an falta y cu&aacute;ntos <b>trozos de
+                trabajo</b> se perder&iacute;an de media. Comparadlo con lo que os ha costado el
+                paso 4.</li>
+            <li><b>Los permisos.</b> Dejad el documento con el nivel m&aacute;s bajo que sirva para
+                cada uno &mdash;incluido el profesor, que con <b>comentarista</b> tiene de
+                sobra&mdash; y escribid por qu&eacute; hab&eacute;is elegido cada nivel.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El acuerdo est&aacute; <b>escrito en el documento</b> y tiene las cinco
+                l&iacute;neas <b>(2 puntos)</b>.</li>
+            <li>Hay <b>tres comentarios por persona</b>, de los tres tipos, y est&aacute;n
+                contestados y cerrados <b>(2 puntos)</b>.</li>
+            <li>Nadie ha borrado texto de otro: se comprueba <b>en el historial</b>
+                <b>(2 puntos)</b>.</li>
+            <li>El p&aacute;rrafo borrado se ha recuperado y est&aacute;n anotados los segundos y
+                qui&eacute;n fue <b>(2 puntos)</b>.</li>
+            <li>Las tres cifras de la escena est&aacute;n bien le&iacute;das y comparadas
+                <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Sobre el paso 3</span>
+            Un comentario &uacute;til dice <b>qu&eacute; falta</b>, no <b>qu&eacute; te parece</b>.
+            &laquo;Aqu&iacute; no se dice cu&aacute;nto aguant&oacute;&raquo; se arregla;
+            &laquo;esto est&aacute; flojo&raquo;, no. Es la misma regla que la r&uacute;brica de la
+            sesi&oacute;n de las presentaciones: con n&uacute;meros y con hechos se puede trabajar,
+            con adjetivos solo se discute.
+          </div>
+  ''')) +
+
+  bloque('03', u'Cierre &middot; 5 min', u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Por qu&eacute; acaba siempre habiendo un &laquo;documento_final_final2&raquo;?',
+                     u'<p>Porque mandar un fichero es <b>hacer una copia</b>: en cuanto se manda hay dos documentos distintos, y en cuanto los tocan, cuatro. Como el fichero no guarda dentro qui&eacute;n ha escrito qu&eacute; ni cu&aacute;ndo, esa informaci&oacute;n se intenta meter en el <b>nombre</b>, que es el peor sitio posible. La salida no es poner mejores nombres: es que haya <b>un solo documento</b>.</p>')
+        + pregunta(u'Si trabaj&aacute;is en un documento compartido, &iquest;ya no hay riesgo de pisarse?',
+                   u'<p>El riesgo de <b>tocar lo mismo</b> es exactamente el mismo: la probabilidad no baja ni un punto, y la escena lo ense&ntilde;a. Lo que cambia es que <b>no se pierde nada</b>: se ve en directo qui&eacute;n est&aacute; escribiendo d&oacute;nde y todo lo anterior sigue en el <b>historial</b>. Para que el choque no ocurra hace falta otra cosa, que es gratis: <b>repartir los apartados por escrito</b> antes de empezar.</p>')
+        + pregunta(u'Lees el apartado de un compa&ntilde;ero y est&aacute; mal explicado. &iquest;Qu&eacute; haces?',
+                   u'<p><b>Comentar</b>, no reescribir. Un comentario se engancha al trozo, dice qu&eacute; falta y <b>no toca el texto</b>; el autor contesta y lo arregla &eacute;l. Si lo reescribes t&uacute;, le est&aacute;s borrando el trabajo aunque sea con buena intenci&oacute;n, y adem&aacute;s pierdes lo &uacute;nico que ten&iacute;a valor: que &eacute;l aprenda a explicarlo. En lo tuyo cambias; en lo de otro, comentas.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya est&aacute; escrito entre los cuatro, con sus im&aacute;genes citadas y sin haber perdido
+        el trabajo de nadie. Solo queda <b>publicarlo</b>. Y ah&iacute; aparece el &uacute;ltimo
+        problema, que no es t&eacute;cnico: lo va a leer <b>alguien que no estaba</b>. Trae a la
+        pr&oacute;xima clase el primer p&aacute;rrafo de un trabajo tuyo, del a&ntilde;o que sea, y
+        prep&aacute;rate para que alguien de otra clase intente decirte de qu&eacute; va.
+      </div>
+  '''))
+
+
+# ==========================================================================
+# SESION 6 · Publicar y que llegue, y el test que cierra la unidad
+#
+# Las diez preguntas son de TODA la unidad, no solo de esta sesion. Cada una
+# explica por que, tambien cuando se acierta.
+# ==========================================================================
+PREGUNTAS_U9 = [
+ dict(p=u'Abres tu trabajo en otro ordenador y se ha descolocado, pero no falta ni una palabra. '
+        u'&iquest;Qu&eacute; ha pasado?',
+      op=[u'el fichero se ha corrompido al copiarlo',
+          u'el documento guarda el texto y sus marcas, y la p&aacute;gina se <b>redibuja</b> al '
+          u'abrirlo con lo que tenga ese ordenador',
+          u'el programa del otro ordenador es una versi&oacute;n vieja'],
+      ok=1,
+      por=u'Si el fichero estuviera roto, <b>faltar&iacute;a algo</b>. Est&aacute; todo: lo '
+          u'&uacute;nico que ha cambiado es c&oacute;mo se reparte encima del papel, porque el '
+          u'dibujo se hace en el &uacute;ltimo momento y con la letra que haya. Lo que dice y '
+          u'c&oacute;mo se ve son dos cosas distintas.'),
+ dict(p=u'Has puesto los t&iacute;tulos en negrita y m&aacute;s grandes, pero el &iacute;ndice '
+        u'autom&aacute;tico sale vac&iacute;o. &iquest;Por qu&eacute;?',
+      op=[u'porque el &iacute;ndice hay que escribirlo a mano',
+          u'porque hay que guardar el documento antes',
+          u'porque les has cambiado el aspecto sin decirle al programa <b>qu&eacute; son</b>'],
+      ok=2,
+      por=u'Negrita y tama&ntilde;o son <b>pintura</b>: el programa sigue viendo texto normal. Para '
+          u'que sea un t&iacute;tulo hay que marcarlo con un <b>estilo</b>. Y lo mismo vale para el '
+          u'lector de pantalla de la &uacute;ltima sesi&oacute;n: sin encabezados marcados, no hay '
+          u'apartados a los que saltar. <b>Marcar no es pintar.</b>'),
+ dict(p=u'Arrastras la esquina de una foto en la diapositiva para hacerla peque&ntilde;a. '
+        u'&iquest;Pesa menos el fichero?',
+      op=[u'no: sigue teniendo los mismos p&iacute;xeles, solo has cambiado c&oacute;mo se dibuja',
+          u's&iacute;, a la mitad',
+          u's&iacute;, pero solo si lo guardas otra vez'],
+      ok=0,
+      por=u'Es el mismo error que el de los t&iacute;tulos, una capa m&aacute;s arriba: confundir lo '
+          u'que una cosa <b>es</b> con lo que <b>parece</b>. Los doce millones de p&iacute;xeles '
+          u'siguen ah&iacute; enteros. Para que pese menos hay que <b>redimensionar</b>, o sea, '
+          u'tirar p&iacute;xeles de verdad.'),
+ dict(p=u'&iquest;Por qu&eacute; un logotipo se guarda en SVG y una fotograf&iacute;a no?',
+      op=[u'porque el SVG comprime mejor',
+          u'porque un logotipo son pocas figuras que se pueden <b>redibujar</b> a cualquier '
+          u'tama&ntilde;o, y una foto son millones de manchas que no se parecen a ninguna figura',
+          u'porque el SVG lo abren todos los programas y el JPEG no'],
+      ok=1,
+      por=u'Un logotipo acaba <b>en un carn&eacute; y en una pancarta</b>, y solo uno de los dos '
+          u'cabe en la rejilla que guardaste. El vectorial pesa lo mismo a cualquier tama&ntilde;o '
+          u'porque guarda <b>instrucciones</b>, no casillas.'),
+ dict(p=u'Pones en la diapositiva exactamente lo que vas a decir. &iquest;Qu&eacute; pasa?',
+      op=[u'que se entiende mejor, porque lo oyen y lo leen a la vez',
+          u'que la clase termina de leerlo antes de que t&uacute; acabes, y deja de escucharte',
+          u'que da igual: cada uno elige'],
+      ok=1,
+      por=u'Leer va m&aacute;s r&aacute;pido que escuchar, y eso <b>se mide</b>: 54 palabras a 200 '
+          u'por minuto son 16 segundos, y t&uacute; tardas 45. Durante esos 29 segundos ya se saben '
+          u'el final. El texto no se borra: se pasa a las <b>notas del orador</b>.'),
+ dict(p=u'&iquest;De d&oacute;nde sale el consejo de no bajar de 24 puntos en una diapositiva?',
+      op=[u'de una norma internacional de tipograf&iacute;a',
+          u'de una costumbre de los dise&ntilde;adores',
+          u'de una cuenta: el cuerpo se convierte en mil&iacute;metros en la pared y desde el fondo '
+          u'del aula hace falta una altura m&iacute;nima'],
+      ok=2,
+      por=u'Con una pantalla de 2,5 m y una &uacute;ltima fila a 9 m salen <b>24 pt exactos</b>. En '
+          u'otra clase sale <b>otro n&uacute;mero</b>, y por eso se mide el aula en vez de repetir '
+          u'el consejo.'),
+ dict(p=u'Encuentras una foto en internet y no dice nada de licencia. &iquest;La puedes usar en tu '
+        u'trabajo?',
+      op=[u's&iacute;: si no lo proh&iacute;be, est&aacute; permitido',
+          u's&iacute;, mientras sea para clase y no cobres nada',
+          u'no: si nadie ha dado permiso, no hay permiso'],
+      ok=2,
+      por=u'Los derechos de autor <b>nacen solos</b>, sin registrar nada &mdash;igual que los de la '
+          u'&uacute;ltima foto de tu m&oacute;vil&mdash;. Lo que hay por defecto es <b>todos los '
+          u'derechos reservados</b>. El silencio no es un s&iacute;.'),
+ dict(p=u'Mezclas en el mismo trabajo una foto <b>CC BY-SA</b> y una m&uacute;sica <b>CC BY-NC</b>. '
+        u'&iquest;Qu&eacute; licencia le puedes poner al resultado?',
+      op=[u'CC BY-NC-SA, que junta las dos',
+          u'ninguna: esas dos condiciones son incompatibles y no se pueden mezclar',
+          u'la que quieras, porque las dos son libres'],
+      ok=1,
+      por=u'CompartirIgual obliga a publicar el resultado en <b>CC BY-SA</b>, y CC BY-SA <b>no '
+          u'admite</b> la condici&oacute;n NoComercial. Hay que cambiar una de las dos piezas. Es '
+          u'la prueba de que &laquo;libre&raquo; no es una sola cosa.'),
+ dict(p=u'Sois cuatro y os vais pasando el documento por el m&oacute;vil. &iquest;Cu&aacute;l es el '
+        u'problema de fondo?',
+      op=[u'que el m&oacute;vil estropea el formato del fichero',
+          u'que se tarda mucho en mandarlo',
+          u'que mandar un fichero es hacer una <b>copia</b>: enseguida hay cuatro documentos '
+          u'distintos y ninguno es el bueno'],
+      ok=2,
+      por=u'Y encima, sin repartir los apartados antes, la probabilidad de que dos toquen el mismo '
+          u'es del <b>59 %</b> con cuatro personas y ocho apartados. Un documento <b>compartido</b> '
+          u'no evita el choque: evita que se pierda, porque queda el <b>historial</b>.'),
+ dict(p=u'Pones el texto de tu web en gris clarito sobre blanco porque queda elegante. '
+        u'&iquest;C&oacute;mo se sabe si vale?',
+      op=[u'mir&aacute;ndolo: si t&uacute; lo lees, vale',
+          u'calculando la <b>raz&oacute;n de contraste</b>, que tiene que llegar a 4,5 : 1 en el '
+          u'texto normal',
+          u'no se puede saber: es cuesti&oacute;n de gustos'],
+      ok=1,
+      por=u'El gris de siempre sobre blanco da <b>2,64 : 1</b> y no llega ni al m&iacute;nimo del '
+          u'texto grande. Es una cuenta, como la del cuerpo de letra en el aula: el brillo de cada '
+          u'color se calcula con una f&oacute;rmula y se dividen. Y el que elige el color casi '
+          u'nunca es el que no puede leerlo.'),
+]
+
+S6 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>El trabajo est&aacute; terminado: se ve igual en todas partes, las im&aacute;genes pesan lo
+         que tienen que pesar, las fotos est&aacute;n citadas y lo hab&eacute;is escrito entre cuatro
+         sin perder nada. Se publica, y aqu&iacute; llega el &uacute;ltimo problema, que no tiene
+         nada de t&eacute;cnico.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Este es el primer p&aacute;rrafo de un trabajo de verdad. L&eacute;elo y contesta por escrito
+        a una sola pregunta: <b>&iquest;de qu&eacute; va el trabajo?</b>
+      </div>
+
+      <div class="reto-piensa">
+        <span class="n-tag">El p&aacute;rrafo</span>
+        <p style="font-style:italic">&laquo;Como ya hemos dicho antes, despu&eacute;s de hacer lo del
+           principio nos dimos cuenta de que no funcionaba, as&iacute; que lo cambiamos y al final
+           sali&oacute; bastante bien. En la siguiente imagen se puede ver el resultado.&raquo;</p>
+        <p style="margin-top:10px">No se puede contestar. No pone qu&eacute; hicieron, ni para
+           qu&eacute;, ni c&oacute;mo acab&oacute;. Y sin embargo <b>quien lo escribi&oacute; lo
+           entend&iacute;a perfectamente</b>.</p>
+      </div>
+
+      <p>Ah&iacute; est&aacute; todo lo de hoy. Quien publica <b>siempre sabe m&aacute;s</b> que quien
+         lee: estuvo delante, se acuerda del d&iacute;a que se rompi&oacute;, sabe qui&eacute;n es
+         &laquo;lo del principio&raquo;. Y se le olvida que lo sabe. Escribe para s&iacute; mismo y
+         cree que ha escrito para los dem&aacute;s.</p>
+
+      <p>Publicar no es <b>subir</b> el fichero a un sitio. Publicar es <b>escribir para alguien que
+         no estaba</b>. Y ese alguien incluye a m&aacute;s gente de la que te imaginas: al que lo
+         abre en el m&oacute;vil a las once de la noche, al que no ve la pantalla y al que llega a
+         &eacute;l dentro de tres a&ntilde;os sin saber de qu&eacute; iba la clase.</p>
+  ''') +
+
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <h3>El titular hace la mitad del trabajo</h3>
+      <p>Lo primero que lee cualquiera es el t&iacute;tulo, y muchas veces es lo <b>&uacute;nico</b>
+         que lee. Un t&iacute;tulo que no dice nada tira a la basura todo lo que hay debajo.</p>
+
+      <div class="copiar">
+        <h4>El titular y la entradilla</h4>
+        <p><b>Titular</b>: una l&iacute;nea que contesta a dos cosas &mdash;<b>qu&eacute; es</b> y
+           <b>c&oacute;mo acab&oacute;</b>&mdash; a alguien que no estaba. Ni interrogante, ni
+           misterio, ni gracia: lo que hay.</p>
+        <p><b>Entradilla</b>: dos o tres l&iacute;neas debajo que cuentan lo esencial <b>entero</b>.
+           Si alguien solo lee eso, tiene que haberse enterado.</p>
+        <table>
+          <tr><th>Titular</th><th>Qu&eacute; le pasa</th></tr>
+          <tr><td>Nuestro proyecto</td><td>No dice <b>nada</b>. Sirve para cualquier trabajo del
+              mundo.</td></tr>
+          <tr><td>Puente de palillos</td><td>Dice qu&eacute; es, pero no c&oacute;mo
+              acab&oacute;.</td></tr>
+          <tr><td><b>Un puente de palillos de 18 g que aguant&oacute; 1.400 g</b></td>
+              <td>Qu&eacute; es, c&oacute;mo acab&oacute; y por qu&eacute; merece la pena
+              leerlo.</td></tr>
+        </table>
+        <p>La prueba, que es de tres minutos: <b>d&aacute;selo a alguien de otra clase</b>. Si no
+           puede decirte de qu&eacute; va, el titular no vale. No es opinable.</p>
+      </div>
+
+      <h3>Lo importante, primero</h3>
+      <p>En un trabajo de clase la costumbre es contarlo <b>en el orden en que pas&oacute;</b>:
+         introducci&oacute;n, materiales, procedimiento, y el resultado al final, como el desenlace
+         de una pel&iacute;cula. Funciona fatal, y por una raz&oacute;n medible: quien lee en una
+         pantalla <b>decide en unos segundos</b> si sigue. Si el resultado est&aacute; en la
+         p&aacute;gina cuatro, no lo lee nadie.</p>
+
+      <div class="copiar">
+        <h4>La pir&aacute;mide invertida</h4>
+        <p>Se cuenta en este orden, y no en el que ocurri&oacute;:</p>
+        <ol>
+          <li><b>Qu&eacute; pas&oacute;</b> y c&oacute;mo acab&oacute;. El resultado, arriba del
+              todo.</li>
+          <li><b>Por qu&eacute;</b> y c&oacute;mo lo hicisteis: lo que explica el resultado.</li>
+          <li><b>El detalle</b>: medidas, tablas, lo que no cabe arriba.</li>
+        </ol>
+        <p>Se llama as&iacute; porque lo ancho va arriba. La ventaja pr&aacute;ctica: se puede
+           <b>cortar por abajo</b> sin que se estropee. Y hay otra cosa, que es la de la primera
+           sesi&oacute;n: cada bloque lleva su <b>encabezado marcado</b> &mdash;con su estilo, no
+           pintado&mdash;, que es lo que permite ojearlo sin leerlo entero.</p>
+      </div>
+
+      <h3>Lo que no se ve</h3>
+      <p>Y aqu&iacute; viene la parte que casi nadie se plantea. Hasta ahora hemos dado por hecho que
+         quien lee <b>mira</b> la pantalla. Vamos a quitar eso y a ver qu&eacute; queda de la
+         p&aacute;gina.</p>
+
+''' + ESCENA_LECTOR + u'''
+      <p>Fíjate en lo que ha pasado: la p&aacute;gina es la <b>misma</b>. Las mismas palabras y las
+         mismas im&aacute;genes. Lo &uacute;nico que cambia es si los t&iacute;tulos est&aacute;n
+         marcados y si las im&aacute;genes dicen lo que ense&ntilde;an. Es la sesi&oacute;n primera
+         otra vez &mdash;<b>marcar no es pintar</b>&mdash;, pero ahora no se trata de que salga el
+         &iacute;ndice: se trata de que alguien pueda entrar.</p>
+
+      <div class="copiar">
+        <h4>Texto alternativo</h4>
+        <p><b>Texto alternativo</b> (o <i>alt</i>): una frase, escrita a mano, que dice <b>qu&eacute;
+           se ve</b> en una imagen y <b>por qu&eacute; est&aacute; ah&iacute;</b>. Es lo que lee en
+           voz alta un lector de pantalla, y tambi&eacute;n lo que sale si la imagen no carga.</p>
+        <ul>
+          <li>Mal: <i>imagen1.jpg</i>, <i>foto</i>, <i>gr&aacute;fico</i>. No dicen nada.</li>
+          <li>Mal: repetir el pie de foto. Ya se ha le&iacute;do.</li>
+          <li>Bien: <i>&laquo;El puente terminado, visto de lado, con la bolsa de pesas colgando del
+              centro&raquo;</i>.</li>
+          <li>Si la imagen <b>solo decora</b>, el alt se deja <b>vac&iacute;o a prop&oacute;sito</b>:
+              as&iacute; el lector se la salta en vez de entretener a nadie con ella.</li>
+        </ul>
+        <p>Y lo mismo con los <b>enlaces</b>: el texto del enlace tiene que decir <b>a d&oacute;nde
+           va</b>. Quien usa un lector de pantalla puede pedir la lista de enlaces de la
+           p&aacute;gina, y si todos se llaman &laquo;pincha aqu&iacute;&raquo; lo que sale es una
+           lista de &laquo;pincha aqu&iacute;, pincha aqu&iacute;, pincha aqu&iacute;&raquo;.</p>
+      </div>
+
+''' + foto('u9-braille.jpg',
+           u'L&iacute;nea braille conectada a un ordenador: una fila de celdas con puntos en relieve '
+           u'y, debajo, una pantallita que muestra la misma frase en letra normal',
+           u'Una <b>l&iacute;nea braille</b>. La tira de arriba tiene celdas con puntos que '
+           u'<b>suben y bajan</b>, y en la pantallita peque&ntilde;a se ve la misma frase escrita en '
+           u'letra corriente: es el mismo texto, dos veces. Lo importante para hoy es lo que '
+           u'<b>no</b> tiene: no hay p&aacute;gina, no hay columnas, no hay &laquo;arriba a la '
+           u'derecha&raquo;. El documento llega <b>en fila</b>, una l&iacute;nea cada vez y en el '
+           u'orden en que est&eacute; escrito. Por eso el orden y los encabezados no son un adorno: '
+           u'son el &uacute;nico mapa que hay.',
+           u'Mfaure', u'CC BY-SA 2.5',
+           u'https://commons.wikimedia.org/wiki/File:Plage-braille-avec-touches-speciales.jpg') + u'''
+      <h3>Y otra vez: si se lee o no se lee</h3>
+      <p>En la sesi&oacute;n de las presentaciones calculamos si una letra <b>llegaba</b> al fondo del
+         aula. Faltaba la otra mitad del problema, que no es el tama&ntilde;o sino el
+         <b>color</b>. Y tambi&eacute;n es una cuenta.</p>
+
+''' + ESCENA_CONTRASTE + u'''
+      <div class="copiar">
+        <h4>Contraste</h4>
+        <p><b>Raz&oacute;n de contraste</b>: un n&uacute;mero que compara el <b>brillo</b> de la letra
+           con el del fondo. Va de <b>1 : 1</b> (los dos iguales, invisible) a <b>21 : 1</b> (negro
+           sobre blanco).</p>
+        <ul>
+          <li>Texto normal: al menos <b>4,5 : 1</b>.</li>
+          <li>Texto grande &mdash;18 puntos, o 14 en negrita&mdash;: al menos <b>3 : 1</b>.</li>
+        </ul>
+        <p>Son los m&iacute;nimos de la norma internacional de accesibilidad, que es la que citan las
+           leyes. Dos avisos que ahorran disgustos:</p>
+        <ul>
+          <li>El contraste <b>no es el color</b>: dos colores muy distintos con el mismo brillo dan
+              <b>1 : 1</b> y no se leen, aunque uno sea rojo y el otro verde.</li>
+          <li>Nunca uses <b>solo el color</b> para decir algo importante. &laquo;Lo rojo est&aacute;
+              mal&raquo; no lo ve quien no distingue el rojo: hay que poner adem&aacute;s una
+              palabra, un s&iacute;mbolo o un subrayado.</li>
+        </ul>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>En <b>1997</b>, cuando la web ten&iacute;a seis a&ntilde;os, su inventor
+           &mdash;<b>Tim Berners-Lee</b>&mdash; dijo algo que se cita mucho y se aplica poco: que la
+           fuerza de la web est&aacute; en que sea <b>universal</b>, y que poder entrar
+           independientemente de la discapacidad es parte esencial de eso. De ah&iacute; sali&oacute;
+           una lista de reglas comprobables, las <b>pautas de accesibilidad</b>, cuya segunda
+           versi&oacute;n (2008) es la que usan hoy las leyes europeas y espa&ntilde;olas para exigir
+           que las webs p&uacute;blicas se puedan usar.</p>
+        <p>Y hay un efecto que conviene conocer porque cambia c&oacute;mo se mira todo esto. Los
+           <b>rebajes de las aceras</b> se pusieron por las sillas de ruedas, y los usan los carritos
+           de beb&eacute;, las maletas con ruedas y los repartidores. Los <b>subt&iacute;tulos</b> se
+           pusieron para personas sordas, y hoy los lleva encendidos medio mundo en el metro. Las
+           cosas que se arreglan para quien <b>no puede</b> acaban us&aacute;ndolas los que
+           <b>s&iacute; pueden</b> pero est&aacute;n en mala postura: con el sol de cara, con las
+           manos ocupadas, con prisa o con sue&ntilde;o. Que es casi siempre.</p>
+      </div>
+
+''' + video('video-lector', '8ZKlKAAh6HI',
+            u'Lector de pantalla: manejar una web',
+            u'Universidad de Alicante &middot; en espa&ntilde;ol',
+            u'Una web recorrida de verdad con un lector de pantalla. Mientras lo veis, '
+            u'contad cu&aacute;ntas veces salta de encabezado en encabezado: es exactamente lo de la '
+            u'escena de arriba, pero con una p&aacute;gina real.')) +
+
+  bloque('02', u'Pr&aacute;ctica &middot; 15 min', ficha(
+    u'Actividad 9.6 &middot; Que lo entienda alguien que no estaba',
+    [u'4.1', u'6.3'], u'Parejas &middot; 15 min &middot; sobre 10', u'''
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>Arreglad el p&aacute;rrafo del principio.</b> Reescribidlo de manera que alguien
+                que no estaba entienda qu&eacute; se hizo, para qu&eacute; y c&oacute;mo
+                acab&oacute;. Inventad los datos que hagan falta, pero que sean <b>datos</b>.</li>
+            <li><b>Titular y entradilla.</b> Escribid los de vuestro propio trabajo. Pas&aacute;dselos
+                a otra pareja y anotad, <b>con sus palabras</b>, lo que han entendido. Si no coincide
+                con lo que quer&iacute;ais decir, el fallo es vuestro: reescribidlo.</li>
+            <li><b>Los textos alternativos.</b> Escribid el <i>alt</i> de las <b>tres im&aacute;genes</b>
+                que buscasteis en Commons. Decidid adem&aacute;s si alguna es <b>decorativa</b>, y
+                si lo es, explicad por qu&eacute; su alt debe ir vac&iacute;o.</li>
+            <li><b>El contraste, medido.</b> Coged los dos colores que us&aacute;is en la
+                presentaci&oacute;n y metedlos en la escena. Anotad la raz&oacute;n. Si no
+                llega a <b>4,5 : 1</b>, cambiad el color hasta que llegue y anotad <b>los dos
+                n&uacute;meros</b> y qu&eacute; hab&eacute;is tenido que tocar.</li>
+            <li><b>Los encabezados.</b> Comprobad en vuestro documento que los t&iacute;tulos
+                est&aacute;n <b>marcados con estilos</b>: la prueba es generar el &iacute;ndice
+                autom&aacute;tico y ver si salen todos. Contad cu&aacute;ntos apartados
+                alcanzar&iacute;a un lector de pantalla <b>antes</b> y <b>despu&eacute;s</b> de
+                arreglarlo.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El p&aacute;rrafo reescrito contesta qu&eacute;, para qu&eacute; y c&oacute;mo
+                acab&oacute;, con datos <b>(2 puntos)</b>.</li>
+            <li>El titular pasa la prueba de la otra pareja, y si no pasa, <b>se ha reescrito</b>
+                <b>(2 puntos)</b>.</li>
+            <li>Los tres textos alternativos dicen qu&eacute; se ve y por qu&eacute; est&aacute;
+                ah&iacute; la imagen <b>(2 puntos)</b>.</li>
+            <li>Las dos razones de contraste est&aacute;n anotadas y la segunda llega a 4,5 : 1
+                <b>(2 puntos)</b>.</li>
+            <li>El recuento de apartados alcanzables est&aacute; hecho antes y despu&eacute;s
+                <b>(2 puntos)</b>.</li>
+          </ul>
+  ''')) +
+
+  bloque('03', u'Test &middot; 10 min', u'''
+      <p>Diez preguntas de <b>toda la unidad</b>, no solo de hoy. Se corrigen aqu&iacute; mismo y
+         cada una explica por qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta
+         para nota: es para que sepas por d&oacute;nde andas antes del examen.</p>
+''' + test('u9', u'Lo que tiene que haber quedado de la unidad', PREGUNTAS_U9)) +
+
+  bloque('04', u'Cierre &middot; 5 min', u'''
+      <p>Con esto se cierra la unidad. Si te quedas con cuatro frases, que sean estas:</p>
+      <div class="copiar">
+        <h4>La unidad en cuatro frases</h4>
+        <ol>
+          <li>Lo que una cosa <b>es</b> y lo que <b>parece</b> son cosas distintas: un t&iacute;tulo
+              se <b>marca</b>, no se pinta, y una foto peque&ntilde;a en la pantalla sigue pesando lo
+              mismo.</li>
+          <li>Casi todo lo que parece opinable se puede <b>contar</b>: las palabras de una
+              diapositiva, los p&iacute;xeles que llegan a verse, los mil&iacute;metros de letra en
+              la pared y el contraste de dos colores.</li>
+          <li>Usar lo de otro se puede, pero <b>con permiso y con nombre</b>. El permiso hay que
+              darlo &mdash;el silencio no es un s&iacute;&mdash;, y citar no es un tr&aacute;mite: es
+              lo que hace que un trabajo se pueda comprobar.</li>
+          <li>Publicar es escribir para <b>alguien que no estaba</b>. Y ese alguien a veces no ve la
+              pantalla, con lo cual lo &uacute;nico que tiene es el <b>orden</b> que le hayas dejado
+              puesto.</li>
+        </ol>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Y con esto se cierra el c&iacute;rculo</span>
+        Al principio del curso, en la unidad de representaci&oacute;n gr&aacute;fica, aprendiste a
+        explicar una idea con un <b>dibujo</b> para que otra persona pudiera construirla sin
+        preguntarte nada. Es el <b>mismo criterio del curr&iacute;culo</b> que esta unidad: comunicar
+        lo que has hecho. Aquello era con un l&aacute;piz y esto es con un ordenador, y lo que no
+        cambia es la exigencia: que quien lo reciba <b>entienda exactamente lo que quer&iacute;as
+        decir</b>, sin estar t&uacute; delante. Lo &uacute;nico que ha cambiado de una punta del
+        curso a la otra es cu&aacute;nta gente puede recibirlo.
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Siguiente unidad</span>
+        Hasta aqu&iacute; las m&aacute;quinas han hecho lo que t&uacute; les ibas diciendo, paso a
+        paso: escribe esto, reduce esta foto, manda esto. En la unidad siguiente se les explica
+        <b>una vez</b> lo que tienen que hacer y lo hacen <b>solas</b>, mil veces y sin ti. Eso es
+        <b>programar</b>, y necesita todo lo anterior: el m&eacute;todo, el dibujo, los materiales,
+        la electricidad y esto de hoy, porque un programa tambi&eacute;n hay que explicarlo a
+        alguien que no estaba.
+      </div>
+  '''))
+
+
+# ==========================================================================
 S = [
   dict(corto=u'El documento que no se rompe',
        titulo=u'El documento que no se rompe',
@@ -882,9 +1807,32 @@ S = [
        minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
        chips=[u'CE4 &middot; 4.1', u'CE2 &middot; 2.1', u'B.1 &middot; B.3'],
        cuerpo=S3),
-  dict(corto=u'Lo que se puede copiar', pendiente=True),
-  dict(corto=u'A varias manos', pendiente=True),
-  dict(corto=u'Publicar y que llegue', pendiente=True),
+  dict(corto=u'Lo que se puede copiar',
+       titulo=u'Lo que se puede copiar',
+       entradilla=u'Tu &uacute;ltima foto es tuya sin haber registrado nada. La del buscador, '
+                  u'tambi&eacute;n es de alguien, y por la misma raz&oacute;n. De ah&iacute; sale '
+                  u'todo: los derechos de autor, las licencias libres y por qu&eacute; hay que '
+                  u'escribir cuatro datos debajo de cada imagen.',
+       minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+       chips=[u'CE6 &middot; 6.2', u'CE6 &middot; 6.3', u'D.2 &middot; D.3 &middot; D.4'],
+       cuerpo=S4),
+  dict(corto=u'A varias manos',
+       titulo=u'A varias manos, sin pisarse',
+       entradilla=u'Mandar un fichero es hacer una copia, y cuatro copias no tienen due&ntilde;o. '
+                  u'Con cuatro personas y ocho apartados, la probabilidad de escribir encima de '
+                  u'otro es del 59 %: se calcula, y se puede bajar a cero antes de empezar.',
+       minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+       chips=[u'CE2 &middot; 2.1', u'CE4 &middot; 4.1', u'B.1 &middot; B.3'],
+       cuerpo=S5),
+  dict(corto=u'Publicar y que llegue',
+       titulo=u'Publicar y que llegue',
+       entradilla=u'Quien publica siempre sabe m&aacute;s que quien lee, y se le olvida que lo '
+                  u'sabe. Titular, orden y lo que queda de una p&aacute;gina cuando alguien no '
+                  u'puede mirarla. Cierra la unidad y el test.',
+       minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
+                 (u"10'", u'Test'), (u"5'", u'Cierre')],
+       chips=[u'CE4 &middot; 4.1', u'CE6 &middot; 6.1', u'CE6 &middot; 6.3', u'B.2 &middot; D.4'],
+       cuerpo=S6),
 ]
 
 CFG = dict(
@@ -896,8 +1844,11 @@ CFG = dict(
  tema=u'Tema 9', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
  desc=u'Tema 9 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: formatos de '
       u'fichero, estilos frente a formato a mano y por qu&eacute; un PDF se ve igual en todas '
-      u'partes; mapa de bits y vectorial, resoluci&oacute;n y compresi&oacute;n; y c&oacute;mo se '
-      u'hace una presentaci&oacute;n que se pueda evaluar con n&uacute;meros.',
+      u'partes; mapa de bits y vectorial, resoluci&oacute;n y compresi&oacute;n; c&oacute;mo se '
+      u'hace una presentaci&oacute;n que se pueda evaluar con n&uacute;meros; derechos de autor, '
+      u'licencias Creative Commons y dominio p&uacute;blico; trabajo compartido, historial de '
+      u'versiones y comentarios; y publicaci&oacute;n accesible: titular, encabezados, texto '
+      u'alternativo y contraste.',
  sesiones=S)
 
 
@@ -917,6 +1868,10 @@ EXTRA_CSS = avatar_flat.CSS + u"""
 .pasos ul{margin:6px 0 2px}
 /* la caja de texto de la escena de la carrera: que no desborde a lo ancho */
 .escena-barra textarea{max-width:100%;box-sizing:border-box}
+/* el pie del mezclador de licencias escribe enlaces enteros, y un enlace es una
+   palabra larguisima sin espacios: en un movil de 390 px se sale por la derecha
+   si no se le deja partir por donde sea. Medido con u9_verifica.py. */
+.pie{overflow-wrap:anywhere}
 """
 
 if __name__ == '__main__':
