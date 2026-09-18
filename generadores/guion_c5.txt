@@ -1,0 +1,11 @@
+Encender una bombilla con un interruptor ya lo sabes hacer. El interruptor lo aprietas tú, y la bombilla se enciende con la fuerza que tenga. En este tema vamos a quitar las dos cosas: que nadie tenga que apretar nada, y que la fuerza la elijas tú.
+
+Empezamos por un fallo que le pasa a todo el mundo. Compras una fotorresistencia de veinte céntimos, la enchufas a un pin del Arduino, y los números bailan solos. El sensor está bien. Lo que está mal es la idea: un pin no mide resistencia, mide voltios. Arreglar eso cuesta dos resistencias en serie, y ese apaño de dos resistencias se llama divisor de tensión. Con él, una LDR y una NTC pasan a decir algo que una máquina entiende.
+
+Con el número ya en la mano, aparece el segundo problema, que es de tamaño. Un pin de Arduino da veinte miliamperios. Una bomba de riego de tres euros pide doscientos cincuenta. Entre los dos hace falta alguien que, con muy poca corriente, deje pasar mucha: el transistor. Y con él viene un componente de tres céntimos que se olvida siempre y que quema placas, el diodo de rueda libre.
+
+Y aún queda el tercer problema. Aunque el transistor te deje mover lo que quieras, un motorcito de tres voltios no levanta una tapa de cuarenta kilos. Para eso, media industria no usa motores: usa aire comprimido. Un cilindro de tres centímetros de ancho, a la presión que hay en cualquier taller, empuja con cuarenta y nueve kilos, no lleva ni un engranaje dentro y, si lo atascas, simplemente se para. La cuenta que lo explica cabe en una línea: fuerza igual a presión por superficie.
+
+Lo último es aprender a mandarle el aire. Un cilindro no se enciende y se apaga: hay que meterle el aire por un lado mientras se lo dejas salir por el otro. De eso se encargan las válvulas, que tienen su propio dibujo normalizado, y merece la pena aprender a leerlo, porque ese dibujo es el mismo en cualquier fábrica del mundo.
+
+Cuatro sesiones, cuatro piezas: enterarse, mover, hacer fuerza y mandar. Al final de la unidad son las cuatro piezas del automatismo de tu proyecto. Vamos con la primera.

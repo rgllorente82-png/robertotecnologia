@@ -1,0 +1,42 @@
+{
+ "c5-ntc": {
+  "titulo": "File:NTC Thermistor.jpg",
+  "autor": "Soumyapatra13",
+  "licencia": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:NTC_Thermistor.jpg",
+  "px": "1211x1140",
+  "bytes": 192862,
+  "desc": "A NTC Thermistor, or a Negative Temperature Coefficient Thermistor ( green disc shaped component) in a power supply circuit board. It works as a inrush-current limiter. Initially, it has a higher resistance, which prevents high currents from flowing at turn-on. But as it heats up, its resistance decreases allowing higher currents to flow during normal operation."
+ },
+ "c5-transistores": {
+  "titulo": "File:Transistorer (cropped).jpg",
+  "autor": "Mister rf at English Wikipedia",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Transistorer_(cropped).jpg",
+  "px": "4400x3480",
+  "bytes": 265165,
+  "desc": "Assorted discrete transistors. Packages in order from top to bottom: TO-3, TO-126, TO-92, SOT-23. BUX83: NPN silicon high voltage power transistor from Philips,TO-3 packaging M126: PNP silicon medium power transistor from Motorola,TO-126 packaging 2N3906; PNP general purpose low-power/switching applications, TO-92 packaging BC817: NPN general purpose transistor, SMD mounting, SOT-23 packaging"
+ },
+ "c5-cilindro": {
+  "titulo": "File:Pneumatic cylinder 2172.jpg",
+  "autor": "Mixabest",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Pneumatic_cylinder_2172.jpg",
+  "px": "2448x3264",
+  "bytes": 394228,
+  "desc": "Pneumatic cylinder with sensors"
+ },
+ "c5-valvulas": {
+  "titulo": "File:Innenleben eines Astronauten, pneumatic control unit.jpg",
+  "autor": "Blonder1984",
+  "licencia": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Innenleben_eines_Astronauten,_pneumatic_control_unit.jpg",
+  "px": "1305x693",
+  "bytes": 142890,
+  "desc": "Pneumatic solenoid valve battery for automation"
+ }
+}
