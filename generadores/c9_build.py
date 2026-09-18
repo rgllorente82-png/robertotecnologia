@@ -6,13 +6,13 @@
 Escribe 4eso/Tecnologia/tema9/index.html. La "c" de los generadores de esta
 unidad es de "cuarto": no choca con los u*_ de 2.o.
 
-Ocho sesiones. Aqui estan escritas las CUATRO primeras; las otras cuatro
-aparecen en la barra con su titulo y el boton desactivado.
+Ocho sesiones, las ocho escritas.
 
 Criterios: CE2 / 2.1 y CE6 / 6.1, 6.2, 6.3. Ver CURRICULO.md.
 
 Es la unidad que cierra el curso: recoge el proyecto y lo mira desde fuera.
-El hilo, que es lo que importa:
+La primera mitad es para MIRAR; la segunda, para que el aparato SALGA DEL
+AULA y le sirva a alguien. El hilo, que es lo que importa:
 
   S1  Tu aparato funciona. Pero hay tecnologia que funciona desde hace
       decadas y no llega a quien la necesita. No hay conspiracion: hay una
@@ -27,11 +27,28 @@ El hilo, que es lo que importa:
       estaba, en seis minutos, con una rubrica que se da por adelantado. Y
       contestar la pregunta incomoda sin inventarse un numero.
   S4  Queda la pregunta mas incomoda: fabricarlo tambien costo algo.
-      Cuando devuelve lo que costo? Cierre del curso y test.
+      Cuando devuelve lo que costo? Test de las cuatro primeras.
+  S5  Sabes lo que cuesta, pero no a quien le sirve. "Seria util" no es un
+      requisito: lo pone una persona con nombre, se saca preguntando y se
+      escribe con un numero y una unidad. Recoge la quinta pregunta del
+      sitio, que la S2 dejo abierta.
+  S6  Supon que lo consigues todo y el dia de la entrega funciona. Tres
+      semanas despues la sonda esta comida por electrolisis y nadie se ha
+      enterado. Cinco anos de mantenimiento en manos de OTRO, dia a dia. NO
+      es el impacto ambiental (unidad 8) ni el residuo (unidad 3).
+  S7  La etiqueta de la S6 resuelve una semana. Para CONTINUARLO hacen falta
+      manual, esquema y, sobre todo, permiso: sin licencia, todos los
+      derechos reservados. Aqui entra el CC BY-SA del pie de esta web.
+  S8  Lo unico que no se puede ensayar: darselo. Prueba de aceptacion
+      acordada ANTES, hecha delante, y escrito que se hace si no pasa.
+      Cierre de la unidad y test de las ocho (identificador c9b, distinto
+      del c9 de la S4: si se repite, los dos tests comparten ids del HTML y
+      dejan de funcionar los dos).
 
 Los ejemplos van SIEMPRE con los tres proyectos decididos en PROYECTOS.md
-(A riego, B aviso de aula, C lampara), repartidos para que no salga siempre
-el riego.
+(A riego, B aviso de aula, C lampara). En la primera mitad rotan porque el
+proyecto del curso aun no estaba decidido; en la segunda el riego es el
+principal y los otros dos son las variantes, tal y como quedo en PROYECTOS.md.
 """
 import io
 import json
@@ -43,6 +60,8 @@ from unidad_base import pagina, bloque, ficha, pregunta
 import avatar_flat
 from c9_escenas import MERCADO, SITIO
 from c9_escenas2 import RUBRICA, RETORNO
+from c9_escenas3 import REQUISITOS, MANTENIMIENTO
+from c9_escenas4 import CONTINUAR, ACEPTACION
 from test_auto import test
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -52,15 +71,18 @@ USA_AVATAR = [False]
 # --------------------------------------------------------------------------
 # Piezas repetidas
 # --------------------------------------------------------------------------
-def foto(src, alt, pie, autor, licencia, commons):
-    return u'''      <figure class="foto">
+def foto(src, alt, pie, autor, licencia, commons, estilo=u''):
+    """estilo: para las fotos verticales. Una foto 9:16 a todo el ancho de la
+    columna se come dos pantallas de movil, asi que se le pone un ancho
+    maximo y se centra. La imagen NO se recorta: se ensena entera."""
+    return u'''      <figure class="foto"%s>
         <img src="../../../img/%s" alt="%s" loading="lazy">
         <figcaption>%s
           <span class="credito">%s &middot; %s &middot;
             <a href="%s" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
-''' % (src, alt, pie, autor, licencia, commons)
+''' % (u' style="%s"' % estilo if estilo else u'', src, alt, pie, autor, licencia, commons)
 
 
 def video(idv, vid, titulo, canal, nota):
@@ -1036,10 +1058,1090 @@ S4_CIERRE = u'''
 ''' + test('c9', u'Lo que tiene que haber quedado de estas cuatro sesiones', PREGUNTAS_TEST) + u'''
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Estas cuatro sesiones os han dado la mirada y las cuentas. Las cuatro que quedan son
-        <b>manos</b>: el ciclo de vida completo del aparato, dise&ntilde;arlo para quien no puede
-        usarlo como vosotros, mirar d&oacute;nde acaba cuando se tira, y la defensa de verdad ante
-        gente de fuera del aula.
+        Estas cuatro sesiones os han dado la mirada y las cuentas. Las cuatro que quedan sirven para
+        que el aparato <b>salga del aula</b>: para qui&eacute;n es exactamente, lo que cuesta
+        mantenerlo vivo cuando vosotros ya no est&eacute;is, c&oacute;mo se deja para que otro pueda
+        continuarlo, y c&oacute;mo se entrega de verdad a quien lo va a usar.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 5 - Para quien, exactamente
+# ==========================================================================
+S5_RETO = u'''
+      <p>La segunda mitad de la unidad cambia de sitio. Las cuatro sesiones anteriores eran para
+         <b>mirar</b>: qui&eacute;n decide, d&oacute;nde encaja, c&oacute;mo se cuenta, qu&eacute;
+         cuesta. Las cuatro que vienen son para que el aparato <b>salga del aula</b> y le sirva a
+         alguien de verdad. Y eso empieza por saber a qui&eacute;n.</p>
+      <p>En la sesi&oacute;n 2 dejamos una pregunta sin contestar. Era la quinta de las cinco del
+         sitio: <b>&iquest;qui&eacute;n decidi&oacute; que este era el problema?</b> Hoy toca.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        En pareja y en <b>dos minutos</b>: escribid <b>en una frase</b> para qui&eacute;n es vuestro
+        proyecto. Sin adornos y sin pensarlo mucho.
+      </div>
+      <p>Casi todas las frases se parecen a estas tres:</p>
+      <ul>
+        <li><i>&laquo;Para el instituto, para ahorrar agua.&raquo;</i></li>
+        <li><i>&laquo;Para que no se sequen las plantas.&raquo;</i></li>
+        <li><i>&laquo;Para concienciar sobre el consumo.&raquo;</i></li>
+      </ul>
+      <p>Las tres tienen el mismo agujero, y es gordo: <b>dentro no hay nadie</b>. El instituto no
+         riega, no se olvida y no se va quince d&iacute;as en agosto. Las plantas tampoco cambian
+         pilas. Y &laquo;concienciar&raquo; no lo comprueba nadie nunca.</p>
+      <p>Ahora mirad estas tres frases. Las dijo una persona de verdad, la profesora que lleva el
+         huerto del centro, cuando le preguntaron:</p>
+      <div class="def">
+        <span class="n-tag">Lo que dijo, literal</span>
+        <p style="margin:0 0 7px"><i>&laquo;Del 20 de julio al 1 de septiembre aqu&iacute; no viene
+           nadie.&raquo;</i></p>
+        <p style="margin:0 0 7px"><i>&laquo;El enchufe m&aacute;s cercano est&aacute; en el taller, a
+           cuarenta metros.&raquo;</i></p>
+        <p style="margin:0"><i>&laquo;Lo que se me muere no es la lechuga: son los
+           semilleros.&raquo;</i></p>
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>Una de las tres <b>obliga a cambiar el aparato</b>, otra es una <b>limitaci&oacute;n que
+           no pod&eacute;is tocar</b> y la tercera <b>cambia el proyecto entero</b>. Decid cu&aacute;l
+           es cu&aacute;l, y por qu&eacute;. Despu&eacute;s tachad vuestra frase de antes y volved a
+           escribirla, pero con <b>un nombre propio y una fecha dentro</b>.</p>
+      </div>
+'''
+
+S5_TEORIA = u'''
+      <p>La diferencia entre las frases de la profesora y las vuestras no es que ella sepa m&aacute;s
+         de tecnolog&iacute;a. Es que las suyas <b>se pueden comprobar</b> y las vuestras no.</p>
+      <div class="copiar">
+        <h4>Un requisito es una frase que se puede comprobar</h4>
+        <p>Para que una frase sea un requisito le tienen que caber tres cosas:</p>
+        <ol>
+          <li>un <b>n&uacute;mero con su unidad</b>, o una <b>prueba</b> que se pueda hacer delante
+              de alguien;</li>
+          <li><b>qui&eacute;n lo pidi&oacute;</b>, con nombre;</li>
+          <li>y <b>c&oacute;mo se sabr&aacute;</b> si se cumple o no.</li>
+        </ol>
+        <p><i>&laquo;Que sea fiable&raquo;</i> no es un requisito: es un deseo.
+           <i>&laquo;Que aguante 43 d&iacute;as sin que vaya nadie&raquo;</i> s&iacute;, porque el 15
+           de septiembre se mira la planta y o est&aacute; viva o no lo est&aacute;.</p>
+      </div>
+      <div class="copiar">
+        <h4>Tres cosas distintas, y conviene no mezclarlas</h4>
+        <ul>
+          <li><b>Requisito</b>: lo que tiene que conseguir. Lleva n&uacute;mero.
+              <i>Quince d&iacute;as.</i></li>
+          <li><b>Restricci&oacute;n</b>: lo que <b>no pod&eacute;is cambiar</b> por mucho que
+              quer&aacute;is. <i>Por el pasillo no pasa un cable.</i> No se discute: se dise&ntilde;a
+              con ella dentro.</li>
+          <li><b>Deseo</b>: lo que estar&iacute;a bien. <i>Que quede bonito.</i> No se tira, pero va
+              al final de la lista y se dice que va al final.</li>
+        </ul>
+        <p>La trampa m&aacute;s com&uacute;n es apuntar una restricci&oacute;n como si fuera un deseo.
+           Entonces se dise&ntilde;a ignor&aacute;ndola y el d&iacute;a de la entrega no cabe por la
+           puerta.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Ojo con la <b>soluci&oacute;n disfrazada de necesidad</b>. Cuando alguien te dice
+           <i>&laquo;lo que hace falta aqu&iacute; es una app&raquo;</i>, no te est&aacute; contando su
+           problema: te est&aacute; dando su soluci&oacute;n, que probablemente sea peor que la tuya
+           porque &eacute;l no sabe qu&eacute; se puede construir. La pregunta que lo deshace es
+           tonta y funciona siempre: <b>&laquo;&iquest;y eso para qu&eacute; te
+           servir&iacute;a?&raquo;</b>. Se repite hasta que sale algo que no es un aparato. Suele
+           hacer falta preguntarlo tres veces.</p>
+      </div>
+
+      <h3>C&oacute;mo se pregunta, que tampoco es obvio</h3>
+      <p>Una entrevista mal hecha devuelve lo que t&uacute; quer&iacute;as o&iacute;r. La gente es
+         amable y te dice que s&iacute;. As&iacute; que no se preguntan opiniones: se preguntan
+         <b>hechos del pasado</b>.</p>
+''' + foto('c9-entrevista.jpg',
+           u'Dos personas frente a un port&aacute;til: una teclea y la otra, con una hoja de notas '
+           u'escritas a mano, observa y se&ntilde;ala la pantalla',
+           u'Una <b>prueba con la persona que lo va a usar</b>. Lo que se est&aacute; probando '
+           u'aqu&iacute; es una p&aacute;gina web y no un riego, pero la t&eacute;cnica es la misma '
+           u'y el detalle importante est&aacute; a la izquierda: <b>ese papel</b>. El que mira no '
+           u'est&aacute; ense&ntilde;ando nada ni explicando c&oacute;mo funciona &mdash;eso lo '
+           u'estropear&iacute;a&mdash;: est&aacute; <b>apuntando lo que hace el otro</b> mientras lo '
+           u'hace. De la entrevista hay que salir con el papel lleno, no con una impresi&oacute;n '
+           u'general.',
+           u'Samuel Mann', u'CC BY 2.0',
+           u'https://commons.wikimedia.org/wiki/File:Project_User_Experience_Testing_'
+           u'(9719939867).jpg') + u'''
+      <div class="copiar">
+        <h4>Cinco preguntas que s&iacute; sacan requisitos</h4>
+        <ol>
+          <li><b>&iquest;Qu&eacute; haces ahora, exactamente?</b> Paso a paso, hoy. No
+              qu&eacute; te gustar&iacute;a hacer.</li>
+          <li><b>&iquest;Cu&aacute;ndo fue la &uacute;ltima vez que sali&oacute; mal? &iquest;Qu&eacute;
+              pas&oacute;?</b> Aqu&iacute; salen los n&uacute;meros de verdad.</li>
+          <li><b>&iquest;Cu&aacute;nto tiempo tienes para esto a la semana?</b> Porque el aparato le
+              va a pedir algo de tiempo, y si no lo tiene, sobra.</li>
+          <li><b>&iquest;Qu&eacute; pasa si falla y nadie se entera?</b> Lo que hay que proteger
+              est&aacute; en esa respuesta.</li>
+          <li><b>&iquest;Qu&eacute; es lo que yo no puedo cambiar?</b> Paredes, enchufes, horarios,
+              normas del centro, personas.</li>
+        </ol>
+        <p>Y una regla que vale m&aacute;s que las cinco: <b>se anota lo que dice, entre
+           comillas</b>. No lo que t&uacute; entiendes. En cuanto lo resumes con tus palabras, le has
+           metido dentro tu soluci&oacute;n sin darte cuenta.</p>
+      </div>
+
+      <h3>De las comillas al n&uacute;mero</h3>
+      <p>En la escena est&aacute;n los tres destinatarios con sus frases literales. Los mandos de la
+         derecha son <b>vuestro aparato</b>, el que ten&eacute;is montado, y no cambian al cambiar de
+         persona: el aparato es el mismo. Lo que cambia es lo que le piden.</p>
+      <p>Empieza por <b>la vecina</b>, que es el caso amable, y ll&eacute;valo hasta que cumpla los
+         tres. Despu&eacute;s pasa al <b>huerto</b> sin tocar nada.</p>
+''' + REQUISITOS + u'''
+      <div class="copiar">
+        <h4>Lo que acaba de pasar</h4>
+        <p>Con la vecina se llega: seis pilas, ocho litros de dep&oacute;sito y la placa durmiendo, y
+           cumple <b>los tres</b>. Con el huerto <b>no se llega ni forzando los mandos al
+           m&aacute;ximo</b>, y no porque el aparato sea peor: es que el bancal pide 6 litros al
+           d&iacute;a y 43 d&iacute;as sin nadie son <b>258 litros</b>. Eso no es un dep&oacute;sito:
+           es un bid&oacute;n de los grandes, o una toma de agua.</p>
+        <p>En el aula de infantil pasa lo mismo por otro lado: la placa gasta 1,45 Wh al d&iacute;a
+           durmiendo, y 90 d&iacute;as son 130 Wh, o sea <b>treinta y seis pilas</b>. Con ocho llega
+           a 20 d&iacute;as de los 90.</p>
+        <p>Conclusi&oacute;n, y es la de la sesi&oacute;n: cuando un mando no da para tanto, <b>lo que
+           hay que cambiar no es el mando: es el dise&ntilde;o</b>. En el huerto, un enchufe y una
+           toma de agua. En infantil, un enchufe. Y eso se sabe <b>antes</b> de construir si se
+           pregunta antes de construir.</p>
+      </div>
+      <div class="copiar">
+        <h4>Priorizar, que es decir que no</h4>
+        <p>Una lista de requisitos sin orden no sirve, porque el d&iacute;a que falte tiempo
+           &mdash;y va a faltar&mdash; no se sabr&aacute; qu&eacute; recortar. Se ordenan en tres
+           montones:</p>
+        <ul>
+          <li><b>Sin esto no sirve.</b> Si falla uno, el aparato no se entrega.</li>
+          <li><b>Esto lo mejora.</b> Se hace si da tiempo, y se dice que es as&iacute;.</li>
+          <li><b>Esto es un lujo.</b> Se apunta para que no se olvide, y se deja para otro.</li>
+        </ul>
+        <p>La regla: <b>si todo est&aacute; en el primer mont&oacute;n, no hab&eacute;is
+           priorizado</b>, os hab&eacute;is limitado a copiar la lista. Y quien decide el orden no
+           sois vosotros: es quien lo va a usar.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>&iquest;Y los requisitos que <b>no son n&uacute;meros</b>? <i>&laquo;No leen.
+           Ninguno&raquo;</i> no tiene unidades, y aun as&iacute; es el requisito m&aacute;s duro de
+           esa aula. No se tiran: se convierten en una <b>comprobaci&oacute;n</b>, o sea en algo que
+           se hace delante de la persona y que <b>puede salir mal</b>. En este caso: ense&ntilde;arle
+           la se&ntilde;al a un ni&ntilde;o de cuatro a&ntilde;os y preguntarle qu&eacute; hay que
+           hacer. Si no lo sabe, no cumple.</p>
+        <p>Esa idea &mdash;convertir lo que no es un n&uacute;mero en algo que se comprueba
+           delante&mdash; es toda la sesi&oacute;n 8.</p>
+      </div>
+'''
+
+S5_PRACTICA = ficha(
+    u'Actividad 5 &middot; La entrevista, y la lista con n&uacute;meros',
+    [u'6.1', u'6.3', u'D.1', u'D.4'], u'Grupos de tres &middot; 20 min', u'''
+          <h4>Primera parte &middot; la entrevista cruzada (10 min)</h4>
+          <p>No hace falta salir del aula. Cada grupo recibe una <b>ficha de destinatario</b> (el
+             conserje, la maestra de infantil, la vecina, quien lleva el huerto) con cuatro datos
+             suyos que <b>no</b> puede soltar si no se los preguntan. Las frases de la escena de
+             arriba sirven de modelo para escribir esas fichas: cuatro l&iacute;neas por persona,
+             una de ellas la inc&oacute;moda.</p>
+          <ol class="pasos">
+            <li>Escribid vuestras <b>seis preguntas</b>: las cinco de la libreta m&aacute;s una
+                vuestra. La vuestra tiene que ser sobre algo que os preocupe del aparato.</li>
+            <li>Entrevistad al otro grupo, <b>cinco minutos</b>, y anotad sus respuestas
+                <b>entre comillas</b>. Literal. Un secretario solo para eso.</li>
+            <li>Cambiad los papeles y repetid.</li>
+          </ol>
+          <h4>Segunda parte &middot; la lista (10 min)</h4>
+          <p>Con lo que ten&eacute;is anotado, una tabla de <b>seis filas</b>. Una por frase:</p>
+          <ul>
+            <li>la <b>frase literal</b>, entre comillas;</li>
+            <li>si es <b>requisito, restricci&oacute;n o deseo</b>;</li>
+            <li>el <b>n&uacute;mero con su unidad</b>, si lo lleva, o <b>c&oacute;mo se
+                comprueba</b> si no lo lleva;</li>
+            <li>el <b>mont&oacute;n</b>: sin esto no sirve / lo mejora / es un lujo;</li>
+            <li>y lo que da <b>vuestro aparato</b> hoy, con la cuenta hecha.</li>
+          </ul>
+          <p>Por lo menos <b>tres</b> de las seis tienen que acabar en un n&uacute;mero, y una de
+             ellas tiene que ser de <b>autonom&iacute;a</b>: cu&aacute;ntos d&iacute;as aguanta sin
+             que vaya nadie. Esa la calcul&aacute;is con la escena y con la cuenta escrita.</p>
+          <p>Y debajo, dos l&iacute;neas: <b>&iquest;cu&aacute;l de los seis os obliga a cambiar el
+             dise&ntilde;o?</b> Si ninguno, es que hab&eacute;is entrevistado mal.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las seis frases, literales y entrecomilladas <b>(2 puntos)</b>.</li>
+            <li>La clasificaci&oacute;n en requisito, restricci&oacute;n y deseo, bien razonada
+                <b>(2 puntos)</b>.</li>
+            <li>Los tres n&uacute;meros con unidad, y la cuenta de la autonom&iacute;a entera
+                <b>(2 puntos)</b>.</li>
+            <li>Las comprobaciones de los que no son n&uacute;meros, y que puedan salir mal
+                <b>(2 puntos)</b>.</li>
+            <li>Los tres montones, con al menos uno fuera del primero <b>(1 punto)</b>.</li>
+            <li>El requisito que obliga a cambiar el dise&ntilde;o, se&ntilde;alado
+                <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+S5_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Qu&eacute; le falta a &laquo;nuestro proyecto es para el instituto, '
+                     u'para ahorrar agua&raquo;?',
+                     u'<p>Le falta <b>una persona dentro</b> y le falta un n&uacute;mero. El '
+                     u'instituto no riega, no se olvida y no se va de vacaciones. Sin alguien '
+                     u'concreto no hay requisitos, y sin requisitos no hay manera de saber si el '
+                     u'aparato sirve: solo de saber si funciona, que es otra cosa.</p>') + pregunta(
+          u'Distingue requisito, restricci&oacute;n y deseo con un ejemplo de cada uno.',
+          u'<p><b>Requisito</b>: lo que tiene que conseguir, con n&uacute;mero &mdash;'
+          u'&laquo;aguantar quince d&iacute;as&raquo;&mdash;. <b>Restricci&oacute;n</b>: lo que no '
+          u'pod&eacute;is cambiar &mdash;&laquo;por el pasillo no pasa un cable&raquo;&mdash;; se '
+          u'dise&ntilde;a con ella dentro. <b>Deseo</b>: lo que estar&iacute;a bien '
+          u'&mdash;&laquo;que quede bonito&raquo;&mdash;; va al final de la lista y se dice.</p>')\
+    + pregunta(
+          u'El mismo aparato cumple con la vecina y suspende en el huerto. &iquest;Por qu&eacute;?',
+          u'<p>Porque el requisito lo pone la persona, no el aparato. La vecina se va <b>15 '
+          u'd&iacute;as</b> y tiene cinco macetas que piden medio litro al d&iacute;a: son 7,6 '
+          u'litros. El huerto est&aacute; <b>43 d&iacute;as</b> solo y el bancal pide 6 litros al '
+          u'd&iacute;a: son <b>258 litros</b>. No cabe en ning&uacute;n dep&oacute;sito que pod&aacute;is '
+          u'poner, as&iacute; que all&iacute; hay que cambiar el dise&ntilde;o, no los mandos.</p>')\
+    + pregunta(
+          u'La maestra dice &laquo;no leen, ninguno&raquo;. No hay n&uacute;mero. '
+          u'&iquest;Se tira ese requisito?',
+          u'<p>No: se convierte en una <b>comprobaci&oacute;n</b>. Se le ense&ntilde;a la '
+          u'se&ntilde;al a un ni&ntilde;o de cuatro a&ntilde;os y se le pregunta qu&eacute; hay que '
+          u'hacer. Si no lo sabe, no cumple. Un requisito sin n&uacute;mero sigue valiendo mientras '
+          u'haya una manera de comprobarlo <b>que pueda salir mal</b>.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sab&eacute;is para qui&eacute;n es y qu&eacute; os pide. Supongamos que lo
+        consegu&iacute;s todo y que el d&iacute;a de la entrega funciona. La sesi&oacute;n que viene
+        empieza <b>tres semanas despu&eacute;s</b>, con la sonda de humedad en la mano: los dos
+        clavos est&aacute;n negros y el aparato lleva seis d&iacute;as diciendo que la tierra
+        est&aacute; mojada. Nadie lo ha tocado. Nadie se ha enterado.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 6 - Lo que cuesta mantenerlo
+# ==========================================================================
+S6_RETO = u'''
+      <p>Han pasado tres semanas desde que lo dejasteis funcionando. Sacad la sonda de humedad de la
+         tierra y miradla a contraluz.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Uno de los dos clavos est&aacute; <b>comido</b>: picado, m&aacute;s fino y con una costra
+        verdosa. El otro est&aacute; casi entero. En el cuaderno, <b>tres minutos</b>:
+        &iquest;por qu&eacute; uno s&iacute; y el otro no?
+      </div>
+      <p>No es mala suerte ni es que el clavo fuera malo. Pasar corriente continua por tierra mojada
+         es <b>hacer la electr&oacute;lisis</b>, y en una electr&oacute;lisis el electrodo positivo
+         se disuelve. Le pasa a todo el mundo que mide humedad con dos clavos, y por eso las sondas
+         que se venden hechas o son <b>capacitivas</b> o solo se alimentan el instante en que miden.
+         El aparato no se ha roto: se ha <b>gastado</b>, que es distinto y mucho m&aacute;s
+         com&uacute;n.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Pero lo importante no es el clavo</span>
+        <p>La sonda lleva seis d&iacute;as dando una lectura falsa. El aparato est&aacute; encendido,
+           el LED verde luce y la planta se est&aacute; secando. Escribid dos cosas en el
+           cuaderno:</p>
+        <p style="margin-top:7px"><b>&iquest;Cu&aacute;ntos d&iacute;as tardar&iacute;a alguien en
+           enterarse?</b> Y despu&eacute;s, lo que de verdad cuesta: <b>&iquest;qui&eacute;n es ese
+           alguien?</b> Con nombre y apellido, no &laquo;el centro&raquo;.</p>
+      </div>
+      <p>Eso de ah&iacute; es la sesi&oacute;n de hoy. <b>No</b> vamos a hablar de lo que contamina
+         &mdash;eso fue la unidad 8&mdash; ni de d&oacute;nde acaba cuando se tira &mdash;eso fue la
+         3&mdash;. Vamos a hablar de algo m&aacute;s corto y m&aacute;s incómodo: <b>cu&aacute;nto
+         tiempo sigue vivo vuestro aparato cuando vosotros ya no est&aacute;is</b>.</p>
+'''
+
+S6_TEORIA = u'''
+      <p>En la sesi&oacute;n 4 dijimos que el aparato cost&oacute; 25 &euro; de material. Esa cifra
+         es verdad y es la menos importante de todas.</p>
+      <div class="copiar">
+        <h4>El precio no es el coste</h4>
+        <p>El <b>precio</b> es lo que pagas el primer d&iacute;a. El <b>coste</b> es lo que te va a
+           costar tenerlo, y se cuenta a un plazo:</p>
+        <p style="font-family:var(--f-m);font-size:14px">coste a 5 a&ntilde;os = material inicial
+           + lo que se gasta (pilas, piezas, agua) + <b>las horas de quien lo cuida</b></p>
+        <p>La tercera es la que nadie suma, porque no se factura. Pero <b>alguien las pone</b>: el
+           conserje que sube al huerto, la maestra que cambia cuatro pilas, el jefe de departamento
+           que pide un recambio. Que no se cobre no significa que sea gratis; significa que lo paga
+           alguien que no sale en la cuenta.</p>
+      </div>
+      <div class="copiar">
+        <h4>Las cuatro preguntas del mantenimiento</h4>
+        <p>Son hermanas de las cinco preguntas del sitio de la sesi&oacute;n 2, pero miran al futuro
+           en vez de al lugar:</p>
+        <ol>
+          <li><b>&iquest;Qu&eacute; se gasta, y cada cu&aacute;nto?</b> Agua, pilas, la propia sonda.
+              Con un n&uacute;mero de d&iacute;as, no con un &laquo;de vez en cuando&raquo;.</li>
+          <li><b>&iquest;Qui&eacute;n va a ir?</b> Con nombre.</li>
+          <li><b>&iquest;Cu&aacute;nto tarda en enterarse de que hay que ir?</b> Porque el aparato no
+              llama por tel&eacute;fono.</li>
+          <li><b>&iquest;D&oacute;nde est&aacute; el recambio y cu&aacute;nto tarda en llegar?</b>
+              El caj&oacute;n del taller no es lo mismo que tres semanas de env&iacute;o.</li>
+        </ol>
+        <p>Y la quinta, que es la que mata: <b>&iquest;qui&eacute;n ir&aacute; cuando vosotros ya no
+           est&eacute;is?</b></p>
+      </div>
+      <p>La escena recorre los <b>1.825 d&iacute;as</b> siguientes a la entrega, uno a uno. Cada cosa
+         que se gasta tiene su reloj; cuando una se agota, el aparato <b>se para</b> y no vuelve
+         hasta que alguien va. Empieza tal y como est&aacute; ahora mismo vuestro montaje.</p>
+''' + MANTENIMIENTO + u'''
+      <div class="copiar">
+        <h4>Lo que sale, y no lo arregla ning&uacute;n destornillador</h4>
+        <ul>
+          <li><b>Tal y como est&aacute;</b> &mdash;pilas, dos clavos, dos litros de dep&oacute;sito y
+              vosotros cuid&aacute;ndolo&mdash; hay que ir <b>72 veces</b>, son <b>22 horas</b> de
+              alguien... y aun as&iacute; el aparato <b>se para para siempre el d&iacute;a 273</b>,
+              tres d&iacute;as despu&eacute;s de que dej&eacute;is de pasaros por all&iacute;.
+              Funcion&oacute; el <b>7 %</b> de los cinco a&ntilde;os.</li>
+          <li><b>Con enchufe, sonda capacitiva, dep&oacute;sito grande y el conserje</b>: <b>5
+              visitas</b>, <b>1,7 horas</b> y <b>98 % de disponibilidad</b>. El mismo aparato, el
+              mismo problema y la misma gente.</li>
+          <li>Entre esos dos extremos no hay nada m&aacute;s caro: la sonda capacitiva cuesta
+              2,50 &euro;. Lo que cambia son <b>decisiones</b>, no presupuesto.</li>
+        </ul>
+      </div>
+      <div class="copiar">
+        <h4>Disponibilidad: no es &laquo;funciona&raquo;, es cu&aacute;nto tiempo funciona</h4>
+        <p style="font-family:var(--f-m);font-size:14px">disponibilidad =
+           d&iacute;as funcionando &divide; d&iacute;as totales</p>
+        <p>Un aparato que <b>aguanta cuatro d&iacute;as</b> y <b>tarda dos en volver</b> est&aacute;
+           disponible cuatro de cada seis d&iacute;as: el <b>67 %</b>. Con las mismas piezas, si
+           solo aguanta <b>dos</b> y tarda <b>cuatro</b>, baja al <b>33 %</b>.</p>
+        <p>O sea que lo que manda no es solo lo r&aacute;pido que se arregla: es la relaci&oacute;n
+           entre <b>cu&aacute;nto aguanta</b> y <b>cu&aacute;nto tarda en volver</b>. Y de los dos,
+           el f&aacute;cil de mover es el primero. Por eso la palanca m&aacute;s potente de todas no
+           es arreglar mejor: es <b>que no haga falta ir</b>.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Fíjate en d&oacute;nde est&aacute;n los mandos que mueven el resultado: <b>de d&oacute;nde
+           sale la energ&iacute;a</b>, <b>cu&aacute;nto guarda el dep&oacute;sito</b> y <b>qu&eacute;
+           sonda lleva</b>. Los tres son decisiones que se toman <b>dise&ntilde;ando</b>, meses antes
+           de que haya nada que mantener. El &uacute;nico mando que es de mantenimiento de verdad
+           &mdash;qui&eacute;n va&mdash; lo mueve menos que los otros tres.</p>
+        <p>De ah&iacute; la frase de la sesi&oacute;n, y conviene que se quede: <b>el mantenimiento
+           no se decide manteniendo, se decide dise&ntilde;ando.</b></p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Compara el proyecto <b>C</b> con enchufe &mdash;cero visitas, 100 % de tiempo
+           funcionando&mdash; con el <b>A</b>. Es una tentaci&oacute;n concluir que el C es mejor
+           proyecto, y no lo es: en la sesi&oacute;n 4 vimos que era el que <b>menos ahorraba</b>,
+           tan poco que no devolv&iacute;a nunca lo que cost&oacute;. <b>Lo que menos mantenimiento
+           pide suele ser lo que menos hace.</b> Un aparato que no toca nada tampoco arregla
+           nada.</p>
+      </div>
+''' + foto('c9-bomba-averiada.jpg',
+           u'Dos hombres reparan una bomba de mano de pozo en la calle de un pueblo; la tapa '
+           u'est&aacute; abierta, hay dos llaves y un tornillo en el suelo y sale agua por el ca&ntilde;o',
+           u'Reparando una <b>bomba de mano</b> de pozo. M&iacute;rala con calma, porque est&aacute; '
+           u'todo: la tapa abierta, <b>dos llaves fijas y un tornillo en el suelo</b>, gente del '
+           u'sitio con las manos dentro y agua saliendo por el ca&ntilde;o. En la sesi&oacute;n 2 '
+           u'dijimos que la bomba de mano de toda la vida le ganaba a la PlayPump. No le ganaba '
+           u'bombeando m&aacute;s: le ganaba <b>porque esto se puede hacer</b>, con piezas normales, '
+           u'llaves normales y alguien de all&iacute; que sabe. Esta escena no sale en ninguna foto '
+           u'de inauguraci&oacute;n, y es la que decide si el aparato sigue vivo dentro de cinco '
+           u'a&ntilde;os.',
+           u'Tsumoses', u'CC BY-SA 4.0',
+           u'https://commons.wikimedia.org/wiki/File:Repair_handpump.jpg',
+           u'max-width:440px;margin-left:auto;margin-right:auto') + u'''
+      <div class="copiar">
+        <h4>El cuaderno de mantenimiento, que es media hoja</h4>
+        <p>Va pegado <b>al propio aparato</b>, por dentro de la tapa. No en una carpeta.</p>
+        <ul>
+          <li><b>Qu&eacute; hay que hacer</b>, en una l&iacute;nea por cosa.</li>
+          <li><b>Cada cu&aacute;ntos d&iacute;as</b>, con el n&uacute;mero.</li>
+          <li><b>Qui&eacute;n</b>, con nombre y no con cargo.</li>
+          <li><b>D&oacute;nde est&aacute; el recambio</b> y qu&eacute; pone exactamente en la
+              caja.</li>
+          <li><b>C&oacute;mo se sabe que hay que hacerlo</b>: qu&eacute; se ve o qu&eacute; deja de
+              verse.</li>
+          <li>Y unas casillas en blanco para <b>apuntar la fecha</b> cada vez que se hace. Eso es lo
+              que convierte un plan en un historial.</li>
+        </ul>
+      </div>
+'''
+
+S6_PRACTICA = ficha(
+    u'Actividad 6 &middot; El plan a cinco a&ntilde;os, y la etiqueta que se pega dentro',
+    [u'6.2', u'6.3', u'D.2', u'D.3'], u'Grupos de tres &middot; 20 min', u'''
+          <h4>Primera parte &middot; la cuenta (10 min)</h4>
+          <p>Para <b>vuestro</b> proyecto, en la libreta y con la escena delante:</p>
+          <ol class="pasos">
+            <li>Listad <b>todo lo que se gasta</b>, con los d&iacute;as que dura cada cosa. Como
+                m&iacute;nimo: la energ&iacute;a, el sensor y, si riega, el agua.</li>
+            <li>Elegid <b>qui&eacute;n</b> lo mantiene y cu&aacute;nto tarda en enterarse. Anotad su
+                nombre de verdad, y si no lo sab&eacute;is, ese es el primer problema.</li>
+            <li>Sacad de la escena las <b>cinco cifras</b>: veces que hay que ir, horas, euros de
+                piezas, d&iacute;as parado y disponibilidad. Copiadlas con el montaje <b>tal y como
+                est&aacute; hoy</b>.</li>
+            <li>Ahora cambiad <b>una sola cosa</b> del dise&ntilde;o y volved a sacarlas. La que
+                m&aacute;s suba la disponibilidad. Escribid cu&aacute;l era y cu&aacute;nto la
+                sube.</li>
+            <li>Y la pregunta que no se puede esquivar: <b>&iquest;llega vivo a los cinco
+                a&ntilde;os?</b> Si no, decid el d&iacute;a exacto en que se muere y por qu&eacute;
+                pieza.</li>
+          </ol>
+          <h4>Segunda parte &middot; la etiqueta (10 min)</h4>
+          <p>Media cuartilla, escrita a mano y a tama&ntilde;o legible, para pegar <b>por dentro de
+             la tapa</b> del aparato. Con las seis columnas de la libreta. Tiene que servirle a
+             alguien que <b>no ha hablado con vosotros nunca</b>.</p>
+          <p>Prueba de que est&aacute; bien: <b>d&aacute;dsela a otro grupo</b> y que os digan, sin
+             preguntaros nada, qu&eacute; tendr&iacute;an que hacer el mi&eacute;rcoles que viene. Si
+             tienen que preguntar, no est&aacute; terminada.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La lista de lo que se gasta, con los d&iacute;as de cada cosa <b>(2 puntos)</b>.</li>
+            <li>Las cinco cifras del montaje de hoy, copiadas con sus unidades
+                <b>(2 puntos)</b>.</li>
+            <li>El cambio de dise&ntilde;o y cu&aacute;nto sube la disponibilidad
+                <b>(2 puntos)</b>.</li>
+            <li>La respuesta a si llega vivo a los cinco a&ntilde;os, con el d&iacute;a y la pieza
+                <b>(1 punto)</b>.</li>
+            <li>La etiqueta, con las seis columnas y con un nombre propio dentro
+                <b>(2 puntos)</b>.</li>
+            <li>Que otro grupo la entienda sin preguntaros <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+S6_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Por qu&eacute; se come uno de los dos clavos de la sonda y el otro '
+                     u'no?',
+                     u'<p>Porque pasar corriente continua por tierra mojada es hacer una '
+                     u'<b>electr&oacute;lisis</b>, y en una electr&oacute;lisis se disuelve el '
+                     u'electrodo <b>positivo</b>. No es un defecto del montaje: le pasa a cualquier '
+                     u'sonda de dos clavos alimentada todo el rato. Se arregla alimentando la sonda '
+                     u'solo el instante en que se mide, o poniendo una sonda '
+                     u'<b>capacitiva</b>.</p>') + pregunta(
+          u'El aparato cost&oacute; 25 &euro;. &iquest;Por qu&eacute; esa cifra no dice lo que '
+          u'cuesta?',
+          u'<p>Porque el precio es lo que pagas el primer d&iacute;a y el coste es lo que te cuesta '
+          u'tenerlo: hay que sumarle <b>lo que se gasta</b> (pilas, piezas, agua) y sobre todo '
+          u'<b>las horas de quien lo cuida</b>. Esas horas no se facturan, pero las pone alguien. '
+          u'En el caso de partida son 22 horas en cinco a&ntilde;os, m&aacute;s de trece veces el '
+          u'precio del material.</p>') + pregunta(
+          u'Un aparato aguanta cuatro d&iacute;as y tarda dos en volver. &iquest;Qu&eacute; '
+          u'disponibilidad tiene? &iquest;Y si aguanta dos y tarda cuatro?',
+          u'<p>El <b>67 %</b> en el primer caso (cuatro d&iacute;as de cada seis) y el <b>33 %</b> '
+          u'en el segundo (dos de cada seis), <b>con las mismas piezas</b>. Lo que manda es la '
+          u'relaci&oacute;n entre cu&aacute;nto aguanta y cu&aacute;nto tarda en volver, y de los '
+          u'dos el f&aacute;cil de mover es el primero: <b>que no haga falta ir</b>.</p>')\
+    + pregunta(
+          u'&iquest;Cu&aacute;l es el mando que m&aacute;s sube la disponibilidad, y por qu&eacute; '
+          u'sorprende?',
+          u'<p>Los que m&aacute;s la suben son <b>de d&oacute;nde sale la energ&iacute;a</b>, '
+          u'<b>cu&aacute;nto guarda el dep&oacute;sito</b> y <b>qu&eacute; sonda lleva</b>: los '
+          u'tres son decisiones de <b>dise&ntilde;o</b>, tomadas meses antes de que hubiera nada que '
+          u'mantener. El &uacute;nico que es de mantenimiento &mdash;qui&eacute;n va&mdash; mueve '
+          u'menos. De ah&iacute;: <b>el mantenimiento se decide dise&ntilde;ando</b>.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        La etiqueta de hoy resuelve <b>una</b> semana. Pero imagina que tres a&ntilde;os
+        despu&eacute;s alguien quiere <b>continuar</b> el proyecto: no cambiar la pila, sino
+        cogerlo, mejorarlo y volverlo a poner. Abre la caja del armario y encuentra el aparato, un
+        manojo de cables sin etiquetas y un papel que pone <i>&laquo;umbral 430&raquo;</i>.
+        &iquest;Cu&aacute;nto tarda? Y una pregunta que no se le ocurre a nadie:
+        <b>&iquest;puede?</b>
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 7 - Que otro lo pueda continuar
+# ==========================================================================
+S7_RETO = u'''
+      <p>Curso 2029. Un grupo de 4.&ordm; est&aacute; buscando proyecto y el profesor abre el armario
+         del taller: <i>&laquo;Mirad, esto lo hicieron unos hace tres a&ntilde;os. Funcionaba.&raquo;</i>
+         Dentro de la caja est&aacute;n el aparato, un manojo de cables de colores sin una sola
+         etiqueta y un
+         papel con dos palabras escritas a boli: <b>umbral 430</b>.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        En pareja y en <b>tres minutos</b>: escribid las <b>cinco preguntas</b> que se har&iacute;a
+        ese grupo, en el orden exacto en que se les ocurrir&iacute;an.
+      </div>
+      <p>Las listas se parecen mucho: <i>&iquest;qu&eacute; es esto?</i>, <i>&iquest;c&oacute;mo va
+         conectado?</i>, <i>&iquest;d&oacute;nde est&aacute; el programa?</i>, <i>&iquest;430 de
+         qu&eacute;?</i>, <i>&iquest;funciona todav&iacute;a?</i>. Todas se contestan con
+         <b>tiempo</b>: si nadie lo dej&oacute; escrito, hay que volver a averiguarlo.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Falta una, y no se le ocurre a casi nadie</span>
+        <p>Supongamos que consiguen contestarlas todas. Lo arreglan, lo mejoran, lo dejan
+           precioso... y lo quieren <b>publicar</b>, o ense&ntilde;arlo en una feria, o d&aacute;rselo
+           a otro centro.</p>
+        <p>La pregunta que falta es esta: <b>&iquest;pueden?</b> &iquest;Qui&eacute;n les ha dado
+           permiso? Escribid vuestra respuesta antes de seguir. Casi todo el mundo contesta
+           <i>&laquo;claro, si no pone nada&raquo;</i>, y esa respuesta es exactamente la
+           contraria de la verdadera.</p>
+      </div>
+'''
+
+S7_TEORIA = u'''
+      <p>Vamos por partes: primero el tiempo, que se calcula, y luego el permiso, que no.</p>
+      <p>La escena tiene dos modos. En el primero, <b>marcad lo que dej&aacute;is en la caja</b> y
+         mirad lo que le cuesta al siguiente grupo lo que no hab&eacute;is dejado. Empezad con todo
+         sin marcar, que es como se queda una caja cuando nadie se ocupa.</p>
+''' + CONTINUAR + u'''
+      <div class="copiar">
+        <h4>Lo que acaba de pasar</h4>
+        <p>Sin nada escrito, al siguiente grupo le cuesta <b>10 horas y 10 minutos</b> volver al
+           punto donde vosotros lo dejasteis. Tiene <b>ocho sesiones</b>, o sea 6 horas y 40 minutos,
+           para hacer la unidad entera. <b>No le cabe</b>: as&iacute; que no lo contin&uacute;a, lo
+           tira y empieza de cero.</p>
+        <p>Dejarlo todo escrito os cuesta <b>1 hora y 45 minutos</b>. Cada minuto vuestro le ahorra a
+           &eacute;l <b>casi seis</b>. No hay ninguna otra decisi&oacute;n del proyecto con esa
+           rentabilidad.</p>
+      </div>
+      <div class="copiar">
+        <h4>El paquete m&iacute;nimo, y por qu&eacute; cada cosa</h4>
+        <ol>
+          <li><b>D&oacute;nde est&aacute; guardado.</b> Y que siga existiendo: la carpeta del
+              departamento, no la cuenta del instituto que se borra cuando os vais.</li>
+          <li><b>El esquema el&eacute;ctrico</b>, con qu&eacute; va a qu&eacute; pin.</li>
+          <li><b>La lista de piezas</b>, con la referencia exacta y d&oacute;nde se compran.</li>
+          <li><b>El programa</b>, el fichero de verdad. No una captura de pantalla.</li>
+          <li><b>El programa comentado</b>: por qu&eacute; el umbral es 430 y no 500.</li>
+          <li><b>C&oacute;mo se calibr&oacute;</b>, paso a paso, con los dos n&uacute;meros que
+              sal&iacute;an.</li>
+          <li><b>Una hoja de manual</b>: qu&eacute; hace, c&oacute;mo se usa, qu&eacute; falla.</li>
+          <li><b>Una foto</b> del montaje terminado.</li>
+          <li><b>La licencia</b>, escrita dentro del propio documento.</li>
+        </ol>
+        <p>La primera anula a todas las dem&aacute;s. Un paquete perfecto en un sitio que desaparece
+           vale cero, y por eso en la escena la casilla de arriba apaga el resto.</p>
+      </div>
+      <div class="copiar">
+        <h4>El esquema no es la foto</h4>
+        <p>La foto dice <b>c&oacute;mo qued&oacute;</b>: este cable rojo cruzando por encima del
+           sensor. El esquema dice <b>qu&eacute; es</b>: la salida del sensor va a A0, y el positivo
+           de la bomba al pin 9 a trav&eacute;s del transistor.</p>
+        <p>La diferencia salta cuando algo cambia. Si el sensor que usasteis ya no se vende,
+           con la foto est&aacute;s perdido y con el esquema no, porque el esquema dice <b>qu&eacute;
+           papel</b> hac&iacute;a esa pieza. Por eso el dibujo t&eacute;cnico se invent&oacute;: para
+           que un dise&ntilde;o sobreviva a las piezas concretas con las que se hizo la primera
+           vez.</p>
+      </div>
+''' + foto('c9-esquema-1917.jpg',
+           u'Esquema el&eacute;ctrico a l&iacute;nea del receptor de radio SCR-54, con la antena, la '
+           u'toma de tierra, las bobinas con sus tomas numeradas, los condensadores variables, el '
+           u'detector y la clavija de los auriculares',
+           u'El esquema del <b>receptor de radio SCR-54</b>, que el ej&eacute;rcito de Estados '
+           u'Unidos us&oacute; en la Primera Guerra Mundial. Tiene m&aacute;s de <b>cien '
+           u'a&ntilde;os</b> y con &eacute;l todav&iacute;a se puede montar el aparato, porque no '
+           u'dice <i>&laquo;el cable rojo va por encima&raquo;</i>: dice qu&eacute; hace cada pieza '
+           u'&mdash;antena, tierra, inductancia primaria, condensador variable, detector, clavija '
+           u'del tel&eacute;fono&mdash; y c&oacute;mo se conectan entre s&iacute;. F&iacute;jate en '
+           u'los n&uacute;meros de las bobinas: ah&iacute; est&aacute;n hasta las tomas, que es la '
+           u'informaci&oacute;n que en vuestro proyecto equivale al umbral 430. <b>Eso</b> es lo que '
+           u'hay que dejar en la caja.',
+           u'Signal Corps, U.S. Army', u'Dominio p&uacute;blico',
+           u'https://commons.wikimedia.org/wiki/File:SCR-54_schematic.jpg') + u'''
+
+      <h3>Y ahora el permiso</h3>
+      <p>Cambiad la escena al segundo modo, <b>&laquo;lo que deja hacer la licencia&raquo;</b>.
+         Empezad por la primera opci&oacute;n, la de <b>no poner nada</b>, que es lo que hace casi
+         todo el mundo.</p>
+      <div class="copiar">
+        <h4>Sin licencia no es de todos: es solo tuyo</h4>
+        <p>Los derechos de autor <b>no hay que pedirlos</b>. Nacen solos, en el momento en que
+           hac&eacute;is algo original, sin registrar nada y sin poner ning&uacute;n s&iacute;mbolo.
+           Eso quiere decir que lo que no lleva licencia tiene, por defecto, <b>todos los derechos
+           reservados</b>.</p>
+        <p>As&iacute; que el grupo de 2029 puede mirarlo y puede copiarlo para &eacute;l, pero
+           <b>no puede publicarlo, ni repartirlo, ni ense&ntilde;arlo como suyo mejorado</b>. Y no
+           porque vosotros no quisierais: porque no dijisteis nada, y para el derecho callarse es
+           decir que no.</p>
+        <p>Poner una licencia no es regalar el trabajo. Es <b>dar permiso por escrito</b> y decir
+           hasta d&oacute;nde.</p>
+      </div>
+      <div class="copiar">
+        <h4>Las letras, y qu&eacute; a&ntilde;ade cada una</h4>
+        <ul>
+          <li><b>BY</b> (reconocimiento): haz lo que quieras, pero <b>di de qui&eacute;n es</b>. Va
+              en todas las licencias Creative Commons menos en CC0.</li>
+          <li><b>SA</b> (compartir igual): tu versi&oacute;n se publica <b>con esta misma
+              licencia</b>. Es lo que impide que alguien coja algo abierto, lo mejore y lo
+              cierre.</li>
+          <li><b>NC</b> (no comercial): nadie puede ganar dinero con ello. Suena bien y tiene un
+              efecto que no se espera: deja fuera a la Wikipedia, a una editorial que lo imprima al
+              coste y al AMPA de vuestro propio centro.</li>
+          <li><b>ND</b> (sin obra derivada): se puede repartir, pero <b>no modificar</b>. Para un
+              proyecto t&eacute;cnico es la peor de todas: continuar es modificar.</li>
+          <li><b>CC0</b>: renuncias a todo, ni siquiera hace falta que te citen.</li>
+        </ul>
+      </div>
+      <p>Prueba en la escena las cinco y mira la cadena de tres generaciones: vosotros, el grupo de
+         2029 y el de 2032. Fíjate en <b>d&oacute;nde se corta</b>.</p>
+      <div class="copiar">
+        <h4>Esta p&aacute;gina lleva CC BY-SA 4.0. Mira el pie</h4>
+        <p>Baja al final de esta p&aacute;gina, o mira la esquina de abajo a la derecha: pone
+           <b>CC BY-SA 4.0</b> y el nombre del autor. Eso significa, exactamente, que t&uacute;
+           puedes:</p>
+        <ul>
+          <li>copiar estos apuntes, imprimirlos y repartirlos;</li>
+          <li>cambiarlos, quitarles lo que no te sirva y a&ntilde;adirles lo tuyo;</li>
+          <li>incluso venderlos impresos;</li>
+        </ul>
+        <p>a cambio de dos cosas: <b>citar de qui&eacute;n salieron</b> y <b>publicar tu
+           versi&oacute;n con la misma licencia</b>, para que el siguiente pueda hacer lo mismo
+           contigo.</p>
+        <p>Eso es lo que se llama <b>copyleft</b>: no es lo contrario del derecho de autor, es el
+           derecho de autor usado al rev&eacute;s, para obligar a que lo que salga de aqu&iacute;
+           siga abierto.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>&iquest;Por qu&eacute; esta web es BY-SA y no BY-NC, que parece m&aacute;s protectora? Por
+           dos razones, y las dos tienen coste. La primera: <b>NC bloquea usos que interesan</b>
+           &mdash;que la Wikipedia coja un esquema, que una copister&iacute;a lo imprima cobrando el
+           papel, que una asociaci&oacute;n lo use en un taller de pago&mdash;. La segunda:
+           <b>&laquo;comercial&raquo; no est&aacute; definido con precisi&oacute;n</b>, y una duda de
+           ese tipo hace que la gente prudente no lo use.</p>
+        <p>Y la contrapartida, que es honrada decir: <b>SA le quita una libertad al siguiente</b>,
+           la de cerrar su versi&oacute;n. Es una decisi&oacute;n, no un descuido, y se puede estar
+           en contra. Lo que no se puede es no decidir: eso es lo que hace la primera opci&oacute;n
+           de la escena.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Esto es un resumen para entenderlo y <b>no es asesoramiento legal</b>. El texto que manda
+           es el de cada licencia, en creativecommons.org, y hay matices que aqu&iacute; se han
+           dejado fuera a prop&oacute;sito. Adem&aacute;s, las licencias Creative Commons est&aacute;n
+           pensadas para <b>obras</b> &mdash;textos, dibujos, esquemas, fotos&mdash;. Para el
+           <b>programa</b> se suelen usar otras (MIT, GPL) y para el <b>hardware</b>, otras m&aacute;s
+           (CERN OHL). En 4.&ordm; vale con poner CC BY-SA a todo y saber que existe la
+           diferencia.</p>
+      </div>
+''' + video('video-c9-cc', '8Ec4Pgs8ClA',
+            u'Qu&eacute; son y c&oacute;mo funcionan las licencias Creative Commons',
+            u'Canal: &Aacute;rtica - Centro Cultural Online',
+            u'Las mismas letras que acabamos de ver, contadas por gente que se dedica a esto. '
+            u'Sirve para repasar antes de elegir la vuestra.')
+
+S7_PRACTICA = ficha(
+    u'Actividad 7 &middot; El paquete de entrega, hecho de verdad',
+    [u'2.1', u'6.3', u'A.2', u'D.4'], u'Grupos de tres &middot; 20 min', u'''
+          <h4>Se reparte el trabajo (1 min)</h4>
+          <p>Uno hace el <b>esquema</b>, otro el <b>manual</b> y otro la <b>lista de piezas y la
+             licencia</b>. En paralelo, que si no, no cabe.</p>
+          <h4>Las tres piezas (14 min)</h4>
+          <ul>
+            <li><b>El esquema</b>, a mano y con regla o en Tinkercad: cada componente con su nombre,
+                cada cable con el <b>pin</b> al que va, y la alimentaci&oacute;n se&ntilde;alada.
+                Tiene que poderse montar mirando solo el papel.</li>
+            <li><b>El manual</b>, una hoja y no m&aacute;s, con cuatro apartados: <i>qu&eacute;
+                hace</i>, <i>c&oacute;mo se enciende y se usa</i>, <i>c&oacute;mo se cambia el
+                umbral</i> y <i>qu&eacute; falla y c&oacute;mo se ve</i>. Escrito para alguien que no
+                estaba.</li>
+            <li><b>La lista de piezas</b> con referencia y sitio de compra, y debajo, en una sola
+                l&iacute;nea, la <b>licencia</b> y el nombre de los tres autores.</li>
+          </ul>
+          <h4>La prueba, que es lo que de verdad eval&uacute;a (5 min)</h4>
+          <p>Intercambiad los paquetes con otro grupo. El otro grupo tiene que poder decir, <b>sin
+             preguntaros nada</b>:</p>
+          <ol class="pasos">
+            <li>qu&eacute; hace el aparato, en una frase;</li>
+            <li>a qu&eacute; pin va el sensor;</li>
+            <li>d&oacute;nde se compra la pieza m&aacute;s rara;</li>
+            <li>y si <b>podr&iacute;an</b> publicar su versi&oacute;n modificada, y con qu&eacute;
+                condiciones.</li>
+          </ol>
+          <p>Cada cosa que tengan que preguntaros es un agujero del paquete. Apuntadlas: esa lista
+             es parte de la entrega.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El esquema, con todos los pines y la alimentaci&oacute;n <b>(3 puntos)</b>.</li>
+            <li>El manual, con los cuatro apartados y en una hoja <b>(2 puntos)</b>.</li>
+            <li>La lista de piezas, con referencias de verdad <b>(1 punto)</b>.</li>
+            <li>La licencia, escrita entera y con los autores <b>(1 punto)</b>.</li>
+            <li>Que el otro grupo conteste las cuatro preguntas sin ayuda <b>(2 puntos)</b>.</li>
+            <li>La lista de agujeros que os han encontrado, apuntada sin excusas
+                <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+S7_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'Vuestro proyecto no lleva ninguna licencia. &iquest;Qu&eacute; puede hacer '
+                     u'con &eacute;l quien lo encuentre dentro de tres a&ntilde;os?',
+                     u'<p>Casi nada. Los derechos de autor <b>nacen solos</b> en cuanto se hace la '
+                     u'obra, sin registrar nada, as&iacute; que lo que no dice nada tiene '
+                     u'<b>todos los derechos reservados</b>. Puede mirarlo y copiarlo para s&iacute; '
+                     u'mismo, pero no publicarlo ni repartir su versi&oacute;n. <b>Callarse es '
+                     u'decir que no.</b></p>') + pregunta(
+          u'&iquest;Qu&eacute; a&ntilde;ade el <b>SA</b> de CC BY-SA, y qu&eacute; cuesta?',
+          u'<p>A&ntilde;ade que <b>la versi&oacute;n del siguiente se publica con la misma '
+          u'licencia</b>, o sea que lo que salga de vuestro trabajo <b>sigue abierto</b> para el de '
+          u'despu&eacute;s. Lo que cuesta es que le quita al siguiente la libertad de cerrar su '
+          u'versi&oacute;n. Es una decisi&oacute;n con dos caras, y esta web la ha tomado: '
+          u'm&iacute;rale el pie.</p>') + pregunta(
+          u'&iquest;Por qu&eacute; el esquema vale m&aacute;s que una foto del montaje?',
+          u'<p>Porque la foto dice <b>c&oacute;mo qued&oacute;</b> y el esquema dice <b>qu&eacute; '
+          u'es</b>. El d&iacute;a que una pieza ya no se vende, el esquema sigue valiendo porque '
+          u'dice qu&eacute; papel hac&iacute;a esa pieza y con qu&eacute; se puede sustituir. Con la '
+          u'foto sola hay que adivinarlo.</p>') + pregunta(
+          u'De todo el paquete, &iquest;cu&aacute;l es la cosa que anula a las dem&aacute;s si '
+          u'falta?',
+          u'<p><b>D&oacute;nde est&aacute; guardado</b>, y que ese sitio siga existiendo. Un '
+          u'paquete impecable dentro de una cuenta que se borra cuando os vais, o en el '
+          u'port&aacute;til de uno de vosotros, dentro de tres a&ntilde;os no existe. Cuesta cinco '
+          u'minutos y vale m&aacute;s que las otras ocho cosas juntas.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">&Uacute;ltima sesi&oacute;n</span>
+        Ya sab&eacute;is para qui&eacute;n es, cu&aacute;nto cuesta mantenerlo y c&oacute;mo se deja
+        para que otro siga. Queda lo &uacute;nico que no se puede ensayar: <b>d&aacute;rselo</b>. Y
+        ah&iacute; hay una palabra que no vale, y es la que dice todo el mundo:
+        <i>&laquo;ya est&aacute;, funciona&raquo;</i>.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 8 - Entregarlo de verdad
+# ==========================================================================
+S8_RETO = u'''
+      <p>&Uacute;ltimo d&iacute;a. Dos grupos entregan su riego la misma tarde, en el mismo sitio y a
+         la misma persona.</p>
+      <div class="aviso">
+        <span class="n-tag">Grupo 1</span>
+        <i>&laquo;Ya est&aacute;. Funciona: lo hemos probado esta ma&ntilde;ana en el taller y va
+        perfecto.&raquo;</i>
+      </div>
+      <div class="aviso">
+        <span class="n-tag">Grupo 2</span>
+        <i>&laquo;Acordamos esto hace dos semanas y lo hacemos ahora, delante de usted: ponemos la
+        sonda en la maceta seca y en menos de dos minutos la bomba tiene que echar <b>entre 80 y 120
+        mililitros</b> &mdash;lo medimos en este vaso&mdash; y el LED tiene que ponerse verde. Lo
+        repetimos <b>tres veces</b> y tienen que salir <b>dos</b>. Si no salen, nos lo llevamos y
+        volvemos el martes con el problema resuelto.&raquo;</i>
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Dos preguntas, y la segunda es la buena</span>
+        <p>La f&aacute;cil: <b>&iquest;cu&aacute;l de los dos grupos se va a casa con el aparato
+           debajo del brazo?</b></p>
+        <p style="margin-top:7px">La de verdad: <b>&iquest;cu&aacute;l de los dos duerme mejor esta
+           noche?</b> Y sobre todo, &iquest;qu&eacute; pasa dentro de un mes, cuando la planta se
+           seque, en cada uno de los dos casos?</p>
+      </div>
+      <p>El grupo 1 no ha mentido. El problema de <i>&laquo;funciona&raquo;</i> es otro: <b>no se
+         puede comprobar</b>. Y lo que no se puede comprobar no se puede cerrar, as&iacute; que se
+         queda abierto para siempre. Dentro de un mes, cuando algo falle, la conversaci&oacute;n
+         ser&aacute; <i>&laquo;pues a m&iacute; no me funciona&raquo;</i> contra <i>&laquo;pues a
+         nosotros s&iacute;&raquo;</i>, y esa no la gana nadie.</p>
+'''
+
+S8_TEORIA = u'''
+      <p>Lo que hizo el grupo 2 tiene nombre, y se usa igual en una obra, en un hospital y en un
+         programa de ordenador.</p>
+      <div class="copiar">
+        <h4>La prueba de aceptaci&oacute;n</h4>
+        <p>Es la prueba que decide si lo entregado <b>se acepta o no se acepta</b>. Lleva cinco
+           cosas, y si le falta una no sirve:</p>
+        <ol>
+          <li><b>Qu&eacute; se mide</b>, con su unidad. Mililitros, segundos, lux.</li>
+          <li><b>Con qu&eacute; se mide.</b> Este vaso, este cron&oacute;metro, este term&oacute;metro.
+              Si la medida depende del aparato de medir, se dice cu&aacute;l.</li>
+          <li><b>Entre qu&eacute; y qu&eacute;</b> se considera bien. Una <b>banda</b>, no un
+              n&uacute;mero exacto: ninguna medida sale dos veces igual.</li>
+          <li><b>Cu&aacute;ntas veces</b> se repite y <b>cu&aacute;ntas</b> tienen que salir.</li>
+          <li><b>Qui&eacute;n est&aacute; delante</b> cuando se hace.</li>
+        </ol>
+        <p>Y dos condiciones que no son parte de la prueba pero la sostienen:</p>
+        <ul>
+          <li>se <b>acuerda antes</b> de construir el aparato, o por lo menos antes de terminarlo;</li>
+          <li>est&aacute; escrito <b>qu&eacute; se hace si no pasa</b>.</li>
+        </ul>
+      </div>
+      <div class="copiar">
+        <h4>Una prueba tiene que poder fallar</h4>
+        <p><i>&laquo;Encendemos el aparato y se enciende&raquo;</i> no es una prueba: es un
+           tr&aacute;mite, porque no hay ning&uacute;n aparato de la clase que pueda suspenderla.</p>
+        <p>La regla, y es la que separa una prueba de un adorno: <b>si no te imaginas
+           suspendi&eacute;ndola, no est&aacute;s comprobando nada</b>.</p>
+      </div>
+      <p>Ahora lo interesante. Una prueba se puede apretar o aflojar, y no da igual. En la escena
+         est&aacute;n las tres pruebas del curso; empieza por la del riego, tal y como la dijo el
+         grupo 2 pero exigiendo que salgan <b>las tres de tres</b>.</p>
+''' + ACEPTACION + u'''
+      <div class="copiar">
+        <h4>Lo que acaba de pasar, y es lo m&aacute;s &uacute;til de la sesi&oacute;n</h4>
+        <p>Con la banda de 80 a 120 mL y un aparato que de verdad echa 100 de media, <b>una medida
+           suelta cae dentro el 73 % de las veces</b>. Parece mucho. Pero si exiges que salgan
+           <b>tres de tres</b>, la probabilidad de aprobar es 0,73 &times; 0,73 &times; 0,73:
+           <b>el 39 %</b>. O sea que un aparato que est&aacute; bien suspende <b>seis de cada
+           diez</b> entregas.</p>
+        <p>Cambia a <b>dos de tres</b>, sin tocar nada m&aacute;s: aprueba el <b>82 %</b>. Y el
+           aparato malo &mdash;el que echa 55 mL&mdash; sigue suspendiendo: aprueba el <b>2 %</b>.
+           <b>Esa es la prueba que hay que acordar</b>, y no se encuentra a ojo: se calcula.</p>
+        <p>Consecuencia contraintuitiva: <b>cada repetici&oacute;n que a&ntilde;ades exigiendo que
+           salgan todas te lo pone m&aacute;s dif&iacute;cil a ti</b>, no al aparato.</p>
+      </div>
+      <div class="copiar">
+        <h4>Las dos maneras de equivocarse</h4>
+        <ul>
+          <li><b>Suspender algo que est&aacute; bien.</b> La banda es demasiado estrecha para lo que
+              var&iacute;a la medida, o pides demasiadas repeticiones seguidas. Te llevas a casa un
+              aparato que serv&iacute;a.</li>
+          <li><b>Aprobar algo que est&aacute; mal.</b> La banda es tan ancha que la pasa cualquier
+              cosa. Entregas un aparato que no sirve, y encima con un papel firmado.</li>
+        </ul>
+        <p>Y lo importante: <b>estrechar la banda cambia una por la otra</b>. No existe la prueba
+           perfecta. Existe la prueba <b>acordada</b>, que es la que las dos partes han mirado antes
+           sabiendo lo que les jugaban.</p>
+      </div>
+      <div class="copiar">
+        <h4>El acta de entrega: una hoja y dos firmas</h4>
+        <ol>
+          <li><b>Qu&eacute; se entrega.</b> El aparato, el manual, el esquema, las piezas de
+              repuesto que sobran y d&oacute;nde est&aacute; todo lo dem&aacute;s. Esto es la
+              sesi&oacute;n 7.</li>
+          <li><b>A qui&eacute;n</b>, con nombre, y en qu&eacute; fecha.</li>
+          <li><b>Qu&eacute; prueba se ha hecho</b> y <b>qu&eacute; ha salido</b>: los n&uacute;meros
+              de las tres repeticiones, no &laquo;correcto&raquo;.</li>
+          <li><b>Qu&eacute; queda pendiente</b>, si queda algo, <b>y para cu&aacute;ndo</b>.</li>
+          <li><b>Qui&eacute;n lo mantiene</b> y cada cu&aacute;nto. Esto es la sesi&oacute;n 6.</li>
+          <li><b>Las dos firmas.</b> Que no son un formalismo: son las dos personas diciendo que
+              han visto lo mismo.</li>
+        </ol>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>&iquest;En qu&eacute; se diferencia esto de la defensa de la sesi&oacute;n 3? En casi
+           todo. All&iacute; hay un <b>tribunal</b> que os pone una nota y se va; aqu&iacute; hay una
+           <b>persona</b> que se lleva el aparato a su sitio y se queda con &eacute;l. La defensa
+           <b>termina</b> cuando acaban los seis minutos. La entrega <b>empieza</b> ah&iacute;: a
+           partir de la firma, el aparato es de otro y lo que falle lo sufre &eacute;l.</p>
+        <p>Por eso la entrega no se puntúa con una r&uacute;brica de exposici&oacute;n: se comprueba
+           con una medida.</p>
+      </div>
+''' + foto('c9-inspeccion.jpg',
+           u'Una mujer con bata blanca mira por un microscopio de laboratorio una pieza colocada '
+           u'bajo el objetivo, en una sala llena de puestos iguales',
+           u'<b>Control de calidad</b> en una f&aacute;brica de circuitos integrados, hacia los '
+           u'a&ntilde;os setenta. Su trabajo no es fabricar: es <b>poder decir que no</b>. Y para '
+           u'que eso signifique algo tiene que haber escrito <b>de antemano</b> qu&eacute; se mira y '
+           u'a partir de qu&eacute; se rechaza; si no, lo que hay es una opini&oacute;n con '
+           u'microscopio. F&iacute;jate adem&aacute;s en algo que suele pasar desapercibido: quien '
+           u'comprueba <b>no es quien lo ha hecho</b>. En vuestra entrega, ese alguien distinto es '
+           u'el destinatario, y por eso la prueba se hace delante de &eacute;l.',
+           u'Intel Free Press', u'CC BY 2.0',
+           u'https://commons.wikimedia.org/wiki/File:Quality_Inspection.jpg') + u'''
+      <div class="copiar">
+        <h4>Y si no pasa la prueba, &iquest;qu&eacute;?</h4>
+        <p>Hay tres salidas honradas, y se eligen delante de la persona:</p>
+        <ol>
+          <li><b>Nos lo llevamos y volvemos con fecha.</b> La mejor, si hay tiempo. Se apunta el
+              d&iacute;a.</li>
+          <li><b>Se entrega con una limitaci&oacute;n escrita.</b> <i>&laquo;Echa 70 mL en vez de
+              100: riega bien las macetas peque&ntilde;as y no llega para la grande.&raquo;</i>
+              Vale, pero tiene que estar en el acta y la persona tiene que decir que le sirve
+              as&iacute;.</li>
+          <li><b>No se entrega.</b> Tambi&eacute;n es un resultado, y es mucho mejor que entregar
+              algo que va a fallar en su casa.</li>
+        </ol>
+        <p>Y una salida deshonrada, que hay que saber reconocer porque es la m&aacute;s tentadora:
+           <b>cambiar la prueba despu&eacute;s de verla fallar</b>. Ensanchar la banda de 80-120 a
+           50-150 cuando ya sabes que has echado 60. Eso no es aprobar: es borrar el examen.</p>
+      </div>
+
+      <h3>Lo que queda cuando os vais</h3>
+      <p>Esta unidad ha ido quitando capas. Empez&oacute; con qui&eacute;n decide qu&eacute; se
+         fabrica, sigui&oacute; con si encaja en el sitio, con c&oacute;mo se cuenta y con
+         cu&aacute;nto cuesta. Y las cuatro &uacute;ltimas sesiones han sido una sola pregunta partida
+         en cuatro: <b>&iquest;esto le sirve a alguien de verdad, cuando nosotros ya no
+         estemos?</b></p>
+      <div class="copiar">
+        <h4>Las cuatro, en una frase cada una</h4>
+        <ol>
+          <li><b>Para qui&eacute;n:</b> un requisito es una frase que se puede comprobar, y la pone
+              una persona con nombre.</li>
+          <li><b>Mantenerlo:</b> el mantenimiento no se decide manteniendo, se decide
+              dise&ntilde;ando.</li>
+          <li><b>Continuarlo:</b> lo que no dejas escrito lo paga el siguiente en horas, y sin
+              licencia ni siquiera puede empezar.</li>
+          <li><b>Entregarlo:</b> &laquo;funciona&raquo; no se puede comprobar; una banda, tres
+              repeticiones y una firma, s&iacute;.</li>
+        </ol>
+        <p>Si dentro de diez a&ntilde;os solo te queda una frase de las cuatro, que sea esta:
+           <b>un proyecto no termina cuando funciona, termina cuando funciona en manos de otro</b>.</p>
+      </div>
+'''
+
+S8_PRACTICA = ficha(
+    u'Actividad 8 &middot; La prueba, el acta, y la entrega delante de alguien',
+    [u'2.1', u'6.1', u'6.3', u'D.4'], u'Grupos de tres &middot; 15 min', u'''
+          <h4>Primera parte &middot; la prueba, calculada (7 min)</h4>
+          <ol class="pasos">
+            <li>Escribid <b>qu&eacute; promet&eacute;is</b>, en una frase con un n&uacute;mero y su
+                unidad. Una sola cosa, la m&aacute;s importante para vuestro destinatario.</li>
+            <li>Decid <b>con qu&eacute;</b> se mide y d&oacute;nde exactamente (&laquo;el vaso
+                medidor del taller&raquo;, &laquo;el lux&oacute;metro del m&oacute;vil, apoyado en el
+                centro de la mesa&raquo;).</li>
+            <li>Con la escena, buscad la <b>banda y el n&uacute;mero de repeticiones</b> con los que
+                un aparato bueno apruebe <b>por encima del 80 %</b> y uno malo <b>por debajo del
+                20 %</b>. Copiad las dos probabilidades.</li>
+            <li>Escribid las <b>tres salidas</b> por si no pasa, y decid cu&aacute;l elegir&iacute;ais
+                vosotros y por qu&eacute;.</li>
+          </ol>
+          <h4>Segunda parte &middot; el acta, y la entrega (8 min)</h4>
+          <p>Una hoja con los seis apartados de la libreta. Y despu&eacute;s, la entrega de verdad:
+             otro grupo hace de destinatario con la ficha de la sesi&oacute;n 5.</p>
+          <ul>
+            <li>Le le&eacute;is la prueba <b>antes</b> de hacerla, y &eacute;l tiene derecho a decir
+                que no le vale y a pedir otra cosa. Negociadla.</li>
+            <li>Se hace delante, con las repeticiones acordadas, y se <b>apuntan los
+                n&uacute;meros</b>, salgan como salgan.</li>
+            <li>Se rellena el acta y se firma. Si no ha pasado, se escribe cu&aacute;l de las tres
+                salidas y con qu&eacute; fecha.</li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Lo que promet&eacute;is, en una frase con n&uacute;mero y unidad
+                <b>(1 punto)</b>.</li>
+            <li>Con qu&eacute; se mide y d&oacute;nde, sin ambig&uuml;edad <b>(1 punto)</b>.</li>
+            <li>La banda y las repeticiones, con las dos probabilidades copiadas de la escena
+                <b>(2 puntos)</b>.</li>
+            <li>Que la prueba <b>pueda suspender</b>: el aparato malo por debajo del 20 %
+                <b>(1 punto)</b>.</li>
+            <li>El acta con los seis apartados <b>(2 puntos)</b>.</li>
+            <li>Los n&uacute;meros de las repeticiones apuntados tal cual, sin maquillar
+                <b>(2 puntos)</b>.</li>
+            <li>La salida elegida si no pasa, con fecha <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+PREGUNTAS_TEST_B = [
+    dict(p=u'Entre 1975 y 1999, de 1.393 medicamentos nuevos solo 16 fueron para enfermedades '
+           u'tropicales. &iquest;Qu&eacute; lo decidi&oacute;?',
+         op=[u'Una decisi&oacute;n pol&iacute;tica tomada en una reuni&oacute;n.',
+             u'Una divisi&oacute;n: el precio m&iacute;nimo no cab&iacute;a en lo que puede pagar '
+             u'quien lo sufre.',
+             u'Que a&uacute;n no se sab&iacute;a c&oacute;mo fabricarlos.'],
+         ok=1,
+         por=u'Precio m&iacute;nimo = coste de desarrollo &divide; (personas que lo '
+             u'comprar&aacute;n &times; a&ntilde;os de venta). Si no cabe, no se fabrica, y no hace '
+             u'falta que nadie lo decida.'),
+    dict(p=u'&iquest;Qu&eacute; quiere decir que una tecnolog&iacute;a sea <b>apropiada</b>?',
+         op=[u'Que es lo m&aacute;s sencilla posible.',
+             u'Que encaja con la energ&iacute;a, los materiales, las manos y el dinero del sitio '
+             u'donde va a vivir.',
+             u'Que ha pasado los controles de calidad.'],
+         ok=1,
+         por=u'Es una <b>relaci&oacute;n</b> entre el aparato y el sitio, no una categor&iacute;a '
+             u'del aparato. La PlayPump fall&oacute; por eso, no por falta de dinero.'),
+    dict(p=u'En la r&uacute;brica de la defensa, &iquest;cu&aacute;nto vale &laquo;c&oacute;mo lo '
+           u'montamos, paso a paso&raquo;?',
+         op=[u'Es lo que m&aacute;s vale.', u'Vale 1 punto.', u'Vale 0.'],
+         ok=2,
+         por=u'Cero: 6,5 de los 10 puntos son de lo que el aparato hace por alguien. Por eso el '
+             u'mismo proyecto saca 4,17 con un gui&oacute;n y 9,67 con otro.'),
+    dict(p=u'&laquo;Nuestro riego es para el instituto, para ahorrar agua.&raquo; '
+           u'&iquest;Qu&eacute; le falta a esa frase?',
+         op=[u'Nada: dice para qui&eacute;n es y para qu&eacute; sirve.',
+             u'Una persona concreta dentro, y un n&uacute;mero que se pueda comprobar.',
+             u'Decir cu&aacute;nto ha costado el material.'],
+         ok=1,
+         por=u'El instituto no riega, no se olvida y no se va de vacaciones. Sin alguien con '
+             u'nombre no hay requisitos, y sin requisitos no hay manera de saber si sirve.'),
+    dict(p=u'&iquest;Cu&aacute;l de estas tres frases es un <b>requisito</b>?',
+         op=[u'&laquo;Que sea fiable.&raquo;',
+             u'&laquo;Que quede bonito.&raquo;',
+             u'&laquo;Que aguante 43 d&iacute;as sin que vaya nadie.&raquo;'],
+         ok=2,
+         por=u'Lleva n&uacute;mero, unidad y una manera de comprobarlo: el 15 de septiembre se mira '
+             u'la planta. Las otras dos son deseos: no hay forma de saber si se cumplen.'),
+    dict(p=u'El mismo riego cumple con la vecina (15 d&iacute;as) y suspende en el huerto '
+           u'(43 d&iacute;as). &iquest;Por qu&eacute;?',
+         op=[u'Porque el aparato del huerto est&aacute; peor montado.',
+             u'Porque el bancal pide 6 L al d&iacute;a y 43 d&iacute;as son 258 litros, que no caben '
+             u'en ning&uacute;n dep&oacute;sito que puedan poner.',
+             u'Porque en el huerto hace m&aacute;s calor y las pilas duran menos.'],
+         ok=1,
+         por=u'Es el mismo aparato. Lo que cambia es el requisito, y lo pone la persona. Cuando el '
+             u'mando no da para tanto, lo que hay que cambiar es el <b>dise&ntilde;o</b>: una toma '
+             u'de agua y un enchufe.'),
+    dict(p=u'Se come uno de los dos clavos de la sonda de humedad y el otro no. '
+           u'&iquest;Por qu&eacute;?',
+         op=[u'Porque el clavo era de peor calidad.',
+             u'Por <b>electr&oacute;lisis</b>: pasar corriente continua por tierra mojada disuelve '
+             u'el electrodo positivo.',
+             u'Porque le da el sol a ese lado.'],
+         ok=1,
+         por=u'Le pasa a cualquier sonda de dos clavos alimentada todo el rato. Se arregla '
+             u'aliment&aacute;ndola solo al medir, o con una sonda capacitiva.'),
+    dict(p=u'&iquest;Cu&aacute;l de estas decisiones sube m&aacute;s la disponibilidad del riego a '
+           u'cinco a&ntilde;os?',
+         op=[u'Que quien lo cuida vaya m&aacute;s deprisa cuando se entera.',
+             u'Enchufarlo, poner un dep&oacute;sito grande y una sonda que dure.',
+             u'Comprar dos recambios de cada pieza.'],
+         ok=1,
+         por=u'Las tres primeras son de <b>dise&ntilde;o</b>, y llevan el aparato del 7 % al 98 % del '
+             u'tiempo funcionando. El mantenimiento no se decide manteniendo, se decide '
+             u'dise&ntilde;ando.'),
+    dict(p=u'Dej&aacute;is el proyecto sin poner ninguna licencia. &iquest;Qu&eacute; pasa?',
+         op=[u'Que al no decir nada, cualquiera puede hacer con &eacute;l lo que quiera.',
+             u'Que tiene <b>todos los derechos reservados</b>: nadie puede publicarlo ni continuarlo '
+             u'legalmente.',
+             u'Que hay que registrarlo antes de que tenga derechos.'],
+         ok=1,
+         por=u'Los derechos de autor nacen solos al crear la obra, sin registrar nada. Para el '
+             u'derecho, <b>callarse es decir que no</b>. Poner la licencia es dar permiso por '
+             u'escrito.'),
+    dict(p=u'Prometes 100 mL, la banda es de 80 a 120 y una medida cae dentro el 73 % de las veces. '
+           u'Si exiges <b>tres de tres</b>, &iquest;cu&aacute;ntas veces apruebas?',
+         op=[u'El 73 %, igual que una sola medida.',
+             u'El 39 %: 0,73 &times; 0,73 &times; 0,73.',
+             u'M&aacute;s del 73 %, porque tienes tres oportunidades.'],
+         ok=1,
+         por=u'Cada repetici&oacute;n que exiges que salga te lo pone m&aacute;s dif&iacute;cil a ti, '
+             u'no al aparato. Con <b>dos de tres</b> subes al 82 % y el aparato malo sigue '
+             u'suspendiendo: aprueba solo el 2 %.'),
+]
+
+S8_CIERRE = u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Por qu&eacute; &laquo;ya est&aacute;, funciona&raquo; no es una '
+                     u'entrega?',
+                     u'<p>Porque <b>no se puede comprobar</b>, y lo que no se puede comprobar no se '
+                     u'puede cerrar. Dentro de un mes, cuando algo falle, la conversaci&oacute;n '
+                     u'ser&aacute; &laquo;a m&iacute; no me funciona&raquo; contra &laquo;a nosotros '
+                     u's&iacute;&raquo;, y esa discusi&oacute;n no la gana nadie. Una banda, unas '
+                     u'repeticiones y una firma s&iacute; se pueden comprobar.</p>') + pregunta(
+          u'Nombra las cinco cosas que lleva una prueba de aceptaci&oacute;n.',
+          u'<p><b>Qu&eacute;</b> se mide con su unidad, <b>con qu&eacute;</b> se mide, <b>entre '
+          u'qu&eacute; y qu&eacute;</b> se da por bueno, <b>cu&aacute;ntas veces</b> se repite y '
+          u'cu&aacute;ntas tienen que salir, y <b>qui&eacute;n est&aacute; delante</b>. Y dos '
+          u'condiciones: se acuerda <b>antes</b>, y est&aacute; escrito qu&eacute; se hace si no '
+          u'pasa.</p>') + pregunta(
+          u'&iquest;Por qu&eacute; exigir m&aacute;s repeticiones seguidas os perjudica a vosotros?',
+          u'<p>Porque las probabilidades se multiplican. Si una medida cae dentro el 73 % de las '
+          u'veces, tres seguidas son 0,73&sup3; = <b>39 %</b>: un aparato que est&aacute; bien '
+          u'suspende seis de cada diez entregas. Exigiendo <b>dos de tres</b> sube al 82 % y el '
+          u'aparato malo sigue fuera. Eso no se acierta a ojo: se calcula.</p>') + pregunta(
+          u'La prueba falla delante del destinatario. &iquest;Qu&eacute; se puede hacer y '
+          u'qu&eacute; no?',
+          u'<p>Se puede: <b>llev&aacute;rselo y volver con fecha</b>; <b>entregarlo con una '
+          u'limitaci&oacute;n escrita</b> que la persona acepte; o <b>no entregarlo</b>, que '
+          u'tambi&eacute;n es un resultado. Lo que no se puede es <b>cambiar la prueba '
+          u'despu&eacute;s de verla fallar</b>: ensanchar la banda cuando ya sabes el resultado no '
+          u'es aprobar, es borrar el examen.</p>') + u'''
+      </ol>
+''' + test('c9b', u'Lo que tiene que haber quedado de la unidad entera', PREGUNTAS_TEST_B) + u'''
+      <div class="nota">
+        <span class="n-tag">Y con esto se acaba</span>
+        Ocho sesiones para una idea sola, que no se parece en nada a la que ten&iacute;ais en
+        septiembre: <b>hacer que funcione es la mitad f&aacute;cil</b>. La otra mitad es que le
+        sirva a alguien, que siga vivo cuando os vay&aacute;is, que otro pueda seguir y que
+        hay&aacute;is dejado por escrito c&oacute;mo se comprueba. Dentro de un mes id a ver
+        vuestro aparato: ah&iacute; est&aacute; la nota de verdad.
       </div>
 '''
 
@@ -1067,7 +2169,29 @@ S4 = (bloque('00', u'Reto inicial &middot; 10 min', S4_RETO) +
       bloque('02', u'Pr&aacute;ctica &middot; 15 min', S4_PRACTICA) +
       bloque('03', u'Cierre y test &middot; 10 min', S4_CIERRE))
 
+S5 = (bloque('00', u'Reto inicial &middot; 10 min', S5_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S5_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S5_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S5_CIERRE))
+
+S6 = (bloque('00', u'Reto inicial &middot; 10 min', S6_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S6_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S6_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S6_CIERRE))
+
+S7 = (bloque('00', u'Reto inicial &middot; 10 min', S7_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S7_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S7_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S7_CIERRE))
+
+S8 = (bloque('00', u'Reto inicial &middot; 10 min', S8_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S8_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 15 min', S8_PRACTICA) +
+      bloque('03', u'Cierre y test &middot; 10 min', S8_CIERRE))
+
 MIN = [(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')]
+MIN_TEST = [(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
+            (u"10'", u'Cierre y test')]
 
 S = [
     dict(corto=u'Qui&eacute;n decide qu&eacute; se fabrica',
@@ -1093,13 +2217,36 @@ S = [
          titulo=u'&iquest;Cu&aacute;ndo devuelve tu aparato lo que cost&oacute; hacerlo?',
          entradilla=u'La &uacute;ltima cuenta del curso, y no sale bien. Impactos que no se pueden '
                     u'sumar, escala, y por d&oacute;nde seguir.',
-         minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
-                   (u"10'", u'Cierre y test')],
+         minutado=MIN_TEST,
          chips=[u'CE6 &middot; 6.2', u'CE6 &middot; 6.3', u'D.2', u'D.3', u'D.4'], cuerpo=S4),
-    dict(corto=u'El ciclo de vida completo', pendiente=True),
-    dict(corto=u'Dise&ntilde;ar para todo el mundo', pendiente=True),
-    dict(corto=u'D&oacute;nde acaba cuando se tira', pendiente=True),
-    dict(corto=u'La defensa de verdad', pendiente=True),
+    dict(corto=u'Para qui&eacute;n, exactamente',
+         titulo=u'&laquo;Ser&iacute;a &uacute;til&raquo; no es un requisito; quince d&iacute;as de '
+                u'agosto s&iacute;',
+         entradilla=u'Se pasa de &laquo;esto le viene bien a todo el mundo&raquo; a la lista de una '
+                    u'persona con nombre. Se entrevista, se anota entre comillas y se convierte en '
+                    u'n&uacute;meros.',
+         minutado=MIN,
+         chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.3', u'D.1', u'D.4'], cuerpo=S5),
+    dict(corto=u'Lo que cuesta mantenerlo',
+         titulo=u'Lo que se rompe primero es lo que nadie sab&iacute;a que hab&iacute;a que hacer',
+         entradilla=u'No el impacto ambiental, sino la vida &uacute;til en manos de otro: qui&eacute;n '
+                    u'cambia la pila, d&oacute;nde est&aacute; el recambio y qu&eacute; pasa cuando '
+                    u'vosotros ya no est&aacute;is.',
+         minutado=MIN,
+         chips=[u'CE6 &middot; 6.2', u'CE6 &middot; 6.3', u'D.2', u'D.3'], cuerpo=S6),
+    dict(corto=u'Que otro lo pueda continuar',
+         titulo=u'Dentro de tres a&ntilde;os alguien abre la caja: &iquest;qu&eacute; encuentra?',
+         entradilla=u'Manual, esquema y licencia. Lo que cuesta escribirlo, lo que le ahorra al '
+                    u'siguiente, y por qu&eacute; &laquo;no poner nada&raquo; no significa '
+                    u'&laquo;es de todos&raquo;.',
+         minutado=MIN,
+         chips=[u'CE2 &middot; 2.1', u'CE6 &middot; 6.3', u'A.2', u'D.4'], cuerpo=S7),
+    dict(corto=u'Entregarlo de verdad',
+         titulo=u'&laquo;Funciona&raquo; no es una entrega; entre 80 y 120 mililitros, s&iacute;',
+         entradilla=u'La prueba de aceptaci&oacute;n, acordada de antemano y hecha delante de quien '
+                    u'lo recibe. Y qu&eacute; se hace, por escrito, si no pasa.',
+         minutado=MIN_TEST,
+         chips=[u'CE2 &middot; 2.1', u'CE6 &middot; 6.1', u'CE6 &middot; 6.3', u'D.4'], cuerpo=S8),
 ]
 
 CFG = dict(
@@ -1111,8 +2258,10 @@ CFG = dict(
     tema=u'Tema 9', curso=u'4.&ordm; de ESO', materia=u'Tecnolog&iacute;a',
     desc=u'Tema 9 de Tecnolog&iacute;a de 4.&ordm; de ESO: qui&eacute;n decide qu&eacute; '
          u'tecnolog&iacute;a se fabrica y cu&aacute;l no, qu&eacute; es la tecnolog&iacute;a '
-         u'apropiada, c&oacute;mo se defiende un proyecto con su r&uacute;brica delante y '
-         u'cu&aacute;ndo devuelve un aparato lo que cost&oacute; hacerlo.',
+         u'apropiada, c&oacute;mo se defiende un proyecto, cu&aacute;ndo devuelve lo que '
+         u'cost&oacute; hacerlo, c&oacute;mo se sacan requisitos de una persona concreta, '
+         u'qu&eacute; cuesta mantenerlo cinco a&ntilde;os, c&oacute;mo se documenta con licencia '
+         u'libre y c&oacute;mo se entrega con una prueba de aceptaci&oacute;n.',
     sesiones=S)
 
 

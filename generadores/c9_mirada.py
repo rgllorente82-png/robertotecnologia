@@ -23,7 +23,7 @@ if __name__ == '__main__':
     ancho = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
     with sync_playwright() as p:
         nav = p.chromium.launch()
-        for ses in (1, 2, 3, 4):
+        for ses in (1, 2, 3, 4, 5, 6, 7, 8):
             pag = nav.new_page(viewport={'width': ancho, 'height': 1000})
             pag.goto(URL, wait_until='load')
             pag.wait_for_timeout(500)

@@ -122,24 +122,121 @@ def gana(pesos):
 # --------------------------------------------------------------------------
 # S4 - camino critico
 # --------------------------------------------------------------------------
+# El -1 marca "aqui va la espera del material", que es un dato: 5 sesiones en el
+# plan de la S4 y las que se tecleen en la S8.
 DEPS = [[], [(0, 0)], [(1, 0)], [(2, 0)], [(2, 0)], [(3, 0)], [(5, 0)],
-        [(3, 0), (4, 5)], [(6, 0), (7, 0)], [(8, 0)], [(8, 0)], [(9, 0), (10, 0)]]
+        [(3, 0), (4, -1)], [(6, 0), (7, 0)], [(8, 0)], [(8, 0)], [(9, 0), (10, 0)]]
 DUR_BASE = [2, 1, 2, 2, 1, 3, 3, 4, 3, 2, 2, 1]
 
 
-def cpm(dur):
+def cpm(dur, espera=5):
     n = len(dur)
     ES, EF = [0] * n, [0] * n
     for i in range(n):
-        ES[i] = max([EF[d] + lag for d, lag in DEPS[i]] or [0])
+        ES[i] = max([EF[d] + (espera if lag == -1 else lag) for d, lag in DEPS[i]] or [0])
         EF[i] = ES[i] + dur[i]
     fin = max(EF)
     LF, LS = [0] * n, [0] * n
     for j in range(n - 1, -1, -1):
-        limites = [LS[k] - lag for k in range(n) for d, lag in DEPS[k] if d == j]
+        limites = [LS[k] - (espera if lag == -1 else lag)
+                   for k in range(n) for d, lag in DEPS[k] if d == j]
         LF[j] = min(limites) if limites else fin
         LS[j] = LF[j] - dur[j]
     return ES, EF, [LS[i] - ES[i] for i in range(n)], fin
+
+
+# --------------------------------------------------------------------------
+# S5 - el cuaderno como grafo de decisiones
+# --------------------------------------------------------------------------
+DEC_DEP = [[], [0], [0], [0], [0], [2, 3, 4], [4, 5], [5], [3, 6], [2, 7], [6], [7, 9]]
+DEC_REH = [2, 1, 1, 1, 1, 3, 2, 1, 1, 1, 2, 1]
+
+
+def descendientes(raiz):
+    u"""Cierre transitivo: todo lo que cuelga, directa o indirectamente, de raiz.
+
+    Escrito a partir de la definicion, no copiado del JavaScript: aqui se hace
+    con una pila y alli con pasadas de relajacion.
+    """
+    fuera, pila = set(), [raiz]
+    while pila:
+        p = pila.pop()
+        for i, deps in enumerate(DEC_DEP):
+            if i not in fuera and p in deps:
+                fuera.add(i)
+                pila.append(i)
+    return sorted(fuera)
+
+
+# --------------------------------------------------------------------------
+# S6 - la fusion a tres bandas
+# --------------------------------------------------------------------------
+#        (toca Ana, min Ana, toca Beto, min Beto)
+LINEAS = [(False, 0, False, 0),      # titulo
+          (True, 12, False, 0),      # el problema
+          (True, 4, False, 0),       # requisito humedad
+          (False, 0, True, 8),       # requisito agua
+          (False, 0, False, 0),      # alternativa
+          (True, 6, True, 6),        # presupuesto: aqui chocan
+          (False, 0, True, 9),       # calendario
+          (False, 0, False, 0)]      # reparto
+MINCOMPARA, MINHABLAR = 0.75, 2
+
+
+def fusion(modo, ultimo='b', ponA=None, ponB=None):
+    u"""Rehecho a partir de la regla, no del JavaScript.
+
+    Una linea la toca uno, los dos o ninguno. Si la tocan los dos y no dicen lo
+    mismo, es un choque. Por correo gana el que guarda el ultimo y lo del otro
+    se va sin avisar.
+    """
+    ponA = [True] * len(LINEAS) if ponA is None else ponA
+    ponB = [True] * len(LINEAS) if ponB is None else ponB
+    tocaA = [L[0] and ponA[i] for i, L in enumerate(LINEAS)]
+    tocaB = [L[2] and ponB[i] for i, L in enumerate(LINEAS)]
+    choques = sum(1 for i in range(len(LINEAS)) if tocaA[i] and tocaB[i])
+    if modo == 'correo':
+        if ultimo == 'a':
+            perdidos = sum(LINEAS[i][3] for i in range(len(LINEAS)) if tocaB[i])
+        else:
+            perdidos = sum(LINEAS[i][1] for i in range(len(LINEAS)) if tocaA[i])
+        return dict(perdidos=perdidos, choques=0, avisos=0, arreglo=0, ficheros=1)
+    if modo == 'carpeta':
+        return dict(perdidos=0, choques=choques, avisos=1,
+                    arreglo=len(LINEAS) * MINCOMPARA + choques * MINHABLAR, ficheros=2)
+    return dict(perdidos=0, choques=choques, avisos=choques,
+                arreglo=choques * MINHABLAR, ficheros=1)
+
+
+# --------------------------------------------------------------------------
+# S7 - el reloj del guion
+# --------------------------------------------------------------------------
+PAL = [70, 60, 150, 120, 60, 180]
+CLAVE = 1
+PRE7 = {'natural': ([1, 4, 3, 2, 5, 0], [25, 25, 35, 35, 15, 45]),
+        'bueno': ([0, 1, 2, 3, 4, 5], [20, 35, 40, 35, 25, 25])}
+
+
+def secuencia(orden):
+    return [orden.index(p) for p in range(len(orden))]
+
+
+def acaba(orden, seg, muerto=0):
+    u"""En que segundo acaba cada bloque, en el orden dado."""
+    t, fin = 0, {}
+    for i in secuencia(orden):
+        t += seg[i] + (muerto if i == CLAVE else 0)
+        fin[i] = t
+    return fin
+
+
+# --------------------------------------------------------------------------
+# S8 - el plan contra lo que paso
+# --------------------------------------------------------------------------
+DUR_REAL = [3, 1, 2, 2, 1, 4, 7, 4, 5, 2, 3, 1]
+ESPERA_REAL = 7
+REQ8 = [('ge', 40.0, 31.0), ('le', 2.0, 2.34), ('le', 8.0, 13.0),
+        ('ge', 10.0, 14.0), ('le', 5.0, 3.5)]
 
 
 print('== El modelo del ensayo, antes de abrir nada')
@@ -170,12 +267,17 @@ with sync_playwright() as p:
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 8, 'hay 8 botones de sesion (hay %d)' % len(bts))
     aptos = [b for b in bts if b.get_attribute('disabled') is None]
-    check(len(aptos) == 4, 'cuatro escritas y cuatro en preparacion (escritas: %d)' % len(aptos))
-    for i in range(1, 5):
+    check(len(aptos) == 8, 'las ocho estan escritas, ninguna en preparacion (escritas: %d)'
+          % len(aptos))
+    check(len(pag.query_selector_all('.ses-head')) == 8,
+          'las ocho llevan su cabecera con entradilla, minutado y chips')
+    for i in range(1, 9):
         pag.click('#nav button[data-ses="%d"]' % i)
         pag.wait_for_timeout(80)
         check(pag.eval_on_selector('#ses-%d' % i, 'e => !e.hidden'),
               'la sesion %d se abre al pulsar su boton' % i)
+        check(len(pag.query_selector_all('#ses-%d .bloque' % i)) == 4,
+              'la sesion %d tiene sus cuatro bloques' % i)
 
     print('== El narrador')
     check(pag.query_selector('#narr-c1') is not None, 'la unidad lleva su voz con avatar')
@@ -183,22 +285,34 @@ with sync_playwright() as p:
           'el avatar se dibuja al cargar, con la boca cerrada')
 
     print('== Fotos y videos')
-    for src in ('c1-segway.jpg', 'c1-millennium.jpg', 'c1-goteo.jpg', 'c1-gantt.jpg'):
+    for src in ('c1-segway.jpg', 'c1-millennium.jpg', 'c1-goteo.jpg', 'c1-gantt.jpg',
+                'c1-cuaderno.jpg', 'c1-scriptorium.jpg', 'c1-raton.jpg', 'c1-sidney.jpg'):
         img = pag.query_selector('img[src$="%s"]' % src)
         check(img is not None, 'esta la foto %s' % src)
         if img:
             pie = img.evaluate('e => e.closest("figure").innerText')
             check('Wikimedia Commons' in pie and len(pie) > 200,
                   'la foto %s lleva su credito y su pie largo' % src)
-    check(len(pag.query_selector_all('.video[data-vid]')) == 3, 'hay tres videos, sin cargar')
+            check(len(img.get_attribute('alt') or '') > 60,
+                  'la foto %s describe en el alt lo que se ve' % src)
+        fichero = os.path.join(RAIZ, 'img', src)
+        check(os.path.exists(fichero) and os.path.getsize(fichero) > 20000,
+              'el fichero %s esta bajado y no viene vacio' % src)
+    check(len(pag.query_selector_all('.video[data-vid]')) == 5, 'hay cinco videos, sin cargar')
     check(len(pag.query_selector_all('.video iframe')) == 0,
           'ningun iframe de YouTube se carga sin pulsarlo')
 
     print('== Libreta y entender')
-    check(len(pag.query_selector_all('.copiar')) >= 12,
+    check(len(pag.query_selector_all('.copiar')) >= 24,
           'hay bloques PARA LA LIBRETA de sobra (%d)' % len(pag.query_selector_all('.copiar')))
-    check(len(pag.query_selector_all('.entender')) >= 6,
+    check(len(pag.query_selector_all('.entender')) >= 12,
           'hay bloques SOLO PARA ENTENDERLO (%d)' % len(pag.query_selector_all('.entender')))
+    check(len(pag.query_selector_all('.ficha')) == 8,
+          'las ocho sesiones llevan su practica evaluada')
+    for n in range(1, 9):
+        cuerpo = pag.eval_on_selector('#ses-%d' % n, 'e => e.innerText')
+        check(cuerpo.count('puntos)') + cuerpo.count('punto)') >= 5,
+              'la practica de la sesion %d reparte la nota en cinco trozos o mas' % n)
 
     # ---------------------------------------------------------------- S1
     print('== Sesion 1 * la cuenta del problema')
@@ -464,8 +578,302 @@ with sync_playwright() as p:
     pag.click('#seg-p4 button[data-a="reinicia"]')
     pag.wait_for_timeout(150)
 
+    # ---------------------------------------------------------------- S5
+    print('== Sesion 5 * el cuaderno como grafo de decisiones')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(150)
+
+    filas5 = pag.query_selector_all('#tabla-p5 tbody tr')
+    check(len(filas5) == 12, 'la tabla tiene las doce decisiones (tiene %d)' % len(filas5))
+    check(len(pag.query_selector_all('#tabla-p5 td.por.vacio')) == 1,
+          'hay UNA decision sin porque escrito, y la escena la marca')
+    check(len(pag.query_selector_all('#svg-p5 rect')) == 24,
+          'el grafo dibuja las doce cajas (dos rectangulos cada una: fondo opaco y tinte)')
+    flechas = sum(len(d) for d in DEC_DEP)
+    check(len(pag.query_selector_all('#svg-p5 path')) == flechas,
+          'y las %d flechas de dependencia' % flechas)
+    check('12 decisiones' in texto(pag, '#con-p5'), 'de partida dice cuantas hay')
+
+    for caida in (5, 7, 6, 3):
+        pag.click('#tabla-p5 button[data-cae="%d"]' % caida)
+        pag.wait_for_timeout(150)
+        desc = descendientes(caida)
+        post = list(range(caida + 1, 12))
+        costeCon = sum(DEC_REH[i] for i in desc)
+        costeSin = sum(DEC_REH[i] for i in post)
+        vistoCon = texto(pag, '#con-p5')
+        vistoSin = texto(pag, '#sin-p5')
+        check(('%d decisiones' % len(desc)) in vistoCon,
+              'cae la %d: cuelgan %d decisiones' % (caida + 1, len(desc)))
+        check(('%d sesiones' % costeCon) in vistoCon,
+              'cae la %d: rehacerlas cuesta %d sesiones' % (caida + 1, costeCon))
+        check(('%d decisiones' % len(post)) in vistoSin,
+              'cae la %d: sin cuaderno habria que revisar %d' % (caida + 1, len(post)))
+        check(('%d sesiones' % costeSin) in vistoSin,
+              'cae la %d: sin cuaderno cuesta %d sesiones' % (caida + 1, costeSin))
+        check(len(pag.query_selector_all('#tabla-p5 tr.revisa')) == len(desc),
+              'cae la %d: las %d que hay que rehacer van marcadas en la tabla'
+              % (caida + 1, len(desc)))
+        check(len(pag.query_selector_all('#tabla-p5 tr.cae')) == 1,
+              'cae la %d: y la caida va marcada aparte' % (caida + 1))
+
+    # el caso en que el cuaderno NO ahorra nada, que la escena tiene que admitir
+    pag.click('#seg-p5 button[data-c="5"]')
+    pag.wait_for_timeout(150)
+    check(len(descendientes(5)) == len(range(6, 12)),
+          'cayendo la 6 cuelga todo lo posterior: el cuaderno no ahorra trabajo')
+    check('no ahorra ni una' in texto(pag, '#est-p5'),
+          'y la escena lo dice en vez de venderse de mas')
+    pag.click('#seg-p5 button[data-c="7"]')
+    pag.wait_for_timeout(150)
+    check('ahorra' in texto(pag, '#est-p5') and 'no ahorra ni una' not in texto(pag, '#est-p5'),
+          'cayendo la 8, en cambio, si ahorra: y ahi si lo dice')
+    pag.click('#seg-p5 button[data-c="-1"]')
+    pag.wait_for_timeout(120)
+    check(len(pag.query_selector_all('#tabla-p5 tr.cae')) == 0, 'el boton de reiniciar lo limpia')
+
+    # ---------------------------------------------------------------- S6
+    print('== Sesion 6 * la fusion a tres bandas')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(150)
+
+    check(len(pag.query_selector_all('#edA-p6 input')) == 3, 'Ana toca tres lineas')
+    check(len(pag.query_selector_all('#edB-p6 input')) == 3, 'Beto toca tres lineas')
+    check(len(pag.query_selector_all('#doc-p6 .p6-l')) == 8, 'el documento tiene ocho lineas')
+
+    def cuentas6():
+        return pag.eval_on_selector_all(
+            '#cuentas-p6 .p6-c',
+            'cs => cs.map(c => c.querySelector("b").innerText.trim())')
+
+    for modo, ultimo in (('correo', 'b'), ('correo', 'a'), ('carpeta', 'b'), ('linea', 'b')):
+        pag.click('#seg-p6 button[data-m="%s"]' % modo)
+        pag.wait_for_timeout(120)
+        if modo == 'correo':
+            pag.select_option('#p6-ultimo', ultimo)
+            pag.wait_for_timeout(120)
+        E = fusion(modo, ultimo)
+        v = cuentas6()
+        arreglo = esp(E['arreglo'], 0 if E['arreglo'] == round(E['arreglo']) else 1)
+        check(v[0] == esp(E['perdidos'], 0),
+              '%s (%s): minutos perdidos = %s (se ve %s)'
+              % (modo, ultimo, esp(E['perdidos'], 0), v[0]))
+        check(v[1] == str(E['choques']), '%s: lineas que chocan = %d' % (modo, E['choques']))
+        check(v[2] == str(E['avisos']), '%s: avisos del programa = %d' % (modo, E['avisos']))
+        check(v[3] == arreglo, '%s: minutos de arreglo a mano = %s' % (modo, arreglo))
+        check(v[4] == str(E['ficheros']), '%s: ficheros al final = %d' % (modo, E['ficheros']))
+
+    pag.click('#seg-p6 button[data-m="correo"]')
+    pag.select_option('#p6-ultimo', 'b')
+    pag.wait_for_timeout(150)
+    check(cuentas6()[0] == '22' and cuentas6()[2] == '0',
+          'por correo se pierden 22 minutos de Ana y el programa NO avisa: ese es el punto')
+    check(len(pag.query_selector_all('#doc-p6 .p6-l.perdida')) == 2,
+          'y se ven tachadas las dos lineas que solo habia tocado Ana')
+
+    # quitar el choque: la linea del presupuesto la toca uno solo
+    pag.click('#seg-p6 button[data-m="linea"]')
+    pag.wait_for_timeout(120)
+    check(cuentas6()[1] == '1', 'en linea queda un choque: el presupuesto')
+    pag.uncheck('#edA-p6 input[data-i="5"]')
+    pag.wait_for_timeout(150)
+    E = fusion('linea', ponA=[True, True, True, True, True, False, True, True])
+    check(cuentas6()[1] == str(E['choques']) and cuentas6()[1] == '0',
+          'si Ana no toca el presupuesto, el choque desaparece y se fusiona todo solo')
+    check(cuentas6()[0] == '0', 'y no se pierde ni un minuto')
+    pag.check('#edA-p6 input[data-i="5"]')
+    pag.wait_for_timeout(120)
+
+    # ---------------------------------------------------------------- S7
+    print('== Sesion 7 * el reloj del guion')
+    pag.click('#nav button[data-ses="7"]')
+    pag.wait_for_timeout(150)
+
+    def cuentas7():
+        return pag.eval_on_selector_all(
+            '#cuentas-p7 .p7-c',
+            'cs => cs.map(c => c.querySelector("b").innerText.trim())')
+
+    for preset, esperado in (('natural', 165), ('bueno', 55)):
+        pag.click('#seg-p7 button[data-o="%s"]' % preset)
+        pag.wait_for_timeout(150)
+        orden, seg = PRE7[preset]
+        fin = acaba(orden, seg)
+        check(fin[CLAVE] == esperado,
+              'el modelo dice que con el orden "%s" el bloque clave acaba en el segundo %d'
+              % (preset, esperado))
+        v = cuentas7()
+        check(v[3] == '%d s' % fin[CLAVE],
+              'orden "%s": la escena dice que acaba en el segundo %d' % (preset, fin[CLAVE]))
+        check(sum(seg) == 180, 'orden "%s": los seis bloques suman 180 s' % preset)
+        filas7 = pag.eval_on_selector_all(
+            '#tabla-p7 tbody tr',
+            'fs => fs.map(f => Array.from(f.cells).map(c => c.innerText.trim()))')
+        check([f[1] for f in filas7][0].startswith(
+                  'Qu' if preset == 'bueno' else 'C'),
+              'orden "%s": el primer bloque de la tabla es el que toca' % preset)
+        check(len(filas7) == 6, 'orden "%s": seis bloques en la tabla' % preset)
+
+    pag.click('#seg-p7 button[data-o="bueno"]')
+    pag.wait_for_timeout(150)
+    check(cuentas7()[0] == '390', 'a 130 palabras por minuto, en 180 s caben 390 palabras')
+    check(cuentas7()[1] == str(sum(PAL)), 'y el guion de ejemplo trae %d escritas' % sum(PAL))
+    tarda = sum(p * 60.0 / 130 for p in PAL)
+    check(cuentas7()[2] == '%d s' % round(tarda),
+          'que a esa velocidad son %d segundos, no 180' % round(tarda))
+
+    pag.fill('#p7-vel', '160')
+    pag.wait_for_timeout(150)
+    check(cuentas7()[0] == '480', 'subiendo a 160 palabras por minuto caben 480')
+    pag.fill('#p7-vel', '130')
+    pag.wait_for_timeout(120)
+
+    pag.check('#p7-arranque')
+    pag.wait_for_timeout(150)
+    orden, seg = PRE7['bueno']
+    finM = acaba(orden, seg, 40)
+    check(cuentas7()[4] == '40 s', 'el arranque del aparato se cobra: 40 segundos')
+    check(cuentas7()[3] == '%d s' % finM[CLAVE],
+          'y empuja el bloque clave al segundo %d' % finM[CLAVE])
+    check(finM[CLAVE] > 60, 'con lo que la prueba del minuto uno deja de pasarse')
+    check('no la pasa' in texto(pag, '#est-p7'), 'y la escena lo dice')
+    pag.uncheck('#p7-arranque')
+    pag.wait_for_timeout(120)
+
+    # mover un bloque cambia la cuenta de verdad
+    pag.click('#seg-p7 button[data-o="natural"]')
+    pag.wait_for_timeout(150)
+    antes = cuentas7()[3]
+    for _ in range(4):
+        pag.click('#tabla-p7 button[data-sube="1"]')
+        pag.wait_for_timeout(80)
+    orden2, seg2 = list(PRE7['natural'][0]), PRE7['natural'][1]
+    for _ in range(4):
+        p = orden2[CLAVE]
+        orden2[orden2.index(p - 1)] = p
+        orden2[CLAVE] = p - 1
+    fin2 = acaba(orden2, seg2)
+    check(cuentas7()[3] == '%d s' % fin2[CLAVE],
+          'subiendo el bloque clave cuatro puestos acaba en el segundo %d (antes, %s)'
+          % (fin2[CLAVE], antes))
+    check(fin2[CLAVE] <= 60, 'y ahora si pasa la prueba del minuto uno')
+
+    # ---------------------------------------------------------------- S8
+    print('== Sesion 8 * el plan contra lo que paso')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(150)
+
+    ESp, EFp, HOLp, finP = cpm(DUR_BASE, 5)
+    ESr, EFr, HOLr, finR = cpm(DUR_REAL, ESPERA_REAL)
+    critP = [i + 1 for i in range(12) if HOLp[i] == 0]
+    critR = [i + 1 for i in range(12) if HOLr[i] == 0]
+    check(finP == 21 and finR == 28,
+          'el modelo da 21 previstas y 28 reales (da %d y %d)' % (finP, finR))
+    check(critP != critR, 'y los dos caminos criticos NO son el mismo')
+
+    def cuentas8():
+        return pag.eval_on_selector_all(
+            '#cuentas-p8 .p8-c',
+            'cs => cs.map(c => c.querySelector("b").innerText.trim())')
+
+    filas8 = pag.eval_on_selector_all(
+        '#tabla-p8 tbody tr',
+        'fs => fs.map(f => Array.from(f.cells).map(c => c.innerText.trim()))')
+    check(len(filas8) == 12, 'la tabla del calendario tiene las doce tareas')
+    for i, f in enumerate(filas8):
+        d = DUR_REAL[i] - DUR_BASE[i]
+        check(int(f[2]) == DUR_BASE[i]
+              and int(re.search(r'\d+', f[3]).group()) == DUR_REAL[i]
+              and f[4] == ('+%d' % d if d > 0 else str(d))
+              and (f[5] == 'sí') == (HOLp[i] == 0)
+              and (f[6] == 'sí') == (HOLr[i] == 0),
+              'tarea %d: prevista %d, real %d, desvio %+d, critica prevista %s y real %s'
+              % (i + 1, DUR_BASE[i], DUR_REAL[i], d,
+                 'si' if HOLp[i] == 0 else 'no', 'si' if HOLr[i] == 0 else 'no'))
+
+    v8 = cuentas8()
+    factor = sum(DUR_REAL) / float(sum(DUR_BASE))
+    check(v8[0] == '%d ses.' % finP and v8[1] == '%d ses.' % finR,
+          'las cajas dicen 21 previstas y 28 reales (dicen %s y %s)' % (v8[0], v8[1]))
+    check(v8[2] == '%d → %d' % (sum(DUR_BASE), sum(DUR_REAL)),
+          'el trabajo pasa de %d a %d' % (sum(DUR_BASE), sum(DUR_REAL)))
+    check(v8[3] == '× ' + esp(factor, 2), 'el factor de estimacion es %s' % esp(factor, 2))
+    check(v8[4] == '%d ses.' % (finR - 24), 'y se paso %d sesiones del trimestre' % (finR - 24))
+
+    vistoCam = texto(pag, '#camino-p8')
+    check(', '.join(str(x) for x in critP) in vistoCam,
+          'dice el camino critico previsto: %s' % critP)
+    check(', '.join(str(x) for x in critR) in vistoCam,
+          'y el real: %s' % critR)
+    entran = [i + 1 for i in range(12) if HOLr[i] == 0 and HOLp[i] != 0]
+    salen = [i + 1 for i in range(12) if HOLr[i] != 0 and HOLp[i] == 0]
+    check('No son el mismo' in vistoCam, 'y avisa de que no coinciden')
+    for x in entran + salen:
+        check(('<b>%d</b>' % x) in pag.eval_on_selector('#camino-p8', 'e => e.innerHTML'),
+              'nombra la tarea %d entre las que entran o salen del camino critico' % x)
+    check(5 in salen and 7 in entran,
+          'la espera del material sale del camino critico y entra la programacion')
+
+    # tocar una duracion real recalcula todo
+    for _ in range(3):
+        pag.click('#tabla-p8 button[data-t="6"][data-d="-1"]')
+    pag.wait_for_timeout(180)
+    d8 = list(DUR_REAL)
+    d8[6] -= 3
+    _, _, _, fin8 = cpm(d8, ESPERA_REAL)
+    check(cuentas8()[1] == '%d ses.' % fin8,
+          'quitando 3 sesiones a la programacion el proyecto pasa a %d' % fin8)
+    pag.click('#seg-p8 button[data-a="reinicia"]')
+    pag.wait_for_timeout(180)
+    check(cuentas8()[1] == '%d ses.' % finR, 'el boton de reiniciar devuelve lo medido')
+
+    pag.fill('#p8-espera', '5')
+    pag.wait_for_timeout(180)
+    _, _, _, finE = cpm(DUR_REAL, 5)
+    check(cuentas8()[1] == '%d ses.' % finE,
+          'si el material hubiera llegado en las 5 previstas, el proyecto acaba en %d' % finE)
+    pag.click('#seg-p8 button[data-a="reinicia"]')
+    pag.wait_for_timeout(180)
+
+    print('== Sesion 8 * los requisitos contra lo medido')
+    pag.click('#seg-p8 button[data-p="req"]')
+    pag.wait_for_timeout(150)
+    check(pag.eval_on_selector('#panel-req-p8', 'e => !e.hidden'), 'el panel de requisitos se abre')
+    check(pag.eval_on_selector('#panel-cal-p8', 'e => e.hidden'), 'y el del calendario se cierra')
+    filasR = pag.query_selector_all('#treq-p8 tbody tr')
+    check(len(filasR) == 5, 'son los cinco requisitos de la sesion 2')
+    pasan = 0
+    for i, (cmp_, val, med) in enumerate(REQ8):
+        ok = med >= val if cmp_ == 'ge' else med <= val
+        if ok:
+            pasan += 1
+        clases = filasR[i].get_attribute('class')
+        check(('pasa' in clases) == ok,
+              'requisito %d: pedia %s %s y se midio %s -> %s'
+              % (i + 1, cmp_, val, med, 'CUMPLE' if ok else 'NO CUMPLE'))
+        pct = 100 * (med - val) / val
+        check(('%s%s %%' % ('+' if pct > 0 else '', esp(pct, 1))) in filasR[i].inner_text(),
+              'requisito %d: la desviacion es %s %%' % (i + 1, esp(pct, 1)))
+    check(pasan == 2, 'con las medidas de ejemplo cumple 2 de 5 (cumple %d)' % pasan)
+    check(('%d de 5' % pasan) in texto(pag, '#ereq-p8'), 'y la escena lo dice')
+    check('imposible' in texto(pag, '#ereq-p8'),
+          'y recuerda que el de los riegos ya se sabia imposible desde la sesion 2')
+
+    pag.fill('#treq-p8 input[data-r="0"]', '44')
+    pag.wait_for_timeout(180)
+    check('pasa' in pag.query_selector_all('#treq-p8 tbody tr')[0].get_attribute('class'),
+          'tecleando 44 % de humedad, ese requisito pasa a cumplir solo')
+    check('3 de 5' in texto(pag, '#ereq-p8'), 'y el recuento sube a 3 de 5')
+    pag.click('#seg-p8 button[data-a="reinicia"]')
+    pag.wait_for_timeout(180)
+    check('2 de 5' in texto(pag, '#ereq-p8'), 'y el boton de reiniciar devuelve lo medido')
+    pag.click('#seg-p8 button[data-p="cal"]')
+    pag.wait_for_timeout(120)
+
     # ---------------------------------------------------------------- test
     print('== El test de la sesion 4')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(120)
     preguntas = pag.query_selector_all('#test-c1 .ta-p')
     check(len(preguntas) == 10, 'el test tiene diez preguntas (tiene %d)' % len(preguntas))
     check(not [c for c in pag.query_selector_all('[class]')
@@ -483,6 +891,53 @@ with sync_playwright() as p:
     pag.wait_for_timeout(120)
     check(len(pag.query_selector_all('#test-c1 input:checked')) == 0,
           'el boton de repetir borra las respuestas')
+
+    print('== El test de la unidad entera, en la sesion 8')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(150)
+    check(pag.query_selector('#test-c1b') is not None, 'el segundo test lleva su propio id, c1b')
+    preg8 = pag.query_selector_all('#test-c1b .ta-p')
+    check(len(preg8) == 12, 'el test de la unidad tiene doce preguntas (tiene %d)' % len(preg8))
+
+    # el motivo de cambiar el identificador: los "name" de los radios no pueden
+    # chocar, o al marcar en uno se desmarcaria el otro
+    nombres4 = set(pag.eval_on_selector_all('#test-c1 input', 'is => is.map(i => i.name)'))
+    nombres8 = set(pag.eval_on_selector_all('#test-c1b input', 'is => is.map(i => i.name)'))
+    check(not (nombres4 & nombres8),
+          'y los dos tests no comparten ni un nombre de grupo de radios')
+    ids = pag.eval_on_selector_all('[id]', 'es => es.map(e => e.id)')
+    check(len(ids) == len(set(ids)), 'ningun id se repite en toda la pagina')
+
+    for q in preg8:
+        ok = int(q.get_attribute('data-ok'))
+        q.query_selector_all('.ta-op input')[ok].click()
+    pag.click('#test-c1b [data-a="corregir"]')
+    pag.wait_for_timeout(150)
+    check('12 de 12' in pag.eval_on_selector('#test-c1b .ta-nota', 'e => e.innerText'),
+          'marcando las respuestas buenas, el test de la unidad da 12 de 12')
+    check(len(pag.query_selector_all('#test-c1b .ta-op.mal')) == 0, 'y no marca ninguna en rojo')
+
+    # y comprobar que el de la sesion 4 no se ha enterado de nada
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(120)
+    check(len(pag.query_selector_all('#test-c1 input:checked')) == 0,
+          'contestar el test de la 8 no ha tocado el de la 4: son independientes')
+
+    # una mal, para ver que corrige de verdad
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(120)
+    pag.click('#test-c1b [data-a="otra"]')
+    pag.wait_for_timeout(120)
+    for n, q in enumerate(pag.query_selector_all('#test-c1b .ta-p')):
+        ok = int(q.get_attribute('data-ok'))
+        q.query_selector_all('.ta-op input')[(ok + 1) % 3 if n == 0 else ok].click()
+    pag.click('#test-c1b [data-a="corregir"]')
+    pag.wait_for_timeout(150)
+    check('11 de 12' in pag.eval_on_selector('#test-c1b .ta-nota', 'e => e.innerText'),
+          'fallando una a proposito, da 11 de 12')
+    check(len(pag.query_selector_all('#test-c1b .ta-op.mal')) == 1, 'y marca esa en rojo')
+    pag.click('#test-c1b [data-a="otra"]')
+    pag.wait_for_timeout(120)
 
     print('== La lectura')
     check(pag.query_selector('.lectura a.pdf') is not None,

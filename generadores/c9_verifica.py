@@ -15,7 +15,12 @@ valdria de nada.
 Comprueba tambien dos cosas que ya han mordido antes en esta web:
   - que ningun id empiece por "ses-" salvo los paneles de sesion (el JS de la
     barra esconde todo lo que empiece asi);
-  - que las cuatro fotos existan de verdad y el navegador las cargue.
+  - que las ocho fotos existan de verdad y el navegador las cargue.
+
+Y una tercera, de la segunda mitad: que los DOS tests de la unidad -el de la
+sesion 4 y el de la 8- tengan identificadores distintos. Si los compartieran,
+los "name" de los radios chocarian y las dos autoevaluaciones se romperian a
+la vez.
 """
 import math
 import os
@@ -178,6 +183,191 @@ def retorno(proy, des, dias, esc, pot=9):
     return (coste / (por * esc)) if por > 0 else None
 
 
+# --------------------------------------------------------------------------
+# S5 - de lo que dijo a lo que se mide
+# --------------------------------------------------------------------------
+# La cadena entera, escrita otra vez a partir de la definicion:
+#   superficie x lamina -> L/dia -> dias de deposito
+#   V x A x h -> Wh/dia -> dias de pila
+#   altura del rotulo x 200 -> metros a los que se lee
+VOLT, mA_DESPIERTA, mA_DORMIDA, SEG_MEDIDA = 5.0, 45.0, 12.0, 8.0
+mA_BOMBA, CAUDAL, Wh_PILA, REGLA = 500.0, 33.0, 3.7, 200.0
+
+# (nombre, m2 de superficie regada, mm de riego al dia, riega, tiene senal)
+DESTINOS = [
+    (u'El huerto del instituto', 2.0, 3.0, True, False),
+    (u'La vecina del 3.o B', 0.127, 4.0, True, False),
+    (u'El aula de infantil', 0.0, 0.0, False, True),
+]
+# lo que pide cada uno: (clave del valor, cuanto pide, mas es mejor)
+PIDE = [
+    [('diasAgua', 43.0, True), ('diasPila', 43.0, True)],
+    [('diasAgua', 15.0, True), ('diasPila', 15.0, True), ('mlRiego', 100.0, False)],
+    [('dist', 6.0, True), ('diasPila', 90.0, True)],
+]
+
+
+def requisitos(dest, pilas, dep, med, alt, duerme):
+    _, sup, lam, riega, senal = DESTINOS[dest]
+    s_desp = min(86400.0, med * SEG_MEDIDA) if duerme else 86400.0
+    s_dorm = 86400.0 - s_desp
+    wh_placa = VOLT * (mA_DESPIERTA * s_desp + mA_DORMIDA * s_dorm) / 1000.0 / 3600.0
+    litros = sup * lam
+    ml_dia = litros * 1000.0
+    s_bomba = ml_dia / CAUDAL
+    wh_bomba = VOLT * mA_BOMBA * s_bomba / 1000.0 / 3600.0
+    wh_dia = wh_placa + wh_bomba
+    wh_pilas = Wh_PILA * pilas
+    d = dict(litros=litros, sBomba=s_bomba, whPlaca=wh_placa, whBomba=wh_bomba,
+             whDia=wh_dia, whPilas=wh_pilas,
+             diasPila=(wh_pilas / wh_dia) if wh_dia > 0 else float('inf'),
+             diasAgua=(dep * 1000.0 / ml_dia) if ml_dia > 0 else float('inf'),
+             mlRiego=(ml_dia / med) if med > 0 else ml_dia,
+             dist=alt / 1000.0 * REGLA)
+    d['aguanta'] = min(d['diasPila'], d['diasAgua'] if riega else float('inf'))
+    d['pasan'] = sum(1 for k, p, mas in PIDE[dest]
+                     if (d[k] / p if mas else p / d[k]) >= 1)
+    d['reqs'] = len(PIDE[dest])
+    return d
+
+
+# --------------------------------------------------------------------------
+# S6 - cinco anos en manos de otro
+# --------------------------------------------------------------------------
+M_DIAS, M_ABANDONO = 1825, 270
+M_RUTINA, M_AVERIA, M_HORA = 15, 40, 12
+M_PILAS = 4
+EUR_PILAS, EUR_CLAVOS, EUR_CAPA, EUR_DHT, EUR_LDR = 3.20, 0.30, 2.50, 2.00, 0.20
+M_QUIEN = [(2, M_ABANDONO), (7, M_DIAS), (30, M_DIAS)]      # (tarda, hasta cuando esta)
+M_SONDA = [(20, EUR_CLAVOS), (180, EUR_CLAVOS), (1100, EUR_CAPA)]
+M_PROY = [dict(riega=True, litros=0.51, wh=1.45, sensor=None),
+          dict(riega=False, litros=0.0, wh=1.45, sensor=(1100, EUR_DHT)),
+          dict(riega=False, litros=0.0, wh=1.45, sensor=(5000, EUR_LDR))]
+
+
+def mantenimiento(proy, quien, alim, sonda, dep, espera):
+    """Dia a dia: se gasta lo que se gasta y el aparato se para hasta que va alguien."""
+    P = M_PROY[proy]
+    tarda, hasta = M_QUIEN[quien]
+    wh = 0.0 if alim == 1 else P['wh']
+    piezas = []                       # (vida en dias, euros, es rutina)
+    if P['riega']:
+        piezas.append((dep / P['litros'], 0.0, True))
+        piezas.append((float(M_SONDA[sonda][0]), M_SONDA[sonda][1], False))
+    if P['sensor']:
+        piezas.append((float(P['sensor'][0]), P['sensor'][1], False))
+    if wh > 0:
+        piezas.append((Wh_PILA * M_PILAS / wh, EUR_PILAS, True))
+    toca = [p[0] for p in piezas]
+    visitas = parados = minutos = 0
+    euros = 0.0
+    parado, vuelve, muere = False, 0, None
+    for d in range(M_DIAS + 1):
+        if parado:
+            parados += 1
+            if d >= vuelve:
+                parado = False
+            continue
+        for i, (vida, eur, rutina) in enumerate(piezas):
+            if d >= toca[i]:
+                parado = True
+                hay = d <= hasta
+                demora = (tarda + (0 if rutina else espera)) if hay else float('inf')
+                vuelve = d + demora
+                if hay:
+                    visitas += 1
+                    minutos += M_RUTINA if rutina else M_AVERIA
+                    euros += eur
+                    toca[i] = d + demora + vida
+                else:
+                    toca[i] = float('inf')
+                    if muere is None:
+                        muere = d
+                break
+    horas = minutos / 60.0
+    return dict(visitas=visitas, horas=horas, euros=euros,
+                coste=euros + horas * M_HORA, parados=parados,
+                disp=100.0 * (M_DIAS - parados) / M_DIAS, muere=muere)
+
+
+# --------------------------------------------------------------------------
+# S7 - lo que tarda el siguiente, y lo que deja hacer la licencia
+# --------------------------------------------------------------------------
+SESION, SESIONES = 50, 8
+# (clave, minutos que cuesta escribirlo, minutos que le cuesta al siguiente si falta)
+COSAS = [('sitio', 5, 0), ('foto', 3, 20), ('esquema', 25, 95), ('piezas', 10, 35),
+         ('codigo', 2, 300), ('comenta', 20, 60), ('calibra', 8, 45),
+         ('manual', 30, 55), ('licencia', 2, 0)]
+
+
+def continuar(puesto):
+    """Sin decir donde esta guardado, lo demas es como si no estuviera."""
+    hay = 'sitio' in puesto
+    reconstruir = sum(fa for k, po, fa in COSAS if fa > 0 and (not hay or k not in puesto))
+    escribir = sum(po for k, po, fa in COSAS if k in puesto)
+    todo_falta = sum(fa for k, po, fa in COSAS)
+    return dict(reconstruir=reconstruir, escribir=escribir,
+                ahorrado=todo_falta - reconstruir,
+                presupuesto=SESION * SESIONES,
+                ahorro=(todo_falta - reconstruir) / float(escribir) if escribir else 0.0)
+
+
+# banderas: (copia, deriva, publica, comercial, cita, sa)
+LICENCIAS = [
+    ('Sin decir nada', 'privada', False, False, False, False, False),
+    ('CC BY', 'si', True, True, True, True, False),
+    ('CC BY-SA', 'si', True, True, True, True, True),
+    ('CC BY-NC', 'si', True, True, False, True, False),
+    ('CC0', 'si', True, True, True, False, False),
+]
+
+
+def permisos(lic):
+    """Las cinco cosas que quiere hacer el siguiente, evaluadas contra las banderas."""
+    _, copia, deriva, publica, comercial, cita, sa = LICENCIAS[lic]
+    return [2 if copia == 'si' else (1 if copia == 'privada' else 0),
+            2 if (deriva and publica) else 0,
+            2 if comercial else 0,
+            2 if (publica and comercial and deriva) else 0,
+            2 if (deriva and not sa) else 0]
+
+
+# --------------------------------------------------------------------------
+# S8 - la prueba de aceptacion
+# --------------------------------------------------------------------------
+# (objetivo, dispersion de partida en %, media del aparato que esta mal)
+PRUEBAS = [(100.0, 18, 55.0), (120.0, 25, 260.0), (340.0, 12, 230.0)]
+
+
+def phi(z):
+    return 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
+
+
+def dentro(mu, sg, lo, hi):
+    return phi((hi - mu) / sg) - phi((lo - mu) / sg)
+
+
+def al_menos(n, k, p):
+    s = 0.0
+    for j in range(k, n + 1):
+        c = 1.0
+        for i in range(1, j + 1):
+            c = c * (n - j + i) / i
+        s += c * p ** j * (1 - p) ** (n - j)
+    return s
+
+
+def aceptacion(proy, tol, des, sig, n, k):
+    obj, _, malo = PRUEBAS[proy]
+    lo, hi = obj * (1 - tol / 100.0), obj * (1 + tol / 100.0)
+    sg = obj * sig / 100.0
+    pb = dentro(obj * (1 + des / 100.0), sg, lo, hi)
+    pm = dentro(malo * (1 + des / 100.0), sg, lo, hi)
+    k = min(k, n)
+    return dict(lo=lo, hi=hi, pB=pb, pM=pm,
+                apB=al_menos(n, k, pb), apM=al_menos(n, k, pm))
+
+
 # ==========================================================================
 with sync_playwright() as p:
     nav = p.chromium.launch()
@@ -198,7 +388,7 @@ with sync_playwright() as p:
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 8, 'hay 8 botones de sesion (hay %d)' % len(bts))
     aptos = [b for b in bts if b.get_attribute('disabled') is None]
-    check(len(aptos) == 4, 'cuatro sesiones escritas y cuatro en preparacion (escritas: %d)'
+    check(len(aptos) == 8, 'las ocho sesiones estan escritas, ninguna pendiente (escritas: %d)'
           % len(aptos))
 
     # el fallo que ya mordio en la c4: un id que empiece por ses- se esconde solo
@@ -212,14 +402,16 @@ with sync_playwright() as p:
           'el avatar se dibuja al cargar, con la boca cerrada')
 
     print('== Fotos y videos')
-    for clave in ('c9-mosquitera.jpg', 'c9-olla-barro.jpg', 'c9-defensa.jpg', 'c9-repair-cafe.jpg'):
+    for clave in ('c9-mosquitera.jpg', 'c9-olla-barro.jpg', 'c9-defensa.jpg', 'c9-repair-cafe.jpg',
+                  'c9-entrevista.jpg', 'c9-bomba-averiada.jpg', 'c9-esquema-1917.jpg',
+                  'c9-inspeccion.jpg'):
         check(os.path.exists(os.path.join(RAIZ, 'img', clave)), 'existe img/%s' % clave)
     pag.eval_on_selector_all('img', 'els => els.forEach(e => e.loading = "eager")')
-    pag.wait_for_timeout(500)
+    pag.wait_for_timeout(600)
     rotas = pag.eval_on_selector_all(
         'img', 'els => els.filter(e => !e.complete || e.naturalWidth === 0).map(e => e.src)')
-    check(not rotas, 'el navegador carga las cuatro fotos  %s' % (rotas or ''))
-    check(len(pag.query_selector_all('.video[data-vid]')) == 3, 'hay tres videos enlazados')
+    check(not rotas, 'el navegador carga las ocho fotos  %s' % (rotas or ''))
+    check(len(pag.query_selector_all('.video[data-vid]')) == 4, 'hay cuatro videos enlazados')
 
     # ------------------------------------------------------------------ S1
     print('== Sesion 1 * la cuenta que decide que se fabrica')
@@ -510,8 +702,300 @@ with sync_playwright() as p:
     check(abs(d - r200) <= max(0.1, r200 * 0.01),
           'y la escena lo dice: %s anos, %.2f calculado' % (d, r200))
 
+    # ------------------------------------------------------------------ S5
+    print('== Sesion 5 * de lo que dijo a lo que se mide')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-q5', 'e => e.innerHTML')) > 600,
+          'la escena pinta las barras de los requisitos')
+
+    # la fila del deposito solo esta en los que riegan; la de la senal, solo en infantil
+    visible = 'e => getComputedStyle(e).display !== "none"'
+    for dest in (0, 1, 2):
+        pag.click('#q5-dest button[data-d="%d"]' % dest)
+        pag.wait_for_timeout(120)
+        check(pag.eval_on_selector('#q5-filadep', visible) == (dest != 2),
+              'el mando del deposito %s con el destinatario %d'
+              % ('se ve' if dest != 2 else 'se esconde', dest))
+        check(pag.eval_on_selector('#q5-filaalt', visible) == (dest == 2),
+              'el mando de la senal %s con el destinatario %d'
+              % ('se ve' if dest == 2 else 'se esconde', dest))
+
+    casos5 = [
+        (0, 4, 1.5, 24, 8, False, 'huerto, tal y como esta en el taller'),
+        (0, 8, 20, 24, 8, True, 'huerto, con los mandos al maximo'),
+        (1, 4, 1.5, 24, 8, False, 'vecina, tal y como esta'),
+        (1, 6, 8, 24, 8, True, 'vecina, seis pilas y ocho litros'),
+        (2, 4, 1.5, 24, 8, True, 'infantil, con la pantallita de 8 mm'),
+        (2, 8, 1.5, 24, 30, True, 'infantil, rotulo de 30 mm y ocho pilas'),
+    ]
+    for dest, pilas, dep, med, alt, duerme, rot in casos5:
+        pag.click('#q5-dest button[data-d="%d"]' % dest)
+        pag.wait_for_timeout(100)
+        desliza(pag, '#q5-pilas', pilas)
+        desliza(pag, '#q5-dep', dep)
+        desliza(pag, '#q5-med', med)
+        desliza(pag, '#q5-alt', alt)
+        pag.set_checked('#q5-duerme', duerme)
+        pag.wait_for_timeout(150)
+        e = requisitos(dest, pilas, dep, med, alt, duerme)
+        d_wh = valor(pag, '#q5-tabla', 'gasta al d')
+        d_pila = valor(pag, '#q5-tabla', 'lo que dan las pilas')
+        check(abs(d_wh - e['whDia']) < 0.02 and abs(d_pila - e['diasPila']) < 0.06,
+              '%s -> %s Wh/dia (%.3f) y %s dias de pila (%.2f)'
+              % (rot, d_wh, e['whDia'], d_pila, e['diasPila']))
+        if dest != 2:
+            d_agua = valor(pag, '#q5-tabla', 'lo que da el dep')
+            check(abs(d_agua - e['diasAgua']) < 0.06, '%s -> %s dias de deposito (%.2f)'
+                  % (rot, d_agua, e['diasAgua']))
+        else:
+            d_dist = valor(pag, '#q5-tabla', 'se entiende a')
+            check(abs(d_dist - e['dist']) < 0.06, '%s -> se entiende a %s m (%.2f)'
+                  % (rot, d_dist, e['dist']))
+        fs = filas(pag, '#q5-tabla')
+        cumple = [v for k, v in fs.items() if 'requisitos que cumple' in k][0]
+        check(cumple == '%d de %d' % (e['pasan'], e['reqs']),
+              '%s -> cumple %r, calculado %d de %d' % (rot, cumple, e['pasan'], e['reqs']))
+
+    # el dato que ensena la sesion: con la vecina se llega y con el huerto no
+    check(requisitos(1, 6, 8, 24, 8, True)['pasan'] == 3,
+          'con la vecina, seis pilas y ocho litros cumplen los tres requisitos')
+    check(requisitos(0, 8, 20, 24, 8, True)['pasan'] == 0,
+          'y en el huerto no se llega ni con los mandos al maximo')
+    pag.click('#q5-dest button[data-d="0"]')
+    pag.wait_for_timeout(150)
+    check('el dise' in pag.inner_text('#q5-lee'),
+          'y la escena dice que lo que hay que cambiar es el diseno')
+    # 43 dias x 6 L al dia son los 258 litros que cita el texto
+    check(abs(43 * requisitos(0, 4, 1.5, 24, 8, False)['litros'] - 258) < 0.5,
+          'los 43 dias del huerto piden 258 litros, que es lo que dice el texto')
+    check('258' in pag.inner_text('#ses-5'), 'y el texto de la sesion cita esa cifra')
+
+    # las frases literales de la entrevista, y su etiqueta
+    for dest, n in ((0, 4), (1, 4), (2, 5)):
+        pag.click('#q5-dest button[data-d="%d"]' % dest)
+        pag.wait_for_timeout(120)
+        check(len(pag.query_selector_all('#q5-frases .q5-fr')) == n,
+              'el destinatario %d trae sus %d frases' % (dest, n))
+    check(len(pag.query_selector_all('#q5-frases .et.pru')) >= 1,
+          'y alguna de ellas no es un numero, sino algo que se comprueba')
+
+    # ------------------------------------------------------------------ S6
+    print('== Sesion 6 * cinco anos en manos de otro')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-q6', 'e => e.innerHTML')) > 800,
+          'la escena pinta la tira de los cinco anos')
+
+    def monta6(proy, quien, alim, sonda, dep, espera):
+        pag.click('#q6-proy button[data-p="%d"]' % proy)
+        pag.wait_for_timeout(100)
+        pag.click('#q6-quien button[data-q="%d"]' % quien)
+        pag.click('#q6-alim button[data-a="%d"]' % alim)
+        if proy == 0:
+            pag.click('#q6-sonda button[data-s="%d"]' % sonda)
+        desliza(pag, '#q6-dep', dep)
+        desliza(pag, '#q6-rec', espera)
+        pag.wait_for_timeout(180)
+
+    for proy in (0, 1, 2):
+        pag.click('#q6-proy button[data-p="%d"]' % proy)
+        pag.wait_for_timeout(120)
+        check(pag.eval_on_selector('#q6-filasonda', visible) == (proy == 0),
+              'los mandos del riego %s con el proyecto %d'
+              % ('se ven' if proy == 0 else 'se esconden', proy))
+
+    casos6 = [
+        (0, 0, 0, 0, 2, 0, 'A tal y como esta: vosotros, pilas, clavos, 2 L'),
+        (0, 1, 0, 0, 2, 0, 'A con el conserje'),
+        (0, 1, 1, 2, 200, 0, 'A bien: conserje, enchufe, capacitiva, 200 L'),
+        (0, 1, 1, 2, 200, 21, 'A bien pero el recambio a 21 dias'),
+        (0, 2, 1, 2, 200, 0, 'A con el departamento'),
+        (1, 1, 0, 0, 2, 0, 'B a pilas'),
+        (1, 1, 1, 0, 2, 0, 'B con enchufe'),
+        (2, 1, 1, 0, 2, 0, 'C con enchufe'),
+        (2, 1, 0, 0, 2, 0, 'C a pilas'),
+    ]
+    for proy, quien, alim, sonda, dep, espera, rot in casos6:
+        monta6(proy, quien, alim, sonda, dep, espera)
+        e = mantenimiento(proy, quien, alim, sonda, dep, espera)
+        d_v = valor(pag, '#q6-tabla', 'veces que hay que ir')
+        d_h = valor(pag, '#q6-tabla', 'horas de otra persona')
+        d_d = valor(pag, '#q6-tabla', 'disponibilidad')
+        check(abs(d_v - e['visitas']) < 0.5 and abs(d_h - e['horas']) < 0.06
+              and abs(d_d - e['disp']) < 0.06,
+              '%s -> %s visitas (%d), %s h (%.1f), %s %% (%.1f)'
+              % (rot, d_v, e['visitas'], d_h, e['horas'], d_d, e['disp']))
+        d_c = valor(pag, '#q6-tabla', 'mantenerlo cinco a')
+        check(abs(d_c - e['coste']) < 0.02, '%s -> cuesta %s EUR, %.2f calculado'
+              % (rot, d_c, e['coste']))
+        fs = filas(pag, '#q6-tabla')
+        muerto = [k for k in fs if 'para siempre' in k]
+        check(bool(muerto) == (e['muere'] is not None),
+              '%s -> %s' % (rot, 'se queda parado para siempre' if e['muere'] is not None
+                            else 'llega vivo a los cinco anos'))
+        if e['muere'] is not None:
+            check(abs(num(fs[muerto[0]]) - e['muere']) < 0.5,
+                  '%s -> se muere el dia %s, calculado %d' % (rot, fs[muerto[0]], e['muere']))
+
+    # lo que ensena la sesion: el montaje de partida se muere justo despues de
+    # que dejen de ir, y las tres decisiones de diseno lo arreglan
+    malo = mantenimiento(0, 0, 0, 0, 2, 0)
+    bueno = mantenimiento(0, 1, 1, 2, 200, 0)
+    check(malo['muere'] is not None and malo['muere'] - M_ABANDONO <= 5,
+          'el montaje de partida se muere el dia %d, %d despues de que dejeis de ir'
+          % (malo['muere'], malo['muere'] - M_ABANDONO))
+    check(malo['disp'] < 10 < 90 < bueno['disp'],
+          'y se pasa del %.1f %% al %.1f %% solo con decisiones de diseno'
+          % (malo['disp'], bueno['disp']))
+    cuerpo6 = pag.inner_text('#ses-6')
+    for cifra in ('72', '22', '273', '98'):
+        check(cifra in cuerpo6, 'el texto de la sesion cita la cifra %s de la escena' % cifra)
+    check(mantenimiento(2, 1, 1, 0, 2, 0)['visitas'] == 0,
+          'la lampara con enchufe no pide ni una visita en cinco anos')
+
+    # ------------------------------------------------------------------ S7
+    print('== Sesion 7 * que otro lo pueda continuar')
+    pag.click('#nav button[data-ses="7"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.query_selector_all('#q7-lista input[data-k]')) == len(COSAS),
+          'la lista tiene sus %d cosas' % len(COSAS))
+
+    def marca7(claves):
+        for k, _, _ in COSAS:
+            pag.set_checked('#q7-lista input[data-k="%s"]' % k, k in claves)
+        pag.wait_for_timeout(180)
+
+    casos7 = [
+        (set(), 'la caja tal cual, sin nada escrito'),
+        (set(k for k, _, _ in COSAS), 'con todo dejado'),
+        ({'esquema', 'codigo', 'manual'}, 'lo importante, pero sin decir donde esta'),
+        ({'sitio', 'esquema', 'codigo', 'manual'}, 'lo mismo, diciendo donde esta'),
+        ({'sitio', 'codigo', 'licencia'}, 'solo el programa y la licencia'),
+    ]
+    for claves, rot in casos7:
+        marca7(claves)
+        e = continuar(claves)
+        d = valor(pag, '#q7-tabla', 'le cuesta al siguiente')
+        # la tabla lo escribe como "10 h 10 min": se recompone desde el texto crudo
+        crudo = [v for k, v in filas(pag, '#q7-tabla').items() if 'le cuesta al siguiente' in k][0]
+        m = re.match(r'(?:(\d+) h )?(\d+) min', crudo)
+        mins = (int(m.group(1) or 0) * 60 + int(m.group(2))) if m else -1
+        check(mins == e['reconstruir'], '%s -> %r, calculado %d min'
+              % (rot, crudo, e['reconstruir']))
+
+    # el fallo que lo tumba todo: no decir donde esta guardado
+    check(continuar({'esquema', 'codigo', 'manual'})['reconstruir']
+          == continuar(set())['reconstruir'],
+          'sin decir donde esta guardado, lo demas es como si no estuviera')
+    marca7({'esquema', 'codigo', 'manual'})
+    check('d&oacute;nde' in pag.inner_html('#q7-lee') or 'nde est' in pag.inner_text('#q7-lee'),
+          'y la escena lo dice en su lectura')
+
+    # los numeros que cita el texto
+    check(continuar(set())['reconstruir'] == 610,
+          'sin nada escrito son 610 min = 10 h 10 min, que es lo que dice el texto')
+    todo = continuar(set(k for k, _, _ in COSAS))
+    check(todo['reconstruir'] == 0 and todo['escribir'] == 105,
+          'dejarlo todo cuesta 105 min = 1 h 45 min')
+    check(abs(todo['ahorro'] - 610 / 105.0) < 0.01,
+          'o sea que cada minuto vuestro le ahorra %.2f al siguiente' % (610 / 105.0))
+    check(continuar(set())['reconstruir'] > SESION * SESIONES,
+          'y sin nada escrito no le cabe en sus ocho sesiones')
+    check('10 h 10' in pag.inner_text('#ses-7') and '1 hora y 45' in pag.inner_text('#ses-7'),
+          'el texto de la sesion cita las dos cifras')
+
+    # el segundo modo: las licencias
+    pag.click('#q7-modo button[data-m="b"]')
+    pag.wait_for_timeout(250)
+    check(pag.eval_on_selector('#q7-mb', visible) and not pag.eval_on_selector('#q7-ma', visible),
+          'al cambiar de modo salen los mandos de la licencia y se van los otros')
+    for lic, (nombre, _, _, _, _, _, _) in enumerate(LICENCIAS):
+        pag.click('#q7-lic button[data-l="%d"]' % lic)
+        pag.wait_for_timeout(180)
+        e = permisos(lic)
+        visto = pag.eval_on_selector_all(
+            '#q7-mat .m .v', 'els => els.map(e => e.textContent.trim())')
+        quiero = ['sí' if x == 2 else ('a medias' if x == 1 else 'no') for x in e]
+        check(visto == quiero, '%s -> %s (calculado %s)' % (nombre, visto, quiero))
+        d = valor(pag, '#q7-tabla', 'le dejas hacer')
+        check(abs(d - sum(1 for x in e if x == 2)) < 0.5,
+              '%s le deja hacer %s de las cinco' % (nombre, d))
+
+    # lo que ensena la sesion: sin licencia no puede continuarlo, y solo el SA
+    # garantiza que siga abierto para el de despues
+    check(permisos(0)[1] == 0, 'sin licencia, el siguiente no puede publicar su version')
+    check(permisos(2)[4] == 0 and permisos(1)[4] == 2,
+          'solo CC BY-SA impide que el siguiente cierre su version')
+    check(permisos(3)[3] == 0, 'con NC el esquema no puede entrar en la Wikipedia')
+    pag.click('#q7-lic button[data-l="2"]')
+    pag.wait_for_timeout(180)
+    check('BY-SA' in pag.inner_text('#q7-lee'), 'y la escena lo explica con la de esta pagina')
+    check(pag.query_selector('.cc-sello') is not None,
+          'que es el sello CC BY-SA del pie, el que manda mirar el texto')
+
+    # ------------------------------------------------------------------ S8
+    print('== Sesion 8 * la prueba de aceptacion')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-q8', 'e => e.innerHTML')) > 1200,
+          'la escena pinta las dos campanas y la banda')
+
+    casos8 = [
+        (0, 20, 0, 18, 3, 3, 'riego, banda de 80 a 120, tres de tres'),
+        (0, 20, 0, 18, 3, 2, 'riego, dos de tres'),
+        (0, 40, 0, 18, 3, 3, 'riego, banda ancha'),
+        (0, 20, -25, 18, 3, 2, 'riego, con la media desviada'),
+        (1, 30, 0, 25, 5, 4, 'aula, cuatro de cinco'),
+        (2, 15, 0, 12, 1, 1, 'lampara, una sola medida'),
+    ]
+    for proy, tol, des, sig, n, k, rot in casos8:
+        pag.click('#q8-proy button[data-p="%d"]' % proy)
+        pag.wait_for_timeout(100)
+        desliza(pag, '#q8-tol', tol)
+        desliza(pag, '#q8-des', des)
+        desliza(pag, '#q8-sig', sig)
+        desliza(pag, '#q8-n', n)
+        desliza(pag, '#q8-k', k)
+        pag.wait_for_timeout(180)
+        e = aceptacion(proy, tol, des, sig, n, k)
+        d_p = valor(pag, '#q8-tabla', 'una medida cae dentro')
+        d_b = valor(pag, '#q8-tabla', 'aprueba la prueba entera')
+        d_m = valor(pag, '#q8-tabla', 'el aparato malo aprueba')
+        check(abs(d_p - 100 * e['pB']) < 0.6 and abs(d_b - 100 * e['apB']) < 0.6
+              and abs(d_m - 100 * e['apM']) < 0.6,
+              '%s -> dentro %s %% (%.1f), aprueba %s %% (%.1f), el malo %s %% (%.1f)'
+              % (rot, d_p, 100 * e['pB'], d_b, 100 * e['apB'], d_m, 100 * e['apM']))
+
+    # el numero que ensena la sesion: tres de tres hunde a un aparato que esta bien
+    t3 = aceptacion(0, 20, 0, 18, 3, 3)
+    t2 = aceptacion(0, 20, 0, 18, 3, 2)
+    check(abs(t3['pB'] - 0.7335) < 0.002, 'una medida cae dentro el %.1f %% de las veces'
+          % (100 * t3['pB']))
+    check(abs(t3['apB'] - t3['pB'] ** 3) < 1e-9 and abs(t3['apB'] - 0.3946) < 0.002,
+          'exigiendo tres de tres se aprueba el %.1f %%, que es 0,73 al cubo'
+          % (100 * t3['apB']))
+    check(t2['apB'] > 0.8 and t2['apM'] < 0.2,
+          'con dos de tres sube al %.1f %% y el malo se queda en el %.1f %%: la prueba distingue'
+          % (100 * t2['apB'], 100 * t2['apM']))
+    cuerpo8 = pag.inner_text('#ses-8')
+    for cifra in ('73 %', '39 %', '82 %', '2 %'):
+        check(cifra in cuerpo8, 'el texto de la sesion cita %s' % cifra)
+
+    # la prueba tiene que poder suspender: con la banda muy ancha aprueban los dos
+    pag.click('#q8-proy button[data-p="0"]')
+    desliza(pag, '#q8-tol', 60)
+    desliza(pag, '#q8-n', 1)
+    desliza(pag, '#q8-k', 1)
+    pag.wait_for_timeout(200)
+    ancha = aceptacion(0, 60, 0, 18, 1, 1)
+    check(ancha['apM'] > 0.2 and 'no comprueba' in pag.inner_text('#q8-lee'),
+          'con la banda al 60 %% tambien aprueba el aparato malo, y la escena lo dice')
+
     # ------------------------------------------------------------------ test
-    print('== El test de la sesion 4')
+    print('== Los dos tests')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(250)
     check(len(pag.query_selector_all('#test-c9 .ta-p')) == 10, 'el test tiene diez preguntas')
     pag.click('#test-c9 [data-a="corregir"]')
     pag.wait_for_timeout(200)
@@ -529,6 +1013,38 @@ with sync_playwright() as p:
     pag.wait_for_timeout(200)
     check(pag.eval_on_selector('#test-c9', 'e => !e.classList.contains("corregido")'),
           'el boton de repetir borra la correccion')
+
+    # el de la sesion 8, sobre la unidad entera, con OTRO identificador
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(250)
+    check(len(pag.query_selector_all('#test-c9b .ta-p')) == 10,
+          'el test de la unidad entera tiene diez preguntas')
+    # si los dos compartieran identificador, los "name" de los radios chocarian
+    # y marcar en uno desmarcaria en el otro: los dos se romperian a la vez
+    nombres = pag.eval_on_selector_all(
+        '.ta input[type="radio"]', 'els => els.map(e => e.name)')
+    check(len(set(nombres)) == 20, 'los dos tests no comparten ni un solo nombre de radio (%d)'
+          % len(set(nombres)))
+    ids = pag.eval_on_selector_all('.ta', 'els => els.map(e => e.id)')
+    check(sorted(ids) == ['test-c9', 'test-c9b'], 'y sus identificadores son distintos: %s' % ids)
+
+    pag.click('#test-c9b [data-a="corregir"]')
+    pag.wait_for_timeout(200)
+    check('0 de 10' in pag.inner_text('#test-c9b .ta-nota'),
+          'sin contestar nada da 0 de 10: %r' % pag.inner_text('#test-c9b .ta-nota'))
+    oks = pag.eval_on_selector_all('#test-c9b .ta-p', 'els => els.map(e => +e.dataset.ok)')
+    for i, ok in enumerate(oks):
+        pag.check('#test-c9b .ta-p:nth-of-type(%d) .ta-op:nth-of-type(%d) input'
+                  % (i + 1, ok + 1))
+    pag.click('#test-c9b [data-a="corregir"]')
+    pag.wait_for_timeout(200)
+    check('10 de 10' in pag.inner_text('#test-c9b .ta-nota'),
+          'contestando por data-ok da 10 de 10: %r' % pag.inner_text('#test-c9b .ta-nota'))
+    # y el de la sesion 4 sigue como estaba: no se han pisado
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(250)
+    check(not pag.eval_on_selector_all('#test-c9 input:checked', 'els => els.length'),
+          'y contestar el de la 8 no ha marcado nada en el de la 4')
 
     # ------------------------------------------------------------------ lectura
     print('== La lectura de aula')
