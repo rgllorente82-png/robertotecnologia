@@ -85,6 +85,27 @@ for n, titulo, sesion in ((1, 'La mesa que flota', 'S1'),
 check(texto.count('<h4>El n&uacute;mero</h4>') >= 4,
       'las cuatro dejan un numero, que es lo que el propio bloque promete')
 check(texto.count('<h4>Material</h4>') >= 4, 'las cuatro dicen su material')
+# El molde obligo a que las medidas cuadraran: tres caras de 20 mm son 60, y
+# hacen falta 10 mas de pestania para pegar. La ficha decia 6 x 13 y la tira son
+# 7 x 13. Si alguien cambia una de las dos cosas sin la otra, esto lo dice.
+MOLDE = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'molde-tensegridad.pdf')
+check(os.path.exists(MOLDE) and os.path.getsize(MOLDE) > 20000,
+      'el molde en A4 esta donde dice el enlace')
+check('molde-tensegridad.pdf' in texto, 'y la ficha lo enlaza')
+check('7 &times; 13 cm' in texto,
+      'la tira mide 7 x 13: tres caras de 2 cm y la pestania de pegar')
+check('6 &times; 13 cm' not in texto, 'y ya no queda ninguna de 6 x 13, que no daba para pegar')
+if os.path.exists(MOLDE):
+    crudo = io.open(MOLDE, 'rb').read()
+    cajas = set(re.findall(rb'/MediaBox\s*\[([^\]]*)\]', crudo))
+    anchos = set()
+    for c in cajas:
+        v = [float(x) for x in c.split()]
+        anchos.add((round((v[2]-v[0])*25.4/72), round((v[3]-v[1])*25.4/72)))
+    check(anchos == {(210, 297)}, 'y sus hojas son A4 de verdad  %s' % (anchos or ''))
+    check(crudo.count(b'/Type /Page') >= 3 or crudo.count(b'/Type/Page') >= 3,
+          'con sus tres hojas')
+
 check('Pru&eacute;balo t&uacute; antes' in texto,
       'la de los tubos avisa de que hay que probarla antes: lo que aguanta depende del alto')
 
