@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Molde de unidad con varias sesiones. Reutiliza el estilo del tema 0."""
-import sys, os
+import sys, os, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tema0_base import cabeza, SELLO, aviso_licencia, SITIO
 import test_auto
@@ -50,6 +50,53 @@ VIDEO_JS = u"""
 """
 
 
+
+LECTURA_CSS = u"""
+/* ---- la lectura de aula, al final de la unidad ---- */
+.lectura{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:2px solid var(--goo-verde);border-radius:2px;padding:18px;margin:26px 0 8px;position:relative}
+.lectura::before{content:"LECTURA DE AULA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-verde);color:#fff;font-family:var(--f-m);font-size:10.5px;
+  letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.lectura svg{flex:none;width:44px;height:44px;color:var(--goo-verde);margin-top:4px}
+.lectura h3{margin:6px 0 6px;font-size:17px}
+.lectura p{margin:0 0 10px;font-size:15px;line-height:1.6}
+.lectura a.pdf{display:inline-block;font-family:var(--f-m);font-size:13px;
+  background:var(--goo-verde);color:#fff;text-decoration:none;border-radius:2px;padding:9px 15px}
+@media print{.lectura{display:none}}
+"""
+
+
+def lectura(cfg):
+    """El enlace a la lectura de aula, si el PDF esta junto a la pagina.
+
+    Las lecturas se generaban y se quedaban huerfanas: el fichero estaba en la
+    carpeta del tema pero ninguna pagina enlazaba a el, asi que un alumno no
+    podia llegar. Ahora lo pone el molde: si el PDF existe, el enlace sale solo.
+    """
+    raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    carpeta = os.path.join(raiz, *cfg['ruta'].strip('/').split('/'))
+    pdfs = sorted(glob.glob(os.path.join(carpeta, 'lectura-*.pdf')))
+    if not pdfs:
+        return u''
+    fichero = os.path.basename(pdfs[0])
+    return u'''
+  <div class="lectura">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+      <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"
+            stroke-linejoin="round"/><path d="M24 12 v32"/>
+    </svg>
+    <div>
+      <h3>Lectura de aula</h3>
+      <p>Treinta p&aacute;rrafos numerados y diez preguntas. Ocupa <b>una sesi&oacute;n entera</b>:
+         se lee en voz alta por turnos, un p&aacute;rrafo cada uno, y luego se contesta por escrito.
+         Trae su cabecera para el nombre, el grupo y la fecha.</p>
+      <a class="pdf" href="%s" download>Descargar el PDF</a>
+    </div>
+  </div>
+''' % fichero
+
+
 def pagina(cfg):
     """cfg: dict con migas, h1, titulo, desc, ruta, curso, materia, sesiones[]"""
     canon = SITIO + '/' + cfg['ruta']
@@ -95,6 +142,7 @@ def pagina(cfg):
 
 <main class="wrap">
 %s
+%s
   %s
 </main>
 
@@ -102,7 +150,7 @@ def pagina(cfg):
 %s
 %s
 </body>
-</html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos,
+</html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos, lectura(cfg),
                aviso_licencia(cfg['titulo'], canon),
                cfg['tema'], cfg['curso'], cfg['materia'], NAV_JS + VIDEO_JS + test_auto.JS, SELLO)
 
