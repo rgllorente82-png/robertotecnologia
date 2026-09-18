@@ -1,0 +1,2835 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 4 &middot; Mecanismos y sistemas de control</title>
+<meta name="description" content="Unidad 4 de Tecnolog&iacute;a de 4.&ordm; de ESO: lazo abierto y lazo cerrado, sensor, comparador y actuador, control todo-nada con hist&eacute;resis, par y relaci&oacute;n de transmisi&oacute;n. Con escenas interactivas que calculan.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema4/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 4 &middot; Mecanismos y sistemas de control","url":"https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema4/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 4 &middot; Mecanismos y sistemas de control &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.ta::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.ta h4{margin:8px 0 14px;font-size:16px}
+.ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.ta-p:first-of-type{border-top:0}
+.ta-p > p{margin:0 0 9px;font-weight:500}
+.ta-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.ta-op:hover{border-color:var(--goo-azul)}
+.ta-op input{margin-right:9px}
+.ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.ta.corregido .ta-por{display:block}
+.ta-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.ta-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.ta-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.ta{break-inside:avoid}.ta-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
+
+/* ---- la lectura de aula, al final de la unidad ---- */
+.lectura{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:2px solid var(--goo-verde);border-radius:2px;padding:18px;margin:26px 0 8px;position:relative}
+.lectura::before{content:"LECTURA DE AULA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-verde);color:#fff;font-family:var(--f-m);font-size:10.5px;
+  letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.lectura svg{flex:none;width:44px;height:44px;color:var(--goo-verde);margin-top:4px}
+.lectura h3{margin:6px 0 6px;font-size:17px}
+.lectura p{margin:0 0 10px;font-size:15px;line-height:1.6}
+.lectura a.pdf{display:inline-block;font-family:var(--f-m);font-size:13px;
+  background:var(--goo-verde);color:#fff;text-decoration:none;border-radius:2px;padding:9px 15px}
+@media print{.lectura{display:none}}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+.lz-dos{display:flex;gap:14px;flex-wrap:wrap;margin:16px 0}
+.lz-uno{flex:1 1 260px;min-width:240px;border:1.5px solid var(--line);border-radius:2px;
+  padding:13px 15px;background:var(--surface)}
+.lz-uno h4{margin:0 0 6px;font-size:15.5px}
+.lz-uno p{margin:0}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 4</div>
+    <h1>Mecanismos y sistemas de control</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Abierto y cerrado</button><button type="button" data-ses="2">S2 &middot; Las tres piezas</button><button type="button" data-ses="3">S3 &middot; Todo-nada</button><button type="button" data-ses="4">S4 &middot; El motor que hace falta</button><button type="button" data-ses="5" disabled>S5 &middot; Control proporcional</button><button type="button" data-ses="6" disabled>S6 &middot; Programarlo en Arduino</button><button type="button" data-ses="7" disabled>S7 &middot; Montarlo de verdad</button><button type="button" data-ses="8" disabled>S8 &middot; El sistema entero</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>Poner el tiempo y rezar</h2>
+      <p>Una tostadora nunca prueba el pan. Un horno s&iacute;, y por eso acierta aunque le abras la puerta. Toda la unidad cabe en esa diferencia.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <div class="narrador" id="narr-c4">
+        <div class="narrador-fig" id="narr-c4-fig"></div>
+        <div class="narrador-txt">
+          <h4>De qu&eacute; va esta unidad</h4>
+          <span class="narrador-quien">En 2.&ordm; aprendiste a mover cosas; el que dec&iacute;a cu&aacute;ndo segu&iacute;as siendo t&uacute;</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada sobre gui&oacute;n propio. La boca sigue el volumen real de la voz: se mueve cuando habla y se para en los silencios.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-c4');
+        if(!C) return;
+        var fig = document.getElementById('narr-c4-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.131, 0.675, 1.0, 0.879, 0.792, 0.899, 0.918, 0.688, 1.0, 0.656, 0.678, 0.568, 0.618, 0.589, 1.0, 0.226, 0.006, 0.308, 1.0, 0.492, 0.211, 0.284, 0.142, 0.007, 0.0, 0.001, 0.406, 0.944, 0.414, 0.572, 0.725, 0.759, 0.263, 0.475, 0.523, 0.259, 0.394, 0.295, 0.362, 0.196, 0.606, 0.758, 0.682, 0.289, 0.394, 0.258, 0.431, 0.358, 0.186, 0.285, 0.311, 0.219, 0.082, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.22, 0.839, 0.73, 0.079, 1.0, 0.906, 0.116, 0.87, 0.221, 0.595, 0.656, 0.782, 0.589, 0.48, 0.498, 0.83, 0.568, 0.369, 0.813, 0.509, 0.321, 0.303, 0.242, 0.211, 0.377, 0.215, 0.056, 0.005, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.664, 0.87, 0.404, 0.802, 0.656, 0.971, 0.686, 0.939, 0.551, 0.504, 0.777, 0.558, 0.978, 0.64, 0.129, 0.771, 0.573, 0.597, 0.583, 0.932, 0.35, 0.112, 0.904, 0.504, 0.268, 0.302, 0.136, 0.093, 0.005, 0.001, 0.027, 0.703, 0.665, 0.477, 0.533, 0.451, 0.665, 0.144, 0.257, 0.225, 0.095, 0.034, 0.0, 0.0, 0.0, 0.0, 0.61, 0.705, 0.954, 0.967, 0.387, 0.159, 0.102, 0.016, 0.0, 0.0, 0.0, 0.002, 0.283, 0.752, 1.0, 0.538, 0.361, 0.142, 0.103, 0.012, 0.0, 0.005, 0.437, 0.632, 0.542, 0.5, 0.475, 0.316, 0.313, 0.191, 0.091, 0.085, 0.034, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.108, 0.275, 1.0, 0.632, 0.616, 0.319, 0.515, 0.64, 0.155, 1.0, 0.882, 0.735, 0.2, 0.315, 0.849, 1.0, 0.581, 0.98, 0.979, 0.748, 0.934, 0.599, 0.601, 1.0, 0.58, 0.125, 0.682, 0.739, 0.67, 0.574, 0.256, 0.704, 0.95, 0.456, 0.522, 0.373, 0.494, 0.65, 0.32, 0.475, 0.106, 0.762, 0.593, 0.375, 0.32, 0.168, 0.474, 0.258, 0.144, 0.287, 0.158, 0.028, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.005, 1.0, 1.0, 0.325, 0.605, 0.292, 0.371, 0.531, 0.577, 0.886, 0.783, 0.644, 0.702, 0.105, 0.796, 0.344, 0.355, 0.2, 0.206, 0.549, 0.751, 0.445, 0.456, 0.608, 0.813, 0.236, 0.518, 0.619, 0.25, 0.536, 0.738, 0.355, 0.177, 0.319, 0.131, 0.057, 0.0, 0.0, 0.27, 0.738, 0.528, 0.439, 0.869, 0.53, 0.4, 0.419, 0.362, 0.522, 0.702, 0.821, 0.302, 0.436, 0.207, 0.384, 0.377, 0.47, 0.231, 0.227, 0.235, 0.124, 0.071, 0.007, 0.0, 0.0, 0.0, 0.0, 0.0, 0.619, 1.0, 0.285, 0.745, 0.826, 0.855, 0.172, 0.801, 0.491, 0.731, 0.688, 0.061, 0.823, 0.886, 0.788, 1.0, 0.384, 0.453, 0.27, 0.115, 0.859, 0.841, 0.436, 0.211, 0.346, 0.961, 0.776, 0.869, 0.248, 0.764, 0.754, 0.609, 0.266, 0.339, 0.548, 0.398, 0.815, 0.506, 0.22, 0.214, 0.26, 0.82, 0.661, 0.433, 0.135, 0.289, 0.25, 0.054, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.412, 0.757, 1.0, 0.695, 0.346, 0.762, 0.931, 0.539, 0.211, 0.868, 0.847, 0.996, 0.875, 0.504, 0.497, 0.203, 0.577, 0.445, 0.355, 0.114, 0.297, 0.329, 0.156, 0.034, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.001, 0.006, 0.911, 0.994, 0.817, 1.0, 0.566, 0.225, 0.941, 0.543, 0.232, 0.448, 0.326, 0.464, 0.584, 0.898, 0.852, 0.816, 0.841, 0.849, 0.853, 0.56, 0.233, 0.548, 0.689, 0.876, 0.572, 0.913, 0.949, 0.695, 0.579, 0.464, 0.609, 0.619, 0.059, 0.421, 0.387, 0.365, 0.284, 0.216, 0.425, 0.388, 0.269, 0.156, 0.192, 0.154, 0.217, 0.088, 0.005, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.039, 0.746, 0.831, 0.154, 1.0, 0.485, 0.488, 0.74, 0.572, 0.677, 0.727, 1.0, 0.364, 0.287, 0.575, 0.409, 0.587, 0.573, 0.153, 0.429, 0.175, 0.712, 0.501, 0.675, 0.402, 0.404, 0.831, 0.705, 0.416, 0.352, 0.138, 0.456, 0.613, 0.458, 0.207, 0.279, 0.959, 0.349, 0.299, 0.404, 0.31, 0.379, 0.363, 0.275, 0.183, 0.058, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.374, 1.0, 0.727, 0.337, 0.694, 0.837, 0.863, 0.929, 0.95, 0.606, 0.645, 0.492, 0.101, 0.63, 0.327, 0.407, 0.27, 0.164, 0.042, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.17, 0.841, 0.725, 0.52, 1.0, 0.724, 0.553, 0.227, 1.0, 0.639, 0.622, 0.914, 0.781, 1.0, 0.159, 0.84, 0.352, 0.574, 0.365, 0.417, 0.347, 0.059, 0.245, 0.197, 0.097, 0.09, 0.024, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03, 0.257, 0.734, 1.0, 0.678, 0.543, 0.833, 0.629, 0.488, 0.199, 0.797, 0.419, 0.616, 0.713, 0.195, 0.335, 0.398, 0.726, 0.548, 0.375, 0.244, 0.037, 0.001, 0.0, 0.0, 0.033, 0.236, 0.695, 0.835, 0.88, 0.085, 0.732, 1.0, 0.486, 0.357, 0.107, 0.003, 0.0, 0.0, 0.075, 0.301, 0.875, 0.99, 0.37, 0.457, 0.732, 0.606, 0.605, 0.639, 0.64, 0.587, 0.72, 0.664, 0.256, 0.387, 0.818, 0.414, 0.257, 0.101, 0.008, 0.0, 0.011, 0.154, 0.628, 0.892, 0.725, 0.488, 0.404, 0.274, 0.27, 0.258, 0.103, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.366, 0.939, 0.238, 0.816, 0.284, 0.482, 0.752, 0.808, 0.743, 0.78, 0.83, 0.808, 0.175, 0.858, 0.885, 0.69, 0.42, 0.187, 0.287, 0.305, 0.225, 0.141, 0.016, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.025, 0.638, 1.0, 0.397, 0.845, 1.0, 0.76, 0.128, 1.0, 1.0, 0.402, 0.847, 0.385, 0.639, 0.681, 0.637, 0.547, 0.29, 0.054, 0.829, 0.45, 0.12, 0.347, 0.262, 0.043, 0.002, 0.001, 0.801, 0.13, 0.667, 0.566, 0.237, 0.308, 0.319, 0.119, 0.008, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.464, 1.0, 1.0, 0.895, 0.718, 0.231, 1.0, 0.871, 0.387, 0.373, 0.514, 0.742, 1.0, 0.942, 0.961, 0.494, 0.764, 0.425, 0.682, 0.678, 0.45, 0.743, 0.585, 0.46, 0.171, 0.649, 0.833, 0.057, 0.299, 0.227, 0.04, 0.001, 0.0, 0.002, 0.534, 0.365, 0.552, 0.456, 0.316, 0.799, 0.894, 0.794, 0.351, 0.275, 0.064, 0.002, 0.0, 0.001, 0.014, 0.764, 0.815, 0.21, 0.88, 0.592, 0.285, 0.662, 0.897, 0.893, 0.136, 0.591, 0.58, 0.83, 0.396, 0.082, 0.716, 0.493, 0.927, 0.513, 0.505, 0.197, 0.341, 0.448, 0.307, 0.19, 0.053, 0.227, 0.11, 0.008, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.742, 0.531, 0.709, 1.0, 1.0, 0.406, 0.383, 0.972, 0.359, 0.486, 1.0, 0.61, 0.111, 0.649, 0.469, 0.529, 0.304, 0.401, 0.821, 1.0, 0.621, 0.741, 0.254, 0.359, 0.337, 0.216, 0.422, 0.263, 0.049, 0.303, 0.193, 0.047, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.219, 0.932, 0.851, 0.998, 0.113, 0.883, 0.81, 0.588, 0.079, 0.686, 0.712, 0.232, 0.669, 0.715, 0.299, 0.579, 0.396, 0.434, 0.78, 0.311, 0.844, 0.568, 0.089, 0.525, 0.343, 0.219, 0.107, 0.245, 0.785, 0.628, 0.66, 0.778, 0.617, 0.496, 0.695, 0.581, 0.469, 0.321, 0.701, 0.381, 0.295, 0.796, 0.563, 0.776, 0.309, 0.282, 0.625, 0.338, 0.758, 0.413, 0.31, 0.522, 0.53, 0.583, 0.303, 0.357, 0.192, 0.025, 0.001, 0.0, 0.003, 0.153, 0.594, 0.457, 0.792, 0.657, 0.657, 0.387, 0.611, 0.47, 0.413, 0.394, 0.184, 0.364, 0.088, 0.453, 0.443, 0.261, 0.178, 0.029, 0.001, 0.0, 0.0, 0.0, 0.002, 0.335, 0.819, 1.0, 0.397, 0.483, 1.0, 0.869, 0.879, 1.0, 0.734, 0.273, 0.256, 0.743, 0.441, 0.544, 0.76, 1.0, 0.178, 0.408, 0.487, 0.586, 0.448, 0.135, 0.893, 0.818, 0.775, 0.556, 0.774, 0.408, 0.415, 0.313, 0.152, 0.373, 0.285, 0.248, 0.122, 0.025, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.432, 0.986, 0.877, 1.0, 0.74, 0.594, 0.83, 0.659, 0.842, 0.662, 0.299, 0.93, 0.771, 0.321, 0.804, 0.731, 0.983, 0.692, 0.26, 0.534, 0.389, 0.441, 0.357, 0.855, 0.257, 0.516, 0.435, 0.315, 0.443, 0.652, 0.311, 0.445, 0.661, 0.75, 0.175, 0.353, 0.248, 0.49, 0.513, 0.323, 0.315, 0.305, 0.394, 0.292, 0.68, 0.783, 0.054, 0.587, 0.713, 0.398, 0.426, 0.371, 0.358, 0.183, 0.716, 0.376, 0.667, 0.797, 0.348, 0.489, 0.448, 0.338, 0.389, 0.37, 0.318, 0.286, 0.227, 0.159, 0.025, 0.001, 0.0, 0.0, 0.001, 0.002, 0.583, 0.969, 1.0, 0.649, 0.732, 0.384, 0.138, 0.87, 0.586, 1.0, 0.555, 0.405, 0.872, 0.68, 0.231, 0.513, 0.543, 0.5, 0.5, 0.626, 0.357, 0.281, 0.111, 0.01, 0.0, 0.0, 0.188, 0.884, 0.657, 0.108, 0.697, 0.412, 0.529, 0.584, 0.887, 0.435, 0.877, 0.62, 0.597, 0.928, 0.704, 0.678, 0.521, 0.357, 0.522, 0.348, 0.264, 0.644, 0.852, 0.535, 0.724, 0.613, 0.424, 0.064, 0.432, 0.249, 0.048, 0.199, 0.192, 0.037, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.452, 0.904, 0.99, 0.431, 0.089, 0.93, 0.333, 0.514, 0.6, 0.389, 1.0, 0.843, 0.518, 0.279, 0.189, 0.864, 0.38, 0.493, 0.495, 0.757, 0.364, 0.692, 0.271, 0.054, 0.579, 0.525, 0.201, 0.283, 0.993, 0.453, 0.307, 0.407, 0.192, 0.053, 0.694, 0.684, 0.734, 0.515, 0.187, 0.62, 0.253, 0.629, 0.351, 0.507, 0.797, 0.334, 0.291, 0.16, 0.014, 0.001, 0.001, 0.014, 0.759, 0.736, 0.577, 0.315, 0.723, 0.802, 0.888, 0.401, 0.387, 0.192, 0.022, 0.003, 0.003, 0.001, 0.462, 0.873, 0.659, 0.617, 0.305, 0.658, 0.175, 0.608, 0.47, 0.107, 0.955, 0.668, 0.441, 0.35, 0.742, 0.716, 0.452, 0.336, 0.278, 0.323, 0.037, 0.262, 0.397, 0.383, 0.204, 0.07, 0.005, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.001, 0.002, 0.225, 0.977, 0.425, 0.48, 0.588, 0.906, 0.467, 0.265, 0.856, 0.258, 0.386, 0.905, 0.661, 0.112, 0.693, 0.474, 0.27, 0.854, 0.955, 0.758, 0.908, 0.491, 0.603, 0.748, 0.932, 0.343, 0.533, 0.366, 0.41, 0.336, 0.698, 0.732, 0.376, 0.336, 0.183, 0.006, 0.0, 0.0, 0.342, 0.81, 0.798, 0.797, 0.926, 0.561, 0.109, 0.665, 0.597, 0.658, 1.0, 0.662, 0.48, 0.349, 0.21, 0.395, 0.294, 0.484, 0.433, 0.272, 0.197, 0.034, 0.001, 0.0, 0.0, 0.013, 0.168, 0.348, 1.0, 0.476, 0.414, 0.837, 0.497, 0.219, 0.455, 0.714, 0.35, 0.236, 0.072, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.881, 0.526, 0.862, 0.835, 0.074, 0.685, 0.845, 0.463, 0.361, 0.957, 0.53, 0.183, 0.76, 0.708, 0.37, 0.08, 1.0, 0.889, 0.531, 0.582, 0.877, 0.731, 0.383, 0.686, 0.659, 0.095, 1.0, 0.663, 0.525, 0.316, 0.304, 0.716, 0.665, 0.567, 0.131, 0.549, 0.859, 0.099, 0.558, 0.354, 0.209, 0.417, 0.545, 0.9, 0.385, 0.312, 0.218, 0.212, 0.472, 0.358, 0.483, 0.399, 0.432, 0.41, 0.223, 0.217, 0.222, 0.076, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.513, 0.852, 0.838, 0.711, 0.282, 0.507, 0.557, 0.121, 0.659, 0.665, 0.693, 0.167, 0.719, 0.605, 0.052, 0.6, 0.628, 0.81, 0.661, 0.649, 0.065, 0.759, 0.72, 0.46, 0.32, 0.765, 0.632, 0.305, 0.484, 0.364, 0.386, 0.879, 0.418, 0.24, 0.319, 0.112, 0.541, 0.368, 0.415, 0.465, 0.651, 0.653, 0.399, 0.594, 0.28, 0.352, 0.173, 0.826, 0.558, 0.282, 0.347, 0.444, 0.378, 0.36, 0.175, 0.034, 0.001, 0.0, 0.0, 0.0, 0.0, 0.029, 0.956, 1.0, 0.492, 0.605, 0.839, 0.888, 0.889, 0.923, 0.968, 0.711, 0.371, 0.566, 0.571, 0.637, 0.169, 0.569, 0.091, 0.678, 0.145, 0.646, 0.47, 0.88, 0.343, 0.013, 0.735, 0.593, 0.836, 0.228, 0.302, 0.551, 0.666, 0.448, 0.438, 0.702, 0.539, 0.313, 0.51, 0.326, 0.441, 0.101, 0.208, 0.308, 0.078, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.088, 0.507, 1.0, 0.854, 0.897, 0.381, 0.666, 0.405, 0.456, 0.246, 0.085, 0.007, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/c4-control.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+      <p>Empezamos por un encargo que es de verdad, y que en un mes puede ser el vuestro. En el
+         aula hay una planta. Llegan las vacaciones de Navidad: quince d&iacute;as con el instituto
+         cerrado.</p>
+      <p>Con lo que aprendiste en 2.&ordm; ya sabes montarlo. Una bomba peque&ntilde;a, un
+         dep&oacute;sito, un tubo y una placa que cuente el tiempo. Y el programa se escribe solo:</p>
+      <div class="aviso">
+        <span class="n-tag">La soluci&oacute;n que parece buena</span>
+        <b>Cada d&iacute;a a las 8:00, la bomba riega 20 segundos.</b> Veinte segundos son los que
+        hac&iacute;an falta el jueves que lo probasteis, cronometrados con el vaso medidor.
+      </div>
+      <p>Funciona. El jueves. Ahora mira lo que puede pasar en quince d&iacute;as:</p>
+      <ul>
+        <li>Entra una semana de fr&iacute;o y lluvia. La tierra no se seca, pero la bomba riega igual
+            todos los d&iacute;as: la maceta se encharca y la ra&iacute;z se pudre.</li>
+        <li>Entra una semana de sol y calefacci&oacute;n encendida. Veinte segundos no llegan ni de
+            lejos, y la planta se seca con el dep&oacute;sito lleno al lado.</li>
+        <li>El conserje pasa el martes y la riega a mano. La bomba no se entera y riega otra vez.</li>
+      </ul>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>La reacci&oacute;n normal es <b>afinar el tiempo</b>: si 20 s no valen, prueba con 15, o
+           con 30. &iquest;Por qu&eacute; eso no arregla nada? &iquest;Qu&eacute; tiene el problema que
+           no se puede resolver eligiendo mejor el n&uacute;mero?</p>
+      </div>
+      <p>Porque cualquier n&uacute;mero que elijas est&aacute; calibrado para <b>un d&iacute;a
+         concreto</b>, y el mundo no se queda quieto. Pero hay algo peor, y es lo que de verdad
+         importa: tu m&aacute;quina <b>nunca mira la maceta</b>. Riega, y no tiene la menor idea de
+         si lo ha hecho bien.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>En 2.&ordm; montaste mecanismos que mov&iacute;an cosas, y funcionaban. Lo que no se dijo
+           entonces es que en todos ellos <b>el que decid&iacute;a cu&aacute;ndo y cu&aacute;nto eras
+           t&uacute;</b>: t&uacute; pedaleabas, t&uacute; dabas a la manivela, t&uacute; pulsabas el
+           interruptor. Toda esta unidad va de quitarte a ti de en medio sin que la m&aacute;quina se
+           vuelva tonta.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <p>El problema del riego lo tienes en casa, en dos aparatos que est&aacute;n a tres metros uno
+         del otro.</p>
+      <div class="lz-dos">
+        <div class="lz-uno">
+          <h4>La tostadora</h4>
+          <p>Le pones <b>dos minutos</b>. Baja la palanca, calienta dos minutos y salta. Si el pan
+             est&aacute; congelado sale crudo; si la rebanada es fina sale negra. La tostadora
+             <b>nunca prueba el pan</b>.</p>
+        </div>
+        <div class="lz-uno">
+          <h4>El horno</h4>
+          <p>Le pones <b>180 grados</b>. No le has dicho cu&aacute;nto tiempo tiene que calentar, ni
+             con cu&aacute;nta fuerza: le has dicho el <b>resultado</b> que quieres. Y &eacute;l se
+             las apa&ntilde;a, aunque abras la puerta.</p>
+        </div>
+      </div>
+      <p>Fíjate en que la diferencia <b>no es la tecnolog&iacute;a</b>. Las dos son resistencias
+         el&eacute;ctricas que calientan. La diferencia es que una tiene un term&oacute;metro dentro y
+         la otra no.</p>
+
+      <div class="copiar">
+        <h4>Definiciones</h4>
+        <p><b>Sistema de control</b>: el conjunto de elementos que gobierna una m&aacute;quina para
+           que haga lo que queremos.</p>
+        <p><b>Consigna</b> (o referencia): el valor que le pedimos. Los 180&nbsp;&deg;C del horno,
+           el 40&nbsp;% de humedad de la maceta.</p>
+        <p><b>Lazo abierto</b>: la orden que se da <b>no depende del resultado</b>. Se aplica y ya.
+           La tostadora, el riego por temporizador, un sem&aacute;foro de ciclo fijo.</p>
+        <p><b>Lazo cerrado</b>: se <b>mide</b> el resultado, se <b>compara</b> con la consigna y se
+           <b>corrige</b> la orden. El horno, la nevera, el cargador del m&oacute;vil.</p>
+        <p><b>Realimentaci&oacute;n</b> (o retroalimentaci&oacute;n): esa vuelta de la medida hacia
+           quien decide. Es <b>lo &uacute;nico</b> que distingue los dos lazos.</p>
+        <p><b>Perturbaci&oacute;n</b>: todo lo que cambia el resultado y no hab&iacute;as previsto.
+           El fr&iacute;o, la puerta abierta, el conserje.</p>
+      </div>
+
+      <p>Ahora los dos a la vez, con n&uacute;meros. Los dos hornos de la escena llevan
+         <b>exactamente la misma resistencia</b> de 1500&nbsp;W y las mismas p&eacute;rdidas. El de la
+         izquierda aplica siempre el 64&nbsp;% de su potencia, que es lo que alguien calcul&oacute; un
+         d&iacute;a para clavar los 180&nbsp;&deg;C. El de la derecha mira el term&oacute;metro.
+         M&eacute;teles una perturbaci&oacute;n y mira qui&eacute;n se entera.</p>
+
+      <div class="escena" id="esc-lz">
+        <div class="escena-barra">
+          <span class="escena-titulo">Dos hornos, la misma orden &middot; mete la perturbaci&oacute;n y mira qui&eacute;n la aguanta</span>
+          <div class="seg">
+            <button type="button" data-a="play" id="lz-play">&#9654; Marcha</button>
+            <button type="button" data-a="hora">Avanza 1 hora</button>
+            <button type="button" data-a="reset">Reiniciar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 680 310" id="svg-lz" role="img"
+               aria-label="Gr&aacute;fico de la temperatura de dos hornos frente al tiempo, con la consigna de 180 grados"></svg>
+          <div class="lz-mandos">
+            <div class="lz-fila">
+              <label for="lz-tamb">Temperatura de la cocina</label>
+              <input type="range" id="lz-tamb" min="-5" max="25" step="1" value="20">
+              <span class="val" id="lz-tamb-v">20 &deg;C</span>
+            </div>
+            <div class="lz-fila">
+              <label for="lz-k">P&eacute;rdidas (puerta mal cerrada)</label>
+              <input type="range" id="lz-k" min="6" max="15" step="1" value="6">
+              <span class="val" id="lz-k-v">6 W/&deg;C</span>
+            </div>
+          </div>
+          <div class="lz-tablero">
+            <div class="lz-caja lz-ab">
+              <h5>Lazo abierto &middot; la tostadora</h5>
+              <p class="lz-num" id="lz-ta">20,0 &deg;C</p>
+              <p class="lz-det" id="lz-da"></p>
+            </div>
+            <div class="lz-caja lz-ce">
+              <h5>Lazo cerrado &middot; el horno con term&oacute;stato</h5>
+              <p class="lz-num" id="lz-tc">20,0 &deg;C</p>
+              <p class="lz-det" id="lz-dc"></p>
+            </div>
+          </div>
+        </div>
+        <div class="pie" id="pie-lz"></div>
+      </div>
+
+      <style>
+      .lz-mandos{margin-top:10px}
+      .lz-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .lz-fila label{min-width:210px}
+      .lz-fila input[type="range"]{flex:1 1 160px;min-width:130px;accent-color:var(--goo-azul)}
+      .lz-fila .val{font-weight:500;color:var(--goo-azul);min-width:72px;text-align:right}
+      .lz-tablero{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+      .lz-caja{flex:1 1 250px;min-width:230px;border:1.5px solid var(--line);border-radius:2px;
+        padding:11px 13px;background:var(--surface)}
+      .lz-caja h5{margin:0 0 6px;font:500 12px var(--f-m);letter-spacing:.06em;text-transform:uppercase;
+        color:var(--ink-soft)}
+      .lz-ab{border-left:5px solid var(--goo-rojo)}
+      .lz-ce{border-left:5px solid var(--goo-azul)}
+      .lz-num{margin:0;font-family:var(--f-m);font-size:24px;font-weight:500;color:var(--ink)}
+      .lz-det{margin:5px 0 0;font-family:var(--f-m);font-size:12px;line-height:1.7;color:var(--ink-soft)}
+      .lz-det b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-lz');
+        if(!svg) return;
+        var caja = document.getElementById('esc-lz');
+        var pie  = document.getElementById('pie-lz');
+
+        /* ---- el modelo, el mismo para los dos hornos ------------------
+           Un horno pequeno de laboratorio. Balance de energia:
+             C * dT/dt = u*P - k*(T - Tamb)
+           C capacidad termica (J por grado), k perdidas (W por grado),
+           P potencia de la resistencia, u la fraccion que se le aplica.   */
+        var C = 3000, P = 1500, TREF = 180;
+        var K0 = 6, TAMB0 = 20;               /* condiciones de calibracion */
+        var U0 = K0 * (TREF - TAMB0) / P;     /* = 0,64 exactamente         */
+
+        var v = {tamb: 20, k: 6};
+        var Ta, Tc, t, hist, corriendo = false, raf = null;
+
+        function reinicia(){
+          Ta = v.tamb; Tc = v.tamb; t = 0; hist = [[0, Ta, Tc]];
+          corriendo = false;
+          document.getElementById('lz-play').innerHTML = '&#9654; Marcha';
+          pinta();
+        }
+
+        function paso(dt){
+          /* Euler explicito con dt = 1 s: a esta escala es de sobra estable
+             (la constante de tiempo del horno es C/k, de 200 a 500 s).     */
+          var ua = U0;                           /* abierto: siempre lo mismo */
+          var uc = (Tc < TREF) ? 1 : 0;          /* cerrado: mide y decide    */
+          Ta += dt * (ua * P - v.k * (Ta - v.tamb)) / C;
+          Tc += dt * (uc * P - v.k * (Tc - v.tamb)) / C;
+          t += dt;
+          if(t % 10 === 0) hist.push([t, Ta, Tc]);
+          if(hist.length > 900) hist.shift();
+        }
+
+        /* ---- lo que dice la cuenta, sin simular ---------------------- */
+        function finAbierto(){ return v.tamb + U0 * P / v.k; }
+        function necesariaCerrado(){ return v.k * (TREF - v.tamb) / P; }
+        function finCerrado(){
+          var u = necesariaCerrado();
+          return (u <= 1) ? TREF : v.tamb + P / v.k;
+        }
+
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+        function n0(x){ return Math.round(x).toString(); }
+
+        function ejeX(){ return Math.max(600, Math.ceil(t / 600) * 600); }
+
+        function pinta(){
+          var X0 = 58, X1 = 500, Y0 = 26, Y1 = 262, TMAX = 260;
+          var tmax = ejeX();
+          var px = function(s){ return X0 + (X1 - X0) * s / tmax; };
+          var py = function(T){ return Y1 - (Y1 - Y0) * Math.min(T, TMAX) / TMAX; };
+          var m = '';
+
+          /* rejilla y eje de temperatura */
+          var g, yy;
+          for(g = 0; g <= 250; g += 50){
+            yy = py(g);
+            m += '<line x1="' + X0 + '" y1="' + yy.toFixed(1) + '" x2="' + X1
+               + '" y2="' + yy.toFixed(1) + '" stroke="currentColor" stroke-width="1" opacity=".13"/>'
+               + '<text x="' + (X0 - 7) + '" y="' + (yy + 4).toFixed(1)
+               + '" class="ejeq" text-anchor="end">' + g + '</text>';
+          }
+          /* eje de tiempo, en minutos */
+          var mn;
+          for(mn = 0; mn <= tmax / 60; mn += (tmax > 1800 ? 10 : 5)){
+            var xx = px(mn * 60);
+            m += '<line x1="' + xx.toFixed(1) + '" y1="' + Y1 + '" x2="' + xx.toFixed(1)
+               + '" y2="' + (Y1 + 4) + '" stroke="currentColor" stroke-width="1" opacity=".35"/>'
+               + '<text x="' + xx.toFixed(1) + '" y="' + (Y1 + 17)
+               + '" class="ejeq" text-anchor="middle">' + mn + '</text>';
+          }
+          m += '<text x="' + X0 + '" y="' + (Y0 - 10) + '" class="ejeq">grados</text>'
+             + '<text x="' + X1 + '" y="' + (Y1 + 31) + '" class="ejeq" text-anchor="end">minutos</text>';
+
+          /* la consigna */
+          m += '<line x1="' + X0 + '" y1="' + py(TREF).toFixed(1) + '" x2="' + X1
+             + '" y2="' + py(TREF).toFixed(1) + '" stroke="currentColor" stroke-width="1.5"'
+             + ' stroke-dasharray="6 4" opacity=".55"/>'
+             + '<text x="' + (X1 - 4) + '" y="' + (py(TREF) - 6).toFixed(1)
+             + '" class="etq" text-anchor="end">consigna 180 &deg;C</text>';
+
+          /* las dos curvas: son la integracion, punto a punto */
+          var i, da = '', dc = '';
+          for(i = 0; i < hist.length; i++){
+            da += (i ? ' L ' : 'M ') + px(hist[i][0]).toFixed(1) + ' ' + py(hist[i][1]).toFixed(1);
+            dc += (i ? ' L ' : 'M ') + px(hist[i][0]).toFixed(1) + ' ' + py(hist[i][2]).toFixed(1);
+          }
+          m += '<path d="' + dc + '" fill="none" stroke="#1a73e8" stroke-width="2.4"/>'
+             + '<path d="' + da + '" fill="none" stroke="#ea4335" stroke-width="2.4"/>';
+
+          /* los dos termometros, a escala */
+          var term = function(cx, T, col, rot){
+            var h = 168 * Math.min(T, TMAX) / TMAX;
+            return '<rect x="' + (cx - 9) + '" y="60" width="18" height="172" rx="9" fill="none"'
+                 + ' stroke="currentColor" stroke-width="1.6" opacity=".45"/>'
+                 + '<rect x="' + (cx - 5) + '" y="' + (232 - h).toFixed(1) + '" width="10" height="'
+                 + (h + 4).toFixed(1) + '" rx="5" fill="' + col + '"/>'
+                 + '<circle cx="' + cx + '" cy="244" r="14" fill="' + col + '"/>'
+                 + '<text x="' + cx + '" y="272" class="etq" text-anchor="middle">' + rot + '</text>'
+                 + '<text x="' + cx + '" y="288" class="ejeq" text-anchor="middle">'
+                 + n0(T) + ' &deg;C</text>';
+          };
+          m += term(566, Ta, '#ea4335', 'abierto') + term(636, Tc, '#1a73e8', 'cerrado');
+
+          /* leyenda, en la fila de encima del grafico para no taparlo */
+          m += '<rect x="' + (X0 + 62) + '" y="' + (Y0 - 14) + '" width="11" height="3" fill="#ea4335"/>'
+             + '<text x="' + (X0 + 78) + '" y="' + (Y0 - 10) + '" class="ejeq">lazo abierto</text>'
+             + '<rect x="' + (X0 + 172) + '" y="' + (Y0 - 14) + '" width="11" height="3" fill="#1a73e8"/>'
+             + '<text x="' + (X0 + 188) + '" y="' + (Y0 - 10) + '" class="ejeq">lazo cerrado</text>';
+
+          svg.innerHTML = m;
+
+          /* ---- los tableros ---- */
+          document.getElementById('lz-ta').innerHTML = n1(Ta) + ' &deg;C';
+          document.getElementById('lz-tc').innerHTML = n1(Tc) + ' &deg;C';
+          var ea = Ta - TREF, ec = Tc - TREF;
+          document.getElementById('lz-da').innerHTML =
+            'Potencia aplicada: <b>' + n0(U0 * 100) + ' %</b> (' + n0(U0 * P) + ' W), '
+            + 'siempre la misma.<br>Error ahora: <b>' + (ea >= 0 ? '+' : '') + n1(ea) + ' &deg;C</b>'
+            + '<br>Se quedar&aacute; en ' + n0(v.tamb) + ' + 0,64 &times; 1500 / ' + v.k
+            + ' = <b>' + n0(finAbierto()) + ' &deg;C</b>';
+          var un = necesariaCerrado();
+          document.getElementById('lz-dc').innerHTML =
+            'Potencia aplicada: <b>' + ((Tc < TREF) ? '100 %' : '0 %')
+            + '</b>, la que haga falta en cada momento.<br>Error ahora: <b>'
+            + (ec >= 0 ? '+' : '') + n1(ec) + ' &deg;C</b>'
+            + '<br>Necesita ' + v.k + ' &times; (180 &minus; ' + n0(v.tamb) + ') / 1500 = <b>'
+            + n0(un * 100) + ' %</b> de media'
+            + (un <= 1 ? ', y lo tiene.' : ', y solo tiene el 100 %: <b>no llega</b>.');
+
+          pie.innerHTML =
+            '<b>Minuto ' + n1(t / 60) + '.</b> Los dos hornos llevan la misma resistencia y las '
+            + 'mismas p&eacute;rdidas. El de la izquierda aplica el <b>64&nbsp;%</b> que alguien '
+            + 'calcul&oacute; un d&iacute;a con la cocina a 20&nbsp;&deg;C y la puerta bien cerrada; '
+            + 'el de la derecha <b>mira el term&oacute;metro</b> antes de decidir. Mueve los dos '
+            + 'mandos y mira qui&eacute;n se entera.'
+            + (un > 1 ? ' <b>Ojo:</b> con estas p&eacute;rdidas ni el cerrado llega a 180&nbsp;&deg;C. '
+                      + 'Un lazo cerrado corrige mientras le quede resistencia que dar; cuando la '
+                      + 'gasta toda, se acab&oacute;.' : '');
+        }
+
+        function cuadro(){
+          var i;
+          for(i = 0; i < 20; i++) paso(1);      /* 20 s de horno por cuadro */
+          pinta();
+          if(corriendo) raf = requestAnimationFrame(cuadro);
+        }
+
+        caja.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'play'){
+            corriendo = !corriendo;
+            b.innerHTML = corriendo ? '&#10073;&#10073; Pausa' : '&#9654; Marcha';
+            if(corriendo) raf = requestAnimationFrame(cuadro);
+            else if(raf) cancelAnimationFrame(raf);
+          } else if(b.dataset.a === 'hora'){
+            var i;
+            for(i = 0; i < 3600; i++) paso(1);
+            pinta();
+          } else {
+            if(raf) cancelAnimationFrame(raf);
+            reinicia();
+          }
+        });
+
+        function mando(id, clave, sufijo){
+          var r = document.getElementById(id);
+          r.addEventListener('input', function(){
+            v[clave] = +r.value;
+            document.getElementById(id + '-v').innerHTML = r.value + sufijo;
+            pinta();
+          });
+        }
+        mando('lz-tamb', 'tamb', ' &deg;C');
+        mando('lz-k', 'k', ' W/&deg;C');
+
+        reinicia();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Con la cocina a 20&nbsp;&deg;C y la puerta bien cerrada, los dos aciertan.</b> El lazo
+           abierto no es tonto: est&aacute; bien calibrado. Mientras el mundo sea el del d&iacute;a de
+           la calibraci&oacute;n, es m&aacute;s barato y m&aacute;s simple, y hace su trabajo.</p>
+        <p><b>Baja la cocina a 5&nbsp;&deg;C.</b> El horno de la izquierda sigue aplicando su
+           64&nbsp;%, porque es lo &uacute;nico que sabe hacer, y se queda en
+           5 + 0,64 &middot; 1500 / 6 = <b>165&nbsp;&deg;C</b>. Quince grados de menos, y ni se ha
+           enterado. El de la derecha sigue en 180: simplemente tiene la resistencia encendida
+           m&aacute;s rato.</p>
+        <p><b>Y ahora sube las p&eacute;rdidas.</b> A partir de 10&nbsp;W/&deg;C, el de la derecha
+           <b>tampoco llega</b>. Y no es que se haya estropeado: es que para mantener 180&nbsp;&deg;C
+           con esas p&eacute;rdidas har&iacute;a falta m&aacute;s del 100&nbsp;% de la resistencia, y
+           no hay m&aacute;s del 100&nbsp;%. Eso se llama <b>saturaci&oacute;n</b>, y conviene
+           aprenderlo pronto: <b>un lazo cerrado corrige mientras le quede actuador</b>. Cuando lo
+           gasta todo, ning&uacute;n control del mundo lo arregla; hay que poner una resistencia
+           mayor o tapar las rendijas.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Cu&aacute;ndo vale cada uno</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Lazo abierto</b></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Lazo cerrado</b></td></tr>
+          <tr><td style="padding:5px 6px">Barato: no lleva sensor</td>
+              <td style="padding:5px 6px">Cuesta m&aacute;s: hay que medir</td></tr>
+          <tr><td style="padding:5px 6px">Nunca se vuelve loco</td>
+              <td style="padding:5px 6px">Puede oscilar, y hay que ajustarlo</td></tr>
+          <tr><td style="padding:5px 6px">No aguanta perturbaciones</td>
+              <td style="padding:5px 6px">Las corrige mientras le quede actuador</td></tr>
+          <tr><td style="padding:5px 6px">Vale si el entorno no cambia y la desviaci&oacute;n no importa</td>
+              <td style="padding:5px 6px">Hace falta si el entorno cambia o la desviaci&oacute;n cuesta dinero o seguridad</td></tr>
+        </table>
+        <p>Un lavavajillas es lazo abierto en los tiempos y lazo cerrado en la temperatura del agua.
+           <b>Casi ninguna m&aacute;quina real es solo una cosa.</b></p>
+      </div>
+
+      <h3>Qui&eacute;n descubri&oacute; esto, y cu&aacute;ndo</h3>
+      <p>La realimentaci&oacute;n no la invent&oacute; la electr&oacute;nica. Es mucho m&aacute;s
+         vieja, y funcion&oacute; durante siglos sin que nadie supiera explicarla.</p>
+      <ul>
+        <li>Hacia <b>270 a.&nbsp;C.</b>, <b>Ktesibios</b> de Alejandr&iacute;a construye un reloj de
+            agua con un <b>flotador</b> que cierra la entrada cuando el dep&oacute;sito se llena. El
+            nivel mide, el flotador compara y la v&aacute;lvula corrige. Es el lazo cerrado m&aacute;s
+            antiguo del que hay noticia, y lo sigues teniendo en la cisterna del v&aacute;ter.</li>
+        <li><b>1788</b>: <b>James Watt</b> monta el <b>regulador de bolas</b> en sus m&aacute;quinas de
+            vapor. Si el eje se embala, las bolas se abren por la fuerza centr&iacute;fuga, y al
+            abrirse <b>cierran la v&aacute;lvula del vapor</b>. La m&aacute;quina se frena a s&iacute;
+            misma.</li>
+        <li><b>1868</b>: <b>James Clerk Maxwell</b> publica <i>On Governors</i>, porque algunos de
+            aquellos reguladores, en vez de estabilizarse, se pon&iacute;an a oscilar cada vez
+            m&aacute;s hasta reventar la m&aacute;quina. De ese art&iacute;culo nace la teor&iacute;a
+            del control.</li>
+      </ul>
+      <figure class="foto">
+        <img src="../../../img/c4-regulador-watt.jpg" alt="Regulador centr&iacute;fugo de bolas de una m&aacute;quina de vapor Boulton and Watt: dos bolas de hierro colgadas de brazos articulados alrededor de un eje vertical, movido por una correa desde el volante" loading="lazy">
+        <figcaption>El <b>regulador de bolas de Watt</b> (1788), en una m&aacute;quina de Boulton and Watt del Museo de la Ciencia de Londres. La correa de arriba le da el giro del eje de la m&aacute;quina; si el eje acelera, las bolas se abren por la fuerza centr&iacute;fuga y los brazos tiran del varillaje que <b>cierra la v&aacute;lvula del vapor</b>. Aqu&iacute; no hay sensor ni electr&oacute;nica: la pieza que mide y la que corrige son <b>la misma</b>, y eso lo hace f&aacute;cil de ver. Ochenta a&ntilde;os funcion&oacute; sin que nadie supiera la teor&iacute;a.
+          <span class="credito">Dr. Mirko Junge &middot; CC BY 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Boulton_and_Watt_centrifugal_governor-MJ.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="nota">
+        <span class="n-tag">Cuidado con una confusi&oacute;n muy com&uacute;n</span>
+        <b>Autom&aacute;tico no es lo mismo que realimentado.</b> Una tostadora es
+        autom&aacute;tica: hace su trabajo sin que nadie la toque. Y es lazo abierto. Lo que decide si
+        un sistema es de lazo cerrado no es si hace falta una persona: es si <b>la medida del
+        resultado vuelve</b> a quien manda.
+      </div>
+      <div class="video" id="video-c4-s1" data-vid="2SHQTUvvVuM">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Sistemas de control &middot; Rob&oacute;tica">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Sistemas de control &middot; Rob&oacute;tica</b>
+            <span>STEM con Pablo</span>
+          </span>
+        </button>
+        <p class="video-nota">Un repaso corto a lo de esta sesi&oacute;n, con m&aacute;s ejemplos de los dos tipos de lazo. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=2SHQTUvvVuM" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 1 &middot; Clasificar, y rescatar un proyecto</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Grupos de 3 &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; Clasificar (6 min)</h4>
+          <p>Para cada aparato, decid si es <b>lazo abierto</b> o <b>lazo cerrado</b> y, sobre todo,
+             <b>qu&eacute; se mide</b> (o qu&eacute; no se mide, que es lo que lo delata). Una
+             l&iacute;nea por aparato en la libreta.</p>
+          <ol>
+            <li>El limpiaparabrisas del coche en velocidad fija.</li>
+            <li>El <i>cruise control</i> de un coche, que mantiene 120&nbsp;km/h cuesta arriba.</li>
+            <li>Un microondas puesto a dos minutos.</li>
+            <li>El dep&oacute;sito del v&aacute;ter.</li>
+            <li>Una farola con c&eacute;lula fotoel&eacute;ctrica.</li>
+          </ol>
+          <h4>Segunda parte &middot; Rescatar un proyecto (8 min)</h4>
+          <p>Elegid <b>uno</b> de los cinco proyectos del cat&aacute;logo (riego, ventilaci&oacute;n,
+             contenedor, barrera o l&aacute;mpara) y dibujad <b>las dos versiones</b>:</p>
+          <ul>
+            <li>La versi&oacute;n en <b>lazo abierto</b>: qu&eacute; orden fija le dais.</li>
+            <li>La versi&oacute;n en <b>lazo cerrado</b>: qu&eacute; med&iacute;s y con qu&eacute; lo
+                compar&aacute;is.</li>
+            <li>Y una <b>perturbaci&oacute;n concreta</b>, del instituto, que hunda a la primera y no
+                a la segunda. Concreta: no vale &laquo;si cambia el tiempo&raquo;.</li>
+          </ul>
+          <h4>Tercera parte &middot; Medir en la escena (6 min)</h4>
+          <p>Volved a la escena de los dos hornos. Dejad la cocina a 20&nbsp;&deg;C y subid las
+             p&eacute;rdidas de una en una, pulsando <b>Avanza 1 hora</b> cada vez.</p>
+          <ol>
+            <li>&iquest;A partir de qu&eacute; valor de p&eacute;rdidas el <b>lazo cerrado</b> deja de
+                llegar a los 180&nbsp;&deg;C?</li>
+            <li>Comprobadlo con la cuenta, sin la escena: la potencia que hace falta de media es
+                k &middot; (180 &minus; 20) / 1500, y no puede pasar de 1. Despejad k.</li>
+            <li>&iquest;Coincide lo que hab&eacute;is medido con lo que dice la cuenta? Si no, uno de
+                los dos est&aacute; mal: averiguad cu&aacute;l.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cinco aparatos clasificados, diciendo <b>qu&eacute; se mide</b> <b>(3 puntos)</b>.</li>
+            <li>Los dos diagramas del proyecto, con la perturbaci&oacute;n concreta <b>(4 puntos)</b>.</li>
+            <li>El valor de k medido <b>y</b> despejado, y los dos coinciden <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; es exactamente lo que distingue un lazo abierto de uno cerrado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Una sola cosa: si la <b>medida del resultado vuelve</b> a quien decide. No es la tecnolog&iacute;a, ni si hace falta una persona, ni si es el&eacute;ctrico o mec&aacute;nico.</p></div></details></li>
+        <li>El horno en lazo abierto se queda en 165&nbsp;&deg;C cuando la cocina baja a 5&nbsp;&deg;C. &iquest;Est&aacute; estropeado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. Est&aacute; haciendo <b>exactamente</b> lo que le pidieron: aplicar el 64&nbsp;% de la potencia. Lo que falla no es la m&aacute;quina, es la suposici&oacute;n de que la cocina iba a estar siempre a 20&nbsp;&deg;C.</p></div></details></li>
+        <li>&iquest;Hay alguna perturbaci&oacute;n que tambi&eacute;n tumbe al lazo cerrado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>S&iacute;: cualquiera que le pida <b>m&aacute;s de lo que su actuador puede dar</b>. Con p&eacute;rdidas de 10&nbsp;W/&deg;C har&iacute;a falta m&aacute;s del 100&nbsp;% de la resistencia. Se llama <b>saturaci&oacute;n</b>, y no se arregla controlando mejor.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; el regulador de Watt es un buen ejemplo para empezar?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la pieza que <b>mide</b> la velocidad y la que <b>corrige</b> el vapor son la misma, y se ven las dos a la vez. En un sistema electr&oacute;nico eso mismo pasa, pero escondido dentro de un chip.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes lo que hay que hacer: <b>medir, comparar y corregir</b>. Pero eso son tres verbos, y
+        para montarlo hacen falta tres <b>piezas</b>. En la siguiente sesi&oacute;n les ponemos nombre
+        y las dibujamos, y descubrir&aacute;s que el sensor <b>no habla en grados ni en por ciento</b>:
+        habla en n&uacute;meros del 0 al 1023, y hay que traducirle la consigna antes de poder restar.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>Medir, comparar, actuar: no hay una cuarta</h2>
+      <p>El sensor no habla en grados ni en por ciento: habla en n&uacute;meros del 0 al 1023. Antes de restar hay que traducir.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Vuestro compa&ntilde;ero de la otra clase ha montado el aviso de aula mal ventilada y le
+         funciona. Le ped&iacute;s c&oacute;mo lo ha hecho y os manda dos cosas: una <b>foto del
+         montaje</b> y el <b>c&oacute;digo</b>.</p>
+      <p>Y no os sirve de nada. La foto es una mara&ntilde;a de cables de colores; el c&oacute;digo son
+         cuarenta l&iacute;neas sin un comentario. Quer&eacute;is aprovechar la idea para el riego, que
+         es otro sensor y otro actuador, y no sab&eacute;is <b>qu&eacute; trozo hace qu&eacute;</b>.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Prob&aacute;ndolo: que uno del grupo explique <b>con palabras</b>, en treinta segundos,
+           c&oacute;mo funciona el horno de la sesi&oacute;n pasada. Que otro lo apunte. Comparad con
+           lo que ha escrito otro grupo.</p>
+      </div>
+      <p>Van a salir descripciones distintas, y todas m&aacute;s o menos correctas. Y ese es el
+         problema: <b>no se pueden comparar dos dise&ntilde;os contados con palabras</b>. Es
+         exactamente lo que te pas&oacute; en 2.&ordm; cuando intentabas describir una pieza sin
+         dibujarla.</p>
+      <p>Hace falta un plano. Pero un plano de <b>cables</b> tampoco sirve, porque los cables cambian
+         en cada proyecto. Lo que no cambia de un proyecto a otro es <b>qu&eacute; papel hace cada
+         trozo</b>. Y eso es lo que se dibuja.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>Las piezas de todo sistema de control</h4>
+        <ul>
+          <li><b>Sensor</b> (o transductor): convierte una magnitud f&iacute;sica (temperatura,
+              humedad, luz, distancia) en una <b>se&ntilde;al el&eacute;ctrica</b> que el programa
+              puede leer como un n&uacute;mero.</li>
+          <li><b>Consigna</b>: el valor que queremos, <b>expresado en las mismas unidades</b> que la
+              medida.</li>
+          <li><b>Comparador</b>: resta. <b>error = consigna &minus; medida</b> (o al rev&eacute;s; lo
+              que no se puede es cambiar de criterio a mitad).</li>
+          <li><b>Controlador</b>: decide qu&eacute; hacer con ese error. Es el cerebro, y en 4.&ordm;
+              vive dentro del Arduino.</li>
+          <li><b>Actuador</b>: convierte la decisi&oacute;n en un efecto f&iacute;sico. Bomba, motor,
+              rel&eacute;, LED, resistencia, servo.</li>
+          <li><b>Proceso</b> (o planta): lo que se quiere gobernar. La maceta, el aula, el horno.</li>
+          <li><b>Realimentaci&oacute;n</b>: la flecha que devuelve la medida al comparador. Es la
+              <b>&uacute;nica</b> que va hacia atr&aacute;s, y es la que cierra el lazo.</li>
+        </ul>
+      </div>
+      <p>Ahora m&iacute;ralo funcionando. El diagrama de abajo <b>no es un dibujo</b>: los
+         n&uacute;meros que hay dentro de cada caja son los que est&aacute;n circulando en ese
+         instante. Cambia de proyecto y fíjate en lo que cambia&hellip; y en lo que no.</p>
+
+      <div class="escena" id="esc-bq">
+        <div class="escena-barra">
+          <span class="escena-titulo">El diagrama, con los n&uacute;meros de verdad circulando por dentro</span>
+          <div class="seg" id="seg-bq">
+            <button type="button" data-p="0" aria-pressed="true">Riego</button>
+            <button type="button" data-p="1">Ventilaci&oacute;n</button>
+            <button type="button" data-p="2">L&aacute;mpara</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 300" id="svg-bq" role="img"
+               aria-label="Diagrama de bloques de un sistema de control con los valores num&eacute;ricos dentro de cada bloque"></svg>
+          <div class="bq-mandos">
+            <div class="bq-fila">
+              <label for="bq-mag" id="bq-mag-l">Magnitud</label>
+              <input type="range" id="bq-mag" min="0" max="100" step="1" value="25">
+              <span class="val" id="bq-mag-v"></span>
+            </div>
+            <div class="bq-fila">
+              <label for="bq-ref" id="bq-ref-l">Consigna</label>
+              <input type="range" id="bq-ref" min="0" max="100" step="1" value="40">
+              <span class="val" id="bq-ref-v"></span>
+            </div>
+            <label class="bq-chk"><input type="checkbox" id="bq-abierto">
+              cortar la realimentaci&oacute;n (y trabajar con temporizador, como en lazo abierto)</label>
+            <div class="seg">
+              <button type="button" data-a="ir" id="bq-ir">&#9654; Poner en marcha</button>
+              <button type="button" data-a="reset">Reiniciar</button>
+            </div>
+          </div>
+          <p class="bq-cuenta" id="bq-cuenta"></p>
+        </div>
+        <div class="pie" id="pie-bq"></div>
+      </div>
+
+      <style>
+      .bq-mandos{margin-top:10px}
+      .bq-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .bq-fila label{min-width:225px}
+      .bq-fila input[type="range"]{flex:1 1 150px;min-width:130px;accent-color:var(--goo-azul)}
+      .bq-fila .val{font-weight:500;color:var(--goo-azul);min-width:78px;text-align:right}
+      .bq-chk{display:flex;align-items:center;gap:8px;font-family:var(--f-m);font-size:12.5px;
+        color:var(--ink-soft);margin:0 0 9px;cursor:pointer;line-height:1.5}
+      .bq-chk input{accent-color:var(--goo-azul);flex:none}
+      .bq-cuenta{margin:11px 0 0;font-family:var(--f-m);font-size:12.5px;line-height:1.8;
+        color:var(--ink-soft);border-left:4px solid var(--goo-azul);padding:6px 0 6px 12px}
+      .bq-cuenta b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-bq');
+        if(!svg) return;
+        var caja  = document.getElementById('esc-bq');
+        var seg   = document.getElementById('seg-bq');
+        var pie   = document.getElementById('pie-bq');
+        var cuenta= document.getElementById('bq-cuenta');
+
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+        function n0(x){ return Math.round(x).toString(); }
+
+        /* ------------------------------------------------------------------
+           Tres de los cinco proyectos del catalogo. Cada uno trae su recta de
+           calibracion (la que se mide en clase con el sensor en la mano) y su
+           modelo de como cambia la magnitud fisica. Lo que NO cambia de uno a
+           otro es el diagrama: esa es toda la gracia.
+           ------------------------------------------------------------------ */
+        var PROY = [
+          { nom:'Riego de la planta del aula',
+            mag:'Humedad del suelo', uni:' %', min:0, max:100, ini:20, ref:40,
+            sensor:'Sonda capacitiva en A0',
+            /* medido en clase: en aire 620, hundida en agua 280 */
+            lee:  function(x){ return Math.round(620 - 3.4 * x); },
+            cuenta: function(x){ return 'lectura = 620 &minus; 3,4 &times; ' + n1(x) + ' = <b>'
+                                      + this.lee(x) + '</b>'; },
+            calib:'620 &minus; 3,4 &times; humedad',
+            /* seco = lectura ALTA -> el error positivo pide bomba */
+            err:  function(L, Lr){ return L - Lr; },
+            errTxt:'error = lectura &minus; consigna',
+            actua:'Bomba',
+            /* el agua sube la humedad; el sol la baja */
+            avanza: function(x, on){ return x + (on ? 0.55 : 0) - 0.03; },
+            orden: function(e){ return e > 0; },
+            ordenTxt:'si error &gt; 0 &rarr; bomba ON',
+            tfijo: 38,
+            pie:'<b>Riego autom&aacute;tico.</b> El sensor no da humedad: da un n&uacute;mero entre '
+              + '280 y 620. La consigna hay que traducirla a ESE idioma antes de poder restar.' },
+
+          { nom:'Aviso de aula mal ventilada',
+            mag:'CO&#8322; en el aula', uni:' ppm', min:400, max:2000, ini:1500, ref:800,
+            sensor:'M&oacute;dulo digital por I&sup2;C',
+            lee:  function(x){ return Math.round(x); },
+            cuenta: function(x){ return 'lectura = <b>' + this.lee(x) + ' ppm</b> (el m&oacute;dulo '
+                                      + 'ya entrega la unidad f&iacute;sica: aqu&iacute; no hay que traducir nada)'; },
+            calib:'el m&oacute;dulo ya da ppm',
+            err:  function(L, Lr){ return L - Lr; },
+            errTxt:'error = medida &minus; consigna',
+            actua:'Ventilador',
+            avanza: function(x, on){ return x + (on ? -22 : 0) + 6; },
+            orden: function(e){ return e > 0; },
+            ordenTxt:'si error &gt; 0 &rarr; ventilador ON',
+            tfijo: 45,
+            pie:'<b>Ventilaci&oacute;n.</b> Cuando el sensor ya habla en unidades f&iacute;sicas, el '
+              + 'bloque de conversi&oacute;n desaparece&hellip; pero el diagrama es exactamente el mismo.' },
+
+          { nom:'L&aacute;mpara de estudio que se ajusta sola',
+            mag:'Luz que entra por la ventana', uni:' lx', min:0, max:600, ini:120, ref:300,
+            sensor:'LDR con divisor, en A0',
+            /* medido en clase: a oscuras 90, con la persiana abierta 870 */
+            lee:  function(x){ return Math.round(90 + 1.3 * x); },
+            cuenta: function(x){ return 'lectura = 90 + 1,3 &times; ' + n0(x) + ' = <b>'
+                                      + this.lee(x) + '</b>'; },
+            calib:'90 + 1,3 &times; lux',
+            /* aqui falta luz cuando la lectura es BAJA */
+            invertido: true,
+            err:  function(L, Lr){ return Lr - L; },
+            errTxt:'error = consigna &minus; lectura',
+            actua:'LED de la l&aacute;mpara',
+            /* el LED ilumina la MISMA mesa que mira el sensor: por eso se muerde la cola */
+            avanza: function(x, on){ return x; },
+            aporta: 260,
+            orden: function(e){ return e > 0; },
+            ordenTxt:'si error &gt; 0 &rarr; LED ON',
+            tfijo: 30,
+            pie:'<b>L&aacute;mpara.</b> Aqu&iacute; el actuador ilumina <b>la misma mesa</b> que mira el '
+              + 'sensor. Encender cambia lo que se va a medir un instante despu&eacute;s: eso es '
+              + 'realimentaci&oacute;n en estado puro, y por eso parpadea.' }
+        ];
+
+        var p = 0, ext = 20, ref = 40, abierto = false;
+        var on = false, t = 0, tRestante = 0, corriendo = false, raf = null;
+        var serie = [];
+
+        function P(){ return PROY[p]; }
+
+        /* magnitud que VE el sensor = la de fuera + lo que aporte el actuador */
+        function magnitud(){
+          var d = P();
+          return ext + (d.aporta && on ? d.aporta : 0);
+        }
+
+        function reinicia(){
+          var d = P();
+          ext = d.ini; ref = d.ref;
+          on = false; t = 0; tRestante = 0; serie = [];
+          corriendo = false;
+          document.getElementById('bq-ir').innerHTML = '&#9654; Poner en marcha';
+          var r = document.getElementById('bq-mag');
+          r.min = d.min; r.max = d.max; r.value = ext;
+          var q = document.getElementById('bq-ref');
+          q.min = d.min; q.max = d.max; q.value = ref;
+          document.getElementById('bq-mag-l').innerHTML = d.mag;
+          document.getElementById('bq-ref-l').innerHTML = 'Consigna (lo que le pides)';
+          document.getElementById('bq-mag-v').innerHTML = n0(ext) + d.uni;
+          document.getElementById('bq-ref-v').innerHTML = n0(ref) + d.uni;
+          pinta();
+        }
+
+        function paso(){
+          var d = P();
+          t += 0.1;
+          if(abierto){
+            /* lazo abierto: el temporizador manda, la medida no se mira */
+            if(tRestante > 0){ on = true; tRestante -= 0.1; }
+            else on = false;
+          } else {
+            var L  = d.lee(magnitud());
+            var Lr = d.lee(ref);
+            on = d.orden(d.err(L, Lr));
+          }
+          ext = Math.min(d.max, Math.max(d.min, d.avanza(ext, on)));
+          if(Math.round(t * 10) % 2 === 0){
+            serie.push(magnitud());
+            if(serie.length > 220) serie.shift();
+          }
+        }
+
+        /* --------- el dibujo del diagrama, con sus numeros dentro -------- */
+        function bloque(x, y, w, h, rot, val, activo){
+          return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h
+               + '" rx="3" fill="var(--surface)" stroke="' + (activo ? '#34a853' : 'currentColor')
+               + '" stroke-width="' + (activo ? 2.4 : 1.6) + '" opacity="' + (activo ? 1 : .85) + '"/>'
+               + '<text x="' + (x + w / 2) + '" y="' + (y + 17)
+               + '" class="ejeq" text-anchor="middle">' + rot + '</text>'
+               + '<text x="' + (x + w / 2) + '" y="' + (y + 40)
+               + '" class="etq" text-anchor="middle" style="font-size:14px">' + val + '</text>';
+        }
+        function flecha(x1, y1, x2, y2, tenue){
+          return '<path d="M ' + x1 + ' ' + y1 + ' L ' + x2 + ' ' + y2
+               + '" stroke="currentColor" stroke-width="1.8" fill="none" marker-end="url(#bqp)"'
+               + (tenue ? ' opacity=".22" stroke-dasharray="5 4"' : '') + '/>';
+        }
+
+        function pinta(){
+          var d = P();
+          var M  = magnitud();
+          var L  = d.lee(M);
+          var Lr = d.lee(ref);
+          var e  = abierto ? 0 : d.err(L, Lr);
+          /* La orden que se ENSENA es la que sale de los numeros que se ensenan,
+             este el lazo corriendo o parado: si no, el diagrama dice una cosa y
+             el actuador otra. */
+          var orden = abierto ? (tRestante > 0) : d.orden(e);
+          var m = '<defs><marker id="bqp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7"'
+                + ' markerHeight="7" orient="auto-start-reverse">'
+                + '<path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/></marker></defs>';
+
+          m += bloque(14, 34, 96, 52, 'CONSIGNA', n0(ref) + d.uni, false);
+          m += flecha(110, 60, 142, 60);
+          /* comparador */
+          m += '<circle cx="164" cy="60" r="21" fill="var(--surface)" stroke="'
+             + (abierto ? 'currentColor' : '#34a853') + '" stroke-width="'
+             + (abierto ? 1.6 : 2.4) + '"' + (abierto ? ' opacity=".35"' : '') + '/>'
+             + '<text x="164" y="66" class="etq" text-anchor="middle" style="font-size:17px">'
+             + (abierto ? '?' : '&#8722;') + '</text>'
+             + '<text x="164" y="24" class="ejeq" text-anchor="middle">COMPARADOR</text>';
+          m += flecha(185, 60, 219, 60, abierto);
+          m += bloque(220, 34, 116, 52, 'CONTROLADOR',
+                      abierto ? ('t = ' + n1(Math.max(0, tRestante)) + ' s') : ('error ' + n0(e)),
+                      !abierto);
+          m += flecha(336, 60, 370, 60);
+          m += bloque(371, 34, 116, 52, 'ACTUADOR', orden ? 'ON' : 'OFF', orden);
+          m += flecha(487, 60, 521, 60);
+          m += bloque(522, 34, 152, 52, 'PROCESO', n0(M) + d.uni, false);
+
+          /* la flecha de vuelta: la realimentacion */
+          var tenue = abierto;
+          m += '<path d="M 598 86 L 598 132" stroke="currentColor" stroke-width="1.8" fill="none"'
+             + (tenue ? ' opacity=".22" stroke-dasharray="5 4"' : '') + '/>';
+          m += bloque(462, 108, 136, 48, 'SENSOR', n0(L), !abierto);
+          m += '<path d="M 462 132 L 164 132 L 164 89" stroke="currentColor" stroke-width="1.8"'
+             + ' fill="none" marker-end="url(#bqp)"'
+             + (tenue ? ' opacity=".22" stroke-dasharray="5 4"' : '') + '/>';
+          if(tenue){
+            m += '<line x1="292" y1="118" x2="324" y2="146" stroke="#ea4335" stroke-width="3"/>'
+               + '<line x1="324" y1="118" x2="292" y2="146" stroke="#ea4335" stroke-width="3"/>'
+               + '<text x="308" y="166" class="etq" text-anchor="middle" style="fill:#ea4335">'
+               + 'realimentaci&oacute;n cortada</text>';
+          }
+          /* la consigna, traducida al idioma del sensor. Va a la izquierda del
+             comparador para no montarse encima de la flecha de vuelta. */
+          if(!abierto){
+            m += '<text x="14" y="162" class="ejeq">la consigna, traducida a cuentas: '
+               + Lr + '</text>';
+          }
+
+          /* --------- la tira de papel: la magnitud contra el tiempo -------- */
+          var X0 = 30, X1 = 660, Y0 = 190, Y1 = 278;
+          var lo = d.min, hi = d.max + (d.aporta || 0);
+          var py = function(x){ return Y1 - (Y1 - Y0) * (x - lo) / (hi - lo); };
+          m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + (X1 - X0) + '" height="' + (Y1 - Y0)
+             + '" fill="none" stroke="currentColor" stroke-width="1" opacity=".22"/>';
+          m += '<line x1="' + X0 + '" y1="' + py(ref).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(ref).toFixed(1) + '" stroke="currentColor" stroke-width="1.4" stroke-dasharray="6 4"'
+             + ' opacity=".55"/>'
+             + '<text x="' + (X1 - 4) + '" y="' + (py(ref) - 5).toFixed(1)
+             + '" class="ejeq" text-anchor="end">consigna</text>';
+          var i, dd = '';
+          for(i = 0; i < serie.length; i++){
+            dd += (i ? ' L ' : 'M ') + (X0 + (X1 - X0) * i / 220).toFixed(1)
+                + ' ' + py(serie[i]).toFixed(1);
+          }
+          if(serie.length > 1){
+            m += '<path d="' + dd + '" fill="none" stroke="#1a73e8" stroke-width="2"/>';
+          } else {
+            m += '<circle cx="' + X0 + '" cy="' + py(M).toFixed(1) + '" r="3.5" fill="#1a73e8"/>'
+               + '<text x="' + ((X0 + X1) / 2) + '" y="' + (Y0 + 36)
+               + '" class="ejeq" text-anchor="middle">pulsa &laquo;Poner en marcha&raquo; y el lazo '
+               + 'se pone a trabajar solo</text>';
+          }
+          m += '<text x="' + (X0 + 4) + '" y="' + (Y0 + 13) + '" class="ejeq">' + d.mag + '</text>';
+
+          svg.innerHTML = m;
+
+          /* --------- la cuenta escrita, paso por paso -------- */
+          var txt = '<b>' + d.sensor + '.</b> ' + d.cuenta(M) + '<br>';
+          if(abierto){
+            txt += 'Sin realimentaci&oacute;n no hay resta que hacer: el controlador solo sabe '
+                 + '<b>cu&aacute;nto tiempo le queda</b> de los ' + d.tfijo + ' s que alguien '
+                 + 'cronometr&oacute; un d&iacute;a. Quedan <b>' + n1(Math.max(0, tRestante)) + ' s</b>.';
+          } else {
+            txt += 'Consigna de ' + n0(ref) + d.uni + ' en el idioma del sensor: <b>' + Lr + '</b><br>'
+                 + d.errTxt + ' = ' + (d.invertido ? (Lr + ' &minus; ' + L) : (L + ' &minus; ' + Lr))
+                 + ' = <b>' + n0(e) + '</b> &rarr; ' + d.ordenTxt + ' &rarr; <b>'
+                 + (orden ? 'ENCENDIDO' : 'APAGADO') + '</b>';
+          }
+          cuenta.innerHTML = txt;
+          pie.innerHTML = d.pie;
+
+          /* el mando hace tambien de indicador: cuando el lazo corre, la
+             magnitud la mueve el actuador y no la mano */
+          document.getElementById('bq-mag').value = ext;
+          document.getElementById('bq-mag-v').innerHTML = n0(ext) + d.uni;
+        }
+
+        function cuadro(){
+          var i;
+          for(i = 0; i < 2; i++) paso();
+          pinta();
+          if(corriendo) raf = requestAnimationFrame(cuadro);
+        }
+
+        seg.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-p]');
+          if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          p = +b.dataset.p;
+          if(raf) cancelAnimationFrame(raf);
+          reinicia();
+        });
+
+        caja.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'ir'){
+            corriendo = !corriendo;
+            b.innerHTML = corriendo ? '&#10073;&#10073; Pausa' : '&#9654; Poner en marcha';
+            if(corriendo){ if(abierto) tRestante = P().tfijo; raf = requestAnimationFrame(cuadro); }
+            else if(raf) cancelAnimationFrame(raf);
+          } else {
+            if(raf) cancelAnimationFrame(raf);
+            reinicia();
+          }
+        });
+
+        document.getElementById('bq-mag').addEventListener('input', function(){
+          ext = +this.value;
+          document.getElementById('bq-mag-v').innerHTML = n0(ext) + P().uni;
+          pinta();
+        });
+        document.getElementById('bq-ref').addEventListener('input', function(){
+          ref = +this.value;
+          document.getElementById('bq-ref-v').innerHTML = n0(ref) + P().uni;
+          pinta();
+        });
+        document.getElementById('bq-abierto').addEventListener('change', function(){
+          abierto = this.checked;
+          if(abierto) tRestante = P().tfijo;
+          pinta();
+        });
+
+        reinicia();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Cambia de proyecto en la escena y mira el diagrama: <b>las cajas son las mismas</b>. Lo que
+           cambia es lo que hay dentro. Por eso el diagrama de bloques es una herramienta y no un
+           adorno: te deja comparar el riego con la ventilaci&oacute;n, que no tienen nada que ver,
+           porque los pone en el mismo idioma.</p>
+        <p>Y prueba a <b>cortar la realimentaci&oacute;n</b>. No se rompe nada: simplemente el
+           controlador se queda sin saber d&oacute;nde est&aacute;, y lo &uacute;nico que le queda es
+           un cron&oacute;metro. Has vuelto a la sesi&oacute;n 1.</p>
+      </div>
+
+      <h3>El sensor no habla tu idioma</h3>
+      <p>Aqu&iacute; est&aacute; el fallo que m&aacute;s se comete, y merece la pena verlo despacio.
+         Una sonda de humedad <b>no da un porcentaje</b>. Da un n&uacute;mero entre 0 y 1023.</p>
+      <figure class="foto">
+        <img src="../../../img/c4-arduino-uno.jpg" alt="Placa Arduino Uno R3 vista en perspectiva, con sus tiras de conectores hembra, el microcontrolador, el conector USB tipo B y el de alimentaci&oacute;n" loading="lazy">
+        <figcaption>La placa de 4.&ordm;: un <b>Arduino Uno</b>. Los seis pines marcados <b>A0 a A5</b> son las <b>entradas anal&oacute;gicas</b>, y son la puerta por la que entran los sensores. Dentro hay un <b>conversor anal&oacute;gico-digital</b> que mide la tensi&oacute;n del pin y la convierte en un n&uacute;mero entero.
+          <span class="credito">SparkFun Electronics from Boulder, USA &middot; CC BY 2.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Arduino_Uno_-_R3.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>La lectura anal&oacute;gica de Arduino</h4>
+        <p><code>analogRead(A0)</code> devuelve un <b>n&uacute;mero entero de 0 a 1023</b>. Son
+           <b>1024 valores</b> distintos (2<sup>10</sup>, de ah&iacute; lo de &laquo;10
+           bits&raquo;): el 0 corresponde a 0&nbsp;V y el 1023, a 5&nbsp;V.</p>
+        <p>Para pasar una lectura a voltios:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>V = lectura &middot; 5 / 1023</b></p>
+        <p>Y de ah&iacute; sale la <b>resoluci&oacute;n</b>: 5 / 1023 = <b>0,0049&nbsp;V</b>, casi
+           cinco mil&eacute;simas de voltio. Lo que est&eacute; por debajo de eso, el Arduino
+           <b>no lo ve</b>. No es un defecto de la placa: es que un n&uacute;mero entero no puede
+           tener infinitos escalones.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>Calibrar un sensor: la recta de dos puntos</h4>
+        <p>Un sensor se calibra <b>midiendo dos situaciones que ya conoces</b> y trazando la recta que
+           las une.</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>L = L<sub>0</sub> + m &middot; X</b> &nbsp;&nbsp;con&nbsp;&nbsp;
+           <b>m = (L<sub>1</sub> &minus; L<sub>0</sub>) / (X<sub>1</sub> &minus; X<sub>0</sub>)</b></p>
+        <p><b>Ejemplo del riego.</b> Con la sonda al aire (humedad 0&nbsp;%) marca <b>620</b>; hundida
+           en un vaso de agua (humedad 100&nbsp;%) marca <b>280</b>.</p>
+        <ul>
+          <li>Pendiente: m = (280 &minus; 620) / (100 &minus; 0) = <b>&minus;3,4</b> cuentas por cada
+              punto de humedad. Es <b>negativa</b>: cuanta m&aacute;s agua, menos marca.</li>
+          <li>La recta: <b>L = 620 &minus; 3,4 &middot; H</b></li>
+          <li>Del rev&eacute;s, para saber la humedad a partir de la lectura:
+              <b>H = (620 &minus; L) / 3,4</b></li>
+          <li>Comprobaci&oacute;n: si lee 450, entonces H = (620 &minus; 450) / 3,4 =
+              <b>50&nbsp;%</b>.</li>
+        </ul>
+        <p><b>Regla:</b> antes de restar, los dos n&uacute;meros tienen que estar en la
+           <b>misma unidad</b>. O traduces la consigna a cuentas, o traduces la lectura a por ciento.
+           Las dos valen. Mezclarlas, no.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>El signo del error importa, y mucho.</b> En el riego, el error positivo significa
+           &laquo;est&aacute; m&aacute;s seco de lo que quiero&raquo;, y la respuesta es regar. En la
+           l&aacute;mpara, con la misma resta te saldr&iacute;a al rev&eacute;s, porque all&iacute;
+           m&aacute;s luz es <b>m&aacute;s</b> lectura.</p>
+        <p>Si te equivocas de signo, el sistema no se para: hace <b>lo contrario</b> de lo que hay que
+           hacer, y cada correcci&oacute;n empeora la situaci&oacute;n, que a su vez pide una
+           correcci&oacute;n mayor. Eso se llama <b>realimentaci&oacute;n positiva</b>, y ya la has
+           o&iacute;do: es el pitido que sale cuando acercas un micr&oacute;fono a su altavoz.</p>
+        <p>Por cierto, el diagrama de bloques tambi&eacute;n vale para cosas que no son
+           m&aacute;quinas. La temperatura de tu cuerpo se mantiene en 36,5&nbsp;&deg;C con el mismo
+           esquema: sensores en la piel y en el hipot&aacute;lamo, comparaci&oacute;n con una consigna,
+           y actuadores que son el sudor y el tiritar.</p>
+      </div>
+      <div class="video" id="video-c4-s2" data-vid="zJ5TP_kkT2E">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Tecnolog&iacute;a de control: tipos de sistemas de control autom&aacute;tico">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Tecnolog&iacute;a de control: tipos de sistemas de control autom&aacute;tico</b>
+            <span>Guillermo A. Pennesi</span>
+          </span>
+        </button>
+        <p class="video-nota">El diagrama de bloques dibujado y explicado caja por caja. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=zJ5TP_kkT2E" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 2 &middot; Dos diagramas y una calibraci&oacute;n</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; Los diagramas (7 min)</h4>
+          <p>Dibujad en la libreta el diagrama de bloques de <b>dos</b> de los cinco proyectos del
+             cat&aacute;logo, uno debajo del otro. Cada caja, con su r&oacute;tulo y con <b>lo que hay
+             dentro en ese proyecto</b>: no vale poner &laquo;sensor&raquo; a secas, hay que decir
+             cu&aacute;l.</p>
+          <p>Y la flecha de realimentaci&oacute;n bien dibujada, con la punta <b>llegando al
+             comparador</b>.</p>
+          <h4>Segunda parte &middot; La calibraci&oacute;n (7 min)</h4>
+          <p>Hab&eacute;is medido una LDR con el divisor montado y anotado dos puntos:</p>
+          <ul>
+            <li>Con el aula a oscuras (0&nbsp;lux): <b>lectura 90</b>.</li>
+            <li>Con la persiana abierta, y el lux&oacute;metro del m&oacute;vil marcando
+                600&nbsp;lux: <b>lectura 870</b>.</li>
+          </ul>
+          <ol>
+            <li>Calculad la <b>pendiente</b> y escribid la recta L = L<sub>0</sub> + m &middot; E.</li>
+            <li>La norma de iluminaci&oacute;n para estudiar pide <b>300&nbsp;lux</b>.
+                &iquest;Qu&eacute; lectura es esa?</li>
+            <li>El sensor est&aacute; marcando <b>415</b>. &iquest;Cu&aacute;ntos lux hay?
+                &iquest;Hay que encender la l&aacute;mpara?</li>
+            <li>Escribid el <b>error</b> con su signo, y decid en una l&iacute;nea qu&eacute;
+                significa que sea positivo.</li>
+          </ol>
+          <h4>Tercera parte &middot; En Tinkercad (6 min)</h4>
+          <p>En <b>tinkercad.com &rarr; Circuits</b>, montad un <b>potenci&oacute;metro en A0</b> (que
+             hace de sensor de mentira, pero da el mismo 0-1023) y un <b>LED en el pin 9</b> con su
+             resistencia. Sketch:</p>
+          <pre style="font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:10px;
+               border-radius:2px;overflow:auto">int lectura = analogRead(A0);
+if (lectura &lt; UMBRAL) digitalWrite(9, HIGH);
+else                    digitalWrite(9, LOW);</pre>
+          <p>Anotad <b>tres lecturas</b> con el potenci&oacute;metro en tres posiciones y el umbral
+             que hab&eacute;is elegido, con una l&iacute;nea de por qu&eacute; ese.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los dos diagramas completos, con la realimentaci&oacute;n bien puesta <b>(4 puntos)</b>.</li>
+            <li>La recta, las dos conversiones y el signo del error <b>(3 puntos)</b>.</li>
+            <li>El circuito funcionando y las tres lecturas anotadas <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Cu&aacute;ntas piezas hacen falta como m&iacute;nimo para un lazo cerrado, y cu&aacute;les?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Tres: algo que <b>mida</b> (sensor), algo que <b>compare</b> con la consigna y decida (comparador y controlador) y algo que <b>act&uacute;e</b> (actuador). M&aacute;s la flecha de vuelta, que no es una pieza pero es lo que las convierte en un lazo.</p></div></details></li>
+        <li>La sonda lee 450 y la consigna es del 40&nbsp;%. &iquest;Cu&aacute;l es el error?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No se puede restar todav&iacute;a: 450 son cuentas y 40 es un porcentaje. Hay que pasar la consigna a cuentas: L = 620 &minus; 3,4 &middot; 40 = <b>484</b>. Y ahora s&iacute;: error = 450 &minus; 484 = <b>&minus;34</b>. Negativo, o sea que hay <b>m&aacute;s</b> humedad de la pedida: no se riega.</p></div></details></li>
+        <li>&iquest;Qu&eacute; resoluci&oacute;n tiene la entrada anal&oacute;gica de un Arduino Uno?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>5 / 1023 = <b>0,0049&nbsp;V</b>, unos 5&nbsp;mV. Hay 1024 valores posibles (del 0 al 1023) repartidos entre 0 y 5&nbsp;V.</p></div></details></li>
+        <li>&iquest;Qu&eacute; pasa si te equivocas en el <b>signo</b> del error?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que el sistema corrige al rev&eacute;s y cada correcci&oacute;n empeora las cosas: <b>realimentaci&oacute;n positiva</b>. Se dispara hasta que algo lo para. Es el acople del micr&oacute;fono con el altavoz.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes medir y comparar. Falta la caja del medio: <b>&iquest;qu&eacute; hace el controlador
+        con el error?</b> La respuesta m&aacute;s barata del mundo es la que ya has usado sin darle
+        nombre: si el error es positivo, enciende; si no, apaga. Se llama <b>todo-nada</b>, est&aacute;
+        dentro de casi todos los electrodom&eacute;sticos de tu casa&hellip; y tiene un precio que se
+        puede medir en grados y en euros.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>La calefacci&oacute;n que arranca y para, y por qu&eacute; no est&aacute; rota</h2>
+      <p>Un term&oacute;stato perfecto se destruir&iacute;a en una tarde. La oscilaci&oacute;n que notas en casa la puso alguien a prop&oacute;sito.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>En casa, la calefacci&oacute;n est&aacute; puesta a <b>21&nbsp;&deg;C</b>. Coges un
+         term&oacute;metro de verdad, lo dejas en el salón y lo miras cada cinco minutos. Y no marca
+         21. Marca 20,4&hellip; luego 20,9&hellip; luego 21,5&hellip; y otra vez para abajo.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>&iquest;Est&aacute; estropeado el term&oacute;stato? Y si no lo est&aacute;,
+           &iquest;por qu&eacute; no clava los 21&nbsp;&deg;C, si el de la sesi&oacute;n 1 clavaba los
+           180?</p>
+      </div>
+      <p>No est&aacute; estropeado. Y para ver por qu&eacute;, hagamos lo contrario: imagina un
+         term&oacute;stato <b>perfecto</b>, que enciende en cuanto baja de 21,00 y apaga en cuanto
+         pasa de 21,00. Suena a lo que quieres. Vamos a contar cu&aacute;ntas veces conmuta.</p>
+      <div class="aviso">
+        <span class="n-tag">La cuenta inc&oacute;moda</span>
+        La lectura de cualquier sensor <b>tiembla</b>: un term&oacute;metro electr&oacute;nico
+        cualquiera baila una o dos d&eacute;cimas. Si la temperatura anda rondando los 21,00,
+        el term&oacute;stato cruza la l&iacute;nea a cada rato: pongamos <b>10 veces por
+        segundo</b>. Son <b>36.000 conmutaciones a la hora</b>.<br><br>
+        Un <b>rel&eacute;</b> de los que llevan estos aparatos aguanta unos <b>100.000 ciclos</b>
+        con carga. 100.000 / 36.000 = <b>2,8 horas</b>. El term&oacute;stato perfecto se
+        destruir&iacute;a a s&iacute; mismo en una tarde.
+      </div>
+      <p>As&iacute; que la oscilaci&oacute;n de tu sal&oacute;n <b>no es un fallo</b>: es lo que
+         alguien puso a prop&oacute;sito para que el aparato no se suicidara. Y esta sesi&oacute;n va
+         de eso: de qu&eacute; se gana y qu&eacute; se paga.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>Control todo-nada</h4>
+        <p><b>Control todo-nada</b> (u <b>on-off</b>, o de dos posiciones): el actuador solo tiene dos
+           estados, encendido y apagado, y el controlador elige entre ellos con una
+           comparaci&oacute;n. Es el control m&aacute;s barato y m&aacute;s usado que existe.</p>
+        <p><b>Hist&eacute;resis</b> (o <b>banda</b>, o <b>diferencial</b>): en vez de un umbral, se
+           usan <b>dos</b>. Con una consigna C y una banda h:</p>
+        <ul>
+          <li>Enciende cuando la medida baja de <b>C &minus; h/2</b>.</li>
+          <li>Apaga cuando la medida sube de <b>C + h/2</b>.</li>
+          <li>Entre los dos umbrales, <b>no hace nada</b>: se queda como estaba.</li>
+        </ul>
+        <p>Lo de &laquo;se queda como estaba&raquo; es la clave: <b>el controlador tiene que
+           acordarse</b> de si estaba encendido o apagado. Con un solo umbral no hace falta memoria;
+           con hist&eacute;resis, s&iacute;.</p>
+      </div>
+      <div class="copiar">
+        <h4>El pseudoc&oacute;digo, que es m&aacute;s corto que la explicaci&oacute;n</h4>
+        <pre style="font-family:var(--f-m);font-size:13px;background:var(--surface-2);padding:10px;
+             border-radius:2px;overflow:auto">encendida &#8592; falso
+
+repetir siempre:
+    T &#8592; leer sensor
+    si encendida    y T &gt; consigna + h/2  &#8594;  apagar;   encendida &#8592; falso
+    si no encendida y T &lt; consigna &minus; h/2  &#8594;  encender; encendida &#8592; verdadero</pre>
+      </div>
+      <p>Y ahora, la consecuencia que no se puede esquivar. Si el actuador solo sabe estar a tope o
+         parado, la temperatura <b>no puede quedarse quieta</b>: sube mientras calienta y baja mientras
+         no. Lo &uacute;nico que puedes elegir es <b>cu&aacute;nto</b> sube y baja. Mueve la banda y
+         m&iacute;ralo.</p>
+
+      <div class="escena" id="esc-tn">
+        <div class="escena-barra">
+          <span class="escena-titulo">Tres horas de calefacci&oacute;n, simuladas de verdad &middot; toca la hist&eacute;resis</span>
+          <div class="seg">
+            <button type="button" data-a="reset">Valores de partida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 300" id="svg-tn" role="img"
+               aria-label="Gr&aacute;fico de la temperatura de una habitaci&oacute;n con termostato de dos posiciones"></svg>
+          <div class="tn-mandos">
+            <div class="tn-fila">
+              <label for="tn-ref">Consigna del term&oacute;stato</label>
+              <input type="range" id="tn-ref" min="16" max="26" step="1" value="21">
+              <span class="val" id="tn-ref-v">21 &deg;C</span>
+            </div>
+            <div class="tn-fila">
+              <label for="tn-h">Hist&eacute;resis (ancho de la banda)</label>
+              <input type="range" id="tn-h" min="0" max="30" step="1" value="10">
+              <span class="val" id="tn-h-v">1,0 &deg;C</span>
+            </div>
+            <div class="tn-fila">
+              <label for="tn-ext">Temperatura de la calle</label>
+              <input type="range" id="tn-ext" min="-5" max="18" step="1" value="5">
+              <span class="val" id="tn-ext-v">5 &deg;C</span>
+            </div>
+            <div class="tn-fila">
+              <label for="tn-pot">Potencia de la caldera</label>
+              <input type="range" id="tn-pot" min="1000" max="5000" step="250" value="2500">
+              <span class="val" id="tn-pot-v">2500 W</span>
+            </div>
+            <label class="tn-chk"><input type="checkbox" id="tn-retardo">
+              el term&oacute;stato est&aacute; metido en su caja y se entera tarde (retardo de 2 min)</label>
+          </div>
+          <div class="tn-tablero" id="tn-tablero"></div>
+        </div>
+        <div class="pie" id="pie-tn"></div>
+      </div>
+
+      <style>
+      .tn-mandos{margin-top:10px}
+      .tn-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .tn-fila label{min-width:225px}
+      .tn-fila input[type="range"]{flex:1 1 150px;min-width:130px;accent-color:var(--goo-azul)}
+      .tn-fila .val{font-weight:500;color:var(--goo-azul);min-width:74px;text-align:right}
+      .tn-chk{display:flex;align-items:center;gap:8px;font-family:var(--f-m);font-size:12.5px;
+        color:var(--ink-soft);margin:2px 0 0;cursor:pointer;line-height:1.5}
+      .tn-chk input{accent-color:var(--goo-azul);flex:none}
+      .tn-tablero{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));margin-top:13px}
+      .tn-dato{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:9px 11px}
+      .tn-dato span{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;
+        text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px;line-height:1.4}
+      .tn-dato b{font-family:var(--f-m);font-size:18px;font-weight:500;color:var(--ink)}
+      .tn-dato.malo b{color:var(--goo-rojo)}
+      .tn-dato.bien b{color:var(--goo-verde)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-tn');
+        if(!svg) return;
+        var caja = document.getElementById('esc-tn');
+        var pie  = document.getElementById('pie-tn');
+        var tab  = document.getElementById('tn-tablero');
+
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+        function n2(x){ return x.toFixed(2).replace('.', ','); }
+        function n0(x){ return Math.round(x).toString(); }
+
+        /* ---- la habitacion -------------------------------------------
+           C * dT/dt = u*P - k*(T - Text).   C y k son los de un dormitorio
+           con radiador: la constante de tiempo sale de C/k = 4.167 s, algo
+           mas de una hora, que es lo que tarda de verdad en enfriarse.     */
+        var C = 250000, K = 60, DT = 2, HORAS = 3;
+        var TAU_S = 120;                      /* retardo del sensor, en s   */
+
+        var v = {ref:21, h:1.0, ext:5, pot:2500, retardo:false};
+
+        /* Simula HORAS horas y devuelve la serie y las medidas. Nada de esto
+           esta escrito a mano: son cuentas sobre la ultima hora.           */
+        function simula(){
+          var n = HORAS * 3600 / DT;
+          var T = v.ext, Ts = v.ext, on = true;
+          var serie = [], cambios = [], i, u, encendidos = 0, ultima = 'on';
+          for(i = 0; i < n; i++){
+            var medida = v.retardo ? Ts : T;
+            /* termostato de dos posiciones con hysteresis simetrica */
+            if(on && medida > v.ref + v.h / 2) on = false;
+            else if(!on && medida < v.ref - v.h / 2) on = true;
+            if(on !== (ultima === 'on')){ cambios.push(i * DT); ultima = on ? 'on' : 'off'; }
+            u = on ? 1 : 0;
+            if(on) encendidos++;
+            T  += DT * (u * v.pot - K * (T - v.ext)) / C;
+            Ts += DT * (T - Ts) / TAU_S;
+            serie.push([i * DT, T, on]);
+          }
+          /* las medidas se toman en la ULTIMA hora: la primera es el arranque */
+          var desde = (HORAS - 1) * 3600, lo = 1e9, hi = -1e9, suma = 0, cnt = 0, onc = 0;
+          for(i = 0; i < serie.length; i++){
+            if(serie[i][0] < desde) continue;
+            lo = Math.min(lo, serie[i][1]); hi = Math.max(hi, serie[i][1]);
+            suma += serie[i][1]; cnt++;
+            if(serie[i][2]) onc++;
+          }
+          var conm = 0;
+          for(i = 0; i < cambios.length; i++) if(cambios[i] >= desde) conm++;
+          /* un ciclo completo son dos conmutaciones (enciende y apaga) */
+          return {serie:serie, ciclos:conm / 2, amplitud:hi - lo, media:suma / Math.max(1, cnt),
+                  min:lo, max:hi, uso:100 * onc / Math.max(1, cnt)};
+        }
+
+        function pinta(){
+          var R = simula();
+          var X0 = 58, X1 = 672, Y0 = 20, Y1 = 232;
+          var lo = Math.min(v.ref - 3, R.min - 0.6), hi = Math.max(v.ref + 3, R.max + 0.6);
+          var px = function(s){ return X0 + (X1 - X0) * s / (HORAS * 3600); };
+          var py = function(T){ return Y1 - (Y1 - Y0) * (T - lo) / (hi - lo); };
+          /* La escala se elige para que se vea el diente de sierra, y el
+             calentamiento inicial arranca desde la temperatura de la calle, muy
+             por debajo. Se recorta al marco en vez de reescalar: si no, el
+             rizado, que es lo que hay que mirar, se quedaria en una raya. */
+          var m = '<defs><clipPath id="tn-marco"><rect x="' + X0 + '" y="' + Y0 + '" width="'
+                + (X1 - X0) + '" height="' + (Y1 - Y0) + '"/></clipPath></defs>', g;
+
+          /* banda de la histeresis */
+          m += '<rect x="' + X0 + '" y="' + py(v.ref + v.h / 2).toFixed(1) + '" width="' + (X1 - X0)
+             + '" height="' + Math.max(1, (py(v.ref - v.h / 2) - py(v.ref + v.h / 2))).toFixed(1)
+             + '" fill="#1a73e8" opacity=".10"/>';
+          for(g = Math.ceil(lo); g <= hi; g++){
+            m += '<line x1="' + X0 + '" y1="' + py(g).toFixed(1) + '" x2="' + X1 + '" y2="'
+               + py(g).toFixed(1) + '" stroke="currentColor" stroke-width="1" opacity=".11"/>'
+               + '<text x="' + (X0 - 6) + '" y="' + (py(g) + 4).toFixed(1)
+               + '" class="ejeq" text-anchor="end">' + g + '</text>';
+          }
+          var hh;
+          for(hh = 0; hh <= HORAS * 60; hh += 30){
+            m += '<text x="' + px(hh * 60).toFixed(1) + '" y="' + (Y1 + 16)
+               + '" class="ejeq" text-anchor="middle">' + hh + '</text>';
+          }
+
+          /* consigna */
+          m += '<line x1="' + X0 + '" y1="' + py(v.ref).toFixed(1) + '" x2="' + X1 + '" y2="'
+             + py(v.ref).toFixed(1) + '" stroke="currentColor" stroke-width="1.5"'
+             + ' stroke-dasharray="6 4" opacity=".6"/>'
+             + '<text x="' + (X0 + 5) + '" y="' + (py(v.ref) - 6).toFixed(1) + '" class="etq">consigna '
+             + n0(v.ref) + ' &deg;C</text>';
+
+          /* la curva: es la integracion, muestreada para no pintar 5.400 puntos */
+          var i, d = '', salto = Math.ceil(R.serie.length / 600);
+          for(i = 0; i < R.serie.length; i += salto){
+            d += (i ? ' L ' : 'M ') + px(R.serie[i][0]).toFixed(1) + ' ' + py(R.serie[i][1]).toFixed(1);
+          }
+          m += '<path d="' + d + '" fill="none" stroke="#1a73e8" stroke-width="2"'
+             + ' clip-path="url(#tn-marco)"/>';
+          if(v.ext < lo){
+            m += '<text x="' + (X0 + 5) + '" y="' + (Y1 - 7) + '" class="ejeq">la subida arranca '
+               + 'desde los ' + n0(v.ext) + ' &deg;C de la calle, por debajo del recuadro</text>';
+          }
+
+          /* la barra de encendido/apagado, debajo */
+          var yb = 250;
+          m += '<text x="' + (X0 - 6) + '" y="' + (yb + 11)
+             + '" class="ejeq" text-anchor="end">caldera</text>';
+          var j, tr = null;
+          for(j = 0; j < R.serie.length; j++){
+            if(R.serie[j][2] && tr === null) tr = R.serie[j][0];
+            if((!R.serie[j][2] || j === R.serie.length - 1) && tr !== null){
+              m += '<rect x="' + px(tr).toFixed(1) + '" y="' + yb + '" width="'
+                 + Math.max(0.6, px(R.serie[j][0]) - px(tr)).toFixed(1)
+                 + '" height="15" fill="#ea4335" opacity=".75"/>';
+              tr = null;
+            }
+          }
+          m += '<rect x="' + X0 + '" y="' + yb + '" width="' + (X1 - X0)
+             + '" height="15" fill="none" stroke="currentColor" stroke-width="1" opacity=".3"/>';
+          m += '<text x="' + X0 + '" y="' + (Y0 - 6) + '" class="ejeq">grados dentro de la habitaci&oacute;n</text>';
+          m += '<text x="' + (X0 + 2) + '" y="' + (yb + 33) + '" class="ejeq">minutos &middot; las '
+             + 'medidas del tablero se toman en la &uacute;ltima hora, cuando ya se ha '
+             + 'estabilizado</text>';
+
+          svg.innerHTML = m;
+
+          /* ---- el tablero: todo medido sobre la simulacion ---- */
+          var vida = R.ciclos > 0 ? 100000 / R.ciclos : 0;
+          var cls = R.ciclos > 20 ? ' malo' : (R.ciclos > 0 ? ' bien' : ' malo');
+          tab.innerHTML =
+            '<div class="tn-dato' + cls + '"><span>ciclos por hora</span><b id="tn-ciclos">'
+              + n1(R.ciclos) + '</b></div>'
+          + '<div class="tn-dato"><span>oscilaci&oacute;n</span><b id="tn-amp">'
+              + n1(R.amplitud) + ' &deg;C</b></div>'
+          + '<div class="tn-dato"><span>temperatura media</span><b id="tn-media">'
+              + n1(R.media) + ' &deg;C</b></div>'
+          + '<div class="tn-dato"><span>tiempo encendida</span><b id="tn-uso">'
+              + n0(R.uso) + ' %</b></div>'
+          + '<div class="tn-dato"><span>vida del rel&eacute; (100.000 ciclos)</span><b id="tn-vida">'
+              + (R.ciclos > 0 ? n0(vida) + ' h' : '&mdash;') + '</b></div>';
+
+          /* la comprobacion de que la cuenta cuadra: en regimen, el tiempo
+             encendida tiene que ser el que pide el balance de energia      */
+          var teorico = 100 * K * (R.media - v.ext) / v.pot;
+          pie.innerHTML =
+            '<b>Hist&eacute;resis de ' + n1(v.h) + ' &deg;C:</b> enciende al bajar de '
+            + n1(v.ref - v.h / 2) + ' &deg;C y apaga al pasar de ' + n1(v.ref + v.h / 2) + ' &deg;C. '
+            + 'La caldera est&aacute; encendida el <b>' + n1(R.uso) + ' %</b> del tiempo, y el balance '
+            + 'de energ&iacute;a dice que ten&iacute;a que ser 60 &times; (' + n1(R.media) + ' &minus; '
+            + n0(v.ext) + ') / ' + v.pot + ' = <b>' + n1(teorico) + ' %</b>: la simulaci&oacute;n y la '
+            + 'cuenta dicen lo mismo, con unas d&eacute;cimas de diferencia porque en la &uacute;ltima '
+            + 'hora no cabe un n&uacute;mero entero de ciclos.'
+            + (v.h < 0.25 ? ' <b>Con la banda casi a cero</b> el rel&eacute; conmuta a cada paso de '
+                          + 'c&aacute;lculo: en un term&oacute;stato de verdad, eso lo funde.' : '')
+            + (v.retardo ? ' <b>Con el sensor dentro de la caja</b> la habitaci&oacute;n oscila '
+                         + n1(R.amplitud) + ' &deg;C, m&aacute;s que la banda de ' + n1(v.h)
+                         + ' &deg;C que hab&iacute;as puesto: cuando el term&oacute;stato se entera, '
+                         + 'la habitaci&oacute;n ya se ha pasado.' : '');
+        }
+
+        function mando(id, clave, sufijo, escala){
+          var r = document.getElementById(id);
+          r.addEventListener('input', function(){
+            v[clave] = escala ? (+r.value) * escala : (+r.value);
+            document.getElementById(id + '-v').innerHTML =
+              (escala ? n1(v[clave]) : r.value) + sufijo;
+            pinta();
+          });
+        }
+        mando('tn-ref', 'ref', ' &deg;C');
+        mando('tn-h', 'h', ' &deg;C', 0.1);
+        mando('tn-ext', 'ext', ' &deg;C');
+        mando('tn-pot', 'pot', ' W');
+        document.getElementById('tn-retardo').addEventListener('change', function(){
+          v.retardo = this.checked; pinta();
+        });
+        caja.addEventListener('click', function(e){
+          if(!e.target.closest('[data-a="reset"]')) return;
+          v = {ref:21, h:1.0, ext:5, pot:2500, retardo:false};
+          document.getElementById('tn-ref').value = 21;
+          document.getElementById('tn-h').value = 10;
+          document.getElementById('tn-ext').value = 5;
+          document.getElementById('tn-pot').value = 2500;
+          document.getElementById('tn-retardo').checked = false;
+          document.getElementById('tn-ref-v').innerHTML = '21 &deg;C';
+          document.getElementById('tn-h-v').innerHTML = '1,0 &deg;C';
+          document.getElementById('tn-ext-v').innerHTML = '5 &deg;C';
+          document.getElementById('tn-pot-v').innerHTML = '2500 W';
+          pinta();
+        });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Lo que se gana y lo que se paga</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Banda estrecha</b></td>
+              <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Banda ancha</b></td></tr>
+          <tr><td style="padding:5px 6px">Temperatura</td>
+              <td style="padding:5px 6px">Ajustada, no se nota</td>
+              <td style="padding:5px 6px">Se nota fr&iacute;o y calor</td></tr>
+          <tr><td style="padding:5px 6px">Conmutaciones</td>
+              <td style="padding:5px 6px">Muchas</td><td style="padding:5px 6px">Pocas</td></tr>
+          <tr><td style="padding:5px 6px">Vida del rel&eacute;</td>
+              <td style="padding:5px 6px">Corta</td><td style="padding:5px 6px">Larga</td></tr>
+          <tr><td style="padding:5px 6px">Arranques de la caldera</td>
+              <td style="padding:5px 6px">Muchos (y arrancar desgasta y consume)</td>
+              <td style="padding:5px 6px">Pocos</td></tr>
+        </table>
+        <p><b>La cuenta de la vida del rel&eacute;:</b> horas = ciclos que aguanta / ciclos por hora.
+           Con 100.000 ciclos y 8,5 ciclos a la hora salen <b>11.700 horas</b>. Con 43 ciclos a la
+           hora, <b>2.300 horas</b>: cinco veces menos, por haber querido medio grado m&aacute;s de
+           precisi&oacute;n.</p>
+      </div>
+
+      <h3>El term&oacute;stato que no llevaba programa</h3>
+      <figure class="foto">
+        <img src="../../../img/c4-bimetal.jpg" alt="Dos espirales met&aacute;licas planas de term&oacute;stato, apoyadas sobre fondo blanco; en el canto de la de la derecha se distinguen las dos capas de metal distinto" loading="lazy">
+        <figcaption>Dos <b>espirales bimet&aacute;licas</b> de term&oacute;stato. Son dos metales distintos pegados en l&aacute;mina: como uno se dilata m&aacute;s que el otro, al calentarse la tira se curva, y enrollada en espiral esa curvatura se convierte en <b>giro</b>. F&iacute;jate en el canto de la de la derecha: se ven las <b>dos capas</b>. Aqu&iacute; la misma pieza es <b>sensor y comparador</b>, sin una l&iacute;nea de c&oacute;digo.
+          <span class="credito">Shorenster &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Bobina_Bimet%C3%A1lica_termostato.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Los term&oacute;statos antiguos llevaban, en la punta de esa espiral, una
+           <b>ampolla de vidrio con una gota de mercurio</b>. Al girar la espiral, la ampolla se
+           inclinaba y la gota rodaba de un extremo al otro cerrando o abriendo el contacto.</p>
+        <p>Y ah&iacute; est&aacute; lo bonito: para que la gota volviera, la ampolla ten&iacute;a que
+           inclinarse <b>bastante m&aacute;s</b> que lo que hab&iacute;a costado echarla. Es decir,
+           <b>la hist&eacute;resis sal&iacute;a gratis</b>, de la propia f&iacute;sica de la gota.
+           En un term&oacute;stato electr&oacute;nico no hay gota, y por eso hay que
+           <b>program&aacute;rsela</b>. Lo que antes era una limitaci&oacute;n del cacharro, hoy es una
+           decisi&oacute;n de dise&ntilde;o.</p>
+      </div>
+
+      <h3>El sensor que se entera tarde</h3>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Marca en la escena la casilla del <b>retardo</b> y mira la amplitud. Con la misma banda de
+           1&nbsp;&deg;C, la habitaci&oacute;n oscila <b>bastante m&aacute;s de un grado</b>. Y no has
+           tocado la banda.</p>
+        <p>Lo que pasa es que el term&oacute;stato mide <b>lo que hab&iacute;a hace dos minutos</b>.
+           Cuando se entera de que ya ha llegado a 21,5 y manda apagar, la habitaci&oacute;n de verdad
+           va por 22,2. Y al rev&eacute;s al enfriarse. <b>El retardo se paga siempre en
+           sobrepasamiento</b>, y es la razón de que un term&oacute;stato se ponga <b>en la pared, a
+           metro y medio del suelo, lejos del radiador, de la ventana y de la tele</b>. No es
+           est&eacute;tica: es que ah&iacute; se entera antes.</p>
+        <p>Lo mismo te va a pasar en el riego. El agua tarda en llegar a la sonda; si no lo tienes en
+           cuenta, el sistema sigue regando cuando ya sobra.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>El porcentaje de tiempo encendida no lo eliges t&uacute;.</b> Sale del balance de
+           energ&iacute;a: lo que entra por la caldera tiene que igualar a lo que se escapa por las
+           paredes. Por eso la escena, adem&aacute;s de medirlo sobre la simulaci&oacute;n, te ense&ntilde;a
+           la cuenta 60 &middot; (T &minus; T<sub>calle</sub>) / P al lado: son el mismo n&uacute;mero.</p>
+        <p>Y de ah&iacute; sale algo que sorprende: <b>poner una caldera m&aacute;s potente no calienta
+           m&aacute;s</b>, porque el term&oacute;stato la apaga antes. Lo que hace es <b>conmutar
+           m&aacute;s a menudo</b>. Sube la potencia en la escena y mira los ciclos por hora.</p>
+      </div>
+      <div class="video" id="video-c4-s3" data-vid="i_GwbZLur2Y">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Term&oacute;stato on-off sin y con hist&eacute;resis">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Term&oacute;stato on-off sin y con hist&eacute;resis</b>
+            <span>sergiotecnoedu</span>
+          </span>
+        </button>
+        <p class="video-nota">El mismo experimento de la escena, montado con componentes de verdad. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=i_GwbZLur2Y" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 &middot; Ajustar el term&oacute;stato, con la tabla delante</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; La tabla (8 min)</h4>
+          <p>Con la escena, dejad la consigna en 21&nbsp;&deg;C, la calle en 5&nbsp;&deg;C y la caldera
+             en 2500&nbsp;W, y rellenad esta tabla en la libreta moviendo <b>solo</b> la
+             hist&eacute;resis:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Banda</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Ciclos/hora</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Oscila</b></td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Vida del rel&eacute;</b></td></tr>
+            <tr><td style="padding:5px 6px">0,2 &deg;C</td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">0,5 &deg;C</td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">1,0 &deg;C</td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">2,0 &deg;C</td><td></td><td></td><td></td></tr>
+            <tr><td style="padding:5px 6px">3,0 &deg;C</td><td></td><td></td><td></td></tr>
+          </table>
+          <h4>Segunda parte &middot; Decidir (4 min)</h4>
+          <p>Elegid una banda para el aula y <b>justificadla con dos n&uacute;meros de vuestra
+             tabla</b>. No vale &laquo;porque es la del medio&raquo;. Y a&ntilde;adid una l&iacute;nea:
+             &iquest;qu&eacute; cambiar&iacute;ais si en vez de una calefacci&oacute;n fuera la nevera
+             del comedor, donde medio grado de m&aacute;s estropea la comida?</p>
+          <h4>Tercera parte &middot; El retardo (5 min)</h4>
+          <p>Volved a 1,0&nbsp;&deg;C y marcad la casilla del <b>retardo</b>.</p>
+          <ol>
+            <li>&iquest;Cu&aacute;nto oscila ahora? &iquest;Cu&aacute;nto se ha pasado de la banda que
+                hab&iacute;ais puesto?</li>
+            <li>&iquest;Sigue valiendo la banda que elegisteis? Si no, &iquest;hay que subirla o
+                bajarla?</li>
+            <li>Escribid en una l&iacute;nea d&oacute;nde <b>no</b> pondr&iacute;ais el sensor de
+                vuestro proyecto, y por qu&eacute;.</li>
+          </ol>
+          <h4>Cuarta parte &middot; El programa (3 min)</h4>
+          <p>Escribid el pseudoc&oacute;digo del controlador con hist&eacute;resis para
+             <b>vuestro</b> proyecto, con vuestra magnitud y vuestros dos umbrales. Ojo a la variable
+             que se acuerda del estado: sin ella no hay hist&eacute;resis.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla completa, con las cuatro columnas <b>(4 puntos)</b>.</li>
+            <li>La banda elegida y justificada con n&uacute;meros de la tabla <b>(2 puntos)</b>.</li>
+            <li>El retardo medido y su consecuencia sobre la decisi&oacute;n <b>(2 puntos)</b>.</li>
+            <li>El pseudoc&oacute;digo, con la variable de estado <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; un control todo-nada <b>tiene</b> que oscilar?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque su actuador solo sabe estar a tope o parado. Mientras calienta, sube; mientras no, baja. No hay ning&uacute;n ajuste que lo deje quieto: lo &uacute;nico que se puede elegir es <b>cu&aacute;nto</b> oscila.</p></div></details></li>
+        <li>Consigna 21&nbsp;&deg;C y banda de 1,4&nbsp;&deg;C. &iquest;A qu&eacute; temperaturas enciende y apaga?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Enciende al bajar de 21 &minus; 0,7 = <b>20,3&nbsp;&deg;C</b> y apaga al pasar de 21 + 0,7 = <b>21,7&nbsp;&deg;C</b>. La banda va repartida a los dos lados de la consigna.</p></div></details></li>
+        <li>Si estrechas la banda, &iquest;qu&eacute; ganas y qu&eacute; pierdes?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Ganas precisi&oacute;n: la temperatura se nota menos. Pierdes vida del rel&eacute; y arranques de la caldera, que es lo que m&aacute;s la desgasta. Con 100.000 ciclos, pasar de 8 a 43 ciclos por hora divide la vida entre cinco.</p></div></details></li>
+        <li>La banda es de 1&nbsp;&deg;C y la habitaci&oacute;n oscila 2,4. &iquest;Qu&eacute; pasa?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que el sensor mide <b>tarde</b>. Cuando avisa de que hay que apagar, la habitaci&oacute;n ya se ha pasado, y otro tanto al enfriarse. El retardo siempre se paga en sobrepasamiento, y por eso importa <b>d&oacute;nde</b> se coloca el sensor.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes medir, comparar y decidir. Pero <b>decidir no mueve nada</b>. Lo que abre la barrera,
+        levanta la tapa o sube el dep&oacute;sito es un motor, y hay que elegirlo con n&uacute;meros:
+        los engranajes de 2.&ordm; vuelven, esta vez para calcular <b>qu&eacute; fuerza de giro</b>
+        hace falta y si el motor que ten&eacute;is la da.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>Decidir no mueve nada</h2>
+      <p>El servo pone 1,8&nbsp;kg&middot;cm y el list&oacute;n pesa 150&nbsp;g. No sobra: no llega, y por m&aacute;s de tres veces.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Test</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 a B.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Un encargo del centro: una <b>barrera</b> para la entrada del aparcamiento de bicis, que se
+         abra sola cuando alguien pasa la tarjeta. Ya sabes montar el sensor, el comparador y el
+         actuador. El actuador va a ser un <b>servo SG90</b>, que cuesta dos euros y en su hoja de
+         caracter&iacute;sticas pone <b>1,8&nbsp;kg&middot;cm</b>.</p>
+      <p>La barrera es un list&oacute;n de pino de <b>80&nbsp;cm</b> que pesa <b>150&nbsp;g</b>, y gira
+         sobre uno de sus extremos.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>1,8&nbsp;kg son 1800 gramos, y el list&oacute;n pesa 150. Sobra por doce, &iquest;no?
+           Escr&iacute;belo antes de seguir leyendo: &iquest;s&iacute; o no?</p>
+      </div>
+      <p>No sobra: <b>no llega</b>. Y no por poco, sino por m&aacute;s de tres veces. Vamos a ver
+         d&oacute;nde est&aacute; la trampa, porque es la misma que hace que puedas abrir una puerta
+         con un dedo por el pomo y no puedas moverla empujando junto a la bisagra.</p>
+      <p><b>Levantar</b> un peso y <b>girarlo desde un extremo</b> no son la misma cosa.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <div class="copiar">
+        <h4>El par</h4>
+        <p><b>Par</b> (o momento de una fuerza): lo que mide la capacidad de una fuerza para hacer
+           girar algo alrededor de un eje.</p>
+        <p style="font-size:18px;text-align:center;margin:10px 0"><b>M = F &middot; d</b></p>
+        <p>F en <b>newtons</b>, d en <b>metros</b> (la distancia del eje a la l&iacute;nea de la
+           fuerza), M en <b>newton &middot; metro (N&middot;m)</b>. La misma fuerza, al doble de
+           distancia, hace el doble de par: eso es la palanca de 2.&ordm;, con su nombre de
+           mayor.</p>
+        <p><b>El peso</b> es una fuerza: P = m &middot; g, con g = <b>9,81&nbsp;m/s&sup2;</b>. Un kilo
+           pesa 9,81&nbsp;N.</p>
+        <p><b>Una barra uniforme</b> que gira sobre un extremo: todo su peso act&uacute;a como si
+           estuviera en el <b>centro</b>, as&iacute; que la distancia es <b>L/2</b>, no L. Este es
+           <b>el error m&aacute;s frecuente</b>, y da justo el doble.</p>
+      </div>
+      <div class="copiar">
+        <h4>Los kg&middot;cm de los cat&aacute;logos</h4>
+        <p>Los fabricantes de servos <b>no dan el par en N&middot;m</b>: lo dan en
+           <b>kg&middot;cm</b>. Eso no es una unidad de par de verdad; es una abreviatura de
+           &laquo;<b>el peso de 1&nbsp;kg colgado a 1&nbsp;cm del eje</b>&raquo;.</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>1 kg&middot;cm = 1 &middot; 9,81&nbsp;N &middot; 0,01&nbsp;m = 0,0981&nbsp;N&middot;m</b></p>
+        <p>As&iacute; que un servo de 1,8&nbsp;kg&middot;cm da
+           1,8 &middot; 0,0981 = <b>0,177&nbsp;N&middot;m</b>. Y ahora ya se pueden comparar peras con
+           peras.</p>
+      </div>
+
+      <h3>La barrera, con la cuenta entera</h3>
+      <div class="copiar">
+        <h4>Paso a paso, con las unidades en cada l&iacute;nea</h4>
+        <ol>
+          <li>Peso del list&oacute;n: P = m &middot; g = 0,150&nbsp;kg &middot; 9,81&nbsp;m/s&sup2; =
+              <b>1,47&nbsp;N</b></li>
+          <li>Distancia al eje (barra uniforme): d = L/2 = 0,80/2 = <b>0,40&nbsp;m</b></li>
+          <li>Par necesario: M = F &middot; d = 1,47 &middot; 0,40 = <b>0,589&nbsp;N&middot;m</b></li>
+          <li>En kg&middot;cm: 0,589 / 0,0981 = <b>6,0&nbsp;kg&middot;cm</b></li>
+          <li>El servo da 1,8. Hace falta 6,0. <b>No vale</b>: pide 3,3 veces m&aacute;s.</li>
+        </ol>
+        <p>Y ojo al caso que hay que calcular: el <b>peor</b>. El par m&aacute;ximo se pide con la
+           barrera <b>horizontal</b>; cuando est&aacute; vertical, el par es cero. Si calculas con la
+           barrera a medio subir, te sale un n&uacute;mero bonito y el proyecto no arranca.</p>
+      </div>
+
+      <h3>Los engranajes de 2.&ordm;, ahora con par</h3>
+      <div class="copiar">
+        <h4>Relaci&oacute;n de transmisi&oacute;n, velocidad y par</h4>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>i = z<sub>1</sub> / z<sub>2</sub> = n<sub>2</sub> / n<sub>1</sub></b></p>
+        <p>Igual que en 2.&ordm;: z son dientes, n son vueltas por minuto, el 1 es la entrada (el
+           motor) y el 2, la salida. Lo nuevo es la otra mitad:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>n<sub>2</sub> = n<sub>1</sub> &middot; i</b> &nbsp;&nbsp;y&nbsp;&nbsp;
+           <b>M<sub>2</sub> = M<sub>1</sub> / i &middot; &eta;</b></p>
+        <p><b>Y esto no es una f&oacute;rmula que memorizar: es que la energ&iacute;a no se crea.</b>
+           La potencia de un eje que gira es P = M &middot; &omega;. Si a la salida las vueltas se
+           dividen entre tres, la potencia solo puede mantenerse si el par se multiplica por tres.
+           Reducir velocidad <b>es</b> multiplicar fuerza: lo mismo que la palanca, con otra
+           forma.</p>
+        <p><b>&eta; (rendimiento)</b>: lo que se pierde en rozamiento. En un par de engranajes de
+           pl&aacute;stico impreso, <b>0,90</b> es una estimaci&oacute;n razonable. Nunca es 1, y un
+           tren de tres etapas pierde tres veces.</p>
+        <p><b>Potencia:</b> P = M &middot; &omega;, con
+           &omega; = 2&pi; &middot; n / 60 (rad/s), M en N&middot;m y P en vatios.</p>
+      </div>
+      <p>Al banco de pruebas. Los engranajes est&aacute;n dibujados <b>a escala de verdad</b>: los dos
+         comparten el m&oacute;dulo (el tama&ntilde;o del diente), el radio es r = m&oacute;dulo
+         &middot; z / 2 y los ejes est&aacute;n a r<sub>1</sub>&nbsp;+&nbsp;r<sub>2</sub>, que es la
+         &uacute;nica distancia a la que dos ruedas engranan. Cambia los dientes y m&iacute;ralo.</p>
+
+      <div class="escena" id="esc-mt">
+        <div class="escena-barra">
+          <span class="escena-titulo">Banco de pruebas &middot; &iquest;con este motor y esta reductora, se mueve o no?</span>
+          <div class="seg" id="seg-mt">
+            <button type="button" data-m="0" aria-pressed="true">Barrera</button>
+            <button type="button" data-m="1">Tambor que iza</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 310" id="svg-mt" role="img"
+               aria-label="Par de engranajes dibujado a escala y el mecanismo que mueven"></svg>
+          <div class="mt-mandos">
+            <div class="mt-col">
+              <div class="mt-fila">
+                <label for="mt-motor">Motor</label>
+                <select id="mt-motor">
+                  <option value="0">Servo SG90 &middot; 1,8 kg&middot;cm &middot; 100 rpm</option>
+                  <option value="1" selected>Motorreductor TT 1:48 &middot; 0,8 kg&middot;cm &middot; 200 rpm</option>
+                  <option value="2">Motor DC de juguete &middot; 0,02 kg&middot;cm &middot; 9000 rpm</option>
+                </select>
+              </div>
+              <div class="mt-fila">
+                <label for="mt-z1">Dientes del pi&ntilde;&oacute;n (z&#8321;)</label>
+                <input type="range" id="mt-z1" min="8" max="40" step="1" value="16">
+                <span class="val" id="mt-z1-v">16</span>
+              </div>
+              <div class="mt-fila">
+                <label for="mt-z2">Dientes de la corona (z&#8322;)</label>
+                <input type="range" id="mt-z2" min="10" max="120" step="1" value="100">
+                <span class="val" id="mt-z2-v">100</span>
+              </div>
+            </div>
+            <div class="mt-col">
+              <div class="mt-fila">
+                <label for="mt-masa" id="mt-masa-l">Masa que hay que mover</label>
+                <input type="range" id="mt-masa" min="20" max="2000" step="10" value="150">
+                <span class="val" id="mt-masa-v">150 g</span>
+              </div>
+              <div class="mt-fila">
+                <label for="mt-brazo" id="mt-brazo-l">Longitud del list&oacute;n</label>
+                <input type="range" id="mt-brazo" min="10" max="120" step="1" value="80">
+                <span class="val" id="mt-brazo-v">80 cm</span>
+              </div>
+              <div class="mt-fila">
+                <label for="mt-contra" id="mt-contra-l">Contrapeso a 8 cm del eje</label>
+                <input type="range" id="mt-contra" min="0" max="1500" step="10" value="0">
+                <span class="val" id="mt-contra-v">0 g</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-tablero" id="mt-tablero"></div>
+        </div>
+        <div class="pie" id="pie-mt"></div>
+      </div>
+
+      <style>
+      .mt-mandos{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+      .mt-col{flex:1 1 300px;min-width:270px}
+      .mt-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .mt-fila label{min-width:160px}
+      .mt-fila input[type="range"]{flex:1 1 110px;min-width:100px;accent-color:var(--goo-azul)}
+      .mt-fila select{flex:1 1 200px;font-family:var(--f-m);font-size:12px;padding:5px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .mt-fila .val{font-weight:500;color:var(--goo-azul);min-width:56px;text-align:right}
+      .mt-tablero{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:13px}
+      .mt-dato{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:9px 11px}
+      .mt-dato span{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.06em;
+        text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px;line-height:1.4}
+      .mt-dato b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--ink)}
+      .mt-veredicto{margin:12px 0 0;border:2px solid var(--goo-verde);border-radius:2px;padding:11px 13px;
+        font-family:var(--f-m);font-size:13px;line-height:1.7;background:var(--surface)}
+      .mt-veredicto.no{border-color:var(--goo-rojo)}
+      .mt-veredicto.justo{border-color:var(--goo-amarillo)}
+      .mt-veredicto b{font-size:14px}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-mt');
+        if(!svg) return;
+        var caja = document.getElementById('esc-mt');
+        var seg  = document.getElementById('seg-mt');
+        var pie  = document.getElementById('pie-mt');
+        var tab  = document.getElementById('mt-tablero');
+
+        var G = 9.81, KGCM = 0.0980665;       /* 1 kg*cm = 0,0980665 N*m */
+        var RTO = 0.90;                        /* rendimiento del par de engranajes */
+
+        function n1(x){ return x.toFixed(1).replace('.', ','); }
+        function n2(x){ return x.toFixed(2).replace('.', ','); }
+        function n3(x){ return x.toFixed(3).replace('.', ','); }
+        function n0(x){ return Math.round(x).toString(); }
+
+        var MOTORES = [
+          {nom:'Servo SG90',              par:1.8,  rpm:100,  nota:'a 4,8 V; 60&deg; en 0,1 s'},
+          {nom:'Motorreductor TT 1:48',   par:0.8,  rpm:200,  nota:'a 6 V'},
+          {nom:'Motor DC de juguete',     par:0.02, rpm:9000, nota:'tipo FA-130, a 3 V, par &uacute;til'}
+        ];
+
+        var v = {mec:0, mot:1, z1:16, z2:100, masa:150, brazo:80, contra:0};
+        var u = 0, sentido = 1, raf = null, reloj = null;
+
+        /* ---------------- geometria correcta del engranaje ---------------
+           Dos ruedas engranan solo si tienen el MISMO modulo. El radio
+           primitivo es r = modulo * z / 2, la cabeza del diente sale un
+           modulo por fuera y el pie entra 1,25 modulos. La distancia entre
+           ejes es r1 + r2, y para que un diente caiga en un hueco la segunda
+           rueda va desfasada medio paso.                                   */
+        function rueda(cx, cy, z, mod, fase){
+          var r = mod * z / 2, ra = r + mod, rf = Math.max(2, r - 1.25 * mod);
+          var p = 2 * Math.PI / z, d = '', k;
+          for(k = 0; k < z; k++){
+            var a = fase + k * p;
+            var Pt = function(rad, off){
+              return (cx + rad * Math.cos(a + off)).toFixed(2) + ' '
+                   + (cy + rad * Math.sin(a + off)).toFixed(2);
+            };
+            d += (k ? ' L ' : 'M ') + Pt(rf, -0.30 * p)
+               + ' L ' + Pt(r,  -0.25 * p)
+               + ' L ' + Pt(ra, -0.14 * p)
+               + ' L ' + Pt(ra,  0.14 * p)
+               + ' L ' + Pt(r,   0.25 * p)
+               + ' L ' + Pt(rf,  0.30 * p)
+               + ' A ' + rf.toFixed(2) + ' ' + rf.toFixed(2) + ' 0 0 1 ' + Pt(rf, 0.70 * p);
+          }
+          return d + ' Z';
+        }
+
+        /* ---------------- las cuentas ---------------------------------- */
+        function calcula(){
+          var M = MOTORES[v.mot];
+          var i = v.z1 / v.z2;                        /* i = z1/z2 = n2/n1 */
+          var n2v = M.rpm * i;                        /* rpm de salida     */
+          var parDisp = M.par / i * RTO;              /* kg*cm en la salida*/
+          var parNec, detalle, recorrido, unidades, vueltas = 0.25;
+          if(v.mec === 0){
+            /* listón uniforme que gira sobre un extremo: el peso tira desde
+               el centro, asi que el brazo es L/2. El contrapeso resta.     */
+            var Nm = (v.masa / 1000) * G * (v.brazo / 100) / 2
+                   - (v.contra / 1000) * G * 0.08;
+            parNec = Math.max(0, Nm) / KGCM;
+            detalle = 'M = m &middot; g &middot; L/2 &minus; m&#8329; &middot; g &middot; d&#8329; = '
+                    + n3(v.masa / 1000) + ' &middot; 9,81 &middot; ' + n2(v.brazo / 200)
+                    + (v.contra ? (' &minus; ' + n3(v.contra / 1000) + ' &middot; 9,81 &middot; 0,08') : '')
+                    + ' = <b>' + n3(Math.max(0, Nm)) + ' N&middot;m</b>';
+            recorrido = 90 / (6 * n2v);               /* 90 grados, a 6*rpm grados/s */
+            unidades = 'en subir la barrera 90&deg;';
+          } else {
+            /* tambor de radio r que iza una masa: M = m*g*r.
+               El mando entrega decimas de milimetro por comodidad: 150 -> 15,0 mm */
+            var r = v.brazo / 10 / 1000;              /* decimas de mm -> metros */
+            var Nm2 = (v.masa / 1000) * G * r;
+            parNec = Nm2 / KGCM;
+            detalle = 'M = m &middot; g &middot; r = ' + n3(v.masa / 1000) + ' &middot; 9,81 &middot; '
+                    + n3(r) + ' = <b>' + n3(Nm2) + ' N&middot;m</b>';
+            /* subir 30 cm: vueltas = 0,30 / (2*pi*r) */
+            vueltas = 0.30 / (2 * Math.PI * r);
+            recorrido = n2v > 0 ? vueltas / n2v * 60 : 0;
+            unidades = 'en izar 30 cm';
+          }
+          var pot = parDisp * KGCM * 2 * Math.PI * n2v / 60;   /* W en la salida */
+          return {M:M, i:i, n2:n2v, parDisp:parDisp, parNec:parNec, detalle:detalle,
+                  recorrido:recorrido, unidades:unidades, pot:pot, vueltas:vueltas,
+                  margen: parNec > 0 ? parDisp / parNec : 99};
+        }
+
+        function pinta(){
+          var R = calcula();
+          var m = '';
+
+          /* ---- posicion del mecanismo y, DE AHI, la de las dos ruedas ----
+             El eje de salida es el que manda: la barrera recorre 90 grados y
+             el tambor da las vueltas que salen de la cuenta. El pinon gira lo
+             que le toca por la relacion, th1 = -th2 / i, y la corona engrana
+             con el desfase de medio paso.                                   */
+          var th2 = (v.mec === 0) ? u * Math.PI / 2 : u * R.vueltas * 2 * Math.PI;
+          var th1 = -th2 / R.i;
+
+          /* ---- el par de engranajes, a escala ---- */
+          var WD = 366, HD = 226, X0 = 12, Y0 = 18;
+          var mod = Math.min(WD / (v.z1 + v.z2 + 2), HD / (Math.max(v.z1, v.z2) + 2));
+          var r1 = mod * v.z1 / 2, r2 = mod * v.z2 / 2;
+          var total = mod * (v.z1 + v.z2 + 2);
+          var cx1 = X0 + (WD - total) / 2 + r1 + mod;
+          var cx2 = cx1 + r1 + r2;
+          var cy  = Y0 + HD / 2;
+          var p2 = 2 * Math.PI / v.z2;
+          m += '<path d="' + rueda(cx1, cy, v.z1, mod, th1)
+             + '" fill="var(--accent-soft)" stroke="#1a73e8" stroke-width="1.6"/>'
+             + '<circle cx="' + cx1.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="'
+             + Math.max(3, r1 * 0.22).toFixed(1) + '" fill="var(--surface)" stroke="#1a73e8" stroke-width="1.6"/>';
+          m += '<path d="' + rueda(cx2, cy, v.z2, mod, Math.PI + p2 / 2 + th2)
+             + '" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.6"/>'
+             + '<circle cx="' + cx2.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="'
+             + Math.max(3, r2 * 0.18).toFixed(1) + '" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/>';
+          /* Los rotulos van en una franja debajo de las ruedas: encima se los
+             comia la corona en cuanto z2 subia un poco. */
+          m += '<text x="' + (X0 + 2) + '" y="270" class="etq" style="fill:#1a73e8">z&#8321; = '
+             + v.z1 + ' (motor)</text>'
+             + '<text x="' + (X0 + 118) + '" y="270" class="etq">z&#8322; = ' + v.z2
+             + ' (salida)</text>'
+             + '<text x="' + (X0 + 2) + '" y="288" class="ejeq">mismo m&oacute;dulo &middot; '
+             + 'r = m&oacute;dulo &middot; z / 2 &middot; ejes a r&#8321; + r&#8322;</text>';
+
+          /* ---- el mecanismo ---- */
+          var MX = 400, MW = 278;
+          m += '<line x1="' + MX + '" y1="26" x2="' + MX + '" y2="286" stroke="currentColor"'
+             + ' stroke-width="1" opacity=".2"/>';
+          if(v.mec === 0){
+            /* barrera: el liston gira sobre su eje, entre 0 y 90 grados */
+            var ang = -th2;
+            var ex = MX + 44, ey = 232;
+            var L = 8 + v.brazo * 1.55;
+            m += '<rect x="' + (MX + 16) + '" y="232" width="56" height="42" fill="var(--surface-2)"'
+               + ' stroke="currentColor" stroke-width="1.4"/>'
+               + '<line x1="' + (MX + 10) + '" y1="274" x2="' + (MX + MW) + '" y2="274"'
+               + ' stroke="currentColor" stroke-width="2" opacity=".5"/>';
+            m += '<line x1="' + ex + '" y1="' + ey + '" x2="' + (ex + L * Math.cos(ang)).toFixed(1)
+               + '" y2="' + (ey + L * Math.sin(ang)).toFixed(1)
+               + '" stroke="#ea4335" stroke-width="7" stroke-linecap="round"/>'
+               + '<circle cx="' + ex + '" cy="' + ey + '" r="6" fill="var(--surface)"'
+               + ' stroke="currentColor" stroke-width="2"/>';
+            if(v.contra > 0){
+              m += '<circle cx="' + (ex - 22 * Math.cos(ang)).toFixed(1) + '" cy="'
+                 + (ey - 22 * Math.sin(ang)).toFixed(1) + '" r="'
+                 + (4 + Math.sqrt(v.contra) / 6).toFixed(1) + '" fill="#fbbc04" stroke="currentColor"'
+                 + ' stroke-width="1.4"/>';
+            }
+            m += '<text x="' + (MX + 12) + '" y="18" class="ejeq">barrera de ' + v.brazo
+               + ' cm &middot; ' + v.masa + ' g</text>';
+          } else {
+            /* tambor que iza: radio a escala, la carga sube de verdad */
+            var rmm = v.brazo / 10;                  /* mm */
+            var rp = Math.max(9, rmm * 2.6);
+            var tx = MX + 100, ty = 84;
+            var subida = u * 92;
+            m += '<line x1="' + (MX + 10) + '" y1="52" x2="' + (MX + MW) + '" y2="52"'
+               + ' stroke="currentColor" stroke-width="3" opacity=".5"/>';
+            m += '<circle cx="' + tx + '" cy="' + ty + '" r="' + rp.toFixed(1)
+               + '" fill="var(--accent-soft)" stroke="#1a73e8" stroke-width="2"/>'
+               + '<circle cx="' + tx + '" cy="' + ty + '" r="3" fill="#1a73e8"/>'
+               + '<line x1="' + tx + '" y1="' + (ty - rp).toFixed(1) + '" x2="' + tx + '" y2="52"'
+               + ' stroke="currentColor" stroke-width="1.4" opacity=".6"/>';
+            var lado = 16 + Math.sqrt(v.masa) * 0.9;
+            var cyy = 250 - subida;
+            m += '<line x1="' + (tx + rp).toFixed(1) + '" y1="' + ty + '" x2="'
+               + (tx + rp).toFixed(1) + '" y2="' + cyy.toFixed(1)
+               + '" stroke="currentColor" stroke-width="1.6"/>'
+               + '<rect x="' + (tx + rp - lado / 2).toFixed(1) + '" y="' + cyy.toFixed(1)
+               + '" width="' + lado.toFixed(1) + '" height="' + lado.toFixed(1)
+               + '" fill="#ea4335" opacity=".85" stroke="currentColor" stroke-width="1.2"/>'
+               + '<text x="' + (tx + rp).toFixed(1) + '" y="' + (cyy + lado / 2 + 4).toFixed(1)
+               + '" class="etq" text-anchor="middle" style="fill:#fff">' + v.masa + ' g</text>';
+            m += '<text x="' + (MX + 12) + '" y="18" class="ejeq">tambor de r = ' + n1(rmm)
+               + ' mm &middot; carga de ' + v.masa + ' g</text>';
+          }
+
+          svg.innerHTML = m;
+
+          /* ---- el tablero ---- */
+          tab.innerHTML =
+            '<div class="mt-dato"><span>relaci&oacute;n i = z&#8321;/z&#8322;</span><b id="mt-i">'
+              + n3(R.i) + '</b></div>'
+          + '<div class="mt-dato"><span>vueltas en la salida</span><b id="mt-rpm">'
+              + n1(R.n2) + ' rpm</b></div>'
+          + '<div class="mt-dato"><span>par que hace falta</span><b id="mt-nec">'
+              + n2(R.parNec) + ' kg&middot;cm</b></div>'
+          + '<div class="mt-dato"><span>par disponible</span><b id="mt-disp">'
+              + n2(R.parDisp) + ' kg&middot;cm</b></div>'
+          + '<div class="mt-dato"><span>tarda ' + R.unidades + '</span><b id="mt-t">'
+              + (R.n2 > 0 ? n1(R.recorrido) + ' s' : '&mdash;') + '</b></div>'
+          + '<div class="mt-dato"><span>potencia en la salida</span><b id="mt-pot">'
+              + n2(R.pot) + ' W</b></div>';
+
+          var clase = R.margen >= 2 ? '' : (R.margen >= 1 ? ' justo' : ' no');
+          var frase = R.margen >= 2
+            ? 'Sirve, y con margen: el par disponible es <b>' + n1(R.margen)
+              + ' veces</b> el que hace falta.'
+            : (R.margen >= 1
+              ? 'Se mueve, pero va justo: solo <b>' + n1(R.margen) + ' veces</b> el par necesario. '
+                + 'Con el rozamiento real y el arranque, es probable que se plante.'
+              : '<b>No se mueve.</b> El par disponible es solo <b>' + n1(R.margen)
+                + ' veces</b> el necesario: el motor se quedar&aacute; zumbando y calent&aacute;ndose.');
+
+          pie.innerHTML =
+            '<div class="mt-veredicto' + clase + '" id="mt-veredicto">'
+            + '<b>' + R.M.nom + '</b> (' + R.M.nota + ')<br>'
+            + 'Par necesario: ' + R.detalle + ' = <b>' + n2(R.parNec) + ' kg&middot;cm</b> '
+            + '(dividiendo entre 0,0981)<br>'
+            + 'Par disponible: M&#8322; = M&#8321; / i &middot; &eta; = ' + n2(R.M.par) + ' / '
+            + n3(R.i) + ' &middot; 0,90 = <b>' + n2(R.parDisp) + ' kg&middot;cm</b><br>'
+            + 'Velocidad: n&#8322; = n&#8321; &middot; i = ' + R.M.rpm + ' &middot; ' + n3(R.i)
+            + ' = <b>' + n1(R.n2) + ' rpm</b><br>'
+            + frase
+            + (R.recorrido > 0 && R.recorrido < 3
+               ? '<br><i>El dibujo va m&aacute;s lento que la realidad: la maniobra de verdad dura '
+                 + n1(R.recorrido) + ' s y en pantalla se alarga a 3 s para poder verla.</i>'
+               : '')
+            + '</div>';
+        }
+
+        /* El dibujo se mueve al ritmo que dice la cuenta: la maniobra completa
+           tarda en pantalla los segundos calculados. Si sale tan rapida que no
+           se ve (menos de 3 s), se alarga a 3 s y el pie lo dice. */
+        function cuadro(ahora){
+          if(reloj === null) reloj = ahora;
+          var dt = Math.min(0.1, (ahora - reloj) / 1000);
+          reloj = ahora;
+          var R = calcula();
+          var T = Math.max(3, R.recorrido);
+          if(T > 0 && isFinite(T)){
+            u += sentido * dt / T;
+            if(u >= 1){ u = 1; sentido = -1; }
+            if(u <= 0){ u = 0; sentido = 1; }
+          }
+          pinta();
+          raf = requestAnimationFrame(cuadro);
+        }
+
+        function mando(id, clave, sufijo, f){
+          var r = document.getElementById(id);
+          r.addEventListener('input', function(){
+            v[clave] = +r.value;
+            document.getElementById(id + '-v').innerHTML = (f ? f(+r.value) : r.value) + sufijo;
+            pinta();
+          });
+        }
+        mando('mt-z1', 'z1', '');
+        mando('mt-z2', 'z2', '');
+        mando('mt-masa', 'masa', ' g');
+        mando('mt-contra', 'contra', ' g');
+        document.getElementById('mt-brazo').addEventListener('input', function(){
+          v.brazo = +this.value;
+          document.getElementById('mt-brazo-v').innerHTML =
+            v.mec === 0 ? (v.brazo + ' cm') : (n1(v.brazo / 10) + ' mm');
+          pinta();
+        });
+        document.getElementById('mt-motor').addEventListener('change', function(){
+          v.mot = +this.value; pinta();
+        });
+
+        seg.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-m]');
+          if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          v.mec = +b.dataset.m;
+          var br = document.getElementById('mt-brazo');
+          if(v.mec === 0){
+            br.min = 10; br.max = 120; br.value = 80; v.brazo = 80;
+            document.getElementById('mt-brazo-l').innerHTML = 'Longitud del list&oacute;n';
+            document.getElementById('mt-brazo-v').innerHTML = '80 cm';
+            document.getElementById('mt-masa-l').innerHTML = 'Masa del list&oacute;n';
+            document.getElementById('mt-contra-l').innerHTML = 'Contrapeso a 8 cm del eje';
+            document.getElementById('mt-contra').disabled = false;
+          } else {
+            br.min = 50; br.max = 400; br.value = 150; v.brazo = 150;
+            document.getElementById('mt-brazo-l').innerHTML = 'Radio del tambor';
+            document.getElementById('mt-brazo-v').innerHTML = '15,0 mm';
+            document.getElementById('mt-masa-l').innerHTML = 'Masa que se iza';
+            document.getElementById('mt-contra-l').innerHTML = 'Contrapeso (aqu&iacute; no aplica)';
+            document.getElementById('mt-contra').disabled = true;
+            v.contra = 0;
+            document.getElementById('mt-contra').value = 0;
+            document.getElementById('mt-contra-v').innerHTML = '0 g';
+          }
+          pinta();
+        });
+
+        pinta();
+        raf = requestAnimationFrame(cuadro);
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Hay tres maneras de arreglar la barrera, y las tres salen de M = F &middot; d.</b></p>
+        <ul>
+          <li><b>Reducir</b>: meter engranajes. Con i = 1/4, el servo da
+              1,8 &middot; 4 &middot; 0,90 = 6,5&nbsp;kg&middot;cm. Justo justo, y adem&aacute;s el
+              servo solo gira 180&deg;: con esa reductora la barrera solo sube 45&deg;.</li>
+          <li><b>Acortar el brazo</b>: con 40&nbsp;cm en vez de 80, el par se cae a
+              <b>1,5&nbsp;kg&middot;cm</b>. Baja al <b>cuadrado</b>, porque el list&oacute;n mitad de
+              largo pesa la mitad <b>y</b> tiene el brazo mitad.</li>
+          <li><b>Contrapeso</b>: 500&nbsp;g a 8&nbsp;cm del eje, al otro lado, restan
+              0,5 &middot; 9,81 &middot; 0,08 = 0,39&nbsp;N&middot;m. Quedan
+              0,589 &minus; 0,39 = 0,196&nbsp;N&middot;m = <b>2,0&nbsp;kg&middot;cm</b>.</li>
+        </ul>
+        <p>El contrapeso es de lejos el m&aacute;s barato, no gasta energ&iacute;a y no se estropea.
+           Por eso <b>las barreras de verdad lo llevan</b>: la pr&oacute;xima que veas, m&iacute;rale
+           el codo. Esto es lo que quiere decir &laquo;resolverlo mec&aacute;nicamente&raquo;, y casi
+           siempre gana a resolverlo con m&aacute;s motor.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>C&oacute;mo se elige un motor (criterio de clase, no norma oficial)</h4>
+        <ol>
+          <li>Calcula el par necesario en el <b>caso peor</b>: barrera horizontal, dep&oacute;sito
+              lleno, tapa con basura encima.</li>
+          <li><b>Multipl&iacute;calo por 2.</b> Ese margen se lo comen el rozamiento de los ejes, el
+              par extra que hace falta para <b>arrancar</b> desde parado y la pila a media carga.</li>
+          <li>Busca un motor que d&eacute; ese par <b>a la velocidad que necesitas</b>. Si le falta
+              par, reduce con engranajes. Si le falta velocidad, la reductora <b>no</b> te va a
+              ayudar: al rev&eacute;s.</li>
+          <li>Comprueba el <b>tiempo de maniobra</b>. Una barrera que tarda 40 segundos en subir no
+              sirve, aunque el par cuadre.</li>
+        </ol>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Por qu&eacute; se quema un motor bloqueado.</b> La potencia mec&aacute;nica de salida es
+           P = M &middot; &omega;. Si el eje no gira, &omega; = 0, y la potencia mec&aacute;nica es
+           <b>cero</b>&hellip; pero la el&eacute;ctrica que entra no lo es, y encima es la m&aacute;xima,
+           porque un motor parado consume su corriente de bloqueo. Toda esa energ&iacute;a tiene que
+           irse a alg&uacute;n sitio, y se va a <b>calor</b> en los bobinados. Un motor atascado no es
+           un motor que descansa: es una estufa.</p>
+        <p><b>El tornillo sin fin.</b> Ya lo viste en 2.&ordm;: reducci&oacute;n enorme en muy poco
+           sitio, y <b>no se puede mover al rev&eacute;s</b>. En un sistema de control eso deja de ser
+           una curiosidad y pasa a ser <b>seguridad</b>: si se va la luz, la barrera <b>no se cae
+           sola</b>. Con engranajes rectos, s&iacute; se cae.</p>
+      </div>
+
+      <h3>Y para cerrar: el servo ya es todo esto por dentro</h3>
+      <figure class="foto">
+        <img src="../../../img/c4-servo-sg90.jpg" alt="Micro servo SG90 de caja azul translúcida, con su brazo blanco de pl&aacute;stico y el cable de tres hilos naranja, rojo y marr&oacute;n" loading="lazy">
+        <figcaption>Un <b>micro servo SG90</b>. Dentro de esa caja de dos euros hay: un motor de corriente continua, un <b>tren de engranajes</b> que reduce muchísimo (por eso da par y va despacio), un <b>potenci&oacute;metro</b> pegado al eje de salida y un circuito. El potenci&oacute;metro <b>mide el &aacute;ngulo</b>, el circuito lo <b>compara</b> con el que le pides por el cable naranja y le da al motor hasta que coinciden. Es decir: un servo <b>es</b> el diagrama de la sesi&oacute;n 2, entero, dentro de una pieza.
+          <span class="credito">Suyash Dwivedi &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Tower_Pro_SG90_micro_servo_motor.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>Por eso a un servo no le dices &laquo;gira&raquo; sino &laquo;ponte a 40 grados&raquo;: le
+         das una <b>consigna</b>, como al horno. Y por eso un motor de corriente continua a secas
+         <b>no</b> sabe hacer eso: no tiene con qu&eacute; enterarse de d&oacute;nde est&aacute;.</p>
+      <div class="video" id="video-c4-s4" data-vid="3JA5UTvTfYE">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Transmisi&oacute;n por engranajes: caracter&iacute;sticas y c&aacute;lculo">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Transmisi&oacute;n por engranajes: caracter&iacute;sticas y c&aacute;lculo</b>
+            <span>Daniel Reynaga</span>
+          </span>
+        </button>
+        <p class="video-nota">Repaso de la relaci&oacute;n de transmisi&oacute;n de 2.&ordm;, con el paso al par que se hace en esta sesi&oacute;n. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=3JA5UTvTfYE" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 &middot; El motor de vuestro proyecto</span>
+          <span class="chips"><span class="chip">CE4 &middot; 4.1</span></span>
+          <span>Grupos de 3 &middot; 15 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; El par, a mano (7 min)</h4>
+          <p>Elegid uno de los cinco proyectos con parte m&oacute;vil (barrera, tapa del contenedor,
+             dep&oacute;sito del riego que se inclina, brazo de la l&aacute;mpara) y calculad el
+             <b>par necesario en el caso peor</b>, en la libreta, con <b>todos los pasos y las
+             unidades en cada l&iacute;nea</b>, como en el recuadro de la teor&iacute;a.</p>
+          <p>Estimad las masas a ojo si hace falta, pero <b>escribid de d&oacute;nde sale cada
+             n&uacute;mero</b>. Terminad pasando el resultado a kg&middot;cm y multiplicando por 2.</p>
+          <h4>Segunda parte &middot; La reductora (5 min)</h4>
+          <p>En el banco de pruebas, elegid el motor y buscad una pareja z<sub>1</sub>/z<sub>2</sub>
+             que d&eacute; <b>margen 2 o m&aacute;s</b>. Anotad: i, n<sub>2</sub>, el par disponible y
+             el tiempo de maniobra.</p>
+          <p>&iquest;Se puede con el servo SG90? &iquest;Y con el motorreductor? Si con alguno no hay
+             manera, <b>decidlo y explicad por qu&eacute;</b>: un &laquo;no se puede&raquo; razonado
+             vale lo mismo que un &laquo;s&iacute;&raquo;.</p>
+          <h4>Tercera parte &middot; Sin engranajes (3 min)</h4>
+          <p>Proponed una soluci&oacute;n <b>mec&aacute;nica</b> que baje el par necesario sin tocar el
+             motor: contrapeso, brazo m&aacute;s corto, mover el punto de tiro&hellip; y
+             <b>calculadla</b>. Comparad los dos caminos en una l&iacute;nea: &iquest;cu&aacute;l
+             elegir&iacute;ais y por qu&eacute;?</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El par del caso peor, con todos los pasos y las unidades <b>(4 puntos)</b>.</li>
+            <li>La reductora elegida con su margen, su velocidad y su tiempo <b>(3 puntos)</b>.</li>
+            <li>La alternativa mec&aacute;nica, calculada y comparada <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
+      <div class="ta" id="test-c4">
+        <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
+        <div class="ta-p" data-ok="1">
+          <p>1. Un tostador con temporizador es un sistema de control en lazo abierto porque&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c4-0" value="0">no lleva electr&oacute;nica, solo un muelle y una resistencia</label>
+          <label class="ta-op"><input type="radio" name="c4-0" value="1">no mide el resultado: cumple el tiempo que le has puesto y para</label>
+          <label class="ta-op"><input type="radio" name="c4-0" value="2">siempre quema el pan</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Lo que define el lazo abierto no es la tecnolog&iacute;a ni que funcione mal, sino que la orden <b>no depende del resultado</b>. El tostador nunca prueba el pan.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>2. La cocina baja de 20 a 5&nbsp;&deg;C. El horno en lazo abierto aplicaba el 64&nbsp;% de sus 1500&nbsp;W y se quedaba en 180&nbsp;&deg;C, con p&eacute;rdidas de 6&nbsp;W/&deg;C. &iquest;D&oacute;nde se queda ahora?</p>
+          <label class="ta-op"><input type="radio" name="c4-1" value="0">en 180&nbsp;&deg;C, porque el 64&nbsp;% no ha cambiado</label>
+          <label class="ta-op"><input type="radio" name="c4-1" value="1">en 165&nbsp;&deg;C</label>
+          <label class="ta-op"><input type="radio" name="c4-1" value="2">en 115&nbsp;&deg;C</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> T = T<sub>amb</sub> + u &middot; P / k = 5 + 0,64 &middot; 1500 / 6 = 5 + 160 = <b>165&nbsp;&deg;C</b>. La potencia es la misma; lo que ha cambiado es el punto de partida, y el horno no se entera porque no mira.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>3. Un lazo cerrado con la resistencia al 100&nbsp;% no consigue llegar a la consigna. Eso significa que&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c4-2" value="0">el sensor est&aacute; roto</label>
+          <label class="ta-op"><input type="radio" name="c4-2" value="1">el actuador se ha quedado corto: est&aacute; saturado</label>
+          <label class="ta-op"><input type="radio" name="c4-2" value="2">hay que bajar la consigna hasta que llegue</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Un lazo cerrado corrige <b>mientras le quede actuador</b>. Cuando pide m&aacute;s del 100&nbsp;% ya no hay nada m&aacute;s que dar: eso es la <b>saturaci&oacute;n</b>, y no se arregla controlando mejor, sino con m&aacute;s potencia o menos p&eacute;rdidas.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>4. En un diagrama de bloques de lazo cerrado, &iquest;cu&aacute;l es la &uacute;nica flecha que va hacia atr&aacute;s?</p>
+          <label class="ta-op"><input type="radio" name="c4-3" value="0">la que va del controlador al actuador</label>
+          <label class="ta-op"><input type="radio" name="c4-3" value="1">la que lleva la medida del sensor hasta el comparador</label>
+          <label class="ta-op"><input type="radio" name="c4-3" value="2">la que trae la consigna</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Esa flecha es la <b>realimentaci&oacute;n</b>, y es exactamente lo que cierra el lazo. Si la borras, el dibujo que queda es el de un lazo abierto.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>5. Una sonda de humedad da 620 al aire (0&nbsp;%) y 280 en agua (100&nbsp;%). Est&aacute; leyendo 450. &iquest;Qu&eacute; humedad hay?</p>
+          <label class="ta-op"><input type="radio" name="c4-4" value="0">45&nbsp;%, que es 450 dividido entre 10</label>
+          <label class="ta-op"><input type="radio" name="c4-4" value="1">50&nbsp;%</label>
+          <label class="ta-op"><input type="radio" name="c4-4" value="2">62&nbsp;%</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La recta es L = 620 &minus; 3,4 &middot; H, as&iacute; que H = (620 &minus; 450) / 3,4 = 170 / 3,4 = <b>50&nbsp;%</b>. La lectura no es el porcentaje, y aqu&iacute; adem&aacute;s <b>baja</b> cuando la humedad sube.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>6. &iquest;Por qu&eacute; hay que pasar la consigna al idioma del sensor antes de restar?</p>
+          <label class="ta-op"><input type="radio" name="c4-5" value="0">porque Arduino no sabe restar n&uacute;meros con decimales</label>
+          <label class="ta-op"><input type="radio" name="c4-5" value="1">porque restar dos n&uacute;meros que est&aacute;n en unidades distintas no significa nada</label>
+          <label class="ta-op"><input type="radio" name="c4-5" value="2">porque el comparador solo admite n&uacute;meros positivos</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> &laquo;40&nbsp;% menos 450 cuentas&raquo; no es ning&uacute;n error: son cosas distintas. Para restar, los dos n&uacute;meros tienen que hablar la misma lengua. Da igual cu&aacute;l traduzcas, pero uno de los dos hay que traducirlo.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>7. Un term&oacute;stato con consigna 21&nbsp;&deg;C e hist&eacute;resis de 1&nbsp;&deg;C&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c4-6" value="0">mantiene la habitaci&oacute;n exactamente a 21&nbsp;&deg;C</label>
+          <label class="ta-op"><input type="radio" name="c4-6" value="1">enciende por debajo de 20,5 y apaga por encima de 21,5, as&iacute; que la temperatura oscila entre esos dos valores</label>
+          <label class="ta-op"><input type="radio" name="c4-6" value="2">enciende a 21 y apaga a 22</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La banda va <b>repartida a los dos lados</b> de la consigna: C &plusmn; h/2. Y esa oscilaci&oacute;n no es una aver&iacute;a: es el precio inevitable de un actuador que solo sabe estar encendido o apagado.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>8. Si estrechas mucho la banda de hist&eacute;resis&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c4-7" value="0">la temperatura se ajusta m&aacute;s, pero el rel&eacute; dura mucho menos</label>
+          <label class="ta-op"><input type="radio" name="c4-7" value="1">mejora todo: m&aacute;s precisi&oacute;n y menos consumo</label>
+          <label class="ta-op"><input type="radio" name="c4-7" value="2">la caldera se enciende menos veces</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Estrechar la banda ajusta la temperatura y <b>multiplica las conmutaciones</b>. Con 100.000 ciclos de vida, pasar de 8 a 43 ciclos por hora divide la vida del rel&eacute; entre cinco. Esa es la negociaci&oacute;n, y no hay manera de ganarla entera.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>9. Un list&oacute;n uniforme de 80&nbsp;cm y 150&nbsp;g gira sobre uno de sus extremos. &iquest;Qu&eacute; par hace falta para sostenerlo horizontal?</p>
+          <label class="ta-op"><input type="radio" name="c4-8" value="0">0,150 &middot; 9,81 &middot; 0,80 = 1,18&nbsp;N&middot;m</label>
+          <label class="ta-op"><input type="radio" name="c4-8" value="1">0,150 &middot; 9,81 &middot; 0,40 = 0,59&nbsp;N&middot;m</label>
+          <label class="ta-op"><input type="radio" name="c4-8" value="2">0,150 &middot; 9,81 = 1,47&nbsp;N&middot;m, que es lo que pesa</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El peso de una barra uniforme act&uacute;a en su <b>centro</b>, as&iacute; que el brazo es L/2 = 0,40&nbsp;m. Usar los 80&nbsp;cm enteros es el fallo m&aacute;s habitual y da justo el doble. La tercera opci&oacute;n no es ni siquiera un par: son newtons.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>10. Un motor da 0,8&nbsp;kg&middot;cm a 200&nbsp;rpm. Le pones una reductora con z<sub>1</sub>&nbsp;=&nbsp;20, z<sub>2</sub>&nbsp;=&nbsp;100 y rendimiento 0,90. &iquest;Qu&eacute; hay en la salida?</p>
+          <label class="ta-op"><input type="radio" name="c4-9" value="0">4&nbsp;kg&middot;cm y 1000&nbsp;rpm</label>
+          <label class="ta-op"><input type="radio" name="c4-9" value="1">3,6&nbsp;kg&middot;cm y 40&nbsp;rpm</label>
+          <label class="ta-op"><input type="radio" name="c4-9" value="2">0,16&nbsp;kg&middot;cm y 40&nbsp;rpm</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> i = 20/100 = 0,2. La velocidad: n<sub>2</sub> = 200 &middot; 0,2 = <b>40&nbsp;rpm</b>. El par: M<sub>2</sub> = 0,8 / 0,2 &middot; 0,90 = <b>3,6&nbsp;kg&middot;cm</b>. La velocidad se divide entre cinco y el par se multiplica por cinco&hellip; menos el 10&nbsp;% que se queda el rozamiento. La potencia nunca sube.</div>
+        </div>
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; no vale comparar los 1,8&nbsp;kg&middot;cm del servo con los 150&nbsp;g del list&oacute;n?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque una cosa es un <b>par</b> y la otra una <b>masa</b>. Para comparar hay que convertir la masa en par, y para eso hace falta la <b>distancia</b>: 150&nbsp;g a 40&nbsp;cm del eje son 6,0&nbsp;kg&middot;cm.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; una reductora multiplica el par?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la potencia no se crea: P = M &middot; &omega;. Si la velocidad se divide entre cinco, el par solo puede multiplicarse por cinco para que el producto se mantenga. Y ni siquiera se mantiene del todo: el rendimiento se lleva un trozo.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se calcula siempre el caso peor?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque un motor que solo vale en el caso c&oacute;modo <b>no vale</b>. La barrera horizontal, el dep&oacute;sito lleno y el arranque desde parado son los momentos en los que el proyecto se pone a prueba, y son los &uacute;nicos que importan al elegir.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; un servo SG90 es un buen resumen de toda la unidad?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque lleva dentro las tres piezas: un <b>potenci&oacute;metro</b> que mide el &aacute;ngulo (sensor), un circuito que lo <b>compara</b> con la consigna que le mandas y un <b>motor con reductora</b> que corrige. Es el diagrama de la sesi&oacute;n 2 metido en una caja de dos euros.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que llevas hasta aqu&iacute;</span>
+        Sabes distinguir un lazo abierto de uno cerrado y decir cu&aacute;l hace falta. Sabes dibujar
+        el diagrama de bloques de cualquiera de los cinco proyectos y traducir entre las unidades del
+        sensor y las tuyas. Sabes ajustar un control todo-nada y explicar qu&eacute; te cuesta cada
+        decisi&oacute;n. Y sabes calcular el motor. <b>Eso ya es un proyecto que se puede defender
+        con n&uacute;meros.</b>
+      </div>
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Lectura del tema</h4>
+        <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>30 p&aacute;rrafos numerados</b>:
+           cada uno lee el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.
+           Cuenta de d&oacute;nde sale todo esto: la cisterna de un griego, el regulador de Watt, los
+           ochenta a&ntilde;os que se tard&oacute; en explicarlo y lo que cuesta un lazo cerrado que se
+           f&iacute;a de un solo sensor.</p>
+        <p style="margin-top:10px"><a href="lectura-tema4.pdf" target="_blank" rel="noopener"
+           style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
+           &#8595; La m&aacute;quina que se mira a s&iacute; misma &middot; PDF</a></p>
+      </div>
+      <div class="nota">
+        <span class="n-tag">Lo que queda</span>
+        Quedan cuatro sesiones. El lazo cerrado de la sesi&oacute;n 1 dejaba un error peque&ntilde;o y
+        el de la 3 oscilaba: las dos cosas se pueden afinar, y ah&iacute; aparece el <b>control
+        proporcional</b>. Despu&eacute;s hay que <b>escribirlo en Arduino</b> y simularlo en Tinkercad,
+        <b>montarlo con componentes de verdad</b> (y un pin de Arduino no mueve un motor: hace falta
+        algo en medio) y, por &uacute;ltimo, <b>probar el sistema entero metiendo la
+        perturbaci&oacute;n a mano</b>, que es la &uacute;nica prueba que vale.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-7" hidden><div class="ses-head"><h2>Sesi&oacute;n 7 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-8" hidden><div class="ses-head"><h2>Sesi&oacute;n 8 en preparaci&oacute;n</h2></div></div>
+
+
+  <div class="lectura">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+      <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"
+            stroke-linejoin="round"/><path d="M24 12 v32"/>
+    </svg>
+    <div>
+      <h3>Lectura de aula</h3>
+      <p>Treinta p&aacute;rrafos numerados y diez preguntas. Ocupa <b>una sesi&oacute;n entera</b>:
+         se lee en voz alta por turnos, un p&aacute;rrafo cada uno, y luego se contesta por escrito.
+         Trae su cabecera para el nombre, el grupo y la fecha.</p>
+      <a class="pdf" href="lectura-tema4.pdf" download>Descargar el PDF</a>
+    </div>
+  </div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 4 &middot; Mecanismos y sistemas de control</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 4 &middot; Mecanismos y sistemas de control</i>. https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema4/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 4 &middot; 4.&ordm; de ESO &middot; Tecnolog&iacute;a</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.ta').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.ta-nota');
+    if(!corregir || !otra || !nota) return;   /* no es un test de este molde */
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.ta-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.ta-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

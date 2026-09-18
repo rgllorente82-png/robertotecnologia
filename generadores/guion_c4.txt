@@ -1,0 +1,13 @@
+Bienvenido a la unidad cuatro: mecanismos y sistemas de control.
+
+Empiezo por lo que ya sabes hacer. En segundo aprendiste a mover cosas: engranajes, poleas, levas, manivelas. Sabes coger el giro de un motor y convertirlo en lo que te haga falta. Pero fíjate en una cosa que no se dijo entonces: en todos aquellos mecanismos, el que decidía cuándo arrancar y cuándo parar seguías siendo tú.
+
+Y esa es toda la diferencia. Una máquina que se mueve no es todavía una máquina automática. Le falta enterarse de lo que está pasando y corregirse sola.
+
+Piensa en una tostadora. Le pones dos minutos y rezas. Si el pan está congelado, sale crudo; si es una rebanada fina, sale negro. La tostadora no prueba el pan. Cumple el tiempo que le has puesto, y punto. Ahora piensa en un horno con termostato: ese sí mide, compara con lo que le has pedido y corrige. Y por eso acierta aunque abras la puerta.
+
+La diferencia entre esas dos máquinas tiene nombre desde hace dos siglos y medio, se llama realimentación, y es la idea que organiza esta unidad entera. La montó James Watt en mil setecientos ochenta y ocho para que sus máquinas de vapor no se embalaran, y hoy está dentro de tu nevera, del cargador del móvil y del riego del parque.
+
+En estas sesiones vas a ver las tres piezas que la hacen posible: algo que mide, algo que compara y algo que actúa. Vas a ver por qué el control más barato del mundo, el de encendido y apagado, siempre oscila, y por qué esa oscilación no es un fallo sino el precio que pagas por lo barato. Y vas a acabar calculando qué motor hace falta para mover lo que quieres mover, que es el momento en el que tu proyecto deja de ser un dibujo.
+
+Vamos allá.
