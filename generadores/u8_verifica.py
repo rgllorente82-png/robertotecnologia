@@ -3,14 +3,20 @@
 
     ~/venv/bin/python generadores/u8_verifica.py     -> sale 0 si todo va bien
 
-Comprueba: que no hay errores de JavaScript, que las cinco escenas pintan SVG y
+Comprueba: que no hay errores de JavaScript, que las NUEVE escenas pintan SVG y
 CALCULAN (el camino corto, la consulta de nombres, el cifrado, la clave
-compartida y la huella), que las imagenes cargan con su tamano real, que los
-videos se sustituyen por su iframe y que cada sesion lleva sus bloques de
-libreta. Dejarlo aqui no es un capricho: quien escriba las sesiones 4, 5 y 6
-tiene asi una red debajo.
+compartida, la huella del navegador, el monton de una contrasena, el SHA-256,
+que sobrevive a cada desastre y el calendario de los plazos), que las imagenes
+cargan con su tamano real, que los videos se sustituyen por su iframe, que cada
+sesion lleva sus bloques de libreta y que el test se corrige.
+
+Las dos comprobaciones que mas valen son las que no miran pixeles:
+  · el SHA-256 de la escena se compara con el de hashlib, en varios textos y en
+    los tamanos donde el relleno cambia de bloque;
+  · la escena de la nube tiene que reproducir la leccion de la sesion, o sea
+    cumplir la regla 3-2-1 y perderlo todo igual con un borrado.
 """
-import os, re, sys
+import hashlib, os, re, sys
 from playwright.sync_api import sync_playwright
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,8 +49,8 @@ with sync_playwright() as p:
     print('== Navegacion de sesiones')
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 6, 'hay 6 botones de sesion (hay %d)' % len(bts))
-    check(sum(1 for b in bts if b.get_attribute('disabled') is not None) == 3,
-          '3 sesiones marcadas como pendientes')
+    check(sum(1 for b in bts if b.get_attribute('disabled') is not None) == 0,
+          'no queda ninguna sesion pendiente')
 
     # ------------------------------------------------ escena 1 · los paquetes
     print('== Escena 1 · paquetes y routers')
@@ -159,19 +165,194 @@ with sync_playwright() as p:
     pag.click('#seg-huella button[data-h="mide"]')
     check('bits' in th(), 'volver a medir no rompe nada')
 
+    # --------------------------------------------- escena 6 · el monton
+    print('== Escena 6 · cuanto aguanta una contrasena')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-fuerza'), 'la escena del monton es visible en la sesion 4')
+    tf = lambda: pag.eval_on_selector('#svg-fuerza', 'e => e.textContent')
+    exp = lambda: int(re.search(r'Hay 1 entre 10\^(\d+)', tf()).group(1))
+    bits = lambda: float(re.search(r'·\s+([\d,]+) bits', tf()).group(1).replace(',', '.'))
+
+    # Las tres cuentas se comprueban contra el valor exacto, no contra una
+    # captura: 26^8 = 2,09e11 y 26^12 = 9,54e16.
+    pag.fill('#fz-txt', 'aaaaaaaa')
+    check(exp() == 11 and abs(bits() - 37.6) < 0.1,
+          '8 minusculas: 10^11 y 37,6 bits (sale 10^%d y %s)' % (exp(), bits()))
+    pag.fill('#fz-txt', 'aaaaaaaaaaaa')
+    check(exp() == 17 and abs(bits() - 56.4) < 0.1,
+          '12 minusculas: 10^17 y 56,4 bits (sale 10^%d y %s)' % (exp(), bits()))
+    pag.fill('#fz-txt', 'Ab3$x!Qz')
+    check('de 94' in tf(), 'con mayusculas, numeros y signos el alfabeto es 94')
+    check(exp() == 16 and abs(bits() - 52.4) < 0.1,
+          'la A del reto: 94^8 -> 10^16 y 52,4 bits')
+
+    # Anadir un caracter tiene que multiplicar el tiempo por el alfabeto, que
+    # es LA idea de la sesion. Se mide entre la primera y la segunda caja de
+    # "y si le anades": la primera cifra que sale es la del panel de arriba, y
+    # repite la de la caja 1, asi que las cajas son a[1] y a[2].
+    anos = lambda: [float(x.replace('.', '').replace(',', '.'))
+                    for x in re.findall(r'([\d.]+)\s*años', tf())]
+    pag.click('#seg-fuerza button[data-r="1e5"]')
+    pag.fill('#fz-txt', 'aaaaaaaaaaaa')
+    a = anos()
+    check(len(a) >= 3 and abs(a[2] / a[1] - 26) / 26 < 0.02,
+          'un caracter mas multiplica el tiempo por el alfabeto (x%.1f)'
+          % (a[2] / a[1] if len(a) >= 3 else 0))
+
+    # Cambiar el ritmo cambia los tiempos pero NO el orden de las barras: es
+    # justo lo que dice el pie, asi que se comprueba.
+    barras = lambda: re.findall(r'([\d,]+) bits', tf())
+    pag.fill('#fz-txt', 'Ab3$x!Qz')
+    b1 = barras()
+    pag.click('#seg-fuerza button[data-r="1e11"]')
+    check(barras() == b1, 'cambiar el ritmo no mueve ninguna barra')
+    check('10' in pag.inner_text('#pie-fuerza') and '18' in pag.inner_text('#pie-fuerza'),
+          'el pie saca las dos del reto y su diferencia (10^18)')
+    pag.click('#seg-fuerza button[data-r="1e5"]')
+    pag.click('#esc-fuerza button[data-f="frase"]')
+    check(bits() > 100, 'el boton de la frase da mas de 100 bits')
+
+    # --------------------------------------- escena 7 · lo que guarda la web
+    print('== Escena 7 · el SHA-256, comparado con hashlib')
+    check(pag.is_visible('#svg-hash'), 'la escena de la huella es visible en la sesion 4')
+    # Los tamanos de 55, 56, 63, 64 y 65 bytes son donde el relleno cambia de
+    # bloque: si el SHA-256 estuviera mal, fallaria justo ahi.
+    for texto in ['', 'abc', 'tres cabras', u'contrase\xf1a con \xf1',
+                  'a' * 55, 'a' * 56, 'a' * 63, 'a' * 64, 'a' * 65]:
+        got = pag.evaluate('t => window.__sha256(t)', texto)
+        esp = hashlib.sha256(texto.encode('utf-8')).hexdigest()
+        check(got == esp, 'sha256(%s) coincide con hashlib'
+              % (repr(texto[:14] + ('...' if len(texto) > 14 else ''))))
+    th = lambda: pag.eval_on_selector('#svg-hash', 'e => e.textContent')
+    pag.fill('#hs-txt', 'tres cabras')
+    check(hashlib.sha256(b'tres cabras').hexdigest()[:32] in th(),
+          'la escena pinta la huella de verdad de lo que escribes')
+    check('LA MISMA' in th(), 'sin sal, dos personas iguales tienen la misma huella')
+    pag.click('#seg-hash button[data-s="si"]')
+    check('Le sale OTRA' in th(), 'con sal, ya no: eso es lo que ensena la escena')
+    pag.click('#seg-hash button[data-s="no"]')
+    n = int(re.search(r'han cambiado (\d+)', th()).group(1))
+    check(n > 50, 'cambiar una letra cambia casi todas las cifras (%d de 64)' % n)
+
+    # --------------------------------------------- escena 8 · la nube
+    print('== Escena 8 · que sobrevive a cada desastre')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-nube'), 'la escena de la nube es visible en la sesion 5')
+    tn = lambda: pag.eval_on_selector('#svg-nube', 'e => e.textContent')
+    salvado = lambda: 'ni una copia buena' not in tn()
+    cuenta = lambda: [(int(x), int(y)) for x, y in re.findall(r'(\d) de (\d)', tn())]
+
+    # EL experimento de la sesion: cumplir la regla 3-2-1 y perderlo todo.
+    pag.click('#seg-nube-que button[data-q="disco"]')
+    pag.click('#seg-nube-que button[data-q="dsync"]')
+    c = cuenta()
+    check(c[:3] == [(3, 3), (3, 2), (1, 1)], 'cuenta 3 copias, 3 soportes y 1 fuera %s' % c)
+    check(c[3] == (0, 1), 'y avisa de que NINGUNA deja de sincronizarse')
+    check('Cumples la regla' in tn(), 'dice que se cumple la regla 3-2-1')
+    pag.click('#seg-nube-pasa button[data-p="borra"]')
+    check(not salvado(),
+          'y aun cumpliendola, un borrado se lo lleva todo: la leccion de la sesion')
+
+    # El mismo montaje con el disco fuera de la sincronizacion: se salva.
+    pag.click('#seg-nube-pasa button[data-p="reset"]')
+    pag.click('#seg-nube-que button[data-q="disco"]')
+    check(cuenta()[3] == (1, 1), 'el disco en el cajon si cuenta como copia aparte')
+    pag.click('#seg-nube-pasa button[data-p="borra"]')
+    check(salvado(), 'con el disco sin sincronizar, el borrado no se lo lleva')
+    # Pero esta en casa: el agua se lo lleva igual.
+    pag.click('#seg-nube-pasa button[data-p="casa"]')
+    check(not salvado(), 'una inundacion se lleva todo lo que este en casa')
+
+    # La copia de fuera sobrevive a las dos cosas.
+    pag.click('#seg-nube-pasa button[data-p="reset"]')
+    pag.click('#seg-nube-que button[data-q="insti"]')
+    pag.click('#seg-nube-pasa button[data-p="casa"]')
+    check(salvado(), 'la copia de fuera de casa sobrevive a la inundacion')
+    pag.click('#seg-nube-pasa button[data-p="cuenta"]')
+    check(salvado(), 'y perder la cuenta de la nube tampoco se la lleva')
+
+    # Los dias: una copia siempre va con retraso, y eso se cuenta.
+    pag.click('#seg-nube-pasa button[data-p="reset"]')
+    pag.click('#seg-nube-que button[data-q="insti"]')
+    pag.click('#seg-nube-pasa button[data-p="copia"]')
+    for _ in range(4):
+        pag.click('#seg-nube-pasa button[data-p="trabaja"]')
+    pag.click('#seg-nube-pasa button[data-p="borra"]')
+    check('pierdes 4 d' in tn(), 'cuenta los dias de trabajo que se pierden (%s)'
+          % (re.search(r'pierdes [^.]*', tn()) or ['?'])[0])
+    pag.click('#seg-nube-pasa button[data-p="reset"]')
+
+    # --------------------------------------- escena 9 · el calendario
+    print('== Escena 9 · los plazos y la edad')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(300)
+    check(pag.is_visible('#svg-derechos'), 'la escena de los derechos es visible en la sesion 6')
+    td = lambda: pag.eval_on_selector('#svg-derechos', 'e => e.textContent')
+
+    # El arrastre de fin de mes es donde falla todo el mundo: 31 de enero mas
+    # un mes NO es el 3 de marzo.
+    pag.fill('#der-envio', '2026-01-31')
+    pag.wait_for_timeout(150)
+    check('28 feb 2026' in td(), '31 de enero + 1 mes = 28 de febrero (2026 no es bisiesto)')
+    check('30 abr 2026' in td(), 'y + 3 meses = 30 de abril, recortado del 31')
+    check('(28 d' in td() and '(89 d' in td(), 'y los dias que salen son 28 y 89')
+    pag.fill('#der-envio', '2024-01-31')
+    pag.wait_for_timeout(150)
+    check('29 feb 2024' in td(), 'en ano bisiesto el mismo caso da el 29 de febrero')
+    pag.fill('#der-envio', '2026-05-31')
+    pag.wait_for_timeout(150)
+    check('30 jun 2026' in td() and '31 ago 2026' in td(),
+          '31 de mayo: un mes al 30 de junio y tres al 31 de agosto')
+
+    # La edad, en el limite exacto de los catorce.
+    pag.fill('#der-nac', '2012-09-18')
+    pag.wait_for_timeout(150)
+    check('puedes dar tu permiso' in td(), 'con 14 anos cumplidos, si puede consentir')
+    pag.fill('#der-nac', '2050-01-01')
+    pag.wait_for_timeout(150)
+    check('Pon ah' in td() or 'Todav' in td(), 'una fecha futura no rompe la escena')
+    for d in ('acceso', 'rect', 'supr', 'port'):
+        pag.click('#seg-der button[data-d="%s"]' % d)
+    check('PORTABILIDAD' in td() and 'art' in td(),
+          'los cuatro derechos se pueden elegir y traen su articulo')
+
+    # ------------------------------------------------- el test de la unidad
+    print('== Test de autoevaluacion')
+    ps = pag.query_selector_all('#test-u8 .ta-p')
+    check(len(ps) == 10, 'el test tiene 10 preguntas (tiene %d)' % len(ps))
+    check(all(p.query_selector('.ta-por') for p in ps), 'todas explican por que')
+    # Se contesta bien a todas y tiene que dar 10 de 10: si una tuviera el
+    # indice mal, saldria aqui.
+    for i, p in enumerate(ps):
+        ok = int(p.get_attribute('data-ok'))
+        p.query_selector_all('.ta-op input')[ok].check()
+    pag.click('#test-u8 [data-a="corregir"]')
+    check(pag.inner_text('#test-u8 .ta-nota').strip().startswith('10 de 10'),
+          'marcando la correcta de cada una sale 10 de 10 (sale "%s")'
+          % pag.inner_text('#test-u8 .ta-nota').strip())
+    check(pag.is_visible('#test-u8 .ta-por'), 'al corregir aparecen las explicaciones')
+    pag.click('#test-u8 [data-a="otra"]')
+    check(not pag.is_visible('#test-u8 .ta-por'), 'el boton de repetir lo deja limpio')
+    check(len(pag.query_selector_all('#test-u8 input:checked')) == 0,
+          'y borra lo que estaba marcado')
+
     # ------------------------------------------------------ imagenes y video
     print('== Imagenes, video y avatar')
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(200)
     imgs = pag.eval_on_selector_all(
         'img', 'l => l.map(i => [i.getAttribute("src"), i.naturalWidth, i.naturalHeight])')
     for src, w, h in imgs:
         check(w > 400, 'carga %s (%dx%d)' % (src.split('/')[-1], w, h))
-    check(len(imgs) == 5, 'hay 5 fotografias (hay %d)' % len(imgs))
+    check(len(imgs) == 9, 'hay 9 fotografias (hay %d)' % len(imgs))
+    check(all(i.get_attribute('alt') for i in pag.query_selector_all('img')),
+          'todas las fotos llevan texto alternativo')
 
     vids = pag.query_selector_all('.video[data-vid]')
-    check(len(vids) == 3, 'hay 3 videos (hay %d)' % len(vids))
+    check(len(vids) == 6, 'hay 6 videos (hay %d)' % len(vids))
     pag.click('#nav button[data-ses="1"]')
     pag.wait_for_timeout(200)
     pag.click('#video-cables .video-play')
@@ -190,7 +371,7 @@ with sync_playwright() as p:
     check(dur and dur > 30, 'el audio del narrador carga (%.1f s)' % (dur or 0))
 
     print('== Bloques de la libreta')
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(150)
         c = len(pag.query_selector_all('#ses-%d .copiar' % ses))
@@ -206,7 +387,7 @@ with sync_playwright() as p:
     # cuenta a proposito: es una tira con scroll horizontal propio, esta asi en
     # el molde desde la U2 y se comporta igual en el tema 7 ya publicado.
     pag.set_viewport_size({'width': 390, 'height': 800})
-    for ses in (1, 2, 3):
+    for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(250)
         fuera = pag.evaluate("""() => {

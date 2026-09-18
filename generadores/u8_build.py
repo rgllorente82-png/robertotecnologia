@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 """2.o TyD · U8 (web) · Internet, datos y seguridad.
 
-Sesiones 1, 2 y 3 escritas; 4, 5 y 6 marcadas como pendientes.
-Las escenas interactivas viven en u8_escenas.py.
+Las SEIS sesiones escritas. Las escenas interactivas viven en u8_escenas.py
+(las cinco de las sesiones 1 a 3) y en u8_escenas2.py (las cuatro de las
+sesiones 4 a 6). El test que cierra la unidad sale de test_auto.py, con las
+diez preguntas en PREGUNTAS_U8, aqui abajo: son de TODO el tema, no solo de la
+ultima sesion.
 
     python generadores/u8_build.py
 
@@ -18,9 +21,12 @@ reescribir nada.
 import io, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
+from test_auto import test
 import avatar_flat
 from u8_escenas import (ESCENA_RUTA, ESCENA_DNS, ESCENA_ESPIA, ESCENA_CLAVE,
                         ESCENA_HUELLA)
+from u8_escenas2 import (ESCENA_FUERZA, ESCENA_HASH, ESCENA_NUBE,
+                         ESCENA_DERECHOS)
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -808,6 +814,945 @@ S3 = (
 
 
 # ==========================================================================
+# SESION 4 · La contrasena: larga gana a rara
+# ==========================================================================
+S4 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>De la sesi&oacute;n anterior te llevas una idea inc&oacute;moda: casi todo lo que saben de ti
+         <b>se lo damos nosotros</b>. Pero hay una parte que no se da. Tus mensajes, tus notas, las
+         fotos que no has publicado. Eso est&aacute; detr&aacute;s de una puerta, y esa puerta la cierra
+         <b>una palabra</b>.</p>
+      <p>Sobre c&oacute;mo tiene que ser esa palabra te han dado mil veces la misma receta: may&uacute;sculas,
+         n&uacute;meros y alg&uacute;n signo raro. Vamos a <b>comprobarla</b>, que es distinto de
+         cre&eacute;rsela.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Aqu&iacute; van dos contrase&ntilde;as. Escribe en el cuaderno <b>cu&aacute;l de las dos aguanta
+        m&aacute;s</b> y por qu&eacute;. No vale &laquo;la primera, porque es m&aacute;s rara&raquo;:
+        hay que decir <b>cu&aacute;ntas hay</b> de cada clase.
+        <div style="font-family:var(--f-m);font-size:15px;margin-top:10px;line-height:1.9">
+          <b>A)</b> Ab3$x!Qz<br>
+          <b>B)</b> tres cabras en el tejado
+        </div>
+      </div>
+
+      <p>Casi toda la clase elige la <b>A</b>, y con motivo: es la que <i>parece</i> dif&iacute;cil. La B se
+         lee de un vistazo, no tiene un solo n&uacute;mero y parece una tonter&iacute;a. Hagamos la
+         cuenta, que para eso est&aacute;.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Las dos cuentas</span>
+        <p><b>1.</b> En la A hay <b>8</b> sitios y en cada uno puede ir una letra (52, contando
+           may&uacute;sculas), un n&uacute;mero (10) o un signo (unos 32): <b>94</b> cosas. Son
+           94 &times; 94 &times; &hellip; ocho veces: <b>94<sup>8</sup></b>. Hazlo por pasos, que
+           as&iacute; cabe en cualquier calculadora: 94<sup>2</sup> = 8.836; ese al cuadrado,
+           94<sup>4</sup> = 78.074.896; y ese al cuadrado,
+           <b>94<sup>8</sup> = 6.095.689.385.410.816</b>. Cuenta las cifras: <b>16</b>.</p>
+        <p><b>2.</b> En la B hay <b>24</b> sitios, y en cada uno solo cabe una min&uacute;scula o un
+           espacio: <b>27</b> cosas. Son <b>27<sup>24</sup></b>, y ese s&iacute; se sale de la
+           calculadora. Te lo damos hecho: es un <b>2 seguido de 34 cifras</b>.</p>
+        <p><b>3.</b> Con las cifras de cada uno, contesta: <b>&iquest;cu&aacute;ntas veces m&aacute;s
+           grande es el mont&oacute;n de la B?</b></p>
+      </div>
+
+      <p>La B no gana por poco: gana por <b>un 1 seguido de dieciocho ceros</b> de veces. Un trill&oacute;n.
+         Y es la que parec&iacute;a de broma.</p>
+
+      <p>El motivo es que las dos cosas que le puedes hacer a una contrase&ntilde;a <b>no valen
+         igual</b>:</p>
+      <ul>
+        <li><b>Hacerla rara</b> agranda el alfabeto: pasas de 26 letras a 94 teclas. Eso multiplica
+            el mont&oacute;n <b>una sola vez</b>.</li>
+        <li><b>Hacerla larga</b> a&ntilde;ade sitios. Y <b>cada sitio nuevo vuelve a multiplicar</b> por
+            el alfabeto entero.</li>
+      </ul>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Y ahora la cuenta que lo remata</span>
+        <p>Partimos de ocho min&uacute;sculas: 26<sup>8</sup> = 208.827.064.576.</p>
+        <p style="margin-top:8px">&middot; Si la llenas de may&uacute;sculas, n&uacute;meros y signos
+           &rarr; 94<sup>8</sup>. Has multiplicado el mont&oacute;n por <b>29.190</b>.</p>
+        <p>&middot; Si la dejas en min&uacute;sculas y le a&ntilde;ades <b>cuatro letras m&aacute;s</b>
+           &rarr; 26<sup>12</sup>. Has multiplicado por <b>456.976</b>.</p>
+        <p style="margin-top:8px">Cuatro letras de nada valen <b>quince veces m&aacute;s</b> que
+           llenarla de s&iacute;mbolos. Y las cuatro letras <b>te las acuerdas</b>.</p>
+      </div>
+  ''') +
+
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <h3>Lo que hace fuerte a una contrase&ntilde;a es el mont&oacute;n</h3>
+      <p>Escribe abajo lo que quieras y mira los n&uacute;meros. Prueba primero algo corto y raro,
+         despu&eacute;s algo largo y f&aacute;cil, y f&iacute;jate en las cuatro cajas del medio: son la
+         misma contrase&ntilde;a con <b>un carácter m&aacute;s</b> cada vez.</p>
+
+''' + ESCENA_FUERZA + u'''
+      <div class="copiar">
+        <h4>El mont&oacute;n</h4>
+        <p>Una contrase&ntilde;a es fuerte cuando es <b>una de un mont&oacute;n enorme</b>. El
+           mont&oacute;n se calcula as&iacute;:</p>
+        <p style="font-family:var(--f-m);font-size:15px;text-align:center;margin:10px 0">
+           combinaciones = alfabeto <sup>longitud</sup></p>
+        <ul>
+          <li><b>Alfabeto</b>: cu&aacute;ntas cosas distintas pueden ir en cada sitio (26 si solo hay
+              min&uacute;sculas, 62 con may&uacute;sculas y n&uacute;meros, unas 94 con todo).</li>
+          <li><b>Longitud</b>: cu&aacute;ntos sitios hay.</li>
+        </ul>
+        <p>La consecuencia, que es toda la sesi&oacute;n en una l&iacute;nea: <b>a&ntilde;adir un
+           carácter multiplica el mont&oacute;n por el alfabeto entero; hacerla rara solo agranda el
+           alfabeto, y una sola vez</b>.</p>
+        <p>Por eso <b>larga gana a rara</b>. Y hay un premio de regalo: una contrase&ntilde;a larga y
+           f&aacute;cil <b>te la acuerdas</b>, y la que te acuerdas es la que no acabas apuntada en un
+           papel ni repetida en diez sitios.</p>
+      </div>
+
+      <div class="copiar" style="border-color:var(--goo-rojo)">
+        <h4>Pero esa cuenta solo vale si es al azar</h4>
+        <p>El mont&oacute;n de arriba supone que <b>todas las combinaciones son igual de probables</b>.
+           Con tu nombre, tu equipo, tu a&ntilde;o de nacimiento, el nombre de tu perro o la frase de
+           una canci&oacute;n, eso <b>deja de ser verdad</b>: quien prueba no empieza por
+           <i>aaaaaaaa</i>, empieza por ah&iacute;.</p>
+        <p>Por eso en la escena <i>Pelusa2012</i> sale con la barra larga y va marcada en rojo: la
+           cuenta dice que es grande, y la realidad dice que no, porque <b>no es al azar</b>.</p>
+        <p>La regla que sobrevive: <b>larga, y que no salga de ning&uacute;n sitio</b>. Ni de tu vida ni
+           de un libro.</p>
+      </div>
+
+      <h3>Entonces, &iquest;c&oacute;mo se pierden las contrase&ntilde;as?</h3>
+      <p>Aqu&iacute; hay algo que no cuadra. Si el mont&oacute;n es tan gordo que no se acaba nunca, nadie
+         deber&iacute;a entrar en ninguna cuenta jam&aacute;s. Y sin embargo pasa todos los d&iacute;as.
+         &iquest;Por d&oacute;nde?</p>
+      <p>No por tu puerta: <b>por la del otro lado</b>. Las contrase&ntilde;as casi nunca se adivinan una
+         a una &mdash;eso es lo que acabas de ver que no sale a cuenta&mdash;: <b>se escapan de las
+         webs, a millones y de golpe</b>. As&iacute; que la pregunta que importa es otra: cuando te
+         registras, <b>&iquest;qu&eacute; guarda exactamente esa web?</b></p>
+      <p>La respuesta ingenua es &laquo;mi contrase&ntilde;a, en una lista&raquo;. Si fuera eso, el
+         d&iacute;a que alguien se llevara la lista tendr&iacute;a las de todo el mundo y no
+         habr&iacute;a nada que hacer. Por eso una web bien hecha <b>no guarda tu contrase&ntilde;a</b>.
+         Escribe una abajo y mira lo que guarda de verdad.</p>
+
+''' + ESCENA_HASH + u'''
+      <div class="copiar">
+        <h4>Huella (o <i>hash</i>)</h4>
+        <p><b>Huella</b>: el resultado de pasar un texto por una cuenta que siempre da el mismo
+           n&uacute;mero de cifras y que <b>no se puede deshacer</b>.</p>
+        <p>Tiene tres propiedades, y son justo las tres que hacen falta:</p>
+        <ol>
+          <li>Del <b>mismo</b> texto sale <b>siempre la misma</b> huella.</li>
+          <li>De un texto <b>parecido</b> sale una huella <b>completamente distinta</b>.</li>
+          <li>De la huella <b>no se puede volver</b> al texto.</li>
+        </ol>
+        <p>Por eso una web bien hecha <b>no sabe cu&aacute;l es tu contrase&ntilde;a</b>. Cuando entras,
+           calcula la huella de lo que escribes y la compara con la que tiene guardada. Si coinciden,
+           te abre.</p>
+        <p>Y de ah&iacute; sale una se&ntilde;al que puedes usar hoy mismo: si se te olvida la
+           contrase&ntilde;a y una web <b>te la manda por correo tal cual</b>, es que la ten&iacute;a
+           guardada en claro. Una bien hecha no puede: solo puede darte una <b>nueva</b>.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>La sal</h4>
+        <p><b>Sal</b>: un trozo de texto al azar que la web le pega delante a tu contrase&ntilde;a
+           <b>antes</b> de calcular la huella. Cada usuario lleva la suya.</p>
+        <p>No es secreta &mdash;est&aacute; guardada al lado&mdash; y no sirve para esconder nada. Sirve
+           para que <b>dos personas con la misma contrase&ntilde;a no tengan la misma huella</b>, y
+           as&iacute; una lista robada no se pueda cruzar con otra. Pruébalo en la escena: pulsa
+           &laquo;con sal&raquo; y mira c&oacute;mo las dos l&iacute;neas dejan de coincidir.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Hay un detalle que parece un error y no lo es: las cuentas que se usan para guardar
+           contrase&ntilde;as est&aacute;n hechas <b>a prop&oacute;sito para ir lentas</b>. En cualquier
+           otro sitio de la inform&aacute;tica se pelea por ir r&aacute;pido; aqu&iacute;, al
+           rev&eacute;s. La raz&oacute;n es la escena de antes: t&uacute; entras <b>una vez</b> y no
+           notas si tarda dos d&eacute;cimas, pero quien tenga una lista robada tiene que probar
+           <b>millones</b>, y esas dos d&eacute;cimas le multiplican el trabajo por un mill&oacute;n.</p>
+        <p>Eso explica los tres ritmos de la escena de arriba. El del medio y el de la derecha son la
+           misma lista robada: lo &uacute;nico que cambia es si la web hizo bien los deberes. Con las
+           contrase&ntilde;as <b>cortas y comunes</b> da igual lo que hiciera, porque esas se
+           encuentran igual; con una <b>larga</b>, no se encuentra ninguna de las dos maneras. Por eso
+           la longitud te protege incluso de los errores <b>de otro</b>.</p>
+      </div>
+
+      <h3>El problema de verdad no es esa contrase&ntilde;a: es repetirla</h3>
+      <p>Y aqu&iacute; llega el sitio donde de verdad se pierde todo. Piensa en cu&aacute;ntas cuentas
+         tienes &mdash;el correo, el instituto, dos o tres juegos, la tienda de zapatillas, el foro
+         aquel que abriste una vez&mdash;. Ahora piensa en cu&aacute;ntas <b>comparten
+         contrase&ntilde;a</b>.</p>
+
+      <div class="copiar" style="border-color:var(--goo-rojo)">
+        <h4>Repetirla</h4>
+        <p>Si pones la misma contrase&ntilde;a en varios sitios, su fuerza <b>ya no la decides
+           t&uacute;</b>: la decide <b>la web peor hecha de todas aquellas en las que la has
+           puesto</b>. Ese foro que abriste una vez y del que no te acuerdas.</p>
+        <p>Porque el d&iacute;a que a esa web se le escape la lista, lo que se escapa no es una puerta:
+           son <b>todas las que abre esa llave</b>. Y como el usuario suele ser tu correo, ni siquiera
+           hay que averiguar d&oacute;nde probarla.</p>
+        <p>De todas, hay una que no es una puerta m&aacute;s: <b>la del correo</b>. Con el correo se
+           recuperan casi todas las dem&aacute;s, as&iacute; que quien entra ah&iacute; entra en todo lo
+           dem&aacute;s sin saber ninguna otra contrase&ntilde;a. <b>Esa va distinta de todas, larga, y
+           con segundo factor.</b></p>
+      </div>
+
+      <h3>Si tienen que ser largas y distintas, no caben en la cabeza</h3>
+      <p>Y es verdad: no caben. Cuarenta contrase&ntilde;as largas y distintas no se acuerda nadie. Esa
+         es exactamente la raz&oacute;n de que exista la herramienta siguiente, y no al rev&eacute;s.</p>
+
+      <div class="copiar">
+        <h4>Gestor de contrase&ntilde;as</h4>
+        <p><b>Gestor de contrase&ntilde;as</b>: un programa que <b>inventa</b> una contrase&ntilde;a
+           larga y al azar para cada sitio, las <b>guarda cifradas</b> y las <b>escribe por ti</b>
+           cuando entras.</p>
+        <p>Te deja tener que acordarte de <b>una sola</b>: la que abre el gestor. Esa s&iacute; tiene
+           que ser larga, tuya y que no salga de ning&uacute;n sitio.</p>
+        <p>Y hace una cosa que se cuenta poco y vale mucho: <b>no escribe la contrase&ntilde;a en una
+           web que no sea la buena</b>. &Eacute;l mira el dominio, y el dominio no lo enga&ntilde;a una
+           p&aacute;gina clavada a la del instituto. T&uacute; s&iacute; te puedes distraer; &eacute;l
+           no.</p>
+        <p>Los navegadores llevan uno dentro, y hay programas libres que valen para todo. Gratis,
+           los dos.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>La objeci&oacute;n salta sola, y es buena: <b>&laquo;&iquest;y si me roban el gestor? Lo
+           pierdo todo de golpe&raquo;</b>. Es verdad que pone los huevos en una cesta. La respuesta
+           tiene dos partes.</p>
+        <p>La primera: lo que hay dentro est&aacute; <b>cifrado con tu contrase&ntilde;a maestra</b>, y
+           quien se lleve el fichero se lleva ruido &mdash;la escena del candado, otra vez&mdash;. La
+           segunda, y es la que decide: lo que haces si no lo usas <b>tampoco es seguro</b>. Es repetir
+           la misma en veinte sitios, y eso ya sabes lo que vale. No se compara el gestor con lo ideal;
+           se compara con <b>lo que hay</b>.</p>
+      </div>
+
+      <h3>Y por si acaso: una segunda cerradura</h3>
+      <p>Todo lo anterior protege la contrase&ntilde;a. Pero una contrase&ntilde;a se puede perder de
+         maneras que no dependen de lo larga que sea: te la ve alguien por encima del hombro, la
+         escribes sin darte cuenta en una p&aacute;gina que imita a la buena, se te escapa en un
+         ordenador prestado. Por eso la segunda idea no es hacerla mejor: es que <b>haga falta algo
+         m&aacute;s</b>.</p>
+
+''' + foto('u8-llave-2fa.jpg',
+           u'Llave de seguridad USB negra con un bot&oacute;n dorado, sobre una tela clara',
+           u'Una <b>llave de seguridad</b>: un segundo factor de los de tocar. Se enchufa o se acerca al '
+           u'm&oacute;vil y hay que <b>ponerle el dedo encima</b> para entrar. Quien te robe la '
+           u'contrase&ntilde;a estar&aacute; probablemente a mil kil&oacute;metros, y esto no lo puede '
+           u'copiar por un cable: hay que tenerlo en la mano. No hace falta comprar una &mdash;el '
+           u'c&oacute;digo del m&oacute;vil hace el mismo papel&mdash;, pero se ve muy bien en la foto '
+           u'de qu&eacute; estamos hablando.',
+           u'Tony Webster', u'CC BY 2.0',
+           u'https://commons.wikimedia.org/wiki/File:Yubikey_USB_2FA_U2F_Security_Token_(46900270791).jpg') + u'''
+      <div class="copiar">
+        <h4>Segundo factor</h4>
+        <p><b>Segundo factor</b> (o verificaci&oacute;n en dos pasos): pedir <b>dos cosas de clases
+           distintas</b> para entrar. Normalmente <b>algo que sabes</b> (la contrase&ntilde;a) m&aacute;s
+           <b>algo que tienes</b> (el m&oacute;vil, una llave).</p>
+        <p>Funciona porque quien te roba la contrase&ntilde;a <b>no est&aacute; donde est&aacute;s
+           t&uacute;</b>: est&aacute; lejos, con una lista, y no tiene tu tel&eacute;fono en la mano.</p>
+        <p>De mejor a peor, y todos mejor que nada:</p>
+        <ul>
+          <li><b>Llave f&iacute;sica</b>: hay que tenerla y tocarla. La m&aacute;s dura.</li>
+          <li><b>Aplicaci&oacute;n de c&oacute;digos</b>: el m&oacute;vil genera un n&uacute;mero nuevo
+              cada 30 segundos, sin conexi&oacute;n. Gratis y muy buena.</li>
+          <li><b>C&oacute;digo por SMS</b>: el m&aacute;s d&eacute;bil de los tres, porque un
+              n&uacute;mero de tel&eacute;fono se puede acabar desviando. Aun as&iacute;, <b>mucho mejor
+              que no tener nada</b>.</li>
+        </ul>
+        <p>Cuando lo actives te dar&aacute;n unos <b>c&oacute;digos de recuperaci&oacute;n</b>. Son para
+           el d&iacute;a que pierdas el m&oacute;vil: se guardan <b>en papel</b>, fuera del
+           tel&eacute;fono. Si no, el d&iacute;a que se te caiga al agua te quedas fuera t&uacute;.</p>
+      </div>
+
+''' + video('video-2fa', 'Q-jjSRovIIA',
+            u'Activaci&oacute;n del Doble Factor de Autenticaci&oacute;n',
+            u'UOC &middot; Universitat Oberta de Catalunya &middot; en espa&ntilde;ol',
+            u'Para ver el paso a paso de activarlo, que es m&aacute;s f&aacute;cil de lo que parece.')) +
+
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 8.4 &middot; La cuenta de tu propia puerta',
+    [u'6.2', u'6.3'], u'Individual &middot; 25 min &middot; sobre 10', u'''
+          <div class="nota">
+            <span class="n-tag">Antes de empezar</span>
+            En el cuaderno <b>no se escribe ninguna contrase&ntilde;a de verdad</b>, y en la escena
+            tampoco: si quieres probar la tuya, escribe <b>una parecida</b> &mdash;igual de larga y del
+            mismo estilo&mdash;, que la cuenta sale igual. La escena no manda nada a ninguna parte, pero
+            no escribir la tuya por ah&iacute; es una costumbre que conviene coger.
+          </div>
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>Las dos del reto, terminadas.</b> Escribe 94<sup>8</sup> con los tres pasos
+                (94<sup>2</sup>, 94<sup>4</sup>, 94<sup>8</sup>) y d&eacute;jalo apuntado con sus 16
+                cifras. Debajo, la comparaci&oacute;n con las 35 de la B y <b>cu&aacute;ntas veces
+                m&aacute;s</b> es.</li>
+            <li><b>La tabla que decide.</b> Rellena esta tabla de combinaciones:
+                <ul>
+                  <li>8 caracteres, solo min&uacute;sculas (26<sup>8</sup>)</li>
+                  <li>8 caracteres, con todo (94<sup>8</sup>)</li>
+                  <li>12 caracteres, solo min&uacute;sculas (26<sup>12</sup>)</li>
+                  <li>16 caracteres, solo min&uacute;sculas (26<sup>16</sup>)</li>
+                </ul>
+                Y contesta en una frase: <b>&iquest;qu&eacute; sube m&aacute;s el mont&oacute;n</b>,
+                llenar de s&iacute;mbolos una de 8, o dejarla en min&uacute;sculas y alargarla?</li>
+            <li><b>La escena, con el ritmo cambiado.</b> Escribe una de <b>8</b> caracteres con de todo
+                y anota el tiempo; escribe una de <b>20</b> en min&uacute;sculas y anota el suyo. Ahora
+                cambia el ritmo a los tres y anota los seis tiempos. Contesta: al cambiar de ritmo,
+                <b>&iquest;cambia cu&aacute;l de las dos gana?</b> &iquest;Por qu&eacute;?</li>
+            <li><b>Cuenta tus puertas.</b> Sin escribir ninguna contrase&ntilde;a ni decir de
+                qu&eacute; sitio es: &iquest;en cu&aacute;ntos sitios tienes cuenta? &iquest;En
+                cu&aacute;ntos de ellos has puesto <b>la misma</b>? Escribe solo los dos
+                n&uacute;meros, y debajo una frase: si la peor de esas webs pierde su lista,
+                <b>&iquest;cu&aacute;ntas puertas se abren?</b></li>
+            <li><b>La huella.</b> En la escena del <i>hash</i>, escribe una palabra cualquiera y anota
+                sus <b>ocho primeras cifras</b>. B&oacute;rrala, escr&iacute;bela otra vez:
+                &iquest;sale igual? Cambia una letra: &iquest;cu&aacute;ntas de las 64 cifras cambian?
+                Y contesta lo importante: si una web solo guarda <b>esto</b>, &iquest;puede
+                <b>decirte</b> cu&aacute;l era tu contrase&ntilde;a cuando se te olvide?
+                &iquest;Qu&eacute; es lo &uacute;nico que puede hacer?</li>
+            <li><b>Tu plan, en tres l&iacute;neas.</b> Una: c&oacute;mo vas a hacer la del correo (sin
+                escribirla). Dos: si vas a usar gestor y cu&aacute;l. Tres: en qu&eacute; dos cuentas
+                vas a activar el segundo factor esta semana. Vale decir &laquo;no voy a cambiar
+                nada&raquo; si lo razonas con n&uacute;meros.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La potencia est&aacute; hecha por pasos y la comparaci&oacute;n es correcta
+                <b>(2 puntos)</b>.</li>
+            <li>La tabla est&aacute; completa y la frase final distingue <b>alargar</b> de
+                <b>complicar</b> <b>(2 puntos)</b>.</li>
+            <li>Los seis tiempos est&aacute;n anotados y se ve que el orden <b>no depende del ritmo</b>
+                <b>(2 puntos)</b>.</li>
+            <li>Las dos cuentas de las puertas est&aacute;n hechas y la frase entiende el
+                efecto domin&oacute; <b>(2 puntos)</b>.</li>
+            <li>La prueba de la huella est&aacute; hecha y se contesta que la web <b>no puede
+                devolv&eacute;rtela</b>, solo darte una nueva <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Sobre el paso 3</span>
+            Los tiempos cambian mucho de un ritmo a otro &mdash;de a&ntilde;os a horas&mdash;, y eso
+            asusta. Lo que hay que mirar no es el n&uacute;mero: es que <b>la larga gana en los tres</b>.
+            Cuando una conclusi&oacute;n aguanta con supuestos muy distintos, es que la
+            conclusi&oacute;n es buena.
+          </div>
+  ''')) +
+
+  bloque('03', u'Cierre &middot; 5 min', u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Por qu&eacute; una contrase&ntilde;a larga y f&aacute;cil gana a una corta y rara?',
+                     u'<p>Porque <b>cada carácter que a&ntilde;ades multiplica</b> el mont&oacute;n por el alfabeto entero, mientras que hacerla rara <b>solo agranda el alfabeto, y una vez</b>. Partiendo de ocho min&uacute;sculas, llenarla de s&iacute;mbolos la multiplica por 29.190 y a&ntilde;adirle cuatro letras la multiplica por 456.976. Y encima la larga te la acuerdas.</p>')
+        + pregunta(u'Una web bien hecha, &iquest;qu&eacute; guarda cuando te registras?',
+                   u'<p>No guarda tu contrase&ntilde;a: guarda su <b>huella</b>, que es una cuenta que no se puede deshacer, normalmente con una <b>sal</b> delante. Cuando entras, calcula la huella de lo que escribes y la compara. Por eso, si se te olvida, una web bien hecha <b>no puede mand&aacute;rtela</b>: solo puede darte una nueva.</p>')
+        + pregunta(u'Tienes una contrase&ntilde;a larguísima, pero la misma en ocho sitios. &iquest;Es fuerte?',
+                   u'<p>No. Su fuerza ya no la decides t&uacute;: la decide <b>la peor de esas ocho webs</b>. El d&iacute;a que a una se le escape la lista, se abren las ocho puertas a la vez, porque adem&aacute;s el usuario suele ser el mismo correo. Larga <b>y distinta</b> en cada sitio; y para poder hacerlo, un gestor.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes cerrar la puerta. Pero hay una pregunta que no hemos hecho todav&iacute;a, y es de las
+        raras: detr&aacute;s de esa puerta, <b>&iquest;d&oacute;nde est&aacute;n exactamente tus
+        cosas?</b> La foto que subiste ayer no est&aacute; &laquo;en el m&oacute;vil&raquo;, y
+        &laquo;en la nube&raquo; no es una respuesta: es el nombre de la pregunta.
+      </div>
+  '''))
+
+
+# ==========================================================================
+# SESION 5 · La nube
+# ==========================================================================
+S5 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>Ya sabes cerrar la puerta. Vamos con lo que hay detr&aacute;s, que es una pregunta que casi
+         nadie se hace: la foto que subiste ayer, <b>&iquest;d&oacute;nde est&aacute;?</b></p>
+      <p>Hay una manera de comprobar que no est&aacute; donde crees, y se hace en diez segundos.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Pon el m&oacute;vil en <b>modo avi&oacute;n</b> &mdash;sin datos, sin wifi&mdash; y abre la
+        aplicaci&oacute;n donde guardas las fotos. Baja del todo, hasta las del a&ntilde;o pasado, y
+        <b>intenta abrir tres</b>. Despu&eacute;s escribe en el cuaderno <b>qu&eacute; ha pasado</b> y,
+        sobre todo, <b>d&oacute;nde estaban las que s&iacute; se han abierto y d&oacute;nde las que
+        no</b>.
+      </div>
+
+      <p>Sale lo mismo en casi todos los m&oacute;viles: las de esta semana se abren y las viejas
+         aparecen borrosas, o no aparecen. Las que se abren estaban <b>ah&iacute; dentro</b>. Las otras
+         no estaban: estaba <b>una miniatura</b>, como el cartel de una pel&iacute;cula que no
+         tienes.</p>
+
+      <p>Si le preguntas a alguien d&oacute;nde est&aacute;n las que faltan, la respuesta es
+         &laquo;en la nube&raquo;. Y eso no es una respuesta: es <b>el nombre de la pregunta</b>. As&iacute;
+         que vamos a contestarla de verdad. Piensa estas tres, que tienen respuesta concreta:</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Tres preguntas con respuesta</span>
+        <p><b>1.</b> Esa foto ocupa unos megas. Los megas est&aacute;n escritos en alg&uacute;n sitio
+           f&iacute;sico. <b>&iquest;Qui&eacute;n paga la luz de ese sitio?</b></p>
+        <p><b>2.</b> Ese sitio est&aacute; en un pa&iacute;s. <b>&iquest;En cu&aacute;l?</b>
+           &iquest;Sabes siquiera en qu&eacute; continente?</p>
+        <p><b>3.</b> Si dejas de pagar, o si te cierran la cuenta por lo que sea,
+           <b>&iquest;qu&eacute; pasa con la foto?</b></p>
+      </div>
+
+      <p>Las tres tienen respuesta, y las tres apuntan a lo mismo: eso que llamamos nube <b>no
+         est&aacute; en el aire</b>. Est&aacute; en un disco, dentro de un ordenador, dentro de un
+         edificio que tiene una direcci&oacute;n, un due&ntilde;o, una factura de la luz y las leyes del
+         pa&iacute;s donde est&eacute;. Se parece bastante a esto:</p>
+
+''' + foto('u8-datacenter.jpg',
+           u'Filas de ordenadores apilados en estanter&iacute;as met&aacute;licas, iluminados por luces azules, en la sala de un centro de datos',
+           u'&laquo;La nube&raquo;, por dentro. Son <b>ordenadores en estanter&iacute;as</b>, uno encima de '
+           u'otro, en una sala con aire acondicionado a tope &mdash;porque calientan&mdash; y con '
+           u'generadores por si se va la luz. Las lucecitas azules quedan muy bien en la foto; lo que '
+           u'de verdad importa de este sitio es lo aburrido: que tiene <b>una direcci&oacute;n postal, '
+           u'un due&ntilde;o y un pa&iacute;s</b>. Tu foto est&aacute; en uno de esos discos.',
+           u'BalticServers.com', u'CC BY-SA 3.0',
+           u'https://commons.wikimedia.org/wiki/File:BalticServers_data_center.jpg') + u'''
+      <p>De ah&iacute; sale la frase que ordena toda la sesi&oacute;n, y que no es un insulto sino una
+         descripci&oacute;n: <b>la nube es el ordenador de otro</b>. En cuanto lo dices as&iacute;, las
+         preguntas que hay que hacer se ordenan solas.</p>
+  ''') +
+
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <div class="copiar">
+        <h4>La nube</h4>
+        <p><b>La nube</b>: guardar tus archivos o hacer tus cuentas en <b>ordenadores de otra empresa</b>,
+           a los que llegas por Internet, en vez de en el aparato que tienes delante.</p>
+        <p>No es una tecnolog&iacute;a nueva ni m&aacute;gica: es la de siempre, <b>en el edificio de
+           otro</b>. Lo que cambia es de qui&eacute;n es la m&aacute;quina, qui&eacute;n la cuida y
+           qui&eacute;n pone las condiciones.</p>
+      </div>
+
+      <h3>Qu&eacute; se gana y qu&eacute; se pierde</h3>
+      <p>Y se gana bastante. Por eso la usa todo el mundo, y estar&iacute;a mal contarlo como si fuera
+         una trampa: es un <b>trato</b>, y como todos los tratos tiene dos columnas.</p>
+
+      <div class="copiar">
+        <h4>El trato de la nube</h4>
+        <table>
+          <tr><th>Lo que ganas</th><th>Lo que sueltas</th></tr>
+          <tr><td>Llegas desde cualquier aparato, est&eacute;s donde est&eacute;s.</td>
+              <td>Hace falta <b>conexi&oacute;n</b>. Sin ella, no hay archivos.</td></tr>
+          <tr><td>No compras discos ni los cambias cuando se rompen.</td>
+              <td>Pagas <b>todos los meses, para siempre</b>, y el precio lo ponen ellos.</td></tr>
+          <tr><td>Si se rompe un disco suyo, ellos tienen m&aacute;s copias y no te enteras.</td>
+              <td>Si <b>pierdes la cuenta</b>, lo pierdes todo de golpe, aunque los discos est&eacute;n
+                  perfectos.</td></tr>
+          <tr><td>Se comparte con un enlace, sin copiar nada.</td>
+              <td>Est&aacute; en su m&aacute;quina: <b>sus normas y las leyes de su pa&iacute;s</b>.</td></tr>
+        </table>
+        <p>Dicho corto: <b>cambias trastos por dependencia</b>. Para much&iacute;simas cosas compensa. Lo
+           que no compensa es hacerlo <b>sin saberlo</b>.</p>
+      </div>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Una cuenta que nadie hace hasta que le toca</span>
+        <p>Tienes <b>60 GB</b> arriba y se te rompe el port&aacute;til. Te compras otro y te lo bajas
+           todo. Tu conexi&oacute;n baja a <b>50 megabits por segundo</b>, que est&aacute; bien.</p>
+        <p style="margin-top:8px">60 GB son <b>480.000 megabits</b>. Entre 50: <b>9.600 segundos</b>,
+           o sea <b>2 horas y 40 minutos</b> sin poder hacer nada. Y si la conexi&oacute;n es de
+           <b>5 Mbit/s</b> &mdash;la de casa de tu abuela, o la del pueblo en agosto&mdash;, son
+           <b>96.000 segundos: casi 27 horas</b>.</p>
+        <p style="margin-top:8px">Subir es gota a gota y no te enteras. <b>Bajar es de golpe</b>, y el
+           d&iacute;a que lo necesites ser&aacute; justo el d&iacute;a que tengas prisa.</p>
+      </div>
+
+      <h3>Y ahora la confusi&oacute;n que cuesta cara</h3>
+      <p>Casi todo el mundo cree que, por tener las cosas en la nube, <b>ya tiene copia de
+         seguridad</b>. Es la creencia m&aacute;s extendida de esta unidad y es <b>falsa</b>. Y no es un
+         detalle: es la diferencia entre perder un trabajo de tres semanas o no perderlo.</p>
+      <p>Abajo tienes los sitios donde puede vivir un archivo. Ponlos y qu&iacute;talos, haz que pase
+         algo y mira qui&eacute;n sobrevive. Empieza por el experimento que dice el pie.</p>
+
+''' + ESCENA_NUBE + u'''
+      <div class="copiar" style="border-color:var(--goo-rojo)">
+        <h4>Sincronizar NO es copia de seguridad</h4>
+        <p><b>Sincronizar</b>: que dos sitios tengan <b>siempre lo mismo</b>. Cambias algo aqu&iacute; y
+           cambia all&iacute;, en segundos.</p>
+        <p><b>Copia de seguridad</b>: guardar aparte <b>c&oacute;mo estaban las cosas en un
+           momento</b>, y que eso <b>no cambie</b> aunque el original cambie.</p>
+        <p>Y ah&iacute; est&aacute; la diferencia entera:</p>
+        <ul>
+          <li>Sincronizar te salva de que <b>se rompa el aparato</b>: el archivo est&aacute; en otro
+              sitio.</li>
+          <li>Sincronizar <b>no te salva de ti</b>. Si lo borras, lo borra. Si lo estropeas, lo
+              estropea. <b>Copia el desastre, y lo copia r&aacute;pido</b>, que es lo que se le pide.</li>
+        </ul>
+        <p>Por eso la carpeta sincronizada es <b>comod&iacute;sima</b> y <b>no es una copia de
+           seguridad</b>. Son dos herramientas distintas para dos miedos distintos, y hacen falta las
+           dos.</p>
+      </div>
+
+      <h3>Entonces, &iquest;cu&aacute;ntas copias hacen falta?</h3>
+      <p>La respuesta lleva d&eacute;cadas siendo la misma, y tiene la ventaja de que se recuerda con
+         tres n&uacute;meros. Lo bonito es que <b>cada n&uacute;mero mata un desastre distinto</b>.</p>
+
+      <div class="copiar">
+        <h4>La regla 3-2-1</h4>
+        <p><b>3</b> copias en total (el original y dos m&aacute;s) &middot; en <b>2</b> soportes
+           distintos &middot; con <b>1</b> de ellas <b>fuera de casa</b>.</p>
+        <ul>
+          <li>El <b>3</b> mata el fallo suelto: que se rompa una cosa no te deja sin nada, y que se
+              rompan dos a la vez el mismo d&iacute;a es raro.</li>
+          <li>El <b>2</b> mata el fallo que se lleva un tipo entero: un modelo de disco que sale malo,
+              o un programa que te borra todo lo que tenga delante.</li>
+          <li>El <b>1</b> mata el fallo que se lleva un <b>sitio</b> entero: un incendio, una
+              inundaci&oacute;n, un robo. Si las tres copias est&aacute;n en el mismo caj&oacute;n, son
+              una.</li>
+        </ul>
+        <p>Y un cuarto n&uacute;mero que la regla no dice y la escena s&iacute;: de esas copias,
+           <b>las que van sincronizadas cuentan poco</b>, porque repiten lo que le pase al original.
+           Al menos una tiene que estar <b>aparte de verdad</b>.</p>
+      </div>
+
+''' + foto('u8-cintas.jpg',
+           u'Pasillo entre estanter&iacute;as rojas llenas de bobinas de cinta magn&eacute;tica numeradas',
+           u'Un <b>archivo de copias de seguridad</b> en cinta magn&eacute;tica, de los a&ntilde;os setenta. '
+           u'Cada bobina lleva su n&uacute;mero y su fecha, est&aacute;n en una sala <b>aparte</b> y '
+           u'<b>no cambian</b>: eso es exactamente lo que hace que sean copias de seguridad y no una '
+           u'carpeta sincronizada. La tecnolog&iacute;a s&iacute; ha cambiado &mdash;hoy son cartuchos '
+           u'peque&ntilde;os, no bobinas&mdash;, pero las bibliotecas y los bancos siguen usando cinta '
+           u'por lo mismo de siempre: sale barata, dura d&eacute;cadas y, cuando est&aacute; en la '
+           u'estanter&iacute;a, <b>no est&aacute; enchufada a nada</b>.',
+           u'Linda Bartlett &middot; National Cancer Institute', u'Dominio p&uacute;blico',
+           u'https://commons.wikimedia.org/wiki/File:Computer_tapes.jpg') + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Queda un cabo suelto, y es justo: &laquo;pero mi nube tiene <b>papelera</b>, y guarda
+           versiones viejas&raquo;. Es verdad, y ayuda mucho: la papelera de treinta d&iacute;as salva
+           el borrado tonto, que es el m&aacute;s frecuente de todos. Pero f&iacute;jate en lo que es
+           exactamente: una copia de seguridad <b>que gestiona otro, dentro de la misma cuenta y con un
+           plazo que pone &eacute;l</b>. Si el problema es la cuenta &mdash;te la cierran, la pierdes,
+           te la quitan&mdash;, la papelera se va con ella. Por eso cuenta como <b>media red</b>, no
+           como la copia de fuera.</p>
+        <p>Y hay un detalle que cambia la escala de todo esto: lo que de verdad hace da&ntilde;o no es
+           perder un archivo, es <b>no enterarte de que lo has perdido</b>. Una copia que nadie ha
+           probado a recuperar no es una copia: es una suposici&oacute;n. En sitios donde esto va en
+           serio, lo que se apunta en el calendario no es el d&iacute;a de hacer la copia, sino el
+           d&iacute;a de <b>probar a restaurarla</b>.</p>
+      </div>
+
+''' + video('video-321', 'PM_M4Iz6I4o',
+            u'Backup 3-2-1, el m&eacute;todo definitivo para mantener a salvo tus datos',
+            u'Xataka &middot; en espa&ntilde;ol',
+            u'La misma regla contada con ejemplos de aparatos de hoy.')) +
+
+  bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
+    u'Actividad 8.5 &middot; &iquest;Sobrevivir&iacute;as?',
+    [u'6.1', u'6.3'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>El experimento del pie.</b> En la escena: dejad la <b>nube</b>, a&ntilde;adid el
+                <b>disco</b> y ponedlo <b>sincronizado</b>. Anotad los cuatro n&uacute;meros de la regla
+                3-2-1 y si la cumpl&iacute;s. Ahora dadle a <b>&laquo;lo borro sin querer&raquo;</b> y anotad
+                qu&eacute; queda. Escribid la moraleja en <b>una frase</b>.</li>
+            <li><b>Y arregladlo.</b> Quitad el sincronizado del disco, reiniciad y repetid el mismo
+                borrado. &iquest;Qu&eacute; cambia? Anotad los cuatro n&uacute;meros otra vez y decid
+                <b>cu&aacute;l de los cuatro</b> es el que os ha salvado.</li>
+            <li><b>Los cuatro desastres.</b> Montad la combinaci&oacute;n que os parezca buena y
+                probad los cuatro: borrado, port&aacute;til roto, casa inundada y cuenta perdida. Haced
+                una tabla de cuatro filas: <b>desastre &middot; qu&eacute; sobrevive &middot;
+                cu&aacute;ntos d&iacute;as de trabajo pierdes</b>. Si alguno os deja sin nada, cambiad
+                el montaje hasta que no.</li>
+            <li><b>La cuenta de bajarlo todo.</b> Ten&eacute;is <b>250 GB</b> arriba (250.000 MB).
+                Calculad cu&aacute;nto se tarda en bajarlo a <b>50 Mbit/s</b> y a <b>5 Mbit/s</b>.
+                Acordaos de que un byte son 8 bits. Dad el resultado en <b>horas</b>.</li>
+            <li><b>La cuenta del dinero.</b> Una nube de 2 TB cuesta del orden de <b>10 &euro; al
+                mes</b>. Calculad lo que son <b>diez a&ntilde;os</b>. Comparadlo con lo que cuesta un
+                disco externo de 2 TB (buscadlo). Y contestad: &iquest;quiere decir eso que el disco es
+                mejor? <b>Decid qu&eacute; da cada uno que el otro no da.</b></li>
+            <li><b>Vuestro plan de verdad.</b> Escribid el plan 3-2-1 para <b>vuestros trabajos del
+                curso</b>: qu&eacute; tres sitios, qu&eacute; dos soportes, cu&aacute;l est&aacute;
+                fuera de casa, y <b>cada cu&aacute;nto</b> toca hacer la copia. Tiene que ser un plan
+                que pod&aacute;is cumplir de verdad esta semana, no uno bonito.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El experimento est&aacute; hecho y la moraleja dice que <b>lo sincronizado copia el
+                borrado</b> <b>(2 puntos)</b>.</li>
+            <li>La segunda vuelta identifica el n&uacute;mero que salva: <b>las que no se
+                sincronizan</b> <b>(2 puntos)</b>.</li>
+            <li>La tabla de los cuatro desastres est&aacute; completa, con los d&iacute;as perdidos
+                <b>(2 puntos)</b>.</li>
+            <li>Las dos cuentas (horas y euros) est&aacute;n bien, con las unidades puestas
+                <b>(2 puntos)</b>.</li>
+            <li>El plan tiene los tres n&uacute;meros y una <b>periodicidad</b> realista
+                <b>(2 puntos)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Sobre el paso 5</span>
+            La respuesta buena <b>no</b> es &laquo;el disco, porque sale m&aacute;s barato&raquo;. El
+            disco no se sincroniza solo, no llega desde el m&oacute;vil y, si se moja, se moja. La nube
+            no te salva de un borrado y depende de una cuenta. Cada uno tapa el agujero del otro: por
+            eso la regla pide <b>dos soportes</b> y no el mejor de los dos.
+          </div>
+  ''')) +
+
+  bloque('03', u'Cierre &middot; 5 min', u'''
+      <ol>
+      ''' + pregunta(u'&iquest;Qu&eacute; es &laquo;la nube&raquo;, dicho sin adornos?',
+                     u'<p>El <b>ordenador de otro</b>. Tus archivos est&aacute;n en discos que no son tuyos, en un edificio con direcci&oacute;n, due&ntilde;o, factura de la luz y las leyes de su pa&iacute;s. A cambio de eso ganas llegar desde cualquier sitio y no tener que comprar ni arreglar trastos.</p>')
+        + pregunta(u'Tienes la carpeta sincronizada con la nube. Borras un trabajo sin querer. &iquest;Lo tienes a salvo?',
+                   u'<p>No. Lo sincronizado <b>copia el borrado</b>, y en segundos: para eso est&aacute; hecho. Te salva de que se rompa el port&aacute;til, no de que te equivoques t&uacute;. Para eso hace falta una copia <b>aparte</b>, que no cambie cuando cambie el original. (La papelera de la nube salva muchas veces, pero tiene plazo y vive dentro de la misma cuenta.)</p>')
+        + pregunta(u'&iquest;Por qu&eacute; la regla pide una copia <b>fuera de casa</b>?',
+                   u'<p>Porque hay desastres que no se llevan un aparato: se llevan <b>un sitio entero</b>. Un incendio, una inundaci&oacute;n o un robo se llevan por igual el port&aacute;til y el disco del caj&oacute;n de al lado. Tres copias en la misma habitaci&oacute;n son, para esos casos, <b>una sola copia</b>.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Repasa lo que llevas: por d&oacute;nde viaja lo tuyo, qui&eacute;n lo ve pasar, qu&eacute; se
+        recoge, c&oacute;mo se cierra la puerta y en qu&eacute; edificio acaba todo. En cinco sesiones
+        siempre ha decidido <b>otro</b>. La &uacute;ltima va de lo contrario: <b>qu&eacute; puedes
+        exigir t&uacute;</b>, a qui&eacute;n, y en cu&aacute;ntos d&iacute;as te tienen que contestar.
+        Es gratis y casi nadie lo usa.
+      </div>
+  '''))
+
+
+# ==========================================================================
+# SESION 6 · Tus derechos, y el test que cierra la unidad
+#
+# Las diez preguntas son de TODO el tema, no solo de esta sesion: dos de cada
+# una de las cinco anteriores mas la de hoy. Cada una explica por que, tambien
+# cuando se acierta.
+# ==========================================================================
+PREGUNTAS_U8 = [
+ dict(p=u'&iquest;Por qu&eacute; Internet no reserva un camino entero para cada conversaci&oacute;n?',
+      op=[u'porque los cables no aguantar&iacute;an el peso de tantos datos',
+          u'porque no cabe: har&iacute;an falta tantos caminos como parejas de usuarios, y cada uno '
+          u'quedar&iacute;a ocupado sin usarse',
+          u'porque los paquetes viajan m&aacute;s r&aacute;pido que una l&iacute;nea reservada'],
+      ok=1,
+      por=u'Es la cuenta de la primera sesi&oacute;n: en un instituto de 600 personas ya salen 179.700 '
+          u'cables. Al trocear y <b>compartir</b>, el mismo cable sirve para much&iacute;simas '
+          u'conversaciones a la vez. La velocidad no tiene nada que ver.'),
+ dict(p=u'Escribes un nombre en el navegador. &iquest;Qu&eacute; pasa <b>antes</b> de que empiece a llegar la p&aacute;gina?',
+      op=[u'se cifra el nombre con el candado',
+          u'se parte el nombre en paquetes y se manda',
+          u'hay que traducir el nombre a una direcci&oacute;n IP, y de eso se encarga el DNS'],
+      ok=2,
+      por=u'La red <b>solo sabe ir a n&uacute;meros</b>. El <b>DNS</b> es la agenda que convierte '
+          u'aula.example.es en 192.0.2.41. Si nadie ten&iacute;a la respuesta guardada, hay que '
+          u'preguntarla en varios sitios, y eso tarda unas d&eacute;cimas <b>antes</b> de todo lo '
+          u'dem&aacute;s.'),
+ dict(p=u'Est&aacute;s en una wifi abierta y entras en una web con candado. &iquest;Qu&eacute; puede saber quien controle esa wifi?',
+      op=[u'nada en absoluto: el candado lo tapa todo',
+          u'a qu&eacute; sitio te conectas y cu&aacute;nto mueves, pero no qu&eacute; dices',
+          u'tu contrase&ntilde;a, porque la wifi es abierta'],
+      ok=1,
+      por=u'El candado protege el <b>contenido</b>, no el <b>destino</b>. Ve con qui&eacute;n hablas, '
+          u'cu&aacute;ndo y cu&aacute;nto ocupa; no ve qu&eacute; le dices. Y eso, repetido durante un '
+          u'rato, tambi&eacute;n cuenta bastante de una persona.'),
+ dict(p=u'En criptograf&iacute;a, &iquest;qu&eacute; tiene que ser secreto?',
+      op=[u'el m&eacute;todo, para que nadie sepa c&oacute;mo funciona',
+          u'la clave; el m&eacute;todo se publica entero a prop&oacute;sito',
+          u'los dos, y por eso se cambian cada d&iacute;a'],
+      ok=1,
+      por=u'Es la regla de Kerckhoffs, de 1883. Un secreto que tiene que saber mucha gente <b>no se '
+          u'aguanta</b>, y si se escapa hay que cambi&aacute;rselo a todos a la vez. Publicando el '
+          u'm&eacute;todo, si se escapa una clave se cambia <b>esa</b> y ya. Adem&aacute;s, un '
+          u'm&eacute;todo publicado lo puede intentar romper todo el mundo.'),
+ dict(p=u'&iquest;Cu&aacute;l es la diferencia entre una <i>cookie</i> y la huella digital del navegador?',
+      op=[u'ninguna: son dos nombres para lo mismo',
+          u'la cookie te la ponen dentro y se puede borrar; la huella es c&oacute;mo es tu aparato, y no se borra',
+          u'la huella la pones t&uacute; y la cookie la pone la web'],
+      ok=1,
+      por=u'Una es una <b>pegatina</b> que te pegan y puedes quitar; la otra es <b>reconocerte por la '
+          u'cara</b>: la combinaci&oacute;n de pantalla, idioma, zona horaria y dem&aacute;s. Por eso '
+          u'borrar las cookies o abrir una ventana de inc&oacute;gnito no cambia la huella.'),
+ dict(p=u'Partiendo de ocho min&uacute;sculas, &iquest;qu&eacute; sube m&aacute;s el mont&oacute;n de combinaciones?',
+      op=[u'llenarla de may&uacute;sculas, n&uacute;meros y signos (&times;29.190)',
+          u'a&ntilde;adirle cuatro letras min&uacute;sculas m&aacute;s (&times;456.976)',
+          u'las dos cosas suben lo mismo'],
+      ok=1,
+      por=u'Porque <b>cada carácter nuevo multiplica</b> por el alfabeto entero, mientras que hacerla '
+          u'rara <b>agranda el alfabeto una sola vez</b>. Las cuatro letras ganan por quince veces, y '
+          u'encima te las acuerdas, que es lo que hace que no acabes repiti&eacute;ndola.'),
+ dict(p=u'Una web bien hecha, cuando te registras, guarda&hellip;',
+      op=[u'tu contrase&ntilde;a, cifrada con la clave de la empresa',
+          u'tu contrase&ntilde;a tal cual, pero en un servidor muy protegido',
+          u'la <b>huella</b> de tu contrase&ntilde;a (con una sal delante), que no se puede deshacer'],
+      ok=2,
+      por=u'Por eso una web bien hecha <b>no sabe</b> cu&aacute;l es tu contrase&ntilde;a: compara '
+          u'huellas. Y de ah&iacute; sale una se&ntilde;al que puedes usar: si al olvidarla te la '
+          u'mandan <b>tal cual</b> por correo, es que la ten&iacute;an guardada en claro.'),
+ dict(p=u'Tienes la carpeta sincronizada con la nube y borras un trabajo sin querer. &iquest;Est&aacute; a salvo?',
+      op=[u's&iacute;, porque la nube es una copia de seguridad',
+          u'no: lo sincronizado copia el borrado, y en segundos',
+          u's&iacute;, porque la nube guarda todo para siempre'],
+      ok=1,
+      por=u'Sincronizar es <b>tener siempre lo mismo</b> en dos sitios: para eso est&aacute; hecho, y lo '
+          u'hace tambi&eacute;n con los desastres. Te salva de que se rompa el aparato, no de que te '
+          u'equivoques t&uacute;. Una copia de seguridad es otra cosa: <b>c&oacute;mo estaban las cosas '
+          u'antes</b>, guardado aparte y sin cambiar.'),
+ dict(p=u'En la regla 3-2-1, &iquest;para qu&eacute; sirve el <b>1</b> (una copia fuera de casa)?',
+      op=[u'para poder llegar a ella desde el m&oacute;vil',
+          u'para que sea m&aacute;s barata',
+          u'para el desastre que se lleva un sitio entero: fuego, agua o robo'],
+      ok=2,
+      por=u'Cada n&uacute;mero mata un desastre distinto. Tres copias en el mismo caj&oacute;n son, '
+          u'ante un incendio, <b>una sola copia</b>. Por eso una tiene que estar en otro sitio '
+          u'f&iacute;sico.'),
+ dict(p=u'Pides a una empresa que te ense&ntilde;e los datos que tiene tuyos. &iquest;Qu&eacute; te ampara?',
+      op=[u'nada: es un favor, y pueden no contestarte',
+          u'el derecho de acceso, gratis, y tienen un mes para contestar (dos m&aacute;s si avisan)',
+          u'solo puedes pedirlo con un abogado y pagando una tasa'],
+      ok=1,
+      por=u'No es un favor: es un <b>derecho</b> con art&iacute;culo (RGPD, art. 15), <b>plazo</b> (un '
+          u'mes, prorrogable otros dos avisando) y <b>&aacute;rbitro</b> (la Agencia Espa&ntilde;ola de '
+          u'Protecci&oacute;n de Datos, a la que se reclama gratis). Y en Espa&ntilde;a, desde los '
+          u'<b>14 a&ntilde;os</b>, lo ejerces t&uacute; solo.'),
+]
+
+
+S6 = (
+  bloque('00', u'Reto inicial &middot; 10 min', u'''
+      <p>Cinco sesiones mirando c&oacute;mo funciona esto por dentro, y en las cinco ha decidido
+         <b>otro</b>: qu&eacute; se recoge, d&oacute;nde se guarda, cu&aacute;nto dura. Hoy va de lo
+         contrario.</p>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Hace dos a&ntilde;os te hiciste una cuenta en una aplicaci&oacute;n que ya no usas. Siguen
+        teniendo tus datos ah&iacute; dentro. <b>Escribe el mensaje que les mandar&iacute;as</b> para
+        que lo borren todo. Cinco l&iacute;neas, como si lo fueras a enviar. Cinco minutos.
+      </div>
+
+      <p>Ahora leed tres en voz alta. Van a parecerse much&iacute;simo, y casi todos empiezan igual:
+         <i>&laquo;Hola, buenas, quer&iacute;a preguntar si ser&iacute;a posible que&hellip;&raquo;</i>.
+         Es un mensaje educado, razonable y <b>completamente in&uacute;til</b>. Vamos a ver por
+         qu&eacute;, porque el motivo no es c&oacute;mo est&aacute; escrito.</p>
+
+      <div class="reto-piensa">
+        <span class="n-tag">Las tres preguntas que lo hunden</span>
+        <p><b>1.</b> Est&aacute;s pidiendo un <b>favor</b>. &iquest;Qu&eacute; pasa si te dicen que
+           no? &iquest;Y si no te contestan?</p>
+        <p><b>2.</b> &iquest;<b>Cu&aacute;ndo</b> te tienen que contestar? Si no pones fecha, no hay
+           fecha, y &laquo;ya lo miraremos&raquo; puede durar tres a&ntilde;os.</p>
+        <p><b>3.</b> Si pasan de ti, <b>&iquest;a qui&eacute;n se lo cuentas?</b> &iquest;Hay alguien
+           por encima de ellos?</p>
+      </div>
+
+      <p>Las tres respuestas, con un mensaje as&iacute;, son la misma: <b>nada, nunca y a nadie</b>. Y
+         ah&iacute; est&aacute; el fallo, que no es de educaci&oacute;n ni de redacci&oacute;n: es que
+         has pedido <b>un favor</b> cuando ten&iacute;as en la mano <b>un derecho</b>.</p>
+
+      <p>La diferencia no es una manera de hablar. Un derecho trae tres cosas que un favor no trae
+         nunca: un <b>nombre y un art&iacute;culo</b>, un <b>plazo</b> y un <b>&aacute;rbitro</b> al que
+         acudir cuando no te hacen caso. Con esas tres, el mismo mensaje pasa de s&uacute;plica a
+         obligaci&oacute;n. Vamos a por ellas.</p>
+  ''') +
+
+  bloque('01', u'Teor&iacute;a &middot; 20 min', u'''
+      <h3>Estos derechos existen y tienen n&uacute;mero</h3>
+      <p>En la sesi&oacute;n de los datos apareci&oacute; de pasada una ley, el <b>Reglamento General de
+         Protecci&oacute;n de Datos</b> &mdash;europeo, de 2016, en vigor desde el 25 de mayo de
+         2018&mdash;. All&iacute; sirvi&oacute; para explicar de d&oacute;nde salen los avisos de
+         cookies. Hoy la vamos a usar para otra cosa: para <b>pedir</b>.</p>
+      <p>Elige un derecho abajo, pon la fecha de hoy y mira el calendario. Despu&eacute;s cambia la
+         fecha de env&iacute;o a un <b>31 de enero</b> y fíjate en lo que hace el plazo.</p>
+
+''' + ESCENA_DERECHOS + u'''
+      <div class="copiar">
+        <h4>Los cuatro que m&aacute;s vas a usar</h4>
+        <table>
+          <tr><th>Derecho</th><th>Qu&eacute; puedes exigir</th></tr>
+          <tr><td><b>Acceso</b><br><span style="font-size:12.5px">RGPD, art. 15</span></td>
+              <td>Que te ense&ntilde;en <b>todo</b> lo que tienen tuyo, de d&oacute;nde lo sacaron, para
+                  qu&eacute; lo usan y a qui&eacute;n se lo dan. Con copia, no con un resumen.</td></tr>
+          <tr><td><b>Rectificaci&oacute;n</b><br><span style="font-size:12.5px">art. 16</span></td>
+              <td>Que <b>arreglen</b> lo que tengan mal. Es el m&aacute;s f&aacute;cil de ganar: un dato
+                  equivocado no lo defiende nadie.</td></tr>
+          <tr><td><b>Supresi&oacute;n</b><br><span style="font-size:12.5px">art. 17</span></td>
+              <td>Que lo <b>borren</b>. Es el que la prensa llama &laquo;derecho al olvido&raquo;. No
+                  siempre gana &mdash;a veces una ley les obliga a guardarlo&mdash;, pero
+                  <b>te tienen que decir por qu&eacute;</b>.</td></tr>
+          <tr><td><b>Portabilidad</b><br><span style="font-size:12.5px">art. 20</span></td>
+              <td>Que te den lo tuyo en un <b>archivo que puedas abrir</b>, para llev&aacute;rtelo a
+                  otro sitio. Es el que impide que una aplicaci&oacute;n te tenga atrapado por guardar
+                  dentro tus a&ntilde;os de fotos.</td></tr>
+        </table>
+        <p>Hay dos m&aacute;s que conviene saber que existen: <b>oposici&oacute;n</b> (que dejen de
+           usarlos para algo, t&iacute;picamente publicidad) y <b>limitaci&oacute;n</b> (que los
+           congelen mientras se discute si son correctos).</p>
+      </div>
+
+      <div class="copiar">
+        <h4>El plazo y el &aacute;rbitro</h4>
+        <ul>
+          <li>Ejercerlos es <b>gratis</b>, y se pide <b>directamente a la empresa</b>: no hace falta
+              abogado ni papel del juzgado.</li>
+          <li>Tienen <b>un mes</b> para contestar. Pueden alargarlo <b>otros dos</b> si la cosa es
+              complicada, pero <b>te lo tienen que avisar dentro del primer mes</b> y decirte por
+              qu&eacute;.</li>
+          <li>Si no contestan, o si contestan que no y no te convence, se <b>reclama a la Agencia
+              Espa&ntilde;ola de Protecci&oacute;n de Datos</b>. Tambi&eacute;n gratis.</li>
+        </ul>
+        <p>Y ojo con el mes, que no son treinta d&iacute;as: es <b>hasta el mismo n&uacute;mero del mes
+           siguiente</b>, y cuando ese n&uacute;mero no existe se recorta. Un 31 de enero m&aacute;s un
+           mes es el <b>28 de febrero</b>. Pru&eacute;balo en la escena.</p>
+      </div>
+
+      <div class="copiar">
+        <h4>La edad para decidir t&uacute; solo</h4>
+        <p>En <b>Espa&ntilde;a</b>, a partir de los <b>14 a&ntilde;os</b> puedes dar t&uacute; solo tu
+           permiso para que traten tus datos &mdash;y retirarlo t&uacute; solo&mdash;. Lo dice la
+           <b>Ley Org&aacute;nica 3/2018, art&iacute;culo 7</b>.</p>
+        <p>Por debajo de esa edad, el permiso lo dan tus padres o tutores. Que no es lo mismo que &laquo;no
+           puedes usar nada&raquo;: es que <b>el permiso que vale no es el tuyo</b>.</p>
+        <p>El reglamento europeo pone <b>16</b> por defecto y deja que cada pa&iacute;s lo baje
+           <b>hasta 13</b>. Por eso la edad <b>cambia seg&uacute;n el pa&iacute;s</b>, y por eso no
+           sirve de nada lo que hayas o&iacute;do de una aplicaci&oacute;n americana.</p>
+      </div>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
+        <p>Que la edad la eligiera cada pa&iacute;s no fue un descuido: fue la &uacute;nica manera de
+           que la ley saliera adelante. Los pa&iacute;ses de la Uni&oacute;n ten&iacute;an ya su idea de a
+           qu&eacute; edad un adolescente decide sobre lo suyo, y esa idea viene de cada sitio, no de la
+           tecnolog&iacute;a. As&iacute; que el reglamento puso un n&uacute;mero por defecto y dej&oacute;
+           una horquilla. Espa&ntilde;a eligi&oacute; catorce.</p>
+        <p>Y vale la pena fijarse en otra cosa: la edad que se puso aqu&iacute; est&aacute; <b>por debajo
+           de la mayor&iacute;a de edad</b>, y no es un despiste. Es que lo que se protege son
+           <b>tus</b> datos, y dejar que decidan siempre otros por ti tampoco te protege: te deja
+           fuera. Catorce es el punto donde se decidi&oacute; que ya sabes bastante como para
+           decidir, y eso incluye poder decir que <b>no</b>.</p>
+      </div>
+
+      <h3>Y si te pasa algo</h3>
+      <p>Hasta aqu&iacute; hemos hablado de empresas. Pero la mayor&iacute;a de los l&iacute;os no vienen
+         de una empresa: vienen de que alguien ha publicado una foto tuya, se ha hecho pasar por ti o
+         est&aacute; presionando a alguien con algo que tiene. Para eso hay un camino, y conviene
+         sab&eacute;rselo <b>antes</b>, porque el d&iacute;a que pasa no se piensa bien.</p>
+
+      <div class="copiar">
+        <h4>Qu&eacute; se hace, y en este orden</h4>
+        <ol>
+          <li><b>No contestes y no borres nada tuyo.</b> Contestar alimenta; borrar tus propios
+              mensajes te quita las pruebas.</li>
+          <li><b>Guarda pruebas.</b> Capturas donde se vea la <b>fecha</b>, el <b>nombre de usuario</b>
+              y la <b>direcci&oacute;n de la p&aacute;gina</b>. Sin eso, luego no hay nada que
+              ense&ntilde;ar.</li>
+          <li><b>Cu&eacute;ntaselo a alguien.</b> Un adulto de tu casa o del instituto. Esto no se lleva
+              solo, y no por debilidad: porque <b>hace falta alguien que pueda actuar</b>.</li>
+          <li><b>Denuncia dentro de la propia aplicaci&oacute;n.</b> Todas tienen bot&oacute;n, y suele
+              ser lo m&aacute;s r&aacute;pido de todo.</li>
+          <li><b>Llama al 017.</b> Es la l&iacute;nea de ayuda en ciberseguridad del <b>INCIBE</b>,
+              organismo p&uacute;blico. <b>Gratuita y confidencial</b>, todos los d&iacute;as de 8:00 a
+              23:00. No hay que haber hecho nada mal para llamar.</li>
+          <li>Si lo que circula es una <b>foto o un v&iacute;deo de contenido sexual o violento</b>, la
+              AEPD tiene un <b>canal prioritario</b> para pedir que se retire con urgencia, sin esperar
+              plazos. Y si hay delito, se denuncia a la <b>polic&iacute;a o a la guardia civil</b>.</li>
+        </ol>
+        <p>Una cosa m&aacute;s, y va en serio: si te han enga&ntilde;ado, <b>la culpa no es tuya</b>.
+           Enga&ntilde;an a gente mayor que t&uacute; y con m&aacute;s oficio. Callarse por
+           verg&uuml;enza es exactamente lo que espera quien te ha enga&ntilde;ado.</p>
+      </div>
+
+''' + foto('u8-aepd.jpg',
+           u'Puerta de madera oscura de un edificio con una placa blanca al lado que dice Agencia Espa&ntilde;ola de Protecci&oacute;n de Datos',
+           u'Esta puerta est&aacute; en la calle Jorge Juan de Madrid, y detr&aacute;s hay gente '
+           u'cobrando un sueldo p&uacute;blico por <b>hacer cumplir</b> lo que has copiado hoy. Se le '
+           u'reclama por Internet y <b>gratis</b>. Merece la pena verla: un derecho suena a cosa de '
+           u'papel hasta que descubres que tiene <b>portal, timbre y horario</b>.',
+           u'Zarateman', u'CC0',
+           u'https://commons.wikimedia.org/wiki/File:Madrid_-_Calle_de_Jorge_Juan,_Agencia_Espa%C3%B1ola_de_Protecci%C3%B3n_de_Datos.jpg') +
+  video('video-derechos', 'p3nATAVU6kM',
+        u'Cu&aacute;les son tus derechos de protecci&oacute;n de datos personales',
+        u'Agencia Espa&ntilde;ola de Protecci&oacute;n de Datos &middot; en espa&ntilde;ol',
+        u'Los mismos derechos contados por el organismo que se encarga de hacerlos cumplir.')) +
+
+  bloque('02', u'Pr&aacute;ctica &middot; 15 min', ficha(
+    u'Actividad 8.6 &middot; El mismo mensaje, pero que sirva',
+    [u'6.3'], u'Individual &middot; 15 min &middot; sobre 10', u'''
+          <h4>Qu&eacute; hay que hacer</h4>
+          <ol class="pasos">
+            <li><b>Vuelve a escribirlo.</b> Coge el mensaje del principio de la sesi&oacute;n y
+                reescr&iacute;belo como una <b>solicitud</b>. Tiene que llevar, s&iacute; o s&iacute;,
+                estas seis cosas:
+                <ul>
+                  <li>a qui&eacute;n va dirigido y qui&eacute;n eres (nombre y el correo de la cuenta);</li>
+                  <li><b>qu&eacute; derecho</b> ejerces, por su nombre y su art&iacute;culo;</li>
+                  <li><b>qu&eacute; pides exactamente</b>, sin rodeos;</li>
+                  <li>el <b>plazo</b> que tienen, dicho por ti;</li>
+                  <li>que si no contestan <b>reclamar&aacute;s a la AEPD</b>;</li>
+                  <li>la <b>fecha</b> y c&oacute;mo quieres que te respondan.</li>
+                </ul>
+                Nada de &laquo;ser&iacute;a posible&raquo; ni de &laquo;por favor&raquo; suplicando.
+                Educado s&iacute;; pidiendo favores, no.</li>
+            <li><b>Las fechas, calculadas.</b> Pon la de hoy en la escena y anota las <b>dos</b>
+                fechas l&iacute;mite (la normal y la de pr&oacute;rroga) con sus d&iacute;as.
+                C&oacute;pialas en tu solicitud.</li>
+            <li><b>La trampa del calendario.</b> Cambia la fecha de env&iacute;o al <b>31 de enero</b>
+                y anota a qu&eacute; d&iacute;a cae el mes. Explica en una frase <b>por qu&eacute;</b>
+                no es el 31 de febrero.</li>
+            <li><b>Elige bien el derecho.</b> Para cada caso, di cu&aacute;l de los cuatro pedir&iacute;as
+                y por qu&eacute;: <b>(a)</b> una tienda tiene mal tu apellido; <b>(b)</b> quieres saber
+                qu&eacute; sabe de ti una red social; <b>(c)</b> te cambias de aplicaci&oacute;n de
+                m&uacute;sica y quieres llevarte tus listas; <b>(d)</b> quieres que un foro borre tu
+                cuenta de hace tres a&ntilde;os.</li>
+            <li><b>Tu edad.</b> Pon tu fecha de nacimiento en la escena y anota si <b>hoy</b> puedes
+                ejercerlos t&uacute; solo o no. Si todav&iacute;a no, anota <b>qu&eacute; d&iacute;a</b>
+                podr&aacute;s y qui&eacute;n lo hace mientras tanto.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La solicitud lleva las <b>seis</b> cosas <b>(3 puntos)</b>.</li>
+            <li>Nombra el derecho <b>con su art&iacute;culo</b> y pide algo concreto <b>(2 puntos)</b>.</li>
+            <li>Las dos fechas l&iacute;mite est&aacute;n bien <b>(2 puntos)</b>.</li>
+            <li>Los cuatro casos est&aacute;n bien asignados y razonados <b>(2 puntos)</b>.</li>
+            <li>La explicaci&oacute;n del 31 de enero es correcta <b>(1 punto)</b>.</li>
+          </ul>
+          <div class="nota" style="margin-top:14px">
+            <span class="n-tag">Esto no es un ejercicio de mentira</span>
+            La solicitud que escribas hoy <b>sirve tal cual</b>. Si alguna vez quieres mandarla de
+            verdad, la AEPD tiene modelos en su web y se env&iacute;a por el formulario de contacto de
+            la propia empresa. Gu&aacute;rdate siempre <b>copia y fecha</b> de lo que mandas: sin eso no
+            se puede reclamar despu&eacute;s.
+          </div>
+  ''')) +
+
+  bloque('03', u'Test &middot; 10 min', u'''
+      <p>Diez preguntas de <b>toda la unidad</b>, no solo de hoy. Se corrigen aqu&iacute; mismo y cada
+         una explica por qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota:
+         es para que sepas por d&oacute;nde andas antes del examen.</p>
+''' + test('u8', u'Lo que tiene que haber quedado de la unidad', PREGUNTAS_U8)) +
+
+  bloque('04', u'Cierre &middot; 5 min', u'''
+      <p>Con esto se cierra la unidad. Si te quedas con cuatro frases, que sean estas:</p>
+      <div class="copiar">
+        <h4>La unidad en cuatro frases</h4>
+        <ol>
+          <li>Internet no manda las cosas enteras: las manda en <b>trozos numerados</b> que comparten
+              cables con los de todo el mundo y se recomponen al llegar.</li>
+          <li>El <b>candado</b> protege lo que dices por el camino; no protege <b>a d&oacute;nde vas</b>,
+              ni los extremos, ni te dice si la web es honrada.</li>
+          <li>Casi todo lo que saben de ti <b>se lo damos nosotros</b> al usar, o lo cuenta el aparato
+              solo. Y lo que guardas <b>est&aacute; en el ordenador de otro</b>.</li>
+          <li>Lo que te protege no es tener miedo: es que la contrase&ntilde;a sea <b>larga</b>, que
+              haya una <b>copia aparte</b> y que sepas que puedes <b>exigir</b>, gratis y con plazo.</li>
+        </ol>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Por qu&eacute; hemos estudiado esto as&iacute;</span>
+        En seis sesiones no ha aparecido ni una vez la frase &laquo;Internet es peligroso&raquo;, y no
+        es un olvido. Quien tiene miedo no decide: obedece, y hace lo que le digan el &uacute;ltimo
+        v&iacute;deo que ha visto o el primero que le llame por tel&eacute;fono. <b>Quien entiende
+        c&oacute;mo funciona, decide.</b> Eso es lo que ten&iacute;a que quedar.
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Siguiente unidad</span>
+        En toda esta unidad has sido quien <b>mira</b>: quien pide un v&iacute;deo, quien se conecta,
+        quien deja rastro. La unidad siguiente le da la vuelta y te pone del otro lado, el de quien
+        <b>publica</b>: c&oacute;mo se produce y se difunde algo propio con estas herramientas. Y
+        ah&iacute; se cierra el c&iacute;rculo que abriste en la unidad de representaci&oacute;n
+        gr&aacute;fica, cuando aprendiste a explicar con un plano lo que hab&iacute;as hecho. Era la
+        misma pregunta: <b>c&oacute;mo cuentas a otro lo tuyo</b>. Primero a mano; ahora, con todo esto
+        detr&aacute;s.
+      </div>
+  '''))
+
+
+# ==========================================================================
 S = [
   dict(corto=u'C&oacute;mo llega un v&iacute;deo',
        titulo=u'C&oacute;mo llega un v&iacute;deo a tu m&oacute;vil',
@@ -830,9 +1775,31 @@ S = [
        minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
        chips=[u'CE6 &middot; 6.3', u'D.3 &middot; D.4'],
        cuerpo=S3),
-  dict(corto=u'Contrase&ntilde;as', pendiente=True),
-  dict(corto=u'La nube', pendiente=True),
-  dict(corto=u'Tus derechos', pendiente=True),
+  dict(corto=u'Contrase&ntilde;as',
+       titulo=u'La contrase&ntilde;a: por qu&eacute; la larga gana a la rara',
+       entradilla=u'La receta de siempre &mdash;may&uacute;sculas, n&uacute;meros y un signo raro&mdash; '
+                  u'pierde contra una frase f&aacute;cil de recordar. Y se demuestra con una '
+                  u'multiplicaci&oacute;n.',
+       minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+       chips=[u'CE6 &middot; 6.2', u'CE6 &middot; 6.3', u'D.2 &middot; D.3'],
+       cuerpo=S4),
+  dict(corto=u'La nube',
+       titulo=u'La nube: el ordenador de otro',
+       entradilla=u'Esa foto est&aacute; en un edificio con direcci&oacute;n, due&ntilde;o y factura de '
+                  u'la luz. Qu&eacute; se gana, qu&eacute; se suelta, y por qu&eacute; sincronizar no '
+                  u'es tener una copia.',
+       minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"25'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+       chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.3', u'D.1 &middot; D.4'],
+       cuerpo=S5),
+  dict(corto=u'Tus derechos',
+       titulo=u'Tus derechos: lo que puedes exigir, y c&oacute;mo',
+       entradilla=u'Un favor se puede negar; un derecho trae art&iacute;culo, plazo y &aacute;rbitro. '
+                  u'Los cuatro que vas a usar, la edad a la que decides t&uacute; y el test que cierra '
+                  u'la unidad.',
+       minutado=[(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
+                 (u"10'", u'Test'), (u"5'", u'Cierre')],
+       chips=[u'CE6 &middot; 6.3', u'D.3 &middot; D.4'],
+       cuerpo=S6),
 ]
 
 CFG = dict(
