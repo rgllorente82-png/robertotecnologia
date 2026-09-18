@@ -1,0 +1,11 @@
+Bienvenidos a cuarto de Tecnología. Este curso es distinto a los anteriores, y conviene que lo sepáis desde hoy.
+
+En segundo, cada tema iba por su lado: un día estructuras, otro día electricidad, otro día programación. Aquí no. Aquí hay una sola cosa, un aparato de verdad, que vais a construir vosotros, y las nueve unidades del curso son las fases de construirlo. Detectarlo, diseñarlo, fabricarlo, automatizarlo, contarlo y medir lo que le cuesta al planeta.
+
+O sea, que la pregunta de hoy no es pequeña: hay que decidir qué construir. Y ahí está la trampa en la que cae todo el mundo, incluidas las empresas que se gastan millones. Se empieza por la solución. Quiero hacer un robot. Quiero hacer un dron. Suena muy bien y no sirve de nada, porque nadie ha dicho todavía a quién le hace falta.
+
+En estas cuatro sesiones vais a aprender a hacerlo al revés. Primero, detectar un problema que le pase a gente de verdad y medir cuánto de grande es. Después, escribir qué tiene que cumplir la solución, de forma que se pueda comprobar al final y no valga discutir. Luego, buscar varias soluciones posibles y elegir una dejando escrito por qué. Y por último, repartir el trabajo en el tiempo que hay, que es menos del que creéis.
+
+Una advertencia. Nada de esto es teoría para copiar y olvidar. Todo lo que decidáis en estas cuatro sesiones lo vais a estar usando en mayo, cuando montéis el aparato y no funcione a la primera. Así que merece la pena hacerlo bien ahora.
+
+Empezamos.

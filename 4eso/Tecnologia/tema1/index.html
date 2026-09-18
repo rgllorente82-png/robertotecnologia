@@ -1,0 +1,2641 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar</title>
+<meta name="description" content="Tema 1 de Tecnolog&iacute;a de 4.&ordm; de ESO: c&oacute;mo se detecta y se mide un problema de verdad, c&oacute;mo se escriben requisitos que se puedan comprobar, c&oacute;mo se elige entre alternativas con una matriz de decisi&oacute;n y c&oacute;mo se planifica un trimestre con camino cr&iacute;tico.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema1/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar","url":"https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema1/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.ta::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.ta h4{margin:8px 0 14px;font-size:16px}
+.ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.ta-p:first-of-type{border-top:0}
+.ta-p > p{margin:0 0 9px;font-weight:500}
+.ta-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.ta-op:hover{border-color:var(--goo-azul)}
+.ta-op input{margin-right:9px}
+.ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.ta.corregido .ta-por{display:block}
+.ta-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.ta-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.ta-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.ta{break-inside:avoid}.ta-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
+
+/* ---- la lectura de aula, al final de la unidad ---- */
+.lectura{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:2px solid var(--goo-verde);border-radius:2px;padding:18px;margin:26px 0 8px;position:relative}
+.lectura::before{content:"LECTURA DE AULA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-verde);color:#fff;font-family:var(--f-m);font-size:10.5px;
+  letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.lectura svg{flex:none;width:44px;height:44px;color:var(--goo-verde);margin-top:4px}
+.lectura h3{margin:6px 0 6px;font-size:17px}
+.lectura p{margin:0 0 10px;font-size:15px;line-height:1.6}
+.lectura a.pdf{display:inline-block;font-family:var(--f-m);font-size:13px;
+  background:var(--goo-verde);color:#fff;text-decoration:none;border-radius:2px;padding:9px 15px}
+@media print{.lectura{display:none}}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 1</div>
+    <h1>El proyecto tecnol&oacute;gico: detectar, idear, planificar</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Un problema no es una idea</button><button type="button" data-ses="2">S2 &middot; Requisitos antes que ideas</button><button type="button" data-ses="3">S3 &middot; Elegir con criterios</button><button type="button" data-ses="4">S4 &middot; Planificar el trimestre</button><button type="button" data-ses="5" disabled>S5 &middot; El cuaderno del proyecto</button><button type="button" data-ses="6" disabled>S6 &middot; Trabajar a la vez, en digital</button><button type="button" data-ses="7" disabled>S7 &middot; Contarlo en tres minutos</button><button type="button" data-ses="8" disabled>S8 &middot; Del plan a lo que pas&oacute;</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>Escribe qu&eacute; quieres construir. Acabas de escribir una soluci&oacute;n</h2>
+      <p>Todo el curso gira alrededor de una cosa que vais a construir. Hoy se decide qu&eacute;, y la trampa est&aacute; en el primer rengl&oacute;n: casi todo el mundo empieza por el aparato y no por la gente.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.1</span><span class="chip sab">A.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Este curso no se parece al de segundo. All&iacute; cada tema iba por su lado: unas semanas
+         estructuras, otras electricidad, otras programaci&oacute;n. Aqu&iacute; hay <b>una sola cosa</b>
+         &mdash;un aparato de verdad, con un sensor que se entera de algo y un actuador que hace
+         algo&mdash; y las <b>nueve unidades del curso son las fases</b> de construirlo: detectarlo,
+         dise&ntilde;arlo, fabricarlo, automatizarlo, contarlo y medir lo que le cuesta al planeta.</p>
+      <p>De modo que lo de hoy no es un calentamiento. Hoy se decide <b>qu&eacute; vais a construir</b>,
+         y con eso se decide el curso entero.</p>
+
+      <div class="narrador" id="narr-c1">
+        <div class="narrador-fig" id="narr-c1-fig"></div>
+        <div class="narrador-txt">
+          <h4>De qu&eacute; va este curso, y de qu&eacute; va esta unidad</h4>
+          <span class="narrador-quien">Todo el curso gira alrededor de una cosa que vais a construir. Hoy se decide qu&eacute;.</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada sobre gui&oacute;n propio. La boca sigue el volumen real de la voz.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-c1');
+        if(!C) return;
+        var fig = document.getElementById('narr-c1-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.104, 0.81, 1.0, 0.867, 0.983, 0.969, 0.809, 0.586, 0.439, 0.535, 0.38, 0.182, 1.0, 0.898, 0.174, 0.652, 0.458, 0.294, 0.436, 0.218, 0.498, 0.522, 0.491, 0.135, 0.343, 0.382, 0.325, 0.12, 0.014, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.516, 0.859, 0.199, 0.945, 0.102, 0.867, 0.9, 0.336, 0.349, 0.656, 0.893, 0.423, 0.73, 0.509, 0.105, 0.869, 0.81, 0.367, 0.761, 0.527, 0.351, 0.41, 0.491, 0.206, 0.458, 0.44, 0.719, 0.55, 0.394, 0.191, 0.103, 0.002, 0.0, 0.159, 0.709, 0.133, 0.978, 0.856, 0.714, 0.822, 0.712, 0.383, 0.491, 0.924, 0.893, 0.363, 0.552, 0.062, 1.0, 0.77, 0.251, 0.538, 0.271, 0.391, 0.395, 0.325, 0.256, 0.094, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.08, 0.895, 0.574, 0.416, 0.936, 0.671, 0.963, 0.69, 0.581, 0.348, 0.079, 0.002, 0.0, 0.0, 0.083, 0.797, 0.766, 0.816, 0.351, 0.749, 0.598, 0.627, 0.576, 0.876, 0.385, 0.816, 0.446, 0.299, 0.454, 0.729, 1.0, 0.366, 0.382, 0.203, 0.007, 0.0, 0.0, 0.037, 0.975, 0.911, 0.667, 0.745, 1.0, 0.468, 0.111, 0.383, 0.202, 0.04, 0.969, 0.584, 0.325, 0.147, 0.112, 0.026, 0.001, 0.001, 0.001, 0.908, 0.338, 0.721, 0.855, 0.727, 0.992, 0.851, 0.611, 0.314, 0.019, 0.399, 0.345, 0.338, 0.429, 0.818, 0.5, 0.095, 0.005, 0.0, 0.0, 0.402, 0.822, 0.354, 0.889, 0.499, 0.862, 0.679, 0.189, 0.4, 0.375, 0.318, 0.298, 0.266, 0.06, 0.354, 0.274, 0.195, 0.099, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.554, 0.557, 0.101, 1.0, 0.709, 0.544, 0.239, 0.036, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.493, 0.45, 0.059, 0.71, 0.842, 0.646, 0.756, 0.724, 0.625, 0.36, 0.748, 0.68, 0.381, 0.086, 0.672, 0.366, 0.256, 0.304, 0.184, 0.03, 0.001, 0.0, 0.301, 0.829, 0.77, 0.342, 0.71, 0.64, 0.699, 0.27, 0.739, 0.666, 0.449, 0.412, 0.341, 0.475, 0.394, 0.112, 0.002, 0.0, 0.0, 0.0, 0.319, 0.514, 0.856, 0.603, 0.284, 0.412, 0.137, 0.731, 0.521, 0.133, 0.34, 0.651, 0.786, 0.369, 0.508, 0.266, 0.363, 0.475, 0.161, 0.262, 0.173, 0.09, 0.023, 0.0, 0.0, 0.0, 0.0, 0.0, 0.294, 0.975, 1.0, 0.785, 0.571, 1.0, 0.95, 0.806, 0.976, 0.967, 0.982, 0.978, 0.893, 0.72, 0.327, 0.532, 0.45, 0.081, 0.824, 0.805, 0.298, 0.374, 0.44, 0.261, 0.552, 0.807, 0.787, 0.572, 0.231, 0.685, 0.646, 0.318, 0.457, 0.258, 0.359, 0.344, 0.436, 0.19, 0.229, 0.395, 0.452, 0.261, 0.213, 0.263, 0.12, 0.008, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.002, 0.295, 1.0, 0.221, 0.683, 0.033, 0.685, 0.968, 0.418, 0.603, 0.376, 0.121, 0.003, 0.002, 0.248, 0.811, 0.477, 0.643, 0.786, 0.901, 0.532, 0.429, 0.316, 0.135, 0.004, 0.0, 0.009, 0.093, 0.941, 0.581, 0.572, 0.113, 0.859, 0.767, 0.428, 0.375, 0.232, 0.023, 0.001, 0.001, 0.725, 0.665, 0.486, 0.866, 0.724, 0.236, 0.478, 0.115, 0.736, 0.629, 0.329, 0.35, 0.194, 0.021, 0.001, 0.0, 0.0, 0.051, 0.823, 0.831, 0.161, 0.862, 0.43, 0.697, 0.912, 0.842, 0.776, 0.516, 1.0, 0.366, 0.774, 0.66, 0.307, 0.683, 0.496, 0.068, 0.708, 0.769, 0.171, 0.494, 0.384, 0.178, 0.268, 0.392, 0.284, 0.272, 0.092, 0.25, 0.125, 0.022, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.057, 0.873, 0.421, 0.608, 1.0, 0.67, 0.27, 0.058, 0.004, 0.0, 0.0, 0.385, 0.868, 0.949, 0.302, 0.79, 0.489, 0.942, 0.549, 0.635, 0.515, 0.791, 1.0, 1.0, 0.7, 0.622, 0.657, 0.493, 0.2, 0.531, 0.204, 0.487, 0.491, 0.301, 0.252, 0.132, 0.019, 0.001, 0.0, 0.005, 0.784, 0.711, 0.094, 0.905, 0.716, 0.447, 0.355, 0.459, 1.0, 0.795, 0.078, 0.619, 0.148, 0.559, 0.357, 0.124, 0.261, 0.3, 0.336, 0.216, 0.048, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.387, 0.752, 1.0, 0.89, 0.812, 0.39, 0.112, 0.929, 0.755, 0.464, 0.363, 0.958, 0.812, 0.342, 0.501, 0.379, 0.408, 0.49, 0.236, 0.362, 0.101, 0.738, 0.836, 0.805, 0.085, 0.822, 0.583, 0.998, 0.61, 0.574, 0.885, 0.677, 0.317, 0.302, 0.111, 0.003, 0.0, 0.0, 0.693, 0.806, 0.186, 0.687, 1.0, 0.42, 0.597, 0.194, 0.628, 0.369, 0.52, 0.563, 0.173, 0.533, 0.706, 0.277, 0.39, 0.237, 0.07, 0.449, 0.27, 0.46, 0.487, 0.608, 0.169, 0.541, 0.423, 0.362, 0.25, 0.384, 0.33, 0.227, 0.177, 0.08, 0.075, 0.024, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.083, 0.277, 1.0, 0.941, 0.398, 0.647, 1.0, 0.231, 0.682, 0.586, 0.601, 0.717, 0.565, 0.373, 0.385, 0.526, 0.51, 0.096, 0.401, 0.403, 0.291, 0.188, 0.043, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.304, 1.0, 0.819, 0.989, 0.26, 0.594, 0.745, 0.645, 0.389, 0.441, 0.409, 0.363, 0.338, 0.133, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.046, 0.831, 1.0, 1.0, 0.887, 0.116, 0.846, 0.747, 0.75, 0.409, 0.345, 0.307, 0.221, 0.151, 0.021, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.078, 0.283, 0.97, 1.0, 0.867, 0.775, 1.0, 1.0, 0.705, 1.0, 0.789, 0.504, 0.513, 0.841, 0.519, 0.365, 0.886, 0.65, 0.937, 0.506, 0.468, 0.442, 0.326, 0.265, 0.152, 0.039, 0.002, 0.0, 0.0, 0.775, 0.642, 0.077, 0.796, 0.768, 0.735, 0.314, 0.791, 0.573, 0.964, 0.224, 0.474, 0.398, 0.564, 0.462, 0.566, 0.591, 0.939, 0.622, 0.343, 0.209, 0.044, 0.84, 0.844, 0.842, 0.806, 0.498, 0.128, 0.376, 0.1, 0.484, 0.27, 0.135, 0.24, 0.195, 0.058, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.732, 0.909, 0.874, 0.295, 0.583, 0.838, 0.342, 0.06, 1.0, 0.837, 0.405, 0.65, 0.338, 0.437, 0.37, 0.775, 0.892, 0.584, 0.331, 0.215, 0.607, 0.816, 0.571, 0.301, 0.494, 0.573, 0.293, 0.71, 0.648, 0.563, 0.859, 0.592, 0.673, 0.29, 0.501, 0.864, 0.384, 0.513, 0.446, 0.277, 0.282, 0.255, 0.303, 0.186, 0.097, 0.073, 0.015, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.277, 0.812, 0.866, 0.97, 0.811, 0.585, 0.34, 0.067, 0.002, 0.0, 0.0, 0.219, 1.0, 0.27, 0.825, 0.079, 0.536, 0.647, 0.894, 0.689, 0.405, 0.765, 0.496, 0.896, 0.876, 0.593, 0.243, 0.239, 0.538, 0.527, 0.144, 0.835, 0.433, 0.298, 0.73, 0.222, 0.257, 0.874, 0.495, 0.633, 0.363, 0.435, 0.502, 0.32, 0.51, 0.918, 0.328, 0.933, 0.73, 0.464, 0.803, 0.896, 0.301, 0.063, 0.744, 0.401, 0.211, 0.489, 0.458, 0.41, 0.532, 0.537, 0.372, 0.429, 0.329, 0.27, 0.131, 0.097, 0.059, 0.011, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.081, 0.688, 0.871, 0.307, 0.334, 1.0, 0.608, 0.212, 0.057, 0.0, 0.0, 0.0, 0.725, 0.477, 0.147, 0.503, 0.979, 0.793, 0.801, 0.271, 0.56, 0.783, 0.102, 1.0, 0.822, 0.641, 0.517, 0.37, 0.341, 0.657, 0.243, 0.585, 1.0, 0.465, 0.72, 0.334, 0.546, 0.561, 0.319, 0.102, 1.0, 0.604, 0.307, 0.142, 0.003, 0.0, 0.195, 0.845, 0.514, 0.385, 0.785, 0.586, 0.588, 0.149, 0.327, 0.55, 0.315, 0.509, 0.772, 0.553, 0.261, 0.718, 0.676, 0.258, 0.62, 0.584, 0.826, 0.571, 0.435, 0.102, 0.503, 0.636, 0.792, 0.547, 0.556, 0.627, 0.807, 0.795, 0.813, 0.364, 0.402, 0.417, 0.227, 0.097, 0.335, 0.247, 0.354, 0.159, 0.029, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.153, 0.703, 1.0, 0.833, 0.506, 0.331, 0.115, 0.004, 0.0, 0.148, 0.6, 1.0, 0.352, 0.331, 0.784, 0.462, 0.827, 0.672, 0.831, 0.471, 0.362, 0.694, 0.637, 0.181, 0.546, 1.0, 0.832, 0.436, 0.065, 0.461, 0.306, 0.598, 0.992, 0.384, 0.404, 0.242, 0.425, 0.661, 0.627, 0.412, 0.076, 0.608, 0.557, 0.632, 0.711, 0.53, 0.658, 0.138, 0.741, 0.853, 0.712, 0.643, 0.282, 0.173, 0.847, 0.432, 0.401, 0.242, 0.331, 0.289, 0.056, 0.268, 0.305, 0.064, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.807, 0.416, 0.92, 1.0, 1.0, 0.62, 0.484, 0.71, 0.425, 0.265, 0.059, 0.002, 0.0, 0.105, 0.516, 0.9, 0.527, 0.962, 0.531, 0.068, 0.476, 0.799, 0.527, 0.325, 0.653, 0.752, 0.787, 0.14, 0.576, 0.613, 0.575, 0.429, 0.101, 0.919, 0.776, 0.201, 0.749, 0.158, 0.616, 0.655, 0.442, 0.261, 0.056, 0.001, 0.0, 0.0, 0.039, 0.681, 0.96, 0.596, 0.487, 0.897, 0.857, 0.645, 0.249, 0.5, 0.307, 0.281, 0.26, 0.277, 0.339, 0.295, 0.212, 0.12, 0.087, 0.052, 0.004, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.075, 1.0, 0.906, 0.977, 0.862, 0.367, 1.0, 0.461, 0.493, 0.63, 0.316, 0.129, 0.409, 0.255, 0.079, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.159, 0.718, 1.0, 0.586, 0.874, 0.75, 0.949, 0.787, 0.287, 0.277, 0.656, 0.799, 0.36, 0.067, 0.92, 1.0, 0.809, 0.862, 0.539, 0.227, 0.336, 0.57, 0.495, 0.106, 0.508, 0.114, 0.594, 1.0, 0.707, 0.525, 0.457, 0.348, 0.486, 0.329, 0.412, 0.299, 0.103, 0.02, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.752, 0.963, 0.725, 0.798, 0.723, 0.37, 0.815, 0.624, 0.151, 0.585, 0.731, 0.833, 0.441, 0.301, 0.622, 0.657, 0.204, 0.611, 0.484, 0.175, 0.277, 1.0, 0.196, 0.578, 0.314, 0.351, 0.321, 0.409, 0.925, 0.737, 0.626, 0.233, 0.54, 0.532, 0.63, 0.785, 0.681, 0.273, 0.482, 0.616, 0.212, 0.493, 0.693, 0.684, 0.303, 0.533, 0.805, 0.682, 0.472, 0.322, 0.3, 0.346, 0.309, 0.225, 0.247, 0.094, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.035, 1.0, 1.0, 0.972, 1.0, 1.0, 0.904, 0.232, 0.906, 0.462, 0.32, 0.649, 0.911, 0.17, 0.879, 0.865, 0.935, 0.061, 0.429, 0.338, 0.3, 0.599, 0.93, 0.156, 0.683, 0.833, 0.175, 0.696, 1.0, 0.586, 0.359, 0.354, 0.18, 0.324, 0.355, 0.307, 0.274, 0.248, 0.108, 0.018, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.239, 0.556, 0.426, 0.709, 0.144, 0.812, 0.753, 0.91, 0.865, 0.685, 0.312, 0.792, 0.712, 0.301, 0.658, 0.851, 0.805, 0.692, 0.424, 0.1, 0.902, 0.377, 0.632, 0.462, 0.566, 0.488, 0.418, 0.351, 0.381, 0.264, 0.196, 0.073, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.105, 0.948, 0.727, 0.829, 0.311, 0.581, 0.47, 0.272, 0.128, 0.111, 0.032, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/c1-proyecto.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Dos minutos, en el cuaderno, sin hablar con nadie: <b>&iquest;qu&eacute; quer&eacute;is construir
+        este curso?</b> Una frase. Luego se leen unas cuantas en voz alta.
+      </div>
+      <p>Lo que sale, siempre, es esto: <i>un robot</i>, <i>un dron</i>, <i>un coche teledirigido</i>,
+         <i>una consola</i>, <i>un brazo rob&oacute;tico</i>. Y son respuestas estupendas para la
+         pregunta que os he hecho. El problema es que la pregunta estaba mal hecha, y la he hecho mal
+         a prop&oacute;sito.</p>
+      <p>Coged cualquiera de esas frases &mdash;la vuestra, mejor&mdash; e intentad contestar a estas
+         tres preguntas por escrito. Sin inventar.</p>
+      <ul>
+        <li>&iquest;<b>A qui&eacute;n</b> le hace falta eso? Con nombre: no &laquo;a la gente&raquo;.</li>
+        <li>&iquest;<b>Qu&eacute; le pasa ahora</b> a esa persona por no tenerlo?</li>
+        <li>&iquest;<b>C&oacute;mo sabr&iacute;ais</b> al final de curso si le ha servido de algo?</li>
+      </ul>
+      <p>No se pueden contestar. Y no es porque se&aacute;is vagos: es porque <b>la frase no contiene
+         esa informaci&oacute;n</b>. &laquo;Quiero hacer un robot&raquo; no dice nada de nadie.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>Aqu&iacute; tienes dos frases. Parecen lo mismo y no lo son:</p>
+        <p style="margin-top:8px"><b>A</b> &mdash; <i>Quiero hacer un robot que riegue las plantas del
+           centro.</i><br>
+           <b>B</b> &mdash; <i>Las plantas del hall se secan en Semana Santa y en junio hay que tirar
+           varias.</i></p>
+        <p style="margin-top:8px">&iquest;Cu&aacute;l de las dos deja m&aacute;s trabajo por hacer? Esa
+           es la buena, y la raz&oacute;n de que lo sea es lo que vamos a ver hoy.</p>
+      </div>
+      <p>La <b>A</b> ya trae dentro la respuesta: un robot. Si el problema de las plantas se arreglara
+         mejor con un gotero de dos euros, la frase A no te deja ni verlo. La <b>B</b> no nombra
+         ninguna pieza, y por eso <b>deja abiertas todas las soluciones</b>. Eso es un problema.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <h3>Una soluci&oacute;n magn&iacute;fica buscando un problema</h3>
+      <p>Esto no le pasa solo a los alumnos de cuarto. Le ha pasado a gente con mucho dinero y muy
+         buenos ingenieros.</p>
+      <figure class="foto">
+        <img src="../../../img/c1-segway.jpg" alt="Tres personas con casco montadas en Segways sobre una plaza de ladrillo en Washington, con coches de polic&iacute;a aparcados al fondo" loading="lazy">
+        <figcaption>El <b>Segway</b>, presentado el <b>3 de diciembre de 2001</b> por el ingeniero <b>Dean Kamen</b>. El inversor John Doerr dijo que ser&iacute;a &laquo;m&aacute;s importante que internet&raquo;, y Steve Jobs, que era &laquo;tan grande como el PC&raquo;. Costaba <b>5.000 d&oacute;lares</b>. En toda su vida comercial se vendieron <b>140.000 unidades</b>, y la producci&oacute;n se par&oacute; en <b>junio de 2020</b>. Esta foto es de 2006 y ense&ntilde;a d&oacute;nde acab&oacute;: rutas tur&iacute;sticas y patrullas. No en lo que iba a cambiar las ciudades.
+          <span class="credito">Richard from DC, US &middot; CC BY 2.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Segway_PT_(2006).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>El Segway funcionaba. T&eacute;cnicamente era una maravilla: se manten&iacute;a de pie solo,
+         con giroscopios, y se manejaba inclin&aacute;ndose. No fall&oacute; la ingenier&iacute;a.
+         Fall&oacute; algo de antes: <b>nadie ten&iacute;a el problema que resolv&iacute;a</b>. Para ir
+         a la esquina ya estaban las piernas; para ir a la otra punta, el metro; y para ir a otra
+         ciudad, el coche. El hueco que llenaba se lo hab&iacute;an imaginado.</p>
+      <div class="copiar">
+        <h4>Problema y soluci&oacute;n: no son lo mismo</h4>
+        <p><b>Problema</b>: algo que le pasa a alguien, que se puede <b>observar</b> y <b>medir</b>, y
+           que se escribe <b>sin nombrar ninguna pieza</b>.</p>
+        <p><b>Soluci&oacute;n</b>: una manera concreta de arreglarlo. Siempre hay varias, y la primera
+           que se te ocurre casi nunca es la mejor.</p>
+        <p><b>La prueba de las piezas</b>: tacha de tu frase todas las palabras que nombren un
+           aparato, un material o una tecnolog&iacute;a (robot, sensor, Arduino, app, bomba). Si
+           despu&eacute;s de tacharlas <b>queda una frase que se entiende</b>, ten&iacute;as un
+           problema. Si te quedas sin frase, ten&iacute;as una soluci&oacute;n.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Cuidado con la moraleja f&aacute;cil. Esto <b>no</b> significa que las ideas est&eacute;n
+           mal, ni que haya que prohibirse pensar en soluciones. Significa que la soluci&oacute;n va
+           <b>despu&eacute;s</b>. Si se te ha ocurrido un robot, ap&uacute;ntalo en una esquina del
+           cuaderno y d&eacute;jalo ah&iacute;: en la sesi&oacute;n 3 lo vas a necesitar, y entonces
+           tendr&aacute; contra qu&eacute; compararse.</p>
+      </div>
+
+      <h3>C&oacute;mo se detecta un problema de verdad</h3>
+      <p>Tres pasos, y en este orden. Cambiar el orden es el error m&aacute;s com&uacute;n.</p>
+      <div class="copiar">
+        <h4>Observar, preguntar, comprobar</h4>
+        <ol>
+          <li><b>Observar</b>, sin preguntar nada. Mirar un sitio concreto durante un rato concreto y
+              apuntar lo que pasa, no lo que opinas. <i>&laquo;Jueves, 5.&ordf; hora, aula 12: nadie
+              abre la ventana en todo el cambio de clase.&raquo;</i></li>
+          <li><b>Preguntar</b> a <b>quien le pasa</b>, no a tus amigos. Y preguntar por lo que ha
+              hecho, no por lo que opina: <i>&laquo;&iquest;cu&aacute;ntas veces regaste la planta la
+              semana pasada?&raquo;</i> vale; <i>&laquo;&iquest;te parece importante regar?&raquo;</i>
+              no vale, porque todo el mundo contesta que s&iacute;.</li>
+          <li><b>Comprobar</b> que le pasa a <b>m&aacute;s gente que a ti</b>, contando. Un problema
+              que le pasa a una persona es una man&iacute;a; uno que le pasa a cuarenta es un
+              problema.</li>
+        </ol>
+      </div>
+      <p>Y ahora, la parte que casi nadie hace: <b>ponerle un n&uacute;mero</b>. Un problema sin
+         n&uacute;mero no se puede comparar con otro, y al final del curso no se puede demostrar que
+         lo hayas arreglado. La escena de abajo hace esa cuenta.</p>
+
+      <div class="escena" id="esc-p1">
+        <div class="escena-barra">
+          <span class="escena-titulo">La cuenta del problema &middot; rellena las cuatro casillas</span>
+          <div class="seg" id="seg-p1">
+            <button type="button" data-c="riego" aria-pressed="true">Plantas secas</button>
+            <button type="button" data-c="aula">Aula cargada</button>
+            <button type="button" data-c="luz">Luz encendida</button>
+            <button type="button" data-c="robot">&laquo;Quiero un robot&raquo;</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <p class="p1-frase" id="frase-p1"></p>
+          <div class="p1-campos">
+            <div class="p1-campo">
+              <label for="p1-personas">1 &middot; &iquest;A cu&aacute;ntos les pasa?</label>
+              <input type="number" id="p1-personas" min="0" max="2000" step="1">
+              <span class="p1-ud" id="ud-personas-p1"></span>
+            </div>
+            <div class="p1-campo">
+              <label for="p1-veces">2 &middot; &iquest;Cu&aacute;ntas veces por semana?</label>
+              <input type="number" id="p1-veces" min="0" max="400" step="1">
+              <span class="p1-ud">veces / semana</span>
+            </div>
+            <div class="p1-campo">
+              <label for="p1-coste">3 &middot; &iquest;Qu&eacute; cuesta cada vez?</label>
+              <input type="number" id="p1-coste" min="0" max="1000" step="0.1">
+              <select id="p1-unidad">
+                <option value="min">minutos</option>
+                <option value="h">horas</option>
+                <option value="L">litros</option>
+                <option value="eur">euros</option>
+              </select>
+            </div>
+            <div class="p1-campo">
+              <label for="p1-semanas">4 &middot; &iquest;Durante cu&aacute;ntas semanas?</label>
+              <input type="number" id="p1-semanas" min="1" max="52" step="1" value="35">
+              <span class="p1-ud">semanas del curso</span>
+            </div>
+          </div>
+          <div class="p1-lista" id="lista-p1"></div>
+          <div class="p1-res">
+            <div class="p1-graf">
+              <svg viewBox="0 0 640 250" id="svg-p1" role="img"
+                   aria-label="Lo que se acumula semana a semana, comparado con lo que sale si solo te cuentas a ti"></svg>
+            </div>
+            <div class="p1-tot" id="tot-p1"></div>
+          </div>
+          <p class="p1-est" id="est-p1"></p>
+        </div>
+        <div class="pie" id="pie-p1"></div>
+      </div>
+
+      <style>
+      .p1-frase{font-size:16px;line-height:1.5;margin:2px 0 14px;padding:10px 13px;
+        background:var(--surface-2);border-left:4px solid var(--goo-azul);border-radius:2px}
+      .p1-frase i{color:var(--ink-soft)}
+      .p1-campos{display:grid;gap:9px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));margin:0 0 12px}
+      .p1-campo{display:flex;align-items:center;gap:8px;font-family:var(--f-m);font-size:12.5px;
+        color:var(--ink);flex-wrap:wrap}
+      .p1-campo label{flex:1 1 auto;min-width:150px}
+      .p1-campo input[type="number"]{width:82px;font-family:var(--f-m);font-size:12.5px;padding:5px 6px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .p1-campo input.falta{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+      .p1-campo select{font-family:var(--f-m);font-size:12.5px;padding:5px 4px;border:1.5px solid var(--line);
+        border-radius:2px;background:var(--surface);color:var(--ink)}
+      .p1-ud{color:var(--ink-soft);font-size:11.5px}
+      .p1-lista{display:grid;gap:5px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        font-family:var(--f-m);font-size:12px;margin:0 0 12px}
+      .p1-lista span{display:flex;gap:7px;align-items:flex-start;line-height:1.45}
+      .p1-lista span::before{content:"\2713";font-weight:700;color:var(--goo-verde);flex:none}
+      .p1-lista span.no{color:var(--ink-soft)}
+      .p1-lista span.no::before{content:"\2717";color:var(--goo-rojo)}
+      .p1-res{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+      .p1-graf{flex:1 1 360px;min-width:300px}
+      .p1-tot{flex:1 1 220px;min-width:210px;font-family:var(--f-m);font-size:12.5px;line-height:1.7}
+      .p1-tot .grande{display:block;font-size:22px;font-weight:500;color:var(--goo-azul);line-height:1.25;
+        margin:0 0 2px}
+      .p1-tot .rot{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:10px 0 1px}
+      .p1-tot b{color:var(--ink)}
+      .p1-tot .nada{color:var(--goo-rojo)}
+      .p1-est{font-family:var(--f-m);font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin:12px 0 0}
+      .p1-est b{color:var(--ink)}
+      .p1-linea{fill:none;stroke-width:2.5}
+      .p1-ejes{fill:none;stroke:var(--line);stroke-width:1.5}
+      .p1-rejilla{stroke:var(--line-soft);stroke-width:1}
+      .p1-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+      .p1-txt.fuerte{fill:var(--ink);font-weight:500}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-p1');
+        if(!svg) return;
+        var caja = document.getElementById('esc-p1');
+        var frase = document.getElementById('frase-p1');
+        var lista = document.getElementById('lista-p1');
+        var tot = document.getElementById('tot-p1');
+        var est = document.getElementById('est-p1');
+        var pie = document.getElementById('pie-p1');
+        var udPersonas = document.getElementById('ud-personas-p1');
+        var iPersonas = document.getElementById('p1-personas');
+        var iVeces = document.getElementById('p1-veces');
+        var iCoste = document.getElementById('p1-coste');
+        var iSemanas = document.getElementById('p1-semanas');
+        var selUd = document.getElementById('p1-unidad');
+
+        /* ---- los cuatro casos. Los numeros son de EJEMPLO: en clase se miden.
+               El del robot viene vacio a proposito: no hay nada que rellenar. ---- */
+        var CASOS = {
+          riego: {frase: 'Las plantas del hall y de los pasillos se secan en los puentes y en '
+                       + 'Semana Santa. En junio hay que tirar varias y comprar otras.',
+                  que: 'macetas del centro', personas: 14, veces: 2, coste: 3, ud: 'min',
+                  cuesta: 'minutos que tarda alguien en regarla a mano'},
+          aula: {frase: 'Al entrar a cuarta hora el aula est&aacute; cargada: huele, da sue&ntilde;o '
+                      + 'y nadie abre la ventana porque hace fr&iacute;o.',
+                 que: 'personas dentro del aula', personas: 24, veces: 30, coste: 5, ud: 'min',
+                 cuesta: 'minutos de aire viciado en cada cambio de clase'},
+          luz: {frase: 'Me dejo el flexo del escritorio encendido cuando salgo del cuarto. '
+                     + '<i>De momento solo s&eacute; que me pasa a m&iacute;.</i>',
+                que: 'personas a las que les pasa', personas: 1, veces: 7, coste: 1.2, ud: 'h',
+                cuesta: 'horas de luz encendida sin nadie delante'},
+          robot: {frase: 'Quiero hacer un robot. <i>Con ruedas, y que siga una l&iacute;nea.</i>',
+                  que: '&iquest;a qui&eacute;n?', personas: null, veces: null, coste: null, ud: 'min',
+                  cuesta: '&iquest;qu&eacute; cuesta?'}
+        };
+
+        /* ---- conversiones declaradas: de aqui salen TODAS las equivalencias ---- */
+        var UD = {
+          min: {nombre: 'minutos', corto: 'min',
+                equis: [['horas', 1/60], ['sesiones de clase de 60 min', 1/60],
+                        ['jornadas escolares de 6 h', 1/360]],
+                ref: 1440, refTxt: 'un trimestre de Tecnolog&iacute;a (24 sesiones)'},
+          h:   {nombre: 'horas', corto: 'h',
+                equis: [['d&iacute;as enteros', 1/24], ['kWh con un LED de 9 W', 0.009]],
+                ref: 24, refTxt: 'un d&iacute;a entero, de 24 horas'},
+          L:   {nombre: 'litros', corto: 'L',
+                equis: [['garrafas de 5 L', 1/5], ['ba&ntilde;eras de 150 L', 1/150]],
+                ref: 150, refTxt: 'una ba&ntilde;era llena, 150 L'},
+          eur: {nombre: 'euros', corto: '&euro;',
+                equis: [['proyectos de 5 &euro; por grupo', 1/5]],
+                ref: 60, refTxt: 'los 60 &euro; que da el departamento para el material'}
+        };
+
+        var caso = 'riego';
+
+        function num(campo){
+          var v = parseFloat(campo.value.replace(',', '.'));
+          return (isFinite(v) && v > 0) ? v : null;
+        }
+        function esp(v, dec){
+          if(v === null) return '&mdash;';
+          var s = (Math.round(v * Math.pow(10, dec)) / Math.pow(10, dec))
+                  .toFixed(dec);
+          var p = s.split('.');
+          p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+          return p.join(',');
+        }
+        function corto(v){
+          /* cifras significativas razonables sin mentir, y sin decimales de
+             adorno cuando el numero es redondo */
+          if(Math.abs(v - Math.round(v)) < 1e-9) return esp(v, 0);
+          if(v >= 100) return esp(v, 0);
+          if(v >= 10) return esp(v, 1);
+          return esp(v, 2);
+        }
+
+        function carga(c){
+          caso = c;
+          var d = CASOS[c];
+          frase.innerHTML = d.frase;
+          udPersonas.innerHTML = d.que;
+          iPersonas.value = d.personas === null ? '' : d.personas;
+          iVeces.value = d.veces === null ? '' : d.veces;
+          /* ojo: un <input type="number"> rechaza "1,2" y devuelve cadena vacia.
+             El punto decimal se queda; num() acepta las dos formas al leer. */
+          iCoste.value = d.coste === null ? '' : String(d.coste);
+          selUd.value = d.ud;
+          pinta();
+        }
+
+        function pinta(){
+          var d = CASOS[caso];
+          var personas = num(iPersonas), veces = num(iVeces);
+          var coste = num(iCoste), semanas = num(iSemanas);
+          var u = UD[selUd.value];
+
+          [[iPersonas, personas], [iVeces, veces], [iCoste, coste], [iSemanas, semanas]]
+            .forEach(function(par){
+              par[0].classList.toggle('falta', par[1] === null);
+            });
+
+          lista.innerHTML =
+            ['A cu&aacute;ntos les pasa', 'Cu&aacute;ntas veces por semana',
+             'Qu&eacute; cuesta cada vez (' + d.cuesta + ')', 'Durante cu&aacute;nto tiempo']
+            .map(function(t, i){
+              var ok = [personas, veces, coste, semanas][i] !== null;
+              return '<span class="' + (ok ? '' : 'no') + '">' + t + '</span>';
+            }).join('');
+
+          if(personas === null || veces === null || coste === null || semanas === null){
+            var faltan = [];
+            if(personas === null) faltan.push('a cu&aacute;ntos les pasa');
+            if(veces === null) faltan.push('cu&aacute;ntas veces');
+            if(coste === null) faltan.push('qu&eacute; cuesta cada vez');
+            if(semanas === null) faltan.push('durante cu&aacute;nto');
+            tot.innerHTML = '<span class="grande nada">&mdash;</span>'
+              + '<span class="rot">no hay cuenta que hacer</span>'
+              + 'Faltan <b>' + faltan.length + '</b> de las cuatro: ' + faltan.join(', ') + '.';
+            est.innerHTML = 'Una frase que no puede contestar a las cuatro preguntas <b>todav&iacute;a '
+              + 'no es un problema</b>: es una idea, o un deseo. Se puede convertir en problema, pero '
+              + 'hay que salir a mirar y a preguntar primero.';
+            vacio();
+            return;
+          }
+
+          var porSemana = personas * veces * coste;
+          var total = porSemana * semanas;
+          var soloTu = 1 * veces * coste * semanas;
+          var cruce = porSemana > 0 ? Math.ceil(u.ref / porSemana) : null;
+
+          var eq = u.equis.map(function(e){
+            return '<b>' + corto(total * e[1]) + '</b> ' + e[0];
+          }).join('<br>');
+
+          tot.innerHTML =
+            '<span class="rot">en ' + esp(semanas, 0) + ' semanas</span>'
+            + '<span class="grande">' + esp(total, total >= 100 ? 0 : 1) + ' ' + u.corto + '</span>'
+            + eq
+            + '<span class="rot">cada semana</span><b>' + corto(porSemana) + ' ' + u.corto + '</b>'
+            + '<span class="rot">si solo te cuentas a ti</span><b>' + corto(soloTu) + ' ' + u.corto
+            + '</b> en todo el curso';
+
+          var veces_mas = soloTu > 0 ? total / soloTu : 0;
+          est.innerHTML =
+            'La cuenta es <b>' + esp(personas, 0) + ' &times; ' + corto(veces) + ' &times; '
+            + corto(coste) + ' ' + u.corto + ' &times; ' + esp(semanas, 0) + ' semanas = '
+            + esp(total, total >= 100 ? 0 : 1) + ' ' + u.corto + '</b>. '
+            + (cruce !== null && cruce <= semanas
+                ? 'En la <b>semana ' + cruce + '</b> el problema ya se ha comido ' + u.refTxt + '. '
+                : 'En todo el curso no llega a ' + u.refTxt + '. ')
+            + 'Contando solo lo que te pasa a ti, la cuenta sale <b>' + corto(veces_mas)
+            + ' veces m&aacute;s peque&ntilde;a</b>: por eso hay que preguntar a m&aacute;s gente '
+            + 'antes de decidir que algo merece un curso de trabajo.';
+
+          dibuja(porSemana, veces * coste, semanas, u, cruce, total);
+        }
+
+        function vacio(){
+          svg.innerHTML = '<text class="p1-txt" x="320" y="125" text-anchor="middle">'
+            + 'Sin las cuatro respuestas no hay nada que dibujar</text>';
+        }
+
+        /* ---- el grafico: acumulado semana a semana, y la referencia ---- */
+        function dibuja(porSemana, porSemanaTu, semanas, u, cruce, total){
+          var W = 640, H = 250, ML = 62, MR = 14, MT = 28, MB = 34;
+          var ancho = W - ML - MR, alto = H - MT - MB;
+          var yMax = Math.max(total, u.ref) * 1.12;
+          /* escalon de eje "bonito", calculado: 1, 2 o 5 por decada */
+          var bruto = yMax / 4;
+          var dec = Math.pow(10, Math.floor(Math.log(bruto) / Math.LN10));
+          var paso = (bruto / dec <= 1 ? 1 : bruto / dec <= 2 ? 2 : bruto / dec <= 5 ? 5 : 10) * dec;
+          var tope = Math.ceil(yMax / paso) * paso;
+
+          function X(s){ return ML + ancho * s / semanas; }
+          function Y(v){ return MT + alto - alto * v / tope; }
+
+          var g = [];
+          for(var v = 0; v <= tope + 1e-9; v += paso){
+            g.push('<line class="p1-rejilla" x1="' + ML + '" y1="' + Y(v).toFixed(1)
+                 + '" x2="' + (W - MR) + '" y2="' + Y(v).toFixed(1) + '"/>');
+            g.push('<text class="p1-txt" x="' + (ML - 6) + '" y="' + (Y(v) + 4).toFixed(1)
+                 + '" text-anchor="end">' + esp(v, v < 10 && v > 0 ? 1 : 0) + '</text>');
+          }
+          g.push('<line class="p1-ejes" x1="' + ML + '" y1="' + MT + '" x2="' + ML
+               + '" y2="' + (MT + alto) + '"/>');
+          g.push('<line class="p1-ejes" x1="' + ML + '" y1="' + (MT + alto) + '" x2="' + (W - MR)
+               + '" y2="' + (MT + alto) + '"/>');
+
+          /* el rotulo de la semana del cruce se pone abajo: si un tick le cae
+             encima, ese tick no se escribe */
+          for(var s = 0; s <= semanas; s += (semanas > 20 ? 5 : 2)){
+            if(cruce !== null && cruce <= semanas && Math.abs(s - cruce) < semanas / 14) continue;
+            g.push('<text class="p1-txt" x="' + X(s).toFixed(1) + '" y="' + (H - 16)
+                 + '" text-anchor="middle">' + s + '</text>');
+          }
+          g.push('<text class="p1-txt" x="' + (W - MR) + '" y="' + (H - 3)
+               + '" text-anchor="end">semanas de curso</text>');
+          g.push('<text class="p1-txt" x="' + (ML - 6) + '" y="' + (MT - 12)
+               + '" text-anchor="end">' + u.corto + '</text>');
+
+          /* la referencia */
+          if(u.ref <= tope){
+            g.push('<line x1="' + ML + '" y1="' + Y(u.ref).toFixed(1) + '" x2="' + (W - MR)
+                 + '" y2="' + Y(u.ref).toFixed(1) + '" stroke="var(--goo-rojo)" stroke-width="1.8" '
+                 + 'stroke-dasharray="7 5"/>');
+            g.push('<text class="p1-txt fuerte" x="' + (ML + 6) + '" y="' + (Y(u.ref) - 5).toFixed(1)
+                 + '" fill="var(--goo-rojo)">' + u.refTxt + '</text>');
+          }
+
+          function linea(pend, color, grueso){
+            var pts = [];
+            for(var s = 0; s <= semanas; s++){
+              pts.push(X(s).toFixed(1) + ',' + Y(Math.min(pend * s, tope)).toFixed(1));
+            }
+            return '<polyline class="p1-linea" points="' + pts.join(' ') + '" stroke="' + color
+                 + '" stroke-width="' + grueso + '"/>';
+          }
+          g.push(linea(porSemanaTu, 'var(--ink-soft)', 2));
+          g.push(linea(porSemana, 'var(--goo-azul)', 2.8));
+
+          if(cruce !== null && cruce <= semanas){
+            g.push('<circle cx="' + X(cruce).toFixed(1) + '" cy="' + Y(u.ref).toFixed(1)
+                 + '" r="5" fill="var(--goo-rojo)"/>');
+            g.push('<text class="p1-txt fuerte" x="' + X(cruce).toFixed(1) + '" y="'
+                 + (MT + alto + 14) + '" text-anchor="middle" fill="var(--goo-rojo)">sem. '
+                 + cruce + '</text>');
+          }
+          g.push('<text class="p1-txt fuerte" x="' + (W - MR - 4) + '" y="'
+               + Math.max(MT + 12, Y(Math.min(porSemana * semanas, tope)) - 7).toFixed(1)
+               + '" text-anchor="end" fill="var(--goo-azul)">a todos</text>');
+          g.push('<text class="p1-txt" x="' + (W - MR - 4) + '" y="'
+               + Math.max(MT + 24, Y(Math.min(porSemanaTu * semanas, tope)) - 7).toFixed(1)
+               + '" text-anchor="end">solo a ti</text>');
+
+          svg.innerHTML = g.join('');
+        }
+
+        document.getElementById('seg-p1').addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]');
+          if(!b) return;
+          this.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          carga(b.dataset.c);
+        });
+        [iPersonas, iVeces, iCoste, iSemanas].forEach(function(c){
+          c.addEventListener('input', pinta);
+        });
+        selUd.addEventListener('change', pinta);
+
+        pie.innerHTML = 'Los n&uacute;meros que trae cada caso son <b>de ejemplo</b>: el trabajo de '
+          + 'esta sesi&oacute;n es salir a medir los vuestros. La cuenta y las equivalencias las hace '
+          + 'la escena con las conversiones del recuadro de abajo.';
+        carga('riego');
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Las cuatro preguntas que mide un problema</h4>
+        <p>Un problema de verdad puede contestar a las cuatro. Una idea, no.</p>
+        <ol>
+          <li>&iquest;<b>A cu&aacute;ntos</b> les pasa? (personas, aulas, macetas&hellip;)</li>
+          <li>&iquest;<b>Cu&aacute;ntas veces</b> por semana pasa?</li>
+          <li>&iquest;<b>Qu&eacute; cuesta cada vez</b>? En minutos, litros, euros o kilovatios hora:
+              en algo que se pueda medir.</li>
+          <li>&iquest;<b>Durante cu&aacute;nto tiempo</b>? Un curso son 35 semanas.</li>
+        </ol>
+        <p style="font-family:var(--f-m);font-size:14px;margin-top:10px">
+           tama&ntilde;o del problema = afectados &times; veces por semana &times; coste de cada vez
+           &times; semanas</p>
+        <p><b>Conversiones que usa la escena</b> (para poder comparar cosas distintas):
+           1 h = 60 min; 1 sesi&oacute;n de clase = 60 min; 1 jornada escolar = 6 h;
+           1 d&iacute;a = 24 h; un LED de 9 W gasta 0,009 kWh por hora encendido;
+           1 garrafa = 5 L; 1 ba&ntilde;era = 150 L.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Haz esta prueba en la escena; es la que m&aacute;s cambia las cosas. Carga
+           <b>Luz encendida</b>: viene con <b>una sola persona</b> afectada, porque es un problema que
+           empieza siendo tuyo. Sale un total que parece grande en horas y que, pasado a electricidad,
+           son unos <b>2,6 kWh en todo el curso</b>: menos de un euro de luz. Ahora carga
+           <b>Aula cargada</b>, que le pasa a 24 personas 30 veces por semana: salen 126.000 minutos,
+           que son <b>2.100 horas</b> frente a las 294 de la l&aacute;mpara. <b>Siete veces
+           m&aacute;s</b>, y eso no es una opini&oacute;n: es la misma cuenta con los mismos
+           minutos.</p>
+        <p>Eso no quiere decir que la l&aacute;mpara sea mal proyecto. Quiere decir que, si la
+           eleg&iacute;s, ten&eacute;is que <b>ir a buscar a cu&aacute;nta gente m&aacute;s le pasa</b>
+           antes de decir que es un problema del centro. Con preguntar en clase basta para cambiar el
+           1 por un 19, y la cuenta entera con &eacute;l.</p>
+      </div>
+      <div class="video" id="video-c1-observar" data-vid="1R9eg3MCfWk">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: &iquest;Qu&eacute; es y c&oacute;mo hacer una observaci&oacute;n de usuarios?">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>&iquest;Qu&eacute; es y c&oacute;mo hacer una observaci&oacute;n de usuarios?</b>
+            <span>Canal: Design Thinking 24 7 by Jorge Huertas</span>
+          </span>
+        </button>
+        <p class="video-nota">C&oacute;mo se observa sin preguntar y sin dirigir la respuesta, con ejemplos. Es la parte que m&aacute;s se salta todo el mundo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=1R9eg3MCfWk" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 1 &middot; Salid a buscar tres problemas, y medidlos</span>
+          <span class="chips"><span class="chip">1.1</span><span class="chip">A.1</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; observar y preguntar (10 min)</h4>
+          <p>Sal&iacute;s del aula con el cuaderno. No vale preguntaros entre vosotros.</p>
+          <ol class="pasos">
+            <li>Apuntad <b>tres cosas observadas</b> en el centro, cada una con <b>sitio, d&iacute;a y
+                hora</b>. Escritas como lo que pasa, no como lo que hay que hacer.</li>
+            <li>Preguntad a <b>tres personas distintas</b> que no sean de vuestro grupo, y anotad
+                <b>lo que han hecho</b>, no lo que opinan. Una de las tres tiene que ser alguien que
+                no sea alumno: conserje, limpieza, secretar&iacute;a, un profesor.</li>
+          </ol>
+          <h4>Segunda parte &middot; medir (10 min)</h4>
+          <p>De las tres observaciones, elegid <b>dos</b> y rellenad para cada una la tabla de las
+             cuatro preguntas. Los n&uacute;meros son vuestros: cont&aacute;ndolos, no
+             invent&aacute;ndolos. Si no sab&eacute;is uno, escribid <b>c&oacute;mo lo
+             averiguar&iacute;ais</b>.</p>
+          <p>Luego, con la escena, calculad el tama&ntilde;o de las dos y <b>comparadlas</b>. Y
+             contestad: &iquest;cambiar&iacute;a el orden si solo os contarais a vosotros?</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las tres observaciones, con sitio, d&iacute;a y hora <b>(2 puntos)</b>.</li>
+            <li>Las tres personas preguntadas, y una de ellas no es alumno <b>(1 punto)</b>.</li>
+            <li>Ninguna de las tres frases nombra una pieza: pasan la prueba de las piezas
+                <b>(2 puntos)</b>.</li>
+            <li>Las dos tablas completas, con unidades <b>(3 puntos)</b>.</li>
+            <li>Los dos tama&ntilde;os calculados y comparados, con una frase que diga cu&aacute;l es
+                mayor y <b>cu&aacute;ntas veces</b> <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; &laquo;quiero hacer un robot&raquo; no es un problema?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no dice <b>a qui&eacute;n</b> le pasa nada, ni <b>qu&eacute; le pasa</b>, ni <b>c&oacute;mo se sabr&iacute;a</b> si ha servido. Adem&aacute;s trae la soluci&oacute;n dentro, y eso <b>cierra</b> todas las dem&aacute;s antes de haberlas mirado.</p></div></details></li>
+        <li>&iquest;En qu&eacute; consiste la prueba de las piezas?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En tachar de la frase todas las palabras que nombren un aparato, un material o una tecnolog&iacute;a. Si lo que queda <b>se sigue entendiendo</b>, era un problema; si te quedas sin frase, era una soluci&oacute;n disfrazada.</p></div></details></li>
+        <li>El Segway funcionaba perfectamente. &iquest;Por qu&eacute; se considera un fracaso?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque resolv&iacute;a un problema que <b>casi nadie ten&iacute;a</b>. Se vendieron 140.000 en toda su vida comercial, despu&eacute;s de que se dijera que ser&iacute;a &laquo;m&aacute;s importante que internet&raquo;. El fallo no estaba en la ingenier&iacute;a: estaba antes, en la fase de hoy.</p></div></details></li>
+        <li>Dos problemas: uno le cuesta 5 minutos a una persona todos los d&iacute;as, y otro 1 minuto a treinta personas todos los d&iacute;as. &iquest;Cu&aacute;l es mayor?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El segundo, y por bastante: 5 &times; 1 = <b>5 minutos al d&iacute;a</b> frente a 1 &times; 30 = <b>30 minutos al d&iacute;a</b>. Seis veces m&aacute;s. Por eso hay que contar a cu&aacute;ntos les pasa antes de decidir, y no fiarse de lo molesto que te parezca a ti.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya ten&eacute;is un problema y sab&eacute;is lo grande que es. La tentaci&oacute;n ahora es
+        ponerse a montar. Pero probad esto antes: escribid en una l&iacute;nea qu&eacute; tiene que
+        hacer vuestro aparato, pasadle esa l&iacute;nea al grupo de al lado y que la cumplan ellos.
+        <b>Van a entregar otra cosa distinta de la que est&aacute;is imaginando</b>, y van a tener
+        raz&oacute;n.
+      </div>
+
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Lectura del tema</h4>
+        <p>Una sesi&oacute;n entera para leer y contestar, y conviene hacerla <b>pronto</b>: cuenta
+           tres proyectos de verdad que se perdieron en estas cuatro sesiones, antes de tocar un
+           tornillo. <b>30 p&aacute;rrafos numerados</b>: cada uno lee el suyo en voz alta, en orden.
+           Despu&eacute;s, diez preguntas por escrito.</p>
+        <p style="margin-top:10px"><a href="lectura-tema1.pdf" target="_blank" rel="noopener"
+           style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
+           &#8595; Tres proyectos que ya estaban perdidos antes de empezar &middot; PDF</a></p>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>Dos grupos cumplen el mismo encargo y entregan dos cosas distintas</h2>
+      <p>Si el encargo se puede cumplir de dos maneras, el que est&aacute; mal es el encargo. Un requisito es una frase que se puede <b>ejecutar</b> contra unos datos.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip sab">A.1</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Ten&eacute;is un problema detectado y medido. Lo siguiente que hace todo el mundo es abrir
+         el caj&oacute;n de los componentes. Vamos a hacer una prueba antes.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Escribid en una sola l&iacute;nea qu&eacute; tiene que hacer vuestro aparato. Pasadle esa
+        l&iacute;nea al grupo de al lado. Ellos dibujan en dos minutos lo que har&iacute;an para
+        cumplirla, sin hablar con vosotros. Luego se comparan los dos dibujos.
+      </div>
+      <p>Lo normal es que salga una frase parecida a esta: <i>&laquo;que riegue la planta cuando lo
+         necesite&raquo;</i>. Y lo normal es que el grupo de al lado entregue algo que vosotros no
+         hab&iacute;ais imaginado: un dep&oacute;sito con un grifo, alguien que pasa los martes, una
+         botella boca abajo. Y, molesto pero cierto: <b>lo han cumplido</b>.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Nadie ha hecho trampa. Si dos personas cumplen el mismo encargo y entregan dos cosas
+           distintas, el que est&aacute; mal no es ninguno de los dos: <b>es el encargo</b>.
+           &iquest;Qu&eacute; le falta exactamente a la frase <i>&laquo;que riegue cuando lo
+           necesite&raquo;</i> para que solo se pueda cumplir de una manera comprobable?</p>
+      </div>
+      <p>Le falta que se pueda <b>comprobar</b>. Y comprobar no es mirarlo y decir que tiene buena
+         pinta: es coger unos datos y <b>ejecutar</b> la frase encima de ellos, como si fuera una
+         cuenta. Si la frase no se puede ejecutar, en junio no podr&eacute;is demostrar que el
+         proyecto ha salido bien, y la nota ser&aacute; una discusi&oacute;n.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <h3>El rengl&oacute;n que nadie escribi&oacute;</h3>
+      <figure class="foto" style="max-width:430px;margin-left:auto;margin-right:auto">
+        <img src="../../../img/c1-millennium.jpg" alt="Vista cenital del puente del Milenio de Londres lleno de peatones, con el Tate Modern al fondo y el T&aacute;mesis debajo" loading="lazy">
+        <figcaption>El <b>puente del Milenio</b> de Londres, visto desde la c&uacute;pula de San Pablo. Abri&oacute; el <b>10 de junio de 2000</b>: lo cruzaron <b>90.000 personas</b> ese d&iacute;a, hasta <b>2.000 a la vez</b>. Se balance&oacute; de lado hasta <b>70 mm</b> y lo cerraron <b>dos d&iacute;as despu&eacute;s</b>. Cost&oacute; <b>18,2 millones de libras</b> y arreglarlo, <b>5 millones</b> m&aacute;s; reabri&oacute; el <b>22 de febrero de 2002</b> con <b>37 amortiguadores viscosos</b> y <b>52 de masa sintonizada</b>. Esta foto es de 2014: hoy aguanta exactamente esto.
+          <span class="credito">Jan Kamen&iacute;&#269;ek &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:London_Millennium_Bridge_from_Saint_Paul%27s.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>El puente estaba bien calculado <b>para lo que se le hab&iacute;a pedido</b>. Se hab&iacute;a
+         comprobado que aguantara el <b>peso</b> de la gente, que es una fuerza hacia abajo. Lo que no
+         hab&iacute;a en ning&uacute;n rengl&oacute;n era la fuerza <b>horizontal</b> que hace una
+         multitud al andar.</p>
+      <p>Y ah&iacute; ocurri&oacute; algo que nadie hab&iacute;a previsto: al notar el balanceo, la
+         gente <b>ajusta el paso</b> para no caerse, y al ajustarlo lo hace <b>a la vez</b> que los
+         dem&aacute;s. M&aacute;s gente al mismo paso, m&aacute;s balanceo; m&aacute;s balanceo,
+         m&aacute;s gente al mismo paso. El fen&oacute;meno se llama <b>excitaci&oacute;n lateral
+         sincronizada</b>, y hoy est&aacute; en las normas. Entonces no estaba, porque nadie lo
+         hab&iacute;a escrito como requisito.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>F&iacute;jate en lo inc&oacute;modo del caso: <b>no hubo ning&uacute;n error de
+           c&aacute;lculo</b>. Todo lo que se calcul&oacute; estaba bien. Lo que fall&oacute; fue la
+           <b>lista de lo que hab&iacute;a que calcular</b>, y esa lista se escribe en la fase de hoy,
+           cuando todav&iacute;a no hay nada construido y parece que no se est&aacute; haciendo nada.</p>
+      </div>
+
+      <h3>Qu&eacute; lleva dentro un requisito</h3>
+      <div class="copiar">
+        <h4>Las cuatro piezas</h4>
+        <p>Un requisito es una frase que se puede convertir en una <b>comparaci&oacute;n</b>. Lleva
+           cuatro cosas, y si le falta una no se puede comprobar:</p>
+        <ol>
+          <li>La <b>magnitud</b>: qu&eacute; se mide. <i>La humedad del suelo.</i></li>
+          <li>El <b>comparador y el valor</b>: c&oacute;mo de grande tiene que ser.
+              <i>No baja de 40.</i></li>
+          <li>La <b>unidad</b>. <i>Por ciento.</i> Sin unidad, el n&uacute;mero no significa nada.</li>
+          <li><b>C&oacute;mo se comprueba</b>: con qu&eacute; ensayo y durante cu&aacute;nto.
+              <i>En un ensayo de 14 d&iacute;as, midiendo cada 6 horas.</i></li>
+        </ol>
+        <p style="margin-top:8px"><b>Deseo</b>: &laquo;que riegue bien&raquo;.<br>
+           <b>Requisito</b>: &laquo;la humedad del suelo no baja del 40 % en un ensayo de 14
+           d&iacute;as midiendo cada 6 horas&raquo;.</p>
+      </div>
+      <p>La diferencia entre los dos no es que uno suene m&aacute;s t&eacute;cnico. Es que el segundo
+         <b>se puede correr</b> contra unos datos y da un s&iacute; o un no. Aqu&iacute; est&aacute;n
+         los datos de un prototipo de riego funcionando 14 d&iacute;as. Escribe tus requisitos y
+         pulsa <b>Comprobar</b>.</p>
+
+      <div class="escena" id="esc-p2">
+        <div class="escena-barra">
+          <span class="escena-titulo">Catorce d&iacute;as de prototipo &middot; y tus requisitos, corridos encima</span>
+          <div class="seg" id="seg-p2">
+            <button type="button" data-a="comprobar">Comprobar los requisitos</button>
+            <button type="button" data-a="reinicia">Reiniciar</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="p2-mandos">
+            <div class="p2-fila">
+              <label for="p2-umbral">El prototipo riega cuando la humedad baja de</label>
+              <input type="number" id="p2-umbral" value="35" min="20" max="60" step="1">
+              <span class="p2-ud">% &middot; lo elegisteis vosotros</span>
+            </div>
+            <div class="p2-fila">
+              <label for="p2-evap">La tierra pierde, cada 6 horas,</label>
+              <input type="number" id="p2-evap" value="4" min="2" max="8" step="1">
+              <span class="p2-ud">puntos de humedad &middot; depende de lo seca que est&eacute; el aula</span>
+            </div>
+          </div>
+          <svg viewBox="0 0 640 230" id="svg-p2" role="img"
+               aria-label="Humedad del suelo medida cada seis horas durante catorce d&iacute;as, con el umbral y los riegos marcados"></svg>
+          <div class="p2-medidas" id="med-p2"></div>
+
+          <p class="p2-rot">Los tres requisitos que hab&eacute;is escrito</p>
+          <div class="p2-reqs" id="reqs-p2"></div>
+
+          <p class="p2-rot">Y los tres que escribisteis primero, tal cual</p>
+          <div class="p2-malos" id="malos-p2"></div>
+          <p class="p2-est" id="est-p2"></p>
+        </div>
+        <div class="pie" id="pie-p2"></div>
+      </div>
+
+      <style>
+      .p2-mandos{margin:0 0 10px}
+      .p2-fila{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 7px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .p2-fila input[type="number"]{width:72px;font-family:var(--f-m);font-size:12.5px;padding:5px 6px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .p2-ud{color:var(--ink-soft);font-size:11.5px}
+      .p2-medidas{display:grid;gap:7px;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));
+        margin:10px 0 4px}
+      .p2-med{border:1.5px solid var(--line);border-radius:2px;padding:7px 9px;background:var(--surface)}
+      .p2-med i{display:block;font-style:normal;font-family:var(--f-m);font-size:10.5px;
+        letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);line-height:1.35}
+      .p2-med b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--goo-azul)}
+      .p2-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:16px 0 6px}
+      .p2-reqs{display:grid;gap:7px}
+      .p2-req{display:flex;align-items:center;gap:7px;flex-wrap:wrap;border:1.5px solid var(--line);
+        border-radius:2px;padding:8px 10px;background:var(--surface);font-family:var(--f-m);font-size:12.5px}
+      .p2-req select,.p2-req input[type="number"]{font-family:var(--f-m);font-size:12.5px;padding:4px 5px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .p2-req input[type="number"]{width:68px}
+      .p2-req .ud{color:var(--ink-soft);min-width:78px}
+      .p2-req .ver{margin-left:auto;font-weight:500;display:flex;gap:9px;align-items:center}
+      .p2-req.pasa{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+      .p2-req.falla{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+      .p2-req.pasa .ver{color:var(--goo-verde)}
+      .p2-req.falla .ver{color:var(--goo-rojo)}
+      .p2-req .medido{color:var(--ink-soft);font-weight:400}
+      .p2-malos{display:grid;gap:7px}
+      .p2-malo{border:1.5px solid var(--line);border-left:4px solid var(--goo-amarillo);border-radius:2px;
+        padding:8px 10px;background:var(--surface)}
+      .p2-malo .frase{font-size:14.5px;font-style:italic}
+      .p2-malo .bot{margin-top:6px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+      .p2-malo button{font-family:var(--f-m);font-size:12px;border:1.5px solid var(--line);
+        background:var(--surface);color:var(--ink);border-radius:2px;padding:5px 9px;cursor:pointer}
+      .p2-malo button:hover:not(:disabled){border-color:var(--goo-azul);color:var(--goo-azul)}
+      .p2-malo button:disabled{opacity:.45;cursor:default}
+      .p2-diag{font-family:var(--f-m);font-size:12px;color:var(--ink-soft);margin:6px 0 0;line-height:1.55}
+      .p2-diag b{color:var(--goo-rojo)}
+      .p2-est{font-family:var(--f-m);font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin:14px 0 0}
+      .p2-est b{color:var(--ink)}
+      .p2-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-p2');
+        if(!svg) return;
+        var med = document.getElementById('med-p2');
+        var zonaReqs = document.getElementById('reqs-p2');
+        var zonaMalos = document.getElementById('malos-p2');
+        var est = document.getElementById('est-p2');
+        var pie = document.getElementById('pie-p2');
+        var iUmbral = document.getElementById('p2-umbral');
+        var iEvap = document.getElementById('p2-evap');
+
+        /* ---- el ensayo: 14 dias, una lectura cada 6 h ---- */
+        var PASOS = 56;            /* 14 dias x 4 lecturas */
+        var H0 = 62;               /* humedad al empezar, en % */
+        var SUBIDA = 22;           /* lo que sube la humedad con un riego */
+        var LITROS = 0.18;         /* lo que echa la bomba en cada riego */
+
+        function ensayo(umbral, evap){
+          var h = H0, serie = [h], riegos = 0, cuando = [];
+          for(var t = 1; t <= PASOS; t++){
+            h = h - evap;
+            if(h < umbral){ h = Math.min(100, h + SUBIDA); riegos++; cuando.push(t); }
+            serie.push(h);
+          }
+          var suma = 0, minimo = serie[0], secos = 0;
+          for(var i = 0; i < serie.length; i++){
+            suma += serie[i];
+            if(serie[i] < minimo) minimo = serie[i];
+          }
+          for(var j = 0; j < PASOS; j++){ if(serie[j] < 40) secos++; }
+          return {serie: serie, riegos: riegos, cuando: cuando,
+                  min: minimo, media: suma / serie.length,
+                  agua: riegos * LITROS, seco: secos * 6};
+        }
+
+        /* ---- las magnitudes que este ensayo SI puede medir ---- */
+        var MAG = {
+          min:    {t: 'la humedad m&iacute;nima', ud: '%', dec: 0},
+          media:  {t: 'la humedad media', ud: '%', dec: 1},
+          agua:   {t: 'el agua gastada en 14 d&iacute;as', ud: 'L', dec: 2},
+          riegos: {t: 'el n&uacute;mero de riegos en 14 d&iacute;as', ud: 'riegos', dec: 0},
+          seco:   {t: 'las horas con la tierra por debajo del 40 %', ud: 'h', dec: 0}
+        };
+
+        var REQS = [
+          {mag: 'min', cmp: 'ge', val: 40},
+          {mag: 'agua', cmp: 'le', val: 2},
+          {mag: 'riegos', cmp: 'le', val: 8}
+        ];
+        var corregido = false;
+
+        var MALOS = [
+          {frase: 'Que riegue bien.',
+           falta: ['qu&eacute; magnitud se mira', 'con qu&eacute; valor se compara',
+                   'en qu&eacute; unidad', 'c&oacute;mo se comprueba'],
+           arreglo: {mag: 'min', cmp: 'ge', val: 40},
+           nota: 'Arreglado: <b>la humedad del suelo no baja nunca del 40 %</b> durante un ensayo '
+               + 'de 14 d&iacute;as. Ahora se puede correr contra los datos.'},
+          {frase: 'Que no gaste mucha agua.',
+           falta: ['con qu&eacute; valor se compara', 'en qu&eacute; unidad',
+                   'durante cu&aacute;nto tiempo'],
+           arreglo: {mag: 'agua', cmp: 'le', val: 2},
+           nota: 'Arreglado: <b>gasta 2 L o menos en 14 d&iacute;as</b>. &laquo;Mucha&raquo; no es un '
+               + 'n&uacute;mero; 2 L s&iacute;.'},
+          {frase: 'Que no se pase de agua.',
+           falta: ['qu&eacute; magnitud se mira', 'con qu&eacute; valor se compara'],
+           arreglo: {mag: 'riegos', cmp: 'le', val: 8},
+           nota: 'Arreglado: <b>8 riegos o menos en 14 d&iacute;as</b>. Y ojo, este requisito '
+               + '<b>tira contra el primero</b>: los dos a la vez aprietan.'},
+          {frase: 'Que sea f&aacute;cil de usar.',
+           falta: ['qu&eacute; magnitud se mira', 'con qu&eacute; valor se compara',
+                   'c&oacute;mo se comprueba'],
+           arreglo: null,
+           nota: 'Este <b>no se arregla con este ensayo</b>, y eso tambi&eacute;n hay que saberlo. '
+               + 'Es un requisito de verdad, pero se mide con otra prueba: <i>cinco personas que no '
+               + 'lo han visto nunca lo ponen en marcha en menos de 5 minutos, sin ayuda y sin leer '
+               + 'nada</i>. Sigue siendo un n&uacute;mero, pero de otra medida.'}
+        ];
+
+        function esp(v, dec){
+          var s = v.toFixed(dec);
+          var p = s.split('.');
+          p[0] = p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+          return p.join(',');
+        }
+        function leeNum(c, min, max, pordef){
+          var v = parseFloat(String(c.value).replace(',', '.'));
+          if(!isFinite(v)) return pordef;
+          return Math.min(max, Math.max(min, v));
+        }
+
+        function dibuja(E, umbral){
+          var W = 640, H = 230, ML = 42, MR = 14, MT = 24, MB = 32;
+          var ancho = W - ML - MR, alto = H - MT - MB;
+          function X(t){ return ML + ancho * t / PASOS; }
+          function Y(v){ return MT + alto - alto * v / 100; }
+          var g = [];
+          for(var v = 0; v <= 100; v += 20){
+            g.push('<line stroke="var(--line-soft)" stroke-width="1" x1="' + ML + '" y1="'
+                 + Y(v).toFixed(1) + '" x2="' + (W - MR) + '" y2="' + Y(v).toFixed(1) + '"/>');
+            g.push('<text class="p2-txt" x="' + (ML - 6) + '" y="' + (Y(v) + 4).toFixed(1)
+                 + '" text-anchor="end">' + v + '</text>');
+          }
+          for(var d = 0; d <= 14; d += 2){
+            g.push('<text class="p2-txt" x="' + X(d * 4).toFixed(1) + '" y="' + (H - 14)
+                 + '" text-anchor="middle">' + d + '</text>');
+          }
+          g.push('<text class="p2-txt" x="' + (W - MR) + '" y="' + (H - 2)
+               + '" text-anchor="end">d&iacute;as de ensayo</text>');
+          g.push('<text class="p2-txt" x="' + (ML - 6) + '" y="' + (MT - 9)
+               + '" text-anchor="end">%</text>');
+
+          g.push('<line x1="' + ML + '" y1="' + Y(umbral).toFixed(1) + '" x2="' + (W - MR)
+               + '" y2="' + Y(umbral).toFixed(1) + '" stroke="var(--goo-amarillo)" stroke-width="1.8" '
+               + 'stroke-dasharray="6 4"/>');
+          g.push('<text class="p2-txt" x="' + (ML + 5) + '" y="' + (Y(umbral) + 13).toFixed(1)
+               + '" fill="var(--goo-amarillo)">umbral de riego, ' + umbral + ' %</text>');
+
+          var pts = E.serie.map(function(v, t){ return X(t).toFixed(1) + ',' + Y(v).toFixed(1); });
+          g.push('<polyline fill="none" stroke="var(--goo-azul)" stroke-width="2.2" points="'
+               + pts.join(' ') + '"/>');
+          E.cuando.forEach(function(t){
+            g.push('<circle cx="' + X(t).toFixed(1) + '" cy="' + Y(E.serie[t]).toFixed(1)
+                 + '" r="3.4" fill="var(--goo-verde)"/>');
+          });
+          g.push('<circle cx="' + X(E.serie.indexOf(E.min)).toFixed(1) + '" cy="'
+               + Y(E.min).toFixed(1) + '" r="4.5" fill="none" stroke="var(--goo-rojo)" '
+               + 'stroke-width="2"/>');
+          svg.innerHTML = g.join('');
+        }
+
+        function medidas(E){
+          var filas = [['min', E.min], ['media', E.media], ['agua', E.agua],
+                       ['riegos', E.riegos], ['seco', E.seco]];
+          med.innerHTML = filas.map(function(f){
+            var m = MAG[f[0]];
+            return '<div class="p2-med"><i>' + m.t + '</i><b>' + esp(f[1], m.dec) + '</b> '
+                 + m.ud + '</div>';
+          }).join('');
+        }
+
+        function filaReq(r, i){
+          var m = MAG[r.mag];
+          var ops = Object.keys(MAG).map(function(k){
+            return '<option value="' + k + '"' + (k === r.mag ? ' selected' : '') + '>'
+                 + MAG[k].t + '</option>';
+          }).join('');
+          return '<div class="p2-req" data-i="' + i + '">'
+               + '<select data-campo="mag">' + ops + '</select>'
+               + '<select data-campo="cmp">'
+               + '<option value="ge"' + (r.cmp === 'ge' ? ' selected' : '') + '>ha de ser &ge;</option>'
+               + '<option value="le"' + (r.cmp === 'le' ? ' selected' : '') + '>ha de ser &le;</option>'
+               + '</select>'
+               + '<input type="number" data-campo="val" value="' + String(r.val) + '" step="0.1">'
+               + '<span class="ud">' + m.ud + '</span>'
+               + '<span class="ver"></span></div>';
+        }
+
+        function pintaReqs(){
+          zonaReqs.innerHTML = REQS.map(filaReq).join('');
+        }
+
+        function pintaMalos(){
+          zonaMalos.innerHTML = MALOS.map(function(m, i){
+            return '<div class="p2-malo" data-m="' + i + '">'
+                 + '<span class="frase">&laquo;' + m.frase + '&raquo;</span>'
+                 + '<div class="bot"><button type="button" data-a="correr">Intentar comprobarlo</button>'
+                 + '<button type="button" data-a="arregla"' + (m.arreglo ? '' : ' disabled')
+                 + '>Arreglarlo</button></div>'
+                 + '<p class="p2-diag" hidden></p></div>';
+          }).join('');
+        }
+
+        function corre(){
+          var umbral = leeNum(iUmbral, 20, 60, 35);
+          var evap = leeNum(iEvap, 2, 8, 4);
+          var E = ensayo(umbral, evap);
+          dibuja(E, umbral);
+          medidas(E);
+          if(!corregido){
+            est.innerHTML = 'Arriba est&aacute; lo que hizo el prototipo. Abajo, lo que ped&iacute;ais. '
+              + 'Pulsa <b>Comprobar los requisitos</b>: cada uno se convierte en una comparaci&oacute;n '
+              + 'y se corre contra estos datos.';
+            zonaReqs.querySelectorAll('.p2-req').forEach(function(f){
+              f.classList.remove('pasa', 'falla');
+              f.querySelector('.ver').innerHTML = '';
+            });
+            return;
+          }
+          var pasan = 0;
+          zonaReqs.querySelectorAll('.p2-req').forEach(function(f){
+            var r = REQS[+f.dataset.i];
+            var m = MAG[r.mag];
+            var medido = E[r.mag];
+            var ok = r.cmp === 'ge' ? (medido >= r.val) : (medido <= r.val);
+            if(ok) pasan++;
+            f.classList.toggle('pasa', ok);
+            f.classList.toggle('falla', !ok);
+            f.querySelector('.ver').innerHTML =
+              '<span class="medido">medido: ' + esp(medido, m.dec) + ' ' + m.ud + '</span>'
+              + (ok ? 'PASA' : 'NO PASA');
+          });
+          est.innerHTML = 'Con umbral <b>' + umbral + ' %</b> y una p&eacute;rdida de <b>' + evap
+            + ' puntos</b> cada 6 horas: pasan <b>' + pasan + ' de ' + REQS.length + '</b>. '
+            + 'Cambia el umbral y vuelve a comprobar: ver&aacute;s que <b>bajarlo</b> ahorra agua y '
+            + 'hunde la humedad m&iacute;nima, y que <b>subirlo</b> hace lo contrario. Los requisitos '
+            + 'no son una lista de deseos sueltos: <b>tiran unos de otros</b>, y ah&iacute; es donde '
+            + 'hay que decidir.';
+        }
+
+        zonaReqs.addEventListener('change', function(e){
+          var f = e.target.closest('.p2-req');
+          if(!f) return;
+          var r = REQS[+f.dataset.i];
+          var campo = e.target.dataset.campo;
+          if(campo === 'mag'){
+            r.mag = e.target.value;
+            f.querySelector('.ud').textContent = MAG[r.mag].ud;
+          } else if(campo === 'cmp'){
+            r.cmp = e.target.value;
+          } else if(campo === 'val'){
+            var v = parseFloat(String(e.target.value).replace(',', '.'));
+            r.val = isFinite(v) ? v : 0;
+          }
+          if(corregido) corre();
+        });
+
+        zonaMalos.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-a]');
+          if(!b) return;
+          var caja = b.closest('.p2-malo');
+          var m = MALOS[+caja.dataset.m];
+          var diag = caja.querySelector('.p2-diag');
+          diag.hidden = false;
+          if(b.dataset.a === 'correr'){
+            diag.innerHTML = 'No se puede correr: le faltan <b>' + m.falta.length
+              + '</b> piezas &mdash; ' + m.falta.join(', ') + '. Un requisito que no se puede '
+              + 'convertir en una comparaci&oacute;n no se puede comprobar al final, y entonces '
+              + 'no sirve para discutir si el proyecto ha salido bien.';
+          } else if(m.arreglo){
+            var libre = 0;
+            for(var i = 0; i < REQS.length; i++){
+              if(REQS[i].mag === m.arreglo.mag){ libre = i; break; }
+            }
+            REQS[libre] = {mag: m.arreglo.mag, cmp: m.arreglo.cmp, val: m.arreglo.val};
+            pintaReqs();
+            corregido = true;
+            diag.innerHTML = m.nota;
+            corre();
+          } else {
+            diag.innerHTML = m.nota;
+          }
+        });
+
+        document.getElementById('seg-p2').addEventListener('click', function(e){
+          var b = e.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'comprobar'){ corregido = true; corre(); }
+          else {
+            corregido = false;
+            iUmbral.value = 35; iEvap.value = 4;
+            REQS = [{mag: 'min', cmp: 'ge', val: 40}, {mag: 'agua', cmp: 'le', val: 2},
+                    {mag: 'riegos', cmp: 'le', val: 8}];
+            pintaReqs(); pintaMalos(); corre();
+          }
+        });
+        [iUmbral, iEvap].forEach(function(c){ c.addEventListener('input', corre); });
+
+        pie.innerHTML = 'El ensayo lo calcula la escena paso a paso: parte de <b>' + H0
+          + ' %</b> de humedad, resta lo que se evapora cada 6 horas y riega cuando baja del umbral, '
+          + 'subiendo <b>' + SUBIDA + '</b> puntos y gastando <b>'
+          + String(LITROS).replace('.', ',') + ' L</b>. Es un modelo, no una medida real: sirve para '
+          + 'aprender a escribir requisitos, y en la sesi&oacute;n 8 lo sustituiremos por los datos '
+          + 'de vuestro prototipo.';
+        pintaReqs();
+        pintaMalos();
+        corre();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Los requisitos tiran unos de otros</h4>
+        <p>Baja el umbral del prototipo en la escena: gasta menos agua y la humedad m&iacute;nima se
+           hunde. S&uacute;belo: la humedad aguanta y el gasto sube. <b>No se puede mejorar uno sin
+           empeorar el otro</b>: eso es un <b>compromiso</b>, y aparece en todos los proyectos.</p>
+        <p>Lo que hay que hacer no es buscar el umbral m&aacute;gico, es <b>decidir cu&aacute;l
+           manda</b> y dejarlo escrito: <i>&laquo;si hay que elegir, preferimos gastar un poco
+           m&aacute;s de agua antes que dejar que la planta se seque&raquo;</i>. Esa frase vale oro en
+           junio, cuando haya que justificar por qu&eacute; el aparato hace lo que hace.</p>
+      </div>
+      <div class="copiar">
+        <h4>Y a veces el requisito es imposible, y hay que enterarse ahora</h4>
+        <p>Mira el tercero: <i>&laquo;8 riegos o menos en 14 d&iacute;as&raquo;</i>. Con la
+           p&eacute;rdida en 4 puntos, prueba todos los umbrales que quieras: <b>no se cumple
+           nunca</b>. Y la raz&oacute;n se puede calcular sin tocar la escena: en 14 d&iacute;as hay
+           56 lecturas y la tierra pierde 56 &times; 4 = <b>224 puntos</b> de humedad, mientras que
+           cada riego devuelve <b>22</b>. Hacen falta 224 &divide; 22 = <b>10,2 riegos</b> s&iacute;
+           o s&iacute;. El umbral decide <i>cu&aacute;ndo</i> se riega, no <i>cu&aacute;ntas veces</i>:
+           eso lo decide lo que echa la bomba de una vez.</p>
+        <p>Cuando un requisito sale imposible hay <b>dos salidas, y las dos valen</b>: cambiar el
+           dise&ntilde;o (una bomba que eche m&aacute;s en cada riego) o cambiar el requisito. Lo que
+           no vale es dejarlo escrito y hacer como que no lo has visto. Enterarse de esto en
+           septiembre cuesta un renglón; enterarse en mayo cuesta el trimestre.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Dos cosas que conviene saber y que la escena deja ver a medias:</p>
+        <ul>
+          <li><b>No todos los requisitos se miden con el mismo ensayo.</b> &laquo;Que sea f&aacute;cil
+              de usar&raquo; tambi&eacute;n es un requisito de verdad, pero no sale de estos datos:
+              se mide con otra prueba (<i>cinco personas que no lo han visto nunca lo ponen en marcha
+              en menos de 5 minutos, sin ayuda</i>). Sigue siendo un n&uacute;mero.</li>
+          <li><b>El requisito que nadie escribe es el de seguridad</b>, porque se da por hecho. En
+              vuestro proyecto hay agua cerca de electr&oacute;nica, o una bombilla que se calienta:
+              escribidlo. <i>&laquo;Ninguna conexi&oacute;n el&eacute;ctrica queda a menos de 10 cm de
+              la l&iacute;nea de agua&raquo;</i> es un requisito, y se comprueba con una regla.</li>
+        </ul>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 2 &middot; Cinco requisitos, y el grupo de al lado intentando romperlos</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">A.1</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; escribirlos (10 min)</h4>
+          <p>Para el problema que elegisteis en la sesi&oacute;n 1, escribid <b>cinco requisitos</b>
+             con sus cuatro piezas cada uno. Repartidlos as&iacute;:</p>
+          <ul>
+            <li>Dos de <b>lo que tiene que conseguir</b> (humedad, temperatura, lux, lo que sea).</li>
+            <li>Uno de <b>lo que no puede pasarse</b>: agua, electricidad, dinero o tiempo.</li>
+            <li>Uno de <b>seguridad</b>.</li>
+            <li>Uno de <b>uso</b>: alguien que no sea del grupo tiene que poder hacer algo.</li>
+          </ul>
+          <p>Cada uno acaba con la frase <i>&laquo;se comprueba&hellip;&raquo;</i>, diciendo con
+             qu&eacute; ensayo y cu&aacute;nto dura.</p>
+          <h4>Segunda parte &middot; romperlos (10 min)</h4>
+          <p>Pasad la hoja al grupo de al lado. Su trabajo es <b>hacer trampa</b>: encontrar una
+             soluci&oacute;n que <b>cumpla los cinco requisitos al pie de la letra</b> y que sea
+             claramente absurda o in&uacute;til. Si la encuentran, hab&eacute;is escrito mal un
+             requisito, y lo reescrib&iacute;s.</p>
+          <p><i>Ejemplo de trampa: si pon&eacute;is &laquo;gasta menos de 2 L en 14 d&iacute;as&raquo;
+             y nada m&aacute;s, un aparato que no riegue nunca lo cumple perfectamente.</i></p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cinco requisitos, con sus cuatro piezas cada uno <b>(4 puntos)</b>.</li>
+            <li>El reparto pedido: conseguir, no pasarse, seguridad y uso <b>(2 puntos)</b>.</li>
+            <li>Cada uno dice c&oacute;mo se comprueba, con ensayo y duraci&oacute;n
+                <b>(2 puntos)</b>.</li>
+            <li>Se han encontrado las trampas del grupo de al lado, por escrito <b>(1 punto)</b>.</li>
+            <li>Los requisitos rotos se han reescrito <b>(1 punto)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Cu&aacute;les son las cuatro piezas de un requisito?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La <b>magnitud</b> que se mide, el <b>comparador y el valor</b>, la <b>unidad</b> y <b>c&oacute;mo se comprueba</b> (con qu&eacute; ensayo y durante cu&aacute;nto). Si falta una, no se puede correr contra unos datos.</p></div></details></li>
+        <li>Arregla este requisito: &laquo;que la l&aacute;mpara d&eacute; buena luz&raquo;.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Una manera: <i>&laquo;con la persiana bajada, la iluminaci&oacute;n sobre la mesa no baja de <b>300 lux</b> en ning&uacute;n momento; se comprueba con el luxómetro del m&oacute;vil en cinco puntos de la mesa, tres veces a lo largo de una tarde&raquo;</i>. Magnitud, valor, unidad y ensayo.</p></div></details></li>
+        <li>El puente del Milenio estaba bien calculado y se cerr&oacute; a los dos d&iacute;as. &iquest;D&oacute;nde estuvo el fallo?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No en los c&aacute;lculos, sino en la <b>lista de lo que hab&iacute;a que calcular</b>. Se hab&iacute;a pedido que aguantara el <b>peso</b> de la gente, y nadie hab&iacute;a escrito un requisito sobre la fuerza <b>horizontal</b> de una multitud andando: la excitaci&oacute;n lateral sincronizada.</p></div></details></li>
+        <li>Tu aparato cumple &laquo;gasta menos de 2 L&raquo; sin regar ni una vez. &iquest;Qu&eacute; ha pasado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que la lista de requisitos est&aacute; <b>incompleta</b>: falta el que dice lo que hay que <b>conseguir</b>. Los requisitos que limitan (&laquo;no m&aacute;s de&hellip;&raquo;) solo tienen sentido junto a los que exigen (&laquo;al menos&hellip;&raquo;), y los dos tiran en direcciones contrarias a prop&oacute;sito.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ten&eacute;is el problema medido y los requisitos escritos. Y ten&eacute;is, desde el primer
+        d&iacute;a, <b>una idea</b>: la que se le ocurri&oacute; a alguien del grupo en la
+        sesi&oacute;n 1. La pregunta inc&oacute;moda es: &iquest;es buena? No lo sab&eacute;is. Y no
+        lo sab&eacute;is por una raz&oacute;n muy simple: <b>no la hab&eacute;is comparado con
+        nada</b>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>Tu idea puede ser buena. No lo sabes, porque no la has comparado con nada</h2>
+      <p>Cinco maneras de resolver lo mismo, y una tabla para elegir una. Lo que hay que justificar no es la ganadora: son los pesos.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">A.1</span><span class="chip sab">A.3</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Vuestro problema tiene n&uacute;mero y vuestros requisitos se pueden comprobar. Falta elegir
+         <b>c&oacute;mo</b> lo vais a resolver. Y aqu&iacute; hay una idea que lleva rondando desde la
+         primera sesi&oacute;n: la que dijo alguien en voz alta el primer d&iacute;a.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Cuatro minutos, en grupo, y una regla: <b>cinco maneras distintas</b> de que una planta reciba
+        agua con el centro cerrado nueve d&iacute;as. Prohibido decir si una es buena o mala. Y
+        prohibido que las cinco sean la misma con otro color: tiene que haber al menos una
+        <b>sin electr&oacute;nica</b> y una que <b>no sea un aparato</b>.
+      </div>
+      <p>Salen, casi siempre, estas: una bomba mandada por un sensor; un servo que inclina un
+         dep&oacute;sito; un gotero de botella boca abajo; que alguien pase a regar; y cambiar las
+         plantas por otras que aguanten. Las cinco resuelven el problema, y tres de ellas <b>no
+         valen para el encargo de este curso</b> porque no llevan sensor ni actuador. Pero eso hay
+         que verlo <b>con un criterio escrito delante</b>, no diciendo &laquo;esa no&raquo;: si no,
+         lo que se descarta es lo que no te gusta.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Ahora ten&eacute;is cinco. &iquest;C&oacute;mo se elige una <b>sin que gane la del que
+           habla m&aacute;s alto</b>, y de forma que dentro de tres meses, cuando alguien pregunte
+           por qu&eacute; esa, se pueda contestar con algo que no sea &laquo;nos pareci&oacute;
+           mejor&raquo;?</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <h3>Primero se abre, y luego se cierra. Nunca las dos a la vez</h3>
+      <p>Buscar ideas y juzgarlas son dos trabajos distintos, y hacerlos a la vez estropea los dos.
+         Si juzgas mientras generas, las ideas raras no llegan a decirse en voz alta &mdash;y la buena
+         suele ser una de esas&mdash;; si generas mientras juzgas, acabas defendiendo tu idea en vez
+         de mirar las dem&aacute;s.</p>
+      <div class="copiar">
+        <h4>Divergir y converger</h4>
+        <p><b>Divergir</b>: sacar muchas soluciones distintas, sin valorar ninguna. Cuantas
+           m&aacute;s y m&aacute;s diferentes, mejor. Aqu&iacute; vale todo.</p>
+        <p><b>Converger</b>: comparar y elegir <b>una</b>, con criterios escritos antes de mirar las
+           alternativas.</p>
+        <p><b>Regla</b>: los criterios salen de los <b>requisitos</b> de la sesi&oacute;n 2. Si se te
+           ocurre un criterio que no viene de ning&uacute;n requisito, o sobra el criterio o
+           faltaba un requisito. Las dos cosas hay que arreglarlas.</p>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/c1-goteo.jpg" alt="Primer plano de un gotero de riego verde soltando una gota sobre una maceta con bolas de arcilla expandida y un cubo de lana de roca" loading="lazy">
+        <figcaption>Un <b>gotero</b> soltando su gota, en un cultivo sobre arcilla expandida y lana de roca. Cuesta c&eacute;ntimos, no lleva electr&oacute;nica, no se estropea y riega nueve d&iacute;as sin que nadie lo toque. <b>Tiene que estar en vuestra tabla</b>: una comparaci&oacute;n en la que solo se han metido las alternativas que quer&iacute;ais que perdieran no demuestra nada.
+          <span class="credito">Alan.ca &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Drip_emitter.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>La matriz de decisi&oacute;n</h4>
+        <ol>
+          <li><b>Criterios</b> en las columnas, sacados de los requisitos.</li>
+          <li>Un <b>peso</b> de 1 a 5 para cada criterio: lo importante que es. <b>Antes</b> de mirar
+              las alternativas.</li>
+          <li><b>Alternativas</b> en las filas. Todas, incluidas las que ya sab&eacute;is que van a
+              perder.</li>
+          <li>Una <b>nota</b> de 1 a 5 en cada casilla, con la <b>escala escrita</b>: qu&eacute; es
+              un 5 y qu&eacute; es un 1 en ese criterio. Sin la escala, cada uno puntúa a su gusto y
+              la tabla no vale nada.</li>
+          <li><b>Puntuaci&oacute;n</b> de cada alternativa = suma de (peso &times; nota).</li>
+        </ol>
+      </div>
+      <p>Aqu&iacute; est&aacute; montada, con cuatro maneras de regar la misma planta. Cambia los
+         pesos y mira lo que pasa.</p>
+
+      <div class="escena" id="esc-p3">
+        <div class="escena-barra">
+          <span class="escena-titulo">Cuatro maneras de regar la misma planta &middot; y por qu&eacute; eliges una</span>
+          <div class="seg" id="seg-p3">
+            <button type="button" data-a="iguales">Todos los pesos a 1</button>
+            <button type="button" data-a="reinicia">Volver a los pesos de clase</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="p3-tabla" id="tabla-p3"></div>
+          <div class="p3-res">
+            <svg viewBox="0 0 640 190" id="svg-p3" role="img"
+                 aria-label="Barras con la puntuaci&oacute;n ponderada de cada alternativa"></svg>
+          </div>
+          <p class="p3-est" id="est-p3"></p>
+          <div class="p3-sens" id="sens-p3"></div>
+        </div>
+        <div class="pie" id="pie-p3"></div>
+      </div>
+
+      <style>
+      .p3-tabla{overflow-x:auto}
+      .p3-tabla table{border-collapse:collapse;width:100%;min-width:600px;font-size:13.5px}
+      .p3-tabla th,.p3-tabla td{border:1px solid var(--line);padding:6px 7px;text-align:center}
+      .p3-tabla th.alt{text-align:left;font-weight:500}
+      .p3-tabla td.alt{text-align:left;font-size:14px}
+      .p3-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:11px;
+        letter-spacing:.04em;line-height:1.35;vertical-align:bottom;font-weight:400;color:var(--ink)}
+      .p3-tabla .peso input,.p3-tabla .nota input{width:46px;font-family:var(--f-m);font-size:12.5px;
+        padding:3px 4px;text-align:center;border:1.5px solid var(--line);border-radius:2px;
+        background:var(--surface);color:var(--ink)}
+      .p3-tabla .peso{background:var(--accent-soft)}
+      .p3-tabla .peso input{border-color:var(--goo-azul)}
+      .p3-tabla tr.gana td{background:rgba(52,168,83,.10)}
+      .p3-tabla tr.gana td.alt::after{content:" \2190  la elegida";font-family:var(--f-m);font-size:11px;
+        color:var(--goo-verde)}
+      .p3-tabla td.tot{font-family:var(--f-m);font-size:15px;font-weight:500;color:var(--goo-azul)}
+      .p3-tabla td.pct{font-family:var(--f-m);font-size:12px;color:var(--ink-soft);white-space:nowrap}
+      .p3-est{font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin:12px 0 0}
+      .p3-est b{color:var(--ink)}
+      .p3-sens{margin:10px 0 0;display:grid;gap:5px}
+      .p3-sens div{font-family:var(--f-m);font-size:12px;line-height:1.5;color:var(--ink-soft);
+        border-left:3px solid var(--line);padding-left:9px}
+      .p3-sens div.vuelca{border-left-color:var(--goo-rojo);color:var(--ink)}
+      .p3-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+      .p3-txt.fuerte{fill:var(--ink);font-weight:500}
+      </style>
+
+      <script>
+      (function(){
+        var zona = document.getElementById('tabla-p3');
+        if(!zona) return;
+        var svg = document.getElementById('svg-p3');
+        var est = document.getElementById('est-p3');
+        var sens = document.getElementById('sens-p3');
+        var pie = document.getElementById('pie-p3');
+
+        /* ---- los criterios salieron de los requisitos de la sesion 2 ---- */
+        var BASE = [2, 5, 2, 5, 3];
+        var CRIT = [
+          {t: 'Barato', ay: '5 = menos de 2 &euro;; 1 = m&aacute;s de 15 &euro;'},
+          {t: 'Aguanta 9 d&iacute;as solo', ay: '5 = riega sin nadie; 1 = hay que estar'},
+          {t: 'R&aacute;pido de montar', ay: '5 = una sesi&oacute;n; 1 = cinco o m&aacute;s'},
+          {t: 'Cumple el encargo', ay: 'sensor + actuador programados; 1 = no lleva'},
+          {t: 'Poco riesgo con el agua', ay: '5 = el agua no toca nada; 1 = la moja entera'}
+        ];
+        var pesos = BASE.slice();
+
+        var ALT = [
+          {t: 'Bomba sumergible mandada por sensor de humedad', n: [2, 5, 2, 5, 2]},
+          {t: 'Servo que inclina un dep&oacute;sito sobre la maceta', n: [3, 4, 3, 5, 3]},
+          {t: 'Gotero de botella invertida, sin electr&oacute;nica', n: [5, 3, 5, 1, 5]},
+          {t: 'Turnos: alguien riega a mano cada tres d&iacute;as', n: [5, 1, 5, 1, 5]}
+        ];
+
+        function total(alt, ps){
+          var s = 0;
+          for(var i = 0; i < ps.length; i++) s += ps[i] * alt.n[i];
+          return s;
+        }
+        function ganador(ps){
+          var mejor = 0;
+          for(var a = 1; a < ALT.length; a++){
+            if(total(ALT[a], ps) > total(ALT[mejor], ps)) mejor = a;
+          }
+          return mejor;
+        }
+        function esp(v, dec){ return v.toFixed(dec).replace('.', ','); }
+
+        function tabla(){
+          var h = '<table><thead><tr><th class="alt">Alternativa</th>';
+          CRIT.forEach(function(c, i){
+            h += '<th title="' + c.ay + '">' + c.t + '<br><span style="color:var(--ink-soft)">'
+               + c.ay + '</span></th>';
+          });
+          h += '<th>Total</th><th>%</th></tr>';
+          h += '<tr><th class="alt">Peso de cada criterio (1 a 5)</th>';
+          pesos.forEach(function(p, i){
+            h += '<td class="peso"><input type="number" data-peso="' + i + '" min="1" max="5" '
+               + 'step="1" value="' + p + '"></td>';
+          });
+          h += '<td colspan="2"></td></tr></thead><tbody>';
+          var g = ganador(pesos);
+          var maxPos = 5 * pesos.reduce(function(a, b){ return a + b; }, 0);
+          ALT.forEach(function(a, j){
+            h += '<tr' + (j === g ? ' class="gana"' : '') + '><td class="alt">' + a.t + '</td>';
+            a.n.forEach(function(v, i){
+              h += '<td class="nota"><input type="number" data-alt="' + j + '" data-crit="' + i
+                 + '" min="1" max="5" step="1" value="' + v + '"></td>';
+            });
+            var t = total(a, pesos);
+            h += '<td class="tot">' + t + '</td><td class="pct">'
+               + esp(100 * t / maxPos, 1) + ' %</td></tr>';
+          });
+          zona.innerHTML = h + '</tbody></table>';
+        }
+
+        function dibuja(){
+          var W = 640, H = 190, ML = 14, MR = 14, MT = 14, MB = 16;
+          var g = ganador(pesos);
+          var maxPos = 5 * pesos.reduce(function(a, b){ return a + b; }, 0);
+          var altoFila = (H - MT - MB) / ALT.length;
+          var out = [];
+          ALT.forEach(function(a, j){
+            var t = total(a, pesos);
+            var y = MT + j * altoFila;
+            var ancho = (W - ML - MR - 60) * t / maxPos;
+            out.push('<rect x="' + ML + '" y="' + (y + 4).toFixed(1) + '" width="'
+                   + ancho.toFixed(1) + '" height="' + (altoFila - 14).toFixed(1)
+                   + '" fill="' + (j === g ? 'var(--goo-verde)' : 'var(--goo-azul)')
+                   + '" opacity="' + (j === g ? '0.9' : '0.55') + '"/>');
+            out.push('<text class="p3-txt' + (j === g ? ' fuerte' : '') + '" x="' + (ML + 7)
+                   + '" y="' + (y + altoFila / 2 + 1).toFixed(1) + '">' + a.t + '</text>');
+            out.push('<text class="p3-txt fuerte" x="' + (ML + ancho + 7).toFixed(1) + '" y="'
+                   + (y + altoFila / 2 + 1).toFixed(1) + '">' + t + '</text>');
+          });
+          svg.innerHTML = out.join('');
+        }
+
+        /* ---- sensibilidad: que peso, y cuanto, cambiaria la decision ---- */
+        function sensibilidad(){
+          var g = ganador(pesos);
+          var filas = [];
+          var alguno = false;
+          CRIT.forEach(function(c, i){
+            var mejorCambio = null;
+            for(var w = 1; w <= 5; w++){
+              if(w === pesos[i]) continue;
+              var p2 = pesos.slice();
+              p2[i] = w;
+              var g2 = ganador(p2);
+              if(g2 !== g){
+                var dist = Math.abs(w - pesos[i]);
+                if(mejorCambio === null || dist < mejorCambio.dist){
+                  mejorCambio = {w: w, dist: dist, gana: g2};
+                }
+              }
+            }
+            if(mejorCambio){
+              alguno = true;
+              filas.push('<div class="vuelca"><b>' + c.t + '</b>: si su peso pasara de '
+                + pesos[i] + ' a <b>' + mejorCambio.w + '</b>, ganar&iacute;a <b>'
+                + ALT[mejorCambio.gana].t + '</b>.</div>');
+            } else {
+              filas.push('<div>' + c.t + ': con cualquier peso de 1 a 5, la elegida no cambia.</div>');
+            }
+          });
+          sens.innerHTML = '<div style="border:0;padding:0;color:var(--ink)"><b>&iquest;De qu&eacute; '
+            + 'depende la decisi&oacute;n?</b></div>' + filas.join('')
+            + (alguno ? '' : '<div>Ning&uacute;n peso, por s&iacute; solo, cambia la elegida: la '
+              + 'decisi&oacute;n es s&oacute;lida con estas puntuaciones.</div>');
+        }
+
+        function pinta(){
+          tabla();
+          dibuja();
+          var g = ganador(pesos);
+          var ord = ALT.map(function(a, j){ return {j: j, t: total(a, pesos)}; })
+                       .sort(function(x, y){ return y.t - x.t; });
+          var maxPos = 5 * pesos.reduce(function(a, b){ return a + b; }, 0);
+          var margen = ord[0].t - ord[1].t;
+          var pctMargen = 100 * margen / maxPos;
+          est.innerHTML =
+            'Gana <b>' + ALT[g].t + '</b> con <b>' + ord[0].t + '</b> puntos de ' + maxPos
+            + ' posibles. La segunda, ' + ALT[ord[1].j].t.toLowerCase() + ', saca ' + ord[1].t
+            + ': <b>' + margen + ' puntos de diferencia</b>, un ' + esp(pctMargen, 1)
+            + ' % del total. '
+            + (pctMargen < 5
+                ? 'Una diferencia as&iacute; <b>no decide nada</b>: cambiando una sola '
+                  + 'puntuaci&oacute;n se da la vuelta. Lo honrado es decir que las dos val&iacute;an '
+                  + 'y explicar por qu&eacute; eleg&iacute;s una.'
+                : 'La diferencia es lo bastante grande como para sostenerla, <b>si los pesos '
+                  + 'est&aacute;n justificados</b>.');
+          sensibilidad();
+        }
+
+        zona.addEventListener('input', function(e){
+          var c = e.target;
+          var v = Math.min(5, Math.max(1, Math.round(parseFloat(c.value) || 1)));
+          if(c.dataset.peso !== undefined){
+            pesos[+c.dataset.peso] = v;
+          } else if(c.dataset.alt !== undefined){
+            ALT[+c.dataset.alt].n[+c.dataset.crit] = v;
+          } else return;
+          var foco = c.dataset.peso !== undefined
+            ? '[data-peso="' + c.dataset.peso + '"]'
+            : '[data-alt="' + c.dataset.alt + '"][data-crit="' + c.dataset.crit + '"]';
+          pinta();
+          var nuevo = zona.querySelector(foco);
+          if(nuevo){ nuevo.focus(); nuevo.select(); }
+        });
+
+        document.getElementById('seg-p3').addEventListener('click', function(e){
+          var b = e.target.closest('button[data-a]');
+          if(!b) return;
+          pesos = b.dataset.a === 'iguales' ? [1, 1, 1, 1, 1] : BASE.slice();
+          pinta();
+        });
+
+        pie.innerHTML = 'Las puntuaciones de partida son <b>criterio nuestro</b>, no un dato: '
+          + 'est&aacute;n para discutirlas y cambiarlas. Lo que la escena calcula de verdad es la '
+          + 'suma ponderada, el margen entre la primera y la segunda, y qu&eacute; peso har&iacute;a '
+          + 'cambiar la decisi&oacute;n.';
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Lo que hay que justificar no es el resultado</h4>
+        <p>La matriz <b>no decide por vosotros</b>: la decisi&oacute;n est&aacute; en los pesos, y los
+           pesos los pon&eacute;is vosotros. Por eso lo que hay que escribir en la memoria es
+           <b>por qu&eacute; esos pesos</b>, no la suma.</p>
+        <p>Dos avisos que salen de la escena:</p>
+        <ul>
+          <li>Si la primera y la segunda se diferencian en <b>poco</b> (menos de un 5 % del total), la
+              matriz est&aacute; diciendo que las dos val&iacute;an. Lo honrado es decirlo y elegir
+              por otra raz&oacute;n, escribi&eacute;ndola.</li>
+          <li>Pulsa <b>Todos los pesos a 1</b>: gana otra. Eso no es un fallo de la matriz, es la
+              demostraci&oacute;n de que <b>los pesos son la decisi&oacute;n</b>.</li>
+        </ul>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Este tipo de tabla lleva usándose mucho tiempo de manera informal, pero quien la puso negro
+           sobre blanco como m&eacute;todo fue el ingeniero <b>Stuart Pugh</b>, en <b>1981</b>; por eso
+           en muchos sitios la ver&eacute;is como <b>matriz de Pugh</b>. Su versi&oacute;n original no
+           puntúa de 1 a 5: compara cada alternativa con una de referencia y solo anota <b>mejor,
+           igual o peor</b>. Es m&aacute;s r&aacute;pida y discute menos, y para vuestro proyecto
+           tambi&eacute;n vale.</p>
+        <p>Y la trampa cl&aacute;sica, que ver&eacute;is hacer: montar la tabla, ver que gana la que
+           no quer&iacute;as, y a&ntilde;adir entonces un criterio nuevo con peso 5 que resulta que
+           gana tu favorita. Si se a&ntilde;ade un criterio despu&eacute;s de ver el resultado, hay que
+           <b>decirlo</b> y explicar de qu&eacute; requisito sale.</p>
+      </div>
+      <div class="video" id="video-c1-pugh" data-vid="Kr2QQ_q7Axc">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Matriz Pugh: t&eacute;cnica de selecci&oacute;n de alternativas">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Matriz Pugh: t&eacute;cnica de selecci&oacute;n de alternativas</b>
+            <span>Canal: Tecnol&oacute;gico de Monterrey | Innovaci&oacute;n Educativa</span>
+          </span>
+        </button>
+        <p class="video-nota">La versi&oacute;n original del m&eacute;todo, la de comparar contra una referencia. Est&aacute; explicada para universidad, pero se sigue bien. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=Kr2QQ_q7Axc" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 &middot; Vuestra matriz, con las escalas escritas</span>
+          <span class="chips"><span class="chip">1.2</span><span class="chip">5.1</span><span class="chip">A.1</span><span class="chip">A.3</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; montarla (12 min)</h4>
+          <p>Con un documento compartido (el del grupo, no uno cada uno):</p>
+          <ol class="pasos">
+            <li><b>Cuatro alternativas</b> para vuestro problema. Una de ellas, obligatoriamente,
+                <b>sin electr&oacute;nica</b>.</li>
+            <li><b>Cinco criterios</b>, y al lado de cada uno, <b>de qu&eacute; requisito sale</b>.</li>
+            <li>La <b>escala escrita</b> de cada criterio: qu&eacute; es un 5 y qu&eacute; es un 1.
+                Esto es lo que m&aacute;s puntúa y lo que todo el mundo se salta.</li>
+            <li>Los <b>pesos</b>, decididos y anotados <b>antes</b> de puntuar nada.</li>
+            <li>Las notas y la suma ponderada.</li>
+          </ol>
+          <h4>Segunda parte &middot; ponerla a prueba (8 min)</h4>
+          <ul>
+            <li>Poned todos los pesos a 1. &iquest;Cambia la ganadora? Anotadlo.</li>
+            <li>Buscad <b>el peso que, cambiado en uno</b>, dar&iacute;a la vuelta al resultado. Si no
+                existe, decidlo tambi&eacute;n: vuestra decisi&oacute;n es s&oacute;lida.</li>
+            <li>Escribid el <b>p&aacute;rrafo de justificaci&oacute;n</b>: cinco l&iacute;neas
+                diciendo por qu&eacute; esos pesos y no otros. Ese p&aacute;rrafo va a la memoria del
+                proyecto tal cual.</li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Cuatro alternativas de verdad distintas, y una sin electr&oacute;nica
+                <b>(2 puntos)</b>.</li>
+            <li>Cada criterio dice de qu&eacute; requisito sale <b>(2 puntos)</b>.</li>
+            <li>Las cinco escalas escritas, con el 5 y el 1 <b>(3 puntos)</b>.</li>
+            <li>La prueba de los pesos a 1 y la del peso que da la vuelta <b>(1 punto)</b>.</li>
+            <li>El p&aacute;rrafo de justificaci&oacute;n habla de los <b>pesos</b>, no del resultado
+                <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; no se puede juzgar mientras se generan ideas?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque las ideas raras no llegan a decirse, y la buena suele estar entre ellas. Adem&aacute;s, en cuanto empiezas a juzgar te pones a <b>defender la tuya</b> en lugar de mirar las de los dem&aacute;s. Primero se abre, luego se cierra.</p></div></details></li>
+        <li>&iquest;De d&oacute;nde tienen que salir los criterios de la matriz?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>De los <b>requisitos</b> de la sesi&oacute;n 2. Si un criterio no sale de ning&uacute;n requisito, o sobra ese criterio o faltaba ese requisito.</p></div></details></li>
+        <li>Con vuestros pesos gana la alternativa A; con todos los pesos a 1 gana la C. &iquest;Cu&aacute;l es la buena?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Las dos son resultados correctos de dos maneras distintas de decidir. Lo que hay que justificar no es la ganadora, son <b>los pesos</b>: por qu&eacute; para vosotros aguantar nueve d&iacute;as vale m&aacute;s que ser barato. Con los pesos justificados, A es la buena; sin justificar, no hab&eacute;is decidido nada.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; hay que meter en la tabla alternativas que sab&eacute;is que van a perder?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque una comparaci&oacute;n en la que solo est&aacute;n las que quer&iacute;as que perdieran <b>no demuestra nada</b>. Y porque a veces no pierden: el gotero de dos euros gana en cuanto los pesos dejan de castigarlo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sab&eacute;is qu&eacute; vais a construir y por qu&eacute; esa y no otra. Queda la pregunta
+        que hunde m&aacute;s proyectos que ninguna: <b>&iquest;cabe en el tiempo que hay?</b> Escribid
+        ahora, en el cuaderno, cu&aacute;ntas sesiones cre&eacute;is que necesit&aacute;is. Guardad el
+        n&uacute;mero. La semana que viene lo comparamos con la cuenta de verdad.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>Dijisteis diez sesiones. Son veintiuna, y el trimestre tiene veinticuatro</h2>
+      <p>Tareas, dependencias y una espera de cinco sesiones en la que nadie trabaja. Camino cr&iacute;tico, holguras, y mover una tarea para ver qu&eacute; se lleva por delante.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Cierre y test</span></div>
+      <div class="chips"><span class="chip">CE1 &middot; 1.3</span><span class="chip">CE3 &middot; 3.1</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">A.1</span><span class="chip sab">A.1.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Sacad el n&uacute;mero que escribisteis la sesi&oacute;n pasada: cu&aacute;ntas sesiones
+         cre&iacute;ais que hac&iacute;an falta. Lo normal es que pong&aacute;is entre ocho y doce.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Aqu&iacute; est&aacute;n las <b>doce tareas</b> que lleva de verdad el proyecto, con lo que
+        dura cada una. Sumadlas. Y contestad a dos preguntas antes de mirar nada m&aacute;s:
+        &iquest;<b>cu&aacute;ntas sesiones suman</b>? &iquest;Y <b>cu&aacute;nto durar&aacute; el
+        proyecto</b>?
+      </div>
+      <p>La suma da <b>26 sesiones</b> de trabajo. Ya es m&aacute;s del doble de lo que hab&iacute;ais
+         calculado, y eso que a&uacute;n no hemos empezado. Pero la segunda pregunta tiene truco:
+         el proyecto <b>no dura 26</b>. Dura <b>21</b>. Y el trimestre tiene <b>24</b>, as&iacute; que
+         cabe por los pelos.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Dos preguntas, y las dos son la misma sorpresa por los dos lados:</p>
+        <p style="margin-top:6px">&iquest;C&oacute;mo puede el proyecto durar <b>menos</b> que la suma
+           de sus tareas?</p>
+        <p>Y al rev&eacute;s: en esta lista hay <b>cinco sesiones enteras</b> en las que nadie hace
+           absolutamente nada (el material tarda en llegar). &iquest;C&oacute;mo puede algo en lo que
+           nadie trabaja <b>retrasar</b> el proyecto?</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <h3>De d&oacute;nde sale el dibujo que vais a usar</h3>
+      <figure class="foto" style="max-width:340px;margin-left:auto;margin-right:auto">
+        <img src="../../../img/c1-gantt.jpg" alt="Retrato en blanco y negro de Henry Gantt, con gafas redondas, bigote y traje oscuro" loading="lazy">
+        <figcaption><b>Henry Gantt</b> (1861-1919) public&oacute; sus gr&aacute;ficos en <b>1910</b> y <b>1915</b>, y con ellos se organiz&oacute; la construcci&oacute;n de barcos de la Primera Guerra Mundial. Pero el mismo dibujo lo hab&iacute;a inventado antes el ingeniero polaco <b>Karol Adamiecki</b>, en <b>1896</b>: lo llam&oacute; <i>harmonograma</i> y lo public&oacute; en <b>1909</b>, en polaco. Se qued&oacute; con el nombre de Gantt por una raz&oacute;n que no tiene nada que ver con la t&eacute;cnica: el de Gantt estaba escrito en ingl&eacute;s.
+          <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Henry_Gantt.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>Las cuatro cosas que lleva una tarea</h4>
+        <ol>
+          <li><b>Qu&eacute; se hace</b>, escrito con un verbo y con un final reconocible.</li>
+          <li><b>Cu&aacute;nto dura</b>, en sesiones.</li>
+          <li><b>De qu&eacute; depende</b>: qu&eacute; tiene que estar terminado antes.</li>
+          <li><b>Qui&eacute;n la hace</b>. Un nombre, no &laquo;el grupo&raquo;.</li>
+        </ol>
+        <p><b>Lo que no es una tarea</b>: &laquo;hacer el proyecto&raquo; (no tiene final
+           reconocible), &laquo;investigar&raquo; (no se sabe cu&aacute;ndo acaba) y cualquier cosa que
+           dure m&aacute;s de <b>cuatro sesiones</b>: esa se parte en dos, porque si no, no hay manera
+           de saber si vas bien hasta que ya es tarde.</p>
+      </div>
+      <div class="copiar">
+        <h4>Dependencia y espera: no son lo mismo</h4>
+        <p><b>Dependencia</b>: no puedes empezar B hasta que acabe A. <i>No puedes programar hasta
+           tener el circuito montado.</i></p>
+        <p><b>Espera</b>: tiempo que pasa entre A y B <b>sin que nadie trabaje</b>. <i>Pides el
+           material y tarda cinco sesiones en llegar.</i></p>
+        <p>La espera no cuesta trabajo y <b>s&iacute; cuesta calendario</b>. Por eso lo que hay que
+           pedir se pide el <b>primer d&iacute;a</b>, aunque no haga falta hasta el final: es la
+           decisi&oacute;n que m&aacute;s tiempo ahorra de todo el trimestre, y no cuesta nada.</p>
+      </div>
+      <h3>Camino cr&iacute;tico y holgura</h3>
+      <div class="copiar">
+        <h4>Las dos pasadas</h4>
+        <p><b>Hacia delante</b>: para cada tarea, <b>cu&aacute;ndo puede empezar</b> como muy pronto
+           (cuando han acabado todas las de las que depende) y cu&aacute;ndo acaba. La &uacute;ltima
+           da la <b>duraci&oacute;n del proyecto</b>.</p>
+        <p><b>Hacia atr&aacute;s</b>: empezando por el final, <b>cu&aacute;ndo tiene que haber
+           acabado</b> cada tarea como muy tarde para no retrasar el proyecto.</p>
+        <p><b>Holgura</b> = lo m&aacute;s tarde que puede empezar &minus; lo m&aacute;s pronto que
+           puede empezar. Es cu&aacute;nto se puede retrasar esa tarea <b>sin que pase nada</b>.</p>
+        <p><b>Camino cr&iacute;tico</b>: la cadena de tareas con holgura <b>cero</b>. Si una de esas
+           se retrasa un d&iacute;a, el proyecto entero se retrasa un d&iacute;a. Si se retrasa una que
+           tiene holgura 2, no pasa nada hasta el tercer d&iacute;a.</p>
+      </div>
+      <p>La escena lo calcula entero: las dos pasadas, la holgura de cada tarea y el camino
+         cr&iacute;tico. Alarga una tarea con el bot&oacute;n <b>+</b> y mira la l&iacute;nea de abajo,
+         que dice <b>qu&eacute; se ha llevado por delante</b>.</p>
+
+      <div class="escena" id="esc-p4">
+        <div class="escena-barra">
+          <span class="escena-titulo">El trimestre entero &middot; alarga una tarea y mira qu&eacute; se lleva por delante</span>
+          <div class="seg" id="seg-p4">
+            <button type="button" data-a="reinicia">Volver al plan de partida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 720 340" id="svg-p4" role="img"
+               aria-label="Diagrama de Gantt de las doce tareas del proyecto, con el camino cr&iacute;tico marcado"></svg>
+          <div class="p4-mandos">
+            <label for="p4-plazo">Sesiones disponibles en el trimestre</label>
+            <input type="number" id="p4-plazo" value="24" min="10" max="40" step="1">
+          </div>
+          <div class="p4-tabla" id="tabla-p4"></div>
+          <p class="p4-est" id="est-p4"></p>
+          <div class="p4-cambio" id="cambio-p4"></div>
+        </div>
+        <div class="pie" id="pie-p4"></div>
+      </div>
+
+      <style>
+      .p4-mandos{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:10px 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .p4-mandos input{width:66px;font-family:var(--f-m);font-size:12.5px;padding:5px 6px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .p4-tabla{overflow-x:auto}
+      .p4-tabla table{border-collapse:collapse;width:100%;min-width:600px;font-size:13px}
+      .p4-tabla th,.p4-tabla td{border:1px solid var(--line);padding:5px 7px;text-align:center}
+      .p4-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:11px;
+        font-weight:400;letter-spacing:.04em;color:var(--ink)}
+      .p4-tabla td.nom{text-align:left}
+      .p4-tabla td.quien{font-family:var(--f-m);font-size:11.5px;color:var(--ink-soft)}
+      .p4-tabla tr.crit td.nom{font-weight:500}
+      .p4-tabla tr.crit td.hol{color:var(--goo-rojo);font-weight:500}
+      .p4-tabla tr.movida td{background:rgba(251,188,4,.16)}
+      .p4-tabla .dur{font-family:var(--f-m);white-space:nowrap}
+      .p4-tabla .dur button{font-family:var(--f-m);font-size:12px;width:22px;height:22px;line-height:1;
+        border:1.5px solid var(--line);background:var(--surface);color:var(--ink);border-radius:2px;
+        cursor:pointer;padding:0}
+      .p4-tabla .dur button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+      .p4-tabla .dur b{display:inline-block;min-width:16px;font-weight:500}
+      .p4-est{font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin:12px 0 0}
+      .p4-est b{color:var(--ink)}
+      .p4-est .mal{color:var(--goo-rojo)}
+      .p4-cambio{font-family:var(--f-m);font-size:12px;line-height:1.6;color:var(--ink-soft);
+        margin:8px 0 0;border-left:3px solid var(--goo-amarillo);padding-left:10px}
+      .p4-cambio b{color:var(--ink)}
+      .p4-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:10.5px}
+      .p4-txt.fuerte{fill:var(--ink);font-weight:500}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-p4');
+        if(!svg) return;
+        var zona = document.getElementById('tabla-p4');
+        var est = document.getElementById('est-p4');
+        var cambio = document.getElementById('cambio-p4');
+        var pie = document.getElementById('pie-p4');
+        var iPlazo = document.getElementById('p4-plazo');
+
+        /* ---- las doce tareas. dep = [tarea de la que depende, espera] ----
+               La espera de la tarea 8 es el pedido: el material tarda en llegar
+               aunque nadie este trabajando. Es la que rompe los calendarios.  */
+        var BASE = [
+          {n: 'Detectar y medir el problema', q: 'todos', d: 2, dep: []},
+          {n: 'Escribir los requisitos', q: 'Ana', d: 1, dep: [[0, 0]]},
+          {n: 'Buscar alternativas y elegir', q: 'todos', d: 2, dep: [[1, 0]]},
+          {n: 'Dibujar el objeto, con medidas', q: 'Beto', d: 2, dep: [[2, 0]]},
+          {n: 'Pedir el material', q: 'Ana', d: 1, dep: [[2, 0]]},
+          {n: 'Montar el circuito en Tinkercad', q: 'Carla', d: 3, dep: [[3, 0]]},
+          {n: 'Programar y probar simulado', q: 'Carla', d: 3, dep: [[5, 0]]},
+          {n: 'Fabricar la estructura', q: 'Beto', d: 4, dep: [[3, 0], [4, 5]]},
+          {n: 'Montaje real y pruebas', q: 'todos', d: 3, dep: [[6, 0], [7, 0]]},
+          {n: 'Medir el impacto', q: 'Ana', d: 2, dep: [[8, 0]]},
+          {n: 'Preparar la defensa', q: 'Beto', d: 2, dep: [[8, 0]]},
+          {n: 'Presentar y defender', q: 'todos', d: 1, dep: [[9, 0], [10, 0]]}
+        ];
+        var dur = BASE.map(function(t){ return t.d; });
+
+        /* ---- camino critico, calculado entero ---- */
+        function calcula(ds){
+          var n = BASE.length;
+          var ES = new Array(n), EF = new Array(n);
+          for(var i = 0; i < n; i++){
+            var ini = 0;
+            BASE[i].dep.forEach(function(d){
+              var listo = EF[d[0]] + d[1];
+              if(listo > ini) ini = listo;
+            });
+            ES[i] = ini;
+            EF[i] = ini + ds[i];
+          }
+          var fin = Math.max.apply(null, EF);
+          var LF = new Array(n), LS = new Array(n);
+          for(var j = n - 1; j >= 0; j--){
+            var tope = null;
+            for(var k = 0; k < n; k++){
+              BASE[k].dep.forEach(function(d){
+                if(d[0] === j){
+                  var lim = LS[k] - d[1];
+                  if(tope === null || lim < tope) tope = lim;
+                }
+              });
+            }
+            LF[j] = tope === null ? fin : tope;
+            LS[j] = LF[j] - ds[j];
+          }
+          var hol = ES.map(function(e, i){ return LS[i] - e; });
+          return {ES: ES, EF: EF, LS: LS, LF: LF, hol: hol, fin: fin};
+        }
+
+        var PARTIDA = calcula(BASE.map(function(t){ return t.d; }));
+
+        function plazo(){
+          var v = parseInt(iPlazo.value, 10);
+          return isFinite(v) ? Math.min(40, Math.max(10, v)) : 24;
+        }
+
+        function dibuja(R){
+          var W = 720, H = 340, ML = 214, MR = 16, MT = 22, MB = 26;
+          var P = plazo();
+          var topeX = Math.max(R.fin, P) + 1;
+          var ancho = W - ML - MR;
+          var altoFila = (H - MT - MB) / BASE.length;
+          function X(s){ return ML + ancho * s / topeX; }
+          var g = [];
+
+          for(var s = 0; s <= topeX; s++){
+            if(s % 2 || s === P) continue;   /* el tick del plazo lo tapa su rotulo */
+            g.push('<line x1="' + X(s).toFixed(1) + '" y1="' + MT + '" x2="' + X(s).toFixed(1)
+                 + '" y2="' + (H - MB) + '" stroke="var(--line-soft)" stroke-width="1"/>');
+            g.push('<text class="p4-txt" x="' + X(s).toFixed(1) + '" y="' + (MT - 7)
+                 + '" text-anchor="middle">' + s + '</text>');
+          }
+          g.push('<text class="p4-txt" x="' + ML + '" y="' + (H - 8)
+               + '">sesiones desde que empieza el proyecto</text>');
+
+          g.push('<line x1="' + X(P).toFixed(1) + '" y1="' + (MT - 3) + '" x2="' + X(P).toFixed(1)
+               + '" y2="' + (H - MB + 3) + '" stroke="var(--goo-rojo)" stroke-width="2" '
+               + 'stroke-dasharray="6 4"/>');
+          g.push('<text class="p4-txt fuerte" x="' + (X(P) + 4).toFixed(1) + '" y="' + (MT - 7)
+               + '" fill="var(--goo-rojo)">plazo</text>');
+
+          BASE.forEach(function(t, i){
+            var y = MT + i * altoFila;
+            var alto = altoFila - 7;
+            var crit = R.hol[i] === 0;
+            g.push('<text class="p4-txt' + (crit ? ' fuerte' : '') + '" x="8" y="'
+                 + (y + alto / 2 + 4).toFixed(1) + '">' + (i + 1) + '. ' + t.n + '</text>');
+
+            /* la espera del pedido, dibujada como lo que es: tiempo sin trabajo */
+            t.dep.forEach(function(d){
+              if(d[1] > 0){
+                g.push('<rect x="' + X(R.EF[d[0]]).toFixed(1) + '" y="' + (y + alto / 2 - 3).toFixed(1)
+                     + '" width="' + (X(R.EF[d[0]] + d[1]) - X(R.EF[d[0]])).toFixed(1)
+                     + '" height="6" fill="none" stroke="var(--goo-amarillo)" stroke-width="1.6" '
+                     + 'stroke-dasharray="4 3"/>');
+                g.push('<text class="p4-txt" x="'
+                     + ((X(R.EF[d[0]]) + X(R.EF[d[0]] + d[1])) / 2).toFixed(1) + '" y="'
+                     + (y + alto / 2 - 7).toFixed(1) + '" text-anchor="middle" '
+                     + 'fill="var(--goo-amarillo)">espera ' + d[1] + '</text>');
+              }
+            });
+
+            if(R.hol[i] > 0){
+              g.push('<rect x="' + X(R.EF[i]).toFixed(1) + '" y="' + (y + 2).toFixed(1)
+                   + '" width="' + (X(R.EF[i] + R.hol[i]) - X(R.EF[i])).toFixed(1)
+                   + '" height="' + alto.toFixed(1) + '" fill="var(--line)" opacity=".5"/>');
+            }
+            g.push('<rect x="' + X(R.ES[i]).toFixed(1) + '" y="' + (y + 2).toFixed(1)
+                 + '" width="' + Math.max(2, X(R.EF[i]) - X(R.ES[i])).toFixed(1)
+                 + '" height="' + alto.toFixed(1) + '" rx="1.5" fill="'
+                 + (crit ? 'var(--goo-rojo)' : 'var(--goo-azul)') + '" opacity="'
+                 + (crit ? '.92' : '.7') + '"/>');
+          });
+          svg.innerHTML = g.join('');
+        }
+
+        function tabla(R){
+          var h = '<table><thead><tr><th>#</th><th>Tarea</th><th>Qui&eacute;n</th>'
+                + '<th>Sesiones</th><th>Empieza</th><th>Acaba</th><th>Holgura</th></tr></thead><tbody>';
+          BASE.forEach(function(t, i){
+            var movida = R.ES[i] !== PARTIDA.ES[i];
+            h += '<tr class="' + (R.hol[i] === 0 ? 'crit ' : '') + (movida ? 'movida' : '') + '">'
+               + '<td>' + (i + 1) + '</td>'
+               + '<td class="nom">' + t.n + '</td>'
+               + '<td class="quien">' + t.q + '</td>'
+               + '<td class="dur"><button type="button" data-t="' + i + '" data-d="-1">&minus;</button> '
+               + '<b>' + dur[i] + '</b> '
+               + '<button type="button" data-t="' + i + '" data-d="1">+</button></td>'
+               + '<td>' + R.ES[i] + '</td><td>' + R.EF[i] + '</td>'
+               + '<td class="hol">' + R.hol[i] + '</td></tr>';
+          });
+          zona.innerHTML = h + '</tbody></table>';
+        }
+
+        function pinta(){
+          var R = calcula(dur);
+          dibuja(R);
+          tabla(R);
+          var P = plazo();
+          var crit = [];
+          BASE.forEach(function(t, i){ if(R.hol[i] === 0) crit.push(i + 1); });
+          var suma = dur.reduce(function(a, b){ return a + b; }, 0);
+
+          est.innerHTML =
+            'El proyecto dura <b>' + R.fin + ' sesiones</b>, aunque el trabajo sumado sea de '
+            + suma + ': hay tareas que van en paralelo y una espera de 5 sesiones por el material. '
+            + (R.fin <= P
+                ? 'Cabe en las <b>' + P + '</b> del trimestre, con <b>' + (P - R.fin)
+                  + '</b> de margen.'
+                : '<b class="mal">No cabe</b>: se pasa en <b class="mal">' + (R.fin - P)
+                  + ' sesiones</b>.')
+            + ' El <b>camino cr&iacute;tico</b> son las tareas ' + crit.join(', ')
+            + ': las que tienen holgura <b>cero</b>. Si una de esas se retrasa un d&iacute;a, el '
+            + 'proyecto entero se retrasa un d&iacute;a.';
+
+          var movidas = [];
+          BASE.forEach(function(t, i){
+            var d = R.ES[i] - PARTIDA.ES[i];
+            if(d !== 0) movidas.push((i + 1) + '. ' + t.n + ' (' + (d > 0 ? '+' : '') + d + ')');
+          });
+          var dFin = R.fin - PARTIDA.fin;
+          if(!movidas.length && dFin === 0){
+            cambio.innerHTML = 'Respecto al plan de partida no se ha movido nada todav&iacute;a. '
+              + 'Prueba a alargar la tarea 6, que tiene holgura, y luego la 8, que no la tiene.';
+          } else {
+            cambio.innerHTML = 'Respecto al plan de partida: se han movido <b>' + movidas.length
+              + '</b> tarea' + (movidas.length === 1 ? '' : 's')
+              + (movidas.length ? ' &mdash; ' + movidas.join('; ') : '')
+              + '. El final del proyecto ' + (dFin === 0
+                  ? '<b>no se ha movido</b>: lo que has tocado ten&iacute;a holgura de sobra.'
+                  : 'se ha movido <b>' + (dFin > 0 ? '+' : '') + dFin + ' '
+                    + (Math.abs(dFin) === 1 ? 'sesi&oacute;n' : 'sesiones') + '</b>.');
+          }
+        }
+
+        zona.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-t]');
+          if(!b) return;
+          var i = +b.dataset.t;
+          dur[i] = Math.min(12, Math.max(1, dur[i] + (+b.dataset.d)));
+          pinta();
+        });
+        iPlazo.addEventListener('input', pinta);
+        document.getElementById('seg-p4').addEventListener('click', function(e){
+          if(!e.target.closest('button[data-a]')) return;
+          dur = BASE.map(function(t){ return t.d; });
+          iPlazo.value = 24;
+          pinta();
+        });
+
+        pie.innerHTML = 'La escena hace las dos pasadas del m&eacute;todo del camino cr&iacute;tico: '
+          + 'hacia delante calcula cu&aacute;ndo puede empezar cada tarea, y hacia atr&aacute;s, '
+          + 'cu&aacute;ndo tiene que haber acabado como muy tarde. La resta de las dos es la holgura. '
+          + 'Las barras <b>rojas</b> son las del camino cr&iacute;tico y las <b>azules</b>, las que '
+          + 'tienen holgura; la barra gris que las sigue es esa holgura, y la l&iacute;nea amarilla '
+          + 'discontinua, la espera del pedido.';
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Las tres pruebas que hay que hacerle a vuestro Gantt</h4>
+        <ol>
+          <li><b>Alargar una tarea con holgura</b> (la 6, por ejemplo) una sesi&oacute;n: no se mueve
+              nada. Esa tarea no es donde hay que apretar.</li>
+          <li><b>Alargar una del camino cr&iacute;tico</b> (la 8) una sesi&oacute;n: se mueve todo lo
+              que va detr&aacute;s y el proyecto acaba un d&iacute;a m&aacute;s tarde.</li>
+          <li><b>Alargar la 6 tres sesiones</b>: ten&iacute;a holgura 2, as&iacute; que las dos
+              primeras son gratis y solo la tercera cuesta. Retraso de 3 en la tarea, retraso de 1 en
+              el proyecto.</li>
+        </ol>
+        <p>De ah&iacute; sale la regla: cuando vay&aacute;is mal de tiempo, <b>mirad primero la
+           holgura</b>. Meter horas en una tarea que no es cr&iacute;tica no adelanta el proyecto ni
+           un minuto.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Vuestro n&uacute;mero de la sesi&oacute;n pasada se qued&oacute; corto, y no es culpa
+           vuestra: le pasa a todo el mundo, incluidos los que hacen esto para vivir. Se calcula
+           imaginando que todo sale a la primera, porque lo que se imagina es la <b>tarea</b>, no los
+           tropiezos. El truco que funciona no es echarle voluntad: es <b>mirar lo que tard&oacute; la
+           &uacute;ltima vez</b> algo parecido, y usar ese n&uacute;mero aunque te parezca
+           exagerado.</p>
+        <p>Por eso el plan de la escena deja <b>3 sesiones de margen</b> sobre las 24 del trimestre, y
+           no 0. Un plan que cabe justo es un plan que no cabe.</p>
+      </div>
+      <div class="video" id="video-c1-gantt" data-vid="kbgiwFNxsG4">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: GanttProject &middot; tareas, dependencias y camino cr&iacute;tico">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>GanttProject &middot; tareas, dependencias y camino cr&iacute;tico</b>
+            <span>Canal: VideoTutoriales Education</span>
+          </span>
+        </button>
+        <p class="video-nota">La herramienta que vais a usar en la pr&aacute;ctica. GanttProject es libre y gratuito, y marca el camino cr&iacute;tico solo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=kbgiwFNxsG4" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 &middot; El Gantt de vuestro trimestre, con las dependencias puestas</span>
+          <span class="chips"><span class="chip">1.3</span><span class="chip">3.1</span><span class="chip">5.1</span><span class="chip">A.1</span><span class="chip">A.1.4</span></span>
+          <span>Grupos de tres &middot; 15 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>En GanttProject (o en una hoja de c&aacute;lculo, si no hay otra)</h4>
+          <ol class="pasos">
+            <li><b>Diez tareas como m&iacute;nimo</b> para vuestro proyecto, con verbo y con final
+                reconocible. Ninguna de m&aacute;s de cuatro sesiones.</li>
+            <li>La <b>duraci&oacute;n</b> de cada una y <b>qui&eacute;n</b> la hace, con nombre.</li>
+            <li>Las <b>dependencias</b>, dibujadas con flechas.</li>
+            <li>La <b>espera del material</b>: poned el pedido donde toca y marcad las sesiones que
+                tarda en llegar. Preguntad en el departamento cu&aacute;nto tarda de verdad.</li>
+            <li>Marcad el <b>camino cr&iacute;tico</b>. GanttProject lo hace solo; si lo hac&eacute;is
+                a mano, se&ntilde;alad las tareas de holgura cero.</li>
+          </ol>
+          <h4>Y contestad debajo</h4>
+          <ul>
+            <li>&iquest;Cu&aacute;ntas sesiones dura vuestro proyecto, y cu&aacute;ntas suma el trabajo?
+                &iquest;Por qu&eacute; no es el mismo n&uacute;mero?</li>
+            <li>&iquest;Cabe en las <b>24</b> del trimestre? Si no cabe, <b>qu&eacute; tarea del
+                camino cr&iacute;tico</b> recortar&iacute;ais, y qu&eacute; requisito de la
+                sesi&oacute;n 2 os cuesta eso.</li>
+            <li>Si Carla se pone enferma dos semanas, &iquest;cu&aacute;nto se retrasa el proyecto?
+                Miradlo en el diagrama, no lo adivin&eacute;is.</li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Diez tareas o m&aacute;s, ninguna de m&aacute;s de cuatro sesiones <b>(2 puntos)</b>.</li>
+            <li>Todas tienen responsable con nombre <b>(1 punto)</b>.</li>
+            <li>Las dependencias est&aacute;n puestas y son razonables <b>(2 puntos)</b>.</li>
+            <li>La espera del material est&aacute; y el pedido va al principio <b>(2 puntos)</b>.</li>
+            <li>El camino cr&iacute;tico est&aacute; marcado <b>(1 punto)</b>.</li>
+            <li>Las tres preguntas contestadas, y la del recorte nombra el requisito que se pierde
+                <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre y test &middot; 10 min</div>
+
+      <ol>
+              <li>&iquest;C&oacute;mo puede un proyecto durar menos que la suma de sus tareas?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque hay tareas que <b>van en paralelo</b>: mientras uno fabrica la estructura, otro programa. La duraci&oacute;n del proyecto la marca la cadena m&aacute;s larga de tareas encadenadas, no la suma de todas.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es la holgura de una tarea, y para qu&eacute; sirve saberla?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es cu&aacute;nto se puede retrasar esa tarea <b>sin retrasar el proyecto</b>. Sirve para saber d&oacute;nde apretar cuando vas mal de tiempo: meter horas en una tarea con holgura no adelanta nada.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se pide el material el primer d&iacute;a, si no hace falta hasta el final?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la <b>espera</b> ocupa calendario aunque no ocupe trabajo. Adelantar el pedido no cuesta esfuerzo y saca esa espera del camino cr&iacute;tico: es lo m&aacute;s barato que se puede hacer por el calendario del trimestre.</p></div></details></li>
+        <li>Hab&iacute;ais calculado 10 sesiones y salen 21. &iquest;Por qu&eacute; se falla siempre por abajo?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque al calcular se imagina la <b>tarea saliendo a la primera</b>, no los tropiezos, las esperas ni lo que hay que repetir. El arreglo no es poner m&aacute;s voluntad: es mirar <b>lo que tard&oacute; algo parecido la &uacute;ltima vez</b> y fiarse de ese n&uacute;mero.</p></div></details></li>
+
+      </ol>
+      <div class="ta" id="test-c1">
+        <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
+        <div class="ta-p" data-ok="1">
+          <p>1. &iquest;Cu&aacute;l de estas frases es un <b>problema</b>, y no una soluci&oacute;n disfrazada?</p>
+          <label class="ta-op"><input type="radio" name="c1-0" value="0">Quiero hacer un sistema de riego con Arduino.</label>
+          <label class="ta-op"><input type="radio" name="c1-0" value="1">Las plantas del hall se secan en los puentes y en junio hay que tirar varias.</label>
+          <label class="ta-op"><input type="radio" name="c1-0" value="2">Hace falta un sensor de humedad para las macetas.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es la &uacute;nica que no nombra ninguna pieza: pasa la prueba de las piezas. Las otras dos ya traen la soluci&oacute;n dentro, y con ella cierran todas las dem&aacute;s antes de haberlas mirado.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>2. Un problema le cuesta 4 minutos a 20 personas, dos veces por semana, durante las 35 semanas del curso. &iquest;Cu&aacute;nto es en horas?</p>
+          <label class="ta-op"><input type="radio" name="c1-1" value="0">93 horas y 20 minutos</label>
+          <label class="ta-op"><input type="radio" name="c1-1" value="1">46 horas y 40 minutos</label>
+          <label class="ta-op"><input type="radio" name="c1-1" value="2">23 horas y 20 minutos</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> 20 &times; 2 &times; 4 min = 160 min por semana; &times; 35 semanas = 5.600 min; entre 60 = <b>93,3 horas</b>. La cuenta es siempre afectados &times; veces &times; coste &times; semanas.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>3. El Segway funcionaba t&eacute;cnicamente muy bien. &iquest;Por qu&eacute; se estudia como fracaso?</p>
+          <label class="ta-op"><input type="radio" name="c1-2" value="0">Porque se estropeaba mucho.</label>
+          <label class="ta-op"><input type="radio" name="c1-2" value="1">Porque resolv&iacute;a un problema que casi nadie ten&iacute;a.</label>
+          <label class="ta-op"><input type="radio" name="c1-2" value="2">Porque era demasiado barato y no daba beneficio.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Vendi&oacute; 140.000 unidades en toda su vida comercial despu&eacute;s de que se dijera que ser&iacute;a &laquo;m&aacute;s importante que internet&raquo;. El fallo estaba antes de la ingenier&iacute;a: en la detecci&oacute;n del problema.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>4. &iquest;Qu&eacute; cuatro piezas tiene un requisito bien escrito?</p>
+          <label class="ta-op"><input type="radio" name="c1-3" value="0">Magnitud, comparador con su valor, unidad y c&oacute;mo se comprueba.</label>
+          <label class="ta-op"><input type="radio" name="c1-3" value="1">Objetivo, material, presupuesto y plazo.</label>
+          <label class="ta-op"><input type="radio" name="c1-3" value="2">Qui&eacute;n, qu&eacute;, cu&aacute;ndo y d&oacute;nde.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Con esas cuatro, la frase se puede convertir en una comparaci&oacute;n y correr contra unos datos. Si falta una, no se puede comprobar, y en junio la nota es una discusi&oacute;n.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>5. &laquo;Que la l&aacute;mpara gaste poco.&raquo; &iquest;Qu&eacute; le falta a esta frase?</p>
+          <label class="ta-op"><input type="radio" name="c1-4" value="0">Nada: ya dice lo que tiene que hacer.</label>
+          <label class="ta-op"><input type="radio" name="c1-4" value="1">El valor, la unidad y c&oacute;mo se comprueba.</label>
+          <label class="ta-op"><input type="radio" name="c1-4" value="2">Solo la unidad.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> &laquo;Poco&raquo; no es un n&uacute;mero. Arreglado ser&iacute;a algo como &laquo;consume 5 W o menos encendida; se comprueba con el medidor de enchufe durante una tarde de estudio&raquo;.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>6. En el ensayo de 14 d&iacute;as, bajar el umbral de riego hace que&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c1-5" value="0">mejoren todos los requisitos a la vez</label>
+          <label class="ta-op"><input type="radio" name="c1-5" value="1">se gaste menos agua y la humedad m&iacute;nima baje</label>
+          <label class="ta-op"><input type="radio" name="c1-5" value="2">no cambie nada, porque el umbral no afecta a la medida</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Los requisitos <b>tiran unos de otros</b>. No se pueden cumplir todos al m&aacute;ximo a la vez: hay que decidir cu&aacute;l manda y dejarlo escrito.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>7. &iquest;De d&oacute;nde salen los criterios de una matriz de decisi&oacute;n?</p>
+          <label class="ta-op"><input type="radio" name="c1-6" value="0">De lo que cada uno considere importante ese d&iacute;a.</label>
+          <label class="ta-op"><input type="radio" name="c1-6" value="1">De los requisitos escritos en la fase anterior.</label>
+          <label class="ta-op"><input type="radio" name="c1-6" value="2">Del precio de los componentes, que es lo &uacute;nico objetivo.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Si un criterio no sale de ning&uacute;n requisito, o sobra el criterio o faltaba el requisito. Es la manera de que la decisi&oacute;n no dependa de quien hable m&aacute;s alto.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>8. Con vuestros pesos gana la alternativa A; poniendo todos los pesos a 1 gana la C. &iquest;Qu&eacute; significa eso?</p>
+          <label class="ta-op"><input type="radio" name="c1-7" value="0">Que la matriz est&aacute; mal montada.</label>
+          <label class="ta-op"><input type="radio" name="c1-7" value="1">Que la decisi&oacute;n est&aacute; en los pesos, y son ellos los que hay que justificar.</label>
+          <label class="ta-op"><input type="radio" name="c1-7" value="2">Que hay que repetirla hasta que las dos den lo mismo.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La matriz no decide: ordena la discusi&oacute;n. Lo que va a la memoria es por qu&eacute; esos pesos, no la suma.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>9. Una tarea tiene <b>holgura 2</b> y se retrasa <b>3 sesiones</b>. &iquest;Cu&aacute;nto se retrasa el proyecto?</p>
+          <label class="ta-op"><input type="radio" name="c1-8" value="0">3 sesiones</label>
+          <label class="ta-op"><input type="radio" name="c1-8" value="1">1 sesi&oacute;n</label>
+          <label class="ta-op"><input type="radio" name="c1-8" value="2">nada, porque ten&iacute;a holgura</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Las dos primeras sesiones se las come la holgura; solo la tercera empuja al resto. Por eso, cuando se va mal de tiempo, lo primero es mirar la holgura.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>10. El material tarda 5 sesiones en llegar y nadie trabaja mientras. &iquest;Por qu&eacute; hay que ponerlo en el Gantt?</p>
+          <label class="ta-op"><input type="radio" name="c1-9" value="0">Porque hay que justificar el gasto del departamento.</label>
+          <label class="ta-op"><input type="radio" name="c1-9" value="1">Porque ocupa calendario aunque no ocupe trabajo, y puede estar en el camino cr&iacute;tico.</label>
+          <label class="ta-op"><input type="radio" name="c1-9" value="2">No hace falta: si nadie trabaja, no es una tarea.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Una espera no cuesta esfuerzo y s&iacute; cuesta d&iacute;as. De ah&iacute; sale la decisi&oacute;n que m&aacute;s tiempo ahorra del trimestre y que no cuesta nada: pedir el material el primer d&iacute;a.</div>
+        </div>
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ten&eacute;is problema, requisitos, alternativa elegida y calendario. Todo eso son decisiones,
+        y dentro de tres meses <b>no os vais a acordar de ninguna</b>: de por qu&eacute; el umbral era
+        40 y no 35, ni de qui&eacute;n dijo que la bomba. Lo que viene ahora es d&oacute;nde se guarda
+        eso para que sirva en junio, que es la sesi&oacute;n en la que se decide si la memoria del
+        proyecto la escrib&iacute;s a lo largo del curso o la noche de antes.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-7" hidden><div class="ses-head"><h2>Sesi&oacute;n 7 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-8" hidden><div class="ses-head"><h2>Sesi&oacute;n 8 en preparaci&oacute;n</h2></div></div>
+
+
+  <div class="lectura">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+      <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"
+            stroke-linejoin="round"/><path d="M24 12 v32"/>
+    </svg>
+    <div>
+      <h3>Lectura de aula</h3>
+      <p>Treinta p&aacute;rrafos numerados y diez preguntas. Ocupa <b>una sesi&oacute;n entera</b>:
+         se lee en voz alta por turnos, un p&aacute;rrafo cada uno, y luego se contesta por escrito.
+         Trae su cabecera para el nombre, el grupo y la fecha.</p>
+      <a class="pdf" href="lectura-tema1.pdf" download>Descargar el PDF</a>
+    </div>
+  </div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar</i>. https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema1/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 1 &middot; 4.&ordm; de ESO &middot; Tecnolog&iacute;a</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.ta').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.ta-nota');
+    if(!corregir || !otra || !nota) return;   /* no es un test de este molde */
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.ta-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.ta-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

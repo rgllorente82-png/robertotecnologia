@@ -1,0 +1,46 @@
+[
+ {
+  "titulo": "File:Segway PT (2006).jpg",
+  "autor": "Richard from DC, US",
+  "licencia": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Segway_PT_(2006).jpg",
+  "px": "936x660",
+  "fecha": "2006-04-17 19:22",
+  "bytes": 430052,
+  "destino": "/home/ubuntu/rt/worktrees/c1/img/c1-segway.jpg"
+ },
+ {
+  "titulo": "File:London Millennium Bridge from Saint Paul's.jpg",
+  "autor": "Jan Kameníček",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:London_Millennium_Bridge_from_Saint_Paul%27s.jpg",
+  "px": "1536x2304",
+  "fecha": "2014-03-31 15:08:23",
+  "bytes": 497568,
+  "destino": "/home/ubuntu/rt/worktrees/c1/img/c1-millennium.jpg"
+ },
+ {
+  "titulo": "File:Drip emitter.jpg",
+  "autor": "Alan.ca",
+  "licencia": "Public domain",
+  "licurl": "",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Drip_emitter.jpg",
+  "px": "2171x1447",
+  "fecha": "2007-12-10",
+  "bytes": 161085,
+  "destino": "/home/ubuntu/rt/worktrees/c1/img/c1-goteo.jpg"
+ },
+ {
+  "titulo": "File:Henry Gantt.jpg",
+  "autor": "Unknown authorUnknown author",
+  "licencia": "Public domain",
+  "licurl": "",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Henry_Gantt.jpg",
+  "px": "282x332",
+  "fecha": "2008-11-30",
+  "bytes": 22912,
+  "destino": "/home/ubuntu/rt/worktrees/c1/img/c1-gantt.jpg"
+ }
+]
