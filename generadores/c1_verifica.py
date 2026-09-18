@@ -940,7 +940,13 @@ with sync_playwright() as p:
     pag.wait_for_timeout(120)
 
     print('== La lectura')
-    check(pag.query_selector('.lectura a.pdf') is not None,
+    # La lectura se ofrece de dos maneras y las dos valen: la tarjeta del final
+    # de la pagina (.lectura a.pdf) o un enlace dentro del cuerpo de la sesion
+    # que la usa. Desde que la plantilla dejo de ponerla dos veces, siete de las
+    # nueve unidades de 4.o la llevan solo en el cuerpo, asi que exigir la
+    # tarjeta era exigir una forma, no la lectura. Lo que se comprueba es que
+    # haya un enlace al PDF y que el PDF este donde dice.
+    check(pag.query_selector('a[href$="lectura-tema1.pdf"]') is not None,
           'la pagina enlaza la lectura de aula en PDF')
     check(os.path.exists(os.path.join(RAIZ, '4eso', 'Tecnologia', 'tema1', 'lectura-tema1.pdf')),
           'y el PDF esta donde dice el enlace')
