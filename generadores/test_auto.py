@@ -18,11 +18,18 @@ Cada pregunta explica SIEMPRE su respuesta, tanto si se acierta como si no:
 un test que solo dice «mal» no ensena nada.
 """
 
+# La O con tilde del rotulo del test (.ta::before) va LITERAL en los estilos de
+# abajo. No la escribas como escape CSS (barra invertida, cero, cero, D, tres):
+# esta cadena no es cruda, y para Python una barra seguida de ceros es un
+# escape octal, o sea un byte NUL. Estuvo asi desde el principio: las veinte
+# paginas del sitio llevaban un NUL dentro, encima de cada test se leia
+# AUTOEVALUACI + un rombo negro + D3N, y grep las tomaba por binarias.
 CSS = u"""
 /* ---- test de autoevaluacion ---- */
+/* la O con tilde va literal, ver el aviso de arriba del todo */
 .ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
   background:var(--surface);position:relative}
-.ta::before{content:"AUTOEVALUACI\\00D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+.ta::before{content:"AUTOEVALUACIÓN";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
   color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
 .ta h4{margin:8px 0 14px;font-size:16px}
 .ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}

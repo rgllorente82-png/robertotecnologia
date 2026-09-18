@@ -199,9 +199,10 @@ h4{font-size:15.5px;margin:16px 0 4px}
   .narrador-txt{text-align:center}}
 
 /* ---- test de autoevaluacion ---- */
+/* la O con tilde va literal, ver el aviso de arriba del todo */
 .ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
   background:var(--surface);position:relative}
-.ta::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+.ta::before{content:"AUTOEVALUACIÓN";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
   color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
 .ta h4{margin:8px 0 14px;font-size:16px}
 .ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
@@ -242,6 +243,19 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .prog-bot button.ir:hover{color:#fff}
 .prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
 .prog-est b{font-size:13.5px}
+
+/* ---- la lectura de aula, al final de la unidad ---- */
+.lectura{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:2px solid var(--goo-verde);border-radius:2px;padding:18px;margin:26px 0 8px;position:relative}
+.lectura::before{content:"LECTURA DE AULA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-verde);color:#fff;font-family:var(--f-m);font-size:10.5px;
+  letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.lectura svg{flex:none;width:44px;height:44px;color:var(--goo-verde);margin-top:4px}
+.lectura h3{margin:6px 0 6px;font-size:17px}
+.lectura p{margin:0 0 10px;font-size:15px;line-height:1.6}
+.lectura a.pdf{display:inline-block;font-family:var(--f-m);font-size:13px;
+  background:var(--goo-verde);color:#fff;text-decoration:none;border-radius:2px;padding:9px 15px}
+@media print{.lectura{display:none}}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
