@@ -6,6 +6,31 @@ hay en un aula.
 
 Este documento recoge candidatos ya filtrados por esa realidad.
 
+## Decidido para 4.º
+
+> **DECIDIDO (18 sep 2026).** El curso se vertebra con el **riego automático**,
+> y los grupos eligen **entre tres**:
+>
+> | | Proyecto | Sensor | Actuador | Lo que mide de impacto |
+> |---|---|---|---|---|
+> | **A** | **Riego automático** (el principal) | humedad de suelo | bomba 3-6 V o servo | agua gastada frente a regar a mano |
+> | **B** | Aviso de aula mal ventilada | temperatura y humedad (DHT11) | señal luminosa de tres colores | ventilación frente a calefacción |
+> | **C** | Lámpara de estudio que se ajusta sola | LDR | LED de potencia o tira | consumo real, con la etiqueta energética |
+>
+> **Por qué estos tres y no otros.** Cubren tres sensores distintos, tres
+> actuadores distintos y tres dimensiones de impacto distintas, así que en la
+> puesta en común la clase ve tres casos y no tres veces el mismo. Y los tres
+> se montan por menos de 5 € por grupo salvo la bomba del A.
+>
+> **Se cae el de la barrera** (mecánica exigente, y con tres opciones ya hay
+> bastante que gestionar) y **el del contenedor**: su gracia era la radio entre
+> dos placas, y en 4.º usamos Arduino, donde la radio pide módulo aparte. En
+> micro:bit sería gratis, así que **ese encaja mejor en 2.º**.
+>
+> Consecuencia para la escritura: las unidades 4 a 8 ya están escritas para
+> servir con cualquiera de los cinco, así que siguen valiendo. Las unidades
+> **1, 2 y 9** —las que cuelgan del proyecto— se escriben con estos tres.
+
 ## La restricción de 4.º
 
 Las seis competencias de 4.º tiran a la vez del mismo proyecto. Para que una
