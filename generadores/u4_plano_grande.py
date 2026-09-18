@@ -29,8 +29,12 @@ DESTINO = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'plano-tensegridad-grande.p
 # Si una punta se mueve, hay que mover la otra.
 BASE = 30.0          # la plataforma de abajo, cuadrada
 TAPA = 18.0          # la de arriba, cuadrada
-ANCHO = 8.0          # ancho de brazos y columnas
-VUELO = 12.0         # lo que vuela cada brazo
+# 7 y 11, y no 8 y 12, por una razon de imprenta: asi cada brazo mide 17 cm de
+# ancho, cabe en el ancho util de un A4 y su molde a tamanio real sale en dos
+# hojas en vez de en cuatro. La estructura no nota la diferencia; el que tiene
+# que pegar hojas con cinta, si.
+ANCHO = 7.0          # ancho de brazos y columnas
+VUELO = 11.0         # lo que vuela cada brazo
 
 COL_B = 20.0         # cara izquierda de la columna de abajo
 H_COL = 34.0         # y su altura

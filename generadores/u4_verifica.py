@@ -121,6 +121,13 @@ if os.path.exists(PLANO):
         medidas.add((round((v[2]-v[0])*25.4/72), round((v[3]-v[1])*25.4/72)))
     check(medidas == {(210, 297)}, 'y tambien es A4  %s' % (medidas or ''))
 
+MOLDE_G = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'molde-tensegridad-grande.pdf')
+check(os.path.exists(MOLDE_G) and os.path.getsize(MOLDE_G) > 20000,
+      'el molde recortable de la grande esta donde dice el enlace')
+check('molde-tensegridad-grande.pdf' in texto, 'y la ficha lo enlaza')
+check('g&aacute;libo' in texto and 'corredizo' in texto,
+      'la ficha explica como atar los nudos sin depender del pulso')
+
 check('Pru&eacute;balo t&uacute; antes' in texto,
       'la de los tubos avisa de que hay que probarla antes: lo que aguanta depende del alto')
 
