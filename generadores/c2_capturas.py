@@ -20,7 +20,8 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = 'file://' + os.path.join(RAIZ, '4eso', 'Tecnologia', 'tema2', 'index.html')
 SALIDA = sys.argv[1] if len(sys.argv) > 1 else '/tmp/c2-capturas'
 
-ESCENAS = [(1, 'esc-ct'), (2, 'esc-aj'), (3, 'esc-un'), (4, 'esc-tl')]
+ESCENAS = [(1, 'esc-ct'), (2, 'esc-aj'), (3, 'esc-un'), (4, 'esc-tl'),
+           (5, 'esc-md'), (6, 'esc-co'), (7, 'esc-ci'), (8, 'esc-cd')]
 
 
 def main():
@@ -69,6 +70,47 @@ def main():
         for sel, val in (('#tl-l', 220), ('#tl-a', 90), ('#tl-t', 6), ('#tl-r', 100)):
             rango(pag, sel, val)
         tira(pag, '#esc-tl', 'esc-tl-grande')
+
+        pag.click('#nav button[data-ses="5"]')
+        for sel, val in (('#md-ds', 12), ('#md-hol', 100), ('#md-as', 40),
+                         ('#md-t', 8), ('#md-n', 0)):
+            rango(pag, sel, val)
+        tira(pag, '#esc-md', 'esc-md-grande')
+        for sel, val in (('#md-ds', 4), ('#md-hol', 10), ('#md-as', 15),
+                         ('#md-t', 2), ('#md-n', 7)):
+            rango(pag, sel, val)
+        tira(pag, '#esc-md', 'esc-md-pequeno')
+
+        pag.click('#nav button[data-ses="6"]')
+        pag.select_option('#co-tab', '2')           # el tablero grande
+        rango(pag, '#co-g', 10)
+        tira(pag, '#esc-co', 'esc-co-clase')
+        pag.select_option('#co-tab', '0')
+        rango(pag, '#co-g', 3)
+        rango(pag, '#co-k', 40)                     # la sangria mas gorda
+        tira(pag, '#esc-co', 'esc-co-sinsitio')
+        pag.select_option('#co-tab', '3')           # la tabla estrecha
+        rango(pag, '#co-g', 1)
+        rango(pag, '#co-k', 15)
+        pag.click('#co-girar')                      # y sin poder girar las piezas
+        tira(pag, '#esc-co', 'esc-co-singiro')
+
+        pag.click('#nav button[data-ses="7"]')
+        for sel, val in (('#ci-a', 2450), ('#ci-t0', 50), ('#ci-t1', 50),
+                         ('#ci-t2', 50), ('#ci-t3', 50)):
+            rango(pag, sel, val)
+        tira(pag, '#esc-ci', 'esc-ci-ancho')
+        for sel, val in (('#ci-a', 2300), ('#ci-t0', 2), ('#ci-t1', 2),
+                         ('#ci-t2', 2), ('#ci-t3', 2)):
+            rango(pag, sel, val)
+        tira(pag, '#esc-ci', 'esc-ci-noentra')
+
+        pag.click('#nav button[data-ses="8"]')
+        rango(pag, '#cd-ses', 50)                   # el desajuste al maximo
+        tira(pag, '#esc-cd', 'esc-cd-desajuste')
+        pag.select_option('#cd-tec', '1')           # el laser, sin desajuste
+        rango(pag, '#cd-ses', 0)
+        tira(pag, '#esc-cd', 'esc-cd-laser')
 
         nav.close()
 

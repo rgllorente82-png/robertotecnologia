@@ -6,8 +6,7 @@ CE2 (2.1, 2.2) / CE3 (3.1, 3.2) / CE5 (5.1). Saberes A.2, A.2.2, A.3, A.3.1, D.4
 La pregunta que abre la unidad: ya sabes que vas a construir y por que. Como se
 pasa de un dibujo a una pieza que encaja de verdad con las demas?
 
-Ocho sesiones. Aqui van escritas las CUATRO PRIMERAS; las otras cuatro quedan
-marcadas como pendientes, con el titulo que se propone para cada una.
+Ocho sesiones, las ocho escritas.
 
   S1  El dibujo que se puede fabricar: croquis, plano acotado y por que una
       pieza acotada en cadena acumula error.
@@ -16,13 +15,39 @@ marcadas como pendientes, con el titulo que se propone para cada una.
       union se rompe.
   S4  Del plano a la pieza: las tecnicas del aula y que cambia en el diseno
       segun como se vaya a fabricar.
+  S5  Modelarlo en 3D: modelo por operaciones, parametros y lo que le pasa a
+      un agujero al exportarlo a STL.
+  S6  Organizar la fabricacion: despiece, plan de corte con sangria, orden de
+      operaciones y plantillas.
+  S7  Montar y ajustar: la cadena de cotas del montaje, la cota de cierre y
+      que pieza se lima.
+  S8  Contarlo y defenderlo: el expediente de fabricacion, el control
+      dimensional y la defensa de tres minutos.
 
 El proyecto del curso YA ESTA DECIDIDO (PROYECTOS.md, 18-sep-2026): el riego
 automatico vertebra 4.o y los grupos eligen entre tres - A riego, B aviso de
-aula mal ventilada, C lampara de estudio. La unidad esta escrita con los tres
-y se reparten a proposito: la tapa de la S1 y de la S4 es la del aviso de
-ventilacion (B), el eje de la S2 es el del deposito del riego (A) y la union
-de la S3 es la del brazo de la lampara (C).
+aula mal ventilada, C lampara de estudio.
+
+  - La PRIMERA MITAD se escribio antes de esa decision, asi que ensena la
+    tecnica rotando entre los tres: la tapa de la S1 y de la S4 es la del
+    aviso de ventilacion (B), el eje de la S2 es el del deposito del riego
+    (A) y la union de la S3 es la del brazo de la lampara (C).
+  - La SEGUNDA MITAD aterriza en el proyecto principal: las cuatro sesiones
+    siguen una sola pieza, el SOPORTE DEL DEPOSITO del riego (A), desde el
+    modelo hasta la defensa. Se modela en la S5, se corta en la S6, se monta
+    en la S7 y se mide y se defiende en la S8, y las medidas de cada sesion
+    son las que calculo la anterior. Las variantes B y C se recogen en cada
+    practica, que es donde cada grupo mete lo suyo.
+
+Fronteras con las unidades de al lado (4.o se escribio en paralelo):
+  - El Gantt, el camino critico y la holgura son de la UNIDAD 1, que ya los
+    tiene con su escena. Aqui se nombran y se remite alli: lo de esta unidad
+    es el orden de las operaciones DE FABRICACION y el cuello de botella de
+    la maquina compartida.
+  - El material y su impacto son de la UNIDAD 3. Aqui se dice "de
+    contrachapado de 4 mm" y se sigue.
+  - La S8 defiende LA PIEZA y como se ha hecho. Contar el proyecto entero es
+    de la unidad 1; entregarlo, de la 9.
 
 La placa de 4.o es Arduino, no micro:bit.
 """
@@ -35,6 +60,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
 from c2_escenas import COTAS, AJUSTE
 from c2_escenas2 import UNIONES, TALLER
+from c2_escenas3 import MODELO, CORTE
+from c2_escenas4 import CIERRE, CONTROL
 from test_auto import test
 import avatar_flat
 
@@ -87,6 +114,31 @@ VIDEOS = {
                canal=u'Control 3D',
                nota=u'El ejemplo m&aacute;s claro de que <b>el dise&ntilde;o depende de c&oacute;mo se '
                     u'fabrique</b>: la misma pieza, girada, aguanta otra cosa.'),
+    # --- las cuatro de la segunda mitad, comprobadas por oEmbed el 18-sep-2026 ---
+    's5': dict(vid='pp1Uxy14neU',
+               titulo=u'Tutorial completo de Dise&ntilde;o y Modelado 3D con Tinkercad - 2022',
+               canal=u'josemariafmTIC',
+               nota=u'La herramienta que vais a usar, de cero. Lo que aqu&iacute; interesa es la '
+                    u'parte de <b>agrupar y vaciar</b>: es la resta que hace los agujeros.'),
+    's6': dict(vid='rL6ZIaso5KA',
+               titulo=u'Aplicaci&oacute;n para optimizar cortes de placas de aglomerados y triplay. '
+                      u'CutList Optimizer',
+               canal=u'Viejo Roble',
+               nota=u'Un carpintero usando una herramienta web gratuita que hace exactamente lo que '
+                    u'hace la escena de esta sesi&oacute;n, con tableros de verdad. F&iacute;jate en '
+                    u'que lo primero que le pide es el <b>ancho de la sierra</b>.'),
+    's7': dict(vid='SmvnY4k2vRg',
+               titulo=u'Cadenas de Cotas',
+               canal=u'AGD Agencia de Gesti&oacute;n Dimensional',
+               nota=u'Lo mismo que esta sesi&oacute;n contado por gente que se dedica a esto en la '
+                    u'industria. Va m&aacute;s lejos de lo que se pide en 4.&ordm;, pero la idea de '
+                    u'la <b>cota que no dibuja nadie</b> est&aacute; en el primer minuto.'),
+    's8': dict(vid='CcogpV4DjNs',
+               titulo=u'Presentaci&oacute;n oral de un proyecto',
+               canal=u'ULLaudiovisual - Universidad de La Laguna',
+               nota=u'Est&aacute; hecho para la universidad y se nota en el registro, as&iacute; que '
+                    u'qu&eacute;date con la <b>estructura</b> y con lo que hace con las manos y con '
+                    u'la voz, no con el vocabulario.'),
 }
 
 
@@ -1245,6 +1297,1181 @@ S4_CIERRE = u'''
 
 
 # ==========================================================================
+# SESION 5 - Modelarlo en 3D
+# ==========================================================================
+S5_RETO = u'''
+      <p>Se acab&oacute; el l&aacute;piz. A partir de aqu&iacute; la unidad sigue <b>una sola
+         pieza</b> del proyecto principal, el <b>riego autom&aacute;tico</b>: el
+         <b>soporte del dep&oacute;sito</b>, esa U de dos flancos y una base por la que pasa el eje
+         sobre el que bascula el dep&oacute;sito, y que lleva el servo metido en medio. La vais a
+         modelar hoy, a cortar en la sesi&oacute;n que viene, a montar en la siguiente y a defender
+         en la &uacute;ltima.</p>
+      <p>&iquest;Por qu&eacute; hace falta modelarla, si el plano de la sesi&oacute;n 1 ya estaba
+         bien? Por una raz&oacute;n muy tonta: <b>las m&aacute;quinas no leen planos</b>. El
+         l&aacute;ser quiere un fichero de l&iacute;neas y la impresora quiere un fichero de
+         s&oacute;lido. El plano es para las personas.</p>
+      <p>As&iacute; que el grupo abre <b>Tinkercad</b> y hace lo que hace todo el mundo: arrastra
+         cajas, las estira hasta que se parecen al dibujo, escribe las medidas a mano en cada una y
+         las coloca a ojo. Y queda <b>bien</b>. En la pantalla no se distingue de un modelo hecho por
+         un ingeniero.</p>
+      <p>Tres d&iacute;as despu&eacute;s llega el paquete con los servos. Y el servo que ha llegado
+         mide <b>23 mm</b> de ancho, no los 20 que hab&iacute;ais supuesto.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Es un cambio de <b>tres mil&iacute;metros</b> en una pieza de tu proyecto.
+           &iquest;Cu&aacute;ntas medidas del modelo hay que corregir? Escribe tu n&uacute;mero antes
+           de seguir, y escribe tambi&eacute;n <b>c&oacute;mo lo sabr&iacute;as</b>.</p>
+      </div>
+      <p>La respuesta honrada es: <b>no lo sabes</b>. En un modelo hecho de cajas con medidas escritas
+         a mano no hay forma de saber cu&aacute;les depend&iacute;an de ese 20. Hay que repasarlas una
+         a una, acordarse de por qu&eacute; se puso cada n&uacute;mero, y rezar. El hueco de dentro
+         cambia; si cambia el hueco, cambia el ancho de la base; si cambia el ancho de la base,
+         cambia el largo de la varilla del eje&hellip; y si a alguien se le escapa una, esa pieza
+         sale mal y no te enteras hasta el montaje.</p>
+      <p>Hay otra manera de modelar, y es la de esta sesi&oacute;n: en vez de <b>escribir</b> cada
+         medida, se <b>deduce</b> de las anteriores. El ancho de la base no es 28,6: es
+         <i>hueco m&aacute;s dos espesores</i>. Entonces cambiar el servo de 20 a 23 es mover
+         <b>un</b> n&uacute;mero, y las dem&aacute;s medidas se recalculan solas y sin fallo.</p>
+      <div class="aviso">
+        <span class="n-tag">Y todav&iacute;a hay una segunda sorpresa</span>
+        Aunque el modelo est&eacute; perfecto, el agujero que pone <b>&empty;8,30</b> en el modelo
+        sale de la impresora <b>m&aacute;s peque&ntilde;o</b>, y el eje de 8 no pasa. No es culpa de
+        la impresora ni del modelo: es del <b>fichero que hay en medio</b>. Y eso tambi&eacute;n se
+        calcula.
+      </div>
+'''
+
+S5_TEORIA = u'''
+      <h3>Tres maneras de guardar una pieza en un ordenador</h3>
+      <div class="copiar">
+        <h4>Malla, s&oacute;lido y param&eacute;trico</h4>
+        <p><b>Malla</b> (ficheros <b>STL</b>, OBJ, 3MF): la pieza es una <b>piel de tri&aacute;ngulos</b>.
+           Dentro no hay ninguna medida: no se le puede preguntar &laquo;&iquest;cu&aacute;nto mide
+           este agujero?&raquo;, porque el agujero no existe como tal, solo hay tri&aacute;ngulos
+           puestos en c&iacute;rculo. Es lo que <b>comen las m&aacute;quinas</b>.</p>
+        <p><b>S&oacute;lido por operaciones</b> (Tinkercad, FreeCAD, Onshape, Fusion): la pieza no es
+           una forma, es <b>la lista de lo que has hecho</b>: un prisma, menos un cilindro, m&aacute;s
+           un redondeo. Esa lista se llama <b>&aacute;rbol</b>, y se puede volver atr&aacute;s y
+           cambiar el paso 2 sin tocar el 3 ni el 4.</p>
+        <p><b>Param&eacute;trico</b>: encima de lo anterior, cada medida puede ser una <b>f&oacute;rmula</b>
+           que usa otras. Mueves una y se mueve la pieza entera.</p>
+        <p>Regla para saber en cu&aacute;l est&aacute;s: <b>&iquest;puedes cambiar una medida sin
+           volver a dibujar?</b> Si la respuesta es no, tienes una malla aunque el programa te
+           ense&ntilde;e un s&oacute;lido precioso.</p>
+      </div>
+      <div class="copiar">
+        <h4>Modelar por operaciones: cinco verbos y nada m&aacute;s</h4>
+        <ul>
+          <li><b>Extruir</b>: coges un perfil plano y lo haces crecer en altura. Es el verbo
+              principal: casi todas vuestras piezas son un perfil recortado con un espesor.</li>
+          <li><b>Revolucionar</b>: giras un perfil alrededor de un eje. Todo lo que sea redondo por
+              fuera &mdash;una polea, un casquillo&mdash; sale de aqu&iacute;.</li>
+          <li><b>Restar</b>: metes un cuerpo dentro de otro y lo conviertes en hueco. As&iacute; se
+              hacen <b>todos</b> los agujeros. En Tinkercad se llama &laquo;agujero&raquo; y luego
+              <b>Agrupar</b>.</li>
+          <li><b>Unir</b>: dos cuerpos pasan a ser uno solo.</li>
+          <li><b>Repetir</b>: simetr&iacute;a y matriz. Los dos flancos del soporte son
+              <b>el mismo</b> reflejado, no dos piezas dibujadas dos veces. Si son lo mismo, se
+              modelan una vez.</li>
+        </ul>
+        <p><b>El orden importa</b>, y esa es la diferencia entre el &aacute;rbol y un dibujo. Si
+           redondeas la esquina y <b>despu&eacute;s</b> taladras el agujero al lado, al mover el
+           agujero el redondeo sigue donde estaba. Al rev&eacute;s, no.</p>
+      </div>
+      <div class="copiar">
+        <h4>Qu&eacute; es par&aacute;metro y qu&eacute; se deduce</h4>
+        <p>Esta es la decisi&oacute;n de la sesi&oacute;n, y no es de programa: es de dise&ntilde;o.</p>
+        <p><b>Par&aacute;metro es lo que te imponen desde fuera</b> y t&uacute; no puedes cambiar: el
+           ancho del servo que hab&eacute;is comprado, el di&aacute;metro de la varilla que venden, el
+           espesor del tablero que hay en el almac&eacute;n. Y una m&aacute;s, que s&iacute; eliges
+           t&uacute;: la <b>holgura</b> de la sesi&oacute;n 2.</p>
+        <p><b>Todo lo dem&aacute;s se deduce.</b> Si una medida la puedes escribir como cuenta de
+           otras, <b>no la escribas como n&uacute;mero</b>. En el soporte:</p>
+        <ul>
+          <li>&empty; del agujero = &empty; del eje + holgura &nbsp;<i>(sesi&oacute;n 2)</i></li>
+          <li>distancia del centro al canto = <b>3</b> &times; &empty; del agujero
+              &nbsp;<i>(sesi&oacute;n 3: dos di&aacute;metros en pl&aacute;stico o metal y tres en
+              madera o tablero, y el soporte es de contrachapado)</i></li>
+          <li>lado del flanco = 2 &times; esa distancia</li>
+          <li>hueco interior = ancho del servo + 2 holguras</li>
+          <li>ancho de la base = hueco + 2 espesores</li>
+        </ul>
+        <p>Cinco f&oacute;rmulas, y el modelo entero cuelga de cuatro n&uacute;meros. Tinkercad no
+           tiene f&oacute;rmulas, as&iacute; que en Tinkercad esa tabla se escribe <b>en la
+           libreta</b> y se aplica a mano &mdash;que sigue siendo infinitamente mejor que no
+           tenerla&mdash;. FreeCAD y Onshape s&iacute; las tienen.</p>
+      </div>
+      <p>Al banco. A la izquierda est&aacute; el modelo que se recalcula; a la derecha, las piezas que
+         ya se cortaron con las medidas del primer d&iacute;a. Pulsa <b>Llega el servo de verdad</b>
+         antes que nada.</p>
+''' + MODELO + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Por qu&eacute; encoge el agujero, con la cuenta delante.</b> Un fichero STL solo sabe
+           guardar tri&aacute;ngulos planos, as&iacute; que al exportar, el programa sustituye cada
+           c&iacute;rculo por un <b>pol&iacute;gono de N lados metido dentro</b> de &eacute;l. El
+           pol&iacute;gono toca la circunferencia en los v&eacute;rtices y por el medio de cada lado se
+           queda hacia dentro.</p>
+        <p>Lo que de verdad deja pasar ese agujero no es su di&aacute;metro D, sino la distancia entre
+           dos lados opuestos:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>&empty; &uacute;til = D &middot; cos(180&deg; / N)</b></p>
+        <p>Con D = 8,30 y N = 16 salen <b>8,14 mm</b>: de las tres d&eacute;cimas de holgura que
+           pediste te quedan <b>1,4</b>. Con N = 8 salen 7,67, y el eje de 8 <b>ya no pasa</b>. El
+           agujero es el mismo en el modelo; lo que ha cambiado es c&oacute;mo se ha guardado.</p>
+        <p>De ah&iacute; salen las dos costumbres del taller: <b>subir la resoluci&oacute;n</b> al
+           exportar (en Tinkercad, exportar en &laquo;alta calidad&raquo;) y <b>agrandar los agujeros
+           dos o tres d&eacute;cimas</b> en el modelo, que es lo que ya se dijo en la sesi&oacute;n 4
+           sin explicar por qu&eacute;.</p>
+        <p>Ojo: esto le pasa <b>al STL</b>, no al corte 2D. Los ficheros del l&aacute;ser
+           &mdash;<b>DXF</b> y <b>SVG</b>&mdash; s&iacute; saben guardar arcos de verdad. All&iacute;
+           el problema es otro, y ya lo viste: la <b>sangr&iacute;a</b> del haz.</p>
+      </div>
+
+      <h3>El &aacute;rbol, visto por dentro</h3>
+''' + foto('c2-cad-arbol.png',
+           u'Ventana de FreeCAD: a la izquierda, el &aacute;rbol del modelo con Body, Pad, Sketch, '
+           u'Pocket, Mirrored, Pad001 y Pocket001; a la derecha, en 3D, un soporte gris con dos patas '
+           u'y una ventana cuadrada en el centro',
+           u'<b>FreeCAD</b> con un soporte mec&aacute;nico terminado. Lo importante no est&aacute; en '
+           u'la pieza: est&aacute; en la <b>lista de la izquierda</b>. Se lee de arriba abajo y es '
+           u'exactamente lo que se hizo, en orden: un <i>Sketch</i> (un perfil plano), un <i>Pad</i> '
+           u'(extruirlo), un <i>Pocket</i> (restar), un <i>Mirrored</i> (repetir en espejo, que es la '
+           u'pata de la derecha), otro <i>Pad</i> y otro <i>Pocket</i>. Esa lista <b>es</b> la pieza: '
+           u'si abres el primer <i>Sketch</i> y cambias una cota, todo lo de abajo se vuelve a '
+           u'calcular. Por eso a esto se le llama modelado <b>por operaciones</b> y no dibujo. '
+           u'FreeCAD es libre y gratuito, y hace lo mismo que los programas de pago de la industria. '
+           u'Esta imagen es el <b>&uacute;ltimo fotograma</b> de una animaci&oacute;n publicada en '
+           u'Commons, recortado para poder leer el &aacute;rbol.',
+           u'Donatello29', u'CC BY-SA 4.0',
+           u'https://commons.wikimedia.org/wiki/File:Parametric_and_feature-based_modeling_example.gif'
+           ) + foto('c2-stl-malla.png',
+           u'Pieza en 3D con forma de copa o pomo, gris sobre fondo azul, con toda la superficie '
+           u'cubierta de tri&aacute;ngulos peque&ntilde;os que se ven uno a uno',
+           u'Y esto es lo que sale al exportar a <b>STL</b>. La pieza de arriba, con su &aacute;rbol y '
+           u'sus cotas, se convierte en <b>esto</b>: una bolsa de tri&aacute;ngulos. F&iacute;jate en '
+           u'el borde del hueco de la izquierda, donde se ven las caras de canto: lo que parec&iacute;a '
+           u'una circunferencia es un <b>pol&iacute;gono</b>. Aqu&iacute; ya no hay agujeros, ni '
+           u'cotas, ni orden de operaciones, ni manera de cambiar una medida: hay v&eacute;rtices. '
+           u'Por eso <b>el STL no se guarda como copia de seguridad</b> del dise&ntilde;o. El STL es '
+           u'el fichero que le das a la m&aacute;quina, como el PDF que mandas a imprimir; el modelo '
+           u'de verdad es el otro, y ese es el que hay que conservar.',
+           u'Kaboldy', u'CC BY-SA 3.0',
+           u'https://commons.wikimedia.org/wiki/File:STL_sample_2.png') + u'''
+      <div class="copiar">
+        <h4>Antes de darle al bot&oacute;n de exportar</h4>
+        <ul>
+          <li><b>Unidades en mil&iacute;metros y escala 1:1.</b> La mitad de los desastres de
+              impresi&oacute;n son piezas exportadas en pulgadas.</li>
+          <li><b>Para el l&aacute;ser: SVG o DXF</b>, con los contornos <b>cerrados</b>, sin
+              l&iacute;neas dobles (dos veces la misma raya = dos cortes) y con lo que se corta y lo
+              que se graba en <b>capas o colores distintos</b>.</li>
+          <li><b>Para la impresora: STL</b>, en alta resoluci&oacute;n, y con la pieza
+              <b>cerrada</b>: si la malla tiene un agujero, el laminador no sabe qu&eacute; es dentro
+              y qu&eacute; es fuera.</li>
+          <li><b>Guarda el modelo, no solo el STL.</b> El STL no se puede volver a editar de verdad.</li>
+          <li><b>Versi&oacute;n y fecha en el nombre del fichero.</b>
+              <i>soporte_v3_2026-10-14.stl</i>, no <i>soporte_bueno_final_este_si.stl</i>.</li>
+        </ul>
+      </div>
+
+      <h3>De d&oacute;nde sale todo esto</h3>
+      <p>La idea de que un dibujo del ordenador guarde <b>relaciones</b> y no solo puntos es de
+         <b>1963</b>: <b>Ivan Sutherland</b> present&oacute; en el MIT un programa llamado
+         <b>Sketchpad</b> en el que se dibujaba con un l&aacute;piz de luz sobre una pantalla y se le
+         pod&iacute;a decir al ordenador <i>&laquo;estas dos l&iacute;neas son perpendiculares&raquo;</i>
+         o <i>&laquo;estos dos segmentos miden lo mismo&raquo;</i>. Al mover una, las dem&aacute;s se
+         recolocaban solas para seguir cumpliendo lo prometido. Es el antepasado de todo lo que has
+         usado hoy.</p>
+      <p>Que eso llegara a la industria tard&oacute; otros veinticinco a&ntilde;os: en <b>1987</b>,
+         <b>Pro/ENGINEER</b> fue el primer programa comercial en el que las piezas se hac&iacute;an
+         con un &aacute;rbol de operaciones y medidas atadas unas a otras. Antes de eso, cambiar una
+         cota en un modelo de ordenador costaba casi lo mismo que cambiarla en el papel.</p>
+''' + video('s5')
+
+S5_PRACTICA = ficha(
+    u'Actividad 5 &middot; Modelar vuestra pieza con par&aacute;metros',
+    [u'CE5 &middot; 5.1', u'CE2 &middot; 2.1'], u'Grupos de 3 &middot; 20 min', u'''
+          <h4>Primera parte &middot; Las dos cuentas de la escena (6 min)</h4>
+          <ol>
+            <li>Con los valores de partida, pulsad <b>Llega el servo de verdad</b>. &iquest;Cu&aacute;ntas
+                de las siete medidas deducidas cambian? Anotad <b>cu&aacute;les</b>.</li>
+            <li>Mirad la caja roja: &iquest;por qu&eacute; hay que volver a cortar? Copiad el
+                n&uacute;mero de mil&iacute;metros de interferencia.</li>
+            <li>Bajad las facetas a <b>8</b>. Calculad <b>a mano</b>, con la calculadora,
+                8,30 &times; cos(180&deg;/8) y comprobadlo con la escena. Repetid con 16 y con 32.</li>
+            <li>&iquest;Cu&aacute;ntas facetas hacen falta como m&iacute;nimo para que un eje de 8
+                pase por un agujero de 8,30? La escena lo dice: explicad <b>por qu&eacute;</b> ese
+                n&uacute;mero y no otro.</li>
+          </ol>
+          <h4>Segunda parte &middot; Vuestra tabla de par&aacute;metros (5 min)</h4>
+          <p>En la libreta, antes de tocar el ordenador. Dos columnas:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;margin:8px 0">
+            <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Par&aacute;metros</b> (te los imponen)</td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Deducidas</b> (f&oacute;rmula)</td></tr>
+            <tr><td style="padding:5px 6px">&nbsp;</td><td></td></tr>
+          </table>
+          <p>M&iacute;nimo <b>cuatro par&aacute;metros</b> y <b>cinco f&oacute;rmulas</b>. Si una
+             medida no la sab&eacute;is poner como f&oacute;rmula, preguntaos de qu&eacute; depende:
+             casi siempre depende de algo.</p>
+          <h4>Tercera parte &middot; Tinkercad (9 min)</h4>
+          <ol>
+            <li>Modelad <b>una</b> pieza de vuestro proyecto (la del riego, la tapa del aviso o el
+                brazo de la l&aacute;mpara), con sus agujeros hechos por <b>resta</b> y las piezas
+                repetidas por <b>simetr&iacute;a</b>.</li>
+            <li>Exportad <b>STL</b> en alta calidad y <b>SVG</b>.</li>
+            <li><b>La prueba de verdad</b>: cambiad un par&aacute;metro (el ancho del servo, el
+                espesor del tablero) y <b>cronometrad</b> cu&aacute;nto tard&aacute;is en dejar el
+                modelo bien otra vez. Anotad el tiempo y qu&eacute; medidas hab&eacute;is tenido que
+                tocar.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las cuatro respuestas de la escena, con la cuenta del coseno hecha a mano
+                <b>(3 puntos)</b>.</li>
+            <li>La tabla de par&aacute;metros y f&oacute;rmulas <b>(3 puntos)</b>.</li>
+            <li>La pieza modelada y los dos ficheros exportados <b>(2 puntos)</b>.</li>
+            <li>El cron&oacute;metro de la prueba y la lista de lo que hubo que tocar
+                <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S5_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+          u'&iquest;Qu&eacute; diferencia hay entre una malla (STL) y un modelo por operaciones?',
+          u'<p>La malla es una <b>piel de tri&aacute;ngulos</b>: no guarda medidas, ni agujeros, ni '
+          u'el orden de lo que hiciste, as&iacute; que no se puede editar de verdad. El modelo por '
+          u'operaciones guarda <b>la lista de lo que hiciste</b>, y por eso puedes volver al paso 2 y '
+          u'cambiarlo. El STL es para la m&aacute;quina; el modelo, para ti.</p>') + pregunta(
+          u'&iquest;C&oacute;mo se decide si una medida es un par&aacute;metro o se deduce?',
+          u'<p>Es par&aacute;metro <b>lo que te imponen desde fuera</b> y no puedes cambiar: el servo '
+          u'que hab&eacute;is comprado, la varilla que venden, el espesor del tablero que hay. '
+          u'M&aacute;s la holgura, que la eliges t&uacute;. Todo lo dem&aacute;s, si se puede escribir '
+          u'como cuenta de otras medidas, <b>se deduce</b>.</p>') + pregunta(
+          u'Un agujero de &empty;10 se exporta con 12 facetas. &iquest;Qu&eacute; di&aacute;metro deja '
+          u'pasar de verdad?',
+          u'<p>&empty; &uacute;til = 10 &middot; cos(180&deg;/12) = 10 &middot; 0,966 = '
+          u'<b>9,66 mm</b>. Se han perdido <b>34 cent&eacute;simas</b> por el camino, y eso es '
+          u'm&aacute;s que casi cualquier holgura que hayas pedido. Por eso los agujeros se agrandan '
+          u'en el modelo y se exporta en alta resoluci&oacute;n.</p>') + pregunta(
+          u'&iquest;Por qu&eacute; se guarda el modelo y no solo el STL?',
+          u'<p>Porque el STL <b>no se puede volver a editar</b>: no tiene medidas ni historia. Es como '
+          u'guardar el PDF y tirar el documento. El d&iacute;a que cambie el servo, con el modelo '
+          u'mueves un n&uacute;mero y con el STL empiezas de cero.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya tienes el fichero. Ahora hay <b>diez piezas</b> que salen de un tablero, <b>una sola</b>
+        sierra y <b>tres pares de manos</b>. Y hay una manera de perder media sesi&oacute;n sin
+        equivocarse en nada: cortar en el orden que vaya saliendo. En la siguiente vas a ver que el
+        mismo despiece cabe en <b>un tablero o en dos</b> seg&uacute;n d&oacute;nde pongas las piezas
+        antes de cortar la primera, y que hay operaciones que solo se pueden hacer mientras la pieza
+        todav&iacute;a es grande.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 6 - Organizar la fabricacion
+# ==========================================================================
+S6_RETO = u'''
+      <p>Lunes, taller. El grupo del riego llega con el fichero de la sesi&oacute;n anterior, una
+         plancha de contrachapado de <b>4 mm</b> y muchas ganas. Empiezan por la pieza m&aacute;s
+         grande, la tapa de la caja, y la marcan <b>donde cae el l&aacute;piz</b>, m&aacute;s o menos
+         por el medio. La cortan. Luego el frente de la caja, que ya no cabe al lado, as&iacute; que
+         se va a una esquina. Luego los dos flancos, cada uno donde queda hueco.</p>
+      <p>A la quinta pieza no hay ning&uacute;n trozo entero donde quepa la siguiente. Quedan dos
+         piezas por cortar y el tablero est&aacute; lleno de <b>recortes con forma de nada</b>.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Las diez piezas del soporte y de su caja suman <b>29 950 mm&sup2;</b>. El retal era de
+           300 &times; 200, o sea <b>60 000 mm&sup2;</b>. Sobraba la mitad del tablero.
+           &iquest;C&oacute;mo puede ser que no quepan?</p>
+      </div>
+      <p>Porque el sitio que sobra <b>no est&aacute; junto</b>. Dos recortes de 50 &times; 200 no son
+         un hueco de 100 &times; 200: son dos trozos separados por un corte, y una pieza no se puede
+         partir en dos. El tablero no se gasta por su superficie, se gasta <b>por d&oacute;nde
+         cortas</b>.</p>
+      <p>Y hay una segunda cosa, m&aacute;s fina. Los dos flancos ten&iacute;an que ser <b>iguales</b>.
+         Como se marcaron por separado &mdash;uno midiendo con la regla y el otro midiendo con la
+         regla otra vez&mdash;, salieron con <b>1,5 mm de diferencia</b>. En la sesi&oacute;n 1 ya
+         viste por qu&eacute;: cada medida trae su propio error. Lo nuevo es que aqu&iacute; ese error
+         se pod&iacute;a haber evitado del todo <b>sin medir mejor</b>.</p>
+      <p>As&iacute; que antes del primer corte hay <b>tres cosas</b> que hay que tener decididas: la
+         <b>lista</b> de lo que hay que hacer, <b>d&oacute;nde</b> va cada pieza en el tablero, y en
+         <b>qu&eacute; orden</b> se hace cada operaci&oacute;n. Ninguna de las tres se improvisa.</p>
+'''
+
+S6_TEORIA = u'''
+      <div class="copiar">
+        <h4>1 &middot; La lista de materiales, o despiece</h4>
+        <p>Una fila por pieza distinta, y una columna de <b>cantidad</b>: dos flancos iguales son
+           <b>una fila con un &times;2</b>, no dos piezas dibujadas dos veces.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
+          <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Ref.</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Pieza</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Cant.</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Material</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Medidas</b></td></tr>
+          <tr><td style="padding:4px 6px">S-01</td><td style="padding:4px 6px">base del soporte</td>
+              <td style="padding:4px 6px">1</td><td style="padding:4px 6px">contrachapado 4</td>
+              <td style="padding:4px 6px">70 &times; 35</td></tr>
+          <tr><td style="padding:4px 6px">S-02</td><td style="padding:4px 6px">flanco</td>
+              <td style="padding:4px 6px">2</td><td style="padding:4px 6px">contrachapado 4</td>
+              <td style="padding:4px 6px">50 &times; 50</td></tr>
+        </table>
+        <p>Y <b>aparte</b>, la lista de lo que <b>no se fabrica</b>: el servo, la varilla de 8, los
+           tornillos M3, las arandelas, el tubo. Van en otra lista porque se <b>compran</b>, y se
+           compran con semanas de antelaci&oacute;n.</p>
+        <p>La lista se saca <b>del modelo</b>, no de la memoria. Si una pieza no est&aacute; en el
+           modelo, no est&aacute; en la lista, y el d&iacute;a del montaje no est&aacute; encima de la
+           mesa.</p>
+      </div>
+      <div class="copiar">
+        <h4>2 &middot; El plan de corte</h4>
+        <p>Colocar <b>todas</b> las piezas sobre el tablero, en papel, <b>antes de cortar ninguna</b>.
+           Cuatro reglas que lo resuelven casi siempre:</p>
+        <ul>
+          <li><b>Las grandes primero.</b> Una pieza grande solo cabe en un hueco grande; una
+              peque&ntilde;a cabe en cualquier sitio. Al rev&eacute;s te quedas sin sitio para la
+              grande.</li>
+          <li><b>Las de la misma altura, en la misma fila.</b> As&iacute; el tablero se organiza en
+              franjas y no en un puzle imposible.</li>
+          <li><b>Descontar la sangr&iacute;a</b> entre pieza y pieza: el ancho que la herramienta
+              convierte en serr&iacute;n. Con la marqueter&iacute;a, <b>1,5 mm</b> por corte; con la
+              sierra de calar, hasta 2,4; con el l&aacute;ser, 0,2. Diez cortes con una sierra de
+              calar son <b>dos cent&iacute;metros</b> de tablero que desaparecen.</li>
+          <li><b>La veta manda.</b> Si el tablero tiene veta o dibujo, hay piezas que <b>no se pueden
+              girar</b>, y entonces el plan sale peor. Se decide antes, no despu&eacute;s.</li>
+        </ul>
+        <p>Y una que no es de geometr&iacute;a: <b>cortar el encargo de toda la clase de una vez</b>.
+           El hueco que le sobra a un grupo le sirve a otro.</p>
+      </div>
+      <p>Al banco. Es el despiece completo del riego. Sube los grupos de 1 a 10 y mira la caja verde.</p>
+''' + CORTE + u'''
+      <div class="copiar">
+        <h4>3 &middot; El orden de las operaciones, y por qu&eacute; ese</h4>
+        <ul>
+          <li><b>Marcar todo de una vez</b>, con el tablero entero y desde la cara que manda
+              (sesi&oacute;n 1). Marcar a ratos, entre corte y corte, es cambiar de referencia sin
+              darte cuenta.</li>
+          <li><b>Taladrar antes de recortar.</b> Mientras la pieza sigue pegada al tablero grande hay
+              d&oacute;nde poner el sargento. Una pieza de 40 &times; 25 sujeta con la mano debajo de
+              una broca es una <b>h&eacute;lice</b>.</li>
+          <li><b>Lo que no se puede deshacer, lo m&aacute;s tarde posible</b>: pintar, barnizar,
+              pegar, remachar. Si pintas antes de taladrar, la broca te salta la pintura y hay que
+              repintar.</li>
+          <li><b>Lijar cada pieza antes de montar.</b> Dentro del conjunto ya no entra la lima.</li>
+          <li><b>Montaje en seco antes de pegar nada.</b> Se monta entero con dos tornillos flojos,
+              se comprueba, y entonces se aprieta. Esto se ve despacio en la sesi&oacute;n
+              siguiente.</li>
+        </ul>
+        <p>La regla que engloba a todas: <b>primero lo que necesita sujeci&oacute;n o referencia, y al
+           final lo que no tiene vuelta atr&aacute;s.</b></p>
+      </div>
+      <div class="copiar">
+        <h4>4 &middot; La plantilla, que arregla lo de los dos flancos</h4>
+        <p>Cuando hay <b>varias piezas iguales</b>, no se miden varias veces: se hace <b>una
+           plantilla</b> (o <b>g&aacute;libo</b>) y se copia.</p>
+        <p>Se fabrica con cuidado <b>una vez</b> &mdash;en cart&oacute;n, en contrachapado, en lo que
+           sea&mdash;, se comprueba, y a partir de ah&iacute; todas las piezas se marcan
+           <b>contra ella</b>. La diferencia es esta: con la regla, cada pieza trae <b>su</b> error, y
+           dos flancos pueden salir con 1,5 mm de diferencia. Con la plantilla, <b>todas las piezas
+           traen el mismo error</b>, el de la plantilla. Y un error igual en todas es much&iacute;simo
+           menos grave que un error distinto en cada una: las piezas siguen encajando entre
+           s&iacute;.</p>
+        <p>Lo mismo vale para taladrar: una plantilla con los agujeros hechos, puesta encima, y la
+           broca entra por donde le dicen. Eso se llama <b>plantilla de taladrado</b> y es lo que
+           hace que veinte piezas salgan iguales.</p>
+      </div>
+''' + foto('c2-galibo.jpg',
+           u'Pieza plana de lat&oacute;n dorado con forma estrellada de contornos rectos, en la '
+           u'vitrina de un museo, con una etiqueta debajo que pone Gabarit en laiton, y al lado un '
+           u'goni&oacute;metro met&aacute;lico antiguo y varios modelos de madera',
+           u'Un <b>g&aacute;libo</b> (<i>gabarit</i>) de lat&oacute;n, en el Museo de Historia Natural '
+           u'de Nantes, junto a un <b>goni&oacute;metro de Carangeot</b> de principios del siglo XIX y '
+           u'unos modelos de madera de formas cristalinas. Es una plantilla, y la idea es la misma que '
+           u'la de vuestros flancos: en vez de medir una forma cada vez que hace falta, se fabrica '
+           u'<b>una sola vez, con cuidado</b>, y luego se compara o se copia contra ella. Mira el '
+           u'canto: est&aacute; recortado en tramos rectos con &aacute;ngulos concretos, porque lo que '
+           u'se quiere comprobar con &eacute;l son esos &aacute;ngulos. Un g&aacute;libo convierte una '
+           u'medici&oacute;n &mdash;lenta, y distinta cada vez&mdash; en una <b>comparaci&oacute;n</b>, '
+           u'que es r&aacute;pida y siempre igual. Es exactamente lo que hac&iacute;a el calibre pasa '
+           u'/ no pasa de la sesi&oacute;n 2, pero para una forma entera.',
+           u'Koreller', u'CC BY-SA 4.0',
+           u'https://commons.wikimedia.org/wiki/File:Mus%C3%A9um_de_Nantes_-_654_-_Gabarit_en_laiton.jpg'
+           ) + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>El que manda en el taller no es la gente, es la m&aacute;quina.</b> Sois tres en el
+           grupo, pero hay <b>un</b> taladro de columna para toda la clase. Por muy bien que os
+           repart&aacute;is el trabajo, las operaciones de taladro van <b>en fila de a uno</b>, y esa
+           fila es la que marca cu&aacute;ndo termina todo el mundo.</p>
+        <p>De ah&iacute; salen dos costumbres que ahorran sesiones enteras:</p>
+        <ul>
+          <li><b>Agrupar por m&aacute;quina, no por pieza.</b> Todas las piezas que hay que taladrar,
+              taladradas en la misma tanda, con el taladro puesto a las vueltas que toquen
+              (sesi&oacute;n 4) y la plantilla ya colocada. Cambiar de broca y volver a ajustar el
+              taladro cuesta m&aacute;s que taladrar.</li>
+          <li><b>Mientras uno usa la m&aacute;quina, los otros dos no miran.</b> Lijan, marcan la
+              pieza siguiente, preparan el montaje en seco. Si los tres est&aacute;is alrededor del
+              taladro, el grupo avanza a la velocidad de uno.</li>
+        </ul>
+        <p>Calcular <b>cu&aacute;ndo</b> termina el proyecto entero, qu&eacute; tareas pueden
+           retrasarse sin que pase nada y cu&aacute;les no, es otra cosa y tiene su propia
+           herramienta: el diagrama de Gantt, el camino cr&iacute;tico y la holgura. Eso lo
+           hicisteis en la <b>unidad 1</b> y aqu&iacute; no se repite. Lo de esta sesi&oacute;n es lo
+           que pasa <b>dentro</b> del taller: qu&eacute; operaci&oacute;n va antes que cu&aacute;l y
+           por qu&eacute;.</p>
+      </div>
+      <div class="copiar">
+        <h4>La hoja de ruta</h4>
+        <p>Una tabla, y cabe en media hoja. Es el documento que convierte todo lo anterior en algo que
+           se puede seguir sin pensar el d&iacute;a del taller:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
+          <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>N.&ordm;</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Operaci&oacute;n</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Piezas</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Con qu&eacute;</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Antes hay que&hellip;</b></td></tr>
+          <tr><td style="padding:4px 6px">1</td><td style="padding:4px 6px">marcar el plan de corte</td>
+              <td style="padding:4px 6px">todas</td><td style="padding:4px 6px">regla, escuadra, punta</td>
+              <td style="padding:4px 6px">&mdash;</td></tr>
+          <tr><td style="padding:4px 6px">2</td><td style="padding:4px 6px">granetear los 6 agujeros</td>
+              <td style="padding:4px 6px">S-01, S-02</td><td style="padding:4px 6px">granete</td>
+              <td style="padding:4px 6px">1</td></tr>
+          <tr><td style="padding:4px 6px">3</td><td style="padding:4px 6px">taladrar &empty;8,3 y &empty;3</td>
+              <td style="padding:4px 6px">S-01, S-02</td><td style="padding:4px 6px">taladro de columna</td>
+              <td style="padding:4px 6px">2</td></tr>
+          <tr><td style="padding:4px 6px">4</td><td style="padding:4px 6px">recortar las piezas</td>
+              <td style="padding:4px 6px">todas</td><td style="padding:4px 6px">marqueter&iacute;a</td>
+              <td style="padding:4px 6px">3</td></tr>
+        </table>
+        <p>La &uacute;ltima columna es la importante: es la que impide que alguien recorte antes de
+           taladrar porque le apetec&iacute;a.</p>
+      </div>
+''' + video('s6')
+
+S6_PRACTICA = ficha(
+    u'Actividad 6 &middot; Despiece, plan de corte y hoja de ruta',
+    [u'CE2 &middot; 2.1 &middot; 2.2', u'CE3 &middot; 3.1'], u'Grupos de 3 &middot; 20 min', u'''
+          <h4>Primera parte &middot; La escena, con vuestros datos (6 min)</h4>
+          <ol>
+            <li>Elegid el tablero y la herramienta que de verdad hay en vuestro centro. Anotad
+                <b>tableros</b>, <b>aprovechamiento</b> y <b>tiempo de corte</b> con <b>1 grupo</b>.</li>
+            <li>Subid a <b>los grupos que sois en clase</b>. Anotad los mismos tres n&uacute;meros y
+                los euros de diferencia. &iquest;Cu&aacute;ntos tableros se ahorra la clase?</li>
+            <li>Dejad los grupos como estaban y <b>apagad &laquo;Girar las piezas&raquo;</b>.
+                &iquest;Cu&aacute;nto baja el aprovechamiento? &iquest;Cu&aacute;ndo pasa eso de
+                verdad?</li>
+            <li>Comprobad una cuenta a mano: el aprovechamiento es el &aacute;rea de las piezas
+                dividida entre el &aacute;rea de los tableros usados. Hacedla con la calculadora y ved
+                que sale lo mismo.</li>
+          </ol>
+          <h4>Segunda parte &middot; Vuestro despiece y vuestro plan (8 min)</h4>
+          <ol>
+            <li>La <b>tabla de despiece</b> de vuestro proyecto, con referencia, cantidad, material,
+                espesor y medidas. Y <b>aparte</b>, la lista de lo que se compra hecho.</li>
+            <li>El <b>plan de corte</b> dibujado a escala en papel cuadriculado, con el tablero de
+                verdad que ten&eacute;is y <b>dejando la sangr&iacute;a</b> entre pieza y pieza.
+                Escribid el aprovechamiento que os sale.</li>
+            <li>Se&ntilde;alad qu&eacute; piezas se repiten y decid <b>con qu&eacute; plantilla</b>
+                las vais a marcar.</li>
+          </ol>
+          <h4>Tercera parte &middot; La hoja de ruta (6 min)</h4>
+          <p>Escribid las operaciones en orden, con la columna de <b>&laquo;antes hay que&hellip;&raquo;</b>
+             rellenada. M&iacute;nimo <b>ocho</b> operaciones. Y contestad por escrito:</p>
+          <ol>
+            <li>&iquest;Cu&aacute;l es la primera operaci&oacute;n que hay que hacer, y qu&eacute;
+                pasar&iacute;a si la hicierais la tercera?</li>
+            <li>&iquest;Cu&aacute;l es la &uacute;ltima que <b>no tiene vuelta atr&aacute;s</b>?</li>
+            <li>&iquest;Qu&eacute; est&aacute;n haciendo los otros dos mientras uno taladra?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los n&uacute;meros de la escena y la comprobaci&oacute;n a mano <b>(2 puntos)</b>.</li>
+            <li>El despiece completo, con cantidades y la lista de compras aparte <b>(2 puntos)</b>.</li>
+            <li>El plan de corte a escala, con la sangr&iacute;a y el aprovechamiento
+                <b>(3 puntos)</b>.</li>
+            <li>La hoja de ruta con las dependencias, y las tres preguntas contestadas
+                <b>(3 puntos)</b>.</li>
+          </ul>
+''')
+
+S6_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+          u'Las piezas suman 29 950 mm&sup2; y el tablero tiene 60 000. &iquest;Por qu&eacute; puede '
+          u'no caber?',
+          u'<p>Porque el hueco que sobra <b>no est&aacute; junto</b>. Una pieza no se puede partir, '
+          u'as&iacute; que lo que cuenta no es la superficie libre total, sino si queda un '
+          u'<b>rect&aacute;ngulo entero</b> donde quepa. Por eso el plan de corte se hace antes de '
+          u'cortar, empezando por las piezas grandes.</p>') + pregunta(
+          u'&iquest;Qu&eacute; es la sangr&iacute;a y por qu&eacute; hay que dejarla en el plan?',
+          u'<p>Es el <b>ancho de material que la herramienta convierte en serr&iacute;n</b> en cada '
+          u'pasada: 1,5 mm con la marqueter&iacute;a, 2,4 con la de calar, 0,2 con el l&aacute;ser. Si '
+          u'colocas las piezas pegadas en el papel, en el tablero no caben: cada corte se come su '
+          u'ancho. Y si cortas por el centro de la raya, adem&aacute;s <b>se come media pieza</b>.</p>'
+          ) + pregunta(
+          u'&iquest;Por qu&eacute; se taladra antes de recortar?',
+          u'<p>Porque mientras la pieza sigue pegada al tablero grande <b>hay d&oacute;nde sujetarla</b> '
+          u'con el sargento, y porque la referencia desde la que mediste sigue existiendo. Una pieza '
+          u'peque&ntilde;a suelta debajo de una broca se convierte en una h&eacute;lice, y ese es un '
+          u'accidente, no un contratiempo.</p>') + pregunta(
+          u'Ten&eacute;is que hacer cuatro piezas iguales. &iquest;Por qu&eacute; es mejor una '
+          u'plantilla que medir cuatro veces?',
+          u'<p>Porque midiendo cuatro veces, <b>cada pieza trae su propio error</b> y salen cuatro '
+          u'piezas distintas. Con una plantilla, las cuatro traen <b>el mismo</b> error, el de la '
+          u'plantilla, y siguen encajando entre s&iacute;. Un error igual en todas estorba mucho menos '
+          u'que un error distinto en cada una.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Llegas a la sesi&oacute;n que viene con todas las piezas cortadas y <b>todas dentro de su
+        tolerancia</b>: las has medido una a una y no sobra ni falta nada. Y el dep&oacute;sito no va a
+        girar. La medida que lo estropea <b>no est&aacute; en ninguno de tus planos</b>, porque no la
+        dibuj&oacute; nadie: sale sola de sumar y restar las otras. Y antes de coger la lima hay que
+        decidir una cosa que casi siempre se decide mal: <b>cu&aacute;l de las piezas se lima</b>.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 7 - Montar y ajustar
+# ==========================================================================
+S7_RETO = u'''
+      <p>D&iacute;a de montaje. Las piezas del soporte est&aacute;n cortadas, taladradas y lijadas, y
+         el grupo ha hecho algo que casi nadie hace: <b>medirlas todas antes de montar</b>. Est&aacute;n
+         <b>las cuatro dentro de su tolerancia</b>. No hay ni una mal.</p>
+      <div class="aviso">
+        <span class="n-tag">Y sin embargo</span>
+        En el grupo de Marta, el carrete del dep&oacute;sito <b>no entra</b> entre los dos flancos: hay
+        que forzarlo, y una vez dentro no gira.<br>
+        En el grupo de Iv&aacute;n entra sin problema, pero <b>baila</b>: el dep&oacute;sito cabecea
+        al inclinarse y tira agua fuera de la maceta.<br>
+        En el de Nerea va perfecto.<br><br>
+        <b>Los tres han fabricado con el mismo plano y las tres piezas est&aacute;n bien medidas.</b>
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Si todas las piezas cumplen su cota, &iquest;qu&eacute; medida es la que est&aacute;
+           fallando? Busca en el plano <b>d&oacute;nde est&aacute; acotado el hueco que queda</b>
+           entre el carrete y el flanco. T&oacute;mate un momento antes de seguir.</p>
+      </div>
+      <p>No est&aacute;. <b>Esa cota no la dibuj&oacute; nadie</b>, y no se puede dibujar, porque no es
+         de ninguna pieza: sale de <b>sumar y restar las otras</b>. El hueco entre flancos mide 23,60,
+         el carrete 21,60 y las dos arandelas 0,80 cada una, as&iacute; que lo que sobra es
+         23,60 &minus; 21,60 &minus; 0,80 &minus; 0,80 = <b>0,40 mm</b>. Ese 0,40 es lo que decide si
+         el dep&oacute;sito gira, aprieta o baila, y no aparece en ning&uacute;n plano de ninguna
+         pieza.</p>
+      <p>En la sesi&oacute;n 1 viste que los errores <b>se suman a lo largo de una cadena de cotas</b>
+         dentro de una pieza, y que la soluci&oacute;n era elegir bien la referencia. Aqu&iacute; pasa
+         lo mismo&hellip; con una diferencia incómoda: <b>la cadena atraviesa cuatro piezas
+         distintas</b>, y la referencia <b>no la eliges t&uacute;</b>. Te la impone el montaje.</p>
+'''
+
+S7_TEORIA = u'''
+      <div class="copiar">
+        <h4>La cadena de cotas y la cota de cierre</h4>
+        <p>Se recorre el montaje <b>de un lado a otro, en l&iacute;nea recta</b>, apuntando cada
+           medida que te vas encontrando:</p>
+        <ul>
+          <li>lo que <b>abre</b> hueco, <b>suma</b> (el hueco entre los flancos);</li>
+          <li>lo que <b>ocupa</b> hueco, <b>resta</b> (el carrete, las dos arandelas).</li>
+        </ul>
+        <p>Lo que queda al final se llama <b>cota de cierre</b>, o cota de juego. Es la que de verdad
+           te importa y la &uacute;nica que <b>no est&aacute; dibujada</b>.</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>J = (suma de las que abren) &minus; (suma de las que ocupan)</b></p>
+        <p>Y ahora viene lo que cuesta creerse la primera vez:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>Tolerancia de J = T<sub>1</sub> + T<sub>2</sub> + T<sub>3</sub> + T<sub>4</sub></b></p>
+        <p><b>Todas se suman</b>, tengan el signo que tengan. Una cota que resta tambi&eacute;n
+           <b>suma</b> su tolerancia. La raz&oacute;n es f&aacute;cil de ver si te lo imaginas: el peor
+           caso es que el hueco salga lo m&aacute;s <b>peque&ntilde;o</b> que puede <b>a la vez</b> que
+           el carrete sale lo m&aacute;s <b>grande</b> que puede. Los dos errores empujan <b>hacia el
+           mismo lado</b>, aunque las cotas tengan signos contrarios.</p>
+        <p>Consecuencia que conviene tener grabada: <b>la cota de cierre es siempre la peor de
+           todas</b>, y empeora con cada eslab&oacute;n que a&ntilde;ades.</p>
+      </div>
+      <p>Al banco. Los cuatro eslabones son los del soporte, y la escena monta <b>200 conjuntos</b>
+         con piezas sorteadas dentro de su tolerancia para ense&ntilde;arte cu&aacute;ntos salen mal.</p>
+''' + CIERRE + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>El peor caso no pasa casi nunca, y aun as&iacute; es con el que se calcula.</b> Que las
+           cuatro piezas se vayan al extremo malo <b>a la vez</b> es como sacar cuatro caras seguidas.
+           Por eso al lado est&aacute; la otra cuenta, la <b>ra&iacute;z de la suma de los
+           cuadrados</b>:</p>
+        <p style="font-size:17px;text-align:center;margin:8px 0">
+           <b>T<sub>rss</sub> = &radic;(T<sub>1</sub>&sup2; + T<sub>2</sub>&sup2; + T<sub>3</sub>&sup2;
+           + T<sub>4</sub>&sup2;)</b></p>
+        <p>Con 0,20 / 0,30 / 0,10 / 0,10 sale <b>0,39</b> frente a los 0,70 del peor caso: casi la
+           mitad. Se usa cuando se fabrican muchas piezas y se acepta que <b>unas pocas</b> se tiren.
+           En una pieza &uacute;nica, como la vuestra, se calcula con el <b>peor caso</b>: no
+           ten&eacute;is repuestos.</p>
+        <p><b>Y hay dos arreglos distintos, para dos problemas distintos.</b> Es el error que m&aacute;s
+           caro sale:</p>
+        <ul>
+          <li>Si el juego <b>se sale por un lado</b> (siempre aprieta, o siempre baila), lo que
+              est&aacute; mal es el <b>nominal</b>. Se arregla <b>moviendo una medida</b>: el hueco a
+              24,00, o el carrete a 21,20. Eso mueve la campana entera <b>sin estrecharla</b>, y no
+              cuesta dinero.</li>
+          <li>Si el juego <b>vale unas veces s&iacute; y otras no</b>, lo que est&aacute; mal es la
+              <b>dispersi&oacute;n</b>. Eso solo se arregla <b>apretando una tolerancia</b>, y eso
+              s&iacute; cuesta: m&aacute;quina mejor, m&aacute;s tiempo, m&aacute;s piezas tiradas.</li>
+        </ul>
+        <p>Y hay un tercer arreglo, que es el m&aacute;s barato de todos y el que nadie mira:
+           <b>quitar un eslab&oacute;n</b>. Una arandela menos, o una pieza de una sola vez en vez de
+           dos atornilladas, es una tolerancia entera que desaparece de la suma.</p>
+      </div>
+
+      <h3>El montaje: en qu&eacute; orden y con qu&eacute; cuidado</h3>
+      <div class="copiar">
+        <h4>Cinco reglas de montaje</h4>
+        <ul>
+          <li><b>De dentro hacia fuera.</b> Lo que luego no se puede alcanzar va primero. Antes de
+              empezar, mirad el modelo y preguntaos: &laquo;despu&eacute;s de este paso,
+              &iquest;a qu&eacute; ya no llego?&raquo;.</li>
+          <li><b>Montaje en seco</b>, entero, antes de pegar o apretar nada. Se monta con los
+              tornillos flojos y sin pegamento, se comprueba que todo cae en su sitio, y
+              <b>entonces</b> se termina.</li>
+          <li><b>No apretar del todo hasta que est&eacute; todo puesto.</b> Con los tornillos flojos,
+              las piezas se colocan solas donde pueden. Si aprietas el primero a tope, obligas a los
+              dem&aacute;s a entrar forzando, y ah&iacute; es donde se rompe un agujero.</li>
+          <li><b>Apretar en cruz</b>, no en orden: primero uno, luego el de enfrente, luego los otros
+              dos. En orden, la pieza se va inclinando y el &uacute;ltimo tornillo no llega.</li>
+          <li><b>La prueba de los cinco minutos</b> (sesi&oacute;n 3): &iquest;se puede sacar la placa
+              del aparato ya montado en menos de cinco minutos? Ahora es cuando se comprueba de
+              verdad, con el aparato delante.</li>
+        </ul>
+      </div>
+      <div class="copiar">
+        <h4>Ajustar: qu&eacute; pieza se lima</h4>
+        <p>Cuando no encaja, la reacci&oacute;n es coger la lima y atacar lo primero que se ve. Eso
+           convierte un ajuste en una pieza nueva. Cinco reglas:</p>
+        <ul>
+          <li><b>Medir y decidir cu&aacute;nto, antes de tocar la lima.</b> &laquo;A ver si
+              as&iacute;&raquo; no es un m&eacute;todo. Se puede <b>quitar</b> material; no se puede
+              poner.</li>
+          <li><b>Se lima la pieza que no le hace de referencia a nadie m&aacute;s.</b> Si una cara
+              apoya, atornilla o sirve de origen para otras medidas, esa no se toca: al limarla mueves
+              todo lo que colgaba de ella.</li>
+          <li><b>Se lima la m&aacute;s barata de rehacer</b>, por si te pasas. Entre una pieza de
+              cart&oacute;n y una impresa de tres horas, no hay duda.</li>
+          <li><b>No se lima donde hay una cota funcional.</b> Si el &uacute;nico sitio por donde se
+              puede quitar material es una cara que manda, la pieza hay que <b>rehacerla</b>, y se
+              dice.</li>
+          <li><b>Si sobra hueco, no se lima: se rellena.</b> Una arandela, un suplemento de cart&oacute;n
+              o una vuelta de cinta resuelven un juego de tres d&eacute;cimas, y son reversibles.</li>
+        </ul>
+        <p>Herramientas del ajuste: la <b>lima</b> y el papel de lija, las <b>arandelas y
+           suplementos</b>, el <b>escariador</b> de la sesi&oacute;n 4 para afinar un agujero&hellip;
+           y la <b>galga de espesores</b>, que es la que dice cu&aacute;nto hueco hay.</p>
+      </div>
+''' + foto('c2-galgas.jpg',
+           u'Juego de galgas de espesores abierto en abanico sobre una piedra, con doce l&aacute;minas '
+           u'de acero de distinto grosor; en el mango se lee M/M, Moore &amp; Wright, Sheffield '
+           u'England, 389M, y en las l&aacute;minas se distinguen n&uacute;meros grabados como 70, 10 '
+           u'y 80',
+           u'Un <b>juego de galgas de espesores</b>, abierto en abanico. Cada l&aacute;mina es una '
+           u'chapa de acero de un <b>grosor exacto y grabado</b>: la de 0,10 mide 0,10 y la de 0,70 '
+           u'mide 0,70. Sirven para medir justo lo que no se puede medir de ninguna otra manera: '
+           u'<b>el hueco que queda entre dos piezas ya montadas</b>, donde no entra un pie de rey. Y '
+           u'se usan igual que el calibre pasa / no pasa de la sesi&oacute;n 2: se prueban l&aacute;minas '
+           u'hasta encontrar <b>la m&aacute;s gorda que entra</b>; el hueco mide eso. Se pueden apilar '
+           u'dos o tres para medir huecos mayores. Este juego es del taller: pone <b>M/M</b> porque es '
+           u'm&eacute;trico, y son de <i>Moore &amp; Wright</i>, de Sheffield, uno de los sitios '
+           u'donde se invent&oacute; buena parte de esto.',
+           u'R. Henrik Nilsson', u'CC BY 4.0',
+           u'https://commons.wikimedia.org/wiki/File:1970s_feeler_gauge_0_05_1_mm_model_389M_by_Moore_'
+           u'and_Wright_Sheffield_England.jpg') + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Lo que hace la industria cuando la cota de cierre es imposible.</b> Hay conjuntos en los
+           que el juego tiene que quedar dentro de <b>dos cent&eacute;simas</b> &mdash;un pist&oacute;n
+           dentro de su cilindro, un rodamiento en su alojamiento&mdash; y fabricar todas las piezas
+           con esa precisi&oacute;n costar&iacute;a una fortuna.</p>
+        <p>La soluci&oacute;n es una idea preciosa y se llama <b>ajuste selectivo</b>: se fabrican las
+           piezas con una tolerancia normal, se <b>miden todas</b>, se reparten en <b>clases</b>
+           (los pistones un poco grandes con los cilindros un poco grandes) y se montan
+           <b>emparejadas por clase</b>. As&iacute; el juego sale fino sin haber fabricado fino.</p>
+        <p>Y tiene el precio que ya conoces de la sesi&oacute;n 2: esas piezas <b>dejan de ser
+           intercambiables</b>. El repuesto ya no vale por s&iacute; solo, tiene que ser de su clase.
+           Dos siglos despu&eacute;s de Honor&eacute; Blanc, la industria sigue negociando entre lo
+           mismo: piezas que encajan con cualquiera, o piezas que encajan muy bien.</p>
+      </div>
+''' + video('s7')
+
+S7_PRACTICA = ficha(
+    u'Actividad 7 &middot; La cadena de cotas de vuestro montaje',
+    [u'CE2 &middot; 2.2', u'CE3 &middot; 3.1'], u'Grupos de 3 &middot; 20 min', u'''
+          <h4>Primera parte &middot; Los tres arreglos, en la escena (7 min)</h4>
+          <p>Partiendo de los valores de partida, anotad en una tabla <b>J nominal</b>, <b>el peor
+             caso</b> y <b>cu&aacute;ntos de 200 fallan</b> en cada uno de estos cuatro casos:</p>
+          <ol>
+            <li>Tal cual est&aacute;.</li>
+            <li>Apretando el <b>carrete</b> de &plusmn;0,30 a &plusmn;0,10, sin tocar nada m&aacute;s.</li>
+            <li>Volviendo atr&aacute;s y apretando las <b>dos arandelas</b> a &plusmn;0,02, sin tocar
+                nada m&aacute;s.</li>
+            <li>Volviendo atr&aacute;s y subiendo el <b>hueco nominal</b> a 24,00.</li>
+          </ol>
+          <p>Y contestad: <b>&iquest;cu&aacute;l de los tres arreglos quita las piezas que no entran, y
+             cu&aacute;l quita las que bailan?</b> No es el mismo, y ah&iacute; est&aacute; la
+             sesi&oacute;n entera.</p>
+          <h4>Segunda parte &middot; Vuestra cadena (8 min)</h4>
+          <p>Buscad en vuestro proyecto un sitio donde <b>tres o m&aacute;s piezas</b> se apilen o se
+             encajen: el eje entre sus soportes, la tapa dentro de su caja, el LED dentro de su
+             agujero y su portaled.</p>
+          <ol>
+            <li>Dibujadla <b>en l&iacute;nea</b>, con una flecha por eslab&oacute;n y su signo.</li>
+            <li>Nominal y tolerancia de cada uno (los de las piezas que compr&aacute;is, mirad la hoja
+                del fabricante o medidlos).</li>
+            <li>Calculad <b>J nominal</b>, <b>J m&aacute;ximo</b> y <b>J m&iacute;nimo</b>, a mano.</li>
+            <li>Decid entre qu&eacute; dos valores <b>ten&iacute;a</b> que estar J para que funcione, y
+                si vuestro peor caso cabe ah&iacute; dentro.</li>
+          </ol>
+          <h4>Tercera parte &middot; El arreglo y el orden (5 min)</h4>
+          <p>Si no cabe, calculad <b>los tres arreglos</b> &mdash;apretar el eslab&oacute;n que
+             m&aacute;s pesa, mover un nominal, quitar un eslab&oacute;n&mdash; y elegid uno,
+             <b>con la raz&oacute;n</b>.</p>
+          <p>Y escribid el <b>orden de montaje</b> numerado. Detr&aacute;s de cada paso, una frase:
+             <b>&laquo;despu&eacute;s de esto ya no puedo tocar&hellip;&raquo;</b>.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla de los cuatro casos de la escena y la respuesta de cu&aacute;l arregla
+                qu&eacute; <b>(3 puntos)</b>.</li>
+            <li>Vuestra cadena dibujada con los signos <b>(2 puntos)</b>.</li>
+            <li>Los tres c&aacute;lculos de J y la comparaci&oacute;n con lo que hace falta
+                <b>(3 puntos)</b>.</li>
+            <li>El orden de montaje con la frase de cada paso <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S7_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+          u'&iquest;Qu&eacute; es una cota de cierre y por qu&eacute; no est&aacute; dibujada en '
+          u'ning&uacute;n plano?',
+          u'<p>Es <b>el hueco que queda</b> al montar, y no es de ninguna pieza: sale de sumar las '
+          u'medidas que abren hueco y restar las que lo ocupan. Como no pertenece a ninguna pieza, '
+          u'nadie la acota&hellip; y es justo la que decide si el conjunto funciona.</p>') + pregunta(
+          u'&iquest;Por qu&eacute; se suman TODAS las tolerancias, tambi&eacute;n las de las cotas que '
+          u'restan?',
+          u'<p>Porque el peor caso es que el hueco salga lo m&aacute;s peque&ntilde;o posible <b>a la '
+          u'vez</b> que lo que va dentro sale lo m&aacute;s grande posible. Los dos errores empujan '
+          u'<b>al mismo lado</b> aunque las cotas tengan signos contrarios. Por eso la cota de cierre '
+          u'es siempre la peor de la cadena.</p>') + pregunta(
+          u'El montaje unas veces aprieta y otras baila. &iquest;Se arregla moviendo un nominal o '
+          u'apretando una tolerancia?',
+          u'<p><b>Apretando una tolerancia</b>, y la que m&aacute;s pese. Mover el nominal '
+          u'<b>desplaza</b> el juego entero hacia un lado, pero no lo estrecha: si antes val&iacute;a '
+          u'a veces, seguir&aacute; valiendo a veces. Mover el nominal arregla el caso contrario: el '
+          u'que <b>siempre</b> aprieta o <b>siempre</b> baila.</p>') + pregunta(
+          u'Dos piezas no encajan. &iquest;Cu&aacute;l se lima?',
+          u'<p>La que <b>no le hace de referencia a nadie</b> y la m&aacute;s barata de rehacer; nunca '
+          u'la cara que apoya, atornilla o sirve de origen a otras cotas. Y antes de limar, <b>se mide '
+          u'y se decide cu&aacute;nto</b>: material se puede quitar, no se puede poner. Si sobra hueco, '
+          u'mejor rellenar con una arandela que limar.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya gira. Y ahora llega la pregunta que hunde a la mitad de los proyectos buenos:
+        <b>&laquo;&iquest;c&oacute;mo s&eacute; que no ha sido suerte?&raquo;</b>. Ense&ntilde;ar la
+        pieza y decir que funciona no demuestra nada: tiene que funcionar <b>por lo que t&uacute;
+        dijiste que iba a funcionar</b>. En la &uacute;ltima sesi&oacute;n se monta el expediente de
+        fabricaci&oacute;n, se mide la pieza contra su propio plano y se prepara una defensa de tres
+        minutos en la que <b>cada frase lleva un n&uacute;mero</b>.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 8 - Contarlo y defenderlo
+# ==========================================================================
+S8_RETO = u'''
+      <p>&Uacute;ltima sesi&oacute;n de la unidad. El soporte est&aacute; terminado, el dep&oacute;sito
+         bascula y el servo lo mueve. El grupo lo pone encima de la mesa y dice la frase que se dice
+         siempre:</p>
+      <div class="aviso">
+        <span class="n-tag">La defensa entera, palabra por palabra</span>
+        <b>&laquo;Pues esto es el soporte. Nos ha quedado muy bien y funciona.&raquo;</b>
+      </div>
+      <p>Y entonces les hacen tres preguntas:</p>
+      <ol>
+        <li>&iquest;Qu&eacute; medida <b>pediste</b> en el hueco entre los flancos, y cu&aacute;nto te
+            ha <b>salido</b>?</li>
+        <li>&iquest;Por qu&eacute; esa uni&oacute;n es de tornillo y no est&aacute; pegada?</li>
+        <li>Si tuvieras que hacer <b>otro igual</b> ma&ntilde;ana, &iquest;te saldr&iacute;a igual?</li>
+      </ol>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>La pieza funciona. Est&aacute; ah&iacute; y se puede tocar. &iquest;Por qu&eacute; no basta
+           con eso? Escribe una raz&oacute;n antes de seguir.</p>
+      </div>
+      <p>Hay tres razones, y las tres son incómodas:</p>
+      <ul>
+        <li><b>Funcionar no demuestra que est&eacute; bien hecha.</b> La pieza de Nerea de la
+            sesi&oacute;n anterior tambi&eacute;n funcionaba, y funcionaba <b>por suerte</b>: le
+            toc&oacute; el lado bueno de la tolerancia. La de al lado, con el mismo plano, no.</li>
+        <li><b>Si no sabes qu&eacute; pediste, no puedes repetirlo.</b> Una pieza que no se puede
+            volver a hacer igual no es un dise&ntilde;o: es un accidente afortunado.</li>
+        <li><b>Si no sabes cu&aacute;nto te has desviado, no sabes qu&eacute; mejorar.</b> No puedes
+            decir si el problema es la m&aacute;quina, el plano o el pulso.</li>
+      </ul>
+      <p>Una pieza no se defiende ense&ntilde;&aacute;ndola. Se defiende con <b>la prueba de que hace lo
+         que dijiste que iba a hacer</b>, y esa prueba son <b>n&uacute;meros</b>: lo que pediste, lo
+         que mediste, y la diferencia.</p>
+      <div class="nota">
+        <span class="n-tag">De qu&eacute; va esta sesi&oacute;n, y de qu&eacute; no</span>
+        Aqu&iacute; se defiende <b>la pieza y c&oacute;mo se ha fabricado</b>: las tolerancias que
+        pediste, las que te han salido, qu&eacute; hubo que limar y por qu&eacute;. Contar el
+        <b>proyecto entero</b> &mdash;el problema del que naci&oacute;, la soluci&oacute;n, lo que
+        aporta&mdash; se prepar&oacute; en la <b>unidad 1</b>, y la entrega final es de la
+        <b>unidad 9</b>. Son tres cosas distintas y se preparan por separado.
+      </div>
+'''
+
+S8_TEORIA = u'''
+      <div class="copiar">
+        <h4>El expediente de fabricaci&oacute;n: cinco hojas</h4>
+        <p>Es lo que en la industria acompa&ntilde;a a cada pieza. Una hoja cada uno, ni m&aacute;s:</p>
+        <ol>
+          <li><b>El plano final</b>, acotado y con tolerancias. El <b>de verdad</b>, con los cambios de
+              la sesi&oacute;n 4 y de la 5 ya metidos, con su cajet&iacute;n, su <b>versi&oacute;n</b>
+              y su fecha. Si no lleva versi&oacute;n, alguien fabricar&aacute; el viejo.</li>
+          <li><b>El despiece y el plan de corte</b> de la sesi&oacute;n 6, tal como se
+              ejecut&oacute;.</li>
+          <li><b>La hoja de ruta</b>, con lo que <b>de verdad</b> pas&oacute;: en qu&eacute; orden se
+              hizo y qu&eacute; hubo que repetir.</li>
+          <li><b>El control dimensional</b>: la tabla de lo que se pidi&oacute; frente a lo que se
+              midi&oacute;.</li>
+          <li><b>Las incidencias</b>: qu&eacute; fall&oacute;, qu&eacute; se cambi&oacute; y por
+              qu&eacute;. Es la hoja <b>m&aacute;s valiosa de las cinco</b> y la que nadie escribe.
+              Un proyecto sin incidencias no es un proyecto perfecto: es un proyecto que no se ha
+              mirado.</li>
+        </ol>
+      </div>
+      <div class="copiar">
+        <h4>La tabla de control dimensional</h4>
+        <p>Cinco columnas. Se rellena con la pieza en una mano y el pie de rey en la otra:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
+          <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Cota</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Nominal y tolerancia</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Medido</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Desviaci&oacute;n</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Veredicto</b></td></tr>
+          <tr><td style="padding:4px 6px">hueco entre flancos</td>
+              <td style="padding:4px 6px">23,60 &plusmn; 0,20</td><td style="padding:4px 6px">23,50</td>
+              <td style="padding:4px 6px">&minus;0,10 (50 %)</td><td style="padding:4px 6px">pasa</td></tr>
+        </table>
+        <p>Dos cosas que parecen detalles y no lo son:</p>
+        <ul>
+          <li>La desviaci&oacute;n se pone <b>tambi&eacute;n en porcentaje de la tolerancia</b>. Un
+              &laquo;pasa&raquo; al 20 % y un &laquo;pasa&raquo; al 95 % son dos cosas muy distintas, y
+              la segunda te va a dar un disgusto en la siguiente pieza.</li>
+          <li>Se apunta <b>con qu&eacute; se ha medido</b>. Una medida sin instrumento no es una
+              medida, y la regla de la sesi&oacute;n 2 sigue valiendo: el instrumento tiene que
+              apreciar del orden de <b>diez veces menos</b> que la tolerancia que compruebas.</li>
+        </ul>
+      </div>
+      <p>Al banco. Es tu soporte, con las seis cotas que sali&oacute;n del modelo de la sesi&oacute;n
+         5, fabricado y medido.</p>
+''' + CONTROL + u'''
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Desajuste y dispersi&oacute;n no son lo mismo, y se arreglan de maneras opuestas.</b></p>
+        <ul>
+          <li>El <b>desajuste</b> (o error sistem&aacute;tico) empuja <b>todas</b> las medidas al mismo
+              lado: el que sierra va siempre por fuera de la raya, el tope est&aacute; corrido, el
+              cero del pie de rey no est&aacute; en el cero. Se ve en que los puntos de la escena
+              se van todos juntos, y <b>se corrige</b>: mueves el tope y desaparece.</li>
+          <li>La <b>dispersi&oacute;n</b> es que cada medida cae donde le da la gana dentro de un
+              margen. No se corrige: <b>se aguanta o se cambia de m&aacute;quina</b>.</li>
+        </ul>
+        <p>Y de ah&iacute; sale la conclusi&oacute;n que cierra la unidad entera, y que no es una
+           excusa sino un diagn&oacute;stico: <b>si la tolerancia que escribiste es m&aacute;s
+           estrecha que la dispersi&oacute;n de tu m&aacute;quina, la culpa es del plano, no de las
+           manos</b>. Ese plano ped&iacute;a algo que nadie pod&iacute;a cumplir con esa
+           m&aacute;quina, y eso se decidi&oacute; en la sesi&oacute;n 4, no en el taller. Decirlo en
+           la defensa, con el n&uacute;mero delante, vale m&aacute;s que ense&ntilde;ar una pieza
+           perfecta.</p>
+      </div>
+
+      <h3>C&oacute;mo se mide esto cuando hay dinero de por medio</h3>
+''' + foto('c2-cmm.jpg',
+           u'Un t&eacute;cnico con guante blanco maneja una m&aacute;quina de medici&oacute;n por '
+           u'coordenadas: un palpador desciende sobre una pieza cil&iacute;ndrica de aluminio marcada '
+           u'a rotulador rojo, y en la pantalla de al lado se ve la misma pieza en 3D con un mapa de '
+           u'colores y una escala que va de -0,02 a +0,02',
+           u'Una <b>m&aacute;quina de medici&oacute;n por coordenadas</b> (CMM) en un laboratorio del '
+           u'NIST, el instituto de metrolog&iacute;a de Estados Unidos. Es la tabla de control '
+           u'dimensional convertida en m&aacute;quina: el palpador va tocando la pieza punto por punto '
+           u'y el ordenador compara <b>cada punto medido con el modelo 3D</b> de la sesi&oacute;n 5. '
+           u'Mira la pantalla de la izquierda: la pieza est&aacute; pintada por colores, y la '
+           u'<b>escala de la derecha va de &minus;0,02 a +0,02</b> mil&iacute;metros. Eso no es un '
+           u'dibujo bonito: es la <b>desviaci&oacute;n</b>, cota a cota, de la pieza real respecto a '
+           u'lo que ped&iacute;a el plano, que es exactamente la columna que est&aacute;s rellenando '
+           u't&uacute; con el pie de rey. Y f&iacute;jate en el rotulador rojo sobre el aluminio: la '
+           u'pieza lleva escrito <b>su n&uacute;mero</b>, porque un informe de medici&oacute;n que no '
+           u'dice de qu&eacute; pieza es no sirve para nada.',
+           u'National Institute of Standards and Technology (NIST)', u'dominio p&uacute;blico',
+           u'https://commons.wikimedia.org/wiki/File:Coordinate_Measuring_Machines_(5885465714).jpg'
+           ) + u'''
+      <div class="copiar">
+        <h4>La defensa, en tres minutos</h4>
+        <p>Tres minutos son <b>muy poco</b>, y por eso hay que repartirlos antes:</p>
+        <ul>
+          <li><b>20 s &middot; Qu&eacute; pieza es y qu&eacute; tiene que hacer.</b> Una frase, con un
+              n&uacute;mero dentro. &laquo;Es el soporte del dep&oacute;sito; tiene que dejarlo girar
+              y aguantar el litro de agua lleno.&raquo;</li>
+          <li><b>60 s &middot; La decisi&oacute;n que m&aacute;s cost&oacute;.</b> Una sola, con
+              <b>la alternativa que descartasteis</b> y el <b>n&uacute;mero que la descart&oacute;</b>.
+              Esto es lo que se eval&uacute;a de verdad.</li>
+          <li><b>60 s &middot; Lo que pedisteis y lo que med&iacute;s.</b> Dos o tres cotas de la
+              tabla, no las seis. Con la desviaci&oacute;n y el porcentaje.</li>
+          <li><b>30 s &middot; Qu&eacute; sali&oacute; mal y qu&eacute; har&iacute;ais distinto.</b>
+              Con una cifra.</li>
+          <li><b>10 s &middot; Una pregunta que dej&aacute;is abierta.</b> Lo que no os ha dado tiempo
+              a comprobar.</li>
+        </ul>
+        <p>Cuatro reglas mientras habl&aacute;is:</p>
+        <ul>
+          <li><b>Un n&uacute;mero por frase, y de d&oacute;nde sale.</b> &laquo;Aguanta 495 N, que
+              salen de 55 por 3 por 3&raquo;, no &laquo;aguanta bastante&raquo;.</li>
+          <li><b>La pieza y el plano, a la vez.</b> Se se&ntilde;ala en la pieza y se se&ntilde;ala en
+              el plano. Sin el plano delante, todo suena a opini&oacute;n.</li>
+          <li><b>No se lee.</b> Se puede llevar una tarjeta con los n&uacute;meros; leer un texto
+              seguido se nota a la primera frase.</li>
+          <li><b>Lo que no sab&eacute;is, se dice.</b> &laquo;No lo hemos medido&raquo; es una
+              respuesta profesional. Inventarse un n&uacute;mero delante de alguien que sabe es la
+              &uacute;nica manera segura de suspender.</li>
+        </ul>
+      </div>
+      <div class="copiar">
+        <h4>Las cinco preguntas que os van a hacer</h4>
+        <p>Son siempre las mismas, as&iacute; que se llevan preparadas <b>con su n&uacute;mero</b>:</p>
+        <ol>
+          <li>&iquest;Por qu&eacute; ese material y esa uni&oacute;n, y no otra?</li>
+          <li>&iquest;Qu&eacute; tolerancia pediste ah&iacute;, y por qu&eacute; esa y no m&aacute;s
+              ancha?</li>
+          <li>&iquest;C&oacute;mo sabes que la cumple? &iquest;Con qu&eacute; lo has medido?</li>
+          <li>Si se rompe esa pieza, &iquest;c&oacute;mo se cambia? &iquest;Cu&aacute;nto se tarda?</li>
+          <li>&iquest;Cu&aacute;nto ha costado, en euros y en sesiones?</li>
+        </ol>
+      </div>
+''' + video('s8')
+
+S8_PRACTICA = ficha(
+    u'Actividad 8 &middot; El expediente y la defensa de tres minutos',
+    [u'CE3 &middot; 3.1 &middot; 3.2', u'CE2 &middot; 2.2'], u'Grupos de 3 &middot; 15 min', u'''
+          <h4>Primera parte &middot; La escena, con vuestra t&eacute;cnica (4 min)</h4>
+          <ol>
+            <li>Elegid la t&eacute;cnica con la que hab&eacute;is fabricado de verdad. Anotad
+                <b>cu&aacute;ntas cotas pasan</b> y cu&aacute;ntas tienen la tolerancia m&aacute;s
+                estrecha que la dispersi&oacute;n de esa m&aacute;quina.</li>
+            <li>Mueve el desajuste a +0,30. &iquest;Qu&eacute; les pasa a los seis puntos? &iquest;Y
+                si en vez de eso cambias de t&eacute;cnica?</li>
+            <li>Copiad la frase que genera la escena y <b>cambiadle los n&uacute;meros</b> por los de
+                una cota vuestra. Esa es la plantilla de vuestra defensa.</li>
+          </ol>
+          <h4>Segunda parte &middot; Medir de verdad (5 min)</h4>
+          <p>Con la pieza y el pie de rey (o la regla, si no hay otra cosa):</p>
+          <ol>
+            <li>Elegid <b>tres cotas</b> de vuestra pieza, de las que import&oacute; en el montaje.</li>
+            <li>Medid cada una <b>tres veces</b>, quitando y volviendo a poner el instrumento.
+                Apuntad las tres lecturas.</li>
+            <li>Rellenad la tabla de control dimensional con la media, la desviaci&oacute;n, el
+                porcentaje de la tolerancia y el veredicto.</li>
+            <li>La diferencia entre vuestra lectura m&aacute;s alta y la m&aacute;s baja es
+                <b>vuestra</b> incertidumbre. Escribidla al pie de la tabla. Si es mayor que la
+                tolerancia, vuestro veredicto <b>no vale</b>, y hay que decirlo.</li>
+          </ol>
+          <h4>Tercera parte &middot; Ensayar, con cron&oacute;metro (6 min)</h4>
+          <p>Por parejas de grupos. Uno defiende <b>tres minutos</b> con el reparto de arriba; el otro
+             cronometra y al final hace <b>dos</b> de las cinco preguntas. Luego al rev&eacute;s.</p>
+          <p>El que escucha anota tres cosas: <b>cu&aacute;ntos n&uacute;meros</b> ha dicho el que
+             habla, <b>cu&aacute;ntos</b> ven&iacute;an con su origen, y <b>en qu&eacute; momento</b>
+             se le fue el tiempo.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las tres respuestas de la escena y la frase adaptada <b>(2 puntos)</b>.</li>
+            <li>La tabla de control dimensional con las tres lecturas y la incertidumbre
+                <b>(3 puntos)</b>.</li>
+            <li>El expediente completo, las cinco hojas, con la de incidencias escrita de verdad
+                <b>(3 puntos)</b>.</li>
+            <li>La defensa ensayada: dentro de tiempo y con los n&uacute;meros con su origen
+                <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S8_TEST = test('c2b', u'Lo que tiene que haber quedado de la unidad entera', [
+    dict(p=u'Tienes cuatro agujeros acotados <b>desde el mismo borde</b>, con &plusmn;0,2 mm de error '
+           u'en cada medida. &iquest;Cu&aacute;nto se puede desviar el cuarto en el peor caso?',
+         op=[u'0,8 mm, porque son cuatro medidas',
+             u'0,2 mm, y no crece aunque a&ntilde;adas veinte agujeros m&aacute;s',
+             u'0,4 mm, la mitad que en cadena'],
+         ok=1,
+         por=u'Acotando desde una referencia, cada cota sale de la misma cara y <b>solo carga con su '
+             u'propio error</b>. El que crece con el n&uacute;mero de cotas es el de la '
+             u'acotaci&oacute;n en cadena, donde cada una arranca donde acab&oacute; la anterior.'),
+
+    dict(p=u'En un plano, &iquest;qu&eacute; quiere decir &empty;8 <sup>+0,022</sup><sub>&nbsp;0</sub>?',
+         op=[u'que la pieza mide 8,022 mm',
+             u'que vale cualquier pieza entre 8,000 y 8,022, y que la tolerancia es de 22 micras',
+             u'que hay que fabricarla con un error m&aacute;ximo del 0,022 %'],
+         ok=1,
+         por=u'La medida &uacute;til no es un n&uacute;mero, es un <b>intervalo</b>: la nominal m&aacute;s '
+             u'cada desviaci&oacute;n. La tolerancia es la anchura de ese permiso, 8,022 &minus; 8,000 '
+             u'= 0,022 mm = 22 &micro;m, y siempre es positiva.'),
+
+    dict(p=u'Una uni&oacute;n atornillada con un M3 en una pieza de DM de 3 mm (12 N/mm&sup2; de '
+           u'aplastamiento). &iquest;Con cu&aacute;nta fuerza falla?',
+         op=[u'con 1700 N, que es lo que aguanta el tornillo',
+             u'con 108 N, y lo que falla es el DM alrededor del agujero',
+             u'con 36 N'],
+         ok=1,
+         por=u'&sigma; = F / (d &middot; t), as&iacute; que F = 12 &middot; 3 &middot; 3 = <b>108 N</b>. '
+             u'Manda <b>siempre el menor de los dos</b> modos de fallo, y con material blando ese '
+             u'nunca es el tornillo. Un ni&ntilde;o de 11 kg colgando ya lo rompe.'),
+
+    dict(p=u'&iquest;Por qu&eacute; la t&eacute;cnica de fabricaci&oacute;n no se elige al final, con '
+           u'el plano ya terminado?',
+         op=[u'porque hay lista de espera para la impresora 3D',
+             u'porque cada t&eacute;cnica obliga a dibujar la pieza de otra manera, y elegirla al final '
+             u'obliga a redibujar',
+             u'porque el profesor lo decide antes'],
+         ok=1,
+         por=u'La sierra pide rincones redondeados, el l&aacute;ser pide que todo sea plano y que '
+             u'descuentes la sangr&iacute;a, y la impresora pide cuidado con los voladizos, con la '
+             u'orientaci&oacute;n de las capas y con los agujeros, que salen peque&ntilde;os. '
+             u'<b>El dibujo depende de qui&eacute;n lo vaya a hacer.</b>'),
+
+    dict(p=u'&iquest;Qu&eacute; diferencia hay entre un fichero STL y el modelo del que sali&oacute;?',
+         op=[u'ninguna, el STL es el modelo comprimido',
+             u'el STL es una piel de tri&aacute;ngulos sin medidas ni historia: no se puede volver a '
+             u'editar de verdad',
+             u'el STL lleva las cotas y el modelo no'],
+         ok=1,
+         por=u'El modelo guarda <b>el &aacute;rbol de operaciones</b> y las medidas, y por eso puedes '
+             u'volver al paso 2 y cambiar una cota. El STL solo guarda v&eacute;rtices: es el fichero '
+             u'que le das a la m&aacute;quina, como el PDF que mandas a imprimir. Por eso se guardan '
+             u'los dos, y el que no se puede perder es el otro.'),
+
+    dict(p=u'Un agujero de &empty;8,30 se exporta a STL con <b>8</b> facetas. &iquest;Pasa por '
+           u'&eacute;l un eje de 8 mm?',
+         op=[u'no: el pol&iacute;gono inscrito deja pasar 8,30 &middot; cos(180&deg;/8) = 7,67',
+             u's&iacute;, porque el agujero sigue midiendo 8,30',
+             u's&iacute;, y adem&aacute;s con m&aacute;s holgura, porque el pol&iacute;gono tiene '
+             u'esquinas'],
+         ok=0,
+         por=u'El STL sustituye el c&iacute;rculo por un pol&iacute;gono <b>metido dentro</b>, que solo '
+             u'toca la circunferencia en los v&eacute;rtices. Lo que de verdad pasa es la distancia '
+             u'entre lados opuestos: D &middot; cos(180&deg;/N) = 8,30 &middot; 0,924 = <b>7,67 mm</b>. '
+             u'Con 16 facetas saldr&iacute;an 8,14, y ah&iacute; ya pasa.'),
+
+    dict(p=u'Las piezas suman 29 950 mm&sup2; y el tablero tiene 60 000. No caben. &iquest;Por '
+           u'qu&eacute;?',
+         op=[u'porque el tablero se mide por fuera y las piezas por dentro',
+             u'porque el hueco que sobra no est&aacute; junto: una pieza no se puede partir en dos '
+             u'recortes',
+             u'porque falta contar el peso del material'],
+         ok=1,
+         por=u'Lo que decide no es la superficie libre <b>total</b>, sino si queda un '
+             u'<b>rect&aacute;ngulo entero</b> donde quepa la pieza. Por eso el plan de corte se hace '
+             u'antes de cortar y se empieza por las piezas grandes: las peque&ntilde;as caben en '
+             u'cualquier hueco y las grandes no.'),
+
+    dict(p=u'Diez cortes con una sierra cuya sangr&iacute;a es de 2 mm. &iquest;Cu&aacute;nto tablero '
+           u'desaparece?',
+         op=[u'nada: la sangr&iacute;a sale del hueco entre piezas',
+             u'2 mm, que es lo que mide un corte',
+             u'20 mm de ancho de tablero, que es lo que hay que dejar entre pieza y pieza'],
+         ok=2,
+         por=u'Cada pasada convierte en serr&iacute;n su propio ancho: 10 &times; 2 = <b>20 mm</b>. Por '
+             u'eso en el plan de corte las piezas no se pegan unas a otras en el papel. Y si adem&aacute;s '
+             u'cortas por el centro de la raya en vez de por fuera, la mitad de esa sangr&iacute;a se la '
+             u'come la pieza.'),
+
+    dict(p=u'Un montaje tiene cuatro eslabones con tolerancias de 0,20, 0,30, 0,10 y 0,10 mm, y un juego '
+           u'nominal de 0,40. &iquest;Entre qu&eacute; valores puede quedar el juego?',
+         op=[u'entre 0,10 y 0,70, porque las tolerancias se compensan',
+             u'entre &minus;0,30 y 1,10: todas las tolerancias se suman, tengan el signo que tengan',
+             u'siempre 0,40, si las piezas cumplen'],
+         ok=1,
+         por=u'0,20 + 0,30 + 0,10 + 0,10 = <b>0,70</b>, y J = 0,40 &plusmn; 0,70. Se suman '
+             u'<b>todas</b>, tambi&eacute;n las de las cotas que restan, porque el peor caso es que el '
+             u'hueco salga m&iacute;nimo <b>a la vez</b> que lo que va dentro sale m&aacute;ximo. Y un '
+             u'juego negativo quiere decir que no entra.'),
+
+    dict(p=u'Tus seis cotas est&aacute;n pedidas con &plusmn;0,15 y la sierra con la que las haces '
+           u'dispersa &plusmn;0,50. Van a salir mal. &iquest;Qu&eacute; dices en la defensa?',
+         op=[u'que el grupo no ten&iacute;a buen pulso y hay que practicar m&aacute;s',
+             u'que la tolerancia era m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina, '
+             u'as&iacute; que el fallo est&aacute; en el plano y no en las manos',
+             u'que la sierra estaba desajustada y hay que mover el tope'],
+         ok=1,
+         por=u'Con &plusmn;0,50 de dispersi&oacute;n, una cota de &plusmn;0,15 <b>no se puede cumplir</b> '
+             u'por bien que se sierre: eso se decidi&oacute; al elegir la t&eacute;cnica, en la '
+             u'sesi&oacute;n 4. El <b>desajuste</b> es otra cosa &mdash;empuja todas las medidas al '
+             u'mismo lado y se corrige moviendo el tope&mdash;; la dispersi&oacute;n se aguanta o se '
+             u'cambia de m&aacute;quina.'),
+])
+
+S8_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+          u'&iquest;Por qu&eacute; no basta con ense&ntilde;ar la pieza y decir que funciona?',
+          u'<p>Porque funcionar no demuestra que est&eacute; bien hecha: puede haber tocado el lado '
+          u'bueno de la tolerancia. Si no sabes qu&eacute; pediste, <b>no puedes repetirla</b>; si no '
+          u'sabes cu&aacute;nto te has desviado, <b>no sabes qu&eacute; mejorar</b>. La prueba de que '
+          u'una pieza est&aacute; bien son n&uacute;meros, no que est&eacute; ah&iacute;.</p>'
+          ) + pregunta(
+          u'&iquest;Cu&aacute;l es la hoja m&aacute;s valiosa del expediente, y por qu&eacute; casi '
+          u'nadie la escribe?',
+          u'<p>La de <b>incidencias</b>: qu&eacute; fall&oacute;, qu&eacute; se cambi&oacute; y por '
+          u'qu&eacute;. Nadie la escribe porque parece que resta, y es al rev&eacute;s: es la que '
+          u'demuestra que hab&eacute;is entendido lo que hac&iacute;ais. Un proyecto sin incidencias no '
+          u'es perfecto, es un proyecto que <b>no se ha mirado</b>.</p>') + pregunta(
+          u'En la tabla de control, &iquest;para qu&eacute; sirve poner la desviaci&oacute;n en '
+          u'porcentaje de la tolerancia?',
+          u'<p>Porque un &laquo;pasa&raquo; al 20 % y un &laquo;pasa&raquo; al 95 % <b>no son lo '
+          u'mismo</b>. El primero se puede repetir; el segundo te va a fallar en la siguiente pieza. '
+          u'El veredicto solo dice s&iacute; o no; el porcentaje dice <b>cu&aacute;nto margen te '
+          u'queda</b>.</p>') + pregunta(
+          u'En la defensa te preguntan un dato que no hab&eacute;is medido. &iquest;Qu&eacute; se '
+          u'contesta?',
+          u'<p><b>&laquo;No lo hemos medido&raquo;</b>, y si acaso c&oacute;mo lo mediríais. Es una '
+          u'respuesta profesional y la usa todo el mundo que trabaja de esto. Inventarse un '
+          u'n&uacute;mero delante de alguien que sabe es la &uacute;nica manera segura de que se caiga '
+          u'el resto de lo que hab&eacute;is contado, que s&iacute; era verdad.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que llevas de la unidad entera</span>
+        Sabes hacer un <b>plano que otro puede fabricar</b> sin preguntarte nada, y elegir desde
+        d&oacute;nde se acota. Sabes escribir una cota <b>con su tolerancia</b> y calcular si dos
+        piezas van a encajar antes de tocar el material. Sabes decidir c&oacute;mo se unen y qu&eacute;
+        falla primero, con la cuenta delante. Sabes qu&eacute; te cuesta cada t&eacute;cnica y
+        qu&eacute; te obliga a cambiar en el dibujo. Sabes <b>modelar con par&aacute;metros</b>, para
+        que cambiar el servo sea mover un n&uacute;mero y no rehacer el proyecto. Sabes
+        <b>organizar el taller</b>: despiece, plan de corte y orden de operaciones. Sabes que el hueco
+        que decide si algo funciona <b>no lo dibuja nadie</b>, y sabes calcularlo. Y sabes
+        <b>defender la pieza con n&uacute;meros</b> en vez de con adjetivos.
+      </div>
+      <div class="nota">
+        <span class="n-tag">Lo que queda</span>
+        Toda esta unidad ha dado el material por supuesto: &laquo;contrachapado de 4&raquo;,
+        &laquo;PLA&raquo;, &laquo;aluminio&raquo;, y a seguir. En la <b>unidad 3</b> se abre esa caja:
+        de d&oacute;nde sale cada material, qu&eacute; propiedades te obligan a elegir uno u otro y
+        <b>qu&eacute; le cuesta al planeta</b> cada una de las decisiones que acabas de tomar
+        &mdash;incluida la de pegar en vez de atornillar&mdash;. Y la <b>unidad 9</b> recoge el
+        proyecto entero y lo pone delante de gente de fuera.
+      </div>
+'''
+
+
+# ==========================================================================
 # Montaje de la pagina
 # ==========================================================================
 S1 = (bloque('00', u'Reto inicial &middot; 10 min', S1_RETO) +
@@ -1268,12 +2495,39 @@ S4 = (bloque('00', u'Reto inicial &middot; 10 min', S4_RETO) +
       bloque('03', u'Autoevaluaci&oacute;n &middot; 10 min', S4_TEST) +
       bloque('04', u'Cierre &middot; 5 min', S4_CIERRE))
 
+S5 = (bloque('00', u'Reto inicial &middot; 10 min', S5_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S5_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S5_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S5_CIERRE))
+
+S6 = (bloque('00', u'Reto inicial &middot; 10 min', S6_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S6_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S6_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S6_CIERRE))
+
+S7 = (bloque('00', u'Reto inicial &middot; 10 min', S7_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S7_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S7_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S7_CIERRE))
+
+S8 = (bloque('00', u'Reto inicial &middot; 10 min', S8_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 20 min', S8_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 15 min', S8_PRACTICA) +
+      bloque('03', u'Autoevaluaci&oacute;n &middot; 10 min', S8_TEST) +
+      bloque('04', u'Cierre &middot; 5 min', S8_CIERRE))
+
 MIN4 = [(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')]
+MIN5 = [(u"10'", u'Reto'), (u"20'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
+        (u"10'", u'Test'), (u"5'", u'Cierre')]
 
 CH1 = [u'CE2 &middot; 2.1', u'CE3 &middot; 3.1', u'A.2 &middot; A.3.1']
 CH2 = [u'CE2 &middot; 2.1 &middot; 2.2', u'A.2.2 &middot; A.3']
 CH3 = [u'CE2 &middot; 2.2', u'A.3']
 CH4 = [u'CE2 &middot; 2.1 &middot; 2.2', u'CE5 &middot; 5.1', u'A.3 &middot; D.4']
+CH5 = [u'CE5 &middot; 5.1', u'CE2 &middot; 2.1', u'A.3 &middot; D.4']
+CH6 = [u'CE2 &middot; 2.1 &middot; 2.2', u'CE3 &middot; 3.1', u'A.3']
+CH7 = [u'CE2 &middot; 2.2', u'CE3 &middot; 3.1', u'A.2.2 &middot; A.3']
+CH8 = [u'CE3 &middot; 3.1 &middot; 3.2', u'CE2 &middot; 2.2', u'A.1.4 &middot; A.4']
 
 S = [
     dict(corto=u'El plano que se fabrica',
@@ -1303,11 +2557,34 @@ S = [
                    (u"10'", u'Test'), (u"5'", u'Cierre')],
          chips=CH4, cuerpo=S4),
 
-    # --- las cuatro que faltan, con el titulo que se propone para cada una ---
-    dict(corto=u'Modelarlo en 3D', pendiente=True),
-    dict(corto=u'Organizar la fabricaci&oacute;n', pendiente=True),
-    dict(corto=u'Montar y ajustar', pendiente=True),
-    dict(corto=u'Contarlo y defenderlo', pendiente=True),
+    # --- segunda mitad: las cuatro siguen la MISMA pieza, el soporte del
+    #     deposito del riego, desde el modelo hasta la defensa ---
+    dict(corto=u'Modelarlo en 3D',
+         titulo=u'El servo mide 23 y no 20',
+         entradilla=u'Con las medidas escritas a mano, cambiar un dato es repasar el modelo entero y '
+                    u'rezar. Con par&aacute;metros, es mover un n&uacute;mero. Y hay un tercer sitio '
+                    u'donde el agujero encoge: al exportarlo.',
+         minutado=MIN4, chips=CH5, cuerpo=S5),
+
+    dict(corto=u'Organizar la fabricaci&oacute;n',
+         titulo=u'Se acab&oacute; el tablero con dos piezas por cortar',
+         entradilla=u'Las piezas ocupaban 29 950 mm&sup2; y el tablero ten&iacute;a 60 000. Nadie ha '
+                    u'cortado mal: han cortado en el orden que fue saliendo.',
+         minutado=MIN4, chips=CH6, cuerpo=S6),
+
+    dict(corto=u'Montar y ajustar',
+         titulo=u'La cota que no dibuj&oacute; nadie',
+         entradilla=u'Las cuatro piezas est&aacute;n dentro de su tolerancia y el dep&oacute;sito no '
+                    u'gira. Lo que falla es una medida que no aparece en ning&uacute;n plano porque '
+                    u'no es de ninguna pieza.',
+         minutado=MIN4, chips=CH7, cuerpo=S7),
+
+    dict(corto=u'Contarlo y defenderlo',
+         titulo=u'&laquo;Nos ha quedado muy bien&raquo; no es una respuesta',
+         entradilla=u'Ense&ntilde;as la pieza y funciona. Te preguntan qu&eacute; tolerancia pediste y '
+                    u'cu&aacute;nto te has desviado. Ah&iacute; se acaba el proyecto o empieza la '
+                    u'defensa.',
+         minutado=MIN5, chips=CH8, cuerpo=S8),
 ]
 
 CFG = dict(
@@ -1319,8 +2596,9 @@ CFG = dict(
     tema=u'Tema 2', curso=u'4.&ordm; de ESO', materia=u'Tecnolog&iacute;a',
     desc=u'Unidad 2 de Tecnolog&iacute;a de 4.&ordm; de ESO: croquis y plano acotado, acotaci&oacute;n '
          u'en cadena frente a acotaci&oacute;n desde una referencia, tolerancias y ajustes, uniones '
-         u'fijas y desmontables, y t&eacute;cnicas de fabricaci&oacute;n del aula. Con escenas '
-         u'interactivas que calculan.',
+         u'fijas y desmontables, t&eacute;cnicas de fabricaci&oacute;n del aula, modelado 3D con '
+         u'par&aacute;metros, plan de corte, cadena de cotas del montaje y defensa de la pieza con '
+         u'control dimensional. Ocho sesiones con escenas interactivas que calculan.',
     sesiones=S)
 
 

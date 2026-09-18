@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tema 2 &middot; Dise&ntilde;o y fabricaci&oacute;n</title>
-<meta name="description" content="Unidad 2 de Tecnolog&iacute;a de 4.&ordm; de ESO: croquis y plano acotado, acotaci&oacute;n en cadena frente a acotaci&oacute;n desde una referencia, tolerancias y ajustes, uniones fijas y desmontables, y t&eacute;cnicas de fabricaci&oacute;n del aula. Con escenas interactivas que calculan.">
+<meta name="description" content="Unidad 2 de Tecnolog&iacute;a de 4.&ordm; de ESO: croquis y plano acotado, acotaci&oacute;n en cadena frente a acotaci&oacute;n desde una referencia, tolerancias y ajustes, uniones fijas y desmontables, t&eacute;cnicas de fabricaci&oacute;n del aula, modelado 3D con par&aacute;metros, plan de corte, cadena de cotas del montaje y defensa de la pieza con control dimensional. Ocho sesiones con escenas interactivas que calculan.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema2/">
@@ -294,7 +294,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 2</div>
     <h1>Dise&ntilde;o y fabricaci&oacute;n: del material al producto</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El plano que se fabrica</button><button type="button" data-ses="2">S2 &middot; Tolerancias y ajustes</button><button type="button" data-ses="3">S3 &middot; Uniones</button><button type="button" data-ses="4">S4 &middot; Del plano a la pieza</button><button type="button" data-ses="5" disabled>S5 &middot; Modelarlo en 3D</button><button type="button" data-ses="6" disabled>S6 &middot; Organizar la fabricaci&oacute;n</button><button type="button" data-ses="7" disabled>S7 &middot; Montar y ajustar</button><button type="button" data-ses="8" disabled>S8 &middot; Contarlo y defenderlo</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El plano que se fabrica</button><button type="button" data-ses="2">S2 &middot; Tolerancias y ajustes</button><button type="button" data-ses="3">S3 &middot; Uniones</button><button type="button" data-ses="4">S4 &middot; Del plano a la pieza</button><button type="button" data-ses="5">S5 &middot; Modelarlo en 3D</button><button type="button" data-ses="6">S6 &middot; Organizar la fabricaci&oacute;n</button><button type="button" data-ses="7">S7 &middot; Montar y ajustar</button><button type="button" data-ses="8">S8 &middot; Contarlo y defenderlo</button></nav>
   </div>
 </header>
 
@@ -2688,13 +2688,2599 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>El servo mide 23 y no 20</h2>
+      <p>Con las medidas escritas a mano, cambiar un dato es repasar el modelo entero y rezar. Con par&aacute;metros, es mover un n&uacute;mero. Y hay un tercer sitio donde el agujero encoge: al exportarlo.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE5 &middot; 5.1</span><span class="chip">CE2 &middot; 2.1</span><span class="chip sab">A.3 &middot; D.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <p>Se acab&oacute; el l&aacute;piz. A partir de aqu&iacute; la unidad sigue <b>una sola
+         pieza</b> del proyecto principal, el <b>riego autom&aacute;tico</b>: el
+         <b>soporte del dep&oacute;sito</b>, esa U de dos flancos y una base por la que pasa el eje
+         sobre el que bascula el dep&oacute;sito, y que lleva el servo metido en medio. La vais a
+         modelar hoy, a cortar en la sesi&oacute;n que viene, a montar en la siguiente y a defender
+         en la &uacute;ltima.</p>
+      <p>&iquest;Por qu&eacute; hace falta modelarla, si el plano de la sesi&oacute;n 1 ya estaba
+         bien? Por una raz&oacute;n muy tonta: <b>las m&aacute;quinas no leen planos</b>. El
+         l&aacute;ser quiere un fichero de l&iacute;neas y la impresora quiere un fichero de
+         s&oacute;lido. El plano es para las personas.</p>
+      <p>As&iacute; que el grupo abre <b>Tinkercad</b> y hace lo que hace todo el mundo: arrastra
+         cajas, las estira hasta que se parecen al dibujo, escribe las medidas a mano en cada una y
+         las coloca a ojo. Y queda <b>bien</b>. En la pantalla no se distingue de un modelo hecho por
+         un ingeniero.</p>
+      <p>Tres d&iacute;as despu&eacute;s llega el paquete con los servos. Y el servo que ha llegado
+         mide <b>23 mm</b> de ancho, no los 20 que hab&iacute;ais supuesto.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Es un cambio de <b>tres mil&iacute;metros</b> en una pieza de tu proyecto.
+           &iquest;Cu&aacute;ntas medidas del modelo hay que corregir? Escribe tu n&uacute;mero antes
+           de seguir, y escribe tambi&eacute;n <b>c&oacute;mo lo sabr&iacute;as</b>.</p>
+      </div>
+      <p>La respuesta honrada es: <b>no lo sabes</b>. En un modelo hecho de cajas con medidas escritas
+         a mano no hay forma de saber cu&aacute;les depend&iacute;an de ese 20. Hay que repasarlas una
+         a una, acordarse de por qu&eacute; se puso cada n&uacute;mero, y rezar. El hueco de dentro
+         cambia; si cambia el hueco, cambia el ancho de la base; si cambia el ancho de la base,
+         cambia el largo de la varilla del eje&hellip; y si a alguien se le escapa una, esa pieza
+         sale mal y no te enteras hasta el montaje.</p>
+      <p>Hay otra manera de modelar, y es la de esta sesi&oacute;n: en vez de <b>escribir</b> cada
+         medida, se <b>deduce</b> de las anteriores. El ancho de la base no es 28,6: es
+         <i>hueco m&aacute;s dos espesores</i>. Entonces cambiar el servo de 20 a 23 es mover
+         <b>un</b> n&uacute;mero, y las dem&aacute;s medidas se recalculan solas y sin fallo.</p>
+      <div class="aviso">
+        <span class="n-tag">Y todav&iacute;a hay una segunda sorpresa</span>
+        Aunque el modelo est&eacute; perfecto, el agujero que pone <b>&empty;8,30</b> en el modelo
+        sale de la impresora <b>m&aacute;s peque&ntilde;o</b>, y el eje de 8 no pasa. No es culpa de
+        la impresora ni del modelo: es del <b>fichero que hay en medio</b>. Y eso tambi&eacute;n se
+        calcula.
+      </div>
 
-  <div id="ses-7" hidden><div class="ses-head"><h2>Sesi&oacute;n 7 en preparaci&oacute;n</h2></div></div>
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
-  <div id="ses-8" hidden><div class="ses-head"><h2>Sesi&oacute;n 8 en preparaci&oacute;n</h2></div></div>
+      <h3>Tres maneras de guardar una pieza en un ordenador</h3>
+      <div class="copiar">
+        <h4>Malla, s&oacute;lido y param&eacute;trico</h4>
+        <p><b>Malla</b> (ficheros <b>STL</b>, OBJ, 3MF): la pieza es una <b>piel de tri&aacute;ngulos</b>.
+           Dentro no hay ninguna medida: no se le puede preguntar &laquo;&iquest;cu&aacute;nto mide
+           este agujero?&raquo;, porque el agujero no existe como tal, solo hay tri&aacute;ngulos
+           puestos en c&iacute;rculo. Es lo que <b>comen las m&aacute;quinas</b>.</p>
+        <p><b>S&oacute;lido por operaciones</b> (Tinkercad, FreeCAD, Onshape, Fusion): la pieza no es
+           una forma, es <b>la lista de lo que has hecho</b>: un prisma, menos un cilindro, m&aacute;s
+           un redondeo. Esa lista se llama <b>&aacute;rbol</b>, y se puede volver atr&aacute;s y
+           cambiar el paso 2 sin tocar el 3 ni el 4.</p>
+        <p><b>Param&eacute;trico</b>: encima de lo anterior, cada medida puede ser una <b>f&oacute;rmula</b>
+           que usa otras. Mueves una y se mueve la pieza entera.</p>
+        <p>Regla para saber en cu&aacute;l est&aacute;s: <b>&iquest;puedes cambiar una medida sin
+           volver a dibujar?</b> Si la respuesta es no, tienes una malla aunque el programa te
+           ense&ntilde;e un s&oacute;lido precioso.</p>
+      </div>
+      <div class="copiar">
+        <h4>Modelar por operaciones: cinco verbos y nada m&aacute;s</h4>
+        <ul>
+          <li><b>Extruir</b>: coges un perfil plano y lo haces crecer en altura. Es el verbo
+              principal: casi todas vuestras piezas son un perfil recortado con un espesor.</li>
+          <li><b>Revolucionar</b>: giras un perfil alrededor de un eje. Todo lo que sea redondo por
+              fuera &mdash;una polea, un casquillo&mdash; sale de aqu&iacute;.</li>
+          <li><b>Restar</b>: metes un cuerpo dentro de otro y lo conviertes en hueco. As&iacute; se
+              hacen <b>todos</b> los agujeros. En Tinkercad se llama &laquo;agujero&raquo; y luego
+              <b>Agrupar</b>.</li>
+          <li><b>Unir</b>: dos cuerpos pasan a ser uno solo.</li>
+          <li><b>Repetir</b>: simetr&iacute;a y matriz. Los dos flancos del soporte son
+              <b>el mismo</b> reflejado, no dos piezas dibujadas dos veces. Si son lo mismo, se
+              modelan una vez.</li>
+        </ul>
+        <p><b>El orden importa</b>, y esa es la diferencia entre el &aacute;rbol y un dibujo. Si
+           redondeas la esquina y <b>despu&eacute;s</b> taladras el agujero al lado, al mover el
+           agujero el redondeo sigue donde estaba. Al rev&eacute;s, no.</p>
+      </div>
+      <div class="copiar">
+        <h4>Qu&eacute; es par&aacute;metro y qu&eacute; se deduce</h4>
+        <p>Esta es la decisi&oacute;n de la sesi&oacute;n, y no es de programa: es de dise&ntilde;o.</p>
+        <p><b>Par&aacute;metro es lo que te imponen desde fuera</b> y t&uacute; no puedes cambiar: el
+           ancho del servo que hab&eacute;is comprado, el di&aacute;metro de la varilla que venden, el
+           espesor del tablero que hay en el almac&eacute;n. Y una m&aacute;s, que s&iacute; eliges
+           t&uacute;: la <b>holgura</b> de la sesi&oacute;n 2.</p>
+        <p><b>Todo lo dem&aacute;s se deduce.</b> Si una medida la puedes escribir como cuenta de
+           otras, <b>no la escribas como n&uacute;mero</b>. En el soporte:</p>
+        <ul>
+          <li>&empty; del agujero = &empty; del eje + holgura &nbsp;<i>(sesi&oacute;n 2)</i></li>
+          <li>distancia del centro al canto = <b>3</b> &times; &empty; del agujero
+              &nbsp;<i>(sesi&oacute;n 3: dos di&aacute;metros en pl&aacute;stico o metal y tres en
+              madera o tablero, y el soporte es de contrachapado)</i></li>
+          <li>lado del flanco = 2 &times; esa distancia</li>
+          <li>hueco interior = ancho del servo + 2 holguras</li>
+          <li>ancho de la base = hueco + 2 espesores</li>
+        </ul>
+        <p>Cinco f&oacute;rmulas, y el modelo entero cuelga de cuatro n&uacute;meros. Tinkercad no
+           tiene f&oacute;rmulas, as&iacute; que en Tinkercad esa tabla se escribe <b>en la
+           libreta</b> y se aplica a mano &mdash;que sigue siendo infinitamente mejor que no
+           tenerla&mdash;. FreeCAD y Onshape s&iacute; las tienen.</p>
+      </div>
+      <p>Al banco. A la izquierda est&aacute; el modelo que se recalcula; a la derecha, las piezas que
+         ya se cortaron con las medidas del primer d&iacute;a. Pulsa <b>Llega el servo de verdad</b>
+         antes que nada.</p>
+
+      <div class="escena" id="esc-md">
+        <div class="escena-barra">
+          <span class="escena-titulo">El soporte del dep&oacute;sito &middot; el mismo modelo con par&aacute;metros y con n&uacute;meros a mano</span>
+          <div class="seg">
+            <button type="button" data-a="servo">Llega el servo de verdad</button>
+            <button type="button" data-a="reset">Valores de partida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 452" id="svg-md" role="img"
+               aria-label="El flanco del soporte con su agujero facetado, el conjunto montado con el servo dentro y la cadena de medidas que se deducen unas de otras"></svg>
+          <div class="md-mandos">
+            <div class="md-fila">
+              <label for="md-ds">&empty; del eje que hab&eacute;is comprado</label>
+              <input type="range" id="md-ds" min="4" max="12" step="1" value="8">
+              <span class="val" id="md-ds-v">8 mm</span>
+            </div>
+            <div class="md-fila">
+              <label for="md-hol">Holgura de montaje que pides</label>
+              <input type="range" id="md-hol" min="10" max="100" step="5" value="30">
+              <span class="val" id="md-hol-v">0,30 mm</span>
+            </div>
+            <div class="md-fila">
+              <label for="md-as">Ancho del servo que va dentro</label>
+              <input type="range" id="md-as" min="15" max="40" step="1" value="20">
+              <span class="val" id="md-as-v">20 mm</span>
+            </div>
+            <div class="md-fila">
+              <label for="md-t">Espesor del tablero</label>
+              <input type="range" id="md-t" min="2" max="8" step="1" value="4">
+              <span class="val" id="md-t-v">4 mm</span>
+            </div>
+            <div class="md-fila">
+              <label for="md-n">Facetas del c&iacute;rculo al exportar el STL</label>
+              <input type="range" id="md-n" min="0" max="7" step="1" value="3">
+              <span class="val" id="md-n-v">16</span>
+            </div>
+          </div>
+          <div class="md-tablero">
+            <div class="md-caja md-vivo">
+              <h5>Modelo vivo &middot; cada medida es una f&oacute;rmula</h5>
+              <p class="md-num" id="md-vivo-n">&mdash;</p>
+              <p class="md-det" id="md-vivo-d"></p>
+            </div>
+            <div class="md-caja md-tonto">
+              <h5>Modelo tonto &middot; medidas escritas a mano</h5>
+              <p class="md-num" id="md-tonto-n">&mdash;</p>
+              <p class="md-det" id="md-tonto-d"></p>
+            </div>
+            <div class="md-caja md-stl">
+              <h5>Al exportarlo a STL</h5>
+              <p class="md-num" id="md-stl-n">&mdash;</p>
+              <p class="md-det" id="md-stl-d"></p>
+            </div>
+          </div>
+          <p class="md-cuenta" id="md-cuenta"></p>
+        </div>
+        <div class="pie" id="pie-md"></div>
+      </div>
+
+      <style>
+      .md-mandos{margin-top:10px}
+      .md-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 7px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .md-fila label{min-width:262px}
+      .md-fila input[type="range"]{flex:1 1 150px;min-width:120px;accent-color:var(--goo-azul)}
+      .md-fila .val{font-weight:500;color:var(--goo-azul);min-width:72px;text-align:right}
+      .md-tablero{display:flex;gap:11px;flex-wrap:wrap;margin-top:12px}
+      .md-caja{flex:1 1 200px;min-width:198px;border:1.5px solid var(--line);border-radius:2px;
+        padding:11px 13px;background:var(--surface)}
+      .md-caja h5{margin:0 0 6px;font:500 11.5px var(--f-m);letter-spacing:.05em;text-transform:uppercase;
+        color:var(--ink-soft)}
+      .md-vivo{border-left:5px solid var(--goo-verde)}
+      .md-tonto{border-left:5px solid var(--goo-rojo)}
+      .md-stl{border-left:5px solid var(--goo-amarillo)}
+      .md-num{margin:0;font-family:var(--f-m);font-size:20px;font-weight:500;color:var(--ink)}
+      .md-det{margin:5px 0 0;font-family:var(--f-m);font-size:11.5px;line-height:1.75;color:var(--ink-soft)}
+      .md-det b{color:var(--ink)}
+      .md-cuenta{margin:12px 0 0;font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+      .md-cuenta b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-md');
+        if(!svg) return;
+        var caja = document.getElementById('esc-md');
+        var pie  = document.getElementById('pie-md');
+
+        /* ---- los cinco parametros ---------------------------------------
+           ds  diametro del eje que se COMPRA calibrado (S2: el agujero se
+               mueve, el eje no)
+           hol holgura de montaje que se le pide al agujero
+           as  ancho del servo que va metido entre los dos flancos
+           t   espesor del tablero
+           n   facetas con las que se exporta el circulo a STL            */
+        var FACETAS = [6, 8, 12, 16, 24, 32, 48, 64];
+        var INI = {ds: 8, hol: 0.30, as: 20, t: 4, ni: 3};
+        var v = {ds: 8, hol: 0.30, as: 20, t: 4, ni: 3};
+
+        /* ---- el modelo vivo: siete medidas, todas deducidas -------------
+           D      diametro del agujero      = eje + holgura
+           borde  distancia del centro al canto = 3 diametros. La regla de la
+                  sesion 3 pide 2 en plastico o metal y 3 EN MADERA O TABLERO,
+                  y el soporte es de contrachapado: manda el 3.
+           W = H  lado del flanco           = 2 veces esa distancia
+           hueco  hueco interior            = servo + 2 holguras
+           B      ancho exterior de la base = hueco + 2 espesores
+           Lb     largo de la base          = lado del flanco + 20 de reborde
+           Lv     largo de la varilla       = ancho exterior + 10 de saliente  */
+        function vivo(p){
+          var D = p.ds + p.hol;
+          var borde = 3 * D;
+          var W = 2 * borde;
+          var hueco = p.as + 2 * p.hol;
+          var B = hueco + 2 * p.t;
+          return {D: D, borde: borde, W: W, H: W, hueco: hueco, B: B,
+                  Lb: W + 20, Lv: B + 10};
+        }
+        var TONTO = vivo(INI);        /* las medidas del primer dia, congeladas */
+
+        /* El cero negativo: una resta que da -0,0000001 se escribiria "-0,00",
+           que en una pantalla de clase parece un error. Se redondea antes. */
+        function z(x){ return Math.abs(x) < 0.0005 ? 0 : x; }
+        function m1(x){ return z(x).toFixed(1).replace('.', ','); }
+        function m2(x){ return z(x).toFixed(2).replace('.', ','); }
+        function s2(x){ return (z(x) >= 0 ? '+' : '&minus;')
+          + Math.abs(z(x)).toFixed(2).replace('.', ','); }
+
+        function calcula(){
+          var V = vivo(v), N = FACETAS[v.ni];
+          /* cuantas de las siete medidas deducidas se han movido */
+          var claves = ['D', 'borde', 'W', 'hueco', 'B', 'Lb', 'Lv'], movidas = 0, k;
+          for(k = 0; k < claves.length; k++){
+            if(Math.abs(V[claves[k]] - TONTO[claves[k]]) > 1e-9) movidas++;
+          }
+          /* las dos interferencias del modelo tonto: las piezas ya estan
+             cortadas con las medidas viejas y ahora no admiten lo de hoy */
+          var intServo = V.hueco - TONTO.hueco;      /* >0: el servo no entra */
+          var intEje = v.ds - TONTO.D;               /* >0: el eje no pasa    */
+          var bordeTonto = (TONTO.W - TONTO.D) / 2;  /* lo que queda de canto */
+          /* el agujero exportado: poligono INSCRITO de N lados */
+          var cosf = Math.cos(Math.PI / N);
+          var Def = V.D * cosf;                      /* lo que de verdad pasa */
+          var flecha = V.D / 2 * (1 - cosf);         /* material que sobra    */
+          var holReal = Def - v.ds;
+          /* facetas minimas para que el eje entre: D*cos(pi/N) >= ds */
+          var r = v.ds / V.D, nmin;
+          nmin = (r >= 1) ? Infinity : Math.ceil(Math.PI / Math.acos(r));
+          if(nmin < 3) nmin = 3;
+          return {V: V, N: N, movidas: movidas, intServo: intServo, intEje: intEje,
+                  bordeTonto: bordeTonto, Def: Def, flecha: flecha, holReal: holReal,
+                  nmin: nmin};
+        }
+
+        function poligono(cx, cy, r, N, giro){
+          var p = [], k, a;
+          for(k = 0; k < N; k++){
+            a = giro + 2 * Math.PI * k / N;
+            p.push((cx + r * Math.cos(a)).toFixed(2) + ',' + (cy + r * Math.sin(a)).toFixed(2));
+          }
+          return p.join(' ');
+        }
+
+        function pinta(){
+          var C = calcula(), V = C.V;
+          var m = '';
+          var ESC = 3.0;                      /* px por mm, FIJO: las piezas crecen */
+
+          /* ============ izquierda: el flanco, de frente ============ */
+          var FX = 62, FY = 44;
+          m += '<text x="24" y="26" class="etq">El flanco, a escala fija</text>';
+          m += '<rect x="' + FX + '" y="' + FY + '" width="' + (V.W * ESC).toFixed(1)
+             + '" height="' + (V.H * ESC).toFixed(1) + '" rx="2" fill="var(--surface-2)"'
+             + ' stroke="currentColor" stroke-width="1.5"/>';
+          var fcx = FX + V.W * ESC / 2, fcy = FY + V.H * ESC / 2;
+          /* el agujero ideal, a trazos, y el poligono que de verdad se exporta */
+          m += '<circle cx="' + fcx.toFixed(1) + '" cy="' + fcy.toFixed(1) + '" r="'
+             + (V.D / 2 * ESC).toFixed(2) + '" fill="none" stroke="currentColor"'
+             + ' stroke-width="1" stroke-dasharray="4 3" opacity=".6"/>';
+          m += '<polygon points="' + poligono(fcx, fcy, V.D / 2 * ESC, C.N, -Math.PI / 2)
+             + '" fill="var(--paper)" stroke="#1a73e8" stroke-width="1.8"/>';
+          /* las dos cotas del canto */
+          /* El numero va a la IZQUIERDA de la linea de cota: con el eje mas fino
+             la pieza se encoge y, puesto a la derecha, el numero le caia encima. */
+          function cotaV(x, y1, y2, txt){
+            return '<line x1="' + x + '" y1="' + y1 + '" x2="' + x + '" y2="' + y2
+                 + '" stroke="currentColor" stroke-width="1"/>'
+                 + '<text x="' + (x - 4) + '" y="' + ((y1 + y2) / 2 + 4)
+                 + '" class="ejeq" text-anchor="end">' + txt + '</text>';
+          }
+          m += cotaV(FX - 12, FY, fcy, m1(V.borde));
+          m += '<line x1="' + (FX - 17) + '" y1="' + FY + '" x2="' + (FX - 7) + '" y2="' + FY
+             + '" stroke="currentColor" stroke-width="1"/>';
+          m += '<text x="24" y="' + (FY + V.H * ESC + 18) + '" class="ejeq">lado ' + m1(V.W)
+             + ' &middot; &empty; ' + m2(V.D) + ' &middot; canto ' + m1(V.borde) + '</text>';
+
+          /* ============ derecha: el conjunto, de frente ============ */
+          var CX = 300, CY0 = 44;
+          m += '<text x="290" y="26" class="etq">El conjunto montado &middot; a trazos, lo ya '
+             + 'cortado</text>';
+          var altoV = v.t + V.H, altoT = INI.t + TONTO.H;
+          var base = CY0 + Math.max(altoV, altoT) * ESC;      /* el suelo comun */
+          /* las piezas del modelo TONTO, a trazos */
+          m += '<rect x="' + CX + '" y="' + (base - INI.t * ESC).toFixed(1) + '" width="'
+             + (TONTO.B * ESC).toFixed(1) + '" height="' + (INI.t * ESC).toFixed(1)
+             + '" fill="none" stroke="#ea4335" stroke-width="1.3" stroke-dasharray="5 3"/>';
+          m += '<rect x="' + CX + '" y="' + (base - (INI.t + TONTO.H) * ESC).toFixed(1)
+             + '" width="' + (INI.t * ESC).toFixed(1) + '" height="' + (TONTO.H * ESC).toFixed(1)
+             + '" fill="none" stroke="#ea4335" stroke-width="1.3" stroke-dasharray="5 3"/>';
+          m += '<rect x="' + (CX + (TONTO.B - INI.t) * ESC).toFixed(1) + '" y="'
+             + (base - (INI.t + TONTO.H) * ESC).toFixed(1) + '" width="' + (INI.t * ESC).toFixed(1)
+             + '" height="' + (TONTO.H * ESC).toFixed(1)
+             + '" fill="none" stroke="#ea4335" stroke-width="1.3" stroke-dasharray="5 3"/>';
+          /* las piezas del modelo VIVO, macizas */
+          m += '<rect x="' + CX + '" y="' + (base - v.t * ESC).toFixed(1) + '" width="'
+             + (V.B * ESC).toFixed(1) + '" height="' + (v.t * ESC).toFixed(1)
+             + '" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"/>';
+          var k2;
+          for(k2 = 0; k2 < 2; k2++){
+            m += '<rect x="' + (CX + k2 * (V.B - v.t) * ESC).toFixed(1) + '" y="'
+               + (base - (v.t + V.H) * ESC).toFixed(1) + '" width="' + (v.t * ESC).toFixed(1)
+               + '" height="' + (V.H * ESC).toFixed(1)
+               + '" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"/>';
+          }
+          /* el eje, atravesando los dos flancos */
+          var ejeY = base - (v.t + V.H / 2) * ESC;
+          m += '<rect x="' + (CX - 5 * ESC).toFixed(1) + '" y="' + (ejeY - v.ds / 2 * ESC).toFixed(1)
+             + '" width="' + (V.Lv * ESC).toFixed(1) + '" height="' + (v.ds * ESC).toFixed(1)
+             + '" rx="1.5" fill="#1a73e8" opacity=".55"/>';
+          /* El servo de verdad, apoyado en la base y metido en el hueco que ya
+             esta cortado: su cara izquierda deja la holgura contra el flanco
+             izquierdo, que es como se monta. Su cara derecha puede llegar como
+             mucho hasta el flanco de la derecha menos otra holgura; lo que
+             pase de ahi es la INTERFERENCIA, y mide exactamente lo mismo que
+             la cuenta de la caja: hueco que pide - hueco que hay. */
+          var sAl = 0.85 * v.as, sIzq = INI.t + v.hol, sDer = sIzq + v.as;
+          var sLim = INI.t + TONTO.hueco - v.hol;
+          var sx = CX + sIzq * ESC;
+          m += '<rect x="' + sx.toFixed(1) + '" y="' + (base - (v.t + sAl) * ESC).toFixed(1)
+             + '" width="' + (v.as * ESC).toFixed(1) + '" height="' + (sAl * ESC).toFixed(1)
+             + '" fill="#34a853" opacity=".3" stroke="#34a853" stroke-width="1.5"/>';
+          m += '<text x="' + (sx + v.as * ESC / 2).toFixed(1) + '" y="'
+             + (base - (v.t + sAl / 2) * ESC + 4).toFixed(1)
+             + '" class="ejeq" text-anchor="middle">servo</text>';
+          if(C.intServo > 1e-9){
+            m += '<rect x="' + (CX + sLim * ESC).toFixed(1) + '" y="'
+               + (base - (v.t + sAl) * ESC).toFixed(1) + '" width="'
+               + ((sDer - sLim) * ESC).toFixed(1) + '" height="' + (sAl * ESC).toFixed(1)
+               + '" fill="#ea4335" opacity=".5"/>';
+            m += '<text x="' + (CX + TONTO.B * ESC / 2).toFixed(1) + '" y="' + (base + 20)
+               + '" class="etq" text-anchor="middle" fill="#ea4335">no entra por '
+               + m1(C.intServo) + ' mm</text>';
+          }
+          m += '<text x="290" y="' + (base + 38) + '" class="ejeq">vivo: base de ' + m1(V.B)
+             + ' &times; ' + m1(V.Lb) + ' &middot; cortado: ' + m1(TONTO.B) + ' &times; '
+             + m1(TONTO.Lb) + '</text>';
+
+          /* ============ abajo a la izquierda: el agujero de cerca ============
+             La mitad de abajo empieza donde acaba el conjunto, que crece con
+             los parametros. Para que no quede un agujero blanco en medio (ni
+             se salga por abajo con los valores grandes), el alto del viewBox
+             se recalcula tambien. */
+          var YB = base + 74;
+          var LUP = 110 / V.D, lx = 118, ly = YB + 74;
+          m += '<text x="24" y="' + YB + '" class="ejeq">El agujero exportado, a '
+             + Math.round(LUP / ESC) + ' aumentos</text>';
+          m += '<circle cx="' + lx + '" cy="' + ly + '" r="' + (V.D / 2 * LUP).toFixed(1)
+             + '" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 4"'
+             + ' opacity=".6"/>';
+          m += '<polygon points="' + poligono(lx, ly, V.D / 2 * LUP, C.N, -Math.PI / 2)
+             + '" fill="var(--paper)" stroke="#1a73e8" stroke-width="2"/>';
+          m += '<circle cx="' + lx + '" cy="' + ly + '" r="' + (v.ds / 2 * LUP).toFixed(1)
+             + '" fill="' + (C.holReal >= 0 ? '#34a853' : '#ea4335') + '" opacity=".45"/>';
+          m += '<text x="' + lx + '" y="' + (ly + V.D / 2 * LUP + 20).toFixed(1)
+             + '" class="etq" text-anchor="middle">' + (C.holReal >= 0 ? 'el eje pasa'
+             : 'el eje NO pasa') + '</text>';
+
+          /* ============ abajo a la derecha: la cadena de medidas ============ */
+          m += '<text x="290" y="' + YB + '" class="ejeq">De d&oacute;nde sale cada medida</text>';
+          var CADENA = [
+            ['&empty; eje ' + m1(v.ds) + ' + holgura ' + m2(v.hol), '&empty; agujero = ' + m2(V.D)],
+            ['&empty; agujero &times; 3 (en tablero)', 'canto = ' + m1(V.borde)],
+            ['canto &times; 2', 'lado del flanco = ' + m1(V.W)],
+            ['servo ' + v.as + ' + 2 holguras', 'hueco = ' + m1(V.hueco)],
+            ['hueco + 2 espesores', 'ancho de la base = ' + m1(V.B)]
+          ];
+          var cy0 = YB + 10, i2;
+          for(i2 = 0; i2 < CADENA.length; i2++){
+            var yy = cy0 + i2 * 27;
+            m += '<text x="292" y="' + (yy + 11) + '" class="ejeq">' + CADENA[i2][0] + '</text>';
+            m += '<path d="M 494 ' + (yy + 7) + ' L 512 ' + (yy + 7) + ' M 506 ' + (yy + 3)
+               + ' L 512 ' + (yy + 7) + ' L 506 ' + (yy + 11) + '" fill="none"'
+               + ' stroke="var(--goo-verde)" stroke-width="1.6"/>';
+            m += '<text x="518" y="' + (yy + 11) + '" class="etq">' + CADENA[i2][1] + '</text>';
+          }
+
+          svg.setAttribute('viewBox', '0 0 690 '
+            + Math.ceil(Math.max(ly + V.D / 2 * LUP + 30, cy0 + CADENA.length * 27 + 8)));
+          svg.innerHTML = m;
+
+          /* ---------------- los numeros ---------------- */
+          /* Los numeros que comprueba c2_verifica.py llevan su propio id: asi
+             la comprobacion lee EL numero y no el trozo de frase que le toque. */
+          document.getElementById('md-vivo-n').innerHTML =
+            C.movidas ? C.movidas + ' de 7 recalculadas' : 'todo en su sitio';
+          document.getElementById('md-vivo-d').innerHTML =
+            (C.movidas
+             ? 'Has movido un par&aacute;metro y la cadena se ha rehecho sola: <b><span '
+               + 'id="md-movidas">' + C.movidas + '</span></b> de las siete medidas deducidas han '
+               + 'cambiado.<br>'
+             : 'Las siete medidas salen de una f&oacute;rmula, y de momento no se ha movido ninguna '
+               + '(<span id="md-movidas">0</span>). Mueve un mando y mira.<br>')
+            + 'Agujero <b>&empty;' + m2(V.D) + '</b> &middot; flanco <b>' + m1(V.W) + ' &times; '
+            + m1(V.H) + '</b> &middot; hueco <b>' + m1(V.hueco) + '</b><br>'
+            + 'Base <b>' + m1(V.B) + ' &times; ' + m1(V.Lb) + '</b> &middot; varilla <b>'
+            + m1(V.Lv) + '</b><br>Rehacer el plano: <b>cero minutos</b>.';
+
+          /* Las dos frases se montan como DIFERENCIA con su signo, no como
+             "sobran tantos" / "faltan tantos": asi el numero que se ensena es
+             siempre el mismo que el de la cuenta, valga lo que valga. */
+          var tontoTxt =
+            'El servo de ' + v.as + ' mm pide ' + m1(V.hueco) + ' de hueco y el cortado tiene '
+            + m1(TONTO.hueco) + ': diferencia <b><span id="md-intservo">' + m1(C.intServo)
+            + '</span> mm</b>. '
+            + (C.intServo > 1e-9 ? '<b>No entra.</b>'
+               : (C.intServo < -1e-9 ? 'Entra, y le sobra hueco.' : 'Entra justo.')) + '<br>'
+            + 'El eje de ' + m1(v.ds) + ' contra el agujero ya taladrado de ' + m2(TONTO.D)
+            + ': diferencia <b><span id="md-inteje">' + m2(C.intEje) + '</span> mm</b>. '
+            + (C.intEje > 1e-9 ? '<b>No pasa.</b>' : 'Pasa.') + '<br>'
+            + 'Canto del agujero cortado: <b>' + m1(C.bordeTonto) + '</b>, y la regla pide '
+            + m1(V.borde) + '.';
+          document.getElementById('md-tonto-n').innerHTML =
+            (C.intServo > 1e-9 || C.intEje > 1e-9) ? 'hay que cortarlo otra vez' : 'sigue valiendo';
+          document.getElementById('md-tonto-d').innerHTML = tontoTxt;
+
+          document.getElementById('md-stl-n').innerHTML =
+            '&empty; &uacute;til <span id="md-def">' + m2(C.Def) + '</span>';
+          document.getElementById('md-stl-d').innerHTML =
+            'Con <b>' + C.N + '</b> facetas, el c&iacute;rculo de &empty;' + m2(V.D)
+            + ' se guarda como un pol&iacute;gono <b>inscrito</b>.<br>'
+            + '&empty; &uacute;til = ' + m2(V.D) + ' &times; cos(180&deg;/' + C.N + ') = <b>'
+            + m2(C.Def) + '</b><br>Holgura real = ' + m2(C.Def) + ' &minus; ' + m1(v.ds)
+            + ' = <b><span id="md-holreal">' + s2(C.holReal) + '</span></b>, y ped&iacute;as '
+            + m2(v.hol) + '.<br>'
+            + (C.nmin === Infinity
+               ? 'Con esta holgura <b>no pasa ni con infinitas facetas</b> '
+                 + '(<span id="md-nmin">0</span>).'
+               : 'Para que pase hacen falta <b><span id="md-nmin">' + C.nmin
+                 + '</span> facetas</b> o m&aacute;s.');
+
+          /* Con muchas facetas la diferencia se va por debajo de la centesima y
+             la frase quedaria diciendo "no es 4,10 sino 4,10". Se dice lo que
+             pasa de verdad: que es pequenisima, pero que no es cero. */
+          document.getElementById('md-cuenta').innerHTML =
+            'El pol&iacute;gono de N lados metido dentro del c&iacute;rculo toca la circunferencia '
+            + 'solo en los <b>v&eacute;rtices</b>; por el medio de cada lado se queda hacia dentro. '
+            + 'Lo que de verdad pasa por el agujero es <b>D &middot; cos(180&deg;/N)</b>. '
+            + (C.flecha >= 0.005
+               ? 'Con ' + C.N + ' facetas eso son <b>' + m2(C.flecha) + ' mm</b> menos de radio: no '
+                 + 'pasa &empty;' + m2(V.D) + ', pasa <b>&empty;' + m2(C.Def) + '</b>.'
+               : 'Con ' + C.N + ' facetas la diferencia ya no llega a una cent&eacute;sima de '
+                 + 'mil&iacute;metro, as&iacute; que en pantalla salen los dos iguales. Pero '
+                 + '<b>no es cero</b>: el STL no guarda c&iacute;rculos, guarda tri&aacute;ngulos, '
+                 + 'y por muchos que ponga el pol&iacute;gono sigue yendo por dentro.');
+
+          pie.innerHTML =
+            '<b>Pulsa &laquo;Llega el servo de verdad&raquo;.</b> Es lo que pasa siempre: el servo '
+            + 'que compr&aacute;is mide 23 mm y no los 20 que hab&iacute;ais supuesto. El modelo vivo '
+            + 'recalcula la cadena entera y <b>vuelve a estar bien</b>; el tonto no se entera, y las '
+            + 'piezas ya cortadas se van a la basura. Luego baja las facetas a 8 y mira lo que le pasa '
+            + 'a un agujero que en el plano pon&iacute;a &empty;8,30. El coste en euros y en tiempo de '
+            + 'volver a cortar sale en la escena de la sesi&oacute;n 6.';
+        }
+
+        function refresca(){
+          document.getElementById('md-ds-v').innerHTML = v.ds + ' mm';
+          document.getElementById('md-hol-v').innerHTML = m2(v.hol) + ' mm';
+          document.getElementById('md-as-v').innerHTML = v.as + ' mm';
+          document.getElementById('md-t-v').innerHTML = v.t + ' mm';
+          document.getElementById('md-n-v').innerHTML = '' + FACETAS[v.ni];
+          pinta();
+        }
+        function pon(){
+          document.getElementById('md-ds').value = v.ds;
+          document.getElementById('md-hol').value = Math.round(v.hol * 100);
+          document.getElementById('md-as').value = v.as;
+          document.getElementById('md-t').value = v.t;
+          document.getElementById('md-n').value = v.ni;
+          refresca();
+        }
+
+        document.getElementById('md-ds').addEventListener('input', function(){
+          v.ds = +this.value; refresca(); });
+        document.getElementById('md-hol').addEventListener('input', function(){
+          v.hol = (+this.value) / 100; refresca(); });
+        document.getElementById('md-as').addEventListener('input', function(){
+          v.as = +this.value; refresca(); });
+        document.getElementById('md-t').addEventListener('input', function(){
+          v.t = +this.value; refresca(); });
+        document.getElementById('md-n').addEventListener('input', function(){
+          v.ni = +this.value; refresca(); });
+
+        caja.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'servo'){ v.as = 23; }
+          else { v = {ds: INI.ds, hol: INI.hol, as: INI.as, t: INI.t, ni: INI.ni}; }
+          pon();
+        });
+
+        refresca();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Por qu&eacute; encoge el agujero, con la cuenta delante.</b> Un fichero STL solo sabe
+           guardar tri&aacute;ngulos planos, as&iacute; que al exportar, el programa sustituye cada
+           c&iacute;rculo por un <b>pol&iacute;gono de N lados metido dentro</b> de &eacute;l. El
+           pol&iacute;gono toca la circunferencia en los v&eacute;rtices y por el medio de cada lado se
+           queda hacia dentro.</p>
+        <p>Lo que de verdad deja pasar ese agujero no es su di&aacute;metro D, sino la distancia entre
+           dos lados opuestos:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>&empty; &uacute;til = D &middot; cos(180&deg; / N)</b></p>
+        <p>Con D = 8,30 y N = 16 salen <b>8,14 mm</b>: de las tres d&eacute;cimas de holgura que
+           pediste te quedan <b>1,4</b>. Con N = 8 salen 7,67, y el eje de 8 <b>ya no pasa</b>. El
+           agujero es el mismo en el modelo; lo que ha cambiado es c&oacute;mo se ha guardado.</p>
+        <p>De ah&iacute; salen las dos costumbres del taller: <b>subir la resoluci&oacute;n</b> al
+           exportar (en Tinkercad, exportar en &laquo;alta calidad&raquo;) y <b>agrandar los agujeros
+           dos o tres d&eacute;cimas</b> en el modelo, que es lo que ya se dijo en la sesi&oacute;n 4
+           sin explicar por qu&eacute;.</p>
+        <p>Ojo: esto le pasa <b>al STL</b>, no al corte 2D. Los ficheros del l&aacute;ser
+           &mdash;<b>DXF</b> y <b>SVG</b>&mdash; s&iacute; saben guardar arcos de verdad. All&iacute;
+           el problema es otro, y ya lo viste: la <b>sangr&iacute;a</b> del haz.</p>
+      </div>
+
+      <h3>El &aacute;rbol, visto por dentro</h3>
+      <figure class="foto">
+        <img src="../../../img/c2-cad-arbol.png" alt="Ventana de FreeCAD: a la izquierda, el &aacute;rbol del modelo con Body, Pad, Sketch, Pocket, Mirrored, Pad001 y Pocket001; a la derecha, en 3D, un soporte gris con dos patas y una ventana cuadrada en el centro" loading="lazy">
+        <figcaption><b>FreeCAD</b> con un soporte mec&aacute;nico terminado. Lo importante no est&aacute; en la pieza: est&aacute; en la <b>lista de la izquierda</b>. Se lee de arriba abajo y es exactamente lo que se hizo, en orden: un <i>Sketch</i> (un perfil plano), un <i>Pad</i> (extruirlo), un <i>Pocket</i> (restar), un <i>Mirrored</i> (repetir en espejo, que es la pata de la derecha), otro <i>Pad</i> y otro <i>Pocket</i>. Esa lista <b>es</b> la pieza: si abres el primer <i>Sketch</i> y cambias una cota, todo lo de abajo se vuelve a calcular. Por eso a esto se le llama modelado <b>por operaciones</b> y no dibujo. FreeCAD es libre y gratuito, y hace lo mismo que los programas de pago de la industria. Esta imagen es el <b>&uacute;ltimo fotograma</b> de una animaci&oacute;n publicada en Commons, recortado para poder leer el &aacute;rbol.
+          <span class="credito">Donatello29 &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Parametric_and_feature-based_modeling_example.gif" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+      <figure class="foto">
+        <img src="../../../img/c2-stl-malla.png" alt="Pieza en 3D con forma de copa o pomo, gris sobre fondo azul, con toda la superficie cubierta de tri&aacute;ngulos peque&ntilde;os que se ven uno a uno" loading="lazy">
+        <figcaption>Y esto es lo que sale al exportar a <b>STL</b>. La pieza de arriba, con su &aacute;rbol y sus cotas, se convierte en <b>esto</b>: una bolsa de tri&aacute;ngulos. F&iacute;jate en el borde del hueco de la izquierda, donde se ven las caras de canto: lo que parec&iacute;a una circunferencia es un <b>pol&iacute;gono</b>. Aqu&iacute; ya no hay agujeros, ni cotas, ni orden de operaciones, ni manera de cambiar una medida: hay v&eacute;rtices. Por eso <b>el STL no se guarda como copia de seguridad</b> del dise&ntilde;o. El STL es el fichero que le das a la m&aacute;quina, como el PDF que mandas a imprimir; el modelo de verdad es el otro, y ese es el que hay que conservar.
+          <span class="credito">Kaboldy &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:STL_sample_2.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>Antes de darle al bot&oacute;n de exportar</h4>
+        <ul>
+          <li><b>Unidades en mil&iacute;metros y escala 1:1.</b> La mitad de los desastres de
+              impresi&oacute;n son piezas exportadas en pulgadas.</li>
+          <li><b>Para el l&aacute;ser: SVG o DXF</b>, con los contornos <b>cerrados</b>, sin
+              l&iacute;neas dobles (dos veces la misma raya = dos cortes) y con lo que se corta y lo
+              que se graba en <b>capas o colores distintos</b>.</li>
+          <li><b>Para la impresora: STL</b>, en alta resoluci&oacute;n, y con la pieza
+              <b>cerrada</b>: si la malla tiene un agujero, el laminador no sabe qu&eacute; es dentro
+              y qu&eacute; es fuera.</li>
+          <li><b>Guarda el modelo, no solo el STL.</b> El STL no se puede volver a editar de verdad.</li>
+          <li><b>Versi&oacute;n y fecha en el nombre del fichero.</b>
+              <i>soporte_v3_2026-10-14.stl</i>, no <i>soporte_bueno_final_este_si.stl</i>.</li>
+        </ul>
+      </div>
+
+      <h3>De d&oacute;nde sale todo esto</h3>
+      <p>La idea de que un dibujo del ordenador guarde <b>relaciones</b> y no solo puntos es de
+         <b>1963</b>: <b>Ivan Sutherland</b> present&oacute; en el MIT un programa llamado
+         <b>Sketchpad</b> en el que se dibujaba con un l&aacute;piz de luz sobre una pantalla y se le
+         pod&iacute;a decir al ordenador <i>&laquo;estas dos l&iacute;neas son perpendiculares&raquo;</i>
+         o <i>&laquo;estos dos segmentos miden lo mismo&raquo;</i>. Al mover una, las dem&aacute;s se
+         recolocaban solas para seguir cumpliendo lo prometido. Es el antepasado de todo lo que has
+         usado hoy.</p>
+      <p>Que eso llegara a la industria tard&oacute; otros veinticinco a&ntilde;os: en <b>1987</b>,
+         <b>Pro/ENGINEER</b> fue el primer programa comercial en el que las piezas se hac&iacute;an
+         con un &aacute;rbol de operaciones y medidas atadas unas a otras. Antes de eso, cambiar una
+         cota en un modelo de ordenador costaba casi lo mismo que cambiarla en el papel.</p>
+      <div class="video" id="video-c2-s5" data-vid="pp1Uxy14neU">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Tutorial completo de Dise&ntilde;o y Modelado 3D con Tinkercad - 2022">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Tutorial completo de Dise&ntilde;o y Modelado 3D con Tinkercad - 2022</b>
+            <span>josemariafmTIC</span>
+          </span>
+        </button>
+        <p class="video-nota">La herramienta que vais a usar, de cero. Lo que aqu&iacute; interesa es la parte de <b>agrupar y vaciar</b>: es la resta que hace los agujeros. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=pp1Uxy14neU" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 5 &middot; Modelar vuestra pieza con par&aacute;metros</span>
+          <span class="chips"><span class="chip">CE5 &middot; 5.1</span><span class="chip">CE2 &middot; 2.1</span></span>
+          <span>Grupos de 3 &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; Las dos cuentas de la escena (6 min)</h4>
+          <ol>
+            <li>Con los valores de partida, pulsad <b>Llega el servo de verdad</b>. &iquest;Cu&aacute;ntas
+                de las siete medidas deducidas cambian? Anotad <b>cu&aacute;les</b>.</li>
+            <li>Mirad la caja roja: &iquest;por qu&eacute; hay que volver a cortar? Copiad el
+                n&uacute;mero de mil&iacute;metros de interferencia.</li>
+            <li>Bajad las facetas a <b>8</b>. Calculad <b>a mano</b>, con la calculadora,
+                8,30 &times; cos(180&deg;/8) y comprobadlo con la escena. Repetid con 16 y con 32.</li>
+            <li>&iquest;Cu&aacute;ntas facetas hacen falta como m&iacute;nimo para que un eje de 8
+                pase por un agujero de 8,30? La escena lo dice: explicad <b>por qu&eacute;</b> ese
+                n&uacute;mero y no otro.</li>
+          </ol>
+          <h4>Segunda parte &middot; Vuestra tabla de par&aacute;metros (5 min)</h4>
+          <p>En la libreta, antes de tocar el ordenador. Dos columnas:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14px;margin:8px 0">
+            <tr><td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Par&aacute;metros</b> (te los imponen)</td>
+                <td style="padding:5px 6px;border-bottom:1px solid var(--line)"><b>Deducidas</b> (f&oacute;rmula)</td></tr>
+            <tr><td style="padding:5px 6px">&nbsp;</td><td></td></tr>
+          </table>
+          <p>M&iacute;nimo <b>cuatro par&aacute;metros</b> y <b>cinco f&oacute;rmulas</b>. Si una
+             medida no la sab&eacute;is poner como f&oacute;rmula, preguntaos de qu&eacute; depende:
+             casi siempre depende de algo.</p>
+          <h4>Tercera parte &middot; Tinkercad (9 min)</h4>
+          <ol>
+            <li>Modelad <b>una</b> pieza de vuestro proyecto (la del riego, la tapa del aviso o el
+                brazo de la l&aacute;mpara), con sus agujeros hechos por <b>resta</b> y las piezas
+                repetidas por <b>simetr&iacute;a</b>.</li>
+            <li>Exportad <b>STL</b> en alta calidad y <b>SVG</b>.</li>
+            <li><b>La prueba de verdad</b>: cambiad un par&aacute;metro (el ancho del servo, el
+                espesor del tablero) y <b>cronometrad</b> cu&aacute;nto tard&aacute;is en dejar el
+                modelo bien otra vez. Anotad el tiempo y qu&eacute; medidas hab&eacute;is tenido que
+                tocar.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las cuatro respuestas de la escena, con la cuenta del coseno hecha a mano
+                <b>(3 puntos)</b>.</li>
+            <li>La tabla de par&aacute;metros y f&oacute;rmulas <b>(3 puntos)</b>.</li>
+            <li>La pieza modelada y los dos ficheros exportados <b>(2 puntos)</b>.</li>
+            <li>El cron&oacute;metro de la prueba y la lista de lo que hubo que tocar
+                <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; diferencia hay entre una malla (STL) y un modelo por operaciones?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La malla es una <b>piel de tri&aacute;ngulos</b>: no guarda medidas, ni agujeros, ni el orden de lo que hiciste, as&iacute; que no se puede editar de verdad. El modelo por operaciones guarda <b>la lista de lo que hiciste</b>, y por eso puedes volver al paso 2 y cambiarlo. El STL es para la m&aacute;quina; el modelo, para ti.</p></div></details></li>
+        <li>&iquest;C&oacute;mo se decide si una medida es un par&aacute;metro o se deduce?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es par&aacute;metro <b>lo que te imponen desde fuera</b> y no puedes cambiar: el servo que hab&eacute;is comprado, la varilla que venden, el espesor del tablero que hay. M&aacute;s la holgura, que la eliges t&uacute;. Todo lo dem&aacute;s, si se puede escribir como cuenta de otras medidas, <b>se deduce</b>.</p></div></details></li>
+        <li>Un agujero de &empty;10 se exporta con 12 facetas. &iquest;Qu&eacute; di&aacute;metro deja pasar de verdad?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>&empty; &uacute;til = 10 &middot; cos(180&deg;/12) = 10 &middot; 0,966 = <b>9,66 mm</b>. Se han perdido <b>34 cent&eacute;simas</b> por el camino, y eso es m&aacute;s que casi cualquier holgura que hayas pedido. Por eso los agujeros se agrandan en el modelo y se exporta en alta resoluci&oacute;n.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se guarda el modelo y no solo el STL?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el STL <b>no se puede volver a editar</b>: no tiene medidas ni historia. Es como guardar el PDF y tirar el documento. El d&iacute;a que cambie el servo, con el modelo mueves un n&uacute;mero y con el STL empiezas de cero.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya tienes el fichero. Ahora hay <b>diez piezas</b> que salen de un tablero, <b>una sola</b>
+        sierra y <b>tres pares de manos</b>. Y hay una manera de perder media sesi&oacute;n sin
+        equivocarse en nada: cortar en el orden que vaya saliendo. En la siguiente vas a ver que el
+        mismo despiece cabe en <b>un tablero o en dos</b> seg&uacute;n d&oacute;nde pongas las piezas
+        antes de cortar la primera, y que hay operaciones que solo se pueden hacer mientras la pieza
+        todav&iacute;a es grande.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Se acab&oacute; el tablero con dos piezas por cortar</h2>
+      <p>Las piezas ocupaban 29 950 mm&sup2; y el tablero ten&iacute;a 60 000. Nadie ha cortado mal: han cortado en el orden que fue saliendo.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE2 &middot; 2.1 &middot; 2.2</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.3</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Lunes, taller. El grupo del riego llega con el fichero de la sesi&oacute;n anterior, una
+         plancha de contrachapado de <b>4 mm</b> y muchas ganas. Empiezan por la pieza m&aacute;s
+         grande, la tapa de la caja, y la marcan <b>donde cae el l&aacute;piz</b>, m&aacute;s o menos
+         por el medio. La cortan. Luego el frente de la caja, que ya no cabe al lado, as&iacute; que
+         se va a una esquina. Luego los dos flancos, cada uno donde queda hueco.</p>
+      <p>A la quinta pieza no hay ning&uacute;n trozo entero donde quepa la siguiente. Quedan dos
+         piezas por cortar y el tablero est&aacute; lleno de <b>recortes con forma de nada</b>.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Las diez piezas del soporte y de su caja suman <b>29 950 mm&sup2;</b>. El retal era de
+           300 &times; 200, o sea <b>60 000 mm&sup2;</b>. Sobraba la mitad del tablero.
+           &iquest;C&oacute;mo puede ser que no quepan?</p>
+      </div>
+      <p>Porque el sitio que sobra <b>no est&aacute; junto</b>. Dos recortes de 50 &times; 200 no son
+         un hueco de 100 &times; 200: son dos trozos separados por un corte, y una pieza no se puede
+         partir en dos. El tablero no se gasta por su superficie, se gasta <b>por d&oacute;nde
+         cortas</b>.</p>
+      <p>Y hay una segunda cosa, m&aacute;s fina. Los dos flancos ten&iacute;an que ser <b>iguales</b>.
+         Como se marcaron por separado &mdash;uno midiendo con la regla y el otro midiendo con la
+         regla otra vez&mdash;, salieron con <b>1,5 mm de diferencia</b>. En la sesi&oacute;n 1 ya
+         viste por qu&eacute;: cada medida trae su propio error. Lo nuevo es que aqu&iacute; ese error
+         se pod&iacute;a haber evitado del todo <b>sin medir mejor</b>.</p>
+      <p>As&iacute; que antes del primer corte hay <b>tres cosas</b> que hay que tener decididas: la
+         <b>lista</b> de lo que hay que hacer, <b>d&oacute;nde</b> va cada pieza en el tablero, y en
+         <b>qu&eacute; orden</b> se hace cada operaci&oacute;n. Ninguna de las tres se improvisa.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>1 &middot; La lista de materiales, o despiece</h4>
+        <p>Una fila por pieza distinta, y una columna de <b>cantidad</b>: dos flancos iguales son
+           <b>una fila con un &times;2</b>, no dos piezas dibujadas dos veces.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
+          <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Ref.</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Pieza</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Cant.</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Material</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Medidas</b></td></tr>
+          <tr><td style="padding:4px 6px">S-01</td><td style="padding:4px 6px">base del soporte</td>
+              <td style="padding:4px 6px">1</td><td style="padding:4px 6px">contrachapado 4</td>
+              <td style="padding:4px 6px">70 &times; 35</td></tr>
+          <tr><td style="padding:4px 6px">S-02</td><td style="padding:4px 6px">flanco</td>
+              <td style="padding:4px 6px">2</td><td style="padding:4px 6px">contrachapado 4</td>
+              <td style="padding:4px 6px">50 &times; 50</td></tr>
+        </table>
+        <p>Y <b>aparte</b>, la lista de lo que <b>no se fabrica</b>: el servo, la varilla de 8, los
+           tornillos M3, las arandelas, el tubo. Van en otra lista porque se <b>compran</b>, y se
+           compran con semanas de antelaci&oacute;n.</p>
+        <p>La lista se saca <b>del modelo</b>, no de la memoria. Si una pieza no est&aacute; en el
+           modelo, no est&aacute; en la lista, y el d&iacute;a del montaje no est&aacute; encima de la
+           mesa.</p>
+      </div>
+      <div class="copiar">
+        <h4>2 &middot; El plan de corte</h4>
+        <p>Colocar <b>todas</b> las piezas sobre el tablero, en papel, <b>antes de cortar ninguna</b>.
+           Cuatro reglas que lo resuelven casi siempre:</p>
+        <ul>
+          <li><b>Las grandes primero.</b> Una pieza grande solo cabe en un hueco grande; una
+              peque&ntilde;a cabe en cualquier sitio. Al rev&eacute;s te quedas sin sitio para la
+              grande.</li>
+          <li><b>Las de la misma altura, en la misma fila.</b> As&iacute; el tablero se organiza en
+              franjas y no en un puzle imposible.</li>
+          <li><b>Descontar la sangr&iacute;a</b> entre pieza y pieza: el ancho que la herramienta
+              convierte en serr&iacute;n. Con la marqueter&iacute;a, <b>1,5 mm</b> por corte; con la
+              sierra de calar, hasta 2,4; con el l&aacute;ser, 0,2. Diez cortes con una sierra de
+              calar son <b>dos cent&iacute;metros</b> de tablero que desaparecen.</li>
+          <li><b>La veta manda.</b> Si el tablero tiene veta o dibujo, hay piezas que <b>no se pueden
+              girar</b>, y entonces el plan sale peor. Se decide antes, no despu&eacute;s.</li>
+        </ul>
+        <p>Y una que no es de geometr&iacute;a: <b>cortar el encargo de toda la clase de una vez</b>.
+           El hueco que le sobra a un grupo le sirve a otro.</p>
+      </div>
+      <p>Al banco. Es el despiece completo del riego. Sube los grupos de 1 a 10 y mira la caja verde.</p>
+
+      <div class="escena" id="esc-co">
+        <div class="escena-barra">
+          <span class="escena-titulo">El despiece del riego sobre el tablero &middot; cu&aacute;ntos hacen falta y cu&aacute;nto se tira</span>
+          <div class="seg">
+            <button type="button" data-a="girar" id="co-girar" aria-pressed="true">Girar las piezas</button>
+            <button type="button" data-a="reset">Valores de partida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 452" id="svg-co" role="img"
+               aria-label="Los tableros con las piezas del despiece colocadas por el algoritmo de estantes"></svg>
+          <div class="co-mandos">
+            <div class="co-fila">
+              <label for="co-her">Con qu&eacute; se corta</label>
+              <select id="co-her">
+                <option value="0">C&uacute;ter y regla (cart&oacute;n pluma)</option>
+                <option value="1">Cortadora l&aacute;ser</option>
+                <option value="2" selected>Sierra de marqueter&iacute;a</option>
+                <option value="3">Sierra de calar</option>
+              </select>
+            </div>
+            <div class="co-fila">
+              <label for="co-k">Sangr&iacute;a: lo que se come cada corte</label>
+              <input type="range" id="co-k" min="0" max="40" step="1" value="15">
+              <span class="val" id="co-k-v">1,5 mm</span>
+            </div>
+            <div class="co-fila">
+              <label for="co-tab">Tablero de partida</label>
+              <select id="co-tab">
+                <option value="0" selected>Retal de 300 &times; 200</option>
+                <option value="1">Media plancha de 400 &times; 300</option>
+                <option value="2">Tablero de 600 &times; 400</option>
+                <option value="3">Tabla estrecha de 700 &times; 80</option>
+              </select>
+            </div>
+            <div class="co-fila">
+              <label for="co-g">Grupos que cortan del mismo tablero</label>
+              <input type="range" id="co-g" min="1" max="10" step="1" value="1">
+              <span class="val" id="co-g-v">1</span>
+            </div>
+          </div>
+          <div class="co-tablero">
+            <div class="co-caja" id="co-c-tab">
+              <h5>Tableros y aprovechamiento</h5>
+              <p class="co-num" id="co-tab-n">&mdash;</p>
+              <p class="co-det" id="co-tab-d"></p>
+            </div>
+            <div class="co-caja" id="co-c-cor">
+              <h5>Corte: longitud y tiempo</h5>
+              <p class="co-num" id="co-cor-n">&mdash;</p>
+              <p class="co-det" id="co-cor-d"></p>
+            </div>
+            <div class="co-caja" id="co-c-jun">
+              <h5>Juntos o cada uno por su lado</h5>
+              <p class="co-num" id="co-jun-n">&mdash;</p>
+              <p class="co-det" id="co-jun-d"></p>
+            </div>
+          </div>
+          <p class="co-cuenta" id="co-cuenta"></p>
+        </div>
+        <div class="pie" id="pie-co"></div>
+      </div>
+
+      <style>
+      .co-mandos{margin-top:10px}
+      .co-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 7px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .co-fila label{min-width:252px}
+      .co-fila input[type="range"]{flex:1 1 150px;min-width:120px;accent-color:var(--goo-azul)}
+      .co-fila select{flex:1 1 230px;font-family:var(--f-m);font-size:12.5px;padding:5px 7px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .co-fila .val{font-weight:500;color:var(--goo-azul);min-width:66px;text-align:right}
+      .co-tablero{display:flex;gap:11px;flex-wrap:wrap;margin-top:12px}
+      .co-caja{flex:1 1 200px;min-width:198px;border:1.5px solid var(--line);border-radius:2px;
+        padding:11px 13px;background:var(--surface)}
+      .co-caja h5{margin:0 0 6px;font:500 11.5px var(--f-m);letter-spacing:.05em;text-transform:uppercase;
+        color:var(--ink-soft)}
+      #co-c-tab{border-left:5px solid var(--goo-azul)}
+      #co-c-cor{border-left:5px solid var(--goo-amarillo)}
+      #co-c-jun{border-left:5px solid var(--goo-verde)}
+      .co-num{margin:0;font-family:var(--f-m);font-size:20px;font-weight:500;color:var(--ink)}
+      .co-det{margin:5px 0 0;font-family:var(--f-m);font-size:11.5px;line-height:1.75;color:var(--ink-soft)}
+      .co-det b{color:var(--ink)}
+      .co-cuenta{margin:12px 0 0;font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+      .co-cuenta b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-co');
+        if(!svg) return;
+        var caja = document.getElementById('esc-co');
+        var pie  = document.getElementById('pie-co');
+
+        /* ---- el despiece de UN grupo del riego, en milimetros ------------
+           Cada pieza va con la orientacion que tiene en el aparato: la caja de
+           la electronica es alta y estrecha, y la pletina del sensor sube
+           desde el suelo. Por eso hay piezas TUMBADAS y piezas DE PIE, y por
+           eso el boton de girar cambia el reparto: si el tablero tiene veta,
+           una pieza de pie no se puede tumbar.                            */
+        var DESPIECE = [
+          {n: 'base del soporte',   w: 70,  h: 35,  c: 1, col: '#1a73e8'},
+          {n: 'flanco',             w: 50,  h: 50,  c: 2, col: '#34a853'},
+          {n: 'tapa de la caja',    w: 100, h: 70,  c: 1, col: '#fbbc04'},
+          {n: 'frente de la caja',  w: 45,  h: 100, c: 1, col: '#ea4335'},
+          {n: 'lateral de la caja', w: 45,  h: 70,  c: 2, col: '#9334e6'},
+          {n: 'pletina del sensor', w: 30,  h: 90,  c: 1, col: '#00897b'},
+          {n: 'abrazadera',         w: 50,  h: 20,  c: 2, col: '#f4511e'}
+        ];
+        /* herramientas: sangria en mm y velocidad de corte en mm/min */
+        var HER = [
+          {n: 'c&uacute;ter',        k: 0.0, vel: 900},
+          {n: 'l&aacute;ser',        k: 0.2, vel: 2400},
+          {n: 'marqueter&iacute;a',  k: 1.5, vel: 180},
+          {n: 'sierra de calar',     k: 2.4, vel: 600}
+        ];
+        var TAB = [{w: 300, h: 200}, {w: 400, h: 300}, {w: 600, h: 400},
+                   {w: 700, h: 80}];
+        var ESPESOR = 4;            /* contrachapado de 4 mm */
+        var EUR_M2_MM = 3.0;        /* el mismo precio que en la escena de la S4 */
+
+        var v = {her: 2, k: 1.5, tab: 0, g: 1, girar: true};
+
+        /* ---- el empaquetado por ESTANTES ---------------------------------
+           1. Se expanden las piezas (las que van por duplicado, dos veces).
+           2. Si se pueden girar, se tumban todas: el lado largo, en horizontal.
+           3. Se ordenan de mas alta a mas baja; a igual altura, la mas ancha
+              primero, y a igualdad, por el orden del despiece. Asi el reparto
+              es SIEMPRE el mismo y se puede comprobar a mano.
+           4. Cada pieza va al primer estante ya abierto donde quepa a lo
+              ancho; si no cabe en ninguno, se abre un estante nuevo debajo;
+              si tampoco cabe, se empieza otro tablero.
+           La sangria se descuenta ENTRE pieza y pieza y entre estante y
+           estante: el canto del tablero se recorta de todas formas.        */
+        function empaqueta(nGrupos, W, H, kerf, girar){
+          var lista = [], i, j, g;
+          for(g = 0; g < nGrupos; g++){
+            for(i = 0; i < DESPIECE.length; i++){
+              for(j = 0; j < DESPIECE[i].c; j++){
+                var p = DESPIECE[i], a = p.w, b = p.h;
+                if(girar && b > a){ var s = a; a = b; b = s; }
+                lista.push({w: a, h: b, col: p.col, n: p.n, idx: i, g: g});
+              }
+            }
+          }
+          lista.forEach(function(p, n){ p.orden = n; });
+          lista.sort(function(a, b){
+            if(b.h !== a.h) return b.h - a.h;
+            if(b.w !== a.w) return b.w - a.w;
+            return a.orden - b.orden;
+          });
+
+          var tableros = [], fuera = [], area = 0;
+          lista.forEach(function(p){
+            var t, e, puesto = false;
+            for(t = 0; t < tableros.length && !puesto; t++){
+              var T = tableros[t];
+              for(e = 0; e < T.estantes.length && !puesto; e++){
+                var E = T.estantes[e];
+                if(p.h <= E.h + 1e-9 && E.x + p.w <= W + 1e-9){
+                  p.x = E.x; p.y = E.y; p.t = t;
+                  E.x += p.w + kerf;
+                  E.piezas.push(p);
+                  puesto = true;
+                }
+              }
+              if(!puesto){
+                var yN = T.alto === 0 ? 0 : T.alto + kerf;
+                if(yN + p.h <= H + 1e-9){
+                  var nuevo = {y: yN, h: p.h, x: p.w + kerf, piezas: [p]};
+                  p.x = 0; p.y = yN; p.t = t;
+                  T.estantes.push(nuevo);
+                  T.alto = yN + p.h;
+                  puesto = true;
+                }
+              }
+            }
+            if(!puesto){
+              if(p.w <= W + 1e-9 && p.h <= H + 1e-9){
+                var T2 = {estantes: [{y: 0, h: p.h, x: p.w + kerf, piezas: [p]}], alto: p.h};
+                p.x = 0; p.y = 0; p.t = tableros.length;
+                tableros.push(T2);
+              } else {
+                fuera.push(p);
+                return;
+              }
+            }
+            area += p.w * p.h;
+          });
+          var colocadas = lista.length - fuera.length;
+          return {tableros: tableros, lista: lista, fuera: fuera, area: area,
+                  colocadas: colocadas, total: lista.length,
+                  nTab: tableros.length};
+        }
+
+        function z(x){ return Math.abs(x) < 0.0005 ? 0 : x; }
+        function n0(x){ return Math.round(z(x)).toString(); }
+        function n1(x){ return z(x).toFixed(1).replace('.', ','); }
+        function n2(x){ return z(x).toFixed(2).replace('.', ','); }
+
+        function pinta(){
+          var T = TAB[v.tab], W = T.w, H = T.h;
+          var P = empaqueta(v.g, W, H, v.k, v.girar);
+          var solo = empaqueta(1, W, H, v.k, v.girar);      /* un grupo, un tablero */
+          var sueltos = solo.nTab * v.g;                     /* si cada uno va por su lado */
+          var areaTab = W * H;
+          var aprov = P.nTab ? 100 * P.area / (P.nTab * areaTab) : 0;
+          /* el mismo precio de la escena de la S4: euros por m2 y por mm de espesor */
+          var euroTab = areaTab * EUR_M2_MM * ESPESOR / 1e6;
+          var euroJun = P.nTab * euroTab, euroSue = sueltos * euroTab;
+
+          /* longitud de corte: el perimetro de cada pieza colocada. No se
+             descuentan los cortes que dos piezas pegadas comparten, asi que
+             es una cota POR ARRIBA, y la escena lo dice. */
+          var lcorte = 0;
+          P.lista.forEach(function(p){ if(p.t !== undefined) lcorte += 2 * (p.w + p.h); });
+          var tmin = lcorte / HER[v.her].vel;
+
+          /* =============== el dibujo =============== */
+          var m = '';
+          var COLS = P.nTab > 1 ? 2 : 1, VER = P.nTab > 2 ? 2 : 1;
+          var ancho = COLS === 1 ? 640 : 316, alto = VER === 1 ? 352 : 172;
+          var esc = Math.min(ancho / W, alto / H);
+          var muestra = Math.min(P.nTab, 4);
+          var i, OY0 = 46, SEP = 34;
+          m += '<text x="24" y="24" class="etq">Tablero de ' + W + ' &times; ' + H
+             + ' mm &middot; sangr&iacute;a de ' + n1(v.k) + ' mm entre pieza y pieza'
+             + (P.nTab > 4 ? ' &middot; se dibujan los 4 primeros de ' + P.nTab : '') + '</text>';
+          for(i = 0; i < muestra; i++){
+            var ox = 26 + (i % 2) * (ancho + 26), oy = OY0 + Math.floor(i / 2) * (H * esc + SEP);
+            if(COLS === 1) ox = 26;
+            m += '<rect x="' + ox + '" y="' + oy + '" width="' + (W * esc).toFixed(1)
+               + '" height="' + (H * esc).toFixed(1) + '" fill="var(--surface-2)"'
+               + ' stroke="currentColor" stroke-width="1.5"/>';
+            m += '<text x="' + ox + '" y="' + (oy - 5) + '" class="ejeq">tablero ' + (i + 1)
+               + '</text>';
+          }
+          P.lista.forEach(function(p){
+            if(p.t === undefined || p.t >= muestra) return;
+            var ox = 26 + (p.t % 2) * (ancho + 26), oy = OY0 + Math.floor(p.t / 2) * (H * esc + SEP);
+            if(COLS === 1) ox = 26;
+            var x = ox + p.x * esc, y = oy + p.y * esc, w = p.w * esc, h = p.h * esc;
+            m += '<rect x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + w.toFixed(1)
+               + '" height="' + h.toFixed(1) + '" fill="' + p.col + '" opacity="'
+               + (0.30 + 0.12 * (p.g % 3)) + '" stroke="' + p.col + '" stroke-width="1.2"/>';
+            if(w > 42 && h > 17){
+              m += '<text x="' + (x + w / 2).toFixed(1) + '" y="' + (y + h / 2 + 4).toFixed(1)
+                 + '" class="ejeq" text-anchor="middle">' + p.w + '&times;' + p.h + '</text>';
+            }
+          });
+          var filas = Math.ceil(muestra / (COLS === 1 ? 1 : 2));
+          var hTotal = OY0 + filas * (H * esc + SEP) - SEP + 16;
+          if(P.fuera.length){
+            m += '<text x="24" y="' + (hTotal + 4) + '" class="etq" fill="#ea4335">'
+               + P.fuera.length + ' pieza(s) no caben de pie en un tablero de ' + W + ' &times; '
+               + H + ': habr&iacute;a que poder girarlas</text>';
+            hTotal += 16;
+          }
+          svg.setAttribute('viewBox', '0 0 690 ' + Math.ceil(hTotal));
+          svg.innerHTML = m;
+
+          /* =============== los numeros =============== */
+          /* Los numeros que comprueba c2_verifica.py llevan su propio id. */
+          document.getElementById('co-tab-n').innerHTML = '<span id="co-ntab">' + P.nTab + '</span>'
+            + (P.nTab === 1 ? ' tablero' : ' tableros');
+          document.getElementById('co-tab-d').innerHTML =
+            '<span id="co-puestas">' + P.colocadas + '</span> piezas de ' + P.total
+            + ' colocadas, <span id="co-area">' + n0(P.area) + '</span> mm&sup2; de '
+            + 'pieza.<br>Tablero: ' + W + ' &times; ' + H + ' = <b>' + n0(areaTab) + ' mm&sup2;</b>'
+            + ' cada uno.<br>Aprovechamiento = ' + n0(P.area) + ' / (' + P.nTab + ' &times; '
+            + n0(areaTab) + ') = <b><span id="co-aprov">' + n1(aprov) + '</span> %</b><br>Se tira <b>'
+            + n0((P.nTab * areaTab - P.area) / 100) + ' cm&sup2;</b> de tablero.';
+
+          document.getElementById('co-cor-n').innerHTML = '<span id="co-tmin">' + n0(tmin)
+            + '</span> min';
+          document.getElementById('co-cor-d').innerHTML =
+            'Per&iacute;metro de todas las piezas: <b><span id="co-lcorte">' + n0(lcorte / 10)
+            + '</span> cm</b>.<br>'
+            + 'La ' + HER[v.her].n + ' avanza <b>' + HER[v.her].vel + ' mm/min</b>.<br>'
+            + n0(lcorte) + ' / ' + HER[v.her].vel + ' = <b>' + n1(tmin) + ' min</b> de corte.<br>'
+            + 'Es una cota <b>por arriba</b>: dos piezas pegadas comparten corte.';
+
+          var ahorro = sueltos - P.nTab;
+          document.getElementById('co-jun-n').innerHTML =
+            '<span id="co-ahorro">' + ahorro + '</span>'
+            + (ahorro > 0 ? (ahorro === 1 ? ' tablero' : ' tableros') + ' de menos'
+                          : ' de diferencia');
+          document.getElementById('co-jun-d').innerHTML =
+            (v.g === 1 ? 'Un grupo solo' : 'Los ' + v.g + ' grupos <b>juntos</b>') + ': ' + P.nTab
+            + (P.nTab === 1 ? ' tablero, ' : ' tableros, ') + n2(euroJun) + ' &euro;.<br>'
+            + 'Cada grupo <b>por su lado</b>: ' + v.g + ' &times; ' + solo.nTab
+            + ' = <span id="co-sueltos">' + sueltos + '</span>'
+            + (sueltos === 1 ? ' tablero, ' : ' tableros, ') + n2(euroSue) + ' &euro;.<br>'
+            + 'Diferencia: <b><span id="co-eurodif">' + n2(euroSue - euroJun) + '</span> &euro;</b> y <b>'
+            + n0((sueltos - P.nTab) * areaTab / 100) + ' cm&sup2;</b> de tablero.<br>'
+            + 'Precio de taller: ' + n1(EUR_M2_MM) + ' &euro; por m&sup2; y mil&iacute;metro de '
+            + 'espesor, con ' + ESPESOR + ' mm.';
+
+          document.getElementById('co-cuenta').innerHTML =
+            'La <b>sangr&iacute;a</b> es el ancho de material que convierte en serr&iacute;n cada '
+            + 'pasada. Con la marqueter&iacute;a son 1,5 mm; con el l&aacute;ser, 0,2. Aqu&iacute; se '
+            + 'descuenta <b>entre pieza y pieza</b>, que es donde se nota: con ' + n1(v.k)
+            + ' mm y ' + P.total + ' piezas, cada fila pierde ese ancho tantas veces como cortes '
+            + 'lleve. Y ojo con una cosa que no se ve en el n&uacute;mero: la sangr&iacute;a '
+            + 'tambi&eacute;n <b>se come la pieza</b> si cortas por el centro de la raya en vez de '
+            + 'por fuera.';
+
+          pie.innerHTML =
+            '<b>Sube los grupos de 1 a 10.</b> Con un tablero por grupo salen ' + sueltos
+            + ' tableros; cortando el encargo de toda la clase de una vez salen <b>' + P.nTab
+            + '</b>. La diferencia no es que el algoritmo sea listo: es que <b>el hueco que le sobra '
+            + 'a un grupo le sirve a otro</b>. Prueba tambi&eacute;n la <b>tabla estrecha de '
+            + '700 &times; 80</b> y apaga ah&iacute; &laquo;Girar las piezas&raquo;: el frente de la '
+            + 'caja mide 100 de alto y la tabla 80, as&iacute; que de pie <b>no cabe de ninguna '
+            + 'manera</b>. Si el tablero tiene veta o dibujo, girarla no siempre es una opci&oacute;n, '
+            + 'y esa pieza hay que sacarla de otro sitio. El reparto es <b>siempre el mismo</b> con '
+            + 'los mismos datos: el algoritmo coloca las piezas m&aacute;s altas primero y no sortea '
+            + 'nada.';
+        }
+
+        function refresca(){
+          document.getElementById('co-k-v').innerHTML = n1(v.k) + ' mm';
+          document.getElementById('co-g-v').innerHTML = '' + v.g;
+          pinta();
+        }
+
+        document.getElementById('co-her').addEventListener('change', function(){
+          v.her = +this.value;
+          v.k = HER[v.her].k;
+          document.getElementById('co-k').value = Math.round(v.k * 10);
+          refresca();
+        });
+        document.getElementById('co-k').addEventListener('input', function(){
+          v.k = (+this.value) / 10; refresca(); });
+        document.getElementById('co-tab').addEventListener('change', function(){
+          v.tab = +this.value; refresca(); });
+        document.getElementById('co-g').addEventListener('input', function(){
+          v.g = +this.value; refresca(); });
+
+        caja.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'girar'){
+            v.girar = !v.girar;
+            b.setAttribute('aria-pressed', v.girar ? 'true' : 'false');
+          } else {
+            v = {her: 2, k: 1.5, tab: 0, g: 1, girar: true};
+            document.getElementById('co-her').value = '2';
+            document.getElementById('co-k').value = 15;
+            document.getElementById('co-tab').value = '0';
+            document.getElementById('co-g').value = 1;
+            document.getElementById('co-girar').setAttribute('aria-pressed', 'true');
+          }
+          refresca();
+        });
+
+        refresca();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>3 &middot; El orden de las operaciones, y por qu&eacute; ese</h4>
+        <ul>
+          <li><b>Marcar todo de una vez</b>, con el tablero entero y desde la cara que manda
+              (sesi&oacute;n 1). Marcar a ratos, entre corte y corte, es cambiar de referencia sin
+              darte cuenta.</li>
+          <li><b>Taladrar antes de recortar.</b> Mientras la pieza sigue pegada al tablero grande hay
+              d&oacute;nde poner el sargento. Una pieza de 40 &times; 25 sujeta con la mano debajo de
+              una broca es una <b>h&eacute;lice</b>.</li>
+          <li><b>Lo que no se puede deshacer, lo m&aacute;s tarde posible</b>: pintar, barnizar,
+              pegar, remachar. Si pintas antes de taladrar, la broca te salta la pintura y hay que
+              repintar.</li>
+          <li><b>Lijar cada pieza antes de montar.</b> Dentro del conjunto ya no entra la lima.</li>
+          <li><b>Montaje en seco antes de pegar nada.</b> Se monta entero con dos tornillos flojos,
+              se comprueba, y entonces se aprieta. Esto se ve despacio en la sesi&oacute;n
+              siguiente.</li>
+        </ul>
+        <p>La regla que engloba a todas: <b>primero lo que necesita sujeci&oacute;n o referencia, y al
+           final lo que no tiene vuelta atr&aacute;s.</b></p>
+      </div>
+      <div class="copiar">
+        <h4>4 &middot; La plantilla, que arregla lo de los dos flancos</h4>
+        <p>Cuando hay <b>varias piezas iguales</b>, no se miden varias veces: se hace <b>una
+           plantilla</b> (o <b>g&aacute;libo</b>) y se copia.</p>
+        <p>Se fabrica con cuidado <b>una vez</b> &mdash;en cart&oacute;n, en contrachapado, en lo que
+           sea&mdash;, se comprueba, y a partir de ah&iacute; todas las piezas se marcan
+           <b>contra ella</b>. La diferencia es esta: con la regla, cada pieza trae <b>su</b> error, y
+           dos flancos pueden salir con 1,5 mm de diferencia. Con la plantilla, <b>todas las piezas
+           traen el mismo error</b>, el de la plantilla. Y un error igual en todas es much&iacute;simo
+           menos grave que un error distinto en cada una: las piezas siguen encajando entre
+           s&iacute;.</p>
+        <p>Lo mismo vale para taladrar: una plantilla con los agujeros hechos, puesta encima, y la
+           broca entra por donde le dicen. Eso se llama <b>plantilla de taladrado</b> y es lo que
+           hace que veinte piezas salgan iguales.</p>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/c2-galibo.jpg" alt="Pieza plana de lat&oacute;n dorado con forma estrellada de contornos rectos, en la vitrina de un museo, con una etiqueta debajo que pone Gabarit en laiton, y al lado un goni&oacute;metro met&aacute;lico antiguo y varios modelos de madera" loading="lazy">
+        <figcaption>Un <b>g&aacute;libo</b> (<i>gabarit</i>) de lat&oacute;n, en el Museo de Historia Natural de Nantes, junto a un <b>goni&oacute;metro de Carangeot</b> de principios del siglo XIX y unos modelos de madera de formas cristalinas. Es una plantilla, y la idea es la misma que la de vuestros flancos: en vez de medir una forma cada vez que hace falta, se fabrica <b>una sola vez, con cuidado</b>, y luego se compara o se copia contra ella. Mira el canto: est&aacute; recortado en tramos rectos con &aacute;ngulos concretos, porque lo que se quiere comprobar con &eacute;l son esos &aacute;ngulos. Un g&aacute;libo convierte una medici&oacute;n &mdash;lenta, y distinta cada vez&mdash; en una <b>comparaci&oacute;n</b>, que es r&aacute;pida y siempre igual. Es exactamente lo que hac&iacute;a el calibre pasa / no pasa de la sesi&oacute;n 2, pero para una forma entera.
+          <span class="credito">Koreller &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Mus%C3%A9um_de_Nantes_-_654_-_Gabarit_en_laiton.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>El que manda en el taller no es la gente, es la m&aacute;quina.</b> Sois tres en el
+           grupo, pero hay <b>un</b> taladro de columna para toda la clase. Por muy bien que os
+           repart&aacute;is el trabajo, las operaciones de taladro van <b>en fila de a uno</b>, y esa
+           fila es la que marca cu&aacute;ndo termina todo el mundo.</p>
+        <p>De ah&iacute; salen dos costumbres que ahorran sesiones enteras:</p>
+        <ul>
+          <li><b>Agrupar por m&aacute;quina, no por pieza.</b> Todas las piezas que hay que taladrar,
+              taladradas en la misma tanda, con el taladro puesto a las vueltas que toquen
+              (sesi&oacute;n 4) y la plantilla ya colocada. Cambiar de broca y volver a ajustar el
+              taladro cuesta m&aacute;s que taladrar.</li>
+          <li><b>Mientras uno usa la m&aacute;quina, los otros dos no miran.</b> Lijan, marcan la
+              pieza siguiente, preparan el montaje en seco. Si los tres est&aacute;is alrededor del
+              taladro, el grupo avanza a la velocidad de uno.</li>
+        </ul>
+        <p>Calcular <b>cu&aacute;ndo</b> termina el proyecto entero, qu&eacute; tareas pueden
+           retrasarse sin que pase nada y cu&aacute;les no, es otra cosa y tiene su propia
+           herramienta: el diagrama de Gantt, el camino cr&iacute;tico y la holgura. Eso lo
+           hicisteis en la <b>unidad 1</b> y aqu&iacute; no se repite. Lo de esta sesi&oacute;n es lo
+           que pasa <b>dentro</b> del taller: qu&eacute; operaci&oacute;n va antes que cu&aacute;l y
+           por qu&eacute;.</p>
+      </div>
+      <div class="copiar">
+        <h4>La hoja de ruta</h4>
+        <p>Una tabla, y cabe en media hoja. Es el documento que convierte todo lo anterior en algo que
+           se puede seguir sin pensar el d&iacute;a del taller:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
+          <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>N.&ordm;</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Operaci&oacute;n</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Piezas</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Con qu&eacute;</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Antes hay que&hellip;</b></td></tr>
+          <tr><td style="padding:4px 6px">1</td><td style="padding:4px 6px">marcar el plan de corte</td>
+              <td style="padding:4px 6px">todas</td><td style="padding:4px 6px">regla, escuadra, punta</td>
+              <td style="padding:4px 6px">&mdash;</td></tr>
+          <tr><td style="padding:4px 6px">2</td><td style="padding:4px 6px">granetear los 6 agujeros</td>
+              <td style="padding:4px 6px">S-01, S-02</td><td style="padding:4px 6px">granete</td>
+              <td style="padding:4px 6px">1</td></tr>
+          <tr><td style="padding:4px 6px">3</td><td style="padding:4px 6px">taladrar &empty;8,3 y &empty;3</td>
+              <td style="padding:4px 6px">S-01, S-02</td><td style="padding:4px 6px">taladro de columna</td>
+              <td style="padding:4px 6px">2</td></tr>
+          <tr><td style="padding:4px 6px">4</td><td style="padding:4px 6px">recortar las piezas</td>
+              <td style="padding:4px 6px">todas</td><td style="padding:4px 6px">marqueter&iacute;a</td>
+              <td style="padding:4px 6px">3</td></tr>
+        </table>
+        <p>La &uacute;ltima columna es la importante: es la que impide que alguien recorte antes de
+           taladrar porque le apetec&iacute;a.</p>
+      </div>
+      <div class="video" id="video-c2-s6" data-vid="rL6ZIaso5KA">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Aplicaci&oacute;n para optimizar cortes de placas de aglomerados y triplay. CutList Optimizer">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Aplicaci&oacute;n para optimizar cortes de placas de aglomerados y triplay. CutList Optimizer</b>
+            <span>Viejo Roble</span>
+          </span>
+        </button>
+        <p class="video-nota">Un carpintero usando una herramienta web gratuita que hace exactamente lo que hace la escena de esta sesi&oacute;n, con tableros de verdad. F&iacute;jate en que lo primero que le pide es el <b>ancho de la sierra</b>. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=rL6ZIaso5KA" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 6 &middot; Despiece, plan de corte y hoja de ruta</span>
+          <span class="chips"><span class="chip">CE2 &middot; 2.1 &middot; 2.2</span><span class="chip">CE3 &middot; 3.1</span></span>
+          <span>Grupos de 3 &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; La escena, con vuestros datos (6 min)</h4>
+          <ol>
+            <li>Elegid el tablero y la herramienta que de verdad hay en vuestro centro. Anotad
+                <b>tableros</b>, <b>aprovechamiento</b> y <b>tiempo de corte</b> con <b>1 grupo</b>.</li>
+            <li>Subid a <b>los grupos que sois en clase</b>. Anotad los mismos tres n&uacute;meros y
+                los euros de diferencia. &iquest;Cu&aacute;ntos tableros se ahorra la clase?</li>
+            <li>Dejad los grupos como estaban y <b>apagad &laquo;Girar las piezas&raquo;</b>.
+                &iquest;Cu&aacute;nto baja el aprovechamiento? &iquest;Cu&aacute;ndo pasa eso de
+                verdad?</li>
+            <li>Comprobad una cuenta a mano: el aprovechamiento es el &aacute;rea de las piezas
+                dividida entre el &aacute;rea de los tableros usados. Hacedla con la calculadora y ved
+                que sale lo mismo.</li>
+          </ol>
+          <h4>Segunda parte &middot; Vuestro despiece y vuestro plan (8 min)</h4>
+          <ol>
+            <li>La <b>tabla de despiece</b> de vuestro proyecto, con referencia, cantidad, material,
+                espesor y medidas. Y <b>aparte</b>, la lista de lo que se compra hecho.</li>
+            <li>El <b>plan de corte</b> dibujado a escala en papel cuadriculado, con el tablero de
+                verdad que ten&eacute;is y <b>dejando la sangr&iacute;a</b> entre pieza y pieza.
+                Escribid el aprovechamiento que os sale.</li>
+            <li>Se&ntilde;alad qu&eacute; piezas se repiten y decid <b>con qu&eacute; plantilla</b>
+                las vais a marcar.</li>
+          </ol>
+          <h4>Tercera parte &middot; La hoja de ruta (6 min)</h4>
+          <p>Escribid las operaciones en orden, con la columna de <b>&laquo;antes hay que&hellip;&raquo;</b>
+             rellenada. M&iacute;nimo <b>ocho</b> operaciones. Y contestad por escrito:</p>
+          <ol>
+            <li>&iquest;Cu&aacute;l es la primera operaci&oacute;n que hay que hacer, y qu&eacute;
+                pasar&iacute;a si la hicierais la tercera?</li>
+            <li>&iquest;Cu&aacute;l es la &uacute;ltima que <b>no tiene vuelta atr&aacute;s</b>?</li>
+            <li>&iquest;Qu&eacute; est&aacute;n haciendo los otros dos mientras uno taladra?</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los n&uacute;meros de la escena y la comprobaci&oacute;n a mano <b>(2 puntos)</b>.</li>
+            <li>El despiece completo, con cantidades y la lista de compras aparte <b>(2 puntos)</b>.</li>
+            <li>El plan de corte a escala, con la sangr&iacute;a y el aprovechamiento
+                <b>(3 puntos)</b>.</li>
+            <li>La hoja de ruta con las dependencias, y las tres preguntas contestadas
+                <b>(3 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>Las piezas suman 29 950 mm&sup2; y el tablero tiene 60 000. &iquest;Por qu&eacute; puede no caber?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el hueco que sobra <b>no est&aacute; junto</b>. Una pieza no se puede partir, as&iacute; que lo que cuenta no es la superficie libre total, sino si queda un <b>rect&aacute;ngulo entero</b> donde quepa. Por eso el plan de corte se hace antes de cortar, empezando por las piezas grandes.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es la sangr&iacute;a y por qu&eacute; hay que dejarla en el plan?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es el <b>ancho de material que la herramienta convierte en serr&iacute;n</b> en cada pasada: 1,5 mm con la marqueter&iacute;a, 2,4 con la de calar, 0,2 con el l&aacute;ser. Si colocas las piezas pegadas en el papel, en el tablero no caben: cada corte se come su ancho. Y si cortas por el centro de la raya, adem&aacute;s <b>se come media pieza</b>.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se taladra antes de recortar?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque mientras la pieza sigue pegada al tablero grande <b>hay d&oacute;nde sujetarla</b> con el sargento, y porque la referencia desde la que mediste sigue existiendo. Una pieza peque&ntilde;a suelta debajo de una broca se convierte en una h&eacute;lice, y ese es un accidente, no un contratiempo.</p></div></details></li>
+        <li>Ten&eacute;is que hacer cuatro piezas iguales. &iquest;Por qu&eacute; es mejor una plantilla que medir cuatro veces?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque midiendo cuatro veces, <b>cada pieza trae su propio error</b> y salen cuatro piezas distintas. Con una plantilla, las cuatro traen <b>el mismo</b> error, el de la plantilla, y siguen encajando entre s&iacute;. Un error igual en todas estorba mucho menos que un error distinto en cada una.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Llegas a la sesi&oacute;n que viene con todas las piezas cortadas y <b>todas dentro de su
+        tolerancia</b>: las has medido una a una y no sobra ni falta nada. Y el dep&oacute;sito no va a
+        girar. La medida que lo estropea <b>no est&aacute; en ninguno de tus planos</b>, porque no la
+        dibuj&oacute; nadie: sale sola de sumar y restar las otras. Y antes de coger la lima hay que
+        decidir una cosa que casi siempre se decide mal: <b>cu&aacute;l de las piezas se lima</b>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-7" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 7 &middot; 60 minutos</div>
+      <h2>La cota que no dibuj&oacute; nadie</h2>
+      <p>Las cuatro piezas est&aacute;n dentro de su tolerancia y el dep&oacute;sito no gira. Lo que falla es una medida que no aparece en ning&uacute;n plano porque no es de ninguna pieza.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.2.2 &middot; A.3</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>D&iacute;a de montaje. Las piezas del soporte est&aacute;n cortadas, taladradas y lijadas, y
+         el grupo ha hecho algo que casi nadie hace: <b>medirlas todas antes de montar</b>. Est&aacute;n
+         <b>las cuatro dentro de su tolerancia</b>. No hay ni una mal.</p>
+      <div class="aviso">
+        <span class="n-tag">Y sin embargo</span>
+        En el grupo de Marta, el carrete del dep&oacute;sito <b>no entra</b> entre los dos flancos: hay
+        que forzarlo, y una vez dentro no gira.<br>
+        En el grupo de Iv&aacute;n entra sin problema, pero <b>baila</b>: el dep&oacute;sito cabecea
+        al inclinarse y tira agua fuera de la maceta.<br>
+        En el de Nerea va perfecto.<br><br>
+        <b>Los tres han fabricado con el mismo plano y las tres piezas est&aacute;n bien medidas.</b>
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Si todas las piezas cumplen su cota, &iquest;qu&eacute; medida es la que est&aacute;
+           fallando? Busca en el plano <b>d&oacute;nde est&aacute; acotado el hueco que queda</b>
+           entre el carrete y el flanco. T&oacute;mate un momento antes de seguir.</p>
+      </div>
+      <p>No est&aacute;. <b>Esa cota no la dibuj&oacute; nadie</b>, y no se puede dibujar, porque no es
+         de ninguna pieza: sale de <b>sumar y restar las otras</b>. El hueco entre flancos mide 23,60,
+         el carrete 21,60 y las dos arandelas 0,80 cada una, as&iacute; que lo que sobra es
+         23,60 &minus; 21,60 &minus; 0,80 &minus; 0,80 = <b>0,40 mm</b>. Ese 0,40 es lo que decide si
+         el dep&oacute;sito gira, aprieta o baila, y no aparece en ning&uacute;n plano de ninguna
+         pieza.</p>
+      <p>En la sesi&oacute;n 1 viste que los errores <b>se suman a lo largo de una cadena de cotas</b>
+         dentro de una pieza, y que la soluci&oacute;n era elegir bien la referencia. Aqu&iacute; pasa
+         lo mismo&hellip; con una diferencia incómoda: <b>la cadena atraviesa cuatro piezas
+         distintas</b>, y la referencia <b>no la eliges t&uacute;</b>. Te la impone el montaje.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>La cadena de cotas y la cota de cierre</h4>
+        <p>Se recorre el montaje <b>de un lado a otro, en l&iacute;nea recta</b>, apuntando cada
+           medida que te vas encontrando:</p>
+        <ul>
+          <li>lo que <b>abre</b> hueco, <b>suma</b> (el hueco entre los flancos);</li>
+          <li>lo que <b>ocupa</b> hueco, <b>resta</b> (el carrete, las dos arandelas).</li>
+        </ul>
+        <p>Lo que queda al final se llama <b>cota de cierre</b>, o cota de juego. Es la que de verdad
+           te importa y la &uacute;nica que <b>no est&aacute; dibujada</b>.</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>J = (suma de las que abren) &minus; (suma de las que ocupan)</b></p>
+        <p>Y ahora viene lo que cuesta creerse la primera vez:</p>
+        <p style="font-size:17px;text-align:center;margin:10px 0">
+           <b>Tolerancia de J = T<sub>1</sub> + T<sub>2</sub> + T<sub>3</sub> + T<sub>4</sub></b></p>
+        <p><b>Todas se suman</b>, tengan el signo que tengan. Una cota que resta tambi&eacute;n
+           <b>suma</b> su tolerancia. La raz&oacute;n es f&aacute;cil de ver si te lo imaginas: el peor
+           caso es que el hueco salga lo m&aacute;s <b>peque&ntilde;o</b> que puede <b>a la vez</b> que
+           el carrete sale lo m&aacute;s <b>grande</b> que puede. Los dos errores empujan <b>hacia el
+           mismo lado</b>, aunque las cotas tengan signos contrarios.</p>
+        <p>Consecuencia que conviene tener grabada: <b>la cota de cierre es siempre la peor de
+           todas</b>, y empeora con cada eslab&oacute;n que a&ntilde;ades.</p>
+      </div>
+      <p>Al banco. Los cuatro eslabones son los del soporte, y la escena monta <b>200 conjuntos</b>
+         con piezas sorteadas dentro de su tolerancia para ense&ntilde;arte cu&aacute;ntos salen mal.</p>
+
+      <div class="escena" id="esc-ci">
+        <div class="escena-barra">
+          <span class="escena-titulo">El dep&oacute;sito entre los dos flancos &middot; el juego que queda no lo decide ninguna pieza sola</span>
+          <div class="seg">
+            <button type="button" data-a="otra">Otra tanda de 200</button>
+            <button type="button" data-a="reset">Valores de partida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 434" id="svg-ci" role="img"
+               aria-label="El montaje del dep&oacute;sito con sus cuatro medidas, la recta del juego que queda y la contribuci&oacute;n de cada eslab&oacute;n"></svg>
+          <div class="ci-mandos">
+            <div class="ci-fila">
+              <label for="ci-a">Hueco entre flancos &middot; nominal</label>
+              <input type="range" id="ci-a" min="2300" max="2450" step="5" value="2360">
+              <span class="val" id="ci-a-v">23,60 mm</span>
+            </div>
+            <div class="ci-fila">
+              <label for="ci-t0">&plusmn; del hueco entre flancos</label>
+              <input type="range" id="ci-t0" min="2" max="50" step="1" value="20">
+              <span class="val" id="ci-t0-v">0,20 mm</span>
+            </div>
+            <div class="ci-fila">
+              <label for="ci-t1">&plusmn; del carrete del dep&oacute;sito (21,60)</label>
+              <input type="range" id="ci-t1" min="2" max="50" step="1" value="30">
+              <span class="val" id="ci-t1-v">0,30 mm</span>
+            </div>
+            <div class="ci-fila">
+              <label for="ci-t2">&plusmn; de la arandela izquierda (0,80)</label>
+              <input type="range" id="ci-t2" min="2" max="50" step="1" value="10">
+              <span class="val" id="ci-t2-v">0,10 mm</span>
+            </div>
+            <div class="ci-fila">
+              <label for="ci-t3">&plusmn; de la arandela derecha (0,80)</label>
+              <input type="range" id="ci-t3" min="2" max="50" step="1" value="10">
+              <span class="val" id="ci-t3-v">0,10 mm</span>
+            </div>
+          </div>
+          <div class="ci-tablero">
+            <div class="ci-caja" id="ci-c-nom">
+              <h5>La cota de cierre</h5>
+              <p class="ci-num" id="ci-nom-n">&mdash;</p>
+              <p class="ci-det" id="ci-nom-d"></p>
+            </div>
+            <div class="ci-caja" id="ci-c-peor">
+              <h5>El peor caso</h5>
+              <p class="ci-num" id="ci-peor-n">&mdash;</p>
+              <p class="ci-det" id="ci-peor-d"></p>
+            </div>
+            <div class="ci-caja" id="ci-c-mc">
+              <h5>200 montajes de verdad</h5>
+              <p class="ci-num" id="ci-mc-n">&mdash;</p>
+              <p class="ci-det" id="ci-mc-d"></p>
+            </div>
+          </div>
+          <p class="ci-cuenta" id="ci-cuenta"></p>
+        </div>
+        <div class="pie" id="pie-ci"></div>
+      </div>
+
+      <style>
+      .ci-mandos{margin-top:10px}
+      .ci-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 7px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .ci-fila label{min-width:258px}
+      .ci-fila input[type="range"]{flex:1 1 150px;min-width:120px;accent-color:var(--goo-azul)}
+      .ci-fila .val{font-weight:500;color:var(--goo-azul);min-width:76px;text-align:right}
+      .ci-tablero{display:flex;gap:11px;flex-wrap:wrap;margin-top:12px}
+      .ci-caja{flex:1 1 200px;min-width:198px;border:1.5px solid var(--line);border-radius:2px;
+        padding:11px 13px;background:var(--surface)}
+      .ci-caja h5{margin:0 0 6px;font:500 11.5px var(--f-m);letter-spacing:.05em;text-transform:uppercase;
+        color:var(--ink-soft)}
+      #ci-c-nom{border-left:5px solid var(--goo-azul)}
+      #ci-c-peor{border-left:5px solid var(--goo-amarillo)}
+      .ci-caja.bien{border-left:5px solid var(--goo-verde)}
+      .ci-caja.mal{border-left:5px solid var(--goo-rojo)}
+      .ci-num{margin:0;font-family:var(--f-m);font-size:20px;font-weight:500;color:var(--ink)}
+      .ci-det{margin:5px 0 0;font-family:var(--f-m);font-size:11.5px;line-height:1.75;color:var(--ink-soft)}
+      .ci-det b{color:var(--ink)}
+      .ci-cuenta{margin:12px 0 0;font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+      .ci-cuenta b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-ci');
+        if(!svg) return;
+        var caja = document.getElementById('esc-ci');
+        var pie  = document.getElementById('pie-ci');
+
+        /* ---- la cadena: cuatro eslabones con su signo -------------------
+           Se recorre el montaje de izquierda a derecha. Lo que ABRE hueco
+           suma; lo que lo OCUPA resta. La cota de cierre es lo que sobra. */
+        var ESL = [
+          {n: 'hueco entre flancos',  s: +1, nom: 23.60, tol: 0.20, col: '#1a73e8'},
+          {n: 'carrete del dep&oacute;sito', s: -1, nom: 21.60, tol: 0.30, col: '#34a853'},
+          {n: 'arandela izquierda',   s: -1, nom: 0.80,  tol: 0.10, col: '#fbbc04'},
+          {n: 'arandela derecha',     s: -1, nom: 0.80,  tol: 0.10, col: '#9334e6'}
+        ];
+        var JMIN_OK = 0.00;      /* por debajo de esto, el carrete no entra   */
+        var JMAX_OK = 0.80;      /* por encima, el dep&oacute;sito cabecea y derrama */
+        var N_MC = 200;
+        var SEMILLA0 = 20260918;
+
+        var v = {a: 23.60, t: [0.20, 0.30, 0.10, 0.10]};
+        var semilla = SEMILLA0;
+
+        /* El cero negativo: una resta que da -0,0000001 se escribiria "-0,00",
+           que en una pantalla de clase parece un error. Se redondea antes. */
+        function z(x){ return Math.abs(x) < 0.0005 ? 0 : x; }
+        function m2(x){ return z(x).toFixed(2).replace('.', ','); }
+
+        function calcula(){
+          var nom = [v.a, ESL[1].nom, ESL[2].nom, ESL[3].nom], k;
+          var J = 0, Tpeor = 0, rss = 0;
+          for(k = 0; k < 4; k++){
+            J += ESL[k].s * nom[k];
+            Tpeor += v.t[k];
+            rss += v.t[k] * v.t[k];
+          }
+          rss = Math.sqrt(rss);
+
+          /* los 200 montajes: cada pieza cae por igual en cualquier punto de
+             su tolerancia. El generador es el mismo de la sesion 1, asi que
+             la tanda se puede repetir desde fuera y comprobar. */
+          var s = semilla, i, j, mal = 0, baila = 0, jj, muestras = [];
+          for(i = 0; i < N_MC; i++){
+            jj = 0;
+            for(j = 0; j < 4; j++){
+              s = (s * 1664525 + 1013904223) % 4294967296;
+              jj += ESL[j].s * (nom[j] + (s / 4294967296 * 2 - 1) * v.t[j]);
+            }
+            muestras.push(jj);
+            if(jj < JMIN_OK) mal++;
+            else if(jj > JMAX_OK) baila++;
+          }
+          return {J: J, Tpeor: Tpeor, rss: rss, jmax: J + Tpeor, jmin: J - Tpeor,
+                  mal: mal, baila: baila, bien: N_MC - mal - baila, muestras: muestras,
+                  nom: nom};
+        }
+
+        function pinta(){
+          var C = calcula();
+          var m = '';
+
+          /* ============ arriba: el montaje, a escala ============ */
+          var ESC = 13.5, X0 = 96, T_FLANCO = 4, Y0 = 56, ALTO = 66;
+          var px = function(mm){ return X0 + mm * ESC; };
+          m += '<text x="24" y="24" class="etq">El montaje, a escala &middot; lo que hay, lo que va '
+             + 'dentro y lo que sobra</text>';
+          /* los dos flancos */
+          m += '<rect x="' + px(-T_FLANCO).toFixed(1) + '" y="' + Y0 + '" width="'
+             + (T_FLANCO * ESC).toFixed(1) + '" height="' + ALTO
+             + '" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"/>';
+          m += '<rect x="' + px(v.a).toFixed(1) + '" y="' + Y0 + '" width="'
+             + (T_FLANCO * ESC).toFixed(1) + '" height="' + ALTO
+             + '" fill="var(--surface-2)" stroke="currentColor" stroke-width="1.5"/>';
+          /* lo que va dentro, apilado desde la cara interior izquierda */
+          var x = 0, k;
+          var pila = [ESL[2], ESL[1], ESL[3]];               /* arandela, carrete, arandela */
+          var nomPila = [ESL[2].nom, ESL[1].nom, ESL[3].nom];
+          for(k = 0; k < 3; k++){
+            m += '<rect x="' + px(x).toFixed(1) + '" y="' + (Y0 + 8) + '" width="'
+               + (nomPila[k] * ESC).toFixed(1) + '" height="' + (ALTO - 16)
+               + '" fill="' + pila[k].col + '" opacity=".28" stroke="' + pila[k].col
+               + '" stroke-width="1.4"/>';
+            if(nomPila[k] * ESC > 40){
+              m += '<text x="' + px(x + nomPila[k] / 2).toFixed(1) + '" y="' + (Y0 + ALTO / 2 + 4)
+                 + '" class="ejeq" text-anchor="middle">' + pila[k].n + '</text>';
+            }
+            x += nomPila[k];
+          }
+          /* la cota de cierre, lo que sobra al final */
+          var jx0 = px(x), jx1 = px(v.a);
+          m += '<rect x="' + Math.min(jx0, jx1).toFixed(1) + '" y="' + (Y0 + 8) + '" width="'
+             + Math.max(1.5, Math.abs(jx1 - jx0)).toFixed(1) + '" height="' + (ALTO - 16)
+             + '" fill="' + (C.J >= JMIN_OK ? '#ea4335' : '#ea4335') + '" opacity=".55"/>';
+          m += '<text x="' + ((jx0 + jx1) / 2).toFixed(1) + '" y="' + (Y0 + ALTO + 16)
+             + '" class="etq" text-anchor="middle" fill="#ea4335">J = ' + m2(C.J) + '</text>';
+          /* la cota del hueco entero */
+          m += '<line x1="' + px(0).toFixed(1) + '" y1="' + (Y0 - 12) + '" x2="' + px(v.a).toFixed(1)
+             + '" y2="' + (Y0 - 12) + '" stroke="currentColor" stroke-width="1.1"/>'
+             + '<text x="' + px(v.a / 2).toFixed(1) + '" y="' + (Y0 - 16)
+             + '" class="ejeq" text-anchor="middle">hueco ' + m2(v.a) + '</text>';
+
+          /* ============ en medio: la recta del juego ============ */
+          var RY = 188, RX0 = 152, RX1 = 656;
+          var lo = Math.min(C.jmin, JMIN_OK) - 0.15, hi = Math.max(C.jmax, JMAX_OK) + 0.15;
+          var rx = function(j){ return RX0 + (RX1 - RX0) * (j - lo) / (hi - lo); };
+          m += '<text x="24" y="' + (RY - 40) + '" class="etq">Todo lo que puede valer el juego, en '
+             + 'mil&iacute;metros</text>';
+          /* la ventana en la que el montaje vale */
+          m += '<rect x="' + rx(JMIN_OK).toFixed(1) + '" y="' + (RY - 22) + '" width="'
+             + (rx(JMAX_OK) - rx(JMIN_OK)).toFixed(1) + '" height="56" fill="#34a853"'
+             + ' opacity=".13"/>';
+          m += '<text x="' + ((rx(JMIN_OK) + rx(JMAX_OK)) / 2).toFixed(1) + '" y="' + (RY - 26)
+             + '" class="ejeq" text-anchor="middle" fill="#34a853">el montaje vale</text>';
+          /* el histograma de los 200 */
+          var BINS = 44, cuenta = [], b;
+          for(b = 0; b < BINS; b++) cuenta.push(0);
+          C.muestras.forEach(function(j){
+            var i2 = Math.floor((j - lo) / (hi - lo) * BINS);
+            if(i2 < 0) i2 = 0; if(i2 >= BINS) i2 = BINS - 1;
+            cuenta[i2]++;
+          });
+          var tope = Math.max.apply(null, cuenta) || 1;
+          var anchoB = (RX1 - RX0) / BINS;
+          for(b = 0; b < BINS; b++){
+            if(!cuenta[b]) continue;
+            var jc = lo + (b + 0.5) * (hi - lo) / BINS;
+            var h = 34 * cuenta[b] / tope;
+            m += '<rect x="' + (RX0 + b * anchoB).toFixed(1) + '" y="' + (RY + 34 - h).toFixed(1)
+               + '" width="' + (anchoB - 0.8).toFixed(1) + '" height="' + h.toFixed(1)
+               + '" fill="' + (jc < JMIN_OK ? '#ea4335' : (jc > JMAX_OK ? '#fbbc04' : '#34a853'))
+               + '" opacity=".8"/>';
+          }
+          /* la barra del peor caso y la de la raiz de cuadrados */
+          m += '<line x1="' + RX0 + '" y1="' + (RY + 34) + '" x2="' + RX1 + '" y2="' + (RY + 34)
+             + '" stroke="currentColor" stroke-width="1.2"/>';
+          /* Los rotulos van a la izquierda, en el margen: a la derecha la barra
+             llega hasta el borde del lienzo y el texto se sale. */
+          m += '<rect x="' + rx(C.jmin).toFixed(1) + '" y="' + (RY + 42) + '" width="'
+             + (rx(C.jmax) - rx(C.jmin)).toFixed(1) + '" height="11" fill="#fbbc04" opacity=".8"/>';
+          m += '<text x="24" y="' + (RY + 51) + '" class="ejeq">peor caso &plusmn;' + m2(C.Tpeor)
+             + '</text>';
+          m += '<rect x="' + rx(C.J - C.rss).toFixed(1) + '" y="' + (RY + 57) + '" width="'
+             + (rx(C.J + C.rss) - rx(C.J - C.rss)).toFixed(1) + '" height="11" fill="#1a73e8"'
+             + ' opacity=".8"/>';
+          m += '<text x="24" y="' + (RY + 66) + '" class="ejeq">&radic;&Sigma; cuadrados &plusmn;'
+             + m2(C.rss) + '</text>';
+          /* la raya del nominal y las del cero */
+          m += '<line x1="' + rx(C.J).toFixed(1) + '" y1="' + (RY - 22) + '" x2="'
+             + rx(C.J).toFixed(1) + '" y2="' + (RY + 70) + '" stroke="#1a73e8" stroke-width="1.6"/>';
+          m += '<line x1="' + rx(0).toFixed(1) + '" y1="' + (RY - 22) + '" x2="' + rx(0).toFixed(1)
+             + '" y2="' + (RY + 34) + '" stroke="#ea4335" stroke-width="1.4"'
+             + ' stroke-dasharray="4 3"/>';
+          m += '<text x="' + rx(0).toFixed(1) + '" y="' + (RY + 82)
+             + '" class="ejeq" text-anchor="middle">0,00</text>';
+          m += '<text x="' + rx(JMAX_OK).toFixed(1) + '" y="' + (RY + 82)
+             + '" class="ejeq" text-anchor="middle">' + m2(JMAX_OK) + '</text>';
+
+          /* ============ abajo: qui&eacute;n aporta cu&aacute;nto ============ */
+          var CY = 312, PASO = 27, BX0 = 250, BX1 = 620;
+          m += '<text x="24" y="' + (CY - 12) + '" class="etq">Cu&aacute;nto pone cada eslab&oacute;n '
+             + 'en el juego total</text>';
+          for(k = 0; k < 4; k++){
+            var pc = 100 * v.t[k] / C.Tpeor;
+            var yy = CY + k * PASO;
+            m += '<text x="' + (BX0 - 10) + '" y="' + (yy + 13) + '" class="ejeq"'
+               + ' text-anchor="end">' + ESL[k].n + ' &plusmn;' + m2(v.t[k]) + '</text>';
+            m += '<rect x="' + BX0 + '" y="' + (yy + 2) + '" width="'
+               + ((BX1 - BX0) * pc / 100).toFixed(1) + '" height="15" fill="' + ESL[k].col
+               + '" opacity=".75"/>';
+            m += '<text x="' + (BX0 + (BX1 - BX0) * pc / 100 + 7).toFixed(1) + '" y="' + (yy + 14)
+               + '" class="etq">' + pc.toFixed(0) + ' %</text>';
+          }
+
+          svg.innerHTML = m;
+
+          /* ============ los numeros ============
+             Los que comprueba c2_verifica.py llevan su propio id, para que la
+             comprobacion lea EL numero y no el trozo de frase que le toque. */
+          document.getElementById('ci-nom-n').innerHTML =
+            'J = <span id="ci-j">' + m2(C.J) + '</span> mm';
+          document.getElementById('ci-nom-d').innerHTML =
+            m2(v.a) + ' &minus; ' + m2(ESL[1].nom) + ' &minus; ' + m2(ESL[2].nom) + ' &minus; '
+            + m2(ESL[3].nom) + ' = <b>' + m2(C.J) + '</b><br>'
+            + 'Es la <b>cota de cierre</b>: no la dibuja nadie, sale de las otras cuatro.<br>'
+            + 'Para que valga tiene que quedar entre <b>' + m2(JMIN_OK) + '</b> (entra) y <b>'
+            + m2(JMAX_OK) + '</b> (no cabecea).';
+
+          var cajaP = document.getElementById('ci-c-peor');
+          var okPeor = (C.jmin >= JMIN_OK - 1e-9 && C.jmax <= JMAX_OK + 1e-9);
+          cajaP.classList.toggle('bien', okPeor);
+          cajaP.classList.toggle('mal', !okPeor);
+          document.getElementById('ci-peor-n').innerHTML =
+            '<span id="ci-jmin">' + m2(C.jmin) + '</span> a <span id="ci-jmax">' + m2(C.jmax)
+            + '</span>';
+          document.getElementById('ci-peor-d').innerHTML =
+            'Las tolerancias <b>se suman todas</b>, tengan el signo que tengan:<br>'
+            + m2(v.t[0]) + ' + ' + m2(v.t[1]) + ' + ' + m2(v.t[2]) + ' + ' + m2(v.t[3])
+            + ' = <b><span id="ci-tpeor">' + m2(C.Tpeor) + '</span></b><br>J = ' + m2(C.J)
+            + ' &plusmn; ' + m2(C.Tpeor) + '<br>'
+            + (okPeor ? 'Cae <b>entero</b> dentro de la ventana: vale siempre.'
+                      : 'Se sale de la ventana: <b>hay montajes que no valen</b>.');
+
+          var cajaM = document.getElementById('ci-c-mc');
+          cajaM.classList.toggle('bien', C.bien === N_MC);
+          cajaM.classList.toggle('mal', C.bien !== N_MC);
+          document.getElementById('ci-mc-n').innerHTML =
+            '<span id="ci-bien">' + C.bien + '</span> de ' + N_MC + ' bien';
+          document.getElementById('ci-mc-d').innerHTML =
+            '<b><span id="ci-mal">' + C.mal + '</span></b> no entran (J negativo)<br>'
+            + '<b><span id="ci-baila">' + C.baila
+            + '</span></b> bailan m&aacute;s de ' + m2(JMAX_OK) + '<br>'
+            + 'Eso es un <b>' + (100 * (C.mal + C.baila) / N_MC).toFixed(1).replace('.', ',')
+            + ' %</b> de piezas a la basura.<br>Cada pieza se sortea dentro de su tolerancia; '
+            + 'el sorteo es <b>siempre el mismo</b> hasta que pulses &laquo;otra tanda&raquo;.';
+
+          var peorEsl = 0, kk;
+          for(kk = 1; kk < 4; kk++) if(v.t[kk] > v.t[peorEsl]) peorEsl = kk;
+          document.getElementById('ci-cuenta').innerHTML =
+            'El <b>peor caso</b> supone que las cuatro piezas se van al extremo malo a la vez, y por '
+            + 'eso suma las cuatro tolerancias enteras: ' + m2(C.Tpeor) + ' mm. Eso casi nunca pasa, '
+            + 'y por eso al lado est&aacute; la <b>ra&iacute;z de la suma de cuadrados</b>: '
+            + '&radic;(' + m2(v.t[0]) + '&sup2; + ' + m2(v.t[1]) + '&sup2; + ' + m2(v.t[2])
+            + '&sup2; + ' + m2(v.t[3]) + '&sup2;) = <b><span id="ci-rss">' + m2(C.rss)
+            + '</span></b>, que es como la mitad. '
+            + 'Con los mismos datos, las barras de abajo dicen d&oacute;nde apretar: el que '
+            + 'm&aacute;s pone ahora mismo es <b>' + ESL[peorEsl].n + '</b>, con el '
+            + (100 * v.t[peorEsl] / C.Tpeor).toFixed(0) + ' % del total.';
+
+          pie.innerHTML =
+            '<b>Aprieta las dos arandelas a &plusmn;0,02 y mira lo poco que cambia.</b> Entre las dos '
+            + 'ponen menos de la tercera parte del problema, y adem&aacute;s no las fabricas t&uacute;. '
+            + 'Ahora aprieta el <b>carrete</b>, que es el que m&aacute;s pesa, o sube el nominal del '
+            + 'hueco: ver&aacute;s que subirlo mueve la campana entera a la derecha sin estrecharla, '
+            + 'y apretar una tolerancia la estrecha sin moverla. <b>Son dos arreglos distintos para '
+            + 'dos problemas distintos</b>, y confundirlos es el error m&aacute;s caro del montaje. '
+            + 'Que cada pieza caiga por igual en cualquier punto de su tolerancia es una '
+            + '<b>suposici&oacute;n</b>: en un taller de verdad se parecen m&aacute;s a una campana, '
+            + 'y entonces los extremos son todav&iacute;a m&aacute;s raros.';
+        }
+
+        function refresca(){
+          document.getElementById('ci-a-v').innerHTML = m2(v.a) + ' mm';
+          var k;
+          for(k = 0; k < 4; k++){
+            document.getElementById('ci-t' + k + '-v').innerHTML = m2(v.t[k]) + ' mm';
+          }
+          pinta();
+        }
+
+        document.getElementById('ci-a').addEventListener('input', function(){
+          v.a = (+this.value) / 100; refresca(); });
+        [0, 1, 2, 3].forEach(function(k){
+          document.getElementById('ci-t' + k).addEventListener('input', function(){
+            v.t[k] = (+this.value) / 100; refresca();
+          });
+        });
+
+        caja.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'otra'){
+            /* El mismo multiplicador que el sorteo: 2^32 * 1103515245 se sale
+               del entero exacto de JavaScript (2^53) y el resultado dejaria de
+               ser reproducible. Con 1664525 cabe de sobra. */
+            semilla = (semilla * 1664525 + 1013904223) % 4294967296;
+          } else {
+            semilla = SEMILLA0;
+            v = {a: 23.60, t: [0.20, 0.30, 0.10, 0.10]};
+            document.getElementById('ci-a').value = 2360;
+            document.getElementById('ci-t0').value = 20;
+            document.getElementById('ci-t1').value = 30;
+            document.getElementById('ci-t2').value = 10;
+            document.getElementById('ci-t3').value = 10;
+          }
+          refresca();
+        });
+
+        refresca();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>El peor caso no pasa casi nunca, y aun as&iacute; es con el que se calcula.</b> Que las
+           cuatro piezas se vayan al extremo malo <b>a la vez</b> es como sacar cuatro caras seguidas.
+           Por eso al lado est&aacute; la otra cuenta, la <b>ra&iacute;z de la suma de los
+           cuadrados</b>:</p>
+        <p style="font-size:17px;text-align:center;margin:8px 0">
+           <b>T<sub>rss</sub> = &radic;(T<sub>1</sub>&sup2; + T<sub>2</sub>&sup2; + T<sub>3</sub>&sup2;
+           + T<sub>4</sub>&sup2;)</b></p>
+        <p>Con 0,20 / 0,30 / 0,10 / 0,10 sale <b>0,39</b> frente a los 0,70 del peor caso: casi la
+           mitad. Se usa cuando se fabrican muchas piezas y se acepta que <b>unas pocas</b> se tiren.
+           En una pieza &uacute;nica, como la vuestra, se calcula con el <b>peor caso</b>: no
+           ten&eacute;is repuestos.</p>
+        <p><b>Y hay dos arreglos distintos, para dos problemas distintos.</b> Es el error que m&aacute;s
+           caro sale:</p>
+        <ul>
+          <li>Si el juego <b>se sale por un lado</b> (siempre aprieta, o siempre baila), lo que
+              est&aacute; mal es el <b>nominal</b>. Se arregla <b>moviendo una medida</b>: el hueco a
+              24,00, o el carrete a 21,20. Eso mueve la campana entera <b>sin estrecharla</b>, y no
+              cuesta dinero.</li>
+          <li>Si el juego <b>vale unas veces s&iacute; y otras no</b>, lo que est&aacute; mal es la
+              <b>dispersi&oacute;n</b>. Eso solo se arregla <b>apretando una tolerancia</b>, y eso
+              s&iacute; cuesta: m&aacute;quina mejor, m&aacute;s tiempo, m&aacute;s piezas tiradas.</li>
+        </ul>
+        <p>Y hay un tercer arreglo, que es el m&aacute;s barato de todos y el que nadie mira:
+           <b>quitar un eslab&oacute;n</b>. Una arandela menos, o una pieza de una sola vez en vez de
+           dos atornilladas, es una tolerancia entera que desaparece de la suma.</p>
+      </div>
+
+      <h3>El montaje: en qu&eacute; orden y con qu&eacute; cuidado</h3>
+      <div class="copiar">
+        <h4>Cinco reglas de montaje</h4>
+        <ul>
+          <li><b>De dentro hacia fuera.</b> Lo que luego no se puede alcanzar va primero. Antes de
+              empezar, mirad el modelo y preguntaos: &laquo;despu&eacute;s de este paso,
+              &iquest;a qu&eacute; ya no llego?&raquo;.</li>
+          <li><b>Montaje en seco</b>, entero, antes de pegar o apretar nada. Se monta con los
+              tornillos flojos y sin pegamento, se comprueba que todo cae en su sitio, y
+              <b>entonces</b> se termina.</li>
+          <li><b>No apretar del todo hasta que est&eacute; todo puesto.</b> Con los tornillos flojos,
+              las piezas se colocan solas donde pueden. Si aprietas el primero a tope, obligas a los
+              dem&aacute;s a entrar forzando, y ah&iacute; es donde se rompe un agujero.</li>
+          <li><b>Apretar en cruz</b>, no en orden: primero uno, luego el de enfrente, luego los otros
+              dos. En orden, la pieza se va inclinando y el &uacute;ltimo tornillo no llega.</li>
+          <li><b>La prueba de los cinco minutos</b> (sesi&oacute;n 3): &iquest;se puede sacar la placa
+              del aparato ya montado en menos de cinco minutos? Ahora es cuando se comprueba de
+              verdad, con el aparato delante.</li>
+        </ul>
+      </div>
+      <div class="copiar">
+        <h4>Ajustar: qu&eacute; pieza se lima</h4>
+        <p>Cuando no encaja, la reacci&oacute;n es coger la lima y atacar lo primero que se ve. Eso
+           convierte un ajuste en una pieza nueva. Cinco reglas:</p>
+        <ul>
+          <li><b>Medir y decidir cu&aacute;nto, antes de tocar la lima.</b> &laquo;A ver si
+              as&iacute;&raquo; no es un m&eacute;todo. Se puede <b>quitar</b> material; no se puede
+              poner.</li>
+          <li><b>Se lima la pieza que no le hace de referencia a nadie m&aacute;s.</b> Si una cara
+              apoya, atornilla o sirve de origen para otras medidas, esa no se toca: al limarla mueves
+              todo lo que colgaba de ella.</li>
+          <li><b>Se lima la m&aacute;s barata de rehacer</b>, por si te pasas. Entre una pieza de
+              cart&oacute;n y una impresa de tres horas, no hay duda.</li>
+          <li><b>No se lima donde hay una cota funcional.</b> Si el &uacute;nico sitio por donde se
+              puede quitar material es una cara que manda, la pieza hay que <b>rehacerla</b>, y se
+              dice.</li>
+          <li><b>Si sobra hueco, no se lima: se rellena.</b> Una arandela, un suplemento de cart&oacute;n
+              o una vuelta de cinta resuelven un juego de tres d&eacute;cimas, y son reversibles.</li>
+        </ul>
+        <p>Herramientas del ajuste: la <b>lima</b> y el papel de lija, las <b>arandelas y
+           suplementos</b>, el <b>escariador</b> de la sesi&oacute;n 4 para afinar un agujero&hellip;
+           y la <b>galga de espesores</b>, que es la que dice cu&aacute;nto hueco hay.</p>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/c2-galgas.jpg" alt="Juego de galgas de espesores abierto en abanico sobre una piedra, con doce l&aacute;minas de acero de distinto grosor; en el mango se lee M/M, Moore &amp; Wright, Sheffield England, 389M, y en las l&aacute;minas se distinguen n&uacute;meros grabados como 70, 10 y 80" loading="lazy">
+        <figcaption>Un <b>juego de galgas de espesores</b>, abierto en abanico. Cada l&aacute;mina es una chapa de acero de un <b>grosor exacto y grabado</b>: la de 0,10 mide 0,10 y la de 0,70 mide 0,70. Sirven para medir justo lo que no se puede medir de ninguna otra manera: <b>el hueco que queda entre dos piezas ya montadas</b>, donde no entra un pie de rey. Y se usan igual que el calibre pasa / no pasa de la sesi&oacute;n 2: se prueban l&aacute;minas hasta encontrar <b>la m&aacute;s gorda que entra</b>; el hueco mide eso. Se pueden apilar dos o tres para medir huecos mayores. Este juego es del taller: pone <b>M/M</b> porque es m&eacute;trico, y son de <i>Moore &amp; Wright</i>, de Sheffield, uno de los sitios donde se invent&oacute; buena parte de esto.
+          <span class="credito">R. Henrik Nilsson &middot; CC BY 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:1970s_feeler_gauge_0_05_1_mm_model_389M_by_Moore_and_Wright_Sheffield_England.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Lo que hace la industria cuando la cota de cierre es imposible.</b> Hay conjuntos en los
+           que el juego tiene que quedar dentro de <b>dos cent&eacute;simas</b> &mdash;un pist&oacute;n
+           dentro de su cilindro, un rodamiento en su alojamiento&mdash; y fabricar todas las piezas
+           con esa precisi&oacute;n costar&iacute;a una fortuna.</p>
+        <p>La soluci&oacute;n es una idea preciosa y se llama <b>ajuste selectivo</b>: se fabrican las
+           piezas con una tolerancia normal, se <b>miden todas</b>, se reparten en <b>clases</b>
+           (los pistones un poco grandes con los cilindros un poco grandes) y se montan
+           <b>emparejadas por clase</b>. As&iacute; el juego sale fino sin haber fabricado fino.</p>
+        <p>Y tiene el precio que ya conoces de la sesi&oacute;n 2: esas piezas <b>dejan de ser
+           intercambiables</b>. El repuesto ya no vale por s&iacute; solo, tiene que ser de su clase.
+           Dos siglos despu&eacute;s de Honor&eacute; Blanc, la industria sigue negociando entre lo
+           mismo: piezas que encajan con cualquiera, o piezas que encajan muy bien.</p>
+      </div>
+      <div class="video" id="video-c2-s7" data-vid="SmvnY4k2vRg">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Cadenas de Cotas">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Cadenas de Cotas</b>
+            <span>AGD Agencia de Gesti&oacute;n Dimensional</span>
+          </span>
+        </button>
+        <p class="video-nota">Lo mismo que esta sesi&oacute;n contado por gente que se dedica a esto en la industria. Va m&aacute;s lejos de lo que se pide en 4.&ordm;, pero la idea de la <b>cota que no dibuja nadie</b> est&aacute; en el primer minuto. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=SmvnY4k2vRg" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7 &middot; La cadena de cotas de vuestro montaje</span>
+          <span class="chips"><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE3 &middot; 3.1</span></span>
+          <span>Grupos de 3 &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; Los tres arreglos, en la escena (7 min)</h4>
+          <p>Partiendo de los valores de partida, anotad en una tabla <b>J nominal</b>, <b>el peor
+             caso</b> y <b>cu&aacute;ntos de 200 fallan</b> en cada uno de estos cuatro casos:</p>
+          <ol>
+            <li>Tal cual est&aacute;.</li>
+            <li>Apretando el <b>carrete</b> de &plusmn;0,30 a &plusmn;0,10, sin tocar nada m&aacute;s.</li>
+            <li>Volviendo atr&aacute;s y apretando las <b>dos arandelas</b> a &plusmn;0,02, sin tocar
+                nada m&aacute;s.</li>
+            <li>Volviendo atr&aacute;s y subiendo el <b>hueco nominal</b> a 24,00.</li>
+          </ol>
+          <p>Y contestad: <b>&iquest;cu&aacute;l de los tres arreglos quita las piezas que no entran, y
+             cu&aacute;l quita las que bailan?</b> No es el mismo, y ah&iacute; est&aacute; la
+             sesi&oacute;n entera.</p>
+          <h4>Segunda parte &middot; Vuestra cadena (8 min)</h4>
+          <p>Buscad en vuestro proyecto un sitio donde <b>tres o m&aacute;s piezas</b> se apilen o se
+             encajen: el eje entre sus soportes, la tapa dentro de su caja, el LED dentro de su
+             agujero y su portaled.</p>
+          <ol>
+            <li>Dibujadla <b>en l&iacute;nea</b>, con una flecha por eslab&oacute;n y su signo.</li>
+            <li>Nominal y tolerancia de cada uno (los de las piezas que compr&aacute;is, mirad la hoja
+                del fabricante o medidlos).</li>
+            <li>Calculad <b>J nominal</b>, <b>J m&aacute;ximo</b> y <b>J m&iacute;nimo</b>, a mano.</li>
+            <li>Decid entre qu&eacute; dos valores <b>ten&iacute;a</b> que estar J para que funcione, y
+                si vuestro peor caso cabe ah&iacute; dentro.</li>
+          </ol>
+          <h4>Tercera parte &middot; El arreglo y el orden (5 min)</h4>
+          <p>Si no cabe, calculad <b>los tres arreglos</b> &mdash;apretar el eslab&oacute;n que
+             m&aacute;s pesa, mover un nominal, quitar un eslab&oacute;n&mdash; y elegid uno,
+             <b>con la raz&oacute;n</b>.</p>
+          <p>Y escribid el <b>orden de montaje</b> numerado. Detr&aacute;s de cada paso, una frase:
+             <b>&laquo;despu&eacute;s de esto ya no puedo tocar&hellip;&raquo;</b>.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla de los cuatro casos de la escena y la respuesta de cu&aacute;l arregla
+                qu&eacute; <b>(3 puntos)</b>.</li>
+            <li>Vuestra cadena dibujada con los signos <b>(2 puntos)</b>.</li>
+            <li>Los tres c&aacute;lculos de J y la comparaci&oacute;n con lo que hace falta
+                <b>(3 puntos)</b>.</li>
+            <li>El orden de montaje con la frase de cada paso <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; es una cota de cierre y por qu&eacute; no est&aacute; dibujada en ning&uacute;n plano?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Es <b>el hueco que queda</b> al montar, y no es de ninguna pieza: sale de sumar las medidas que abren hueco y restar las que lo ocupan. Como no pertenece a ninguna pieza, nadie la acota&hellip; y es justo la que decide si el conjunto funciona.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se suman TODAS las tolerancias, tambi&eacute;n las de las cotas que restan?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el peor caso es que el hueco salga lo m&aacute;s peque&ntilde;o posible <b>a la vez</b> que lo que va dentro sale lo m&aacute;s grande posible. Los dos errores empujan <b>al mismo lado</b> aunque las cotas tengan signos contrarios. Por eso la cota de cierre es siempre la peor de la cadena.</p></div></details></li>
+        <li>El montaje unas veces aprieta y otras baila. &iquest;Se arregla moviendo un nominal o apretando una tolerancia?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Apretando una tolerancia</b>, y la que m&aacute;s pese. Mover el nominal <b>desplaza</b> el juego entero hacia un lado, pero no lo estrecha: si antes val&iacute;a a veces, seguir&aacute; valiendo a veces. Mover el nominal arregla el caso contrario: el que <b>siempre</b> aprieta o <b>siempre</b> baila.</p></div></details></li>
+        <li>Dos piezas no encajan. &iquest;Cu&aacute;l se lima?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La que <b>no le hace de referencia a nadie</b> y la m&aacute;s barata de rehacer; nunca la cara que apoya, atornilla o sirve de origen a otras cotas. Y antes de limar, <b>se mide y se decide cu&aacute;nto</b>: material se puede quitar, no se puede poner. Si sobra hueco, mejor rellenar con una arandela que limar.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya gira. Y ahora llega la pregunta que hunde a la mitad de los proyectos buenos:
+        <b>&laquo;&iquest;c&oacute;mo s&eacute; que no ha sido suerte?&raquo;</b>. Ense&ntilde;ar la
+        pieza y decir que funciona no demuestra nada: tiene que funcionar <b>por lo que t&uacute;
+        dijiste que iba a funcionar</b>. En la &uacute;ltima sesi&oacute;n se monta el expediente de
+        fabricaci&oacute;n, se mide la pieza contra su propio plano y se prepara una defensa de tres
+        minutos en la que <b>cada frase lleva un n&uacute;mero</b>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-8" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 8 &middot; 60 minutos</div>
+      <h2>&laquo;Nos ha quedado muy bien&raquo; no es una respuesta</h2>
+      <p>Ense&ntilde;as la pieza y funciona. Te preguntan qu&eacute; tolerancia pediste y cu&aacute;nto te has desviado. Ah&iacute; se acaba el proyecto o empieza la defensa.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Test</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE3 &middot; 3.1 &middot; 3.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip sab">A.1.4 &middot; A.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>&Uacute;ltima sesi&oacute;n de la unidad. El soporte est&aacute; terminado, el dep&oacute;sito
+         bascula y el servo lo mueve. El grupo lo pone encima de la mesa y dice la frase que se dice
+         siempre:</p>
+      <div class="aviso">
+        <span class="n-tag">La defensa entera, palabra por palabra</span>
+        <b>&laquo;Pues esto es el soporte. Nos ha quedado muy bien y funciona.&raquo;</b>
+      </div>
+      <p>Y entonces les hacen tres preguntas:</p>
+      <ol>
+        <li>&iquest;Qu&eacute; medida <b>pediste</b> en el hueco entre los flancos, y cu&aacute;nto te
+            ha <b>salido</b>?</li>
+        <li>&iquest;Por qu&eacute; esa uni&oacute;n es de tornillo y no est&aacute; pegada?</li>
+        <li>Si tuvieras que hacer <b>otro igual</b> ma&ntilde;ana, &iquest;te saldr&iacute;a igual?</li>
+      </ol>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>La pieza funciona. Est&aacute; ah&iacute; y se puede tocar. &iquest;Por qu&eacute; no basta
+           con eso? Escribe una raz&oacute;n antes de seguir.</p>
+      </div>
+      <p>Hay tres razones, y las tres son incómodas:</p>
+      <ul>
+        <li><b>Funcionar no demuestra que est&eacute; bien hecha.</b> La pieza de Nerea de la
+            sesi&oacute;n anterior tambi&eacute;n funcionaba, y funcionaba <b>por suerte</b>: le
+            toc&oacute; el lado bueno de la tolerancia. La de al lado, con el mismo plano, no.</li>
+        <li><b>Si no sabes qu&eacute; pediste, no puedes repetirlo.</b> Una pieza que no se puede
+            volver a hacer igual no es un dise&ntilde;o: es un accidente afortunado.</li>
+        <li><b>Si no sabes cu&aacute;nto te has desviado, no sabes qu&eacute; mejorar.</b> No puedes
+            decir si el problema es la m&aacute;quina, el plano o el pulso.</li>
+      </ul>
+      <p>Una pieza no se defiende ense&ntilde;&aacute;ndola. Se defiende con <b>la prueba de que hace lo
+         que dijiste que iba a hacer</b>, y esa prueba son <b>n&uacute;meros</b>: lo que pediste, lo
+         que mediste, y la diferencia.</p>
+      <div class="nota">
+        <span class="n-tag">De qu&eacute; va esta sesi&oacute;n, y de qu&eacute; no</span>
+        Aqu&iacute; se defiende <b>la pieza y c&oacute;mo se ha fabricado</b>: las tolerancias que
+        pediste, las que te han salido, qu&eacute; hubo que limar y por qu&eacute;. Contar el
+        <b>proyecto entero</b> &mdash;el problema del que naci&oacute;, la soluci&oacute;n, lo que
+        aporta&mdash; se prepar&oacute; en la <b>unidad 1</b>, y la entrega final es de la
+        <b>unidad 9</b>. Son tres cosas distintas y se preparan por separado.
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
+
+      <div class="copiar">
+        <h4>El expediente de fabricaci&oacute;n: cinco hojas</h4>
+        <p>Es lo que en la industria acompa&ntilde;a a cada pieza. Una hoja cada uno, ni m&aacute;s:</p>
+        <ol>
+          <li><b>El plano final</b>, acotado y con tolerancias. El <b>de verdad</b>, con los cambios de
+              la sesi&oacute;n 4 y de la 5 ya metidos, con su cajet&iacute;n, su <b>versi&oacute;n</b>
+              y su fecha. Si no lleva versi&oacute;n, alguien fabricar&aacute; el viejo.</li>
+          <li><b>El despiece y el plan de corte</b> de la sesi&oacute;n 6, tal como se
+              ejecut&oacute;.</li>
+          <li><b>La hoja de ruta</b>, con lo que <b>de verdad</b> pas&oacute;: en qu&eacute; orden se
+              hizo y qu&eacute; hubo que repetir.</li>
+          <li><b>El control dimensional</b>: la tabla de lo que se pidi&oacute; frente a lo que se
+              midi&oacute;.</li>
+          <li><b>Las incidencias</b>: qu&eacute; fall&oacute;, qu&eacute; se cambi&oacute; y por
+              qu&eacute;. Es la hoja <b>m&aacute;s valiosa de las cinco</b> y la que nadie escribe.
+              Un proyecto sin incidencias no es un proyecto perfecto: es un proyecto que no se ha
+              mirado.</li>
+        </ol>
+      </div>
+      <div class="copiar">
+        <h4>La tabla de control dimensional</h4>
+        <p>Cinco columnas. Se rellena con la pieza en una mano y el pie de rey en la otra:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
+          <tr><td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Cota</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Nominal y tolerancia</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Medido</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Desviaci&oacute;n</b></td>
+              <td style="padding:4px 6px;border-bottom:1px solid var(--line)"><b>Veredicto</b></td></tr>
+          <tr><td style="padding:4px 6px">hueco entre flancos</td>
+              <td style="padding:4px 6px">23,60 &plusmn; 0,20</td><td style="padding:4px 6px">23,50</td>
+              <td style="padding:4px 6px">&minus;0,10 (50 %)</td><td style="padding:4px 6px">pasa</td></tr>
+        </table>
+        <p>Dos cosas que parecen detalles y no lo son:</p>
+        <ul>
+          <li>La desviaci&oacute;n se pone <b>tambi&eacute;n en porcentaje de la tolerancia</b>. Un
+              &laquo;pasa&raquo; al 20 % y un &laquo;pasa&raquo; al 95 % son dos cosas muy distintas, y
+              la segunda te va a dar un disgusto en la siguiente pieza.</li>
+          <li>Se apunta <b>con qu&eacute; se ha medido</b>. Una medida sin instrumento no es una
+              medida, y la regla de la sesi&oacute;n 2 sigue valiendo: el instrumento tiene que
+              apreciar del orden de <b>diez veces menos</b> que la tolerancia que compruebas.</li>
+        </ul>
+      </div>
+      <p>Al banco. Es tu soporte, con las seis cotas que sali&oacute;n del modelo de la sesi&oacute;n
+         5, fabricado y medido.</p>
+
+      <div class="escena" id="esc-cd">
+        <div class="escena-barra">
+          <span class="escena-titulo">Las seis cotas del soporte, medidas &middot; lo que pediste, lo que te ha salido y qu&eacute; puedes decir</span>
+          <div class="seg">
+            <button type="button" data-a="otra">Otra pieza</button>
+            <button type="button" data-a="reset">Valores de partida</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 690 400" id="svg-cd" role="img"
+               aria-label="Las seis cotas del soporte con su banda de tolerancia y la medida real de cada una"></svg>
+          <div class="cd-mandos">
+            <div class="cd-fila">
+              <label for="cd-tec">C&oacute;mo hab&eacute;is fabricado la pieza</label>
+              <select id="cd-tec">
+                <option value="0" selected>A mano: sierra, lima y taladro</option>
+                <option value="1">Cortadora l&aacute;ser</option>
+                <option value="2">Impresora 3D</option>
+              </select>
+            </div>
+            <div class="cd-fila">
+              <label for="cd-ses">Desajuste de la m&aacute;quina (va siempre al mismo lado)</label>
+              <input type="range" id="cd-ses" min="-50" max="50" step="1" value="0">
+              <span class="val" id="cd-ses-v">0,00 mm</span>
+            </div>
+          </div>
+          <div class="cd-tablero">
+            <div class="cd-caja" id="cd-c-res">
+              <h5>El resultado</h5>
+              <p class="cd-num" id="cd-res-n">&mdash;</p>
+              <p class="cd-det" id="cd-res-d"></p>
+            </div>
+            <div class="cd-caja" id="cd-c-frase">
+              <h5>Lo que puedes decir, con esos n&uacute;meros</h5>
+              <p class="cd-det" id="cd-frase-d"></p>
+            </div>
+          </div>
+          <p class="cd-cuenta" id="cd-cuenta"></p>
+        </div>
+        <div class="pie" id="pie-cd"></div>
+      </div>
+
+      <style>
+      .cd-mandos{margin-top:10px}
+      .cd-fila{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 7px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .cd-fila label{min-width:292px}
+      .cd-fila input[type="range"]{flex:1 1 150px;min-width:120px;accent-color:var(--goo-azul)}
+      .cd-fila select{flex:1 1 230px;font-family:var(--f-m);font-size:12.5px;padding:5px 7px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .cd-fila .val{font-weight:500;color:var(--goo-azul);min-width:72px;text-align:right}
+      .cd-tablero{display:flex;gap:11px;flex-wrap:wrap;margin-top:12px}
+      .cd-caja{flex:1 1 260px;min-width:250px;border:1.5px solid var(--line);border-radius:2px;
+        padding:11px 13px;background:var(--surface)}
+      .cd-caja h5{margin:0 0 6px;font:500 11.5px var(--f-m);letter-spacing:.05em;text-transform:uppercase;
+        color:var(--ink-soft)}
+      #cd-c-frase{border-left:5px solid var(--goo-azul);flex:2 1 340px}
+      .cd-caja.bien{border-left:5px solid var(--goo-verde)}
+      .cd-caja.mal{border-left:5px solid var(--goo-rojo)}
+      .cd-num{margin:0;font-family:var(--f-m);font-size:20px;font-weight:500;color:var(--ink)}
+      .cd-det{margin:5px 0 0;font-family:var(--f-m);font-size:11.5px;line-height:1.8;color:var(--ink-soft)}
+      .cd-det b{color:var(--ink)}
+      .cd-cuenta{margin:12px 0 0;font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+      .cd-cuenta b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-cd');
+        if(!svg) return;
+        var caja = document.getElementById('esc-cd');
+        var pie  = document.getElementById('pie-cd');
+
+        /* Las seis cotas salen del modelo de la sesion 5 con el servo de
+           23 mm: agujero 8,30 / canto 3 x 8,30 = 24,90 / flanco 49,80 /
+           hueco 23,60 / base 31,60 / eje a 4 + 24,90 = 28,90 del suelo. La
+           tolerancia de cada una es la que el grupo escribio en su plano. */
+        var CAR = [
+          {n: 'hueco entre flancos',        nom: 23.60, tol: 0.20},
+          {n: '&empty; del agujero del eje', nom: 8.30,  tol: 0.15},
+          {n: 'lado del flanco',            nom: 49.80, tol: 0.30},
+          {n: 'espesor del flanco',         nom: 4.00,  tol: 0.20},
+          {n: 'altura del eje sobre la base', nom: 28.90, tol: 0.40},
+          {n: 'ancho exterior de la base',  nom: 31.60, tol: 0.50}
+        ];
+        /* la dispersion de cada tecnica es la que se prometio en la S4 */
+        var TEC = [
+          {n: 'la sierra y la lima', disp: 0.50},
+          {n: 'el l&aacute;ser',     disp: 0.15},
+          {n: 'la impresora 3D',     disp: 0.30}
+        ];
+        /* el carrete y las arandelas de la sesion 7, para cerrar el conjunto */
+        var CARRETE = 21.60, ARANDELAS = 1.60, JMIN_OK = 0.00, JMAX_OK = 0.80;
+        var SEMILLA0 = 20260918;
+
+        var v = {tec: 0, ses: 0.00};
+        var semilla = SEMILLA0;
+
+        function z(x){ return Math.abs(x) < 0.0005 ? 0 : x; }
+        function m2(x){ return z(x).toFixed(2).replace('.', ','); }
+        function s2(x){ return (z(x) >= 0 ? '+' : '&minus;')
+          + Math.abs(z(x)).toFixed(2).replace('.', ','); }
+
+        function calcula(){
+          var s = semilla, T = TEC[v.tec], filas = [], i, pasan = 0;
+          for(i = 0; i < CAR.length; i++){
+            s = (s * 1664525 + 1013904223) % 4294967296;
+            var u = s / 4294967296 * 2 - 1;
+            var real = CAR[i].nom + v.ses + u * T.disp;
+            var desv = real - CAR[i].nom;
+            var pc = 100 * Math.abs(desv) / CAR[i].tol;
+            var ok = Math.abs(desv) <= CAR[i].tol + 1e-12;
+            if(ok) pasan++;
+            filas.push({i: i, real: real, desv: desv, pc: pc, ok: ok});
+          }
+          /* la cota de cierre de la sesion 7, con el hueco que de verdad ha salido */
+          var J = filas[0].real - CARRETE - ARANDELAS;
+          var peor = filas[0], mejor = filas[0];
+          for(i = 1; i < filas.length; i++){
+            if(filas[i].pc > peor.pc) peor = filas[i];
+            if(filas[i].pc < mejor.pc) mejor = filas[i];
+          }
+          return {T: T, filas: filas, pasan: pasan, J: J, peor: peor, mejor: mejor};
+        }
+
+        function pinta(){
+          var C = calcula();
+          var m = '';
+          var X0 = 232, XC = 438, SEMI = 172;    /* el centro y el medio ancho del eje */
+          var PASO = 52, Y0 = 56;
+
+          /* Nada de negrita aqu&iacute;: dentro de un &lt;text&gt; de SVG, un &lt;b&gt; no es
+             una etiqueta conocida y el navegador NO pinta lo que lleva dentro. */
+          m += '<text x="24" y="26" class="etq">Cada cota en su escala: de la raya a la marca hay '
+             + 'tres veces su tolerancia</text>';
+
+          C.filas.forEach(function(f, k){
+            var c = CAR[f.i], y = Y0 + k * PASO;
+            /* El punto se queda dentro del lienzo aunque la desviacion se salga
+               de la escala: el tope de la derecha va ANTES de la columna de
+               medidas, para no escribir el punto encima del numero. */
+            var px = function(d){                     /* d en mm, normalizado a la tolerancia */
+              var x = XC + SEMI * d / (3 * c.tol);
+              return Math.max(X0 - 10, Math.min(XC + SEMI + 14, x));
+            };
+            /* el nombre y lo que se pidio */
+            m += '<text x="' + (X0 - 14) + '" y="' + (y + 4) + '" class="etq" text-anchor="end">'
+               + c.n + '</text>';
+            m += '<text x="' + (X0 - 14) + '" y="' + (y + 19) + '" class="ejeq" text-anchor="end">'
+               + m2(c.nom) + ' &plusmn; ' + m2(c.tol) + '</text>';
+            /* la banda de tolerancia */
+            m += '<rect x="' + px(-c.tol).toFixed(1) + '" y="' + (y - 11) + '" width="'
+               + (px(c.tol) - px(-c.tol)).toFixed(1) + '" height="26" fill="#34a853"'
+               + ' opacity=".14"/>';
+            m += '<line x1="' + px(-3 * c.tol).toFixed(1) + '" y1="' + (y + 2) + '" x2="'
+               + px(3 * c.tol).toFixed(1) + '" y2="' + (y + 2)
+               + '" stroke="currentColor" stroke-width="1" opacity=".55"/>';
+            /* el nominal y los dos limites */
+            [[-c.tol, '#34a853'], [c.tol, '#34a853']].forEach(function(t){
+              m += '<line x1="' + px(t[0]).toFixed(1) + '" y1="' + (y - 11) + '" x2="'
+                 + px(t[0]).toFixed(1) + '" y2="' + (y + 15) + '" stroke="' + t[1]
+                 + '" stroke-width="1.4"/>';
+            });
+            m += '<line x1="' + XC + '" y1="' + (y - 13) + '" x2="' + XC + '" y2="' + (y + 17)
+               + '" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>';
+            /* la medida real */
+            m += '<circle cx="' + px(f.desv).toFixed(1) + '" cy="' + (y + 2) + '" r="6.5" fill="'
+               + (f.ok ? '#34a853' : '#ea4335') + '" id="cd-punto-' + f.i + '"/>';
+            m += '<text x="' + (XC + SEMI + 34) + '" y="' + (y + 6) + '" class="etq" id="cd-real-'
+               + f.i + '">' + m2(f.real) + '</text>';
+          });
+          m += '<text x="' + XC + '" y="' + (Y0 + 6 * PASO - 18) + '" class="ejeq"'
+             + ' text-anchor="middle">lo pedido</text>';
+          m += '<text x="' + (XC + SEMI + 34) + '" y="' + (Y0 - 16) + '" class="ejeq">medido</text>';
+
+          svg.setAttribute('viewBox', '0 0 690 ' + (Y0 + 6 * PASO - 6));
+          svg.innerHTML = m;
+
+          /* ============ los numeros ============ */
+          var cajaR = document.getElementById('cd-c-res');
+          cajaR.classList.toggle('bien', C.pasan === CAR.length);
+          cajaR.classList.toggle('mal', C.pasan !== CAR.length);
+          document.getElementById('cd-res-n').innerHTML =
+            '<span id="cd-pasan">' + C.pasan + '</span> de ' + CAR.length + ' cotas';
+          var jOK = (C.J >= JMIN_OK && C.J <= JMAX_OK);
+          document.getElementById('cd-res-d').innerHTML =
+            'Fabricado con <b>' + C.T.n + '</b>, que dispersa &plusmn;' + m2(C.T.disp)
+            + ' mm, y con un desajuste de <b>' + s2(v.ses) + '</b>.<br>'
+            + 'La peor: <b>' + CAR[C.peor.i].n + '</b>, ' + s2(C.peor.desv) + ' mm, el <b>'
+            + '<span id="cd-peorpc">' + C.peor.pc.toFixed(0) + '</span> %</b> de su tolerancia.<br>'
+            + 'Cota de cierre de la sesi&oacute;n 7 con el hueco que ha salido: ' + m2(C.filas[0].real)
+            + ' &minus; ' + m2(CARRETE) + ' &minus; ' + m2(ARANDELAS) + ' = <b><span id="cd-j">'
+            + m2(C.J) + '</span></b> &rarr; ' + (jOK ? 'el dep&oacute;sito <b>gira</b>.'
+                                    : (C.J < JMIN_OK ? '<b>no entra</b>.' : '<b>cabecea</b>.'));
+
+          var p = C.peor, mj = C.mejor;
+          document.getElementById('cd-frase-d').innerHTML =
+            '&laquo;En <b>' + CAR[p.i].n + '</b> ped&iacute; ' + m2(CAR[p.i].nom) + ' &plusmn; '
+            + m2(CAR[p.i].tol) + ' y he medido <b>' + m2(p.real) + '</b>: ' + s2(p.desv)
+            + ', el ' + p.pc.toFixed(0) + ' % de la tolerancia. '
+            + (p.ok ? 'Pasa' + (p.pc > 70 ? ', pero justo' : ' con margen') + '.'
+                    : '<b>No pasa.</b>')
+            + ' Lo hicimos con ' + C.T.n + ', que dispersa &plusmn;' + m2(C.T.disp) + ', '
+            + (CAR[p.i].tol >= C.T.disp
+               ? 'as&iacute; que la cota era alcanzable y el fallo es de ejecuci&oacute;n.'
+               : 'as&iacute; que <b>esa cota no se pod&iacute;a cumplir</b> con esa m&aacute;quina: '
+                 + 'o la ensancho a &plusmn;' + m2(C.T.disp) + ' o esa cara se hace de otra manera.')
+            + '&raquo;<br><br>&laquo;La que mejor ha salido es <b>' + CAR[mj.i].n + '</b>: '
+            + s2(mj.desv) + ', el ' + mj.pc.toFixed(0) + ' % de su tolerancia.&raquo;';
+
+          var apretables = CAR.filter(function(c){ return c.tol < C.T.disp; }).length;
+          document.getElementById('cd-cuenta').innerHTML =
+            'Con ' + C.T.n + ' hay <b>' + apretables + ' de ' + CAR.length + '</b> cotas cuya '
+            + 'tolerancia es <b>m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina</b>. '
+            + 'Esas no dependen de que tengas buen pulso: salgan como salgan, no puedes prometerlas. '
+            + 'El <b>desajuste</b> es otra cosa: mueve todas las medidas al mismo lado, se ve en '
+            + 'que los puntos se van todos para el mismo sitio, y <b>se corrige</b> (moviendo el tope, '
+            + 'la raya o el cero de la m&aacute;quina). La dispersi&oacute;n no se corrige: se '
+            + 'aguanta o se cambia de m&aacute;quina.';
+
+          pie.innerHTML =
+            '<b>Mueve el desajuste y mira los seis puntos a la vez.</b> Se van todos al mismo lado: '
+            + 'eso es un desajuste, y se arregla en un minuto. Ahora d&eacute;jalo en cero y cambia de '
+            + 't&eacute;cnica: los puntos se dispersan m&aacute;s o menos, pero cada uno para donde le '
+            + 'da la gana. Eso ya no se arregla apretando nada. Y f&iacute;jate en lo importante para '
+            + 'la defensa: <b>lo que se cuenta no es &laquo;nos ha quedado muy bien&raquo;</b>, es '
+            + 'ped&iacute; esto, med&iacute; esto, me he desviado esto, y esta es la raz&oacute;n. Las '
+            + 'medidas se sortean dentro de la dispersi&oacute;n de la t&eacute;cnica: es un '
+            + '<b>modelo</b> de lo que hace un taller, no tus piezas de verdad, que las tienes que '
+            + 'medir t&uacute;.';
+        }
+
+        function refresca(){
+          document.getElementById('cd-ses-v').innerHTML = s2(v.ses).replace('&minus;', '\u2212')
+            + ' mm';
+          pinta();
+        }
+
+        document.getElementById('cd-tec').addEventListener('change', function(){
+          v.tec = +this.value; refresca(); });
+        document.getElementById('cd-ses').addEventListener('input', function(){
+          v.ses = (+this.value) / 100; refresca(); });
+
+        caja.addEventListener('click', function(ev){
+          var b = ev.target.closest('button[data-a]');
+          if(!b) return;
+          if(b.dataset.a === 'otra'){
+            /* El mismo multiplicador que el sorteo: 2^32 * 1103515245 se sale
+               del entero exacto de JavaScript (2^53) y el resultado dejaria de
+               ser reproducible. Con 1664525 cabe de sobra. */
+            semilla = (semilla * 1664525 + 1013904223) % 4294967296;
+          } else {
+            semilla = SEMILLA0;
+            v = {tec: 0, ses: 0.00};
+            document.getElementById('cd-tec').value = '0';
+            document.getElementById('cd-ses').value = 0;
+          }
+          refresca();
+        });
+
+        refresca();
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p><b>Desajuste y dispersi&oacute;n no son lo mismo, y se arreglan de maneras opuestas.</b></p>
+        <ul>
+          <li>El <b>desajuste</b> (o error sistem&aacute;tico) empuja <b>todas</b> las medidas al mismo
+              lado: el que sierra va siempre por fuera de la raya, el tope est&aacute; corrido, el
+              cero del pie de rey no est&aacute; en el cero. Se ve en que los puntos de la escena
+              se van todos juntos, y <b>se corrige</b>: mueves el tope y desaparece.</li>
+          <li>La <b>dispersi&oacute;n</b> es que cada medida cae donde le da la gana dentro de un
+              margen. No se corrige: <b>se aguanta o se cambia de m&aacute;quina</b>.</li>
+        </ul>
+        <p>Y de ah&iacute; sale la conclusi&oacute;n que cierra la unidad entera, y que no es una
+           excusa sino un diagn&oacute;stico: <b>si la tolerancia que escribiste es m&aacute;s
+           estrecha que la dispersi&oacute;n de tu m&aacute;quina, la culpa es del plano, no de las
+           manos</b>. Ese plano ped&iacute;a algo que nadie pod&iacute;a cumplir con esa
+           m&aacute;quina, y eso se decidi&oacute; en la sesi&oacute;n 4, no en el taller. Decirlo en
+           la defensa, con el n&uacute;mero delante, vale m&aacute;s que ense&ntilde;ar una pieza
+           perfecta.</p>
+      </div>
+
+      <h3>C&oacute;mo se mide esto cuando hay dinero de por medio</h3>
+      <figure class="foto">
+        <img src="../../../img/c2-cmm.jpg" alt="Un t&eacute;cnico con guante blanco maneja una m&aacute;quina de medici&oacute;n por coordenadas: un palpador desciende sobre una pieza cil&iacute;ndrica de aluminio marcada a rotulador rojo, y en la pantalla de al lado se ve la misma pieza en 3D con un mapa de colores y una escala que va de -0,02 a +0,02" loading="lazy">
+        <figcaption>Una <b>m&aacute;quina de medici&oacute;n por coordenadas</b> (CMM) en un laboratorio del NIST, el instituto de metrolog&iacute;a de Estados Unidos. Es la tabla de control dimensional convertida en m&aacute;quina: el palpador va tocando la pieza punto por punto y el ordenador compara <b>cada punto medido con el modelo 3D</b> de la sesi&oacute;n 5. Mira la pantalla de la izquierda: la pieza est&aacute; pintada por colores, y la <b>escala de la derecha va de &minus;0,02 a +0,02</b> mil&iacute;metros. Eso no es un dibujo bonito: es la <b>desviaci&oacute;n</b>, cota a cota, de la pieza real respecto a lo que ped&iacute;a el plano, que es exactamente la columna que est&aacute;s rellenando t&uacute; con el pie de rey. Y f&iacute;jate en el rotulador rojo sobre el aluminio: la pieza lleva escrito <b>su n&uacute;mero</b>, porque un informe de medici&oacute;n que no dice de qu&eacute; pieza es no sirve para nada.
+          <span class="credito">National Institute of Standards and Technology (NIST) &middot; dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Coordinate_Measuring_Machines_(5885465714).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>La defensa, en tres minutos</h4>
+        <p>Tres minutos son <b>muy poco</b>, y por eso hay que repartirlos antes:</p>
+        <ul>
+          <li><b>20 s &middot; Qu&eacute; pieza es y qu&eacute; tiene que hacer.</b> Una frase, con un
+              n&uacute;mero dentro. &laquo;Es el soporte del dep&oacute;sito; tiene que dejarlo girar
+              y aguantar el litro de agua lleno.&raquo;</li>
+          <li><b>60 s &middot; La decisi&oacute;n que m&aacute;s cost&oacute;.</b> Una sola, con
+              <b>la alternativa que descartasteis</b> y el <b>n&uacute;mero que la descart&oacute;</b>.
+              Esto es lo que se eval&uacute;a de verdad.</li>
+          <li><b>60 s &middot; Lo que pedisteis y lo que med&iacute;s.</b> Dos o tres cotas de la
+              tabla, no las seis. Con la desviaci&oacute;n y el porcentaje.</li>
+          <li><b>30 s &middot; Qu&eacute; sali&oacute; mal y qu&eacute; har&iacute;ais distinto.</b>
+              Con una cifra.</li>
+          <li><b>10 s &middot; Una pregunta que dej&aacute;is abierta.</b> Lo que no os ha dado tiempo
+              a comprobar.</li>
+        </ul>
+        <p>Cuatro reglas mientras habl&aacute;is:</p>
+        <ul>
+          <li><b>Un n&uacute;mero por frase, y de d&oacute;nde sale.</b> &laquo;Aguanta 495 N, que
+              salen de 55 por 3 por 3&raquo;, no &laquo;aguanta bastante&raquo;.</li>
+          <li><b>La pieza y el plano, a la vez.</b> Se se&ntilde;ala en la pieza y se se&ntilde;ala en
+              el plano. Sin el plano delante, todo suena a opini&oacute;n.</li>
+          <li><b>No se lee.</b> Se puede llevar una tarjeta con los n&uacute;meros; leer un texto
+              seguido se nota a la primera frase.</li>
+          <li><b>Lo que no sab&eacute;is, se dice.</b> &laquo;No lo hemos medido&raquo; es una
+              respuesta profesional. Inventarse un n&uacute;mero delante de alguien que sabe es la
+              &uacute;nica manera segura de suspender.</li>
+        </ul>
+      </div>
+      <div class="copiar">
+        <h4>Las cinco preguntas que os van a hacer</h4>
+        <p>Son siempre las mismas, as&iacute; que se llevan preparadas <b>con su n&uacute;mero</b>:</p>
+        <ol>
+          <li>&iquest;Por qu&eacute; ese material y esa uni&oacute;n, y no otra?</li>
+          <li>&iquest;Qu&eacute; tolerancia pediste ah&iacute;, y por qu&eacute; esa y no m&aacute;s
+              ancha?</li>
+          <li>&iquest;C&oacute;mo sabes que la cumple? &iquest;Con qu&eacute; lo has medido?</li>
+          <li>Si se rompe esa pieza, &iquest;c&oacute;mo se cambia? &iquest;Cu&aacute;nto se tarda?</li>
+          <li>&iquest;Cu&aacute;nto ha costado, en euros y en sesiones?</li>
+        </ol>
+      </div>
+      <div class="video" id="video-c2-s8" data-vid="CcogpV4DjNs">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Presentaci&oacute;n oral de un proyecto">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Presentaci&oacute;n oral de un proyecto</b>
+            <span>ULLaudiovisual - Universidad de La Laguna</span>
+          </span>
+        </button>
+        <p class="video-nota">Est&aacute; hecho para la universidad y se nota en el registro, as&iacute; que qu&eacute;date con la <b>estructura</b> y con lo que hace con las manos y con la voz, no con el vocabulario. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
+          comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
+          YouTube, <a href="https://www.youtube.com/watch?v=CcogpV4DjNs" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
+          bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 8 &middot; El expediente y la defensa de tres minutos</span>
+          <span class="chips"><span class="chip">CE3 &middot; 3.1 &middot; 3.2</span><span class="chip">CE2 &middot; 2.2</span></span>
+          <span>Grupos de 3 &middot; 15 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; La escena, con vuestra t&eacute;cnica (4 min)</h4>
+          <ol>
+            <li>Elegid la t&eacute;cnica con la que hab&eacute;is fabricado de verdad. Anotad
+                <b>cu&aacute;ntas cotas pasan</b> y cu&aacute;ntas tienen la tolerancia m&aacute;s
+                estrecha que la dispersi&oacute;n de esa m&aacute;quina.</li>
+            <li>Mueve el desajuste a +0,30. &iquest;Qu&eacute; les pasa a los seis puntos? &iquest;Y
+                si en vez de eso cambias de t&eacute;cnica?</li>
+            <li>Copiad la frase que genera la escena y <b>cambiadle los n&uacute;meros</b> por los de
+                una cota vuestra. Esa es la plantilla de vuestra defensa.</li>
+          </ol>
+          <h4>Segunda parte &middot; Medir de verdad (5 min)</h4>
+          <p>Con la pieza y el pie de rey (o la regla, si no hay otra cosa):</p>
+          <ol>
+            <li>Elegid <b>tres cotas</b> de vuestra pieza, de las que import&oacute; en el montaje.</li>
+            <li>Medid cada una <b>tres veces</b>, quitando y volviendo a poner el instrumento.
+                Apuntad las tres lecturas.</li>
+            <li>Rellenad la tabla de control dimensional con la media, la desviaci&oacute;n, el
+                porcentaje de la tolerancia y el veredicto.</li>
+            <li>La diferencia entre vuestra lectura m&aacute;s alta y la m&aacute;s baja es
+                <b>vuestra</b> incertidumbre. Escribidla al pie de la tabla. Si es mayor que la
+                tolerancia, vuestro veredicto <b>no vale</b>, y hay que decirlo.</li>
+          </ol>
+          <h4>Tercera parte &middot; Ensayar, con cron&oacute;metro (6 min)</h4>
+          <p>Por parejas de grupos. Uno defiende <b>tres minutos</b> con el reparto de arriba; el otro
+             cronometra y al final hace <b>dos</b> de las cinco preguntas. Luego al rev&eacute;s.</p>
+          <p>El que escucha anota tres cosas: <b>cu&aacute;ntos n&uacute;meros</b> ha dicho el que
+             habla, <b>cu&aacute;ntos</b> ven&iacute;an con su origen, y <b>en qu&eacute; momento</b>
+             se le fue el tiempo.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las tres respuestas de la escena y la frase adaptada <b>(2 puntos)</b>.</li>
+            <li>La tabla de control dimensional con las tres lecturas y la incertidumbre
+                <b>(3 puntos)</b>.</li>
+            <li>El expediente completo, las cinco hojas, con la de incidencias escrita de verdad
+                <b>(3 puntos)</b>.</li>
+            <li>La defensa ensayada: dentro de tiempo y con los n&uacute;meros con su origen
+                <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
+      <div class="ta" id="test-c2b">
+        <h4>Lo que tiene que haber quedado de la unidad entera</h4>
+        <div class="ta-p" data-ok="1">
+          <p>1. Tienes cuatro agujeros acotados <b>desde el mismo borde</b>, con &plusmn;0,2 mm de error en cada medida. &iquest;Cu&aacute;nto se puede desviar el cuarto en el peor caso?</p>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="0">0,8 mm, porque son cuatro medidas</label>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="1">0,2 mm, y no crece aunque a&ntilde;adas veinte agujeros m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="2">0,4 mm, la mitad que en cadena</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Acotando desde una referencia, cada cota sale de la misma cara y <b>solo carga con su propio error</b>. El que crece con el n&uacute;mero de cotas es el de la acotaci&oacute;n en cadena, donde cada una arranca donde acab&oacute; la anterior.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>2. En un plano, &iquest;qu&eacute; quiere decir &empty;8 <sup>+0,022</sup><sub>&nbsp;0</sub>?</p>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="0">que la pieza mide 8,022 mm</label>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="1">que vale cualquier pieza entre 8,000 y 8,022, y que la tolerancia es de 22 micras</label>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="2">que hay que fabricarla con un error m&aacute;ximo del 0,022 %</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La medida &uacute;til no es un n&uacute;mero, es un <b>intervalo</b>: la nominal m&aacute;s cada desviaci&oacute;n. La tolerancia es la anchura de ese permiso, 8,022 &minus; 8,000 = 0,022 mm = 22 &micro;m, y siempre es positiva.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>3. Una uni&oacute;n atornillada con un M3 en una pieza de DM de 3 mm (12 N/mm&sup2; de aplastamiento). &iquest;Con cu&aacute;nta fuerza falla?</p>
+          <label class="ta-op"><input type="radio" name="c2b-2" value="0">con 1700 N, que es lo que aguanta el tornillo</label>
+          <label class="ta-op"><input type="radio" name="c2b-2" value="1">con 108 N, y lo que falla es el DM alrededor del agujero</label>
+          <label class="ta-op"><input type="radio" name="c2b-2" value="2">con 36 N</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> &sigma; = F / (d &middot; t), as&iacute; que F = 12 &middot; 3 &middot; 3 = <b>108 N</b>. Manda <b>siempre el menor de los dos</b> modos de fallo, y con material blando ese nunca es el tornillo. Un ni&ntilde;o de 11 kg colgando ya lo rompe.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>4. &iquest;Por qu&eacute; la t&eacute;cnica de fabricaci&oacute;n no se elige al final, con el plano ya terminado?</p>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="0">porque hay lista de espera para la impresora 3D</label>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="1">porque cada t&eacute;cnica obliga a dibujar la pieza de otra manera, y elegirla al final obliga a redibujar</label>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="2">porque el profesor lo decide antes</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La sierra pide rincones redondeados, el l&aacute;ser pide que todo sea plano y que descuentes la sangr&iacute;a, y la impresora pide cuidado con los voladizos, con la orientaci&oacute;n de las capas y con los agujeros, que salen peque&ntilde;os. <b>El dibujo depende de qui&eacute;n lo vaya a hacer.</b></div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>5. &iquest;Qu&eacute; diferencia hay entre un fichero STL y el modelo del que sali&oacute;?</p>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="0">ninguna, el STL es el modelo comprimido</label>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="1">el STL es una piel de tri&aacute;ngulos sin medidas ni historia: no se puede volver a editar de verdad</label>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="2">el STL lleva las cotas y el modelo no</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El modelo guarda <b>el &aacute;rbol de operaciones</b> y las medidas, y por eso puedes volver al paso 2 y cambiar una cota. El STL solo guarda v&eacute;rtices: es el fichero que le das a la m&aacute;quina, como el PDF que mandas a imprimir. Por eso se guardan los dos, y el que no se puede perder es el otro.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>6. Un agujero de &empty;8,30 se exporta a STL con <b>8</b> facetas. &iquest;Pasa por &eacute;l un eje de 8 mm?</p>
+          <label class="ta-op"><input type="radio" name="c2b-5" value="0">no: el pol&iacute;gono inscrito deja pasar 8,30 &middot; cos(180&deg;/8) = 7,67</label>
+          <label class="ta-op"><input type="radio" name="c2b-5" value="1">s&iacute;, porque el agujero sigue midiendo 8,30</label>
+          <label class="ta-op"><input type="radio" name="c2b-5" value="2">s&iacute;, y adem&aacute;s con m&aacute;s holgura, porque el pol&iacute;gono tiene esquinas</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El STL sustituye el c&iacute;rculo por un pol&iacute;gono <b>metido dentro</b>, que solo toca la circunferencia en los v&eacute;rtices. Lo que de verdad pasa es la distancia entre lados opuestos: D &middot; cos(180&deg;/N) = 8,30 &middot; 0,924 = <b>7,67 mm</b>. Con 16 facetas saldr&iacute;an 8,14, y ah&iacute; ya pasa.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>7. Las piezas suman 29 950 mm&sup2; y el tablero tiene 60 000. No caben. &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="c2b-6" value="0">porque el tablero se mide por fuera y las piezas por dentro</label>
+          <label class="ta-op"><input type="radio" name="c2b-6" value="1">porque el hueco que sobra no est&aacute; junto: una pieza no se puede partir en dos recortes</label>
+          <label class="ta-op"><input type="radio" name="c2b-6" value="2">porque falta contar el peso del material</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Lo que decide no es la superficie libre <b>total</b>, sino si queda un <b>rect&aacute;ngulo entero</b> donde quepa la pieza. Por eso el plan de corte se hace antes de cortar y se empieza por las piezas grandes: las peque&ntilde;as caben en cualquier hueco y las grandes no.</div>
+        </div>
+        <div class="ta-p" data-ok="2">
+          <p>8. Diez cortes con una sierra cuya sangr&iacute;a es de 2 mm. &iquest;Cu&aacute;nto tablero desaparece?</p>
+          <label class="ta-op"><input type="radio" name="c2b-7" value="0">nada: la sangr&iacute;a sale del hueco entre piezas</label>
+          <label class="ta-op"><input type="radio" name="c2b-7" value="1">2 mm, que es lo que mide un corte</label>
+          <label class="ta-op"><input type="radio" name="c2b-7" value="2">20 mm de ancho de tablero, que es lo que hay que dejar entre pieza y pieza</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Cada pasada convierte en serr&iacute;n su propio ancho: 10 &times; 2 = <b>20 mm</b>. Por eso en el plan de corte las piezas no se pegan unas a otras en el papel. Y si adem&aacute;s cortas por el centro de la raya en vez de por fuera, la mitad de esa sangr&iacute;a se la come la pieza.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>9. Un montaje tiene cuatro eslabones con tolerancias de 0,20, 0,30, 0,10 y 0,10 mm, y un juego nominal de 0,40. &iquest;Entre qu&eacute; valores puede quedar el juego?</p>
+          <label class="ta-op"><input type="radio" name="c2b-8" value="0">entre 0,10 y 0,70, porque las tolerancias se compensan</label>
+          <label class="ta-op"><input type="radio" name="c2b-8" value="1">entre &minus;0,30 y 1,10: todas las tolerancias se suman, tengan el signo que tengan</label>
+          <label class="ta-op"><input type="radio" name="c2b-8" value="2">siempre 0,40, si las piezas cumplen</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> 0,20 + 0,30 + 0,10 + 0,10 = <b>0,70</b>, y J = 0,40 &plusmn; 0,70. Se suman <b>todas</b>, tambi&eacute;n las de las cotas que restan, porque el peor caso es que el hueco salga m&iacute;nimo <b>a la vez</b> que lo que va dentro sale m&aacute;ximo. Y un juego negativo quiere decir que no entra.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>10. Tus seis cotas est&aacute;n pedidas con &plusmn;0,15 y la sierra con la que las haces dispersa &plusmn;0,50. Van a salir mal. &iquest;Qu&eacute; dices en la defensa?</p>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="0">que el grupo no ten&iacute;a buen pulso y hay que practicar m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="1">que la tolerancia era m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina, as&iacute; que el fallo est&aacute; en el plano y no en las manos</label>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="2">que la sierra estaba desajustada y hay que mover el tope</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Con &plusmn;0,50 de dispersi&oacute;n, una cota de &plusmn;0,15 <b>no se puede cumplir</b> por bien que se sierre: eso se decidi&oacute; al elegir la t&eacute;cnica, en la sesi&oacute;n 4. El <b>desajuste</b> es otra cosa &mdash;empuja todas las medidas al mismo lado y se corrige moviendo el tope&mdash;; la dispersi&oacute;n se aguanta o se cambia de m&aacute;quina.</div>
+        </div>
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">04</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; no basta con ense&ntilde;ar la pieza y decir que funciona?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque funcionar no demuestra que est&eacute; bien hecha: puede haber tocado el lado bueno de la tolerancia. Si no sabes qu&eacute; pediste, <b>no puedes repetirla</b>; si no sabes cu&aacute;nto te has desviado, <b>no sabes qu&eacute; mejorar</b>. La prueba de que una pieza est&aacute; bien son n&uacute;meros, no que est&eacute; ah&iacute;.</p></div></details></li>
+        <li>&iquest;Cu&aacute;l es la hoja m&aacute;s valiosa del expediente, y por qu&eacute; casi nadie la escribe?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La de <b>incidencias</b>: qu&eacute; fall&oacute;, qu&eacute; se cambi&oacute; y por qu&eacute;. Nadie la escribe porque parece que resta, y es al rev&eacute;s: es la que demuestra que hab&eacute;is entendido lo que hac&iacute;ais. Un proyecto sin incidencias no es perfecto, es un proyecto que <b>no se ha mirado</b>.</p></div></details></li>
+        <li>En la tabla de control, &iquest;para qu&eacute; sirve poner la desviaci&oacute;n en porcentaje de la tolerancia?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque un &laquo;pasa&raquo; al 20 % y un &laquo;pasa&raquo; al 95 % <b>no son lo mismo</b>. El primero se puede repetir; el segundo te va a fallar en la siguiente pieza. El veredicto solo dice s&iacute; o no; el porcentaje dice <b>cu&aacute;nto margen te queda</b>.</p></div></details></li>
+        <li>En la defensa te preguntan un dato que no hab&eacute;is medido. &iquest;Qu&eacute; se contesta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>&laquo;No lo hemos medido&raquo;</b>, y si acaso c&oacute;mo lo mediríais. Es una respuesta profesional y la usa todo el mundo que trabaja de esto. Inventarse un n&uacute;mero delante de alguien que sabe es la &uacute;nica manera segura de que se caiga el resto de lo que hab&eacute;is contado, que s&iacute; era verdad.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que llevas de la unidad entera</span>
+        Sabes hacer un <b>plano que otro puede fabricar</b> sin preguntarte nada, y elegir desde
+        d&oacute;nde se acota. Sabes escribir una cota <b>con su tolerancia</b> y calcular si dos
+        piezas van a encajar antes de tocar el material. Sabes decidir c&oacute;mo se unen y qu&eacute;
+        falla primero, con la cuenta delante. Sabes qu&eacute; te cuesta cada t&eacute;cnica y
+        qu&eacute; te obliga a cambiar en el dibujo. Sabes <b>modelar con par&aacute;metros</b>, para
+        que cambiar el servo sea mover un n&uacute;mero y no rehacer el proyecto. Sabes
+        <b>organizar el taller</b>: despiece, plan de corte y orden de operaciones. Sabes que el hueco
+        que decide si algo funciona <b>no lo dibuja nadie</b>, y sabes calcularlo. Y sabes
+        <b>defender la pieza con n&uacute;meros</b> en vez de con adjetivos.
+      </div>
+      <div class="nota">
+        <span class="n-tag">Lo que queda</span>
+        Toda esta unidad ha dado el material por supuesto: &laquo;contrachapado de 4&raquo;,
+        &laquo;PLA&raquo;, &laquo;aluminio&raquo;, y a seguir. En la <b>unidad 3</b> se abre esa caja:
+        de d&oacute;nde sale cada material, qu&eacute; propiedades te obligan a elegir uno u otro y
+        <b>qu&eacute; le cuesta al planeta</b> cada una de las decisiones que acabas de tomar
+        &mdash;incluida la de pegar en vez de atornillar&mdash;. Y la <b>unidad 9</b> recoge el
+        proyecto entero y lo pone delante de gente de fuera.
+      </div>
+
+    </section>
+
+  </div>
 
 
   <section class="cc-aviso" id="licencia"

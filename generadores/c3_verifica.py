@@ -198,6 +198,151 @@ def repara(uniones, nuevo, pieza, tarifa, repuesto, manual):
 
 
 # ==========================================================================
+# S5 - la cadena del reciclado
+# ==========================================================================
+FR5 = {
+    'lata':   dict(capt=70, sep=95, prep=0.92, fus=0.95, ep=186, er=8.3),
+    'pet':    dict(capt=60, sep=90, prep=0.85, fus=0.95, ep=84,  er=45),
+    'acero':  dict(capt=85, sep=97, prep=0.95, fus=0.93, ep=25,  er=10),
+    'vidrio': dict(capt=70, sep=92, prep=0.95, fus=0.98, ep=15,  er=9),
+    'carton': dict(capt=85, sep=93, prep=0.88, fus=0.90, ep=25,  er=12),
+}
+
+
+def cadena(fr, capt, sep, mezcla, vueltas):
+    F = FR5[fr]
+    acum = [1.0]
+    for x in (capt / 100.0, sep / 100.0, F['prep'], F['fus']):
+        acum.append(acum[-1] * x)
+    eta = acum[-1]
+    q = 0.0 if mezcla else eta
+    return dict(acum=acum, eta=eta, q=q, queda=q ** vueltas,
+                kg=1.0 / eta, ahorro=(F['ep'] - F['er']) * eta)
+
+
+# ==========================================================================
+# S6 - el mismo kilo, dos facturas
+# ==========================================================================
+MAT6 = [
+    dict(k='alp', ep=186, kwh=14.1, proc=4.00, cfin=0.00, bio=0.00),
+    dict(k='pet', ep=84,  kwh=1.2,  proc=1.90, cfin=2.29, bio=0.00),
+    dict(k='fe',  ep=25,  kwh=0.5,  proc=1.90, cfin=0.00, bio=0.00),
+    dict(k='mad', ep=15,  kwh=0.5,  proc=0.55, cfin=1.65, bio=1.65),
+    dict(k='alr', ep=8.3, kwh=0.6,  proc=0.20, cfin=0.00, bio=0.00),
+    dict(k='hor', ep=1.1, kwh=0.02, proc=0.12, cfin=0.00, bio=0.00),
+]
+
+
+def carbono(red, bio, fin):
+    """red en g de CO2 por kWh. Devuelve la lista con el CO2 de cada material."""
+    f = red / 1000.0
+    out = []
+    for M in MAT6:
+        elec = M['kwh'] * f
+        co2 = elec + M['proc'] + (M['cfin'] if fin else 0) - (M['bio'] if bio else 0)
+        out.append(dict(k=M['k'], ep=M['ep'], elec=elec, co2=co2,
+                        mjElec=M['kwh'] * 3.6 * 2.0, mjTerm=M['ep'] - M['kwh'] * 7.2))
+    return out
+
+
+# ==========================================================================
+# S7 - veinte anos de servicio, cuatro maneras
+#
+# La simulacion se rehace aqui a partir de la definicion, recorriendo el
+# calendario, no copiando el JavaScript.
+# ==========================================================================
+VAR7 = {'riego': (85, 19), 'aviso': (66, 22), 'lampara': (76, 55)}
+EST7 = [('lin', False, False), ('rec', True, False),
+        ('rep', False, True), ('dos', True, True)]
+
+
+def bucles(vari, anos, fab, pieza, maxrep, recup, rebote):
+    fabDef, usoAno = VAR7[vari]
+    out = []
+    for k, recicla, repara_ in EST7:
+        t, mj, nfab, nrep, nrec = 0.0, 0.0, 0, 0, 0
+        rep = maxrep if repara_ else 0
+        vueltas = 0
+        while t < 20 and vueltas < 60 and anos > 0:
+            vueltas += 1
+            mj += fab * (1 - recup / 100.0) if (nfab > 0 and recicla) else fab
+            nfab += 1
+            hechas_r = 0
+            for r in range(1, rep + 1):
+                if t + anos * r >= 20:
+                    break
+                mj += pieza
+                nrep += 1
+                hechas_r += 1
+            t += anos * (1 + hechas_r)
+            if recicla:
+                nrec += 1
+        uso = usoAno * (1 + rebote / 100.0 if repara_ else 1) * 20
+        out.append(dict(k=k, nfab=nfab, nrep=nrep, nrec=nrec,
+                        mjFab=mj, mjUso=uso, total=mj + uso))
+    return out
+
+
+# ==========================================================================
+# S8 - la ficha de impacto y su analisis de sensibilidad
+# ==========================================================================
+MATP8 = {
+    'contra': dict(ee=15,  kwh=0.5,  proc=0.55),
+    'mdf':    dict(ee=11,  kwh=0.4,  proc=0.45),
+    'acero':  dict(ee=25,  kwh=0.5,  proc=1.90),
+    'alu':    dict(ee=186, kwh=14.1, proc=4.00),
+    'pla':    dict(ee=50,  kwh=3.0,  proc=1.20),
+    'pet':    dict(ee=84,  kwh=1.2,  proc=1.90),
+}
+VAR8 = {
+    'riego':   dict(uso=19, p=[('contra', 60), ('pet', 15), ('acero', 14)]),
+    'aviso':   dict(uso=22, p=[('contra', 20), ('acero', 5), ('pla', 5)]),
+    'lampara': dict(uso=55, p=[('contra', 80), ('acero', 20), ('pla', 10)]),
+}
+
+
+def ficha(piezas, elec, vida, red, uso, escala=1.0):
+    mjMat, co2Mat = 0.0, 0.0
+    for k, g in piezas:
+        M = MATP8[k]
+        kg = g / 1000.0 * escala
+        mjMat += kg * M['ee']
+        co2Mat += kg * (M['kwh'] * red / 1000.0 + M['proc'])
+    total = mjMat + elec + uso * vida
+    return dict(mjMat=mjMat, co2Mat=co2Mat, mjFab=mjMat + elec,
+                mjUso=uso * vida, total=total, porAno=total / vida)
+
+
+def tornado(vari, elec, vida, red, piezas=None):
+    """Ojo: la sensibilidad se corre sobre las piezas QUE HAY PUESTAS, no sobre
+    las de partida de la variante. Escribirlo mal aqui daba cuatro fallos que
+    no eran de la pagina, sino de este fichero."""
+    V = VAR8[vari]
+    pz, uso = (piezas if piezas is not None else V['p']), V['uso']
+    fs = []
+    fs.append(('Mochila de la electr',
+               ficha(pz, 20, vida, red, uso)['porAno'],
+               ficha(pz, 200, vida, red, uso)['porAno']))
+    fs.append(('os que va a durar',
+               ficha(pz, elec, 10, red, uso)['porAno'],
+               ficha(pz, elec, 2, red, uso)['porAno']))
+    fs.append(('Lo que gasta al a',
+               ficha(pz, elec, vida, red, uso / 2.0)['porAno'],
+               ficha(pz, elec, vida, red, uso * 2.0)['porAno']))
+    vs = []
+    for k in MATP8:
+        otra = [(k, pz[0][1])] + pz[1:]
+        vs.append(ficha(otra, elec, vida, red, uso)['porAno'])
+    fs.append(('Material de la 1', min(vs), max(vs)))
+    fs.append(('Masa de las piezas',
+               ficha(pz, elec, vida, red, uso, 0.7)['porAno'],
+               ficha(pz, elec, vida, red, uso, 1.3)['porAno']))
+    fs = [dict(nom=a, lo=b, hi=c, span=abs(c - b)) for a, b, c in fs]
+    fs.sort(key=lambda x: -x['span'])
+    return fs
+
+
+# ==========================================================================
 with sync_playwright() as p:
     nav = p.chromium.launch()
     pag = nav.new_page(viewport={'width': 1280, 'height': 1100})
@@ -224,7 +369,39 @@ with sync_playwright() as p:
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 8, 'hay 8 botones de sesion (hay %d)' % len(bts))
     aptos = [b for b in bts if b.get_attribute('disabled') is None]
-    check(len(aptos) == 4, 'cuatro escritas y cuatro en preparacion (escritas: %d)' % len(aptos))
+    check(len(aptos) == 8, 'las ocho escritas y ninguna pendiente (escritas: %d)' % len(aptos))
+    check(len(pag.query_selector_all('.ses-head')) == 8,
+          'las ocho sesiones traen su cabecera con minutado y criterios')
+    for s in range(1, 9):
+        n = pag.eval_on_selector_all('#ses-%d .bloque' % s, 'es => es.length')
+        check(n == 4, 'la sesion %d lleva sus cuatro bloques (lleva %d)' % (s, n))
+        n = pag.eval_on_selector_all('#ses-%d .escena' % s, 'es => es.length')
+        check(n >= 1, 'la sesion %d lleva su escena interactiva' % s)
+        n = pag.eval_on_selector_all('#ses-%d .copiar' % s, 'es => es.length')
+        check(n >= 1, 'la sesion %d lleva bloques PARA LA LIBRETA (%d)' % (s, n))
+        n = pag.eval_on_selector_all('#ses-%d .entender' % s, 'es => es.length')
+        check(n >= 1, 'la sesion %d lleva bloques SOLO PARA ENTENDERLO (%d)' % (s, n))
+        n = pag.eval_on_selector_all('#ses-%d .ficha' % s, 'es => es.length')
+        check(n == 1, 'la sesion %d lleva su practica evaluada' % s)
+
+    # Ningun id repetido en toda la pagina: es lo que romperia los dos tests
+    # si compartieran identificador, y lo que rompe cualquier escena si dos
+    # controles se llaman igual.
+    reps = pag.evaluate('''() => {
+      const v = {}, out = [];
+      document.querySelectorAll('[id]').forEach(e => {
+        if (v[e.id]) out.push(e.id); else v[e.id] = 1;
+      });
+      return out;
+    }''')
+    check(not reps, 'ningun id se repite en la pagina: %s' % (reps[:5] or 'ninguno'))
+    clases = pag.evaluate('''() => {
+      const s = new Set();
+      document.querySelectorAll('[class]').forEach(e =>
+        e.classList.forEach(c => { if (c.indexOf('test-') === 0) s.add(c); }));
+      return [...s];
+    }''')
+    check(not clases, 'ninguna clase CSS empieza por test-: %s' % (clases or 'ninguna'))
 
     print('== El narrador')
     check(pag.query_selector('#narr-c3') is not None, 'la unidad lleva su voz con avatar')
@@ -233,7 +410,7 @@ with sync_playwright() as p:
 
     print('== Fotos y video')
     imgs = pag.eval_on_selector_all('.foto img', 'es => es.map(e => e.getAttribute("src"))')
-    check(len(imgs) == 8, 'las 8 fotos estan puestas (hay %d)' % len(imgs))
+    check(len(imgs) == 15, 'las 15 fotos estan puestas (hay %d)' % len(imgs))
     # naturalWidth no vale: las fotos van con loading="lazy" y las sesiones 2, 3 y 4
     # estan ocultas al cargar, asi que el navegador todavia no las ha pedido. Se
     # comprueba que el fichero existe de verdad donde apunta el src y que es un JPEG.
@@ -245,11 +422,15 @@ with sync_playwright() as p:
             rotas.append(src)
         elif open(ruta, 'rb').read(2) != b'\xff\xd8':
             rotas.append(src + ' (no es un JPEG)')
-    check(not rotas, 'los 8 ficheros de foto existen y son JPEG: %s' % (rotas or 'todos'))
+    check(not rotas, 'los 15 ficheros de foto existen y son JPEG: %s' % (rotas or 'todos'))
     creds = pag.eval_on_selector_all('.foto .credito', 'es => es.map(e => e.textContent)')
-    check(all('Commons' in c and len(c) > 30 for c in creds),
-          'las 8 fotos llevan autor, licencia y enlace a Commons')
-    check(len(pag.query_selector_all('.video[data-vid]')) == 2, 'los dos videos estan puestos')
+    check(len(creds) == 15 and all('Commons' in c and len(c) > 30 for c in creds),
+          'las 15 fotos llevan autor, licencia y enlace a Commons')
+    alts = pag.eval_on_selector_all('.foto img', 'es => es.map(e => e.getAttribute("alt") || "")')
+    check(all(len(a) > 40 for a in alts),
+          'las 15 fotos llevan un alt que describe lo que se ve (el mas corto: %d)'
+          % min(len(a) for a in alts))
+    check(len(pag.query_selector_all('.video[data-vid]')) == 4, 'los cuatro videos estan puestos')
 
     # ------------------------------------------------------------------ S1
     print('== Sesion 1 * el reparto por etapas')
@@ -566,8 +747,293 @@ with sync_playwright() as p:
           'cambiar la primera union de pegado a tornillo sube el indice %.2f puntos'
           % (b['indice'] - a['indice']))
 
+    # ------------------------------------------------------------------ S5
+    print('== Sesion 5 * la cadena del reciclado')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-m5', 'e => e.innerHTML')) > 2000,
+          'la escena de la cadena pinta la cascada y la curva')
+
+    def pon_m5(fr, capt, sep, mezcla, vueltas):
+        pag.click('#seg-m5-fr button[data-f="%s"]' % fr)
+        for sel, v in (('#m5-capt', capt), ('#m5-sep', sep), ('#m5-ciclos', vueltas)):
+            pag.eval_on_selector(
+                sel, "e => { e.value = %d; e.dispatchEvent(new Event('input')); }" % v)
+        if pag.is_checked('#m5-mezcla') != mezcla:
+            pag.click('#m5-mezcla')
+        pag.wait_for_timeout(140)
+        return pag.inner_text('#tabla-m5')
+
+    casos5 = [('lata', 70, 95, False, 3), ('pet', 60, 90, False, 2),
+              ('acero', 85, 97, False, 5), ('vidrio', 50, 100, False, 1),
+              ('carton', 85, 93, False, 10), ('lata', 70, 95, True, 3)]
+    for fr, capt, sep, mez, vu in casos5:
+        t = pon_m5(fr, capt, sep, mez, vu)
+        e = cadena(fr, capt, sep, mez, vu)
+        check(abs(valor(t, 'Llega al contenedor') - 1000 * e['acum'][1]) < 1,
+              '%s: al contenedor llegan %.0f g y la pagina dice %.0f'
+              % (fr, 1000 * e['acum'][1], valor(t, 'Llega al contenedor')))
+        check(abs(valor(t, 'Sale del horno o del proceso') - 1000 * e['acum'][4]) < 1,
+              '%s: del horno salen %.0f g y la pagina dice %.0f'
+              % (fr, 1000 * e['acum'][4], valor(t, 'Sale del horno o del proceso')))
+        check(abs(valor(t, 'Rendimiento de toda la cadena') - 100 * e['eta']) < 0.15,
+              '%s: rendimiento %.1f %% calculado, %.1f en pantalla'
+              % (fr, 100 * e['eta'], valor(t, 'Rendimiento de toda la cadena')))
+        check(abs(valor(t, 'hay que recoger') - e['kg']) < 0.02,
+              '%s: hacen falta %.2f kg recogidos, y la pagina dice %.2f'
+              % (fr, e['kg'], valor(t, 'hay que recoger')))
+        check(abs(valor(t, 'Techo del contenido reciclado') - 100 * e['eta']) < 0.15,
+              '%s: el techo del reciclado es el %.1f %%' % (fr, 100 * e['eta']))
+        check(abs(valor(t, 'se salva de verdad') - e['ahorro']) < 0.2,
+              '%s: se salvan %.1f MJ por kilo puesto en el mercado, y la pagina dice %.1f'
+              % (fr, e['ahorro'], valor(t, 'se salva de verdad')))
+        check(abs(valor(t, 'Del kilo de partida') - 100 * e['queda']) < 0.05,
+              '%s tras %d vueltas: queda el %.2f %%, y la pagina dice %.2f'
+              % (fr, vu, 100 * e['queda'], valor(t, 'Del kilo de partida')))
+
+    # los rendimientos se MULTIPLICAN, no se promedian
+    check(abs(cadena('lata', 100, 100, False, 1)['eta'] - 0.92 * 0.95) < 1e-9,
+          'con las dos primeras etapas perfectas queda el producto de las otras dos')
+
+    # la casilla de mezclado mata la curva en la primera vuelta: es la sesion
+    t = pon_m5('lata', 70, 95, True, 3)
+    check(valor(t, 'Del kilo de partida') == 0.0,
+          'mezclado, del kilo original no queda nada en el mismo uso tras 3 vueltas')
+    check('moldeo' in t, 'y la escena dice a donde va: a aleacion de moldeo, no a latas')
+    check('abierto' in pag.inner_text('#pie-m5'), 'y lo llama ciclo abierto')
+    t = pon_m5('lata', 70, 95, False, 3)
+    check('chapa de lata' in t, 'sin mezclar, en cambio, vuelve a ser chapa de lata')
+    check(valor(t, 'Del kilo de partida') > 19,
+          'y del kilo original queda el %.1f %% tras 3 vueltas'
+          % valor(t, 'Del kilo de partida'))
+
+    # ------------------------------------------------------------------ S6
+    print('== Sesion 6 * de megajulios a CO2')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-m6', 'e => e.innerHTML')) > 2000,
+          'la escena del CO2 pinta las dos columnas y el desglose')
+
+    def pon_m6(mat, red, masa, bio, fin):
+        pag.click('#seg-m6-mat button[data-m="%s"]' % mat)
+        for sel, v in (('#m6-red', red), ('#m6-masa', int(masa * 100))):
+            pag.eval_on_selector(
+                sel, "e => { e.value = %d; e.dispatchEvent(new Event('input')); }" % v)
+        for sel, v in (('#m6-bio', bio), ('#m6-fin', fin)):
+            if pag.is_checked(sel) != v:
+                pag.click(sel)
+        pag.wait_for_timeout(140)
+        return pag.inner_text('#tabla-m6')
+
+    casos6 = [('alp', 146, 1.0, False, False), ('alp', 20, 1.0, False, False),
+              ('alp', 1000, 0.5, False, False), ('fe', 146, 2.0, False, False),
+              ('pet', 146, 1.0, False, True), ('mad', 146, 1.0, True, False),
+              ('mad', 146, 1.0, True, True), ('hor', 860, 3.0, False, False)]
+    for mat, red, masa, bio, fin in casos6:
+        t = pon_m6(mat, red, masa, bio, fin)
+        fs = carbono(red, bio, fin)
+        e = [x for x in fs if x['k'] == mat][0]
+        check(abs(valor(t, u'a eléctrica de') - e['mjElec']) < 0.2,
+              '%s: la parte electrica son %.1f MJ/kg y la pagina dice %.1f'
+              % (mat, e['mjElec'], valor(t, u'a eléctrica de')))
+        check(abs(valor(t, 'de la electricidad') - e['elec']) < 0.02,
+              '%s a %d g/kWh: CO2 electrico %.2f kg/kg, %.2f en pantalla'
+              % (mat, red, e['elec'], valor(t, 'de la electricidad')))
+        check(abs(valor(t, 'Total del material') - e['co2']) < 0.02,
+              '%s: total %.2f kg de CO2e por kilo, %.2f en pantalla'
+              % (mat, e['co2'], valor(t, 'Total del material')))
+        check(abs(valor(t, 'Tu pieza de') - masa * e['co2']) < 0.03,
+              '%s, pieza de %.2f kg: %.2f kg de CO2e, %.2f en pantalla'
+              % (mat, masa, masa * e['co2'], valor(t, 'Tu pieza de')))
+
+    # el titular de la sesion: el mismo kilo, cuatro veces mas o menos CO2
+    isl = carbono(20, False, False)[0]['co2']
+    car = carbono(1000, False, False)[0]['co2']
+    check(abs(isl - 4.28) < 0.02 and abs(car - 18.10) < 0.02,
+          'el aluminio primario va de %.2f a %.2f kg de CO2e segun el enchufe' % (isl, car))
+    check(car / isl > 4, 'o sea, se multiplica por %.1f sin cambiar de material' % (car / isl))
+    t = pon_m6('alp', 20, 1.0, False, False)
+    dos = numeros(fila(t, u'según el enchufe'))
+    check(abs(dos[0] - 4.28) < 0.02 and abs(dos[1] - 18.10) < 0.02,
+          'y la escena pone los dos numeros a la vista: %s' % dos[:2])
+    # los megajulios NO se mueven al cambiar de enchufe
+    a = valor(pon_m6('alp', 20, 1.0, False, False), 'Tu pieza de', 1)
+    b = valor(pon_m6('alp', 1000, 1.0, False, False), 'Tu pieza de', 1)
+    check(abs(a - b) < 0.01,
+          'y los megajulios de la misma pieza no se mueven (%.1f y %.1f)' % (a, b))
+
+    # PET y acero: 3,4 veces en energia, empate en CO2
+    fs = carbono(146, False, False)
+    pet = [x for x in fs if x['k'] == 'pet'][0]
+    fe = [x for x in fs if x['k'] == 'fe'][0]
+    check(abs(pet['ep'] / fe['ep'] - 3.36) < 0.05 and abs(pet['co2'] - fe['co2']) < 0.15,
+          'PET frente a acero: %.1f veces en MJ y empate en CO2 (%.2f y %.2f)'
+          % (pet['ep'] / fe['ep'], pet['co2'], fe['co2']))
+
+    # la madera: negativa con el carbono de dentro, y positiva otra vez al quemarla
+    mad1 = [x for x in carbono(146, True, False) if x['k'] == 'mad'][0]['co2']
+    mad2 = [x for x in carbono(146, True, True) if x['k'] == 'mad'][0]['co2']
+    check(mad1 < 0 < mad2,
+          'la madera va a %.2f contando lo que lleva dentro y vuelve a %.2f si se quema'
+          % (mad1, mad2))
+    t = pon_m6('mad', 146, 1.0, True, False)
+    check(valor(t, 'Total del material') < 0,
+          'y en pantalla el contrachapado sale en negativo (%.2f)'
+          % valor(t, 'Total del material'))
+    t = pon_m6('mad', 146, 1.0, True, True)
+    check(valor(t, 'Total del material') > 0,
+          'y al marcar tambien la de quemarlo vuelve a positivo (%.2f): es el mismo carbono'
+          % valor(t, 'Total del material'))
+
+    # ------------------------------------------------------------------ S7
+    print('== Sesion 7 * veinte anos de servicio')
+    pag.click('#nav button[data-ses="7"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-m7', 'e => e.innerHTML')) > 2000,
+          'la escena de los bucles pinta la linea del tiempo y las barras')
+
+    NOM7 = {'lin': 'Fabricar, usar, tirar', 'rec': 'Reciclar al final',
+            'rep': 'Reparar', 'dos': 'Reparar y reciclar'}
+
+    def pon_m7(vari, anos, fab, pieza, rep, recup, rebote):
+        pag.click('#seg-m7-var button[data-v="%s"]' % vari)
+        for sel, v in (('#m7-anos', anos), ('#m7-fab', fab), ('#m7-pieza', pieza),
+                       ('#m7-rep', rep), ('#m7-recup', recup), ('#m7-rebote', rebote)):
+            pag.eval_on_selector(
+                sel, "e => { e.value = %d; e.dispatchEvent(new Event('input')); }" % v)
+        pag.wait_for_timeout(140)
+        return pag.inner_text('#tabla-m7')
+
+    casos7 = [('riego', 4, 85, 12, 3, 25, 0), ('riego', 2, 85, 12, 3, 25, 0),
+              ('aviso', 5, 66, 30, 2, 50, 0), ('lampara', 4, 76, 12, 3, 25, 50),
+              ('riego', 1, 400, 60, 6, 80, 100), ('lampara', 10, 20, 1, 0, 0, 0)]
+    for vari, anos, fab, pieza, rep, recup, rebote in casos7:
+        t = pon_m7(vari, anos, fab, pieza, rep, recup, rebote)
+        rs = bucles(vari, anos, fab, pieza, rep, recup, rebote)
+        for r in rs:
+            linea = fila(t, NOM7[r['k']])
+            ns = numeros(linea)
+            check(abs(ns[-1] - r['total']) < 1.2,
+                  '%s %s: total %.0f MJ calculado, %.0f en pantalla'
+                  % (vari, r['k'], r['total'], ns[-1]))
+            check(ns[0] == r['nfab'],
+                  '%s %s: %d fabricaciones y la pagina dice %d'
+                  % (vari, r['k'], r['nfab'], ns[0]))
+            check(ns[1] == r['nrep'],
+                  '%s %s: %d reparaciones y la pagina dice %d'
+                  % (vari, r['k'], r['nrep'], ns[1]))
+
+    # el resultado de la sesion: el bucle corto gana al largo con los datos de partida
+    rs = bucles('riego', 4, 85, 12, 3, 25, 0)
+    lin, rec, rep, dos = rs
+    check(rep['total'] < rec['total'] < lin['total'],
+          'riego: reparar %.0f < reciclar %.0f < tirar %.0f MJ'
+          % (rep['total'], rec['total'], lin['total']))
+    check((lin['total'] - rep['total']) > 2 * (lin['total'] - rec['total']),
+          'y reparar ahorra %.0f MJ frente a los %.0f de reciclar: mas del doble'
+          % (lin['total'] - rep['total'], lin['total'] - rec['total']))
+    pon_m7('riego', 4, 85, 12, 3, 25, 0)
+    check('Reparar y reciclar' in fila(pag.inner_text('#tabla-m7'), 'La mejor de las cuatro')
+          or 'reparar' in pag.inner_text('#pie-m7').lower(),
+          'y la escena nombra al ganador')
+
+    # el rebote se come la ventaja: eso es el contrapeso honrado de la sesion
+    sin = bucles('lampara', 4, 76, 12, 3, 25, 0)
+    con = bucles('lampara', 4, 76, 12, 3, 25, 100)
+    check(sin[2]['total'] < sin[0]['total'] and con[2]['total'] > con[0]['total'],
+          'con la lampara, reparar gana sin rebote (%.0f<%.0f) y pierde con el 100 %% (%.0f>%.0f)'
+          % (sin[2]['total'], sin[0]['total'], con[2]['total'], con[0]['total']))
+
+    # un aparato que dura un ano: veinte fabricaciones en veinte anos
+    check(bucles('riego', 1, 85, 12, 0, 0, 0)[0]['nfab'] == 20,
+          'durando un ano hacen falta 20 aparatos para dar 20 anos de servicio')
+
+    # ------------------------------------------------------------------ S8
+    print('== Sesion 8 * la ficha de impacto')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(300)
+    check(len(pag.eval_on_selector('#svg-m8', 'e => e.innerHTML')) > 2000,
+          'la ficha pinta el reparto y el analisis de sensibilidad')
+    check(len(pag.query_selector_all('#piezas-m8 .m8-fila')) == 3,
+          'hay tres piezas que configurar')
+
+    def pon_m8(vari, piezas, elec, vida, red):
+        pag.click('#seg-m8-var button[data-v="%s"]' % vari)
+        pag.wait_for_timeout(120)
+        for i, (k, g) in enumerate(piezas):
+            pag.click('#piezas-m8 .seg[data-i="%d"] button[data-k="%s"]' % (i, k))
+            pag.eval_on_selector(
+                '#piezas-m8 input[data-g="%d"]' % i,
+                "e => { e.value = %d; e.dispatchEvent(new Event('input')); }" % g)
+        for sel, v in (('#m8-elec', elec), ('#m8-vida', vida), ('#m8-red', red)):
+            pag.eval_on_selector(
+                sel, "e => { e.value = %d; e.dispatchEvent(new Event('input')); }" % v)
+        pag.wait_for_timeout(160)
+        return pag.inner_text('#tabla-m8')
+
+    casos8 = [
+        ('riego',   VAR8['riego']['p'],   60,  5, 146),
+        ('aviso',   VAR8['aviso']['p'],   60,  5, 146),
+        ('lampara', VAR8['lampara']['p'], 60,  5, 146),
+        ('riego',   [('alu', 60), ('pet', 15), ('acero', 14)], 200, 2, 1000),
+        ('riego',   [('mdf', 400), ('pla', 5), ('acero', 100)], 20, 10, 20),
+    ]
+    for vari, piezas, elec, vida, red in casos8:
+        t = pon_m8(vari, piezas, elec, vida, red)
+        uso = VAR8[vari]['uso']
+        e = ficha(piezas, elec, vida, red, uso)
+        check(abs(valor(t, 'Fabricarlo') - e['mjFab']) < 0.2,
+              '%s: fabricarlo son %.1f MJ y la pagina dice %.1f'
+              % (vari, e['mjFab'], valor(t, 'Fabricarlo')))
+        check(abs(valor(t, 'Toda su vida', 0) - e['total']) < 1.0,
+              '%s: toda su vida son %.0f MJ y la pagina dice %.0f'
+              % (vari, e['total'], valor(t, 'Toda su vida', 0)))
+        check(abs(valor(t, 'Toda su vida', 1) - e['porAno']) < 0.2,
+              '%s: %.1f MJ por ano de servicio, %.1f en pantalla'
+              % (vari, e['porAno'], valor(t, 'Toda su vida', 1)))
+        check(abs(valor(t, 'de los materiales, con') - e['co2Mat']) < 0.03,
+              '%s: %.2f kg de CO2e de los materiales, %.2f en pantalla'
+              % (vari, e['co2Mat'], valor(t, 'de los materiales, con')))
+        check('no calculado' in t,
+              'y el CO2 de la electronica va sin numero, como debe')
+        # el tornado, barra a barra y EN ORDEN: no vale acertar los numeros y
+        # ponerlos desordenados, porque lo que la sesion ensena es el orden
+        esp = tornado(vari, elec, vida, red, piezas)
+        lineas = [l.strip() for l in t.split('\n')]
+        for j, x in enumerate(esp):
+            rot = [l for l in lineas if l.startswith('%d. ' % (j + 1))]
+            check(bool(rot) and x['nom'] in rot[0],
+                  '%s, sensibilidad %d: la pagina pone %r y toca %r'
+                  % (vari, j + 1, (rot[0][:34] if rot else 'nada'), x['nom']))
+            ns = numeros(fila(t, '%d. ' % (j + 1)))
+            check(abs(ns[-1] - x['span']) < 0.25,
+                  '%s, sensibilidad %d: mueve %.1f y la pagina dice %.1f'
+                  % (vari, j + 1, x['span'], ns[-1]))
+
+    # el resultado que cierra la unidad
+    esp = tornado('riego', 60, 5, 146)
+    check(esp[0]['nom'].startswith('Mochila'),
+          'con el riego de partida, lo que mas manda es la mochila de la electronica (%.1f)'
+          % esp[0]['span'])
+    mat = [x for x in esp if x['nom'].startswith('Material')][0]
+    check(esp[0]['span'] > 10 * mat['span'],
+          'y mueve %.0f veces mas que el material de la pieza mayor (%.1f frente a %.1f)'
+          % (esp[0]['span'] / mat['span'], esp[0]['span'], mat['span']))
+    # con la lampara el orden se da la vuelta
+    espL = tornado('lampara', 60, 5, 146)
+    check(espL[0]['nom'] != esp[0]['nom'],
+          'con la lampara manda otra cosa (%s), o sea que la sensibilidad es del aparato'
+          % espL[0]['nom'][:26])
+    # y la frase defendible sale con los numeros dentro
+    pon_m8('riego', VAR8['riego']['p'], 60, 5, 146)
+    frase = pag.inner_text('#pie-m8')
+    check('MJ por a' in frase and 'mochila de la electr' in frase.lower(),
+          'la escena deja escrita la frase que se puede copiar en la memoria')
+
     # ------------------------------------------------------------------ test
     print('== El test de autoevaluacion')
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(250)
     preguntas = pag.query_selector_all('#test-c3 .ta-p')
     check(len(preguntas) == 10, 'el test tiene 10 preguntas (hay %d)' % len(preguntas))
     # se contesta todo mal a proposito y se comprueba que corrige
@@ -593,10 +1059,54 @@ with sync_playwright() as p:
     check(pag.inner_text('#test-c3 .ta-nota').strip().startswith('10 de 10'),
           'y con las buenas saca 10 de 10: %r' % pag.inner_text('#test-c3 .ta-nota').strip())
 
+    print('== El test de la unidad entera')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(250)
+    preg8 = pag.query_selector_all('#test-c3b .ta-p')
+    check(len(preg8) == 12, 'el test de la unidad tiene 12 preguntas (hay %d)' % len(preg8))
+    # Los dos tests NO pueden compartir el nombre de ningun grupo de radios: si
+    # lo compartieran, marcar una opcion en uno desmarcaria la del otro y los
+    # dos dejarian de corregir. Es el motivo de que este lleve otro id.
+    n4 = set(pag.eval_on_selector_all('#test-c3 input[type=radio]',
+                                      'es => es.map(e => e.name)'))
+    n8 = set(pag.eval_on_selector_all('#test-c3b input[type=radio]',
+                                      'es => es.map(e => e.name)'))
+    check(n4 and n8 and not (n4 & n8),
+          'los dos tests no comparten ni un grupo de radios (%d y %d, %d en comun)'
+          % (len(n4), len(n8), len(n4 & n8)))
+
+    for i in range(len(preg8)):
+        ok = int(preg8[i].get_attribute('data-ok'))
+        pag.eval_on_selector(
+            '#test-c3b .ta-p:nth-of-type(%d) .ta-op input[value="%d"]' % (i + 1, ok),
+            'e => e.checked = true')
+    pag.click('#test-c3b [data-a="corregir"]')
+    pag.wait_for_timeout(200)
+    check(pag.inner_text('#test-c3b .ta-nota').strip().startswith('12 de 12'),
+          'contestando bien saca 12 de 12: %r' % pag.inner_text('#test-c3b .ta-nota').strip())
+    # y contestar el de la unidad no ha tocado el de la sesion 4
+    pag.click('#nav button[data-ses="4"]')
+    pag.wait_for_timeout(200)
+    check(pag.inner_text('#test-c3 .ta-nota').strip().startswith('10 de 10'),
+          'y el de la sesion 4 sigue con su 10 de 10 intacto')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(200)
+    pag.click('#test-c3b [data-a="otra"]')
+    pag.wait_for_timeout(200)
+    for i in range(len(preg8)):
+        ok = int(preg8[i].get_attribute('data-ok'))
+        pag.eval_on_selector_all(
+            '#test-c3b .ta-p:nth-of-type(%d) .ta-op input' % (i + 1),
+            "es => { const m = es.find(e => +e.value !== %d); if(m) m.checked = true; }" % ok)
+    pag.click('#test-c3b [data-a="corregir"]')
+    pag.wait_for_timeout(200)
+    check(pag.inner_text('#test-c3b .ta-nota').strip().startswith('0 de 12'),
+          'y contestando todo mal saca 0 de 12: %r' % pag.inner_text('#test-c3b .ta-nota').strip())
+
     # ------------------------------------------------------------------ todo
     print('== Todos los controles, uno por uno')
     n = 0
-    for ses in (1, 2, 3, 4):
+    for ses in (1, 2, 3, 4, 5, 6, 7, 8):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(200)
         for b in pag.query_selector_all('.escena .seg button, .escena [data-a]'):
@@ -615,7 +1125,7 @@ with sync_playwright() as p:
                 c.click()
                 n += 2
         pag.wait_for_timeout(200)
-    check(n >= 80, 'se han pulsado o movido %d controles de escena sin romper nada' % n)
+    check(n >= 150, 'se han pulsado o movido %d controles de escena sin romper nada' % n)
     check(not errores, 'y despues de pulsarlo todo sigue sin haber errores  %s' % (errores[:3] or ''))
 
     # Ningun rotulo puede salirse de su lienzo. Un <text> fuera del viewBox se
@@ -639,7 +1149,12 @@ with sync_playwright() as p:
                             ('#seg-m1-tr', 't', ['barco', 'camion', 'avion'])]),
                        (2, [('#seg-m2-mat', 'm', ['al', 'fe', 'cu', 'vi'])]),
                        (3, [('#seg-m3-pre', 'p', ['riego', 'lampara', 'contenedor'])]),
-                       (4, [('#seg-m4-ap', 'a', ['proyecto', 'altavoz', 'movil'])])):
+                       (4, [('#seg-m4-ap', 'a', ['proyecto', 'altavoz', 'movil'])]),
+                       (5, [('#seg-m5-fr', 'f', ['lata', 'pet', 'acero', 'vidrio', 'carton'])]),
+                       (6, [('#seg-m6-mix', 'x', ['isl', 'esp', 'mun', 'car']),
+                            ('#seg-m6-mat', 'm', ['alp', 'pet', 'fe', 'mad', 'alr', 'hor'])]),
+                       (7, [('#seg-m7-var', 'v', ['riego', 'aviso', 'lampara'])]),
+                       (8, [('#seg-m8-var', 'v', ['riego', 'aviso', 'lampara'])])):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(250)
         for seg, attr, vals in extra:

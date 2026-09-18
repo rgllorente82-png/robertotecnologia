@@ -78,5 +78,75 @@
   "px": "6744x4500",
   "bytes": 442427,
   "desc": "Otranto (Apulia, Italy) - Lake created by an abandoned bauxite mine"
+ },
+ "c3-balas-latas": {
+  "titulo": "File:Greenville Public Works, ECVC Recycling Sorting facility - 14.jpg",
+  "autor": "Greenville, NC",
+  "licencia": "Public domain",
+  "licurl": "",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Greenville_Public_Works,_ECVC_Recycling_Sorting_facility_-_14.jpg",
+  "px": "3000x1996",
+  "bytes": 562144,
+  "desc": "Recycling sorting facility operated by ECVC, October 18, 2019."
+ },
+ "c3-vidrio-verde": {
+  "titulo": "File:Glas aus Aufbereitungsanlage grün - glass cullet green (Alter Fritz).JPG",
+  "autor": "Alter Fritz",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Glas_aus_Aufbereitungsanlage_gr%C3%BCn_-_glass_cullet_green_(Alter_Fritz).JPG",
+  "px": "3264x2448",
+  "bytes": 156520,
+  "desc": "gewaschen und nachsortiert"
+ },
+ "c3-vidrio-mezcla": {
+  "titulo": "File:Glas aus Aufbereitungsanlage bunt - glass cullet various (Alter Fritz).JPG",
+  "autor": "Alter Fritz",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Glas_aus_Aufbereitungsanlage_bunt_-_glass_cullet_various_(Alter_Fritz).JPG",
+  "px": "3264x2448",
+  "bytes": 123116,
+  "desc": "gewaschen und nachsortiert"
+ },
+ "c3-horno-cemento": {
+  "titulo": "File:Cement kiln in Gorazdze Cement plant.JPG",
+  "autor": "Jb957",
+  "licencia": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Cement_kiln_in_Gorazdze_Cement_plant.JPG",
+  "px": "1024x768",
+  "bytes": 137107,
+  "desc": "Cement kiln. Location: Gorazdze Cement Plant near Chorula (Poland)"
+ },
+ "c3-presa": {
+  "titulo": "File:Karahnjukar-dam.jpg",
+  "autor": "Christoph Hess",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Karahnjukar-dam.jpg",
+  "px": "1600x1200",
+  "bytes": 338574,
+  "desc": "Kárahnjúkar Staudamm"
+ },
+ "c3-cajas": {
+  "titulo": "File:Crates of empty Club Mate bottles at 31c3.jpg",
+  "autor": "JkoLd19d",
+  "licencia": "CC0",
+  "licurl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Crates_of_empty_Club_Mate_bottles_at_31c3.jpg",
+  "px": "3000x4000",
+  "bytes": 415386,
+  "desc": "Look over piled crates of emptied bottles of caffeinated, mate-flavoured iced tea (brand \"Club Mate\") that were consumed at the 31c3 hackers conference towards the delivery entrance of the Congress Center Hamburg."
+ },
+ "c3-etiqueta": {
+  "titulo": "File:EU washing machines label.jpg",
+  "autor": "European Commission",
+  "licencia": "Attribution",
+  "licurl": "",
+  "pagina": "https://commons.wikimedia.org/wiki/File:EU_washing_machines_label.jpg",
+  "px": "1144x2272",
+  "bytes": 152425,
+  "desc": "Washing Machine Labels of 1st March 2021 onwards"
  }
 }

@@ -6,15 +6,13 @@ u"""4.o de ESO - Tecnologia - Tema 3 - Materiales y ciclo de vida.
 Deja 4eso/Tecnologia/tema3/index.html. La "c" de los generadores es de
 "cuarto", para no chocar con los de 2.o.
 
-Ocho sesiones. En este encargo van escritas las CUATRO PRIMERAS; las otras
-cuatro quedan marcadas como pendientes y con su titulo puesto, que es lo que
-permite leer la cadena entera de la unidad desde el primer dia.
+Ocho sesiones, las OCHO escritas.
 
 La pregunta que abre la unidad:
     Ya sabes elegir un material por lo que aguanta. Y si ademas tuvieras que
     responder de lo que cuesta fabricarlo y de donde acaba?
 
-La cadena de las cuatro sesiones escritas:
+La cadena entera:
     S1  la bolsa de tela que hay que usar 7.100 veces   -> ciclo de vida
         deja abierto: si a veces manda fabricar, que hay dentro del material
     S2  fundir un kilo cuesta 1 MJ; hacerlo, 186        -> energia incorporada
@@ -23,10 +21,27 @@ La cadena de las cuatro sesiones escritas:
         deja abierto: he elegido material, pero el impacto depende de cuanto
         dure el objeto, y eso depende de si se puede abrir
     S4  el aparato no se estropeo: se diseno asi        -> disenar para reparar
+        deja abierto: y cuando por fin se tira, que le pasa de verdad?
+    S5  de cada kilo vuelven 581 gramos                 -> la cadena del reciclado
+        deja abierto: ya se lo que vuelve; y cuanto CO2 es eso?
+    S6  el mismo kilo, de 4 a 18 kg de CO2              -> factor de emision
+        deja abierto: entonces la respuesta es reciclar? pues no siempre
+    S7  dura dos anos y se recicla, contra dura diez    -> jerarquia y bucles
+        deja abierto: ya lo se todo; ahora hay que poderlo defender
+    S8  la frase que no se puede comprobar no vale nada -> memoria de impacto
+        cierra la unidad y abre el tema 4 (que ademas se mueva)
 
-El proyecto del curso NO esta decidido (es del profesor). Por eso los ejemplos
-van siempre de dos en dos o de tres en tres, sacados del catalogo de
-PROYECTOS.md, y ninguna sesion depende de que se elija uno concreto.
+Las sesiones 1 a 4 se escribieron ANTES de que estuviera decidido el proyecto
+del curso, y por eso alli los ejemplos rotan entre varios candidatos. Desde la
+sesion 5, PROYECTOS.md ya tiene su bloque DECIDIDO (18-sep-2026: riego
+automatico, con ventilacion y lampara como variantes) y la segunda mitad
+aterriza en esas TRES, que son las que salen en las escenas de la 7 y la 8.
+Las sesiones 1 a 4 NO se han tocado.
+
+Dos tests, y con identificadores distintos a proposito: 'c3' cierra la S4 con
+diez preguntas de las cuatro primeras sesiones, y 'c3b' cierra la S8 con doce
+de la unidad entera. Si compartieran identificador compartirian los name= de
+los grupos de radios y dejarian de funcionar los dos.
 
 Criterios: CE2 (2.1, 2.2) y CE6 (6.1, 6.2), segun CURRICULO.md.
 """
@@ -39,6 +54,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
 from c3_escenas import ACV, MOCHILA
 from c3_escenas2 import MATRIZ, REPARA
+from c3_escenas3 import CADENA, CARBONO
+from c3_escenas4 import BUCLES, FICHA
 from test_auto import test
 import avatar_flat
 
@@ -1238,6 +1255,1207 @@ S4_CIERRE = u'''
 
 
 # ==========================================================================
+# SESION 5 - Del residuo a la materia
+# ==========================================================================
+S5_RETO = u'''
+      <p>En la sesi&oacute;n 2 sacaste un n&uacute;mero que no se olvida: <b>reciclar aluminio ahorra
+         el 95,5 %</b> de la energ&iacute;a. Era una divisi&oacute;n, la hiciste t&uacute;, y sigue
+         siendo verdad.</p>
+      <div class="aviso">
+        <span class="n-tag">El eslogan que no es mentira y que engaña igual</span>
+        En el culo de casi cualquier lata pone algo parecido a esto: <b>&laquo;el aluminio es
+        reciclable al 100 % e infinitas veces&raquo;</b>. Las dos cosas son <b>ciertas</b>. El
+        aluminio no se estropea al fundirlo: un &aacute;tomo de aluminio de 1950 es hoy exactamente
+        igual de bueno que uno de ayer.
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un minuto antes de seguir</span>
+        <p>Si eso es verdad, aqu&iacute; hay algo que no cuadra: en Estados Unidos, en <b>2022</b>,
+           el aluminio reciclado fue el <b>34 %</b> de todo el aluminio nuevo que se puso en el
+           mercado. Un tercio. Si el material aguanta infinitas vueltas y reciclarlo ahorra el 95 %
+           de la energ&iacute;a, <b>&iquest;por qu&eacute; no es el 100 %?</b> Escribe tu
+           hip&oacute;tesis en una l&iacute;nea antes de seguir.</p>
+      </div>
+      <p>La respuesta empieza por separar dos palabras que se usan como si fueran la misma:</p>
+      <div class="cuenta">
+        <b>Reciclable</b> es una propiedad del <b>material</b>.<br>
+        <b>Reciclado</b> es un resultado del <b>sistema</b>.<br>
+        Y el sistema es una fila de camiones, de m&aacute;quinas y de personas, y cada una de ellas
+        <b>se deja algo por el camino</b>.
+      </div>
+      <p>El dibujo que casi todo el mundo tiene en la cabeza es este: contenedor &rarr; f&aacute;brica
+         &rarr; lata nueva. Tres flechas y ninguna p&eacute;rdida. El de verdad tiene <b>cuatro
+         etapas</b>, y lo grave no es que cada una pierda un poco: es que los rendimientos
+         <b>se multiplican</b>.</p>
+      <div class="cuenta">
+        Llega al contenedor que le toca &nbsp;<b>0,70</b><br>
+        La planta de clasificaci&oacute;n acierta &nbsp;<b>0,95</b><br>
+        Sobrevive a que le quiten lo que no es aluminio &nbsp;<b>0,92</b><br>
+        Sale del horno convertido en metal &nbsp;<b>0,95</b><br>
+        0,70 &times; 0,95 &times; 0,92 &times; 0,95 = <b>0,581</b>
+      </div>
+      <p class="voz-no">Cuatro etapas que aprueban con nota &mdash;ninguna baja del 70 %&mdash; y de
+         cada kilo vuelven <b>581 gramos</b>. Ese es todo el misterio del tercio.</p>
+'''
+
+S5_TEORIA = u'''
+      <h3>Qu&eacute; se pierde en cada etapa, y por qu&eacute;</h3>
+      <div class="copiar">
+        <h4>La cadena del reciclado, etapa por etapa</h4>
+        <ol>
+          <li><b>Captura.</b> Que el objeto acabe en el contenedor que le toca. Lo que falla aqu&iacute;
+              no falla por la m&aacute;quina: falla porque alguien tir&oacute; la lata a la papelera de
+              al lado, o al suelo.</li>
+          <li><b>Clasificaci&oacute;n.</b> En la planta, una cinta con separadores: im&aacute;n para el
+              acero, <b>corrientes de Foucault</b> para el aluminio, &oacute;ptico para los
+              pl&aacute;sticos. Ninguno acierta el 100 %. Lo que se va al rechazo, se incinera o se
+              entierra.</li>
+          <li><b>Preparaci&oacute;n.</b> Quitarle lo que <b>no</b> es el material: la lata lleva
+              <b>laca</b> por fuera y por dentro y hay que quemarla antes de fundir; la botella lleva
+              tap&oacute;n, anilla y etiqueta; el cart&oacute;n lleva grapas, tintas y agua.</li>
+          <li><b>Horno o proceso.</b> El aluminio l&iacute;quido se oxida por la superficie y forma
+              <b>escoria</b>; el vidrio se va en finos; la fibra del papel se rompe y se cuela por la
+              tela.</li>
+        </ol>
+        <p>El <b>rendimiento de la cadena</b> es el <b>producto</b> de los cuatro. No la media: el
+           producto. Por eso una cadena de cuatro etapas buenas puede dar un resultado mediocre, y por
+           eso arreglar la peor etapa es lo que m&aacute;s sube el total.</p>
+      </div>
+
+      <h3>Ciclo cerrado y ciclo abierto</h3>
+      <p>Y hay una segunda p&eacute;rdida que no se mide en kilos, sino en <b>calidad</b>. Una lata de
+         refresco no es de un aluminio: es de <b>dos</b>. El cuerpo se embute y necesita una
+         aleaci&oacute;n; la tapa tiene que abrirse por una l&iacute;nea marcada y necesita otra. Si
+         las latas se recogen aparte, la mezcla de cuerpos y tapas vuelve a dar chapa de lata. Si se
+         recogen revueltas con perfiles de ventana, con radiadores y con pistones, sube el silicio y
+         sube el hierro, y con eso ya no se hace chapa: se hacen <b>piezas de fundici&oacute;n</b>.</p>
+      <div class="copiar">
+        <h4>Los dos tipos de ciclo</h4>
+        <ul>
+          <li><b>Ciclo cerrado</b>: el material vuelve al <b>mismo</b> producto. Botella de vidrio
+              &rarr; botella de vidrio. Lata &rarr; lata. Exige recogerlo <b>separado</b>.</li>
+          <li><b>Ciclo abierto</b>: el material sirve, pero <b>para otra cosa de menos exigencia</b>,
+              y de ah&iacute; ya no vuelve a subir. Botella de PET &rarr; forro polar &rarr; basura.
+              Vidrio de colores mezclados &rarr; lana de vidrio o &aacute;rido de carretera. A esto se
+              le llama tambi&eacute;n <b>reciclado a la baja</b>.</li>
+        </ul>
+        <p>Ninguno de los dos es &laquo;hacer trampa&raquo;: el ciclo abierto tambi&eacute;n ahorra
+           energ&iacute;a y tambi&eacute;n evita un vertedero. Lo que hay que saber es que el ciclo
+           abierto <b>se puede hacer una vez</b>, y el cerrado, muchas.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        El caso m&aacute;s claro es el <b>cobre dentro del acero</b>. Cuando se desguaza un coche, el
+        cableado de cobre que no se ha quitado a mano acaba en la chatarra. Y el cobre, a diferencia
+        del carbono o del silicio, <b>no se puede sacar del acero fundido</b>: no se oxida antes que
+        el hierro, as&iacute; que el soplado de ox&iacute;geno y la cal del horno no se lo llevan. Solo
+        hay dos salidas, y las dos son de antes de fundir: <b>separar mejor la chatarra</b> o
+        <b>diluirla con acero nuevo</b>. Por eso a los elementos como el cobre y el estaño se les llama
+        <b>elementos vagabundos</b>: se van acumulando ciclo tras ciclo y no hay manera de echarlos.
+      </div>
+
+      <h3>El techo: no puede entrar m&aacute;s del que vuelve</h3>
+      <p>Ahora se puede contestar del todo a la pregunta del principio. Si de cada kilo que se pone en
+         el mercado vuelven 0,58, entonces, por mucho que se quiera, <b>no se puede fabricar con
+         m&aacute;s de un 58 % de reciclado</b>. Es aritm&eacute;tica: no se puede meter en la
+         f&aacute;brica un material que no existe.</p>
+      <p>Y hay un segundo techo, m&aacute;s sutil y m&aacute;s duro:</p>
+      <div class="cuenta">
+        La chatarra de hoy son los productos de <b>hace quince a&ntilde;os</b>.<br>
+        Si el consumo de ese material crece un <b>3 % al a&ntilde;o</b>, hace quince a&ntilde;os el
+        mercado era<br>
+        1 &divide; 1,03<sup>15</sup> = <b>0,64</b> veces el de hoy.<br>
+        O sea que, <b>aunque volviera absolutamente todo</b>, el contenido reciclado no
+        pasar&iacute;a del <b>64 %</b>.<br>
+        Y juntando los dos techos: 0,58 &times; 0,64 = <b>37 %</b>.
+      </div>
+      <p class="voz-no">Ese 37 % se parece much&iacute;simo al 34 % real. No es que la cuenta sea
+         exacta &mdash;no lo es&mdash;: es que <b>explica el orden de magnitud sin necesidad de acusar
+         a nadie</b>. Lo que impide llegar al 100 % no es la desidia: es que el material que se
+         recicla hoy se fabric&oacute; cuando se fabricaba menos.</p>
+
+''' + CADENA + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Con las <b>latas de aluminio</b> tal y como abre, vuelven <b>581 g</b> de cada kilo. Sube
+              la primera barra de 70 a 90 y mira: el total sube a 747 g. <b>La etapa que m&aacute;s
+              manda es la primera, y esa la haces t&uacute;</b>, no la m&aacute;quina.</li>
+          <li>Prueba el <b>acero</b>: 0,728, el mejor de los cinco. Y el <b>PET</b>: 0,436, el peor.
+              No es que el PET sea peor pl&aacute;stico: es que pierde en las cuatro etapas, y sobre
+              todo en la primera, donde se queda en 0,60.</li>
+          <li>Mira la fila &laquo;para tener 1 kg de material reciclado hay que recoger&raquo;. Con el
+              PET salen <b>2,29 kg</b>. Eso explica por qu&eacute; el reciclado cuesta dinero aunque el
+              material sea gratis.</li>
+          <li>Marca <b>&laquo;va mezclado&raquo;</b> y mira la curva de abajo: se cae a plomo tras la
+              primera vuelta. <b>Ese es el dibujo del ciclo abierto.</b> Qu&iacute;tala y la curva se
+              convierte en una escalera larga que tarda en morirse.</li>
+          <li>Y fíjate en la &uacute;ltima l&iacute;nea de la tabla: en el aluminio, de cada kilo
+              puesto en el mercado se salvan de verdad unos <b>103 MJ</b>, no los 178 del ahorro por
+              kilo reciclado. Los dos n&uacute;meros son correctos y <b>contestan a preguntas
+              distintas</b>.</li>
+        </ul>
+      </div>
+
+''' + foto('c3-balas-latas',
+           u'Balas de latas de aluminio prensadas apiladas contra una pared, con latas sueltas '
+           u'desparramadas por el suelo de hormig&oacute;n en primer plano',
+           u'Balas de latas prensadas en una planta de clasificaci&oacute;n, esperando el horno. '
+           u'F&iacute;jate en <b>dos cosas</b>. Una: todas las latas llevan su <b>pintura</b>, y eso '
+           u'hay que quemarlo antes de fundir &mdash;es la tercera etapa de la cadena&mdash;. Dos: en '
+           u'el suelo hay latas ca&iacute;das de las balas. Esas se barren y se recuperan casi todas; '
+           u'la p&eacute;rdida gorda <b>no se ve en ninguna foto</b>, porque pasa dentro del horno.') + u'''
+
+      <p>Y para ver el ciclo cerrado y el abierto con los ojos, lo mejor es el vidrio. Estos dos
+         montones salen de la misma planta, lavados y reclasificados los dos, y los dos van a un horno.
+         Pero <b>no van al mismo horno</b>:</p>
+
+      <div class="galeria-ri">
+''' + foto('c3-vidrio-verde',
+           u'Mont&oacute;n de trozos de vidrio verde y &aacute;mbar sobre una mesa clara, con una '
+           u'moneda de un euro al lado para dar la escala',
+           u'<b>Casco verde, clasificado por color.</b> Vuelve a ser botella verde: <b>ciclo '
+           u'cerrado</b>, y se puede repetir. La moneda de un euro est&aacute; puesta para que se vea '
+           u'el tama&ntilde;o del trozo.') + foto('c3-vidrio-mezcla',
+           u'Mont&oacute;n de trozos de vidrio de colores mezclados &mdash;verde, &aacute;mbar, '
+           u'incoloro y uno azul&mdash; sobre la misma mesa, con la misma moneda de un euro',
+           u'<b>Casco mezclado</b>, con verde, &aacute;mbar, incoloro y hasta un trozo azul. Con esto '
+           u'ya no se hace vidrio incoloro: el color no se quita fundiendo. Acaba en botella oscura, '
+           u'en lana de vidrio o en &aacute;rido. <b>Ciclo abierto.</b>') + u'''
+      </div>
+
+''' + video('vid-c3-planta', '_EA6VL1Zj0s',
+            u'As&iacute; funciona una planta de selecci&oacute;n',
+            u'Canal: Ecoembes Espa&ntilde;a',
+            u'Las cintas, el im&aacute;n, las corrientes de Foucault y los separadores &oacute;pticos '
+            u'de la segunda etapa, funcionando. <b>Ojo con qui&eacute;n lo firma</b>: Ecoembes es el '
+            u'sistema que gestiona esos envases, o sea que tiene inter&eacute;s en que la planta salga '
+            u'bien en el v&iacute;deo. Para <b>ver la m&aacute;quina</b> vale; para las <b>cifras</b>, '
+            u'usa la escena y di de d&oacute;nde sale cada una. Eso es exactamente lo que aprendiste a '
+            u'preguntar en la sesi&oacute;n 1.') + u'''
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        Lo de hoy es el <b>proceso industrial</b>: qu&eacute; le pasa a un kilo de material desde que
+        lo sueltas hasta que vuelve a ser materia prima. <b>El inventario de tu propia basura</b>
+        &mdash;qu&eacute; sobra de vuestra maqueta, cu&aacute;nto pesa y a qu&eacute; contenedor va cada
+        recorte&mdash; es otra cosa y es del <b>tema 8</b>. Aqu&iacute; se aprende la m&aacute;quina;
+        all&iacute; se hace vuestro recuento.
+      </div>
+'''
+
+S5_PRACTICA = ficha(
+    u'Pr&aacute;ctica 5 &middot; La cadena de tu pieza',
+    [u'Por parejas', u'20 min', u'Sobre 10'],
+    u'Con la escena y la libreta',
+    u'''
+          <p>Coged <b>una pieza</b> de vuestro proyecto que no sea la electr&oacute;nica: el
+             dep&oacute;sito de PET del riego, la carcasa de contrachapado del aviso, el brazo de
+             chapa de la l&aacute;mpara. Vais a seguirla hasta el final.</p>
+          <h4>Primera parte &middot; la cadena (10 min)</h4>
+          <ol class="pasos">
+            <li>Decid a <b>qu&eacute; fracci&oacute;n</b> va cuando se tire, y qu&eacute; contenedor es
+                ese en vuestro centro. Si no lo sab&eacute;is, id a mirarlo: est&aacute; en el
+                pasillo.</li>
+            <li>Con la escena, copiad la cadena entera a la libreta <b>con las cuatro
+                multiplicaciones</b>, no solo el resultado. Al lado de cada etapa, una l&iacute;nea de
+                qu&eacute; se pierde ah&iacute;.</li>
+            <li>Escribid los <b>kilos que hay que recoger</b> para tener un kilo de material reciclado,
+                y el <b>techo del contenido reciclado</b> de esa fracci&oacute;n.</li>
+          </ol>
+          <h4>Segunda parte &middot; cerrado o abierto (10 min)</h4>
+          <ol class="pasos">
+            <li>Marcad y desmarcad <b>&laquo;va mezclado&raquo;</b>. Escribid, con los n&uacute;meros
+                de la escena, cu&aacute;nto queda del kilo despu&eacute;s de <b>tres vueltas</b> en
+                cada caso. Y decid a d&oacute;nde va el material en cada uno.</li>
+            <li>Ahora la parte que importa: <b>dos decisiones de dise&ntilde;o</b> vuestras que
+                mantengan esa pieza en ciclo cerrado. Pistas de d&oacute;nde mirar: piezas de un solo
+                material, tornillos del mismo metal que la chapa, pegatinas que se despeguen, nada de
+                pintar lo que no hace falta, nada de pegar dos materiales que luego no se separan.</li>
+            <li>Y una l&iacute;nea honesta: de esas dos decisiones, <b>&iquest;cu&aacute;l os cuesta
+                algo</b>, y qu&eacute;? (Un redise&ntilde;o que no cuesta nada suele ser un
+                redise&ntilde;o que no hab&eacute;is pensado.)</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La fracci&oacute;n y el contenedor, comprobados <b>(1 punto)</b>.</li>
+            <li>La cadena con sus cuatro multiplicaciones y qu&eacute; se pierde en cada etapa
+                <b>(3 puntos)</b>.</li>
+            <li>Los kilos a recoger y el techo del reciclado, bien calculados <b>(2 puntos)</b>.</li>
+            <li>Las tres vueltas en los dos casos, con su destino <b>(2 puntos)</b>.</li>
+            <li>Dos decisiones de dise&ntilde;o, y qu&eacute; cuesta una de ellas <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S5_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+    u'&laquo;El aluminio es reciclable al 100 %.&raquo; &iquest;Es verdad? &iquest;Y qu&eacute; es lo '
+    u'que no dice?',
+    u'<p>Es verdad, y no tiene truco: el aluminio no se degrada al fundirlo. Lo que no dice es '
+    u'<b>cu&aacute;nto se recicla de verdad</b>. <b>Reciclable</b> habla del material; '
+    u'<b>reciclado</b> habla del sistema, que es una cadena de cuatro etapas cuyos rendimientos se '
+    u'<b>multiplican</b>. Una frase es una propiedad de la tabla peri&oacute;dica; la otra es un '
+    u'resultado que hay que medir.</p>') + pregunta(
+    u'Tu cadena tiene cuatro etapas al 70, 95, 92 y 95 %. Un compa&ntilde;ero dice que el rendimiento '
+    u'es la media, un 88 %. &iquest;Qu&eacute; le contestas?',
+    u'<p>Que no se suman ni se promedian: <b>se multiplican</b>. 0,70 &times; 0,95 &times; 0,92 &times; '
+    u'0,95 = <b>0,581</b>, o sea un 58 %, no un 88. Y de ah&iacute; sale una consecuencia '
+    u'pr&aacute;ctica: como es un producto, <b>la etapa m&aacute;s floja es la que m&aacute;s sube el '
+    u'total si la arreglas</b>. Aqu&iacute; esa etapa es la primera, y esa no la arregla una '
+    u'm&aacute;quina.</p>') + pregunta(
+    u'&iquest;Por qu&eacute; una botella de PET que acaba en forro polar es un ciclo abierto, y una '
+    u'botella de vidrio verde que vuelve a ser botella verde es cerrado?',
+    u'<p>Porque del forro polar <b>ya no vuelve a salir una botella</b>: la fibra textil no se '
+    u'recoge, no se separa y no tiene una vuelta m&aacute;s. El ciclo abierto se hace <b>una vez</b> '
+    u'y termina. El vidrio verde separado por color vuelve a botella verde, y de ah&iacute; a otra, '
+    u'y a otra. Por eso la escena, con la casilla de mezclado marcada, dibuja una curva que se muere '
+    u'en la primera vuelta.</p>') + pregunta(
+    u'Si el consumo de un material crece y los productos duran a&ntilde;os, &iquest;por qu&eacute; el '
+    u'contenido reciclado no puede llegar al 100 % aunque se recogiera todo?',
+    u'<p>Porque la chatarra de hoy son los <b>productos de hace a&ntilde;os</b>, y hace a&ntilde;os se '
+    u'fabricaba menos. Con un crecimiento del 3 % anual y productos que duran 15 a&ntilde;os, '
+    u'1 &divide; 1,03<sup>15</sup> = <b>0,64</b>: aunque volviera todo, solo habr&iacute;a chatarra '
+    u'para el 64 % de lo que hoy se fabrica. No hace falta que nadie lo haga mal para que el 100 % sea '
+    u'imposible: basta con que el mercado crezca.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que queda abierto</span>
+        Ya sabes cu&aacute;nta <b>materia</b> vuelve y cu&aacute;nta <b>energ&iacute;a</b> se salva de
+        verdad. Pero en cuanto salgas de clase y digas esto en casa, alguien va a preguntar lo
+        &uacute;nico que sale en las noticias: <b>&iquest;y cu&aacute;nto CO&#8322; es eso?</b> Y
+        aqu&iacute; viene la trampa: no se puede contestar multiplicando los megajulios por un
+        n&uacute;mero. El mismo kilo de aluminio, con los mismos 186 MJ, puede ir de <b>4 a 18 kilos de
+        CO&#8322;</b> sin que cambie ni el material ni la cuenta de la energ&iacute;a. Eso es la
+        sesi&oacute;n siguiente.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 6 - De megajulios a CO2
+# ==========================================================================
+S6_RETO = u'''
+      <p>Dos grupos de esta clase hacen la <b>misma tapa</b>: chapa de aluminio, 1,95 mm, 158 gramos,
+         la de la sesi&oacute;n 3. Misma pieza, mismo plano, misma masa. Los dos consultan la tabla de
+         la sesi&oacute;n 2 y los dos escriben lo mismo: 0,158 kg &times; 186 MJ/kg = <b>29,4 MJ</b>.
+         Hasta aqu&iacute;, ning&uacute;n problema.</p>
+      <div class="aviso">
+        <span class="n-tag">La conversi&oacute;n que todo el mundo da por hecha</span>
+        &laquo;Si ya s&eacute; los megajulios, el CO&#8322; sale solo: <b>ser&aacute; multiplicar por
+        un n&uacute;mero</b>.&raquo; Suena razonable. La energ&iacute;a y el CO&#8322; van juntos,
+        &iquest;no?
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un minuto antes de seguir</span>
+        <p>Un grupo compr&oacute; su chapa a una f&aacute;brica de <b>Islandia</b>, que trabaja con
+           electricidad hidr&aacute;ulica y geot&eacute;rmica. El otro, a una f&aacute;brica que tira
+           de una <b>central de carb&oacute;n</b>. Misma masa, mismos 186 MJ/kg, mismo proceso
+           Hall-H&eacute;roult de 1886. &iquest;Emiten lo mismo?</p>
+      </div>
+      <p>No. Y la diferencia no es de un 10 %: la cuenta la puedes hacer t&uacute; con lo que ya sabes
+         de la sesi&oacute;n 2, donde sacaste que la cuba gasta <b>14,1 kWh de electricidad por
+         kilo</b>.</p>
+      <div class="cuenta">
+        Islandia: 14,1 kWh &times; <b>0,020</b> kg de CO&#8322;/kWh = 0,28 &nbsp;+&nbsp; 4,00 del
+        resto = <b>4,28 kg de CO&#8322; por kilo</b><br>
+        Carb&oacute;n: 14,1 kWh &times; <b>1,000</b> kg de CO&#8322;/kWh = 14,10 &nbsp;+&nbsp; 4,00 =
+        <b>18,10 kg de CO&#8322; por kilo</b><br>
+        La misma tapa de 158 g: <b>0,68 kg</b> de CO&#8322; o <b>2,86 kg</b>. Cuatro veces.
+      </div>
+      <p class="voz-no">Los 186 megajulios no se han movido. Lo que ha cambiado es <b>qui&eacute;n los
+         produjo y con qu&eacute;</b>. De ah&iacute; la frase que hay que llevarse de hoy: <b>un
+         megajulio no tiene un CO&#8322;</b>.</p>
+'''
+
+S6_TEORIA = u'''
+      <h3>La herramienta: factor de emisi&oacute;n</h3>
+      <div class="copiar">
+        <h4>Huella = cantidad &times; factor de emisi&oacute;n</h4>
+        <p>El <b>factor de emisi&oacute;n</b> son los kilos de gases de efecto invernadero que suelta
+           <b>una unidad</b> de algo: un kWh de la red, un litro de gasolina, un kilo de cemento. Se
+           multiplica por la cantidad y sale la <b>huella</b>.</p>
+        <p>Se mide en <b>kilos de CO&#8322; equivalente</b> (kg de CO&#8322;e). &iquest;Equivalente?
+           Porque no todo lo que se suelta es CO&#8322;, y no todo calienta igual. Cada gas se
+           convierte a &laquo;cu&aacute;nto CO&#8322; har&iacute;a el mismo efecto en cien
+           a&ntilde;os&raquo;, y as&iacute; se pueden sumar.</p>
+        <p><b>Lo importante: cada factor va con su etiqueta.</b> El de la electricidad depende del
+           pa&iacute;s y del a&ntilde;o. Un factor sin decir de d&oacute;nde y de cu&aacute;ndo es un
+           factor inservible.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        En esta unidad tienes el ejemplo de manual de por qu&eacute; se dice <b>equivalente</b>. En la
+        cuba de electr&oacute;lisis, cuando la al&uacute;mina se agota localmente, se produce el
+        <b>efecto &aacute;nodo</b>: el carb&oacute;n del &aacute;nodo reacciona con el fluoruro y salen
+        <b>perfluorocarbonos</b>, sobre todo <b>CF&#8324;</b>. Ese gas calienta unas <b>6.500
+        veces</b> m&aacute;s que el CO&#8322; a cien a&ntilde;os y dura en la atm&oacute;sfera
+        <b>decenas de miles de a&ntilde;os</b>. Se suelta en cantidades peque&ntilde;&iacute;simas, y
+        aun as&iacute; hay que contarlo: unos pocos gramos por tonelada pesan como cientos de kilos de
+        CO&#8322;. Por eso la industria del aluminio lleva d&eacute;cadas peleando por controlar el
+        efecto &aacute;nodo, y no por ahorrar carb&oacute;n.
+      </div>
+
+      <h3>Hay CO&#8322; que no viene de quemar nada</h3>
+      <p>Aqu&iacute; es donde la idea de &laquo;multiplicar los megajulios por un n&uacute;mero&raquo;
+         se rompe del todo. Mira el <b>hormig&oacute;n</b>: es el material con <b>menos</b>
+         energ&iacute;a incorporada de toda la tabla de la sesi&oacute;n 2, 1,1 MJ/kg. Y el cemento que
+         lleva dentro es responsable de una parte enorme del CO&#8322; del planeta. &iquest;Con 1,1
+         MJ/kg?</p>
+      <div class="copiar">
+        <h4>La calcinaci&oacute;n de la caliza</h4>
+        <p>Para hacer cemento hay que convertir la caliza en cal, y esa es una <b>reacci&oacute;n
+           qu&iacute;mica</b> que suelta CO&#8322; por s&iacute; misma:</p>
+        <p style="text-align:center"><b>CaCO&#8323; &rarr; CaO + CO&#8322;</b></p>
+        <p>Con las masas: 100 g de carbonato dan 56 g de cal y <b>44 g de CO&#8322;</b>. Como el
+           cl&iacute;nker lleva alrededor de un 65 % de cal:</p>
+        <p style="text-align:center"><b>0,65 &divide; 56 &times; 44 = 0,51 kg de CO&#8322;</b> por cada
+           kilo de cl&iacute;nker</p>
+        <p>&hellip;y eso es <b>antes de encender el horno</b>. En el cemento, alrededor de la mitad del
+           CO&#8322; sale de la piedra y solo unos dos quintos de quemar combustible.</p>
+      </div>
+      <p class="voz-no">Consecuencia, y es gorda: <b>el cemento no se arregla con electricidad
+         limpia</b>. Puedes darle al horno energ&iacute;a solar perfecta y la mitad de sus emisiones
+         seguir&aacute;n ah&iacute;, porque salen de la reacci&oacute;n. Por eso la investigaci&oacute;n
+         en cemento va por otro lado: cambiar la receta, o capturar el CO&#8322; a la salida.</p>
+
+''' + foto('c3-horno-cemento',
+           u'Horno rotatorio de una cementera: un cilindro met&aacute;lico enorme e inclinado, sobre '
+           u'rodillos, con un coche aparcado debajo que da la escala, y la torre de ciclones al fondo',
+           u'El <b>horno rotatorio</b> de una cementera, en Gora&#380;d&#380;e (Polonia). Es el tubo '
+           u'inclinado que cruza la foto: gira despacio sobre esos rodillos mientras la mezcla baja por '
+           u'dentro hasta unos <b>1.450 &deg;C</b>. El coche aparcado debajo da la escala. Dentro de ese '
+           u'tubo pasan las dos cosas a la vez: se quema combustible <b>y</b> la caliza suelta su '
+           u'CO&#8322; sin que nadie la queme. La torre alta del fondo son los ciclones, que precalientan '
+           u'la mezcla con los gases que salen.') + u'''
+
+      <h3>El carbono que un material lleva dentro</h3>
+      <p>Y al rev&eacute;s tambi&eacute;n pasa. Un kilo de madera seca es carbono en casi la mitad de
+         su masa, y ese carbono <b>estuvo en el aire</b> hasta que el &aacute;rbol lo baj&oacute;:</p>
+      <div class="cuenta">
+        0,45 kg de carbono por kilo de madera &times; 44/12 = <b>1,65 kg de CO&#8322;</b> retirados del
+        aire, guardados dentro de la pieza.<br>
+        Fabricar ese kilo de contrachapado cuesta unos <b>0,55 kg</b> de CO&#8322;.
+      </div>
+      <p>O sea que, contado as&iacute;, la pieza sale en <b>negativo</b>. Pero eso solo vale con
+         <b>dos condiciones</b>, y las dos hay que escribirlas al lado del n&uacute;mero:</p>
+      <ul>
+        <li>que el bosque se <b>reponga</b> &mdash;si el &aacute;rbol no se sustituye, no hay nada que
+            volver a capturar&mdash;;</li>
+        <li>y que la madera <b>no se queme ni se pudra</b>, porque entonces devuelve exactamente el
+            mismo carbono que se llev&oacute;.</li>
+      </ul>
+      <p class="voz-no">Por eso las normas de declaraciones ambientales ponen el carbono de origen
+         biol&oacute;gico en un <b>apartado aparte</b> en vez de restarlo del total: para que se vea
+         que es un pr&eacute;stamo, no un regalo. En la escena, si marcas las dos casillas a la vez, la
+         madera vuelve sola a n&uacute;mero positivo. Comprueba que pasa: es la mejor manera de
+         entenderlo.</p>
+
+      <h3>Energ&iacute;a y CO&#8322; no son la misma magnitud</h3>
+      <p>Ya con esto se entiende el resultado que m&aacute;s descoloca de la sesi&oacute;n. Compara el
+         <b>PET</b> con el <b>acero</b>:</p>
+      <div class="cuenta">
+        En energ&iacute;a: PET <b>84</b> MJ/kg frente a acero <b>25</b>. El PET es <b>3,4 veces</b>
+        peor.<br>
+        En CO&#8322;, con la red espa&ntilde;ola: PET <b>2,08</b> kg/kg frente a acero <b>1,97</b>.
+        <b>Empate.</b>
+      </div>
+      <p>&iquest;C&oacute;mo puede ser? Porque la mayor parte de esos 84 MJ del PET es petr&oacute;leo
+         que <b>se convierte en pl&aacute;stico</b>, no que se quema. Esa energ&iacute;a sigue
+         ah&iacute;, metida dentro de la botella; se llama <b>energ&iacute;a de la materia prima</b>.
+         Solo se convierte en CO&#8322; si al final <b>se incinera</b> la botella, y ah&iacute; salen
+         de golpe otros 2,29 kg por kilo.</p>
+      <p class="voz-no">Ese 2,29 tambi&eacute;n se calcula, y sale de la f&oacute;rmula del PET,
+         C&#8321;&#8320;H&#8328;O&#8324;: masa molar 192, de los que 120 son carbono.
+         120/192 &times; 44/12 = <b>2,29</b>. Acu&eacute;rdate ahora de la nota de la sesi&oacute;n 1
+         sobre el estudio dan&eacute;s de las bolsas: en Dinamarca la bolsa acaba <b>incinerada</b>. Ya
+         sabes qu&eacute; significa eso en la cuenta.</p>
+
+''' + CARBONO + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Pon <b>Islandia</b> y luego <b>central de carb&oacute;n</b>. La columna de la
+              izquierda, los megajulios, <b>no se mueve ni un p&iacute;xel</b>. La de la derecha
+              se multiplica por cuatro en el aluminio. Ese es el titular de la sesi&oacute;n.</li>
+          <li>Con ese mismo cambio, mira el <b>acero</b>: pasa de 1,91 a 2,40. Casi nada. Su CO&#8322;
+              no est&aacute; en el enchufe, est&aacute; en el <b>coque</b> del alto horno. Por eso el
+              acero no se limpia poniendo renovables, y el aluminio s&iacute;.</li>
+          <li>Marca <b>&laquo;contar el carbono que la madera lleva dentro&raquo;</b>: el
+              contrachapado se va a la izquierda del cero y pasa a ser el mejor de los seis. Ahora
+              marca <b>tambi&eacute;n</b> la de quemarlo al final: vuelve solo a positivo. Las dos
+              casillas hablan del <b>mismo carbono</b>.</li>
+          <li>Con solo la casilla de quemar, el <b>PET</b> pasa de 2,08 a 4,37 y le saca ya el doble al
+              acero. La misma botella, dos finales, dos n&uacute;meros. <b>Los l&iacute;mites del
+              sistema otra vez</b>, como en la sesi&oacute;n 1.</li>
+        </ul>
+      </div>
+
+''' + foto('c3-presa',
+           u'Presa de escollera de K&aacute;rahnj&uacute;kar: un muro inmenso de roca oscura con la '
+           u'carretera de coronaci&oacute;n encima, monta&ntilde;as nevadas al fondo y una caseta '
+           u'peque&ntilde;a al pie que da la escala',
+           u'La presa de <b>K&aacute;rahnj&uacute;kar</b>, en Islandia: <b>193 metros</b> de roca, con '
+           u'la carretera de coronaci&oacute;n encima y una caseta al pie para que se vea el '
+           u'tama&ntilde;o. Se construy&oacute; para una central de <b>690 MW</b> que alimenta, al '
+           u'otro lado de la isla, la f&aacute;brica de aluminio de Rey&eth;arfj&ouml;r&eth;ur, en '
+           u'marcha desde 2007. Es la cara amable de la cuenta de hoy: ese es el enchufe que baja el '
+           u'aluminio a 4,3 kg de CO&#8322; por kilo. Y es tambi&eacute;n el aviso: un megajulio '
+           u'limpio en CO&#8322; <b>no es un megajulio gratis</b>. Detr&aacute;s de ese muro hay un '
+           u'embalse que ocupa lo que antes era tierra, y eso <b>no cabe en ninguna casilla de kilos '
+           u'de CO&#8322;</b>. Es el mismo l&iacute;o de la bolsa de algod&oacute;n de la '
+           u'sesi&oacute;n 1: <b>la respuesta depende de qu&eacute; le hayas preguntado</b>.') + u'''
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        Lo de hoy es la <b>herramienta</b>: saber pasar de megajulios a kilos de CO&#8322;e y saber
+        por qu&eacute; no hay un factor &uacute;nico. <b>Sumar la cuenta entera de vuestro proyecto</b>
+        &mdash;materiales, electr&oacute;nica, transporte, uso y residuo, todo junto&mdash; es el
+        <b>tema 8</b>. Aqu&iacute; se aprende la conversi&oacute;n; all&iacute; se hace el inventario.
+        Y una advertencia para las dos: el CO&#8322; <b>no es todo el impacto</b>. La bolsa de
+        algod&oacute;n de la sesi&oacute;n 1 empataba a los 52 usos mirando solo el clima y
+        necesitaba 7.100 mirando el agua y el campo. Un n&uacute;mero es un indicador, no un
+        veredicto.
+      </div>
+'''
+
+S6_PRACTICA = ficha(
+    u'Pr&aacute;ctica 6 &middot; El mismo aparato, tres enchufes',
+    [u'Por parejas', u'20 min', u'Sobre 10'],
+    u'Con la escena, la tabla de la sesi&oacute;n 2 y la libreta de la pr&aacute;ctica 2',
+    u'''
+          <p>Sacad la libreta de la <b>pr&aacute;ctica 2</b>, donde ten&eacute;is la masa de vuestra
+             pieza y sus megajulios. Hoy le pon&eacute;is la otra columna.</p>
+          <h4>Primera parte &middot; la conversi&oacute;n (10 min)</h4>
+          <ol class="pasos">
+            <li>Con la escena, calculad los <b>kg de CO&#8322;e</b> de esa pieza con los <b>tres</b>
+                enchufes: Islandia, red espa&ntilde;ola de 2024 y carb&oacute;n. Tres n&uacute;meros,
+                cada uno con su multiplicaci&oacute;n escrita.</li>
+            <li>Al lado de cada uno, los <b>megajulios</b>, que no cambian. Escribid en una
+                l&iacute;nea por qu&eacute; una columna se mueve y la otra no.</li>
+            <li>Repetid la cuenta suponiendo la pieza de <b>otro material</b>, el que ten&iacute;ais de
+                segunda opci&oacute;n en la matriz de la sesi&oacute;n 3. &iquest;La elecci&oacute;n
+                que hicisteis entonces <b>sigue siendo la buena</b> mirando CO&#8322; en vez de
+                megajulios? Contestad con los dos n&uacute;meros delante, no de memoria.</li>
+          </ol>
+          <h4>Segunda parte &middot; el reparto (10 min)</h4>
+          <ol class="pasos">
+            <li>Elegid el material de vuestra pieza en la escena y copiad el <b>desglose</b>:
+                cu&aacute;nto de su CO&#8322; sale del enchufe y cu&aacute;nto no. Una frase: si el
+                pa&iacute;s limpiara su electricidad del todo, &iquest;cu&aacute;nto bajar&iacute;a
+                vuestra pieza?</li>
+            <li>Y una pregunta de honestidad, que vale un punto: en vuestra ficha hay una cosa cuyo
+                CO&#8322; <b>no sab&eacute;is</b>. Decid cu&aacute;l es y escribid, en vez de un
+                n&uacute;mero, <b>qu&eacute; har&iacute;a falta para saberlo</b>.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los tres factores aplicados, con la multiplicaci&oacute;n escrita <b>(3 puntos)</b>.</li>
+            <li>La explicaci&oacute;n de por qu&eacute; los MJ no se mueven <b>(2 puntos)</b>.</li>
+            <li>La comparaci&oacute;n con el segundo material, y si cambia la decisi&oacute;n
+                <b>(2 puntos)</b>.</li>
+            <li>El desglose copiado y bien le&iacute;do <b>(2 puntos)</b>.</li>
+            <li>El dato que no sab&eacute;is, dicho y no rellenado <b>(1 punto)</b>.</li>
+          </ul>
+''')
+
+S6_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+    u'&iquest;Por qu&eacute; no se puede pasar de megajulios a kilos de CO&#8322; multiplicando por '
+    u'un n&uacute;mero fijo?',
+    u'<p>Por dos motivos, y los dos hay que saber decirlos. Uno: un megajulio <b>no tiene un '
+    u'CO&#8322;</b>; depende de con qu&eacute; se produjo esa energ&iacute;a, y el mismo kilo de '
+    u'aluminio va de 4,3 a 18,1 kg seg&uacute;n el enchufe. Dos: hay CO&#8322; que <b>no viene de '
+    u'ninguna energ&iacute;a</b>, como el de la caliza del cemento. Ese no aparecer&iacute;a por '
+    u'ning&uacute;n factor, por bueno que fuera.</p>') + pregunta(
+    u'Dos materiales tienen 84 y 25 MJ/kg, y en CO&#8322; empatan a 2 kg/kg. &iquest;C&oacute;mo se '
+    u'explica?',
+    u'<p>Son el PET y el acero. La mayor parte de los 84 MJ del PET es <b>petr&oacute;leo que se '
+    u'convierte en pl&aacute;stico</b>, no que se quema: es energ&iacute;a de la materia prima, y '
+    u'sigue metida en la botella. El acero, en cambio, quema coque de verdad. Ahora bien: si la '
+    u'botella se <b>incinera</b> al final, ese carbono sale &mdash;2,29 kg por kilo, calculado con la '
+    u'f&oacute;rmula del PET&mdash; y el empate se acaba.</p>') + pregunta(
+    u'&iquest;Por qu&eacute; el cemento no se arregla poniendo energ&iacute;a limpia en la '
+    u'f&aacute;brica?',
+    u'<p>Porque alrededor de <b>la mitad</b> de su CO&#8322; no sale de quemar nada: sale de la '
+    u'reacci&oacute;n CaCO&#8323; &rarr; CaO + CO&#8322;. Son 0,51 kg de CO&#8322; por kilo de '
+    u'cl&iacute;nker que est&aacute;n en la piedra y que salen s&iacute; o s&iacute;. Con el horno '
+    u'alimentado por el sol, esa mitad seguir&iacute;a ah&iacute;. Por eso lo que se investiga es '
+    u'cambiar la receta o capturar el CO&#8322; a la salida.</p>') + pregunta(
+    u'Un cat&aacute;logo dice que su pieza de madera tiene &laquo;huella negativa&raquo;. '
+    u'&iquest;Qu&eacute; dos preguntas haces?',
+    u'<p>Una: <b>&iquest;el bosque se repone?</b> Si el &aacute;rbol no se sustituye, no hay nada que '
+    u'vuelva a capturar el carbono y el n&uacute;mero no vale. Dos: <b>&iquest;qu&eacute; pasa al '
+    u'final de la vida de la pieza?</b> Si se quema o se pudre, devuelve exactamente los mismos '
+    u'1,65 kg por kilo que se llev&oacute;. El carbono de la madera es un <b>pr&eacute;stamo</b>, y '
+    u'una huella negativa que no dice el plazo del pr&eacute;stamo no se puede comprobar.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que queda abierto</span>
+        Con la sesi&oacute;n 5 y esta ya tienes lo que le pasa al material al final y c&oacute;mo se
+        cuenta lo que emite. Y con eso se puede caer en la trampa m&aacute;s c&oacute;moda de todas:
+        pensar que la respuesta a todo es <b>reciclar</b>. Vamos a ponerlo a prueba con una cuenta de
+        dos l&iacute;neas: un aparato que se recicla entero y dura dos a&ntilde;os, contra uno que no
+        se recicla nada y dura diez. Gana uno de los dos por goleada, y no es el que dice el eslogan.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 7 - Economia circular
+# ==========================================================================
+S7_RETO = u'''
+      <p>Pregunta de calle: &laquo;&iquest;qu&eacute; hay que hacer para que un aparato haga menos
+         da&ntilde;o?&raquo;. Nueve de cada diez contestan lo mismo, y lo contestan r&aacute;pido:
+         <b>reciclarlo</b>.</p>
+      <div class="aviso">
+        <span class="n-tag">Dos aparatos, la misma cuenta</span>
+        <b>A</b>: cuesta <b>100 MJ</b> fabricarlo, dura <b>2 a&ntilde;os</b> y al final se recicla
+        entero, de modo que el siguiente se hace con un <b>25 % menos</b>.<br>
+        <b>B</b>: cuesta <b>100 MJ</b> fabricarlo, dura <b>10 a&ntilde;os</b> y al final se tira a la
+        basura, sin reciclar nada.<br>
+        Necesitas ese aparato funcionando <b>diez a&ntilde;os</b>. &iquest;Cu&aacute;l gasta menos?
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un minuto antes de seguir</span>
+        <p>Haz la cuenta antes de leerla. Son dos multiplicaciones y una suma, y la respuesta te va a
+           molestar.</p>
+      </div>
+      <div class="cuenta">
+        <b>A</b>, el que se recicla: hacen falta <b>cinco</b> aparatos.<br>
+        100 + 75 + 75 + 75 + 75 = <b>400 MJ</b><br>
+        <b>B</b>, el que no se recicla nada: hace falta <b>uno</b>.<br>
+        = <b>100 MJ</b>
+      </div>
+      <p class="voz-no">Cuatro veces menos <b>el que no recicla</b>. Y ojo, porque la trampa no
+         est&aacute; en los n&uacute;meros: reciclar el A <b>ahorra de verdad</b>. Sin reciclar
+         ser&iacute;an cinco aparatos a 100, o sea 500 MJ, y con reciclado son 400: se ha ahorrado
+         justo un 20 %. Lo que pasa es que <b>llega tarde</b>. Reciclar act&uacute;a
+         <b>despu&eacute;s</b> de haber fabricado, y durar act&uacute;a <b>antes</b>.</p>
+      <p>Esto no es una opini&oacute;n de nadie: est&aacute; escrito en la ley europea desde hace
+         a&ntilde;os, y con el orden puesto.</p>
+'''
+
+S7_TEORIA = u'''
+      <h3>La jerarqu&iacute;a de residuos</h3>
+      <div class="copiar">
+        <h4>Los cinco escalones, en este orden</h4>
+        <p>La <b>Directiva 2008/98/CE</b>, en su <b>art&iacute;culo 4</b>, obliga a los estados a
+           aplicar esta prioridad, <b>y en este orden</b>:</p>
+        <ol>
+          <li><b>Prevenci&oacute;n</b> &mdash; que el residuo no llegue a existir.</li>
+          <li><b>Preparaci&oacute;n para la reutilizaci&oacute;n</b> &mdash; que el objeto vuelva a
+              servir para lo que serv&iacute;a.</li>
+          <li><b>Reciclado</b> &mdash; que el material vuelva a ser material.</li>
+          <li><b>Otra valorizaci&oacute;n</b> &mdash; por ejemplo, quemarlo para sacarle el calor.</li>
+          <li><b>Eliminaci&oacute;n</b> &mdash; vertedero.</li>
+        </ol>
+        <p>Reciclar es el <b>tercero</b>. Hay dos escalones por encima, y son justamente los que no
+           salen en los anuncios.</p>
+      </div>
+      <p>&iquest;Y por qu&eacute; ese orden y no otro? Por una raz&oacute;n que ya sabes calcular:
+         <b>cada escal&oacute;n conserva menos que el anterior</b>.</p>
+      <div class="copiar">
+        <h4>Qu&eacute; conserva cada bucle</h4>
+        <ul>
+          <li><b>Mantener y reparar</b> (el bucle m&aacute;s corto): conserva <b>la funci&oacute;n</b>.
+              El aparato no se mueve de donde est&aacute;.</li>
+          <li><b>Reutilizar</b>: conserva <b>el objeto</b>. Cambia de due&ntilde;o o de sitio.</li>
+          <li><b>Reacondicionar o remanufacturar</b>: conserva <b>las piezas</b>. Se abre, se cambia lo
+              gastado y se vuelve a montar.</li>
+          <li><b>Reciclar</b> (el bucle m&aacute;s largo): conserva <b>solo el material</b>. Todo lo
+              dem&aacute;s se tira.</li>
+        </ul>
+        <p>Y ah&iacute; est&aacute; la clave: <b>la forma tambi&eacute;n cuesta energ&iacute;a</b>. Un
+           kilo de chapa no es una tapa: hay que cortarla, taladrarla, doblarla y montarla. Reciclar
+           recupera el kilo de chapa y <b>tira todo ese trabajo</b>. Reparar lo conserva entero.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        Acu&eacute;rdate de la sesi&oacute;n 2, que ahora encaja del todo. Fundir un kilo de aluminio
+        cuesta 0,97 MJ; hacerlo de cero, 186. O sea que casi todo el coste del <b>material</b>
+        est&aacute; en sacarlo del mineral, y por eso reciclarlo ahorra tanto. Pero el coste de un
+        <b>objeto</b> no es solo su material: es material <b>m&aacute;s forma</b>. Cuanto m&aacute;s
+        trabajada est&eacute; la pieza, m&aacute;s pierdes al reciclarla y m&aacute;s ganas al
+        repararla. Con un lingote da igual; con una placa electr&oacute;nica, la diferencia es
+        abismal.
+      </div>
+
+      <h3>Circular, y sin eslóganes</h3>
+      <div class="copiar">
+        <h4>Econom&iacute;a lineal y econom&iacute;a circular</h4>
+        <p><b>Lineal</b>: extraer &rarr; fabricar &rarr; usar &rarr; tirar. Una flecha recta, con una
+           mina en un extremo y un vertedero en el otro.</p>
+        <p><b>Circular</b>: la misma cadena, pero con <b>bucles</b> que devuelven cosas hacia
+           atr&aacute;s. Y no todos los bucles valen lo mismo: <b>cuanto m&aacute;s corto, mejor</b>,
+           porque conserva m&aacute;s trabajo y se cruza menos transporte y menos proceso.</p>
+      </div>
+      <div class="aviso">
+        <span class="n-tag">Tres frases que suenan bien y no dicen nada</span>
+        <ul>
+          <li><b>&laquo;100 % reciclable.&raquo;</b> Ya sabes de la sesi&oacute;n 5 que eso es una
+              propiedad del material, no un resultado. Pregunta siempre: <b>&iquest;y cu&aacute;nto se
+              recicla de verdad?</b></li>
+          <li><b>&laquo;Neutro en carbono.&raquo;</b> Casi siempre significa que se han <b>comprado
+              compensaciones</b>, no que se haya bajado la emisi&oacute;n. Pregunta: &iquest;cu&aacute;nto
+              hab&eacute;is <b>reducido</b> y cu&aacute;nto hab&eacute;is <b>compensado</b>?</li>
+          <li><b>&laquo;Bioplástico.&raquo;</b> Puede querer decir dos cosas distintas: hecho de
+              plantas, o que se degrada. <b>No son lo mismo</b>, y hay bioplásticos que no se degradan
+              y pl&aacute;sticos de petr&oacute;leo que s&iacute;. Y casi ninguno se degrada en el
+              campo: piden una planta industrial a 58 &deg;C.</li>
+        </ul>
+      </div>
+
+''' + BUCLES + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Con el <b>riego</b> tal y como abre: tirarlo cuesta <b>805 MJ</b>, reciclarlo <b>720</b>
+              y repararlo <b>586</b>. Reciclar ahorra 85 MJ; reparar ahorra <b>219</b>. El bucle corto
+              ahorra <b>dos veces y media</b> lo que el largo.</li>
+          <li>Sube <b>&laquo;una reparaci&oacute;n cuesta&raquo;</b> hasta que reparar deje de ganar, y
+              apunta en qu&eacute; valor pasa. Eso te dice <b>cu&aacute;nto puede costar una pieza de
+              repuesto</b> para que siga saliendo a cuenta. Es un dato de dise&ntilde;o.</li>
+          <li>Pon el <b>efecto rebote</b> al 50 % con la l&aacute;mpara y mira lo que pasa: reparar
+              pierde. Si el aparato dura el doble pero lo tienes encendido mucho m&aacute;s, el ahorro
+              se lo come el uso. <b>Eso hay que decirlo en la memoria</b>, no esconderlo.</li>
+          <li>Baja los a&ntilde;os que aguanta a <b>1</b> y mira la l&iacute;nea de tiempo del primero:
+              veinte fabricaciones en veinte a&ntilde;os. Esa fila de barras rojas es el dibujo de la
+              econom&iacute;a lineal.</li>
+        </ul>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo &middot; el efecto rebote</span>
+        Se llama <b>efecto rebote</b> a esto: una mejora t&eacute;cnica ahorra, el ahorro abarata el
+        uso, y entonces se usa m&aacute;s. La bombilla LED gasta unas <b>ocho veces menos</b> que la
+        incandescente, y al mismo tiempo se han llenado las casas de tiras de LED en sitios donde
+        antes no hab&iacute;a ninguna luz. Nadie hizo nada mal; simplemente, ahorrar por unidad no es
+        lo mismo que ahorrar en total.
+        <br><br>
+        Y cuidado con la lectura f&aacute;cil: el rebote <b>no</b> es una excusa para no mejorar. Lo
+        que dice es que la cuenta hay que hacerla <b>despu&eacute;s</b>, con lo que ha pasado de
+        verdad, y no solo antes con lo que se esperaba. Esa es la diferencia entre una previsi&oacute;n
+        y una medida.
+      </div>
+
+''' + foto('c3-cajas',
+           u'Suelo de un pabell&oacute;n cubierto por decenas de cajas amarillas llenas de botellas de '
+           u'vidrio vac&iacute;as, todas del mismo modelo, alineadas hasta el fondo',
+           u'El <b>bucle m&aacute;s corto que existe a escala industrial</b>: botellas de vidrio '
+           u'retornables, todas del mismo modelo, esperando a volver a la planta. No se funden: se '
+           u'<b>lavan y se vuelven a llenar</b>. F&iacute;jate en que son todas <b>id&eacute;nticas</b>, '
+           u'y en que muchas est&aacute;n rayadas de haber pasado ya por la cinta unas cuantas veces. '
+           u'Las dos cosas van juntas: el bucle corto solo funciona si el envase est&aacute; '
+           u'<b>normalizado</b>, porque si cada marca lleva su botella no hay manera de devolverlas. '
+           u'Alemania tiene dep&oacute;sito obligatorio en los envases de bebida desde <b>2003</b>.',
+           alta=True) + u'''
+
+''' + video('vid-c3-circular', 'aB2mK5QKyvY',
+            u'&iquest;Qu&eacute; es la econom&iacute;a circular?',
+            u'Canal: Ministerio para la Transici&oacute;n Ecol&oacute;gica y el Reto Demogr&aacute;fico',
+            u'La versi&oacute;n oficial, en tres minutos y en espa&ntilde;ol. Mientras lo ves, haz lo '
+            u'que llevas dos sesiones aprendiendo: <b>cuenta cu&aacute;ntas veces dice &laquo;reciclar&raquo; '
+            u'y cu&aacute;ntas dice &laquo;reparar&raquo; o &laquo;prevenir&raquo;</b>, y comp&aacute;ralo '
+            u'con el orden del art&iacute;culo 4 que acabas de copiar. Un v&iacute;deo institucional '
+            u'tambi&eacute;n es alguien contando algo con un inter&eacute;s.') + u'''
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        Lo de hoy es <b>la estrategia</b>: qu&eacute; bucle conviene y por qu&eacute;. <b>Redise&ntilde;ar
+        vuestro aparato con lo que hab&eacute;is medido</b> y <b>defender su impacto</b> delante de la
+        clase son dos sesiones del <b>tema 8</b>. Aqu&iacute; eleg&iacute;s el bucle; all&iacute; se
+        rehace el aparato.
+      </div>
+'''
+
+S7_PRACTICA = ficha(
+    u'Pr&aacute;ctica 7 &middot; El bucle m&aacute;s corto de cada pieza',
+    [u'Grupos de tres', u'20 min', u'Sobre 10'],
+    u'Con la escena y el proyecto delante',
+    u'''
+          <p>Vuestro aparato tiene cuatro o cinco piezas. Cada una va a fallar de una manera distinta
+             y cada una tiene su propio escal&oacute;n.</p>
+          <h4>Primera parte &middot; la tabla de bucles (10 min)</h4>
+          <ol class="pasos">
+            <li>Haced una tabla con una fila por pieza y estas columnas: <b>c&oacute;mo va a fallar</b>,
+                <b>en qu&eacute; escal&oacute;n cae</b> (de los cinco del art&iacute;culo 4) y
+                <b>qu&eacute; decisi&oacute;n de dise&ntilde;o la sube un escal&oacute;n</b>.</li>
+            <li>Al menos una pieza tiene que acabar en <b>prevenci&oacute;n</b>: alguna que se pueda
+                <b>quitar</b>. La pieza que no existe es la que menos gasta, y el sitio donde se decide
+                que no exista es el plano, no el contenedor.</li>
+            <li>Marcad la pieza que va a fallar <b>antes</b>. Pista de las sesiones 4 y 5: la que lleva
+                bater&iacute;a, la que se moja, la que roza o la que est&aacute; pegada a otra de otro
+                material.</li>
+          </ol>
+          <h4>Segunda parte &middot; la cuenta a veinte a&ntilde;os (10 min)</h4>
+          <ol class="pasos">
+            <li>Con la escena, poned vuestra variante y vuestros a&ntilde;os. Copiad los <b>cuatro
+                totales</b> y decid cu&aacute;l gana.</li>
+            <li>Encontrad el <b>punto de equilibrio</b>: subid el coste de la reparaci&oacute;n hasta
+                que reparar deje de ganar, y apuntad ese valor en MJ. Esa es vuestra
+                <b>especificaci&oacute;n de repuesto</b>: por encima de ah&iacute;, no merece la
+                pena.</li>
+            <li>Poned el <b>efecto rebote</b> en el valor que os parezca honesto para vuestro aparato
+                &mdash;&iquest;lo usar&iacute;ais m&aacute;s si durase m&aacute;s?&mdash; y decid si
+                vuestra conclusi&oacute;n aguanta. Justificad el valor que hab&eacute;is puesto.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla completa, con el escal&oacute;n de cada pieza bien puesto <b>(3 puntos)</b>.</li>
+            <li>Una pieza que se elimina, con su justificaci&oacute;n <b>(1 punto)</b>.</li>
+            <li>Los cuatro totales de la escena, copiados con su reparto <b>(2 puntos)</b>.</li>
+            <li>El punto de equilibrio de la reparaci&oacute;n, bien buscado <b>(2 puntos)</b>.</li>
+            <li>El rebote, con el valor justificado y la conclusi&oacute;n revisada <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S7_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+    u'Reciclar es el tercer escal&oacute;n de la jerarqu&iacute;a. &iquest;Cu&aacute;les son los dos '
+    u'de arriba y por qu&eacute; est&aacute;n por encima?',
+    u'<p><b>Prevenir</b> y <b>preparar para la reutilizaci&oacute;n</b>. Est&aacute;n por encima '
+    u'porque conservan m&aacute;s: la prevenci&oacute;n evita la fabricaci&oacute;n entera, y la '
+    u'reutilizaci&oacute;n conserva el objeto con toda su forma. Reciclar recupera el material y '
+    u'<b>tira el trabajo</b> de cortarlo, doblarlo y montarlo. El orden est&aacute; en el '
+    u'art&iacute;culo 4 de la Directiva 2008/98/CE, y es obligatorio.</p>') + pregunta(
+    u'&iquest;Por qu&eacute; gana un aparato que dura diez a&ntilde;os y no se recicla frente a uno '
+    u'que dura dos y se recicla entero?',
+    u'<p>Porque el que dura dos hay que <b>fabricarlo cinco veces</b> para dar el mismo servicio, y '
+    u'reciclarlo solo devuelve una parte de cada fabricaci&oacute;n. 100 + 4 &times; 75 = 400 MJ '
+    u'frente a 100. Reciclar ahorra de verdad, pero <b>llega tarde</b>: act&uacute;a despu&eacute;s '
+    u'de que el gasto ya se haya hecho, y la duraci&oacute;n act&uacute;a antes de que se '
+    u'haga.</p>') + pregunta(
+    u'&iquest;Qu&eacute; es el efecto rebote y por qu&eacute; hay que escribirlo en la memoria aunque '
+    u'estropee el resultado?',
+    u'<p>Es que una mejora ahorra por unidad, el ahorro abarata el uso, y entonces se usa m&aacute;s: '
+    u'el LED gasta ocho veces menos y hemos puesto luz donde no hab&iacute;a. Hay que escribirlo '
+    u'porque una memoria que solo cuenta lo que mejora <b>no se puede comprobar</b>: el que la lea '
+    u'no sabr&aacute; si la cuenta est&aacute; completa. Y porque obliga a medir <b>despu&eacute;s</b>, '
+    u'no solo a prever antes.</p>') + pregunta(
+    u'Una marca dice que su envase es &laquo;100 % reciclable y neutro en carbono&raquo;. '
+    u'&iquest;Qu&eacute; preguntas?',
+    u'<p>De lo primero: <b>&iquest;cu&aacute;nto se recicla de verdad?</b> Reciclable es una propiedad '
+    u'del material y reciclado es un resultado del sistema &mdash;la cadena de la sesi&oacute;n 5&mdash;. '
+    u'De lo segundo: <b>&iquest;cu&aacute;nto hab&eacute;is reducido y cu&aacute;nto hab&eacute;is '
+    u'compensado?</b>, y <b>&iquest;d&oacute;nde pusisteis los l&iacute;mites?</b> &laquo;Neutro&raquo; '
+    u'casi siempre quiere decir que se ha comprado una compensaci&oacute;n, no que se haya bajado la '
+    u'emisi&oacute;n.</p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Lo que queda abierto</span>
+        Ya tienes las cinco herramientas de la unidad: repartir por etapas, la mochila de cada
+        material, elegir con criterios en conflicto, dise&ntilde;ar para reparar, seguir el material
+        hasta el final, pasar a CO&#8322; y elegir el bucle. Queda lo &uacute;nico que se entrega y se
+        defiende: <b>ponerlo por escrito de manera que otro pueda comprobarlo</b>. Y ah&iacute; la
+        pregunta no es qu&eacute; sab&eacute;is, sino <b>de qu&eacute; depende lo que dec&iacute;s</b>.
+      </div>
+'''
+
+
+# ==========================================================================
+# SESION 8 - La memoria de impacto
+# ==========================================================================
+S8_RETO = u'''
+      <p>&Uacute;ltima sesi&oacute;n de la unidad, y toca entregar. La memoria de impacto es el
+         documento que acompa&ntilde;a al proyecto y que dice <b>qu&eacute; le cuesta al planeta</b>
+         lo que hab&eacute;is construido. Empezamos leyendo cinco frases sacadas de memorias
+         reales.</p>
+      <div class="aviso">
+        <span class="n-tag">Cinco frases. &iquest;Cu&aacute;les valen?</span>
+        <ol>
+          <li>&laquo;Hemos elegido madera porque es m&aacute;s ecol&oacute;gica.&raquo;</li>
+          <li>&laquo;Nuestro dep&oacute;sito es 100 % reciclable.&raquo;</li>
+          <li>&laquo;El proyecto es neutro en carbono.&raquo;</li>
+          <li>&laquo;La tapa es de contrachapado de 4 mm y pesa 72 g; a 15 MJ/kg son <b>1,1 MJ</b>.&raquo;</li>
+          <li>&laquo;Con la red espa&ntilde;ola de 2024, esos 72 g son <b>0,04 kg</b> de CO&#8322;e.&raquo;</li>
+        </ol>
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un minuto antes de seguir</span>
+        <p>Subraya las que un compa&ntilde;ero de otro grupo podr&iacute;a <b>comprobar</b> con una
+           balanza, la tabla de la sesi&oacute;n 2 y diez minutos. No las que te parezcan verdad: las
+           que se puedan <b>comprobar</b>.</p>
+      </div>
+      <p>Las tres primeras no se pueden comprobar, y cada una falla por un motivo que ya tienes
+         estudiado:</p>
+      <div class="cuenta">
+        1 &middot; &laquo;m&aacute;s ecol&oacute;gica&raquo; &rarr; &iquest;m&aacute;s que qu&eacute;,
+        para qu&eacute; trabajo? Falta la <b>unidad funcional</b> (sesi&oacute;n 1).<br>
+        2 &middot; reciclable no es reciclado: es una propiedad del material, no un resultado
+        (sesi&oacute;n 5).<br>
+        3 &middot; &iquest;d&oacute;nde est&aacute;n los <b>l&iacute;mites</b>? &iquest;cu&aacute;nto
+        se ha reducido y cu&aacute;nto se ha comprado? (sesiones 1 y 7).
+      </div>
+      <p>Las dos &uacute;ltimas s&iacute;. Y f&iacute;jate en lo que tienen y las otras no: un
+         <b>n&uacute;mero</b>, una <b>unidad</b> y la <b>procedencia</b> del dato. Con eso, cualquiera
+         puede repetir la cuenta y llevarte la contraria.</p>
+      <p class="voz-no">Esa es la regla de la sesi&oacute;n, y vale para el resto de vuestra vida:
+         <b>una afirmaci&oacute;n que no se puede comprobar no vale nada, ni siquiera cuando es
+         verdad.</b></p>
+'''
+
+S8_TEORIA = u'''
+      <h3>Qu&eacute; lleva dentro una memoria de impacto</h3>
+      <p>No es un texto libre: es una lista, y cada apartado sale de una sesi&oacute;n que ya
+         hab&eacute;is dado.</p>
+      <div class="copiar">
+        <h4>Los nueve apartados</h4>
+        <ol>
+          <li><b>Unidad funcional y l&iacute;mites.</b> Qu&eacute; tarea, con qu&eacute; cantidad y
+              durante cu&aacute;nto; d&oacute;nde empieza y d&oacute;nde acaba la cuenta, y
+              qu&eacute; hab&eacute;is dejado fuera a prop&oacute;sito. <i>(Sesi&oacute;n 1)</i></li>
+          <li><b>Inventario de materiales.</b> Pieza, material, masa, y <b>c&oacute;mo</b>
+              medisteis la masa. <i>(Sesi&oacute;n 2)</i></li>
+          <li><b>Energ&iacute;a incorporada.</b> kg &times; MJ/kg, con la fuente de cada
+              MJ/kg. <i>(Sesi&oacute;n 2)</i></li>
+          <li><b>La decisi&oacute;n de material.</b> La matriz entera, con los pesos y el porqu&eacute;
+              de cada peso. <i>(Sesi&oacute;n 3)</i></li>
+          <li><b>Reparabilidad.</b> Qu&eacute; uniones lleva, qu&eacute; se puede abrir y con
+              qu&eacute; herramienta. <i>(Sesi&oacute;n 4)</i></li>
+          <li><b>Final de vida.</b> A qu&eacute; fracci&oacute;n va cada material y si es ciclo cerrado
+              o abierto. <i>(Sesi&oacute;n 5)</i></li>
+          <li><b>CO&#8322;.</b> La conversi&oacute;n, con el <b>factor usado</b> y de d&oacute;nde sale.
+              <i>(Sesi&oacute;n 6)</i></li>
+          <li><b>Qu&eacute; har&iacute;ais distinto.</b> Una propuesta, con su n&uacute;mero.
+              <i>(Sesi&oacute;n 7)</i></li>
+          <li><b>De qu&eacute; depende esto.</b> Lo que no sab&eacute;is y cu&aacute;nto puede mover el
+              resultado. <i>(Hoy.)</i></li>
+        </ol>
+      </div>
+
+      <h3>Cada n&uacute;mero, con su etiqueta</h3>
+      <div class="copiar">
+        <h4>Medido, de fuente o estimado</h4>
+        <ul>
+          <li><b>Medido</b>: lo hemos pesado, cronometrado o contado nosotros. Se dice con qu&eacute;.</li>
+          <li><b>De fuente</b>: sale de una tabla o de un estudio. Se dice <b>cu&aacute;l</b> y de
+              qu&eacute; a&ntilde;o.</li>
+          <li><b>Estimado</b>: nos lo hemos inventado con criterio. Se dice <b>c&oacute;mo</b> lo
+              hemos estimado.</li>
+        </ul>
+        <p>Y la regla que lo sostiene todo: <b>un n&uacute;mero sin etiqueta se lee como medido</b>. Por
+           eso una memoria que no etiqueta acaba mintiendo sin querer, aunque todos sus datos sean
+           razonables.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        Esa costumbre no os la hemos inventado nosotros para el instituto: es lo que hace que los
+        n&uacute;meros de esta misma unidad se puedan usar. Los 186 y los 8,3 MJ/kg del aluminio
+        llevan puesto de d&oacute;nde salen y de qu&eacute; a&ntilde;o son. La mochila de la
+        electr&oacute;nica <b>no tiene fuente</b>, y por eso en la escena de la sesi&oacute;n 1 es un
+        deslizador y no una constante. Los rendimientos de la cadena de la sesi&oacute;n 5 van
+        rotulados como criterio nuestro. Nada de eso es modestia: es que <b>sin la etiqueta el
+        n&uacute;mero no se puede usar</b>.
+      </div>
+
+      <h3>La pregunta que cierra la unidad: &iquest;de qu&eacute; depende?</h3>
+      <p>Aqu&iacute; llega lo que de verdad separa una memoria de un folleto. T&uacute; tienes datos de
+         tres clases, y algunos son bastante malos. La tentaci&oacute;n es callarse. Lo correcto es
+         justo lo contrario: <b>ense&ntilde;ar cu&aacute;nto puede mover cada dato malo el
+         resultado</b>.</p>
+      <div class="copiar">
+        <h4>An&aacute;lisis de sensibilidad</h4>
+        <ol>
+          <li>Elige el <b>n&uacute;mero final</b> del que quieres responder. Por ejemplo, los MJ por
+              a&ntilde;o de servicio.</li>
+          <li>Coge un dato del que no est&eacute;s seguro y ll&eacute;valo a sus <b>dos extremos
+              razonables</b>, <b>dejando todo lo dem&aacute;s quieto</b>.</li>
+          <li>Apunta de cu&aacute;nto a cu&aacute;nto se va el resultado. Ese recorrido es lo que
+              <b>mueve</b> ese dato.</li>
+          <li>Repite con cada dato dudoso y <b>ord&eacute;nalos</b> por lo que mueven.</li>
+        </ol>
+        <p><b>Para qu&eacute; sirve:</b> si la conclusi&oacute;n aguanta en los dos extremos de todos,
+           la puedes defender. Si no aguanta, ya sabes <b>exactamente</b> qu&eacute; trabajo falta:
+           medir <b>ese</b> dato, y no discutir los otros.</p>
+      </div>
+
+''' + FICHA + u'''
+      <div class="copiar">
+        <h4>Lo que hay que ver en la escena</h4>
+        <ul>
+          <li>Con el <b>riego</b> tal y como abre, el orden es este: manda la <b>mochila de la
+              electr&oacute;nica</b> (36 MJ/a&ntilde;o de recorrido), luego <b>lo que gasta al
+              a&ntilde;o</b> (28,5) y luego <b>cu&aacute;nto dura</b> (25,0). El <b>material de la
+              pieza mayor</b> mueve <b>2,1</b>, y la masa, <b>0,3</b>.</li>
+          <li>L&eacute;elo despacio, porque es el resultado m&aacute;s inc&oacute;modo de toda la
+              unidad: <b>el dato que no ten&eacute;is mueve diecisiete veces m&aacute;s que el
+              material de la pieza mayor</b> (36,0 frente a 2,1), y hasta la masa de las piezas, que
+              tampoco hab&eacute;is medido bien, queda por debajo. Lo que llev&aacute;is dos sesiones
+              discutiendo es la barra <b>cuarta</b>.</li>
+          <li>Eso <b>no</b> quiere decir que la sesi&oacute;n 3 fuera una p&eacute;rdida de tiempo.
+              Quiere decir que la matriz decid&iacute;a bien una cosa peque&ntilde;a. Cambia la pieza
+              mayor a <b>aluminio</b> y mira c&oacute;mo crece esa barra: el material s&iacute; manda
+              cuando la pieza es grande o el material es caro en energ&iacute;a.</li>
+          <li>Prueba la <b>l&aacute;mpara</b>: el orden cambia y se pone primero <b>lo que gasta al
+              a&ntilde;o</b>, con 82,5, porque una l&aacute;mpara est&aacute; encendida muchas horas y
+              el uso se come todo lo dem&aacute;s. <b>La sensibilidad no es una propiedad del
+              m&eacute;todo: es una propiedad de tu aparato</b>, y por eso hay que correrla con
+              vuestros n&uacute;meros y no copiar la de otro grupo.</li>
+          <li>Y mueve el <b>CO&#8322; de la electricidad</b>: la l&iacute;nea de CO&#8322; cambia y las
+              barras del tornado no. Es la sesi&oacute;n 6 otra vez: son dos magnitudes
+              distintas.</li>
+        </ul>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        F&iacute;jate en que, en la ficha, el CO&#8322; de la electr&oacute;nica pone <b>&laquo;no
+        calculado&raquo;</b> y no un n&uacute;mero. Es a prop&oacute;sito, y es la parte m&aacute;s
+        dif&iacute;cil de escribir una memoria: <b>no hay dato publicado</b> de la huella de una placa
+        como la vuestra, y de los megajulios no se saca con un factor, porque eso es justo lo que la
+        sesi&oacute;n 6 demostr&oacute; que no se puede hacer. Poner ah&iacute; un n&uacute;mero
+        inventado quedar&iacute;a mejor y ser&iacute;a peor. Un hueco declarado es informaci&oacute;n;
+        un hueco rellenado es ruido.
+      </div>
+
+''' + foto('c3-etiqueta',
+           u'Etiqueta energ&eacute;tica europea de una lavadora: escala de la A a la G en colores, la '
+           u'clase en un recuadro negro, el consumo en kWh por 100 ciclos, y pictogramas de carga, '
+           u'duraci&oacute;n, agua, centrifugado y ruido, con un c&oacute;digo QR arriba a la derecha',
+           u'Una <b>memoria de impacto de una p&aacute;gina</b>, y es obligatoria. F&iacute;jate en lo '
+           u'que lleva y en el orden en que lo lleva. Primero, la <b>unidad funcional</b>: no dice '
+           u'&laquo;consume poco&raquo;, dice <b>kWh por cada 100 ciclos</b>, o sea la tarea, con su '
+           u'cantidad &mdash;exactamente lo de la sesi&oacute;n 1&mdash;. Despu&eacute;s, el dato '
+           u'medido con una norma que es la misma para todos, sin la cual las letras no '
+           u'significar&iacute;an nada. Y arriba a la derecha, un <b>c&oacute;digo QR</b>: la ficha '
+           u'completa de cada modelo est&aacute; en un registro europeo p&uacute;blico, el '
+           u'<b>EPREL</b>, donde cualquiera puede ir a buscarla. La escala '
+           u'volvi&oacute; a ir de la <b>A a la G</b> en <b>2021</b>, porque con las A, A+, A++ y A+++ '
+           u'casi todo era A y la etiqueta hab&iacute;a dejado de distinguir nada. Hasta una buena '
+           u'escala se gasta.', alta=True) + u'''
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        Lo de hoy es el <b>documento</b>: qu&eacute; apartados lleva, c&oacute;mo se etiqueta cada
+        n&uacute;mero y c&oacute;mo se dice de qu&eacute; depende. <b>C&oacute;mo se cuenta en voz
+        alta</b> &mdash;el gui&oacute;n, los tres minutos, el ensayo&mdash; es del <b>tema 1</b>, y
+        <b>defender el impacto</b> delante de la clase, con la cuenta completa del proyecto, es del
+        <b>tema 8</b>. Lo que sale de aqu&iacute; es el papel que se lleva a las dos.
+      </div>
+'''
+
+S8_PRACTICA = ficha(
+    u'Pr&aacute;ctica 8 &middot; Vuestra ficha de impacto, en una p&aacute;gina',
+    [u'Grupos de tres', u'15 min', u'Sobre 10'],
+    u'Con la escena, la libreta de las pr&aacute;cticas 1 a 7 y una balanza',
+    u'''
+          <p>Esto es lo que se entrega. Una p&aacute;gina, y que se pueda comprobar entera.</p>
+          <h4>Primera parte &middot; la ficha (8 min)</h4>
+          <ol class="pasos">
+            <li>Poned en la escena vuestra variante y corregid las tres piezas con <b>vuestros</b>
+                materiales y <b>vuestras</b> masas de verdad. Si no las hab&eacute;is pesado todav&iacute;a,
+                pesadlas ahora: es un minuto y cambia todo lo dem&aacute;s.</li>
+            <li>Copiad la ficha con los <b>nueve apartados</b> de arriba. Los seis primeros ya los
+                ten&eacute;is escritos en las pr&aacute;cticas anteriores: aqu&iacute; se juntan, no se
+                rehacen.</li>
+            <li>Poned a cada n&uacute;mero su <b>etiqueta</b>: medido, de fuente o estimado. Los de
+                fuente, con su fuente. Los estimados, con c&oacute;mo los hab&eacute;is estimado.</li>
+          </ol>
+          <h4>Segunda parte &middot; de qu&eacute; depende (7 min)</h4>
+          <ol class="pasos">
+            <li>Copiad las <b>cinco barras</b> del an&aacute;lisis de sensibilidad, en orden y con su
+                recorrido.</li>
+            <li>Escribid las <b>tres frases</b> de la memoria, del estilo de la que la escena deja
+                escrita abajo: una con la cifra principal, una con lo que m&aacute;s la puede mover y
+                una con lo que no sab&eacute;is. Las tres tienen que llevar n&uacute;mero, unidad y
+                procedencia.</li>
+            <li>Y la &uacute;ltima l&iacute;nea, que es la que m&aacute;s cuesta escribir: <b>&laquo;si
+                tuvi&eacute;ramos una semana m&aacute;s, lo que medir&iacute;amos es&hellip;&raquo;</b>,
+                y tiene que ser la barra m&aacute;s larga del tornado. Si no lo es, es que no hab&eacute;is
+                le&iacute;do vuestro propio an&aacute;lisis.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las masas pesadas de verdad y la ficha con sus piezas <b>(2 puntos)</b>.</li>
+            <li>Los nueve apartados, aunque alguno sea de una l&iacute;nea <b>(2 puntos)</b>.</li>
+            <li>Las etiquetas de procedencia, una por n&uacute;mero <b>(2 puntos)</b>.</li>
+            <li>Las cinco barras de sensibilidad, en orden <b>(2 puntos)</b>.</li>
+            <li>Las tres frases y la l&iacute;nea final, coherente con el tornado <b>(2 puntos)</b>.</li>
+          </ul>
+''')
+
+S8_TEST = test('c3b', u'Toda la unidad, de la primera sesi&oacute;n a la octava', [
+    dict(p=u'Un estudio dice que una bolsa de tela hay que usarla 7.100 veces para empatar con una '
+           u'de pl&aacute;stico. Lo primero que hay que preguntar es&hellip;',
+         op=[u'si lo pag&oacute; la industria del pl&aacute;stico',
+             u'cu&aacute;les eran la unidad funcional y los l&iacute;mites del sistema',
+             u'cu&aacute;ntos materiales se compararon',
+             u'si el algod&oacute;n era ecol&oacute;gico'],
+         ok=1,
+         por=u'Es la pregunta de la sesi&oacute;n 1 y la que abre toda la unidad: <b>qu&eacute; tarea '
+             u'se compar&oacute;</b> y <b>d&oacute;nde empezaba y acababa la cuenta</b>. El estudio '
+             u'es dan&eacute;s y da por hecho que la bolsa acaba incinerada, as&iacute; que no cuenta '
+             u'lo que pasa si acaba en el mar.'),
+    dict(p=u'Fundir un kilo de aluminio cuesta 0,97 MJ y producirlo cuesta 186. &iquest;D&oacute;nde '
+           u'est&aacute; la diferencia?',
+         op=[u'en el transporte de la bauxita desde Guinea o Australia',
+             u'en la electr&oacute;lisis que separa el aluminio del ox&iacute;geno',
+             u'en el laminado de las chapas',
+             u'en llegar a 950 &deg;C en vez de a 660'],
+         ok=1,
+         por=u'En la naturaleza no hay aluminio, hay <b>&oacute;xido</b> de aluminio. Romper esa '
+             u'uni&oacute;n cuesta unos <b>14,1 kWh por kilo</b> en la cuba de Hall-H&eacute;roult, '
+             u'que en energ&iacute;a primaria son m&aacute;s de 100 MJ.'),
+    dict(p=u'Para que se hunda lo mismo que 4 mm de contrachapado, la tapa de acero necesita 1,35 mm. '
+           u'Comparadas as&iacute;&hellip;',
+         op=[u'la de acero pesa menos, porque es mucho m&aacute;s fina',
+             u'pesan pr&aacute;cticamente lo mismo',
+             u'la de acero pesa unas cuatro veces y media m&aacute;s',
+             u'no se pueden comparar, porque son materiales distintos'],
+         ok=2,
+         por=u'72 g la de madera y 317 g la de acero. La rigidez de una placa va con <b>E &middot; '
+             u't&sup3;</b>, as&iacute; que al acero le basta un tercio de espesor&hellip; pero su '
+             u'densidad es <b>trece veces</b> la de la madera.'),
+    dict(p=u'&iquest;Cu&aacute;l es la diferencia entre un requisito eliminatorio y un criterio con '
+           u'peso 5?',
+         op=[u'ninguna en la pr&aacute;ctica: peso 5 es el m&aacute;ximo',
+             u'el eliminatorio se aplica al final, cuando ya hay ganador',
+             u'el criterio con peso 5 se puede compensar con los dem&aacute;s y el requisito no',
+             u'el requisito solo vale si se puede medir'],
+         ok=2,
+         por=u'Con peso 5 todav&iacute;a se compensa: un material que aguante fatal el agua puede '
+             u'ganar si arrasa en lo dem&aacute;s. Un requisito <b>no se negocia</b>, y se aplica '
+             u'<b>antes</b> de puntuar.'),
+    dict(p=u'Una lata pone &laquo;reciclable al 100 % e infinitas veces&raquo;. Eso&hellip;',
+         op=[u'es falso: ning&uacute;n material aguanta infinitas vueltas',
+             u'es cierto del material, pero no dice cu&aacute;nto se recicla de verdad',
+             u'significa que el 100 % de las latas se recicla',
+             u'solo vale si la lata se lava antes de tirarla'],
+         ok=1,
+         por=u'<b>Reciclable</b> es una propiedad del <b>material</b> y es verdad: el aluminio no se '
+             u'degrada al fundirlo. <b>Reciclado</b> es un resultado del <b>sistema</b>, que es una '
+             u'cadena de cuatro etapas cuyos rendimientos <b>se multiplican</b>. Con 0,70, 0,95, 0,92 '
+             u'y 0,95 vuelven 581 g de cada kilo.'),
+    dict(p=u'Una cadena de reciclado tiene cuatro etapas al 80 %. &iquest;Qu&eacute; rendimiento '
+           u'tiene la cadena?',
+         op=[u'el 80 %: todas las etapas son iguales',
+             u'el 320 %, que es la suma',
+             u'el 41 %, porque los rendimientos se multiplican',
+             u'depende del material, no se puede saber'],
+         ok=2,
+         por=u'0,80 &times; 0,80 &times; 0,80 &times; 0,80 = <b>0,41</b>. Los rendimientos <b>se '
+             u'multiplican</b>, no se promedian. Y de ah&iacute; sale una consecuencia pr&aacute;ctica: '
+             u'como es un producto, arreglar la etapa m&aacute;s floja es lo que m&aacute;s sube el '
+             u'total.'),
+    dict(p=u'Una botella de PET que acaba convertida en forro polar es un ejemplo de&hellip;',
+         op=[u'ciclo cerrado, porque el material se aprovecha',
+             u'ciclo abierto: sirve para otra cosa de menos exigencia y de ah&iacute; ya no vuelve',
+             u'prevenci&oacute;n, que es el primer escal&oacute;n de la jerarqu&iacute;a',
+             u'reutilizaci&oacute;n, porque el objeto sigue existiendo'],
+         ok=1,
+         por=u'Ciclo abierto, o reciclado a la baja. Ahorra energ&iacute;a y evita un vertedero, pero '
+             u'<b>se puede hacer una vez</b>: del forro polar no sale otra botella. El cerrado '
+             u'&mdash;botella verde a botella verde, lata a lata&mdash; se puede repetir, y exige '
+             u'recoger <b>separado</b>.'),
+    dict(p=u'La misma tapa de aluminio, con los mismos 186 MJ/kg, hecha en Islandia o con carb&oacute;n. '
+           u'Su CO&#8322;&hellip;',
+         op=[u'es el mismo: los megajulios son los mismos',
+             u'cambia poco, alrededor de un 10 %',
+             u'va de unos 4,3 a unos 18,1 kg por kilo, m&aacute;s de cuatro veces',
+             u'no se puede saber sin conocer el espesor'],
+         ok=2,
+         por=u'La cuba gasta 14,1 kWh por kilo. Con 0,020 kg de CO&#8322; por kWh salen 0,28; con '
+             u'1,000, salen 14,10. M&aacute;s los 4,00 que no vienen de la electricidad. <b>Un '
+             u'megajulio no tiene un CO&#8322;</b>: depende de con qu&eacute; se hizo esa '
+             u'energ&iacute;a.'),
+    dict(p=u'El hormig&oacute;n tiene solo 1,1 MJ/kg y aun as&iacute; el cemento es un emisor enorme. '
+           u'&iquest;Por qu&eacute;?',
+         op=[u'porque se fabrica much&iacute;simo, y por nada m&aacute;s',
+             u'porque alrededor de la mitad de su CO&#8322; sale de la reacci&oacute;n de la caliza, '
+             u'no de quemar combustible',
+             u'porque la tabla de la sesi&oacute;n 2 est&aacute; mal',
+             u'porque el transporte del hormig&oacute;n es muy caro en energ&iacute;a'],
+         ok=1,
+         por=u'CaCO&#8323; &rarr; CaO + CO&#8322;: de 100 g de caliza salen 56 de cal y <b>44 de '
+             u'CO&#8322;</b>, sin quemar nada. Con un cl&iacute;nker al 65 % de cal son 0,51 kg de '
+             u'CO&#8322; por kilo. Por eso el cemento <b>no se arregla con electricidad limpia</b>. '
+             u'(Que se fabrique much&iacute;simo tambi&eacute;n es verdad, pero no explica el '
+             u'1,1 MJ/kg.)'),
+    dict(p=u'Un aparato A cuesta 100 MJ, dura 2 a&ntilde;os y se recicla (el siguiente cuesta un 25 % '
+           u'menos). Un aparato B cuesta 100 MJ, dura 10 y no se recicla. Para diez a&ntilde;os de '
+           u'servicio&hellip;',
+         op=[u'gana A: reciclar siempre ahorra',
+             u'empatan: los dos cuestan 100 MJ de fabricar',
+             u'gana B con 100 MJ frente a los 400 de A',
+             u'gana A, pero por poco'],
+         ok=2,
+         por=u'A hay que fabricarlo <b>cinco veces</b>: 100 + 4 &times; 75 = <b>400 MJ</b>. B, una: '
+             u'<b>100</b>. Reciclar ahorra de verdad, pero <b>llega tarde</b>; durar act&uacute;a '
+             u'antes de que el gasto se haga. Por eso reciclar es el <b>tercer</b> escal&oacute;n de '
+             u'la jerarqu&iacute;a del art&iacute;culo 4, no el primero.'),
+    dict(p=u'&iquest;Qu&eacute; es el efecto rebote?',
+         op=[u'que el material reciclado vuelve al mismo producto',
+             u'que una mejora ahorra por unidad, el uso se abarata y se usa m&aacute;s',
+             u'que los rendimientos de la cadena se multiplican',
+             u'que un requisito elimina en vez de puntuar'],
+         ok=1,
+         por=u'El LED gasta unas ocho veces menos que la bombilla&hellip; y hemos llenado las casas de '
+             u'tiras de LED donde antes no hab&iacute;a luz. No es que nadie lo haga mal: es que '
+             u'ahorrar por unidad no es ahorrar en total. Hay que escribirlo en la memoria, porque '
+             u'obliga a medir <b>despu&eacute;s</b>.'),
+    dict(p=u'Hac&eacute;is el an&aacute;lisis de sensibilidad del riego y sale que la mochila de la '
+           u'electr&oacute;nica mueve 36 MJ/a&ntilde;o y el material de la tapa, 2,1. '
+           u'&iquest;Qu&eacute; se escribe en la memoria?',
+         op=[u'que la elecci&oacute;n de material fue una p&eacute;rdida de tiempo',
+             u'nada: el dato de la electr&oacute;nica no es fiable y mejor no citarlo',
+             u'que el dato que falta por medir es la electr&oacute;nica, y que la conclusi&oacute;n '
+             u'sobre el material se sostiene porque mueve poco',
+             u'la media de los dos, para no exagerar'],
+         ok=2,
+         por=u'Justo para eso sirve la sensibilidad: dice <b>qu&eacute; trabajo falta</b>. Falta medir '
+             u'la electr&oacute;nica, no discutir otra vez el material. Y callarse el dato malo es lo '
+             u'contrario de lo que hay que hacer: un hueco declarado es informaci&oacute;n, un hueco '
+             u'rellenado con un n&uacute;mero inventado es ruido.'),
+])
+
+S8_CIERRE = u'''
+      <ol>
+      ''' + pregunta(
+    u'&laquo;Hemos elegido madera porque es m&aacute;s ecol&oacute;gica.&raquo; Reescr&iacute;bela '
+    u'para que se pueda comprobar.',
+    u'<p>Algo as&iacute;: <b>&laquo;La tapa es de contrachapado de 4 mm, 72 g, medidos con balanza. A '
+    u'15 MJ/kg (Ashby, producci&oacute;n primaria) son 1,1 MJ, frente a los 29,4 MJ de la misma tapa '
+    u'en aluminio de 1,95 mm, dimensionada para la misma rigidez.&raquo;</b> Lo que le falta a la '
+    u'frase original no es adornarla: es el <b>n&uacute;mero</b>, la <b>unidad</b>, la '
+    u'<b>procedencia</b> y <b>contra qu&eacute; se compara</b>, con las dos piezas haciendo el mismo '
+    u'trabajo.</p>') + pregunta(
+    u'&iquest;Por qu&eacute; hay que etiquetar cada n&uacute;mero como medido, de fuente o estimado?',
+    u'<p>Porque <b>un n&uacute;mero sin etiqueta se lee como medido</b>, y entonces una memoria '
+    u'razonable acaba diciendo cosas que no ha comprobado. La etiqueta no rebaja el dato: lo hace '
+    u'<b>usable</b>. Sin ella, el que lo lea no puede repetir la cuenta ni saber d&oacute;nde est&aacute; '
+    u'el punto flojo.</p>') + pregunta(
+    u'&iquest;Para qu&eacute; sirve de verdad un an&aacute;lisis de sensibilidad?',
+    u'<p>Para dos cosas. Si la conclusi&oacute;n <b>aguanta</b> en los dos extremos de todos los datos '
+    u'dudosos, se puede defender aunque los datos sean malos. Y si <b>no</b> aguanta, te dice '
+    u'exactamente qu&eacute; trabajo falta: <b>medir ese dato</b>, no volver a discutir los '
+    u'dem&aacute;s. Es la diferencia entre &laquo;no estamos seguros&raquo; y &laquo;no estamos '
+    u'seguros <b>de esto</b>, y cambia el resultado <b>tanto</b>&raquo;.</p>') + pregunta(
+    u'En vuestra ficha, el CO&#8322; de la electr&oacute;nica va sin n&uacute;mero. &iquest;Eso no es '
+    u'dejar el trabajo a medias?',
+    u'<p>No: es la parte mejor hecha. No hay dato publicado de la huella de una placa como la vuestra, '
+    u'y de los megajulios no se saca con un factor, porque en la sesi&oacute;n 6 viste que <b>un '
+    u'megajulio no tiene un CO&#8322;</b>. Poner ah&iacute; una cifra inventada quedar&iacute;a mejor '
+    u'y ser&iacute;a peor, porque nadie podr&iacute;a distinguirla de las que s&iacute; est&aacute;n '
+    u'calculadas. <b>Un hueco declarado es informaci&oacute;n.</b></p>') + u'''
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Y con esto se cierra la unidad</span>
+        Empezaste con una bolsa de tela que hay que usar 7.100 veces y acabas con una ficha que otro
+        puede comprobar. Por el camino: las cinco etapas, la mochila de cada material, la matriz
+        cuando los criterios se pelean, las uniones que se pueden abrir, la cadena que se deja el 42 %
+        en cuatro pasos, el megajulio que no tiene un CO&#8322; y el bucle corto que gana al largo.
+        <br><br>
+        Queda una cosa abierta, y es grande. Todo lo de esta unidad trata de <b>qu&eacute; est&aacute;
+        hecho</b> vuestro aparato y <b>qu&eacute; cuesta</b>. Pero vuestro aparato tiene que <b>hacer
+        algo</b>: mover un tope, abrir una v&aacute;lvula, encender una bomba cuando la tierra
+        est&eacute; seca. Eso es el <b>tema 4</b>, mecanismos y sistemas de control, y ah&iacute; el
+        proyecto deja de ser un objeto y empieza a ser una m&aacute;quina.
+      </div>
+'''
+
+
+# ==========================================================================
 # la unidad
 # ==========================================================================
 MINUTADO = [(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'),
@@ -1264,6 +2482,26 @@ S4 = (bloque('00', u'Reto inicial &middot; 10 min', S4_RETO) +
       bloque('01', u'Teor&iacute;a &middot; 20 min', S4_TEORIA) +
       bloque('02', u'Pr&aacute;ctica &middot; 15 min', S4_PRACTICA) +
       bloque('03', u'Test y cierre &middot; 15 min', S4_TEST + S4_CIERRE))
+
+S5 = (bloque('00', u'Reto inicial &middot; 10 min', S5_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S5_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S5_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S5_CIERRE))
+
+S6 = (bloque('00', u'Reto inicial &middot; 10 min', S6_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S6_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S6_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S6_CIERRE))
+
+S7 = (bloque('00', u'Reto inicial &middot; 10 min', S7_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 25 min', S7_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 20 min', S7_PRACTICA) +
+      bloque('03', u'Cierre &middot; 5 min', S7_CIERRE))
+
+S8 = (bloque('00', u'Reto inicial &middot; 10 min', S8_RETO) +
+      bloque('01', u'Teor&iacute;a &middot; 20 min', S8_TEORIA) +
+      bloque('02', u'Pr&aacute;ctica &middot; 15 min', S8_PRACTICA) +
+      bloque('03', u'Test y cierre &middot; 15 min', S8_TEST + S8_CIERRE))
 
 SESIONES = [
     dict(corto=u'El ciclo de vida',
@@ -1298,10 +2536,39 @@ SESIONES = [
          minutado=MINUTADO_TEST,
          chips=[u'CE2 &middot; 2.2', u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'A.3', u'D.3'],
          cuerpo=S4),
-    dict(corto=u'Del residuo a la materia', pendiente=True),
-    dict(corto=u'De megajulios a CO&#8322;', pendiente=True),
-    dict(corto=u'Econom&iacute;a circular', pendiente=True),
-    dict(corto=u'La memoria de impacto', pendiente=True),
+    dict(corto=u'Del residuo a la materia',
+         titulo=u'Echas la lata al contenedor. Vuelven 581 gramos de cada kilo',
+         entradilla=u'&laquo;Reciclable al 100 % e infinitas veces&raquo; es verdad, y aun as&iacute; '
+                    u'el aluminio reciclado no llega a la mitad del que se fabrica. La explicaci&oacute;n '
+                    u'es una cadena de cuatro rendimientos que <b>se multiplican</b>.',
+         minutado=MINUTADO,
+         chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'A.2', u'D.1', u'D.2'],
+         cuerpo=S5),
+    dict(corto=u'De megajulios a CO&#8322;',
+         titulo=u'La misma tapa, los mismos 186 MJ, y de 4 a 18 kilos de CO&#8322;',
+         entradilla=u'No hay un factor que convierta megajulios en CO&#8322;, y hay CO&#8322; que no '
+                    u'viene de quemar nada. Dos cosas que hacen falta antes de poder decir un '
+                    u'n&uacute;mero en voz alta.',
+         minutado=MINUTADO,
+         chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'D.1', u'D.2', u'D.3'],
+         cuerpo=S6),
+    dict(corto=u'Econom&iacute;a circular',
+         titulo=u'Uno se recicla entero y dura dos a&ntilde;os; otro no se recicla y dura diez',
+         entradilla=u'Gana el segundo, por cuatro veces. Reciclar es el <b>tercer</b> escal&oacute;n '
+                    u'de la jerarqu&iacute;a y no el primero, y eso est&aacute; escrito en un '
+                    u'art&iacute;culo con n&uacute;mero.',
+         minutado=MINUTADO,
+         chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'CE2 &middot; 2.2', u'D.2', u'D.3'],
+         cuerpo=S7),
+    dict(corto=u'La memoria de impacto',
+         titulo=u'&laquo;Hemos elegido madera porque es m&aacute;s ecol&oacute;gica&raquo; no es una '
+                u'frase: es un hueco',
+         entradilla=u'El documento que se entrega. Nueve apartados, una etiqueta de procedencia por '
+                    u'n&uacute;mero y, al final, lo &uacute;nico que distingue una memoria de un '
+                    u'folleto: decir <b>de qu&eacute; depende</b> lo que afirmas.',
+         minutado=MINUTADO_TEST,
+         chips=[u'CE6 &middot; 6.1', u'CE6 &middot; 6.2', u'CE2 &middot; 2.1', u'A.2', u'D.3'],
+         cuerpo=S8),
 ]
 
 CFG = dict(
