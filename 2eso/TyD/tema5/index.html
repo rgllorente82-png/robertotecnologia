@@ -869,15 +869,15 @@ footer .wrap{padding-block:18px 26px}
           <span class="escena-titulo">80 kg colgando &middot; elige el montaje y tira</span>
           <div class="seg" id="seg-poleas">
             <button type="button" data-n="1" aria-pressed="true">Polea fija</button>
-            <button type="button" data-n="2">2 tramos</button>
-            <button type="button" data-n="3">3 tramos</button>
-            <button type="button" data-n="4">4 tramos</button>
+            <button type="button" data-n="2">Polea m&oacute;vil</button>
+            <button type="button" data-n="3">Polipasto de 3</button>
+            <button type="button" data-n="4">Polipasto de 4</button>
             <button type="button" data-n="tira">&#8595; Tirar de la cuerda</button>
           </div>
         </div>
         <div class="lienzo">
           <svg viewBox="0 0 640 330" id="svg-poleas" role="img"
-               aria-label="Polea fija y polipastos de dos, tres y cuatro tramos: la fuerza se divide
+               aria-label="Polea fija, polea m&oacute;vil y polipastos de tres y cuatro tramos: la fuerza se divide
                            entre el n&uacute;mero de tramos y la cuerda que hay que tirar se multiplica
                            por ese mismo n&uacute;mero"></svg>
         </div>
@@ -955,10 +955,22 @@ footer .wrap{padding-block:18px 26px}
           /* el bloque movil y la carga */
           if(d.abajo.length){
             var x0 = d.abajo[0] - 26, x1 = d.abajo[d.abajo.length-1] + 26;
+            /* Si la cuerda se ata AQUI, la barra tiene que llegar hasta el nudo.
+               En el montaje de tres, el nudo cae en 315 porque ese es el borde
+               por donde la cuerda sube a la polea fija de 330, y la barra
+               empezaba en 334: la cuerda se quedaba colgando en el aire
+               diecinueve pixeles a la izquierda del bloque. */
+            if(d.ata === 'bloque') x0 = Math.min(x0, d.atax - 8);
             m += '<rect x="' + x0 + '" y="' + (yb+Rr) + '" width="' + (x1-x0) + '" height="10" rx="2" '
                + 'fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="2"></rect>';
             m += '<path d="M' + d.carga + ' ' + (yb+Rr+10) + ' V' + (yb+Rr+26) + '" '
                + 'stroke="var(--ink-soft)" stroke-width="2.5"></path>';
+            /* el nudo: un punto gordo donde la cuerda se ata al bloque, para que
+               se vea que esta ATADA y no apoyada encima */
+            if(d.ata === 'bloque'){
+              m += '<circle cx="' + d.atax + '" cy="' + (yb+Rr) + '" r="4" '
+                 + 'fill="var(--goo-rojo)"></circle>';
+            }
           } else {
             m += '<path d="M' + d.carga + ' ' + yb + ' V' + (yb+Rr+26) + '" stroke="var(--goo-rojo)" '
                + 'stroke-width="2.6"></path>';
@@ -1022,10 +1034,20 @@ footer .wrap{padding-block:18px 26px}
               + 'es cambiar la direcci&oacute;n, y no es poco: ahora tiras <b>hacia abajo</b>, puedes colgarte '
               + 'de la cuerda y pueden tirar varios a la vez.';
           } else {
-            t = '<b>' + n + ' tramos de cuerda sostienen la carga</b>, as&iacute; que cada uno aguanta '
-              + Math.round(P/n) + ' N: eso es lo que notas t&uacute;. A cambio, por cada metro que sube la '
-              + 'carga tienes que tirar <b>' + n + ' metros</b> de cuerda. Fuerza dividida entre ' + n
-              + ', recorrido multiplicado por ' + n + '.';
+            /* El pie dice COMO SE LLAMA el montaje, no solo cuantos tramos tiene.
+               Los botones decian «2 tramos» y la teoria de al lado habla de polea
+               movil y de polipasto: el alumno tenia que adivinar cual era cual. */
+            t = (n === 2)
+              ? '<b>Esto es una polea m&oacute;vil</b>: su eje va enganchado a la carga y sube con '
+                + 'ella, y por eso la sostienen <b>dos tramos</b> de cuerda. '
+              : '<b>Esto ya es un polipasto</b>: poleas fijas y m&oacute;viles combinadas, con '
+                + '<b>' + n + ' tramos</b> sosteniendo la carga. ';
+            t += 'Cada tramo aguanta ' + Math.round(P/n) + ' N: eso es lo que notas t&uacute;. A cambio, '
+              + 'por cada metro que sube la carga tienes que tirar <b>' + n + ' metros</b> de cuerda. '
+              + 'Fuerza dividida entre ' + n + ', recorrido multiplicado por ' + n + '.';
+            if(n === 4){
+              t += ' Con cuatro, los 80 kg del andamio los sube <b>una persona sola</b> haciendo 200 N.';
+            }
           }
           pie.innerHTML = t;
         }

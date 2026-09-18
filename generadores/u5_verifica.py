@@ -236,6 +236,25 @@ with sync_playwright() as p:
     # los 80 kg, que es lo que se veia raro sin saber por que. Esto no mira la
     # mecanica, que la miran las cuentas de abajo: mira que se vea.
     pag.click('#nav button[data-ses="2"]'); pag.wait_for_timeout(250)
+    SUELTAS = """() => {
+      const svg = document.querySelector('#svg-poleas');
+      const barras = [...svg.querySelectorAll('rect')].filter(r => {
+        const b = r.getBBox(); return b.width > b.height && b.height < 14 && b.y > 100;
+      });
+      const barra = barras.sort((a, b) => b.getBBox().width - a.getBBox().width)[0];
+      if(!barra) return [];                       // la polea fija no lleva bloque
+      const b = barra.getBBox();
+      return [...svg.querySelectorAll('path')]
+        .filter(p => (p.getAttribute('stroke') || '').includes('rojo'))
+        .map(p => p.getAttribute('d'))
+        .filter(d => /^M[\\d.]+ [\\d.]+ V/.test(d))
+        .map(d => { const m = d.match(/^M([\\d.]+) ([\\d.]+) V([\\d.]+)/);
+                    return {x: +m[1], y1: +m[2], y2: +m[3]}; })
+        .filter(t => (Math.abs(Math.max(t.y1, t.y2) - b.y) < 3 ||
+                      Math.abs(Math.min(t.y1, t.y2) - b.y) < 3) &&
+                     (t.x < b.x - 1 || t.x > b.x + b.width + 1))
+        .map(t => Math.round(t.x));
+    }"""
     CAJAS = """() => {
       const svg = document.querySelector('#svg-poleas');
       const mano = [...svg.querySelectorAll('circle')].find(c => (c.getAttribute('fill')||'').includes('azul'));
@@ -261,6 +280,17 @@ with sync_playwright() as p:
              'poleas, %s tramos: la fuerza es 800 dividido entre los tramos' % n)
         dice(pag, '#svg-poleas', 'hay que tirar %d cm' % (30*int(n)),
              'poleas, %s tramos: y la cuerda que se tira, 30 cm por tramo' % n)
+        # Ninguna cuerda puede morir en el aire. En el montaje de tres, la que
+        # se ata al bloque bajaba hasta 315 y la barra empezaba en 334: colgaba
+        # sola a un lado, y eso es lo que se veia raro.
+        sueltas = pag.evaluate(SUELTAS)
+        check(not sueltas,
+              'poleas, %s tramos: ninguna cuerda acaba fuera del bloque  %s' % (n, sueltas or ''))
+        # y el montaje se llama por su nombre, el mismo que usa la teoria
+        nombre = {'1': 'polea fija', '2': 'polea m\u00f3vil', '3': 'polipasto', '4': 'polipasto'}[n]
+        pie = pag.inner_text('#pie-poleas').lower()
+        check(nombre in pie,
+              'poleas, %s tramos: el pie lo llama "%s", como la teoria' % (n, nombre))
 
     # y se vuelve donde estabamos: la leva y la cremallera estan en la sesion 4,
     # y desde la 2 sus botones existen pero no se ven, asi que el click se queda
