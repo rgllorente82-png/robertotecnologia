@@ -1,0 +1,82 @@
+{
+ "c3-chatarra": {
+  "titulo": "File:DillingenAluminiumSchrott.jpg",
+  "autor": "Lokilech",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "pagina": "https://commons.wikimedia.org/wiki/File:DillingenAluminiumSchrott.jpg",
+  "px": "1729x1412",
+  "bytes": 325719,
+  "desc": "Aluminum scrap"
+ },
+ "c3-monobloc": {
+  "titulo": "File:White Monobloc chair.jpg",
+  "autor": "Seniju",
+  "licencia": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:White_Monobloc_chair.jpg",
+  "px": "1693x2180",
+  "bytes": 565211,
+  "desc": "A white Monobloc chair in a garden."
+ },
+ "c3-repair-cafe": {
+  "titulo": "File:Repair Cafe by Ilvy Njiokiktjien.jpg",
+  "autor": "Ilvy Njiokiktjien",
+  "licencia": "CC BY-SA 3.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Repair_Cafe_by_Ilvy_Njiokiktjien.jpg",
+  "px": "3356x4070",
+  "bytes": 494255,
+  "desc": "Repair Café"
+ },
+ "c3-pentalobular": {
+  "titulo": "File:Puntas de destornilladores pentalobulares P2 P5 P6.jpg",
+  "autor": "Ddrazir",
+  "licencia": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Puntas_de_destornilladores_pentalobulares_P2_P5_P6.jpg",
+  "px": "1957x1113",
+  "bytes": 193413,
+  "desc": "Fotografía de las puntas de los destornilladores pentalobulares P2, P5 y P6"
+ },
+ "c3-agbogbloshie": {
+  "titulo": "File:Agbogbloshie, Ghana 2019.jpg",
+  "autor": "Muntaka Chasant",
+  "licencia": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Agbogbloshie,_Ghana_2019.jpg",
+  "px": "5946x3436",
+  "bytes": 252029,
+  "desc": "Young men are pictured burning electrical wires to recover copper at Agbogbloshie, Accra, Ghana on September 2, 2019."
+ },
+ "c3-portacontenedores": {
+  "titulo": "File:MAERSK HANOI Container Ship (Port Koper SIKOP, 2023).jpg",
+  "autor": "Petar Milošević",
+  "licencia": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:MAERSK_HANOI_Container_Ship_(Port_Koper_SIKOP,_2023).jpg",
+  "px": "5280x3956",
+  "bytes": 337755,
+  "desc": "IMO: 9784295 Name: MAERSK HANOI General vessel type: Cargo - Hazard A (Major) Detailed vessel type: Container Ship Navigational Status: Active MMSI: 563039700 Call sign: 9V5601 Flag: Singapore [SG] Gross Tonnage: 153744 Summer DWT: 178257 t Length Overall x Breadth Extreme: 353.02 x 53.5 m Year built: 2018"
+ },
+ "c3-electrolisis": {
+  "titulo": "File:Bratsk Aluminium Smelter (34948024336).jpg",
+  "autor": "UC Rusal Photo Gallery",
+  "licencia": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Bratsk_Aluminium_Smelter_(34948024336).jpg",
+  "px": "2453x1637",
+  "bytes": 384980,
+  "desc": "Bratsk Aluminium Smelter"
+ },
+ "c3-bauxita": {
+  "titulo": "File:Otranto - Cava di bauxite - 1.jpg",
+  "autor": "Benjamin Smith",
+  "licencia": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina": "https://commons.wikimedia.org/wiki/File:Otranto_-_Cava_di_bauxite_-_1.jpg",
+  "px": "6744x4500",
+  "bytes": 442427,
+  "desc": "Otranto (Apulia, Italy) - Lake created by an abandoned bauxite mine"
+ }
+}
