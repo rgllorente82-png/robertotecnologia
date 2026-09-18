@@ -294,7 +294,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 6</div>
     <h1>Programaci&oacute;n, IoT e inteligencia artificial</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; De bloques a c&oacute;digo</button><button type="button" data-ses="2">S2 &middot; Entradas analógicas</button><button type="button" data-ses="3">S3 &middot; IoT, sin misticismo</button><button type="button" data-ses="4">S4 &middot; IA, sin humo</button><button type="button" data-ses="5" disabled>S5 &middot; Decidir con memoria</button><button type="button" data-ses="6" disabled>S6 &middot; Montar el aviso de verdad</button><button type="button" data-ses="7" disabled>S7 &middot; Entrenar con vuestros datos</button><button type="button" data-ses="8" disabled>S8 &middot; El sistema completo</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; De bloques a c&oacute;digo</button><button type="button" data-ses="2">S2 &middot; Entradas analógicas</button><button type="button" data-ses="3">S3 &middot; IoT, sin misticismo</button><button type="button" data-ses="4">S4 &middot; IA, sin humo</button><button type="button" data-ses="5">S5 &middot; Decidir con memoria</button><button type="button" data-ses="6">S6 &middot; Montar el aviso de verdad</button><button type="button" data-ses="7">S7 &middot; Entrenar con vuestros datos</button><button type="button" data-ses="8">S8 &middot; El sistema completo</button></nav>
   </div>
 </header>
 
@@ -2770,13 +2770,2888 @@ void loop() {
 
   </div>
 
-  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+  <div id="ses-5" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
+      <h2>La bomba arranc&oacute; a las tres de la ma&ntilde;ana</h2>
+      <p>Tu programa decide con el n&uacute;mero de este instante, y un n&uacute;mero de un instante puede ser mentira. Guardar las &uacute;ltimas cuesta bytes, y los bytes se cuentan.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.1</span><span class="chip sab">C.2</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+      <p>A estas alturas vuestro aparato ya est&aacute; montado y ya decide solo. Lee el sensor con
+         <code>analogRead()</code>, compara con un umbral y mueve el actuador. En la mesa del taller
+         funciona, y se ve funcionar. Enhorabuena: eso es un sistema de control, y lo hab&eacute;is
+         hecho vosotros.</p>
+      <div class="aviso">
+        <span class="n-tag">Lo que pas&oacute; el fin de semana</span>
+        Lo dej&aacute;is enchufado el viernes con el registro puesto. El lunes lo mir&aacute;is:
+        <b>la bomba arranc&oacute; nueve veces</b>, tres de ellas de madrugada, y la tierra est&aacute;
+        empapada. <i>(En el grupo de ventilaci&oacute;n, el aviso de &laquo;abrid la ventana&raquo;
+        salt&oacute; a las 03:14 con el aula vac&iacute;a. En el de la l&aacute;mpara, se encendi&oacute;
+        sola a mediod&iacute;a.)</i> Nadie toc&oacute; nada.
+      </div>
+      <p>Lo primero que se propone siempre es subir el umbral. Prob&aacute;ndolo se ve el problema:
+         subes el umbral lo bastante para que no salten esos nueve arranques y entonces
+         <b>tampoco salta cuando hace falta</b>. Lo segundo que se propone es meter un
+         <code>delay()</code> largo, y eso ya sab&eacute;is de la unidad 4 que deja al programa
+         <b>ciego</b> mientras dura.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>Tu programa da una vuelta al <code>loop()</code> muchas veces por segundo, y en cada una
+           toma la decisi&oacute;n entera con <b>un solo n&uacute;mero</b>: el que acaba de leer.
+           &iquest;Qu&eacute; tiene que ser verdad de ese n&uacute;mero para que eso funcione?
+           Escr&iacute;belo en el cuaderno antes de pasar el rat&oacute;n por debajo.</p>
+      </div>
+      <p>Tiene que ser verdad que <b>ninguna medida suelta miente</b>. Y eso es falso en todos los
+         sensores del mundo. Basta con que alguien roce la sonda al pasar, que una sombra cruce por
+         delante de la LDR o que se abra la puerta del aula un segundo: el sensor da un valor que no
+         corresponde a nada, el programa se lo cree y act&uacute;a.</p>
+      <p>El fallo no est&aacute; en el umbral ni en el sensor. Est&aacute; en que <b>tu programa no se
+         acuerda de nada</b>. Cada vuelta empieza de cero, sin saber qu&eacute; le&iacute;a hace un
+         minuto. Y una medida sola no se puede contrastar con nada.</p>
 
-  <div id="ses-7" hidden><div class="ses-head"><h2>Sesi&oacute;n 7 en preparaci&oacute;n</h2></div></div>
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
-  <div id="ses-8" hidden><div class="ses-head"><h2>Sesi&oacute;n 8 en preparaci&oacute;n</h2></div></div>
+      <p>Para que el programa se acuerde hay que <b>guardar</b> las medidas. Y guardar, en una placa
+         como esta, es ocupar un sitio que se puede contar.</p>
+      <figure class="foto">
+        <img src="../../../img/c6-atmega328-die.jpg" alt="Fotograf&iacute;a al microscopio del interior de un chip ATmega328: un cuadrado de circuitos con hilos dorados soldados alrededor" loading="lazy">
+        <figcaption>Esto es el <b>ATmega328</b> por dentro: el chip que lleva el Arduino Uno, abierto y fotografiado al microscopio a 20 aumentos. Es <b>la misma foto</b> que miraste en la unidad 5, cuando segu&iacute;as un hilo hasta la patilla <code>A0</code>; hoy toca mirar otra cosa. El cuadrado entero mide unos <b>3 mil&iacute;metros de lado</b>; los hilos que salen por los bordes son los que van a las patillas. F&iacute;jate en que hay dos clases de paisaje: las zonas que parecen <b>papel cuadriculado</b>, con el mismo dibujo repetido miles de veces, son <b>memoria</b> (una celda copiada una y otra vez); las zonas revueltas son l&oacute;gica. Ah&iacute; dentro conviven tres memorias: <b>32 kB de Flash</b> para tu programa, <b>1 kB de EEPROM</b> que sobrevive al apagado y <b>2 kB de SRAM</b> para las variables. El hist&oacute;rico de esta sesi&oacute;n va en esos 2 kB, y por eso se cuenta cada byte.
+          <span class="credito">Markus Kammerstetter &middot; CC BY 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Atmel_atmega328_mz_20x.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>El hist&oacute;rico, y el truco para que no crezca</h4>
+        <p>Un <b>hist&oacute;rico</b> son las <b>N &uacute;ltimas</b> medidas guardadas. No todas: las
+           N &uacute;ltimas, porque las de hace dos horas ya no dicen nada y la memoria no da.</p>
+        <p>Para que ocupe siempre lo mismo se escribe <b>encima de la m&aacute;s vieja</b> dando la
+           vuelta. Eso se llama <b>buffer circular</b>, y son cuatro l&iacute;neas:</p>
+        <pre style="font-family:var(--f-m);font-size:12.5px;line-height:1.6;margin:8px 0;white-space:pre-wrap">const byte N = 10;      // cu&aacute;ntas medidas guardo
+int  hist[N];           // 20 bytes de los 2048
+byte pos = 0;           // por d&oacute;nde voy escribiendo
+
+void guarda(int x) {
+  hist[pos] = x;        // escribo encima de la m&aacute;s vieja
+  pos = (pos + 1) % N;  // al llegar al final, vuelvo al principio
+}</pre>
+        <p>El <code>%</code> es el <b>resto de la divisi&oacute;n</b>. Cuando <code>pos</code> llega a
+           N, <code>N % N</code> vale 0 y vuelve a empezar. Sin esa l&iacute;nea, el array se sale por
+           el final y el programa escribe encima de otras variables: en un Arduino <b>eso no da
+           error</b>, da n&uacute;meros raros en cualquier otro sitio del programa.</p>
+      </div>
+      <div class="copiar">
+        <h4>Lo que cabe de verdad en 2.048 bytes</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+            <th>guardando cada medida en&hellip;</th><th>bytes por medida</th><th>caben</th></tr>
+          <tr><td><code>byte</code> (0 a 255, hay que dividir la lectura entre 4)</td><td>1</td><td>2.048</td></tr>
+          <tr><td><code>int</code> (la lectura entera, 0 a 1023)</td><td>2</td><td>1.024</td></tr>
+          <tr><td><code>long</code></td><td>4</td><td>512</td></tr>
+          <tr><td><code>float</code></td><td>4</td><td>512</td></tr>
+        </table>
+        <p style="margin-top:10px">Esos son los m&aacute;ximos <b>te&oacute;ricos</b>: en la realidad el
+           programa necesita sitio para todo lo dem&aacute;s, as&iacute; que un hist&oacute;rico
+           razonable es de <b>decenas</b> de medidas, no de miles. Con medidas cada dos minutos,
+           <b>20 medidas son 40 minutos</b> de memoria.</p>
+      </div>
+      <p>Ya tienes las medidas guardadas. La pregunta ahora es qu&eacute; hacer con ellas, y hay
+         cuatro respuestas que se usan de verdad. La escena las tiene todas, sobre un d&iacute;a entero
+         de vuestro sensor. Empieza con <b>el &uacute;ltimo valor</b>, que es lo que tienes hoy, y mira
+         la fila de arriba de la tabla.</p>
+
+      <div class="escena" id="esc-mem">
+        <div class="escena-barra">
+          <span class="escena-titulo">Un d&iacute;a entero de medidas &middot; y cuatro maneras de decidir con ellas</span>
+          <div class="seg" id="seg-mem">
+            <button type="button" data-p="0" aria-pressed="true">Riego</button>
+            <button type="button" data-p="1">Ventilaci&oacute;n</button>
+            <button type="button" data-p="2">L&aacute;mpara</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 700 280" id="svg-mem" role="img"
+               aria-label="Un d&iacute;a de medidas del sensor, el n&uacute;mero que calcula la regla y las dos franjas que comparan lo que pasaba de verdad con lo que decidi&oacute; el programa"></svg>
+          <div class="mem">
+            <div class="mem-der">
+              <div class="mem-fila">
+                <label>Decido con</label>
+                <div class="seg" id="regla-mem">
+                  <button type="button" data-r="0" aria-pressed="true">el &uacute;ltimo valor</button>
+                  <button type="button" data-r="1">la media</button>
+                  <button type="button" data-r="2">la mediana</button>
+                  <button type="button" data-r="3">la tendencia</button>
+                </div>
+              </div>
+              <div class="mem-fila">
+                <label for="mem-n">Guardo N medidas</label>
+                <input type="range" id="mem-n" min="1" max="40" step="1" value="10">
+                <span class="val" id="vn-mem"></span>
+              </div>
+              <div class="mem-fila">
+                <label for="mem-u">Umbral</label>
+                <input type="range" id="mem-u" min="450" max="800" step="5" value="600">
+                <span class="val" id="vu-mem"></span>
+              </div>
+              <div class="mem-fila">
+                <label>Cada medida en</label>
+                <div class="seg" id="tipo-mem">
+                  <button type="button" data-t="0" aria-pressed="true">int (2 B)</button>
+                  <button type="button" data-t="1">byte, &divide;4 (1 B)</button>
+                </div>
+              </div>
+              <label class="mem-chk"><input type="checkbox" id="mem-picos" checked>
+                <span>meter los <b>picos</b> de un instante (alguien roza la sonda, pasa una
+                sombra, se abre la puerta)</span></label>
+              <div class="mem-tabla" id="tabla-mem"></div>
+            </div>
+            <div class="mem-izq">
+              <p class="mem-rot">El programa, con la N que has puesto</p>
+              <pre class="mem-cod" id="cod-mem"></pre>
+            </div>
+          </div>
+          <p class="mem-lee" id="lee-mem"></p>
+        </div>
+        <div class="pie" id="pie-mem"></div>
+      </div>
+
+      <style>
+      .mem{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:12px}
+      .mem-der{flex:1 1 320px;min-width:290px}
+      .mem-izq{flex:1 1 320px;min-width:280px}
+      .mem-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:0 0 6px}
+      .mem-cod{font-family:var(--f-m);font-size:11.5px;line-height:1.6;margin:0;
+        white-space:pre-wrap;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;color:var(--ink)}
+      .mem-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 9px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .mem-fila label{min-width:116px}
+      .mem-fila input[type="range"]{flex:1 1 110px;min-width:95px;accent-color:var(--goo-azul)}
+      .mem-fila input[type="range"][disabled]{opacity:.4}
+      .mem-fila .val{font-weight:500;color:var(--goo-azul);min-width:88px;text-align:right}
+      .mem-fila .seg button{padding:5px 9px;font-size:11.5px}
+      .mem-chk{display:flex;align-items:flex-start;gap:7px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 9px;cursor:pointer;line-height:1.5}
+      .mem-chk input{accent-color:var(--goo-azul);margin-top:2px}
+      .mem-chk b{color:var(--ink)}
+      .mem-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12px;line-height:1.7}
+      .mem-tabla .f{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .mem-tabla .f span:first-child{color:var(--ink-soft)}
+      .mem-tabla .f b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
+      .mem-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .mem-tabla .mal b{color:var(--goo-rojo)}
+      .mem-tabla .bien b{color:var(--goo-verde)}
+      .mem-lee{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:12px 0 0}
+      .mem-lee b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-mem');
+        if(!svg) return;
+        var caja = document.getElementById('esc-mem');
+        var seg = document.getElementById('seg-mem');
+        var segR = document.getElementById('regla-mem');
+        var segT = document.getElementById('tipo-mem');
+        var cN = document.getElementById('mem-n');
+        var cU = document.getElementById('mem-u');
+        var cPic = document.getElementById('mem-picos');
+        var vn = document.getElementById('vn-mem');
+        var vu = document.getElementById('vu-mem');
+        var cod = document.getElementById('cod-mem');
+        var tabla = document.getElementById('tabla-mem');
+        var lee = document.getElementById('lee-mem');
+        var pie = document.getElementById('pie-mem');
+
+        /* ---- constantes del modelo ---- */
+        var DT = 2;            /* minutos entre medidas */
+        var NM = 720;          /* 24 h */
+        var I0 = 40;           /* no se mide hasta que cabe el historico mas largo */
+        var RUIDO = 12;        /* +- unidades de lectura */
+        var PICOS = 6;         /* cuantos picos de un instante tiene el dia */
+        var PICO0 = 300, PICOR = 400;   /* lo que sube un pico: de 300 a 699 unidades */
+        var HOR = 15;          /* la tendencia mira 15 muestras (30 min) por delante */
+        var ATRAS = 45;        /* tope al buscar hacia atras el arranque de un aviso */
+        var RAM = 2048;
+
+        var PROY = [
+          {nom: 'Riego autom&aacute;tico', sensor: 'la sonda de humedad',
+           sube: 'sube cuando la tierra se seca', acc: 'regar', u: 600,
+           perfil: [[0, 430], [0.30, 500], [0.38, 520], [0.43, 660], [0.50, 680], [0.52, 380],
+                    [0.80, 520], [0.90, 560], [0.94, 680], [1, 700]]},
+          {nom: 'Aviso de aula mal ventilada', sensor: 'el sensor de temperatura y humedad',
+           sube: 'sube cuando el aula se carga', acc: 'avisar de que hay que abrir', u: 600,
+           perfil: [[0, 380], [0.20, 420], [0.30, 700], [0.45, 720], [0.50, 400],
+                    [0.60, 690], [0.75, 710], [0.80, 400], [1, 380]]},
+          {nom: 'L&aacute;mpara de estudio', sensor: 'la LDR',
+           sube: 'sube cuando hay menos luz', acc: 'encender la l&aacute;mpara', u: 600,
+           perfil: [[0, 300], [0.30, 290], [0.34, 660], [0.38, 680], [0.42, 300],
+                    [0.55, 280], [0.62, 620], [0.70, 760], [0.86, 780], [0.93, 640], [1, 320]]}
+        ];
+        var REGLAS = ['el &uacute;ltimo valor', 'la media de N', 'la mediana de N', 'la tendencia'];
+
+        var np = 0, regla = 0, tipo = 0;
+
+        /* ---- Lehmer (MINSTD). Cabe exacto en un double: Python da lo mismo ---- */
+        var sem = 1;
+        function semilla(s){ sem = s % 2147483647; if(sem <= 0) sem += 2147483646; }
+        function rnd(){ sem = (sem * 16807) % 2147483647; return (sem - 1) / 2147483646; }
+
+        function U(){ return +cU.value; }
+        function Nef(){
+          var n = +cN.value;
+          if(regla === 0) return 1;
+          if(regla === 3) return Math.max(4, n);
+          return n;
+        }
+        function bytesDato(){ return tipo === 1 ? 1 : 2; }
+        function guarda(x){ return tipo === 1 ? Math.floor(x / 4) * 4 : x; }
+
+        function perfil(P, f){
+          var p = P.perfil;
+          for(var k = 1; k < p.length; k++){
+            if(f <= p[k][0]){
+              var t = (f - p[k - 1][0]) / (p[k][0] - p[k - 1][0]);
+              return p[k - 1][1] + t * (p[k][1] - p[k - 1][1]);
+            }
+          }
+          return p[p.length - 1][1];
+        }
+
+        /* ---- el dia de medidas: la verdad y lo que ve el sensor ----
+           Los picos se sortean APARTE del ruido y son siempre seis, ni uno mas:
+           si se sortean uno por medida, a un proyecto le tocan tres y a otro
+           catorce, y entonces la comparacion entre reglas mide la suerte. */
+        function serie(){
+          var P = PROY[np], v = [], m = [], i, k;
+          var picos = cPic.checked, pic = {};
+          semilla(10203040 + np);
+          for(k = 0; k < PICOS; k++){
+            var q = I0 + 10 + Math.floor(rnd() * (NM - I0 - 20));
+            pic[q] = PICO0 + Math.floor(rnd() * PICOR);
+          }
+          semilla(70809000 + np);
+          for(i = 0; i < NM; i++){
+            var vi = perfil(P, i / (NM - 1));
+            var x = vi + (rnd() * 2 - 1) * RUIDO + ((picos && pic[i]) ? pic[i] : 0);
+            x = Math.round(x);
+            if(x < 0) x = 0;
+            if(x > 1023) x = 1023;
+            v.push(vi); m.push(x);
+          }
+          return {v: v, m: m, pic: pic};
+        }
+
+        /* ---- el numero que la regla compara con el umbral ---- */
+        function valorRegla(s, i){
+          var n = Nef();
+          if(regla === 0) return s[i];
+          var w = s.slice(i - n + 1, i + 1), k, t = 0;
+          if(regla === 1){
+            for(k = 0; k < w.length; k++) t += w[k];
+            return t / w.length;
+          }
+          if(regla === 2){
+            var o = w.slice().sort(function(a, b){ return a - b; });
+            return (o.length % 2) ? o[(o.length - 1) / 2]
+                                  : (o[o.length / 2 - 1] + o[o.length / 2]) / 2;
+          }
+          var h = Math.floor(n / 2), a = 0, b = 0;
+          for(k = 0; k < h; k++){ a += w[k]; b += w[w.length - 1 - k]; }
+          a /= h; b /= h;
+          return b + ((b - a) / h) * HOR;
+        }
+
+        /* ---- medir lo que cuesta la regla, sobre el dia entero ---- */
+        function mide(S){
+          var u = U(), s = [], i;
+          for(i = 0; i < NM; i++) s.push(guarda(S.m[i]));
+          var r = [], d = [], vr = [];
+          for(i = 0; i < NM; i++){
+            vr.push(S.v[i] > u);
+            if(i >= I0){ var q = valorRegla(s, i); r.push(q); d.push(q > u); }
+            else { r.push(null); d.push(false); }
+          }
+          var falsas = 0, pasa = 0, arr = 0, arrF = 0, prev = false;
+          for(i = I0; i < NM; i++){
+            if(d[i] && !vr[i]) falsas++;
+            if(!d[i] && vr[i]) pasa++;
+            if(d[i] && !prev){ arr++; if(!vr[i]) arrF++; }
+            prev = d[i];
+          }
+          var eps = [], en = false, ini = 0;
+          for(i = I0; i < NM; i++){
+            if(vr[i] && !en){ en = true; ini = i; }
+            else if(!vr[i] && en){ en = false; eps.push([ini, i - 1]); }
+          }
+          if(en) eps.push([ini, NM - 1]);
+          var ret = [], perd = 0;
+          eps.forEach(function(e){
+            var f = -1, j;
+            if(d[e[0]]){
+              f = e[0];
+              while(f - 1 >= I0 && d[f - 1] && e[0] - (f - 1) <= ATRAS) f--;
+            } else {
+              for(j = e[0]; j <= e[1]; j++) if(d[j]){ f = j; break; }
+            }
+            if(f < 0) perd++; else ret.push((f - e[0]) * DT);
+          });
+          var med = 0;
+          ret.forEach(function(x){ med += x; });
+          med = ret.length ? med / ret.length : 0;
+          return {r: r, d: d, vr: vr, s: s, falsas: falsas, pasa: pasa, arr: arr, arrF: arrF,
+                  eps: eps.length, perd: perd, ret: med, nret: ret.length,
+                  bytes: Nef() * bytesDato()};
+        }
+
+        /* ---- dibujo ---- */
+        var X0 = 46, Y0 = 14, AN = 640, AL = 168, VMIN = 200, VMAX = 1023;
+        function px(i){ return X0 + i / (NM - 1) * AN; }
+        function py(v){ return Y0 + AL - (Math.max(VMIN, Math.min(VMAX, v)) - VMIN) / (VMAX - VMIN) * AL; }
+
+        function linea(a, desde){
+          var p = [], i;
+          for(i = desde; i < NM; i++){
+            if(a[i] === null) continue;
+            p.push(px(i).toFixed(1) + ' ' + py(a[i]).toFixed(1));
+          }
+          return p.join(' L');
+        }
+
+        function pinta(S, M){
+          var u = U(), i;
+          var m = '<style>.memt{font:10px var(--f-m);fill:var(--ink-soft)}'
+                + '.meme{font:10.5px var(--f-m);fill:var(--ink)}</style>';
+          m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + AN + '" height="' + AL
+             + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
+          /* El umbral. El rotulo va FUERA del cuadro, en el margen: dentro se comia
+             la curva justo donde mas importa mirarla. */
+          m += '<path d="M' + X0 + ' ' + py(u).toFixed(1) + ' H' + (X0 + AN)
+             + '" stroke="var(--goo-amarillo)" stroke-width="1.6" stroke-dasharray="5 4"></path>'
+             + '<text x="' + (X0 - 6) + '" y="' + (py(u) + 3.5).toFixed(1)
+             + '" text-anchor="end" fill="var(--goo-amarillo)" class="memt">' + u + '</text>';
+          /* lo medido */
+          m += '<path d="M' + linea(S.m, 0) + '" fill="none" stroke="var(--ink-soft)" '
+             + 'stroke-width="0.9" opacity=".55"></path>';
+          /* La verdad, mas gruesa que la linea azul: la azul se dibuja encima y si
+             fueran igual de anchas la verde no se veria en ningun sitio. */
+          m += '<path d="M' + linea(S.v, 0) + '" fill="none" stroke="var(--goo-verde)" '
+             + 'stroke-width="3"></path>';
+          /* el numero que mira la regla */
+          m += '<path d="M' + linea(M.r, I0) + '" fill="none" stroke="var(--goo-azul)" '
+             + 'stroke-width="1.6"></path>';
+          /* las dos franjas */
+          var BY = Y0 + AL + 16, BH = 11;
+          [[M.vr, BY, 'lo que pasaba', 'var(--goo-verde)'],
+           [M.d, BY + BH + 5, 'lo que decidi&oacute;', 'var(--goo-rojo)']].forEach(function(F){
+            m += '<rect x="' + X0 + '" y="' + F[1] + '" width="' + AN + '" height="' + BH
+               + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="0.8"></rect>';
+            var ini = -1;
+            for(i = 0; i <= NM; i++){
+              var on = (i < NM) && F[0][i];
+              if(on && ini < 0) ini = i;
+              if(!on && ini >= 0){
+                m += '<rect x="' + px(ini).toFixed(1) + '" y="' + F[1] + '" width="'
+                   + Math.max(0.8, px(i - 1) - px(ini)).toFixed(1) + '" height="' + BH
+                   + '" fill="' + F[3] + '" opacity=".75"></rect>';
+                ini = -1;
+              }
+            }
+            m += '<text x="' + (X0 - 6) + '" y="' + (F[1] + 9) + '" text-anchor="end" class="memt">'
+               + F[2] + '</text>';
+          });
+          /* ejes */
+          m += '<text x="' + (X0 - 6) + '" y="' + (Y0 + 9) + '" text-anchor="end" class="memt">'
+             + VMAX + '</text>'
+             + '<text x="' + (X0 - 6) + '" y="' + (Y0 + AL) + '" text-anchor="end" class="memt">'
+             + VMIN + '</text>';
+          for(var h = 0; h <= 24; h += 6){
+            var x = X0 + h / 24 * AN;
+            m += '<text x="' + x.toFixed(1) + '" y="' + (BY + 2 * BH + 22)
+               + '" text-anchor="middle" class="memt">' + h + ' h</text>';
+          }
+          /* el rotulo del eje, en su propia linea: al lado de las horas se pisaban */
+          m += '<text x="' + X0 + '" y="' + (BY + 2 * BH + 40) + '" class="meme">lectura de '
+             + PROY[np].sensor + ', que ' + PROY[np].sube + '</text>';
+          svg.innerHTML = m;
+        }
+
+        function codigo(){
+          var n = Nef(), t = (tipo === 1) ? 'byte' : 'int';
+          var c = 'const byte N = ' + n + ';\n'
+                + t + ' hist[N];              // ' + (n * bytesDato()) + ' bytes de los 2048\n'
+                + 'byte pos = 0;\n\n'
+                + 'void guarda(int x) {\n'
+                + (tipo === 1 ? '  hist[pos] = x / 4;      // cabe en un byte, pierdo 4 unidades\n'
+                              : '  hist[pos] = x;\n')
+                + '  pos = (pos + 1) % N;    // al llegar al final, vuelvo al principio\n'
+                + '}\n\n';
+          if(regla === 0){
+            c += 'bool hayQue() {\n  return leer() > ' + U() + ';   // ni miro lo guardado\n}';
+          } else if(regla === 1){
+            c += 'bool hayQue() {\n  long suma = 0;\n'
+               + '  for (byte i = 0; i < N; i++) suma += hist[i];\n'
+               + '  return suma / N > ' + U() + ';\n}';
+          } else if(regla === 2){
+            c += 'bool hayQue() {\n  int c[N];\n'
+               + '  memcpy(c, hist, sizeof(hist));   // otros ' + (n * bytesDato()) + ' bytes\n'
+               + '  ordena(c, N);\n'
+               + '  return c[N / 2] > ' + U() + ';\n}';
+          } else {
+            c += 'bool hayQue() {\n  int h = N / 2;\n'
+               + '  long v = 0, n2 = 0;\n'
+               + '  for (byte i = 0; i < h; i++) { v += hist[i]; n2 += hist[N - 1 - i]; }\n'
+               + '  float pend = (float)(n2 - v) / h / h;\n'
+               + '  return n2 / h + pend * ' + HOR + ' > ' + U() + ';\n}';
+          }
+          cod.textContent = (tipo === 1)
+            ? c.replace(/hist\[i\]/g, 'hist[i] * 4').replace(/c\[N \/ 2\]/g, 'c[N / 2] * 4')
+            : c;
+        }
+
+        function refresca(){
+          var S = serie(), M = mide(S), P = PROY[np], n = Nef();
+          cN.disabled = (regla === 0);
+          vn.textContent = (regla === 0) ? '1 (ninguna)' : (n + (n !== +cN.value ? ' (m\u00ednimo)' : ''));
+          vu.textContent = U();
+          pinta(S, M);
+          codigo();
+
+          var fil = function(x, y, cl){
+            return '<div class="f ' + (cl || '') + '"><span>' + x + '</span><b>' + y + '</b></div>';
+          };
+          tabla.innerHTML =
+              fil('medidas del d&iacute;a', NM + ' (una cada ' + DT + ' min)')
+            + fil('veces que ' + P.acc + ' de m&aacute;s', M.arrF + ' de ' + M.arr + ' arranques',
+                  M.arrF > 0 ? 'mal' : 'bien')
+            + fil('medidas decididas al rev&eacute;s', (M.falsas + M.pasa) + ' de ' + (NM - I0), 'top')
+            + fil('&mdash; falsas alarmas', M.falsas)
+            + fil('&mdash; se le pasan', M.pasa)
+            + fil('episodios de verdad', M.eps, 'top')
+            + fil('&mdash; que no vio ninguno', M.perd, M.perd > 0 ? 'mal' : '')
+            + fil('&mdash; tarda de media',
+                  (M.ret >= 0 ? '+' : '\u2212') + Math.abs(Math.round(M.ret)) + ' min')
+            + fil('memoria del hist&oacute;rico', M.bytes + ' B de ' + RAM, 'top')
+            + fil('&mdash; eso es', (100 * M.bytes / RAM).toFixed(1).replace('.', ',') + ' % de la RAM');
+
+          var h = '';
+          if(regla === 0){
+            h = 'Est&aacute;s decidiendo con <b>una sola medida</b>: la de este instante. La l&iacute;nea '
+              + 'azul y la gris son la misma, porque no hay nada que calcular. Cada pico de un '
+              + 'instante se convierte en una decisi&oacute;n: ' + M.arrF + ' de los ' + M.arr
+              + ' arranques no ten&iacute;an detr&aacute;s ning&uacute;n problema de verdad.';
+          } else if(regla === 1){
+            h = 'La media reparte el pico entre ' + n + ' medidas, as&iacute; que lo <b>encoge</b>: '
+              + 'uno de ' + PICO0 + ' unidades se queda en ' + Math.round(PICO0 / n) + '. Pero mira '
+              + 'las falsas alarmas: no lo quita, lo <b>estira</b>, y ahora el pico contamina '
+              + n + ' medidas en vez de una. Y adem&aacute;s la l&iacute;nea azul va <b>por '
+              + 'detr&aacute;s</b> de la verde: ese retraso se paga siempre, haya pico o no.';
+          } else if(regla === 2){
+            h = 'La mediana ordena las ' + n + ' medidas y se queda con la de en medio. Un pico de un '
+              + 'instante queda en un extremo de la lista, as&iacute; que <b>no entra en la cuenta</b>: '
+              + 'no lo encoge, lo <b>tira</b>. A cambio hay que ordenar, y ordenar cuesta tiempo y '
+              + 'otra copia del array.';
+          } else {
+            h = 'La tendencia no mira solo d&oacute;nde est&aacute;s: mira <b>hacia d&oacute;nde vas</b>. '
+              + 'Compara la media de las ' + Math.floor(n / 2) + ' &uacute;ltimas con la de las '
+              + Math.floor(n / 2) + ' anteriores y proyecta ' + (HOR * DT) + ' minutos por delante. '
+              + 'Por eso la l&iacute;nea azul se <b>adelanta</b> a la verde... y por eso se equivoca '
+              + 'cuando la se&ntilde;al sube un rato y luego se para.';
+          }
+          if(M.ret < 0){
+            h += ' Ahora mismo se <b>adelanta</b> ' + Math.abs(Math.round(M.ret))
+               + ' minutos de media a que el problema exista de verdad.';
+          }
+          lee.innerHTML = h;
+
+          pie.innerHTML = '<b>' + P.nom + '.</b> El d&iacute;a tiene ' + NM + ' medidas, una cada '
+            + DT + ' minutos. La l&iacute;nea <b style="color:var(--goo-verde)">verde</b> es lo que '
+            + 'pasaba de verdad; la gris, lo que lee el sensor (ruido de &plusmn;' + RUIDO
+            + ' unidades y picos de un instante); la <b style="color:var(--goo-azul)">azul</b>, el '
+            + 'n&uacute;mero que <b>' + REGLAS[regla] + '</b> compara con el umbral. Las cuentas salen '
+            + 'de recorrer las ' + (NM - I0) + ' medidas que caben con cualquier N, no de una tabla. '
+            + 'El retardo negativo quiere decir que el aviso se adelanta. <b>El perfil del d&iacute;a '
+            + 'es nuestro</b>, elegido para que se parezca a lo que hace ese sensor; lo que se '
+            + 'sostiene es la comparaci&oacute;n entre las cuatro reglas, no la forma exacta de la curva.';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          np = +b.dataset.p; cU.value = PROY[np].u; refresca();
+        });
+        segR.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-r]'); if(!b) return;
+          segR.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          regla = +b.dataset.r; refresca();
+        });
+        segT.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-t]'); if(!b) return;
+          segT.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          tipo = +b.dataset.t; refresca();
+        });
+        [cN, cU].forEach(function(x){ x.addEventListener('input', refresca); });
+        cPic.addEventListener('change', refresca);
+
+        refresca();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Las cuatro maneras de decidir, y lo que cuesta cada una</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14px">
+          <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+            <th>regla</th><th>qu&eacute; quita</th><th>qu&eacute; cuesta</th></tr>
+          <tr><td><b>el &uacute;ltimo valor</b></td><td>nada</td><td>2 bytes. Se cree cualquier pico.</td></tr>
+          <tr><td><b>media de N</b></td><td>el ruido peque&ntilde;o</td>
+              <td>2N bytes y un <b>retraso de N/2 medidas</b>. Al pico no lo quita: lo
+                  <b>reparte entre N medidas</b>, o sea que lo estira.</td></tr>
+          <tr><td><b>mediana de N</b></td><td>el pico, entero</td>
+              <td>2N bytes, un retraso parecido, y adem&aacute;s hay que <b>ordenar</b> (otra copia
+                  del array y mucho m&aacute;s tiempo de c&aacute;lculo).</td></tr>
+          <tr><td><b>tendencia</b></td><td>nada; <b>adelanta</b> el aviso</td>
+              <td>2N bytes y <b>falsas alarmas</b> cada vez que la se&ntilde;al sube un rato y se
+                  para.</td></tr>
+        </table>
+        <p style="margin-top:10px"><b>Media y mediana no son lo mismo y no sirven para lo mismo.</b>
+           La media es para el ruido de siempre; la mediana, para el valor absurdo de un instante.
+           En la escena, con el riego, la <b>mediana de 5</b> deja los arranques falsos en cero con
+           <b>10 bytes</b>; a la media le hace falta N = 10 para lo mismo, o sea el doble.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Hay una media que <b>no guarda nada</b> y que en placas muy justas se usa mucho:</p>
+        <pre style="font-family:var(--f-m);font-size:12.5px;margin:6px 0;white-space:pre-wrap">float m = 0;
+void bucle() {
+  m = m * 0.9 + leer() * 0.1;   // 4 bytes en total, sin array
+}</pre>
+        <p>Cada medida nueva pesa un 10 % y todo lo anterior pesa el 90 %. Se llama <b>media
+           exponencial</b> y alisa parecido a una media de unas 10 medidas <b>ocupando 4 bytes en vez
+           de 20</b>. La pega: como no guarda las medidas, <b>no puedes hacer la mediana con ella</b>
+           ni mirar atr&aacute;s para ver qu&eacute; pas&oacute;. Si lo que te sobran son picos, no te
+           sirve.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Una trampa que viene directa de la sesi&oacute;n 1. Para hacer la media hay que sumar:</p>
+        <pre style="font-family:var(--f-m);font-size:12.5px;margin:6px 0;white-space:pre-wrap">int suma = 0;
+for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
+        <p>Con N = 20 y lecturas de hasta 1023, la suma llega a <b>20.460</b>: cabe en un
+           <code>int</code>, que aguanta hasta 32.767. Con <b>N = 40</b> la suma llega a
+           <b>40.920</b>, y ya <b>no cabe</b>: desborda y la media sale negativa. El programa no avisa
+           de nada, exactamente igual que en la sesi&oacute;n 1. Se arregla poniendo
+           <code>long suma = 0;</code>, que son 2 bytes m&aacute;s <b>una sola vez</b>.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>En la escena puedes guardar cada medida en un <code>byte</code> dividi&eacute;ndola entre 4.
+           Ocupa <b>la mitad</b> y los resultados cambian muy poco: el error que mete esa divisi&oacute;n
+           es de <b>4 unidades</b>, y el ruido propio del sensor ya es de &plusmn;12. Ninguna
+           precisi&oacute;n que el sensor no tiene se gana guardando m&aacute;s bytes. Es la misma idea
+           de los decimales de la sesi&oacute;n 2, ahora en la memoria.</p>
+      </div>
+      <div class="nota">
+        <span class="n-tag">Ojo, que esto no es lo de la unidad 4</span>
+        En la unidad 4 arreglasteis que el actuador se encendiera y se apagara sin parar
+        <b>separando el umbral de encender del de apagar</b>: eso es la <b>hist&eacute;resis</b>, y es
+        control. Aqu&iacute; el problema es otro: la <b>medida</b> es mala. Las dos cosas se pueden
+        (y se suelen) poner a la vez, y son independientes: la hist&eacute;resis no quita un pico, y
+        la mediana no quita un rebote alrededor del umbral.
+      </div>
+      <div class="video" id="video-c6-media" data-vid="Pl79Ni3NUsY">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Filtro Digital Pasa Bajos con Arduino Media Movil">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Filtro Digital Pasa Bajos con Arduino Media Movil</b>
+            <span>Canal: Electgpl</span>
+          </span>
+        </button>
+        <p class="video-nota">La media m&oacute;vil escrita en Arduino, con el osciloscopio delante para ver la se&ntilde;al antes y despu&eacute;s. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=Pl79Ni3NUsY" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 5 &middot; Ponerle memoria a vuestro programa</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.1</span><span class="chip">C.2</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; el buffer circular en Tinkercad (8 min)</h4>
+          <p>Partid del sketch que ya ten&eacute;is. A&ntilde;adidle el hist&oacute;rico de
+             <b>N = 10</b> y sacad por el monitor serie <b>tres</b> n&uacute;meros separados por comas:
+             la lectura de este instante, la media de las 10 y la mediana de las 10.</p>
+          <ol class="pasos">
+            <li>Copiad en la libreta las tres funciones: <code>guarda()</code>, la de la media y la de
+                la mediana.</li>
+            <li>Con el potenci&oacute;metro puesto, dadle un <b>golpe seco</b> al eje y volvedlo a la
+                posici&oacute;n de antes. Anotad qu&eacute; hacen los tres n&uacute;meros.</li>
+            <li>Decid <b>cu&aacute;ntos bytes</b> ocupa vuestro hist&oacute;rico y qu&eacute; porcentaje
+                es de los 2.048.</li>
+          </ol>
+          <h4>Segunda parte &middot; elegir la regla, con n&uacute;meros (8 min)</h4>
+          <p>Con la escena puesta en <b>vuestro</b> proyecto y el umbral que tengáis, rellenad esta
+             tabla anotando lo que dice la escena:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+              <th>regla</th><th>arranques de m&aacute;s</th><th>tarda de media</th><th>bytes</th></tr>
+            <tr><td>el &uacute;ltimo valor</td><td></td><td></td><td></td></tr>
+            <tr><td>media de 5</td><td></td><td></td><td></td></tr>
+            <tr><td>media de 20</td><td></td><td></td><td></td></tr>
+            <tr><td>mediana de 5</td><td></td><td></td><td></td></tr>
+            <tr><td>tendencia con N = 20</td><td></td><td></td><td></td></tr>
+          </table>
+          <p>Y debajo, en <b>dos frases</b>: qu&eacute; regla vais a poner en vuestro proyecto y
+             <b>por qu&eacute; esa</b>. La respuesta tiene que nombrar cu&aacute;l de los dos fallos
+             os duele m&aacute;s &mdash;actuar de m&aacute;s o enteraros tarde&mdash;, que es lo que
+             visteis en la sesi&oacute;n 4.</p>
+          <h4>Tercera parte &middot; la cuenta que no falla sola (4 min)</h4>
+          <p>Vuestro compa&ntilde;ero escribe <code>int suma = 0;</code> y hace la media de
+             <b>N = 40</b> lecturas de hasta 1023. Calculad cu&aacute;nto vale la suma en el peor caso,
+             decid si cabe y escribid la correcci&oacute;n.</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El sketch saca los tres n&uacute;meros y el buffer da la vuelta bien <b>(3 puntos)</b>.</li>
+            <li>Lo que hace cada n&uacute;mero ante el golpe, anotado <b>(1 punto)</b>.</li>
+            <li>La tabla de las cinco reglas, completa <b>(2 puntos)</b>.</li>
+            <li>La regla elegida, justificada con el coste de los dos fallos <b>(2 puntos)</b>.</li>
+            <li>La cuenta del desbordamiento, hecha y corregida <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; subir el umbral no arregla los arranques de madrugada?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el problema no es <b>d&oacute;nde</b> est&aacute; el umbral, sino que una medida suelta puede ser falsa. Si subes el umbral lo bastante para que no lo cruce un pico de 300 unidades, tampoco lo cruza el problema de verdad.</p></div></details></li>
+        <li>&iquest;Qu&eacute; hace <code>pos = (pos + 1) % N;</code> y qu&eacute; pasa si se te olvida?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Hace que el &iacute;ndice <b>vuelva a 0</b> al llegar al final, para escribir encima de la medida m&aacute;s vieja. Sin esa l&iacute;nea el programa escribe <b>fuera del array</b>, encima de otras variables. En Arduino eso no da error: da n&uacute;meros raros en otro sitio del programa, que es peor.</p></div></details></li>
+        <li>La media y la mediana ocupan los mismos bytes. &iquest;Para qu&eacute; sirve cada una?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La <b>media</b> alisa el ruido de siempre, pero a un pico enorme no lo quita: lo reparte entre las N medidas, o sea que lo <b>estira</b>. La <b>mediana</b> ordena y se queda con la de en medio, as&iacute; que un valor absurdo se va a un extremo y <b>no entra en la cuenta</b>. Para picos, mediana; para ruido, media.</p></div></details></li>
+        <li>&iquest;Qu&eacute; se paga por poner una media de 20 en vez de una de 5?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Tres cosas: <b>30 bytes m&aacute;s</b> de memoria, un <b>retraso</b> de unas 10 medidas en enterarse (con medidas cada 2 minutos, 20 minutos) y m&aacute;s tiempo de c&aacute;lculo en cada vuelta. Alisar no es gratis.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya decide bien, y ya no se cree cualquier cosa. Pero sigue decidiendo <b>en el aula y para
+        s&iacute; mismo</b>. En la sesi&oacute;n 3 dise&ntilde;asteis el mensaje que tendr&iacute;a que
+        salir de la placa; nunca lleg&oacute; a salir. Y hay un detalle que se pasa por alto hasta que
+        toca montarlo: <b>un Arduino Uno no tiene wifi</b>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-6" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 6 &middot; 60 minutos</div>
+      <h2>Llevaba seis d&iacute;as callado, y eso parec&iacute;a buena se&ntilde;al</h2>
+      <p>El mensaje de la sesi&oacute;n 3 no ha salido del cuaderno. Hoy sale, con un Uno que no tiene wifi. Y hay que decidir cada cu&aacute;nto hablar, que es m&aacute;s dif&iacute;cil de lo que parece.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.3</span><span class="chip sab">C.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>En la sesi&oacute;n 3 escribisteis el mensaje de vuestro aparato: qui&eacute;n, qu&eacute;,
+         cu&aacute;ndo y a d&oacute;nde, con su tema de MQTT y todo. Estaba muy bien. Y no ha salido
+         del cuaderno.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo de hoy</span>
+        Que salga. Ten&eacute;is delante un Arduino Uno, que <b>no tiene wifi, ni Ethernet, ni
+        bluetooth</b>: no lleva nada con lo que hablar con el mundo salvo el cable USB.
+        <b>Dos minutos</b>: escribid en el cuaderno c&oacute;mo sale de esa aula el dato,
+        con lo que cuesta cada opci&oacute;n.
+      </div>
+      <p>Las tres respuestas que valen son estas, y conviene saberlas <b>con su precio</b>, porque
+         esto va en la memoria del proyecto:</p>
+      <div class="copiar">
+        <h4>Tres maneras de sacar el dato, con su pega</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+            <th>c&oacute;mo</th><th>cuesta</th><th>la pega</th></tr>
+          <tr><td>Por el <b>cable USB</b> a un ordenador del aula, que lee el puerto serie y lo
+                  sube &eacute;l</td><td><b>0 &euro;</b></td>
+              <td>hace falta un ordenador encendido al lado, todo el rato</td></tr>
+          <tr><td>A&ntilde;adirle un <b>m&oacute;dulo ESP-01</b> y hablarle por comandos AT</td>
+              <td>~<b>2 &euro;</b></td>
+              <td>va a 3,3 V (el Uno da 5 V: hace falta adaptar) y come bastante corriente</td></tr>
+          <tr><td>Cambiar el Uno por un <b>ESP32</b>, que ya trae wifi dentro</td>
+              <td>~<b>5 &euro;</b></td>
+              <td>hay que rehacer el montaje y las entradas anal&oacute;gicas son distintas</td></tr>
+        </table>
+        <p style="margin-top:10px">Ninguna es &laquo;la buena&raquo;. En un aula con un ordenador fijo,
+           la primera es la m&aacute;s barata y la m&aacute;s f&aacute;cil de depurar. Para una planta
+           en un pasillo, no vale.</p>
+      </div>
+      <p>Supongamos que ya lo hab&eacute;is resuelto y el dato sale. Queda la pregunta que casi nadie
+         hace, y que es la de hoy: <b>&iquest;cada cu&aacute;nto?</b> La respuesta que sale sola es
+         &laquo;cada 30 segundos, as&iacute; est&aacute; al d&iacute;a&raquo;.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Haz la cuenta: cada 30 segundos son <b>2.880 mensajes al d&iacute;a</b>, y
+           <b>40.320</b> en las dos semanas de vacaciones. &iquest;Cu&aacute;ntos vas a leer t&uacute;?
+           Y la segunda, que es la importante: si el aparato se estropea y <b>deja de mandar</b>,
+           &iquest;c&oacute;mo te enteras?</p>
+      </div>
+      <p>La primera pregunta tiene una respuesta inc&oacute;moda: ninguno. Un aviso que llega
+         cuarenta mil veces <b>no es un aviso</b>, es un ruido de fondo, y a la tercera se silencia la
+         notificaci&oacute;n. La segunda tiene una respuesta peor: <b>no te enteras</b>. Un aparato
+         estropeado se queda callado, y callado es exactamente lo que hace cuando todo va bien.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <p>Antes de nada, mira lo que hay que a&ntilde;adirle al Uno. Es esto, y es diminuto:</p>
+      <figure class="foto">
+        <img src="../../../img/c6-esp8266-dht11.jpg" alt="M&oacute;dulo ESP-01 azul montado encima de una placa peque&ntilde;a que lleva un sensor DHT11, tambi&eacute;n azul, con su rejilla de agujeros" loading="lazy">
+        <figcaption>Arriba, un <b>ESP-01</b>: un m&oacute;dulo con el chip <b>ESP8266</b> dentro de esa latita met&aacute;lica, y con la <b>antena de wifi dibujada en el propio circuito impreso</b> &mdash;el zigzag dorado de la derecha&mdash;. No hay m&aacute;s antena que esa pista de cobre. Debajo, en azul claro y con su rejilla, un <b>DHT11</b>, que es el sensor de temperatura y humedad del proyecto de ventilaci&oacute;n. El conjunto entero mide unos <b>2,5 cm</b> y cuesta unos pocos euros. Ojo con una cosa que no se ve en la foto: el ESP-01 funciona a <b>3,3 V</b>, y un Arduino Uno saca <b>5 V</b> por sus patillas; conectarlos directamente estropea el m&oacute;dulo.
+          <span class="credito">Nowforever &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:ESP8266_with_DHT11.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>Con eso resuelto, lo de hoy: <b>cu&aacute;ndo hablar</b>. Hay tres maneras, y se eligen; no
+         se heredan del ejemplo que hayas copiado.</p>
+      <div class="copiar">
+        <h4>Las tres pol&iacute;ticas de aviso</h4>
+        <ul>
+          <li><b>Peri&oacute;dico</b>: mandas una medida cada X minutos, pase lo que pase. Sencillo de
+              programar y sencillo de dibujar en una gr&aacute;fica. Genera much&iacute;simos mensajes y
+              la mayor&iacute;a no dicen nada nuevo.</li>
+          <li><b>Por evento</b>: mandas un mensaje <b>cuando algo cambia</b> &mdash;empieza el
+              problema, se acaba el problema&mdash; y, si el problema sigue, lo repites cada X minutos
+              para que no se olvide. Poqu&iacute;simos mensajes y todos dicen algo.</li>
+          <li><b>Por evento con latido</b>: lo anterior, m&aacute;s un mensaje cada pocas horas que
+              solo dice <b>&laquo;sigo aqu&iacute;&raquo;</b>. Es el que se usa en serio, y ahora
+              ver&aacute;s por qu&eacute;.</li>
+        </ul>
+      </div>
+      <p>En la escena tienes dos semanas de vuestro proyecto, con sus incidencias de verdad y una
+         <b>ca&iacute;da de red de nueve horas</b> el d&iacute;a 6. Antes de tocar nada,
+         <b>marca la casilla &laquo;el aparato se queda mudo el d&iacute;a 9&raquo;</b>: es la
+         aver&iacute;a de la que va esta sesi&oacute;n. Y ahora haz tres cosas y mira cada vez la fila
+         <b>&laquo;el silencio del aparato&raquo;</b>:</p>
+      <ol>
+        <li>con <b>peri&oacute;dico</b>, baja el mando de &laquo;cada&raquo; hasta 5 minutos;</li>
+        <li>p&aacute;salo a <b>por evento</b>;</li>
+        <li>y despu&eacute;s a <b>evento + latido</b>.</li>
+      </ol>
+
+      <div class="escena" id="esc-avi">
+        <div class="escena-barra">
+          <span class="escena-titulo">Dos semanas del aparato avisando &middot; y qu&eacute; se entera una persona</span>
+          <div class="seg" id="seg-avi">
+            <button type="button" data-p="0" aria-pressed="true">Riego</button>
+            <button type="button" data-p="1">Ventilaci&oacute;n</button>
+            <button type="button" data-p="2">L&aacute;mpara</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 700 208" id="svg-avi" role="img"
+               aria-label="Catorce d&iacute;as con las incidencias de verdad, la ca&iacute;da de red, los mensajes que salen y los que llegan"></svg>
+          <div class="avi">
+            <div class="avi-der">
+              <div class="avi-fila">
+                <label>Aviso</label>
+                <div class="seg" id="pol-avi">
+                  <button type="button" data-o="0" aria-pressed="true">peri&oacute;dico</button>
+                  <button type="button" data-o="1">por evento</button>
+                  <button type="button" data-o="2">evento + latido</button>
+                </div>
+              </div>
+              <div class="avi-fila">
+                <label for="avi-p">Cada</label>
+                <input type="range" id="avi-p" min="0" max="1000" step="1" value="500">
+                <span class="val" id="vp-avi"></span>
+              </div>
+              <div class="avi-fila">
+                <label for="avi-l">Latido cada</label>
+                <input type="range" id="avi-l" min="0" max="1000" step="1" value="560">
+                <span class="val" id="vl-avi"></span>
+              </div>
+              <div class="avi-fila">
+                <label>La placa decide con</label>
+                <div class="seg" id="reg-avi">
+                  <button type="button" data-r="0" aria-pressed="true">el &uacute;ltimo valor</button>
+                  <button type="button" data-r="1">la media de 10</button>
+                </div>
+              </div>
+              <label class="avi-chk"><input type="checkbox" id="avi-red" checked>
+                <span>se cae la red el <b>d&iacute;a 6</b>, nueve horas</span></label>
+              <label class="avi-chk"><input type="checkbox" id="avi-buf">
+                <span>guardar en memoria lo que no se pueda mandar (1.200 B, 50 mensajes)</span></label>
+              <label class="avi-chk"><input type="checkbox" id="avi-mudo">
+                <span>el aparato se queda <b>mudo</b> el d&iacute;a 9 y ya no vuelve</span></label>
+            </div>
+            <div class="avi-izq">
+              <div class="avi-tabla" id="tabla-avi"></div>
+            </div>
+          </div>
+          <p class="avi-lee" id="lee-avi"></p>
+        </div>
+        <div class="pie" id="pie-avi"></div>
+      </div>
+
+      <style>
+      .avi{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:12px}
+      .avi-der{flex:1 1 320px;min-width:290px}
+      .avi-izq{flex:1 1 300px;min-width:275px}
+      .avi-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 9px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .avi-fila label{min-width:118px}
+      .avi-fila input[type="range"]{flex:1 1 110px;min-width:95px;accent-color:var(--goo-azul)}
+      .avi-fila input[type="range"][disabled]{opacity:.4}
+      .avi-fila .val{font-weight:500;color:var(--goo-azul);min-width:74px;text-align:right}
+      .avi-fila .seg button{padding:5px 9px;font-size:11.5px}
+      .avi-chk{display:flex;align-items:flex-start;gap:7px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 8px;cursor:pointer;line-height:1.5}
+      .avi-chk input{accent-color:var(--goo-azul);margin-top:2px}
+      .avi-chk b{color:var(--ink)}
+      .avi-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12px;line-height:1.7}
+      .avi-tabla .f{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .avi-tabla .f span:first-child{color:var(--ink-soft)}
+      .avi-tabla .f b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
+      .avi-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .avi-tabla .mal b{color:var(--goo-rojo)}
+      .avi-tabla .bien b{color:var(--goo-verde)}
+      .avi-lee{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:12px 0 0}
+      .avi-lee b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-avi');
+        if(!svg) return;
+        var caja = document.getElementById('esc-avi');
+        var seg = document.getElementById('seg-avi');
+        var segP = document.getElementById('pol-avi');
+        var segR = document.getElementById('reg-avi');
+        var cP = document.getElementById('avi-p');
+        var cL = document.getElementById('avi-l');
+        var cRed = document.getElementById('avi-red');
+        var cBuf = document.getElementById('avi-buf');
+        var cMudo = document.getElementById('avi-mudo');
+        var vp = document.getElementById('vp-avi');
+        var vl = document.getElementById('vl-avi');
+        var tabla = document.getElementById('tabla-avi');
+        var lee = document.getElementById('lee-avi');
+        var pie = document.getElementById('pie-avi');
+
+        /* ---- constantes del modelo ---- */
+        var DT = 5;              /* minutos por paso */
+        var DIAS = 14;
+        var NP = DIAS * 1440 / DT;         /* 4032 pasos */
+        var MSG = 24;            /* bytes por mensaje, del tama&ntilde;o medido en la sesi&oacute;n 3 */
+        var BUF = 1200;          /* bytes de memoria que se dejan para la cola */
+        var RUIDO = 45;          /* +- unidades de lectura */
+        var RAMPA = 45;          /* la se&ntilde;al cruza el umbral en +-45 min */
+        var SALTO = 70;          /* lo que sube la se&ntilde;al por encima y por debajo del umbral */
+        var UMB = 600;
+        var RED0 = (6 * 1440 + 8 * 60) / DT, RED1 = RED0 + 9 * 60 / DT;
+        var MUDO = (9 * 1440 + 12 * 60) / DT;
+
+        var PROY = [
+          {nom: 'Riego autom&aacute;tico', qui: 'la planta necesita agua',
+           /* la tercera cae ENTERA dentro de la ca&iacute;da de red del d&iacute;a 6, a prop&oacute;sito */
+           eps: [[38 * 60, 9 * 60], [105 * 60, 7 * 60], [154 * 60, 5 * 60], [260 * 60, 6 * 60]]},
+          {nom: 'Aviso de aula mal ventilada', qui: 'el aula est&aacute; cargada', eps: null},
+          {nom: 'L&aacute;mpara de estudio', qui: 'hace falta luz', eps: null}
+        ];
+        function episodios(k){
+          if(PROY[k].eps) return PROY[k].eps;
+          var out = [], d;
+          if(k === 1){
+            for(d = 0; d < DIAS; d++){
+              if(d % 7 >= 5) continue;
+              out.push([d * 1440 + 11 * 60, 90]);
+              out.push([d * 1440 + 17 * 60, 75]);
+            }
+          } else {
+            for(d = 0; d < DIAS; d++) out.push([d * 1440 + 19 * 60, 240]);
+          }
+          return out;
+        }
+
+        var np = 0, pol = 0, reg = 0;
+
+        var sem = 1;
+        function semilla(s){ sem = s % 2147483647; if(sem <= 0) sem += 2147483646; }
+        function rnd(){ sem = (sem * 16807) % 2147483647; return (sem - 1) / 2147483646; }
+
+        function logi(c, lo, hi){
+          return Math.exp(Math.log(lo) + (+c.value / 1000) * (Math.log(hi) - Math.log(lo)));
+        }
+        function periodo(){ return Math.max(1, Math.round(logi(cP, 5, 720) / 5)) * 5; }   /* min */
+        function latido(){ return Math.max(1, Math.round(logi(cL, 60, 1440) / 30)) * 30; } /* min */
+        /* El que recibe solo puede dar la alarma si espera algo a un ritmo: el del
+           periodico, o el del latido. Con "por evento" a secas no espera nada. */
+        function ventana(){ return pol === 0 ? 2 * periodo() : (pol === 2 ? 2 * latido() : 0); }
+
+        function rotula(min){
+          if(min < 60) return min + ' min';
+          if(min % 60 === 0 && min < 1440) return (min / 60) + ' h';
+          if(min === 1440) return '1 d\u00eda';
+          return (min / 60).toFixed(1).replace('.', ',') + ' h';
+        }
+
+        /* ---- la simulacion entera: no hay ni un numero escrito a mano ---- */
+        function simula(){
+          var EPS = episodios(np), i, k;
+          var enEp = new Array(NP), lect = new Array(NP);
+          for(i = 0; i < NP; i++) enEp[i] = false;
+          EPS.forEach(function(e){
+            var a = Math.round(e[0] / DT), b = Math.round((e[0] + e[1]) / DT);
+            for(k = Math.max(0, a); k < Math.min(NP, b); k++) enEp[k] = true;
+          });
+          /* la se&ntilde;al cruza el umbral justo en el borde de cada episodio */
+          semilla(555000 + np);
+          for(i = 0; i < NP; i++){
+            var t = i * DT, base = -SALTO;
+            EPS.forEach(function(e){
+              var a = e[0], b = e[0] + e[1], v;
+              if(t >= a - RAMPA && t <= b + RAMPA){
+                if(t < a + RAMPA) v = ((t - a) / RAMPA) * SALTO;
+                else if(t > b - RAMPA) v = ((b - t) / RAMPA) * SALTO;
+                else v = SALTO;
+                if(v > base) base = v;
+              }
+            });
+            lect[i] = UMB + base + (rnd() * 2 - 1) * RUIDO;
+          }
+          /* lo que decide la placa */
+          var est = new Array(NP), hist = [];
+          for(i = 0; i < NP; i++){
+            hist.push(lect[i]);
+            if(hist.length > 10) hist.shift();
+            if(reg === 0){ est[i] = lect[i] > UMB; }
+            else {
+              var s = 0;
+              for(k = 0; k < hist.length; k++) s += hist[k];
+              est[i] = (s / hist.length) > UMB;
+            }
+          }
+          /* los mensajes que salen */
+          var P = Math.round(periodo() / DT), L = Math.round(latido() / DT);
+          var sale = [];          /* [paso, tipoEsProblema] */
+          var prev = false, ultAviso = -1e9, ultSalida = -1e9;
+          for(i = 0; i < NP; i++){
+            if(cMudo.checked && i >= MUDO) break;
+            var manda = false, esProb = est[i];
+            if(pol === 0){
+              if(i - ultSalida >= P){ manda = true; ultSalida = i; }
+            } else {
+              if(est[i] !== prev){ manda = true; ultAviso = i; }
+              else if(est[i] && i - ultAviso >= P){ manda = true; ultAviso = i; }
+              if(pol === 2 && !manda && i - ultSalida >= L){ manda = true; }
+            }
+            prev = est[i];
+            if(manda){ sale.push([i, esProb]); ultSalida = i; }
+          }
+          /* El viaje. El aparato REINTENTA: en cuanto vuelve la red vacia la cola,
+             sin esperar a tener algo nuevo que decir. Si se espera, el aviso que
+             guardo el martes puede no salir hasta el jueves, y eso no es guardar:
+             es perderlo despacio. */
+          var cola = [], llega = [], perdidos = 0, cabe = Math.floor(BUF / MSG), idx = 0;
+          for(i = 0; i < NP; i++){
+            var caida = cRed.checked && i >= RED0 && i < RED1;
+            if(!caida && cola.length){
+              for(k = 0; k < cola.length; k++) llega.push([i, cola[k][1], cola[k][0]]);
+              cola = [];
+            }
+            while(idx < sale.length && sale[idx][0] === i){
+              var msj = sale[idx]; idx++;
+              if(!caida) llega.push([i, msj[1], msj[0]]);
+              else if(cBuf.checked && cola.length < cabe) cola.push(msj);
+              else perdidos++;
+            }
+          }
+          perdidos += cola.length;
+          /* cuanto tarda una persona en enterarse de cada incidencia */
+          var espera = [], nunca = 0;
+          EPS.forEach(function(e){
+            var a = Math.round(e[0] / DT), b = Math.round((e[0] + e[1]) / DT), t = -1;
+            for(k = 0; k < llega.length; k++){
+              if(llega[k][1] && llega[k][2] >= a && llega[k][2] < b){ t = llega[k][0]; break; }
+            }
+            if(t < 0) nunca++; else espera.push((t - a) * DT);
+          });
+          var med = 0;
+          espera.forEach(function(x){ med += x; });
+          med = espera.length ? med / espera.length : 0;
+          /* el silencio: solo se descubre si hay un ritmo esperado */
+          var V = Math.round(ventana() / DT), silencio = [], hayRitmo = (pol !== 1);
+          if(hayRitmo && V > 0){
+            var hubo = new Array(NP);
+            for(i = 0; i < NP; i++) hubo[i] = false;
+            for(k = 0; k < llega.length; k++) if(llega[k][0] < NP) hubo[llega[k][0]] = true;
+            var ult = -1;
+            for(i = 0; i < NP; i++){
+              if(hubo[i]) ult = i;
+              else if(ult >= 0 && i - ult === V) silencio.push(i);
+            }
+          }
+          var primeraTrasMudo = -1, falsas = 0;
+          silencio.forEach(function(s){
+            if(cMudo.checked && s >= MUDO){ if(primeraTrasMudo < 0) primeraTrasMudo = s; }
+            else falsas++;
+          });
+          return {eps: EPS.length, sale: sale, llega: llega, perdidos: perdidos, nunca: nunca,
+                  espera: med, nEsp: espera.length, silencio: silencio, hayRitmo: hayRitmo,
+                  mudo: primeraTrasMudo, falsasSil: falsas, enEp: enEp,
+                  P: P, L: L, V: V, cabe: cabe};
+        }
+
+        /* ---- dibujo: catorce dias en una tira ----
+           Los rotulos de cada fila van en un MARGEN a la izquierda: encima de su
+           franja se com&iacute;an los numeros de dia. */
+        var X0 = 128, AN = 552;
+        function px(i){ return X0 + i / NP * AN; }
+
+        function pinta(R){
+          var m = '<style>.avit{font:10px var(--f-m);fill:var(--ink-soft)}'
+                + '.avie{font:10.5px var(--f-m);fill:var(--ink)}</style>';
+          var Y = 14, H = 13, PASO = 26, ABAJO = Y + 3 * PASO + H, i, k;
+          /* separadores de dia */
+          for(i = 0; i <= DIAS; i++){
+            var x = X0 + i / DIAS * AN;
+            m += '<path d="M' + x.toFixed(1) + ' ' + Y + ' V' + ABAJO
+               + '" stroke="var(--line-soft)" stroke-width="1"></path>';
+            if(i < DIAS && i % 2 === 0){
+              m += '<text x="' + (x + 2).toFixed(1) + '" y="' + (ABAJO + 13)
+                 + '" class="avit">d' + (i + 1) + '</text>';
+            }
+          }
+          var filas = [
+            [Y, 'lo que pasaba', 'var(--goo-verde)'],
+            [Y + PASO, 'mensajes que salen', 'var(--goo-azul)'],
+            [Y + 2 * PASO, 'le llegan a alguien', 'var(--goo-amarillo)'],
+            [Y + 3 * PASO, 'alarma de silencio', 'var(--goo-rojo)']
+          ];
+          filas.forEach(function(F){
+            m += '<rect x="' + X0 + '" y="' + F[0] + '" width="' + AN + '" height="' + H
+               + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="0.8"></rect>'
+               + '<text x="' + (X0 - 8) + '" y="' + (F[0] + 10) + '" text-anchor="end" class="avit">'
+               + F[1] + '</text>';
+          });
+          /* incidencias */
+          var ini = -1;
+          for(i = 0; i <= NP; i++){
+            var on = (i < NP) && R.enEp[i];
+            if(on && ini < 0) ini = i;
+            if(!on && ini >= 0){
+              m += '<rect x="' + px(ini).toFixed(1) + '" y="' + Y + '" width="'
+                 + Math.max(1, px(i) - px(ini)).toFixed(1) + '" height="' + H
+                 + '" fill="var(--goo-verde)" opacity=".75"></rect>';
+              ini = -1;
+            }
+          }
+          /* la caida de red */
+          if(cRed.checked){
+            m += '<rect x="' + px(RED0).toFixed(1) + '" y="' + Y + '" width="'
+               + Math.max(1.5, px(RED1) - px(RED0)).toFixed(1)
+               + '" height="' + (ABAJO - Y) + '" fill="var(--goo-rojo)" opacity=".13"></rect>'
+               + '<text x="' + px(RED0).toFixed(1) + '" y="' + (ABAJO + 26)
+               + '" class="avit">&#8593; se cae la red</text>';
+          }
+          if(cMudo.checked){
+            m += '<path d="M' + px(MUDO).toFixed(1) + ' ' + Y + ' V' + ABAJO
+               + '" stroke="var(--goo-rojo)" stroke-width="1.8" stroke-dasharray="4 3"></path>'
+               + '<text x="' + (px(MUDO) + 3).toFixed(1) + '" y="' + (ABAJO + 39)
+               + '" class="avit">&#8593; se queda mudo</text>';
+          }
+          /* mensajes: una raya por mensaje (a partir de cierta densidad se ve como una banda) */
+          /* una raya por mensaje, pero sin repetir columna de pixel: con el periodico
+             mas rapido salen 4.032 mensajes y no caben 4.032 elementos en 650 px */
+          var pinta1 = function(lista, y, col, idx){
+            var vistos = {};
+            for(var j = 0; j < lista.length; j++){
+              var xx = Math.round(px(idx === null ? lista[j] : lista[j][idx]));
+              if(vistos[xx]) continue;
+              vistos[xx] = 1;
+              m += '<path d="M' + xx + ' ' + y + ' v' + H + '" stroke="' + col
+                 + '" stroke-width="1" opacity=".85"></path>';
+            }
+          };
+          pinta1(R.sale, Y + PASO, 'var(--goo-azul)', 0);
+          pinta1(R.llega, Y + 2 * PASO, 'var(--goo-amarillo)', 0);
+          /* la alarma de silencio son uno o dos instantes en dos semanas: si se dibuja
+             con el mismo grosor que los mensajes no se ve, asi que lleva su marca */
+          R.silencio.forEach(function(s){
+            m += '<path d="M' + px(s).toFixed(1) + ' ' + (Y + 3 * PASO - 5) + ' v' + (H + 10)
+               + '" stroke="var(--goo-rojo)" stroke-width="2.4"></path>';
+          });
+          if(!R.hayRitmo){
+            m += '<text x="' + (X0 + 6) + '" y="' + (Y + 3 * PASO + 10) + '" class="avit">'
+               + 'no la hay: callarse es lo que hace este aparato cuando todo va bien</text>';
+          }
+          m += '<text x="' + X0 + '" y="' + (ABAJO + 56) + '" class="avie">' + DIAS
+             + ' d&iacute;as &middot; ' + PROY[np].nom + ' &middot; una incidencia es que '
+             + PROY[np].qui + '</text>';
+          svg.innerHTML = m;
+        }
+
+        function refresca(){
+          cL.disabled = (pol !== 2);
+          vp.textContent = rotula(periodo());
+          vl.textContent = (pol === 2) ? rotula(latido()) : '\u2014';
+          var R = simula();
+          pinta(R);
+
+          var alDia = R.llega.length / DIAS;
+          var bytesMes = R.sale.length * MSG * 30 / DIAS;
+          var fil = function(x, y, cl){
+            return '<div class="f ' + (cl || '') + '"><span>' + x + '</span><b>' + y + '</b></div>';
+          };
+          tabla.innerHTML =
+              fil('mensajes que salen', R.sale.length.toLocaleString('es-ES'))
+            + fil('se pierden en la ca&iacute;da', R.perdidos, R.perdidos > 0 ? 'mal' : 'bien')
+            + fil('le llegan a una persona', R.llega.length.toLocaleString('es-ES'))
+            + fil('&mdash; al d&iacute;a', alDia.toFixed(1).replace('.', ','),
+                  alDia > 30 ? 'mal' : '')
+            + fil('datos al mes', (bytesMes / 1024).toFixed(1).replace('.', ',') + ' kB', 'top')
+            + fil('incidencias', R.eps, 'top')
+            + fil('&mdash; no se supieron nunca', R.nunca, R.nunca > 0 ? 'mal' : 'bien')
+            + fil('&mdash; se tarda en saberlo', rotula(Math.round(R.espera)))
+            + fil('el silencio del aparato',
+                  !cMudo.checked ? 'no lo hay'
+                  : (R.mudo >= 0 ? ('se descubre en ' + rotula(Math.round((R.mudo - MUDO) * DT)))
+                                 : 'NO se descubre'),
+                  'top' + (cMudo.checked && R.mudo < 0 ? ' mal' : (cMudo.checked ? ' bien' : '')))
+            + fil('falsas alarmas de silencio', R.falsasSil, R.falsasSil > 0 ? 'mal' : '');
+
+          var h = '';
+          if(pol === 0){
+            h = 'Mandas una medida cada ' + rotula(periodo()) + ' pase lo que pase: '
+              + R.sale.length.toLocaleString('es-ES') + ' mensajes en dos semanas, '
+              + alDia.toFixed(1).replace('.', ',') + ' al d&iacute;a que le llegan a alguien. '
+              + '<b>Nadie lee eso.</b> A cambio, el ritmo es tan fijo que el silencio se nota.';
+          } else if(pol === 1){
+            h = 'Solo hablas cuando algo cambia: ' + R.sale.length.toLocaleString('es-ES')
+              + ' mensajes en dos semanas. Eso s&iacute; se lee. Pero mira la &uacute;ltima fila: si el '
+              + 'aparato se estropea y deja de medir, <b>no manda nada</b>... que es exactamente lo '
+              + 'mismo que hace cuando todo va bien. El fallo m&aacute;s peligroso es el que no se '
+              + 'distingue de la normalidad.';
+          } else {
+            h = 'Avisas cuando cambia algo <b>y</b> dices &laquo;sigo aqu&iacute;&raquo; cada '
+              + rotula(latido()) + '. Con eso, el que recibe puede dar la alarma si no le llega nada '
+              + 'en ' + rotula(ventana()) + '. Son ' + R.sale.length.toLocaleString('es-ES')
+              + ' mensajes: ' + alDia.toFixed(1).replace('.', ',') + ' al d&iacute;a.';
+          }
+          if(reg === 0){
+            h += ' Y f&iacute;jate en la fila azul: la placa decide con <b>el &uacute;ltimo valor</b>, '
+               + 'as&iacute; que en cada borde de una incidencia el estado tiembla y salen mensajes a '
+               + 'rachas. Poner la media de 10 &mdash;lo de la sesi&oacute;n anterior&mdash; no cambia '
+               + 'el protocolo: cambia <b>cu&aacute;ntas veces se dispara</b>.';
+          }
+          if(R.perdidos > 0){
+            h += ' Se han perdido <b>' + R.perdidos + '</b> mensajes mientras la red estaba ca&iacute;da: '
+               + (cBuf.checked ? 'la cola de ' + R.cabe + ' mensajes se llen&oacute;.'
+                               : 'sin cola en memoria, lo que no sale en ese momento no sale nunca.');
+          }
+          lee.innerHTML = h;
+
+          pie.innerHTML = 'Catorce d&iacute;as simulados paso a paso, uno cada ' + DT
+            + ' minutos (' + NP.toLocaleString('es-ES') + ' pasos). Cada mensaje se cuenta a <b>'
+            + MSG + ' bytes</b>, que es lo que med&iacute;a el PUBLISH de MQTT en la escena de la '
+            + 'sesi&oacute;n 3. La cola en memoria son <b>' + BUF + ' bytes</b>, o sea ' + R.cabe
+            + ' mensajes. El que recibe da la alarma de silencio si no le llega <b>nada</b> en el '
+            + 'doble del latido. <b>Las incidencias y la ca&iacute;da de red son un gui&oacute;n '
+            + 'nuestro</b>: lo que se sostiene es la comparaci&oacute;n entre las tres pol&iacute;ticas, '
+            + 'no las fechas.';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          np = +b.dataset.p; refresca();
+        });
+        segP.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-o]'); if(!b) return;
+          segP.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          pol = +b.dataset.o; refresca();
+        });
+        segR.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-r]'); if(!b) return;
+          segR.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          reg = +b.dataset.r; refresca();
+        });
+        [cP, cL].forEach(function(x){ x.addEventListener('input', refresca); });
+        [cRed, cBuf, cMudo].forEach(function(x){ x.addEventListener('change', refresca); });
+
+        refresca();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>El latido, y por qu&eacute; no es un capricho</h4>
+        <p>Un aparato que avisa solo cuando pasa algo tiene un agujero: <b>estropeado y tranquilo se
+           ven igual</b>. Los dos son silencio.</p>
+        <p>El <b>latido</b> (en ingl&eacute;s <i>heartbeat</i>) lo arregla poniendo el silencio del lado
+           de las averías: el aparato manda cada X horas un mensaje que solo dice que sigue vivo, y
+           el que recibe <b>da la alarma si no le llega nada</b> en un plazo, normalmente el doble.
+           Con eso, el fallo deja de ser invisible.</p>
+        <p>El precio hay que decirlo: el latido <b>gasta</b> mensajes, datos y bater&iacute;a aunque no
+           pase nada. Con latido de 1 hora salen <b>231</b> mensajes en dos semanas; con latido de
+           6 horas, <b>59</b>; con latido de un d&iacute;a, <b>33</b>. Y cuanto m&aacute;s espaciado,
+           m&aacute;s tarda en descubrirse el silencio: con 6 horas se descubre <b>9,3 horas</b>
+           despu&eacute;s de que el aparato se calle; con un d&iacute;a, m&aacute;s de <b>27</b>.</p>
+      </div>
+      <div class="copiar">
+        <h4>Lo que el latido <b>no</b> puede distinguir</h4>
+        <p>Quita la ca&iacute;da de red en la escena y prueba latidos de 1 h, 6 h y un d&iacute;a: cero
+           falsas alarmas siempre. Vu&eacute;lvela a poner: aparece <b>una falsa alarma</b> con casi
+           cualquier latido, y no es un fallo del dise&ntilde;o.</p>
+        <p>El que recibe solo sabe una cosa: <b>ha dejado de llegarme</b>. Y eso puede ser el aparato
+           roto, la red del centro ca&iacute;da, el router apagado o el servidor de vacaciones.
+           <b>Desde el otro lado no se distinguen</b>, porque todas se ven igual: silencio.</p>
+        <p>As&iacute; que la decisi&oacute;n no es &laquo;c&oacute;mo evito las falsas alarmas&raquo;
+           sino <b>&laquo;cu&aacute;nto silencio estoy dispuesto a aguantar antes de ir a mirar&raquo;</b>.
+           Si la red del centro se cae todas las semanas y tu plazo es de doce horas, vas a tener una
+           alarma falsa por semana, y a la cuarta nadie ir&aacute; a mirar. Esa es la conversaci&oacute;n
+           que hay que tener, y es de dise&ntilde;o, no de programaci&oacute;n.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Esto no lo hemos inventado nosotros: viene <b>dentro</b> del protocolo MQTT que visteis en
+           la sesi&oacute;n 3. Cuando un aparato se conecta al br&oacute;ker le dice dos cosas:</p>
+        <ul>
+          <li>un <b>Keep Alive</b>, que es el latido: si el br&oacute;ker no oye nada en vez y media ese
+              tiempo, da la conexi&oacute;n por perdida;</li>
+          <li>y un <b>mensaje de despedida</b> (en el protocolo se llama literalmente
+              <i>Will</i>, testamento): un mensaje que el aparato deja escrito al conectarse y que
+              <b>publica el br&oacute;ker en su nombre</b> si se cae sin avisar.</li>
+        </ul>
+        <p>O sea: la gente que dise&ntilde;&oacute; el protocolo para vigilar oleoductos por
+           sat&eacute;lite ya sab&iacute;a que el problema no era mandar el dato, sino <b>enterarse de
+           que ha dejado de llegar</b>.</p>
+      </div>
+      <div class="copiar">
+        <h4>Qu&eacute; se hace cuando no hay red</h4>
+        <p>Dos decisiones, y las dos son vuestras:</p>
+        <ol>
+          <li><b>&iquest;Se guarda o se tira?</b> Si se guarda, hace falta una <b>cola</b> en memoria.
+              Con 1.200 bytes libres y mensajes de 24 bytes caben <b>50</b>. Cuando se llena, lo
+              siguiente se pierde igual: una cola no es infinita, solo aplaza el problema.</li>
+          <li><b>&iquest;Se reintenta?</b> Guardar sin reintentar es <b>perder despacio</b>: si el
+              aparato solo vac&iacute;a la cola cuando le toca mandar algo nuevo, un aviso del martes
+              puede no salir hasta el jueves. El aparato tiene que <b>volver a intentarlo solo</b> en
+              cuanto vuelva la red.</li>
+        </ol>
+        <p>En la escena, con el riego y &laquo;por evento&raquo;: <b>sin cola</b>, la incidencia del
+           d&iacute;a 6 &mdash;que cae entera dentro de la ca&iacute;da&mdash; <b>no se supo nunca</b>.
+           Con cola, se supo <b>siete horas tarde</b>. No es lo mismo, y ninguna de las dos cosas es
+           gratis.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>En la escena hay un mando que parece que no pinta nada aqu&iacute;: <b>con qu&eacute; decide
+           la placa</b>. C&aacute;mbialo de &laquo;el &uacute;ltimo valor&raquo; a &laquo;la media de
+           10&raquo; y mira la fila azul del dibujo.</p>
+        <p>Con el &uacute;ltimo valor, en cada borde de una incidencia la lectura tiembla alrededor del
+           umbral y el estado cambia varias veces seguidas: salen <b>42</b> mensajes en vez de
+           <b>26</b> por el mismo n&uacute;mero de incidencias. La pol&iacute;tica de aviso es la misma;
+           lo que ha cambiado es <b>la sesi&oacute;n anterior</b>. Lo que decidiste sobre la memoria
+           te sale en la factura de datos.</p>
+      </div>
+      <div class="video" id="video-c6-esp" data-vid="asVv6VZId_o">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: ESP8266: Subir datos a un servidor mediante WiFi">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>ESP8266: Subir datos a un servidor mediante WiFi</b>
+            <span>Canal: Prometec</span>
+          </span>
+        </button>
+        <p class="video-nota">El m&oacute;dulo de la foto, mandando datos de verdad a un servidor. Sirve para ver el montaje y los comandos antes de intentarlo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=asVv6VZId_o" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 6 &middot; El contrato de avisos de vuestro proyecto</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.3</span><span class="chip">C.4</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; c&oacute;mo sale el dato (5 min)</h4>
+          <p>Elegid <b>uno</b> de los tres caminos de la tabla de arriba para vuestro proyecto y
+             escribid, en la libreta: cu&aacute;l, <b>cu&aacute;nto cuesta</b>, qu&eacute; hace falta
+             adem&aacute;s (&iquest;un ordenador encendido? &iquest;un adaptador de 3,3 V?) y
+             qu&eacute; pasa si eso falla.</p>
+          <h4>Segunda parte &middot; medir las tres pol&iacute;ticas (7 min)</h4>
+          <p>Con la escena en <b>vuestro</b> proyecto, la ca&iacute;da de red puesta y el aparato mudo
+             marcado, anotad esta tabla:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+              <th>pol&iacute;tica</th><th>mensajes que llegan</th><th>al d&iacute;a</th>
+              <th>incidencias que no se supieron</th><th>&iquest;se descubre el silencio?</th></tr>
+            <tr><td>peri&oacute;dico cada 5 min</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>peri&oacute;dico cada 1 h</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>por evento</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>evento + latido de 6 h</td><td></td><td></td><td></td><td></td></tr>
+          </table>
+          <h4>Tercera parte &middot; escribir el contrato (8 min)</h4>
+          <p>Un <b>contrato de avisos</b> son seis l&iacute;neas que caben en media hoja y que
+             cualquiera del grupo tiene que poder leer en voz alta. Escribid las vuestras:</p>
+          <ol class="pasos">
+            <li><b>Qu&eacute; se manda</b>: los campos, con sus unidades (los de la sesi&oacute;n 3).</li>
+            <li><b>Cu&aacute;ndo</b>: qu&eacute; hecho dispara un mensaje.</li>
+            <li><b>Cada cu&aacute;nto se repite</b> mientras el problema siga.</li>
+            <li><b>Cada cu&aacute;nto es el latido</b>, y por qu&eacute; ese plazo y no otro.</li>
+            <li><b>Qu&eacute; pasa si no hay red</b>: cu&aacute;ntos mensajes se guardan y cu&aacute;ndo
+                se reintenta.</li>
+            <li><b>Qu&eacute; hace quien recibe</b> si deja de llegarle todo: cu&aacute;nto espera antes
+                de preocuparse y <b>a qui&eacute;n avisa</b>, con nombre.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El camino elegido, con su precio y su pega <b>(2 puntos)</b>.</li>
+            <li>La tabla de las cuatro filas, completa <b>(3 puntos)</b>.</li>
+            <li>Las seis l&iacute;neas del contrato, todas <b>(3 puntos)</b>.</li>
+            <li>El plazo del latido est&aacute; <b>razonado</b> con la ca&iacute;da de red
+                <b>(1 punto)</b>.</li>
+            <li>La l&iacute;nea 6 se&ntilde;ala a una persona concreta <b>(1 punto)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>Un Arduino Uno no tiene wifi. Di dos maneras de sacar el dato del aula y su pega.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Por el <b>cable USB</b> a un ordenador que lo suba &eacute;l (0 &euro;, pero hace falta el ordenador encendido al lado) o con un <b>m&oacute;dulo ESP-01</b> (unos 2 &euro;, pero va a 3,3 V y hay que adaptar la tensi&oacute;n). La tercera es cambiar el Uno por un <b>ESP32</b>, que ya lo trae.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; avisar cada 30 segundos es peor que avisar por evento?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque son <b>2.880 mensajes al d&iacute;a</b> y casi ninguno dice nada nuevo. Un aviso que llega miles de veces deja de leerse: la gente silencia la notificaci&oacute;n y entonces no se entera ni de los que s&iacute; importaban. Y encima gasta datos y bater&iacute;a.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es un latido y qu&eacute; problema resuelve?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Un mensaje cada pocas horas que solo dice <b>&laquo;sigo aqu&iacute;&raquo;</b>. Resuelve que un aparato estropeado y un aparato tranquilo <b>se ven igual</b>: los dos callan. Con latido, el que recibe puede dar la alarma si no le llega nada en un plazo. Es lo mismo que hace el <i>Keep Alive</i> de MQTT.</p></div></details></li>
+        <li>Se cae la red nueve horas y ten&eacute;is una cola de 50 mensajes en memoria. &iquest;Basta con guardarlos?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. Hacen falta las dos cosas: <b>guardar</b> y <b>reintentar</b>. Si el aparato solo vac&iacute;a la cola cuando le toca mandar algo nuevo, un aviso puede quedarse dentro d&iacute;as. Y aunque reintente, la cola tiene tope: cuando caben 50 y llegan 60, diez se pierden.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya mide bien, decide bien y avisa bien. Todo eso funciona porque <b>t&uacute; escribiste la
+        regla</b>. En la sesi&oacute;n 4 entrenaste un modelo con puntos que pusiste con el
+        rat&oacute;n y sal&iacute;a bonito. Ahora vas a entrenarlo con <b>vuestras medidas de
+        verdad</b>, y el primer n&uacute;mero que salga va a ser estupendo. Ese es el problema.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-7" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 7 &middot; 60 minutos</div>
+      <h2>Acierta el 93 %. Con los vuestros.</h2>
+      <p>Los mismos ejemplos y el mismo modelo dan 93 % o 73 % seg&uacute;n una cosa que casi nadie mira: c&oacute;mo has partido los datos.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.1</span><span class="chip sab">C.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>En la sesi&oacute;n 4 entrenaste un clasificador pinchando puntos en un plano. Sal&iacute;a
+         una recta, la recta separaba y todo el mundo qued&oacute; contento. Los puntos los
+         invent&aacute;bamos nosotros.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo de hoy</span>
+        Vuestro aparato lleva d&iacute;as midiendo. Coged <b>120 medidas</b> guardadas &mdash;treinta
+        de cada una de cuatro jornadas&mdash; y poned a cada una, <b>a mano</b>, si en ese momento
+        hac&iacute;a falta actuar o no. Entrenad con 40 y probad con otras 40 elegidas al azar.
+      </div>
+      <p>Sale un <b>93 %</b>. En un trabajo de clase eso se escribe en negrita y se pasa a la
+         siguiente diapositiva.</p>
+      <p>Antes de eso, hac&eacute;is una cosa que no estaba prevista: le prest&aacute;is el modelo al
+         grupo de al lado para que lo pruebe en <b>su</b> maceta. Y ah&iacute; se cae.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Las 40 medidas con las que has comprobado el modelo, <b>&iquest;de d&oacute;nde han
+           salido?</b> De las mismas cuatro jornadas y de las mismas macetas con las que entrenaste.
+           Entonces, ese 93 %, &iquest;qu&eacute; pregunta contesta <b>exactamente</b>?</p>
+      </div>
+      <p>Contesta a &laquo;&iquest;c&oacute;mo le va en estas cuatro macetas?&raquo;. Y la pregunta que
+         te importa era otra: <b>&laquo;&iquest;c&oacute;mo le va en una maceta que no ha visto?&raquo;</b>
+         Son dos preguntas distintas, tienen dos respuestas distintas, y la diferencia entre las dos no
+         est&aacute; en el modelo ni en los datos: est&aacute; en <b>c&oacute;mo los has partido</b>.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>Cuatro cosas, y en este orden</h4>
+        <ol>
+          <li><b>Recoger.</b> Medidas de verdad, con su hora, de tu sensor. No valen las de internet:
+              tu sensor no lee como el suyo.</li>
+          <li><b>Etiquetar.</b> Una persona mira cada medida y escribe la respuesta correcta. Esto lo
+              hace alguien, una a una, y es la parte cara.</li>
+          <li><b>Partir.</b> Separar unos ejemplos para entrenar y <b>otros para probar</b>, y decidir
+              con qu&eacute; criterio se separan. Aqu&iacute; se gana o se pierde todo.</li>
+          <li><b>Medir.</b> Los tres n&uacute;meros de la sesi&oacute;n 4, y uno m&aacute;s que
+              a&ntilde;adimos hoy.</li>
+        </ol>
+      </div>
+      <p>La escena tiene las 120 medidas. Cambia el mando de <b>&laquo;parto los datos&raquo;</b> de
+         <b>al azar</b> a <b>por jornada</b> y no toques nada m&aacute;s: ni los ejemplos, ni el modelo,
+         ni el n&uacute;mero de ejemplos. Mira las dos filas de acierto.</p>
+
+      <div class="escena" id="esc-dat">
+        <div class="escena-barra">
+          <span class="escena-titulo">Vuestras 120 medidas &middot; y lo que dice el n&uacute;mero seg&uacute;n c&oacute;mo las partas</span>
+          <div class="seg" id="seg-dat">
+            <button type="button" data-p="0" aria-pressed="true">Riego</button>
+            <button type="button" data-p="1">Ventilaci&oacute;n</button>
+            <button type="button" data-p="2">L&aacute;mpara</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="dat">
+            <div class="dat-izq">
+              <svg viewBox="0 0 430 312" id="svg-dat" role="img"
+                   aria-label="Las 120 medidas de las cuatro jornadas, con su etiqueta, y la recta que ha aprendido el modelo"></svg>
+              <p class="dat-rot">Acierto en los de prueba seg&uacute;n cu&aacute;ntos ejemplos uses</p>
+              <svg viewBox="0 0 430 130" id="curva-dat" role="img"
+                   aria-label="Curva con el acierto sobre los ejemplos de prueba en funci&oacute;n del n&uacute;mero de ejemplos de entrenamiento"></svg>
+            </div>
+            <div class="dat-der">
+              <div class="dat-fila">
+                <label>Parto los datos</label>
+                <div class="seg" id="corte-dat">
+                  <button type="button" data-c="0" aria-pressed="true">al azar</button>
+                  <button type="button" data-c="1">por jornada</button>
+                </div>
+              </div>
+              <div class="dat-fila">
+                <label>Le doy</label>
+                <div class="seg" id="cars-dat">
+                  <button type="button" data-k="0">solo la lectura</button>
+                  <button type="button" data-k="1" aria-pressed="true">lectura + tendencia</button>
+                </div>
+              </div>
+              <div class="dat-fila">
+                <label for="dat-n">Ejemplos que uso</label>
+                <input type="range" id="dat-n" min="5" max="80" step="5" value="40">
+                <span class="val" id="vn-dat"></span>
+              </div>
+              <label class="dat-chk"><input type="checkbox" id="dat-jor" checked>
+                <span>pintar de qu&eacute; <b>jornada</b> es cada medida</span></label>
+              <div class="dat-tabla" id="tabla-dat"></div>
+            </div>
+          </div>
+          <p class="dat-lee" id="lee-dat"></p>
+        </div>
+        <div class="pie" id="pie-dat"></div>
+      </div>
+
+      <style>
+      .dat{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+      .dat-izq{flex:1 1 380px;min-width:300px}
+      .dat-der{flex:1 1 300px;min-width:275px}
+      .dat-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:10px 0 4px}
+      .dat-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 9px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .dat-fila label{min-width:112px}
+      .dat-fila input[type="range"]{flex:1 1 110px;min-width:95px;accent-color:var(--goo-azul)}
+      .dat-fila .val{font-weight:500;color:var(--goo-azul);min-width:60px;text-align:right}
+      .dat-fila .seg button{padding:5px 9px;font-size:11.5px}
+      .dat-chk{display:flex;align-items:flex-start;gap:7px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 9px;cursor:pointer;line-height:1.5}
+      .dat-chk input{accent-color:var(--goo-azul);margin-top:2px}
+      .dat-chk b{color:var(--ink)}
+      .dat-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12px;line-height:1.7}
+      .dat-tabla .f{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .dat-tabla .f span:first-child{color:var(--ink-soft)}
+      .dat-tabla .f b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
+      .dat-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .dat-tabla .mal b{color:var(--goo-rojo)}
+      .dat-tabla .bien b{color:var(--goo-verde)}
+      .dat-lee{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:12px 0 0}
+      .dat-lee b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-dat');
+        if(!svg) return;
+        var curva = document.getElementById('curva-dat');
+        var seg = document.getElementById('seg-dat');
+        var segC = document.getElementById('corte-dat');
+        var segK = document.getElementById('cars-dat');
+        var cN = document.getElementById('dat-n');
+        var cJor = document.getElementById('dat-jor');
+        var vn = document.getElementById('vn-dat');
+        var tabla = document.getElementById('tabla-dat');
+        var lee = document.getElementById('lee-dat');
+        var pie = document.getElementById('pie-dat');
+
+        /* ---- el banco de medidas ---- */
+        var JORN = 4, M = 30;
+        var OFF = [0, 45, -45, 180];        /* la 4.a jornada es OTRA maceta / OTRA aula */
+        var R0 = 200, R1 = 820;             /* las cuatro barren el MISMO margen */
+        var AMP = 250;                      /* cuanto puede valer la tendencia */
+        var PESO = 1.2;                     /* lo que pesa la tendencia en la regla de verdad */
+        var LIM = 560;
+        var LR = 0.08, PASADAS = 200;
+        var NPRUEBA = 40;
+
+        var PROY = [
+          {nom: 'Riego autom&aacute;tico', ejeX: 'lectura de la sonda de humedad',
+           ejeY: 'cu&aacute;nto ha cambiado en la &uacute;ltima hora',
+           A: 'hay que regar', B: 'as&iacute; est&aacute; bien',
+           jor: 'maceta', jors: ['maceta 1', 'maceta 2', 'maceta 3', 'maceta 4']},
+          {nom: 'Aviso de aula mal ventilada', ejeX: 'lectura del sensor de aire',
+           ejeY: 'cu&aacute;nto ha cambiado en la &uacute;ltima hora',
+           A: 'hay que abrir', B: 'as&iacute; est&aacute; bien',
+           jor: 'aula', jors: ['aula 12', 'aula 14', 'taller', 'aula 21']},
+          {nom: 'L&aacute;mpara de estudio', ejeX: 'lectura de la LDR',
+           ejeY: 'cu&aacute;nto ha cambiado en la &uacute;ltima hora',
+           A: 'hay que encender', B: 'as&iacute; est&aacute; bien',
+           jor: 'puesto', jors: ['puesto 1', 'puesto 2', 'puesto 3', 'puesto 4']}
+        ];
+
+        var np = 0, corte = 0, cars = 1;
+
+        var sem = 1;
+        function semilla(s){ sem = s % 2147483647; if(sem <= 0) sem += 2147483646; }
+        function rnd(){ sem = (sem * 16807) % 2147483647; return (sem - 1) / 2147483646; }
+
+        function banco(){
+          var out = [], j, k;
+          for(j = 0; j < JORN; j++){
+            semilla(313000 + np * 7 + j);
+            for(k = 0; k < M; k++){
+              var r = R0 + (k + rnd() * 0.9) / M * (R1 - R0);
+              var tend = (rnd() * 2 - 1) * AMP;
+              var lect = Math.round(r + OFF[j] + (rnd() * 2 - 1) * 12);
+              lect = Math.max(0, Math.min(1023, lect));
+              out.push({id: out.length, x1: lect, x2: Math.round(tend), d: j,
+                        c: (r + PESO * tend > LIM) ? 1 : 0});
+            }
+          }
+          return out;
+        }
+
+        function baraja(n, s){
+          var idx = [], i, j, t;
+          for(i = 0; i < n; i++) idx.push(i);
+          semilla(s);
+          for(i = n - 1; i > 0; i--){
+            j = Math.floor(rnd() * (i + 1));
+            t = idx[i]; idx[i] = idx[j]; idx[j] = t;
+          }
+          return idx;
+        }
+
+        function parte(n){
+          var B = banco(), prueba = [], pool = [], idx, i;
+          if(corte === 0){
+            idx = baraja(B.length, 90210 + np);
+            for(i = 80; i < idx.length; i++) prueba.push(B[idx[i]]);
+            for(i = 0; i < 80; i++) pool.push(B[idx[i]]);
+          } else {
+            var resto = [];
+            for(i = 0; i < B.length; i++){
+              if(B[i].d === 3) prueba.push(B[i]); else resto.push(i);
+            }
+            idx = baraja(resto.length, 90210 + np);
+            for(i = 0; i < idx.length; i++) pool.push(B[resto[idx[i]]]);
+          }
+          return {tr: pool.slice(0, n), pr: prueba, B: B};
+        }
+
+        function nx(e){ return [e.x1 / 1023, cars === 1 ? (e.x2 + 300) / 600 : 0]; }
+
+        /* Perceptron DE BOLSILLO: se queda con los mejores pesos que ha visto. */
+        function entrena(tr){
+          var w1 = 0, w2 = 0, b = 0, mejor = -1, mw = [0, 0, 0], p, i, e, q, ok, cambios, s;
+          for(p = 0; p < PASADAS; p++){
+            ok = 0;
+            for(i = 0; i < tr.length; i++){
+              e = tr[i]; q = nx(e);
+              if(((w1 * q[0] + w2 * q[1] + b) >= 0) === (e.c === 1)) ok++;
+            }
+            if(ok > mejor){ mejor = ok; mw = [w1, w2, b]; }
+            if(ok === tr.length) break;
+            cambios = 0;
+            for(i = 0; i < tr.length; i++){
+              e = tr[i]; q = nx(e); s = (e.c === 1) ? 1 : -1;
+              if(s * (w1 * q[0] + w2 * q[1] + b) <= 0){
+                w1 += LR * s * q[0]; w2 += LR * s * q[1]; b += LR * s; cambios++;
+              }
+            }
+            if(cambios === 0) break;
+          }
+          return mw;
+        }
+
+        function dice(w, e){ var q = nx(e); return (w[0] * q[0] + w[1] * q[1] + w[2]) >= 0; }
+        function acierto(w, lista){
+          if(!lista.length) return 0;
+          var ok = 0;
+          lista.forEach(function(e){ if(dice(w, e) === (e.c === 1)) ok++; });
+          return 100 * ok / lista.length;
+        }
+        function tonto(lista){
+          if(!lista.length) return 0;
+          var a = 0;
+          lista.forEach(function(e){ if(e.c === 1) a++; });
+          return 100 * Math.max(a, lista.length - a) / lista.length;
+        }
+        /* el umbral escrito a mano: el mejor SOBRE LOS DE ENTRENAMIENTO */
+        function umbral(tr, pr){
+          if(!tr.length || !pr.length) return {pct: 0, u: 0};
+          var mejor = -1, uu = 0, u, ok, i;
+          for(u = 0; u < 1024; u += 4){
+            ok = 0;
+            for(i = 0; i < tr.length; i++) if((tr[i].x1 > u) === (tr[i].c === 1)) ok++;
+            if(ok > mejor){ mejor = ok; uu = u; }
+          }
+          ok = 0;
+          for(i = 0; i < pr.length; i++) if((pr[i].x1 > uu) === (pr[i].c === 1)) ok++;
+          return {pct: 100 * ok / pr.length, u: uu};
+        }
+
+        /* ---- dibujo del plano ---- */
+        var X0 = 48, Y0 = 14, AN = 360, AL = 230;
+        function px(v){ return X0 + v / 1023 * AN; }
+        function py(v){ return Y0 + AL - (v + 300) / 600 * AL; }
+
+        function pinta(R, w){
+          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft)}'
+                + '.date{font:10.5px var(--f-m);fill:var(--ink)}</style>';
+          m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + AN + '" height="' + AL
+             + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
+          /* la recta aprendida, en coordenadas normalizadas */
+          if(w[0] !== 0 || w[1] !== 0){
+            var pts = [];
+            [[0, null], [1, null], [null, 0], [null, 1]].forEach(function(q){
+              var a, bb;
+              if(q[0] !== null && w[1] !== 0){
+                a = -(w[2] + w[0] * q[0]) / w[1];
+                if(a >= 0 && a <= 1) pts.push([q[0], a]);
+              }
+              if(q[1] !== null && w[0] !== 0){
+                bb = -(w[2] + w[1] * q[1]) / w[0];
+                if(bb >= 0 && bb <= 1) pts.push([bb, q[1]]);
+              }
+            });
+            if(pts.length >= 2){
+              m += '<path d="M' + px(pts[0][0] * 1023).toFixed(1) + ' '
+                 + py(pts[0][1] * 600 - 300).toFixed(1) + 'L' + px(pts[1][0] * 1023).toFixed(1)
+                 + ' ' + py(pts[1][1] * 600 - 300).toFixed(1)
+                 + '" stroke="var(--ink)" stroke-width="2.2"></path>';
+            }
+          }
+          var jorn = cJor.checked;
+          var enTr = {};
+          R.tr.forEach(function(e){ enTr[e.id] = 1; });
+          var enPr = {};
+          R.pr.forEach(function(e){ enPr[e.id] = 1; });
+          R.B.forEach(function(e){
+            var k = e.id, x = px(e.x1), y = py(e.x2);
+            var col = (e.c === 1) ? 'var(--goo-rojo)' : 'var(--goo-azul)';
+            if(enTr[k]){
+              m += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="4.6" fill="' + col
+                 + '" stroke="var(--surface)" stroke-width="1.2"></circle>';
+              if(jorn){
+                m += '<text x="' + (x + 6).toFixed(1) + '" y="' + (y - 4).toFixed(1)
+                   + '" class="datt">' + (e.d + 1) + '</text>';
+              }
+            } else if(enPr[k]){
+              var mal = dice(w, e) !== (e.c === 1);
+              m += '<rect x="' + (x - 4.2).toFixed(1) + '" y="' + (y - 4.2).toFixed(1)
+                 + '" width="8.4" height="8.4" fill="none" stroke="' + col
+                 + '" stroke-width="1.8"></rect>'
+                 + (mal ? '<path d="M' + (x - 6.5).toFixed(1) + ' ' + (y - 6.5).toFixed(1)
+                    + ' l13 13 M' + (x + 6.5).toFixed(1) + ' ' + (y - 6.5).toFixed(1)
+                    + ' l-13 13" stroke="var(--ink)" stroke-width="1.2" opacity=".8"></path>' : '');
+            } else {
+              m += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1)
+                 + '" r="2" fill="var(--line)"></circle>';
+            }
+          });
+          var c = PROY[np];
+          m += '<text x="' + X0 + '" y="' + (Y0 + AL + 15) + '" class="datt">0</text>'
+             + '<text x="' + (X0 + AN) + '" y="' + (Y0 + AL + 15) + '" text-anchor="end" class="datt">1023</text>'
+             + '<text x="' + (X0 + AN / 2) + '" y="' + (Y0 + AL + 31) + '" text-anchor="middle" class="date">'
+             + c.ejeX + '</text>'
+             + '<text x="' + (X0 - 6) + '" y="' + (Y0 + 9) + '" text-anchor="end" class="datt">+300</text>'
+             + '<text x="' + (X0 - 6) + '" y="' + (Y0 + AL) + '" text-anchor="end" class="datt">&minus;300</text>'
+             + '<text x="13" y="' + (Y0 + AL / 2) + '" text-anchor="middle" class="date" transform="rotate(-90 13 '
+             + (Y0 + AL / 2) + ')">' + c.ejeY + '</text>'
+             /* la leyenda, en dos lineas: en una se salia del viewBox */
+             + '<text x="6" y="' + (Y0 + AL + 46) + '" class="datt">'
+             + 'relleno = ejemplo de entrenamiento &middot; cuadro = de prueba</text>'
+             + '<text x="6" y="' + (Y0 + AL + 59) + '" class="datt">'
+             + 'aspa = el modelo falla en &eacute;l &middot; punto gris = medida sin usar</text>';
+          svg.innerHTML = m;
+        }
+
+        function pintaCurva(R){
+          var NS = [5, 10, 20, 40, 60, 80], vals = [], i;
+          var maxTr = (corte === 0) ? 80 : 90;
+          NS.forEach(function(n){
+            var P = parte(Math.min(n, maxTr));
+            vals.push(acierto(entrena(P.tr), P.pr));
+          });
+          var CX0 = 48, CY0 = 12, CAN = 360, CAL = 82;
+          var qx = function(k){ return CX0 + k / (NS.length - 1) * CAN; };
+          var qy = function(v){
+            return CY0 + CAL - (Math.max(40, Math.min(100, v)) - 40) / 60 * CAL;
+          };
+          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft)}</style>';
+          m += '<rect x="' + CX0 + '" y="' + CY0 + '" width="' + CAN + '" height="' + CAL
+             + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
+          [50, 75, 100].forEach(function(v){
+            m += '<path d="M' + CX0 + ' ' + qy(v).toFixed(1) + ' H' + (CX0 + CAN)
+               + '" stroke="var(--line-soft)" stroke-width="1"></path>'
+               + '<text x="' + (CX0 - 6) + '" y="' + (qy(v) + 3).toFixed(1)
+               + '" text-anchor="end" class="datt">' + v + ' %</text>';
+          });
+          var d = [];
+          for(i = 0; i < NS.length; i++) d.push(qx(i).toFixed(1) + ' ' + qy(vals[i]).toFixed(1));
+          m += '<path d="M' + d.join(' L') + '" fill="none" stroke="var(--goo-azul)" stroke-width="2"></path>';
+          for(i = 0; i < NS.length; i++){
+            var aqui = (NS[i] === +cN.value);
+            m += '<circle cx="' + qx(i).toFixed(1) + '" cy="' + qy(vals[i]).toFixed(1) + '" r="'
+               + (aqui ? 5 : 3) + '" fill="' + (aqui ? 'var(--goo-amarillo)' : 'var(--goo-azul)')
+               + '"></circle>'
+               + '<text x="' + qx(i).toFixed(1) + '" y="' + (CY0 + CAL + 14)
+               + '" text-anchor="middle" class="datt">' + NS[i] + '</text>';
+          }
+          m += '<text x="' + (CX0 + CAN) + '" y="' + (CY0 + CAL + 28) + '" text-anchor="end" '
+             + 'class="datt">ejemplos de entrenamiento</text>';
+          curva.innerHTML = m;
+        }
+
+        function refresca(){
+          var n = +cN.value, maxTr = (corte === 0) ? 80 : 90;
+          n = Math.min(n, maxTr);
+          vn.textContent = n;
+          var R = parte(n), w = entrena(R.tr);
+          var ent = acierto(w, R.tr), pru = acierto(w, R.pr), ton = tonto(R.pr);
+          var um = umbral(R.tr, R.pr);
+          pinta(R, w);
+          pintaCurva(R);
+
+          var fil = function(x, y, cl){
+            return '<div class="f ' + (cl || '') + '"><span>' + x + '</span><b>' + y + '</b></div>';
+          };
+          tabla.innerHTML =
+              fil('medidas recogidas', (JORN * M) + ' en ' + JORN + ' jornadas')
+            + fil('ejemplos de entrenamiento', R.tr.length)
+            + fil('ejemplos de prueba', R.pr.length + (corte === 0 ? ' (mezclados)' : ' (la 4.&ordf;)'))
+            + fil('acierta en SUS ejemplos', ent.toFixed(0) + ' %', 'top')
+            + fil('acierta en los de prueba', pru.toFixed(0) + ' %',
+                  pru < ent - 12 ? 'mal' : 'bien')
+            + fil('el modelo tonto acertar&iacute;a', ton.toFixed(0) + ' %')
+            + fil('un umbral escrito a mano', um.pct.toFixed(0) + ' % (lectura &gt; ' + um.u + ')', 'top');
+
+          var h = '';
+          if(corte === 0){
+            h = 'Has partido <b>al azar</b>: en los ' + R.pr.length + ' de prueba hay medidas de '
+              + 'las <b>cuatro</b> jornadas, las mismas con las que has entrenado. El '
+              + pru.toFixed(0) + ' % que sale ah&iacute; contesta a &laquo;&iquest;c&oacute;mo le va en '
+              + 'estas cuatro ' + PROY[np].jor + 's?&raquo;, que no es la pregunta que te importa.';
+          } else {
+            h = 'Has dejado fuera la <b>cuarta jornada entera</b>: el modelo no ha visto ni una medida '
+              + 'de esa ' + PROY[np].jor + '. Sigue acertando el ' + ent.toFixed(0) + ' % de los '
+              + 'suyos y baja al <b>' + pru.toFixed(0) + ' %</b> en la nueva. No se ha estropeado: '
+              + 'es que su sensor lee distinto, y el modelo aprendi&oacute; el n&uacute;mero, no el '
+              + 'problema.';
+          }
+          if(cars === 0){
+            h += ' Adem&aacute;s le est&aacute;s dando <b>una sola caracter&iacute;stica</b>, la lectura. '
+               + 'Con una sola, entrenar y poner un umbral son <b>lo mismo</b>: mira las dos '
+               + '&uacute;ltimas filas.';
+          }
+          if(um.pct >= pru){
+            h += ' <b style="color:var(--goo-rojo)">Y ah&iacute; el umbral escrito a mano empata o gana '
+               + 'al modelo.</b> Si un <code>si</code> de una l&iacute;nea hace lo mismo, el '
+               + '<code>si</code> es mejor: se lee, se depura y cabe en la placa.';
+          }
+          lee.innerHTML = h;
+
+          pie.innerHTML = '<b>' + PROY[np].nom + '.</b> Cuatro jornadas de ' + M + ' medidas. Las '
+            + 'cuatro barren el <b>mismo</b> margen de magnitud real; lo &uacute;nico que las '
+            + 'distingue es el <b>desv&iacute;o de su sensor</b> (0, +45, &minus;45 y +180 unidades), '
+            + 'que es lo que pasa de verdad al cambiar de ' + PROY[np].jor + '. La regla que decide '
+            + 'de verdad es <b>lectura real + 1,2 &middot; tendencia &gt; ' + LIM + '</b>, y el modelo '
+            + '<b>no la conoce</b>. El entrenamiento es un perceptr&oacute;n <b>de bolsillo</b>: paso '
+            + '0,08, tope de ' + PASADAS + ' pasadas, y se queda con los mejores pesos que haya visto '
+            + '(sin eso, como estos ejemplos no se pueden separar del todo, el resultado depender&iacute;a '
+            + 'de con cu&aacute;l acab&oacute; la &uacute;ltima pasada). Todas las cifras se calculan al '
+            + 'pulsar, no est&aacute;n escritas.';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          np = +b.dataset.p; refresca();
+        });
+        segC.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-c]'); if(!b) return;
+          segC.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          corte = +b.dataset.c; refresca();
+        });
+        segK.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-k]'); if(!b) return;
+          segK.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          cars = +b.dataset.k; refresca();
+        });
+        cN.addEventListener('input', refresca);
+        cJor.addEventListener('change', refresca);
+
+        refresca();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Lo que acaba de pasar</h4>
+        <p>Los mismos 40 ejemplos. El mismo modelo. El mismo acierto sobre los suyos. Y el acierto
+           sobre los de prueba baja de un <b>93 %</b> a un <b>73 %</b>.</p>
+        <p>No es que el modelo se haya estropeado: es que la primera vez le estabas preguntando
+           <b>por lo que ya sab&iacute;a</b>. Cuando el conjunto de prueba viene del mismo sitio, del
+           mismo d&iacute;a y del mismo sensor que el de entrenamiento, el n&uacute;mero que sale est&aacute;
+           <b>inflado</b>. En ingl&eacute;s a esto se le llama <i>data leakage</i>; en castellano,
+           <b>fuga</b>: informaci&oacute;n del conjunto de prueba que se ha colado en el de
+           entrenamiento sin que nadie la invitara.</p>
+        <p><b>La regla, que es de las que se escriben en la primera p&aacute;gina:</b> el conjunto de
+           prueba tiene que ser de <b>otro d&iacute;a, otro sitio u otro aparato</b>. Si no puedes
+           conseguir eso, di en la memoria que tu n&uacute;mero es un <b>techo</b>, no una medida.</p>
+      </div>
+      <div class="copiar">
+        <h4>Los dos suelos que hay que superar</h4>
+        <p>En la sesi&oacute;n 4 aparecieron los tres n&uacute;meros. Hoy hacen falta los cuatro:</p>
+        <ol>
+          <li>Acierto sobre <b>sus propios ejemplos</b>. No dice nada.</li>
+          <li>Acierto sobre <b>los de prueba</b>, bien separados. Es la medida.</li>
+          <li>Lo que acertar&iacute;a el <b>modelo tonto</b> que dice siempre lo mismo. Primer suelo.</li>
+          <li><b>Lo que acertar&iacute;a un <code>si</code> de una l&iacute;nea</b>: el mejor umbral que
+              puedas escribir a mano. Segundo suelo, y es el que se olvida.</li>
+        </ol>
+        <p>Si tu modelo no le gana a los dos, <b>no lo pongas</b>. Un <code>si</code> se lee, se
+           depura, se explica en la defensa y cabe en 2 kB de memoria. Un modelo entrenado, ninguna de
+           las cuatro cosas.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Dale a la escena <b>&laquo;solo la lectura&raquo;</b> y mira la fila del umbral. Con una
+           sola caracter&iacute;stica, <b>entrenar y poner un umbral son exactamente lo mismo</b>: el
+           modelo solo puede aprender un n&uacute;mero a partir del cual dice que s&iacute;. Toda la
+           gracia de entrenar aparece cuando le das <b>dos o m&aacute;s</b> caracter&iacute;sticas y la
+           regla que las combina no es evidente. Con la lectura <b>y</b> la tendencia
+           &mdash;lo que guardasteis en la sesi&oacute;n 5&mdash; el acierto sube de un 75 % a un
+           93 %.</p>
+      </div>
+      <p>Y queda la pregunta de la que nadie habla: <b>&iquest;cu&aacute;ntos ejemplos hacen
+         falta?</b> La curva de abajo de la escena lo dice para estos datos. Y para tener una idea de
+         lo que significa &laquo;muchos&raquo;, mira esta foto:</p>
+      <figure class="foto">
+        <img src="../../../img/c6-computers-harvard.jpg" alt="Fotograf&iacute;a antigua en blanco y negro: seis mujeres sentadas a dos mesas llenas de papeles y placas fotogr&aacute;ficas, en una sala con estanter&iacute;as de libros y cajas" loading="lazy">
+        <figcaption>Observatorio de la Universidad de Harvard, hacia <b>1890</b>. Estas mujeres &mdash;de pie, <b>Williamina Fleming</b>; entre las sentadas est&aacute; muy probablemente <b>Annie Jump Cannon</b>&mdash; se dedicaban a mirar placas fotogr&aacute;ficas del cielo con lupa y <b>escribir a mano, estrella por estrella</b>, a qu&eacute; tipo pertenec&iacute;a cada una. Su cargo se llamaba literalmente <i>computer</i>, computadora: la persona que hace las cuentas. De ese trabajo sali&oacute; el <b>Cat&aacute;logo Henry Draper</b>, publicado entre 1918 y 1924, con <b>225.300 estrellas clasificadas</b>. Todo conjunto de ejemplos etiquetados del mundo, incluidos los que entrenan la IA de la que se habla hoy, empieza con gente haciendo esto.
+          <span class="credito">Harvard University Archives &middot; dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Observatory_data_analysis_by_women_computers,_circa_1890.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>D&oacute;nde acaba lo que pod&eacute;is decir</h4>
+        <p>Con 120 medidas de cuatro macetas de un aula, y con la comprobaci&oacute;n hecha como es
+           debido, pod&eacute;is afirmar esto y nada m&aacute;s:</p>
+        <p style="border-left:4px solid var(--goo-verde);padding-left:12px;margin:10px 0">
+           &laquo;Un modelo entrenado con 40 medidas de tres macetas de nuestra aula acert&oacute; el
+           <b>73 %</b> en una cuarta maceta que no hab&iacute;a visto, frente al <b>50 %</b> de un
+           modelo que dijera siempre lo mismo. No sabemos c&oacute;mo se comporta con otra tierra, otro
+           sensor ni en otra &eacute;poca del a&ntilde;o.&raquo;</p>
+        <p>Eso es una frase verdadera y defendible. <b>&laquo;Hemos hecho una IA que detecta cu&aacute;ndo
+           regar&raquo; no lo es</b>, y en la defensa la primera pregunta va a ser esa. Cuarenta
+           medidas no son un modelo: son un indicio.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Dos detalles t&eacute;cnicos de la escena, por si los notas:</p>
+        <ul>
+          <li>El entrenamiento es el mismo perceptr&oacute;n de la sesi&oacute;n 4, pero
+              <b>de bolsillo</b>: va guardando los mejores pesos que ha encontrado. Hace falta porque
+              estos ejemplos <b>no se pueden separar del todo</b> con una recta, y sin eso el
+              resultado depender&iacute;a de con qu&eacute; ejemplo acab&oacute; la &uacute;ltima
+              pasada. Lo invent&oacute; Stephen Gallant en 1990, treinta a&ntilde;os despu&eacute;s del
+              perceptr&oacute;n original.</li>
+          <li>La curva de acierto <b>no sube en l&iacute;nea recta</b>: da saltos. Con conjuntos de
+              prueba de 30 o 40 ejemplos, un ejemplo mal clasificado son dos o tres puntos
+              porcentuales. Con estos tama&ntilde;os hay que leer la <b>tendencia</b>, no las
+              diferencias de tres puntos.</li>
+        </ul>
+      </div>
+      <div class="video" id="video-c6-overfit" data-vid="MR0YTI5OB9I">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: &iquest;Qu&eacute; es el Overfitting? Explicaci&oacute;n del sobreajuste sencilla en espa&ntilde;ol">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>&iquest;Qu&eacute; es el Overfitting? Explicaci&oacute;n del sobreajuste sencilla en espa&ntilde;ol</b>
+            <span>Canal: Tech Portal Formaci&oacute;n</span>
+          </span>
+        </button>
+        <p class="video-nota">El mismo problema visto desde el lado del modelo: aprenderse los ejemplos en vez de aprender el problema. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=MR0YTI5OB9I" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 7 &middot; &iquest;Modelo o <code>si</code>? Decidirlo con n&uacute;meros</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.1</span><span class="chip">C.4</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; etiquetar de verdad (6 min)</h4>
+          <p>Coged <b>veinte</b> lecturas de vuestro registro (las de la sesi&oacute;n 5 valen) y
+             poned a cada una, a mano, un <b>S&iacute;</b> o un <b>No</b>: &iquest;hab&iacute;a que
+             actuar en ese momento? Cronometrad cu&aacute;nto tard&aacute;is.</p>
+          <ol class="pasos">
+            <li>Anotad los <b>segundos por ejemplo</b> y calculad cu&aacute;nto costar&iacute;a etiquetar
+                500, y cu&aacute;nto 10.000.</li>
+            <li>Anotad <b>en cu&aacute;ntas dudasteis</b>. Si dud&aacute;is vosotros, el modelo tampoco
+                va a saberlo: eso es un l&iacute;mite de los datos, no del modelo.</li>
+          </ol>
+          <h4>Segunda parte &middot; la tabla que decide (8 min)</h4>
+          <p>Con la escena en <b>vuestro</b> proyecto y <b>40 ejemplos</b>, rellenad las cuatro
+             combinaciones:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+              <th></th><th>en sus ejemplos</th><th>en los de prueba</th><th>modelo tonto</th>
+              <th>umbral a mano</th></tr>
+            <tr><td>al azar, solo la lectura</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>al azar, lectura + tendencia</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>por jornada, solo la lectura</td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>por jornada, lectura + tendencia</td><td></td><td></td><td></td><td></td></tr>
+          </table>
+          <p>Debajo, contestad: &iquest;cu&aacute;l de las cuatro filas es la que hay que escribir en
+             la memoria del proyecto, y <b>por qu&eacute;</b>?</p>
+          <h4>Tercera parte &middot; la decisi&oacute;n, escrita (6 min)</h4>
+          <p>Escribid el p&aacute;rrafo que ir&aacute; en vuestra memoria. Tiene que decir tres cosas:</p>
+          <ol class="pasos">
+            <li>Si en vuestro aparato va a haber un <b>modelo entrenado</b> o un <b><code>si</code>
+                con un umbral</b>.</li>
+            <li><b>Con qu&eacute; n&uacute;mero</b> de la tabla lo justific&aacute;is.</li>
+            <li>Una frase, como la del recuadro verde, que diga <b>hasta d&oacute;nde</b> vale lo que
+                hab&eacute;is medido y d&oacute;nde deja de valer.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las veinte etiquetas puestas y el tiempo cronometrado <b>(2 puntos)</b>.</li>
+            <li>Las cuentas de 500 y 10.000 ejemplos <b>(1 punto)</b>.</li>
+            <li>La tabla de las cuatro filas, completa <b>(3 puntos)</b>.</li>
+            <li>Se elige la fila <b>por jornada</b> y se explica por qu&eacute; <b>(2 puntos)</b>.</li>
+            <li>El p&aacute;rrafo de la memoria dice hasta d&oacute;nde vale <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>Tu modelo acierta el 93 % con los datos partidos al azar y el 73 % dejando fuera una jornada. &iquest;Cu&aacute;l de los dos escribes en la memoria?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El <b>73 %</b>. El otro est&aacute; inflado: los ejemplos de prueba ven&iacute;an de las mismas jornadas y el mismo sensor con los que entrenaste, as&iacute; que contestaba a &laquo;&iquest;c&oacute;mo le va donde ya ha estado?&raquo;, que no es la pregunta.</p></div></details></li>
+        <li>&iquest;Qu&eacute; es una fuga entre el conjunto de entrenamiento y el de prueba?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que los dos se parecen demasiado porque comparten algo &mdash;el mismo d&iacute;a, el mismo aparato, el mismo sitio&mdash;, y entonces el acierto sobre los de prueba mide una cosa m&aacute;s f&aacute;cil que la de verdad. Se evita partiendo por d&iacute;a, por aparato o por sitio, nunca al azar sin pensarlo.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; hay que comparar el modelo con un <code>si</code> de una l&iacute;nea, y no solo con el modelo tonto?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque un <code>si</code> con un buen umbral suele acertar bastante, y <b>es mejor por todo lo dem&aacute;s</b>: se lee, se depura, se explica en la defensa y cabe en la placa. Si el modelo no le gana claramente al <code>si</code>, no compensa.</p></div></details></li>
+        <li>&iquest;Qu&eacute; se puede afirmar con 40 medidas de tres macetas de vuestra aula?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que el modelo acert&oacute; <b>ese porcentaje</b> en <b>una cuarta maceta de esa misma aula</b>, y nada m&aacute;s. No se puede decir nada de otra tierra, otro sensor ni otra &eacute;poca. Cuarenta medidas no son un modelo: son un indicio, y en la memoria se escribe como indicio.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya tienes las cuatro piezas: mide, se acuerda, decide y avisa. Y dentro de tres semanas hay
+        que <b>ense&ntilde;arlo funcionando</b>, tres minutos, delante de gente. Lo que se cae en esa
+        mesa casi nunca es el sensor: es algo que el programa <b>no ten&iacute;a previsto</b>. As&iacute;
+        que la &uacute;ltima sesi&oacute;n va de romperlo t&uacute; antes.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-8" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 8 &middot; 60 minutos</div>
+      <h2>Tres minutos, funcionando, delante de gente</h2>
+      <p>Todo junto: el programa entero como m&aacute;quina de estados, el modo seguro y la ficha de n&uacute;meros con la que se defiende. R&oacute;mpelo t&uacute; antes de que lo rompa el jurado.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>22'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>8'</b> Cierre y test</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.1</span><span class="chip sab">C.3</span><span class="chip sab">C.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Se acab&oacute; de a&ntilde;adir piezas. Hoy se junta todo y se prepara lo &uacute;nico que
+         va a ver el que venga a mirarlo: <b>el aparato funcionando</b>, tres minutos, con gente
+         delante que no sabe qu&eacute; es un <code>analogRead()</code>.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo de hoy</span>
+        <b>Dos minutos</b>, sin mirar la pantalla: escribid en el cuaderno <b>qu&eacute; hace vuestro
+        programa</b>, l&iacute;nea a l&iacute;nea, si el d&iacute;a antes de la presentaci&oacute;n
+        alguien saca la sonda del tiesto al limpiar y no la vuelve a meter.
+      </div>
+      <p>La respuesta honesta es siempre la misma: <b>riega</b>. Y luego vuelve a regar. Y sigue
+         regando, porque la sonda al aire da una lectura de tierra sequ&iacute;sima y el programa hace
+         exactamente lo que le mandasteis.</p>
+      <p>Lo ingenuo aqu&iacute; es &laquo;lo probamos otra vez antes de presentarlo&raquo;. Probar que
+         funciona <b>no demuestra nada</b>: solo repite el caso bueno, que es el &uacute;nico que ya
+         sab&iacute;as que funcionaba. Lo que hay que probar es lo otro.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Vuestro programa tiene una l&iacute;nea que dice, m&aacute;s o menos,
+           <code>si media &gt; 700 entonces riega</code>. &iquest;D&oacute;nde podr&iacute;a
+           poner, en esa l&iacute;nea, <b>&laquo;esta lectura no me la creo&raquo;</b>?</p>
+      </div>
+      <p>En ning&uacute;n sitio. Y no es por torpeza: es porque un programa escrito como una lista de
+         instrucciones que se ejecutan una detr&aacute;s de otra <b>no tiene d&oacute;nde guardar
+         &laquo;en qu&eacute; situaci&oacute;n estoy&raquo;</b>. Para poder desconfiar hace falta que
+         el programa sepa en qu&eacute; estado est&aacute;, y eso se escribe de otra manera.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 22 min</div>
+
+      <div class="copiar">
+        <h4>El programa como m&aacute;quina de estados</h4>
+        <p>Una <b>m&aacute;quina de estados</b> es un programa escrito as&iacute;: en cada momento
+           est&aacute; en <b>uno</b> de unos pocos estados con nombre, en cada estado hace una cosa
+           distinta, y se pasa de uno a otro solo por las <b>transiciones</b> que t&uacute; hayas
+           dibujado. No es un invento para esto: es como se escriben los sem&aacute;foros, los cajeros,
+           los ascensores y los lavavajillas.</p>
+        <pre style="font-family:var(--f-m);font-size:12.5px;line-height:1.6;margin:8px 0;white-space:pre-wrap">enum Estado { ARRANQUE, VIGILANDO, ACTUANDO, ESPERA, SEGURO };
+Estado estado = ARRANQUE;
+
+void loop() {
+  int x = leer();
+  guarda(x);
+  if (estado != SEGURO &amp;&amp; sospechoso()) { estado = SEGURO; avisa("me paro"); }
+
+  switch (estado) {
+    case ARRANQUE:  if (historicoLleno()) estado = VIGILANDO;        break;
+    case VIGILANDO: if (media() &gt; UMBRAL) estado = ACTUANDO;         break;
+    case ACTUANDO:  actua(); avisa("he actuado"); estado = ESPERA;   break;
+    case ESPERA:    if (millis() - t &gt; ESPERA_MS) estado = VIGILANDO; break;
+    case SEGURO:    /* no hace nada, y no sale solo */               break;
+  }
+}</pre>
+        <p>Dos cosas que solo se pueden escribir as&iacute;: el estado <b>ESPERA</b>, que impide volver
+           a actuar antes de que se note lo anterior, y el estado <b>SEGURO</b>, que no existe en
+           ninguna lista de instrucciones y que es el que salva el proyecto.</p>
+      </div>
+      <p>Aqu&iacute; tienes el sistema entero corriendo catorce d&iacute;as, con los cinco estados
+         dibujados arriba. Mueve el mando de <b>instante</b> y mira c&oacute;mo se ilumina uno u otro.
+         Y despu&eacute;s enciende la primera aver&iacute;a &mdash;<b>la sonda se sale del
+         tiesto</b>&mdash; con el <b>modo seguro quitado</b>.</p>
+
+      <div class="escena" id="esc-sis">
+        <div class="escena-barra">
+          <span class="escena-titulo">Catorce d&iacute;as del sistema entero &middot; r&oacute;mpelo t&uacute; antes que el jurado</span>
+          <div class="seg" id="seg-sis">
+            <button type="button" data-p="0" aria-pressed="true">Riego</button>
+            <button type="button" data-p="1">Ventilaci&oacute;n</button>
+            <button type="button" data-p="2">L&aacute;mpara</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 700 168" id="maq-sis" role="img"
+               aria-label="Diagrama de los cinco estados del programa, con el estado actual iluminado"></svg>
+          <svg viewBox="0 0 700 190" id="svg-sis" role="img"
+               aria-label="Catorce d&iacute;as con la magnitud real, lo que lee la placa, el estado del programa y las aver&iacute;as"></svg>
+          <div class="sis-fila">
+            <label for="sis-t">Instante</label>
+            <input type="range" id="sis-t" min="0" max="4031" step="1" value="1300">
+            <span class="val" id="vt-sis"></span>
+          </div>
+          <div class="sis">
+            <div class="sis-der">
+              <p class="sis-rot">Aver&iacute;as &middot; enci&eacute;ndelas t&uacute;</p>
+              <label class="sis-chk"><input type="checkbox" id="sis-sonda">
+                <span>el <b>d&iacute;a 4</b> alguien saca la sonda del tiesto y no la vuelve a meter</span></label>
+              <label class="sis-chk"><input type="checkbox" id="sis-red">
+                <span>el <b>d&iacute;a 6</b> se cae la red del centro, nueve horas</span></label>
+              <label class="sis-chk"><input type="checkbox" id="sis-luz">
+                <span>el <b>d&iacute;a 8</b> se va la luz dos horas y la placa se reinicia</span></label>
+              <label class="sis-chk"><input type="checkbox" id="sis-puente">
+                <span>del <b>d&iacute;a 4 al 7</b> hay puente y nadie mira el m&oacute;vil</span></label>
+              <p class="sis-rot" style="margin-top:12px">Protecciones &middot; qu&iacute;taselas</p>
+              <label class="sis-chk"><input type="checkbox" id="sis-seguro" checked>
+                <span><b>modo seguro</b>: se para y avisa si la lectura no se mueve en 6 h o si
+                actúa m&aacute;s de 8 veces en 24 h</span></label>
+              <label class="sis-chk"><input type="checkbox" id="sis-reloj">
+                <span><b>reloj con pila</b> (1 &euro;): la hora sobrevive al reinicio</span></label>
+              <label class="sis-chk"><input type="checkbox" id="sis-ahorra">
+                <span>guardo <b>solo cuando pasa algo</b>, no cada media hora</span></label>
+            </div>
+            <div class="sis-izq">
+              <p class="sis-rot">La ficha con la que lo defiendes</p>
+              <div class="sis-tabla" id="tabla-sis"></div>
+            </div>
+          </div>
+          <p class="sis-lee" id="lee-sis"></p>
+        </div>
+        <div class="pie" id="pie-sis"></div>
+      </div>
+
+      <style>
+      .sis{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:10px}
+      .sis-der{flex:1 1 330px;min-width:300px}
+      .sis-izq{flex:1 1 300px;min-width:275px}
+      .sis-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:0 0 7px}
+      .sis-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:8px 0 2px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .sis-fila label{min-width:64px}
+      .sis-fila input[type="range"]{flex:1 1 200px;accent-color:var(--goo-azul)}
+      .sis-fila .val{font-weight:500;color:var(--goo-azul);min-width:210px;text-align:right}
+      .sis-chk{display:flex;align-items:flex-start;gap:7px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 8px;cursor:pointer;line-height:1.5}
+      .sis-chk input{accent-color:var(--goo-azul);margin-top:2px}
+      .sis-chk b{color:var(--ink)}
+      .sis-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12px;line-height:1.7}
+      .sis-tabla .f{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .sis-tabla .f span:first-child{color:var(--ink-soft)}
+      .sis-tabla .f b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
+      .sis-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .sis-tabla .mal b{color:var(--goo-rojo)}
+      .sis-tabla .bien b{color:var(--goo-verde)}
+      .sis-lee{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:12px 0 0}
+      .sis-lee b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-sis');
+        if(!svg) return;
+        var maq = document.getElementById('maq-sis');
+        var seg = document.getElementById('seg-sis');
+        var cT = document.getElementById('sis-t');
+        var vt = document.getElementById('vt-sis');
+        var tabla = document.getElementById('tabla-sis');
+        var lee = document.getElementById('lee-sis');
+        var pie = document.getElementById('pie-sis');
+        var cSonda = document.getElementById('sis-sonda');
+        var cRed = document.getElementById('sis-red');
+        var cLuz = document.getElementById('sis-luz');
+        var cPuente = document.getElementById('sis-puente');
+        var cSeguro = document.getElementById('sis-seguro');
+        var cReloj = document.getElementById('sis-reloj');
+        var cAhorra = document.getElementById('sis-ahorra');
+
+        /* ---- constantes del modelo ---- */
+        var DT = 5, DIAS = 14, NP = DIAS * 1440 / DT;
+        var UMB = 700, MARGEN = 50, AHOGO = 200, RUIDO = 25;
+        var RETARDO = 6, ESPERA = 12, DOSIS = 300;
+        var NHIST = 10, VENT = 72;
+        var EEPROM = 1024, REG = 8, MSG = 24, CADA = 6;
+        var LATIDO = 6 * 60 / DT, CABE = Math.floor(1200 / MSG);
+        var TOPE = 8, UNDIA = 1440 / DT;
+        var DERIVA = [0.39, 0.55, 0.62], INI = [430, 380, 400];
+        var T_SONDA = (4 * 1440 + 10 * 60) / DT;
+        var T_RED0 = (6 * 1440 + 8 * 60) / DT, T_RED1 = T_RED0 + 9 * 60 / DT;
+        var T_LUZ0 = (8 * 1440 + 3 * 60) / DT, T_LUZ1 = T_LUZ0 + 2 * 60 / DT;
+        var T_PUE0 = 4 * 1440 / DT, T_PUE1 = 7 * 1440 / DT;
+        var EST = ['ARRANQUE', 'VIGILANDO', 'ACTUANDO', 'ESPERA', 'MODO SEGURO'];
+
+        var PROY = [
+          {nom: 'Riego autom&aacute;tico', act: 'riegos', act1: 'regar', sensor: 'la sonda',
+           mag: 'lo seca que est&aacute; la tierra', mal: 'la tierra seca', pas: 'la maceta encharcada'},
+          {nom: 'Aviso de aula mal ventilada', act: 'avisos de abrir', act1: 'avisar',
+           sensor: 'el sensor de aire', mag: 'lo cargada que est&aacute; el aula',
+           mal: 'el aula cargada', pas: 'la clase con fr&iacute;o'},
+          {nom: 'L&aacute;mpara de estudio', act: 'encendidos', act1: 'encender',
+           sensor: 'la LDR', mag: 'lo oscuro que est&aacute;', mal: 'la mesa a oscuras',
+           pas: 'la l&aacute;mpara encendida de d&iacute;a'}
+        ];
+
+        var np = 0;
+
+        var sem = 1;
+        function semilla(s){ sem = s % 2147483647; if(sem <= 0) sem += 2147483646; }
+        function rnd(){ sem = (sem * 16807) % 2147483647; return (sem - 1) / 2147483646; }
+
+        /* ---- el sistema entero, paso a paso ---- */
+        function simula(){
+          var sonda = cSonda.checked, red = cRed.checked, luz = cLuz.checked;
+          var puente = cPuente.checked, seguro = cSeguro.checked;
+          var reloj = cReloj.checked, ahorra = cAhorra.checked;
+          semilla(770000 + np);
+          var x = INI[np], hist = [], vent = [], cuando = [];
+          var estado = 0, tEstado = 0, efectos = [];
+          var act = 0, actMal = 0, minMal = 0, minAhogo = 0;
+          var sale = [], guardados = 0, perdidosReg = 0, sinHora = 0, bytesEE = 0, lleno = -1;
+          var reinicios = 0, veces = 0, motivo = '';
+          var ultSalida = -1e9, ultReg = -1e9, horaOK = true;
+          var traza = [], xs = [], lects = [], i, k;
+          for(i = 0; i < NP; i++){
+            x += DERIVA[np];
+            efectos = efectos.filter(function(e){
+              if(e[0] === i){ x -= e[1]; return false; }
+              return true;
+            });
+            x = Math.max(60, Math.min(1023, x));
+            if(x > UMB) minMal += DT;
+            if(x < AHOGO) minAhogo += DT;
+
+            if(luz && i >= T_LUZ0 && i < T_LUZ1){
+              traza.push(-1); xs.push(x); lects.push(-1);
+              if(i === T_LUZ1 - 1){
+                reinicios++;
+                if(!reloj) horaOK = false;      /* sin pila, la placa no sabe qu&eacute; hora es */
+                hist = []; vent = [];           /* la RAM se borra entera */
+                estado = 0; tEstado = i;
+              }
+              continue;
+            }
+
+            var lect;
+            if(sonda && i >= T_SONDA){
+              lect = 980;                       /* la sonda fuera del tiesto da siempre lo mismo */
+            } else {
+              lect = Math.round(x + (rnd() * 2 - 1) * RUIDO);
+              lect = Math.max(0, Math.min(1023, lect));
+            }
+            hist.push(lect); if(hist.length > NHIST) hist.shift();
+            vent.push(lect); if(vent.length > VENT) vent.shift();
+            var suma = 0;
+            for(k = 0; k < hist.length; k++) suma += hist[k];
+            var media = suma / hist.length;
+            xs.push(x); lects.push(lect);
+
+            if(seguro && estado !== 4){
+              var raz = '';
+              if(vent.length === VENT){
+                var mn = vent[0], mx = vent[0];
+                for(k = 1; k < VENT; k++){ if(vent[k] < mn) mn = vent[k]; if(vent[k] > mx) mx = vent[k]; }
+                if(mx - mn < 8) raz = 'la lectura lleva 6 h sin moverse: ' + PROY[np].sensor
+                                    + ' no est&aacute; midiendo';
+              }
+              if(!raz){
+                var rec = 0;
+                for(k = 0; k < cuando.length; k++) if(i - cuando[k] < UNDIA) rec++;
+                if(rec > TOPE) raz = 'ha tenido que ' + PROY[np].act1 + ' m&aacute;s de ' + TOPE
+                                   + ' veces en 24 h';
+              }
+              if(raz){
+                veces++; motivo = raz;
+                sale.push([i, 'seguro']); ultSalida = i;
+                estado = 4; tEstado = i;
+              }
+            }
+
+            traza.push(estado);
+            var antes = estado;
+
+            if(estado === 0){
+              if(hist.length >= NHIST){ estado = 1; tEstado = i; }
+            } else if(estado === 1){
+              if(media > UMB){ estado = 2; tEstado = i; }
+            } else if(estado === 2){
+              act++; cuando.push(i);
+              if(x < UMB - MARGEN) actMal++;
+              efectos.push([i + RETARDO, DOSIS]);
+              sale.push([i, 'actua']); ultSalida = i;
+              estado = 3; tEstado = i;
+            } else if(estado === 3){
+              if(i - tEstado >= ESPERA){ estado = 1; tEstado = i; }
+            }
+
+            var toca = ahorra ? (estado !== antes) : (i - ultReg >= CADA);
+            if(toca){
+              ultReg = i;
+              if(!horaOK) sinHora++;
+              if(bytesEE + REG <= EEPROM){ bytesEE += REG; guardados++; }
+              else { if(lleno < 0) lleno = i; perdidosReg++; }
+            }
+
+            if(i - ultSalida >= LATIDO){ sale.push([i, 'latido']); ultSalida = i; }
+          }
+
+          /* el viaje de los mensajes, igual que en la sesi&oacute;n 6 */
+          var cola = [], llega = [], perdidosMsg = 0, idx = 0, espero = 0, maxRet = 0;
+          for(i = 0; i < NP; i++){
+            var caida = red && i >= T_RED0 && i < T_RED1;
+            if(!caida && cola.length){
+              for(k = 0; k < cola.length; k++){
+                llega.push([i, cola[k][1]]);
+                espero++;
+                if((i - cola[k][0]) * DT > maxRet) maxRet = (i - cola[k][0]) * DT;
+              }
+              cola = [];
+            }
+            while(idx < sale.length && sale[idx][0] === i){
+              var msj = sale[idx]; idx++;
+              if(!caida) llega.push([i, msj[1]]);
+              else if(cola.length < CABE) cola.push(msj);
+              else perdidosMsg++;
+            }
+          }
+          perdidosMsg += cola.length;
+
+          var enterado = -1;
+          for(k = 0; k < llega.length; k++){
+            if(llega[k][1] === 'seguro'){
+              enterado = (puente && llega[k][0] >= T_PUE0 && llega[k][0] < T_PUE1)
+                       ? T_PUE1 : llega[k][0];
+              break;
+            }
+          }
+          return {act: act, actMal: actMal, minMal: minMal, minAhogo: minAhogo,
+                  sale: sale.length, llega: llega.length, perdidosMsg: perdidosMsg,
+                  espero: espero, maxRet: maxRet, guardados: guardados,
+                  perdidosReg: perdidosReg, sinHora: sinHora, bytesEE: bytesEE, lleno: lleno,
+                  reinicios: reinicios, veces: veces, motivo: motivo, enterado: enterado,
+                  traza: traza, xs: xs, lects: lects};
+        }
+
+        function rot(min){
+          if(min < 60) return min + ' min';
+          if(min < 1440) return (min / 60).toFixed(1).replace('.', ',') + ' h';
+          return (min / 1440).toFixed(1).replace('.', ',') + ' d\u00edas';
+        }
+        function reloj2(i){
+          var t = i * DT, d = Math.floor(t / 1440) + 1, h = Math.floor((t % 1440) / 60);
+          var mi = t % 60;
+          return 'd\u00eda ' + d + ', ' + (h < 10 ? '0' : '') + h + ':' + (mi < 10 ? '0' : '') + mi;
+        }
+
+        /* ---- el diagrama de estados ---- */
+        var CAJAS = [
+          {x: 78, y: 26, t: 'ARRANQUE', s: 'llena el hist&oacute;rico'},
+          {x: 248, y: 26, t: 'VIGILANDO', s: 'mide y compara'},
+          {x: 418, y: 26, t: 'ACTUANDO', s: PROY[0].act1 + ' y avisar'},
+          {x: 588, y: 26, t: 'ESPERA', s: 'deja que se note'},
+          {x: 418, y: 112, t: 'MODO SEGURO', s: 'ni act&uacute;a ni se sale solo', an: 172}
+        ];
+        function pintaMaquina(est){
+          CAJAS[2].s = PROY[np].act1 + ' y avisar';
+          var AN = 132, AL = 38;
+          var m = '<style>.sisr{font:11px var(--f-m);fill:var(--ink)}'
+                + '.siss{font:9.5px var(--f-m);fill:var(--ink-soft)}</style>';
+          /* flechas de ida */
+          for(var k = 0; k < 3; k++){
+            var a = CAJAS[k].x + AN / 2, b = CAJAS[k + 1].x - AN / 2;
+            m += '<path d="M' + a + ' 45 H' + b + '" stroke="var(--line)" stroke-width="2"></path>'
+               + '<path d="M' + (b - 7) + ' 40 l8 5 l-8 5" fill="none" stroke="var(--line)" '
+               + 'stroke-width="2"></path>';
+          }
+          /* vuelta de ESPERA a VIGILANDO, por arriba */
+          m += '<path d="M588 26 V10 H248 V26" fill="none" stroke="var(--line)" stroke-width="2"></path>'
+             + '<path d="M243 21 l5 7 l5 -7" fill="none" stroke="var(--line)" stroke-width="2"></path>'
+             + '<text x="418" y="7" text-anchor="middle" class="siss">cuando ha pasado una hora</text>';
+          /* caidas al modo seguro */
+          m += '<path d="M248 45 v34 H352 V112" fill="none" stroke="var(--goo-rojo)" stroke-width="1.8" '
+             + 'stroke-dasharray="5 4"></path>'
+             + '<path d="M347 107 l5 7 l5 -7" fill="none" stroke="var(--goo-rojo)" stroke-width="1.8"></path>'
+             + '<path d="M588 45 v34 H484 V112" fill="none" stroke="var(--goo-rojo)" stroke-width="1.8" '
+             + 'stroke-dasharray="5 4"></path>'
+             + '<path d="M479 107 l5 7 l5 -7" fill="none" stroke="var(--goo-rojo)" stroke-width="1.8"></path>'
+             + '<text x="418" y="93" text-anchor="middle" class="siss">si algo no cuadra</text>';
+          CAJAS.forEach(function(c, k){
+            var on = (k === est), aa = c.an || AN;
+            m += '<rect x="' + (c.x - aa / 2) + '" y="' + c.y + '" width="' + aa + '" height="' + AL
+               + '" rx="3" fill="' + (on ? 'var(--accent-soft)' : 'var(--surface)') + '" stroke="'
+               + (k === 4 ? 'var(--goo-rojo)' : (on ? 'var(--goo-azul)' : 'var(--line)'))
+               + '" stroke-width="' + (on ? 2.6 : 1.4) + '"></rect>'
+               + '<text x="' + c.x + '" y="' + (c.y + 17) + '" text-anchor="middle" class="sisr">'
+               + c.t + '</text>'
+               + '<text x="' + c.x + '" y="' + (c.y + 30) + '" text-anchor="middle" class="siss">'
+               + c.s + '</text>';
+          });
+          maq.innerHTML = m;
+        }
+
+        /* ---- la tira de catorce dias ---- */
+        var X0 = 52, AN2 = 630, Y0 = 16, AL2 = 84;
+        function qx(i){ return X0 + i / NP * AN2; }
+        function qy(v){ return Y0 + AL2 - Math.max(0, Math.min(1023, v)) / 1023 * AL2; }
+
+        function pintaTira(R, cur){
+          var m = '<style>.sist{font:10px var(--f-m);fill:var(--ink-soft)}</style>';
+          m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + AN2 + '" height="' + AL2
+             + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
+          var i, d = [], e = [];
+          for(i = 0; i < R.xs.length; i++){
+            d.push(qx(i).toFixed(1) + ' ' + qy(R.xs[i]).toFixed(1));
+            if(R.lects[i] >= 0) e.push(qx(i).toFixed(1) + ' ' + qy(R.lects[i]).toFixed(1));
+          }
+          m += '<path d="M' + qx(0).toFixed(1) + ' ' + qy(UMB).toFixed(1) + ' H' + (X0 + AN2)
+             + '" stroke="var(--goo-amarillo)" stroke-width="1.4" stroke-dasharray="5 4"></path>'
+             + '<text x="' + (X0 + AN2 - 2) + '" y="' + (qy(UMB) - 4).toFixed(1)
+             + '" text-anchor="end" class="sist">umbral ' + UMB + '</text>'
+             + '<path d="M' + e.join(' L') + '" fill="none" stroke="var(--ink-soft)" '
+             + 'stroke-width="1" opacity=".7"></path>'
+             + '<path d="M' + d.join(' L') + '" fill="none" stroke="var(--goo-verde)" '
+             + 'stroke-width="1.8"></path>';
+          /* franja de estados */
+          var BY = Y0 + AL2 + 12, BH = 12;
+          var COL = ['var(--line)', 'var(--goo-azul)', 'var(--goo-verde)', 'var(--goo-amarillo)',
+                     'var(--goo-rojo)'];
+          m += '<rect x="' + X0 + '" y="' + BY + '" width="' + AN2 + '" height="' + BH
+             + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="0.8"></rect>';
+          var ini = 0;
+          for(i = 1; i <= R.traza.length; i++){
+            if(i === R.traza.length || R.traza[i] !== R.traza[ini]){
+              if(R.traza[ini] >= 0){
+                m += '<rect x="' + qx(ini).toFixed(1) + '" y="' + BY + '" width="'
+                   + Math.max(0.7, qx(i) - qx(ini)).toFixed(1) + '" height="' + BH + '" fill="'
+                   + COL[R.traza[ini]] + '" opacity=".8"></rect>';
+              }
+              ini = i;
+            }
+          }
+          m += '<text x="' + (X0 - 4) + '" y="' + (BY + 9) + '" text-anchor="end" class="sist">estado</text>';
+          /* las averias */
+          var marca = function(a, b, txt, col, y){
+            m += '<rect x="' + qx(a).toFixed(1) + '" y="' + Y0 + '" width="'
+               + Math.max(1.5, qx(b) - qx(a)).toFixed(1) + '" height="' + (BY + BH - Y0)
+               + '" fill="' + col + '" opacity=".12"></rect>'
+               + '<text x="' + qx(a).toFixed(1) + '" y="' + y + '" class="sist">' + txt + '</text>';
+          };
+          if(cPuente.checked) marca(T_PUE0, T_PUE1, 'puente', 'var(--goo-amarillo)', BY + 26);
+          if(cSonda.checked) marca(T_SONDA, NP, 'sonda fuera', 'var(--goo-rojo)', BY + 39);
+          if(cRed.checked) marca(T_RED0, T_RED1, 'red', 'var(--goo-rojo)', BY + 52);
+          if(cLuz.checked) marca(T_LUZ0, T_LUZ1, 'luz', 'var(--goo-rojo)', BY + 65);
+          /* el cursor */
+          m += '<path d="M' + qx(cur).toFixed(1) + ' ' + (Y0 - 6) + ' V' + (BY + BH + 4)
+             + '" stroke="var(--ink)" stroke-width="1.6"></path>';
+          for(i = 0; i < DIAS; i += 2){
+            m += '<text x="' + (X0 + i / DIAS * AN2).toFixed(1) + '" y="' + (BY + BH + 16)
+               + '" text-anchor="middle" class="sist">d' + (i + 1) + '</text>';
+          }
+          m += '<text x="' + X0 + '" y="' + (Y0 - 4) + '" class="sist">'
+             + 'verde: ' + PROY[np].mag + ' de verdad &middot; gris: lo que lee la placa</text>';
+          svg.innerHTML = m;
+        }
+
+        function refresca(){
+          var R = simula(), cur = Math.min(+cT.value, R.traza.length - 1);
+          var est = R.traza[cur];
+          pintaMaquina(est < 0 ? 0 : est);
+          pintaTira(R, cur);
+          vt.innerHTML = reloj2(cur) + ' &middot; '
+            + (est < 0 ? 'SIN CORRIENTE' : EST[est]);
+
+          var P = PROY[np];
+          var fil = function(x, y, cl){
+            return '<div class="f ' + (cl || '') + '"><span>' + x + '</span><b>' + y + '</b></div>';
+          };
+          tabla.innerHTML =
+              fil(P.act + ' en 14 d&iacute;as', R.act)
+            + fil('&mdash; que no hac&iacute;an falta', R.actMal, R.actMal > 2 ? 'mal' : 'bien')
+            + fil('tiempo con ' + P.mal, rot(R.minMal), R.minMal > 600 ? 'mal' : '')
+            + fil('tiempo con ' + P.pas, rot(R.minAhogo), R.minAhogo > 600 ? 'mal' : '')
+            + fil('avisos que salen', R.sale, 'top')
+            + fil('&mdash; se pierden', R.perdidosMsg, R.perdidosMsg > 0 ? 'mal' : '')
+            + fil('&mdash; esperan en la cola', R.espero + (R.maxRet ? (', hasta ' + rot(R.maxRet)) : ''))
+            + fil('registros guardados', R.guardados + ' (' + R.bytesEE + ' B de ' + EEPROM + ')', 'top')
+            + fil('&mdash; que no cupieron', R.perdidosReg, R.perdidosReg > 0 ? 'mal' : 'bien')
+            + fil('&mdash; sin hora v&aacute;lida', R.sinHora, R.sinHora > 0 ? 'mal' : '')
+            + fil('entra en modo seguro', R.veces + ' ' + (R.veces === 1 ? 'vez' : 'veces'), 'top')
+            + fil('alguien se entera de la aver&iacute;a',
+                  R.veces === 0 ? '&mdash; (no se ha parado)'
+                                : (R.enterado < 0 ? 'NO se entera' : ('el ' + reloj2(R.enterado))),
+                  R.veces === 0 ? '' : (R.enterado < 0 ? 'mal' : 'bien'))
+            + fil('acaba en', EST[R.traza[R.traza.length - 1] < 0 ? 0 : R.traza[R.traza.length - 1]]);
+
+          var h = '';
+          if(cSonda.checked && !cSeguro.checked){
+            h = '<b style="color:var(--goo-rojo)">Mira la cuenta de ' + P.act + '.</b> Con '
+              + P.sensor + ' fuera de sitio, la lectura se queda clavada en alto y el programa hace '
+              + 'lo que le mandaste: ' + R.act + ' veces. Y los ' + R.sale + ' avisos que manda solo '
+              + 'saben decir &laquo;he actuado&raquo; y &laquo;sigo aqu&iacute;&raquo;, que es justo lo '
+              + 'que dir&iacute;an si todo fuera bien. '
+              + '<b>Ninguno dice que algo va mal, porque nadie le ense&ntilde;&oacute; a sospechar.</b>';
+          } else if(cSonda.checked && cSeguro.checked){
+            h = 'El modo seguro lo caza: ' + R.motivo + '. Se para despu&eacute;s de ' + R.act
+              + ' actuaciones y manda un aviso <b>distinto</b> de los de siempre. Pero f&iacute;jate en '
+              + 'la tercera fila: parado tampoco arregla nada, y ah&iacute; est&aacute; '
+              + rot(R.minMal) + ' con ' + P.mal + '. <b>El modo seguro no salva el proyecto: para la '
+              + 'm&aacute;quina y pide un humano.</b> Por eso importa cu&aacute;ndo llega el aviso.';
+          } else if(R.perdidosReg > 0){
+            h = 'Sin aver&iacute;as, el aparato hace su trabajo. Pero mira los registros: la EEPROM de '
+              + 'la placa son <b>' + EEPROM + ' bytes</b>, y guardando uno cada media hora se llena el '
+              + '<b>' + reloj2(R.lleno) + '</b>. A partir de ah&iacute; se pierden ' + R.perdidosReg
+              + '. Los datos con los que ibas a defender el proyecto son los de los tres primeros '
+              + 'd&iacute;as.';
+          } else {
+            h = 'As&iacute; configurado el sistema aguanta las dos semanas. Enciende una aver&iacute;a '
+              + 'y mira <b>qu&eacute; fila cambia</b>: no todas las aver&iacute;as se ven en el mismo '
+              + 'sitio, y esa es la gracia de tener una ficha y no una impresi&oacute;n.';
+          }
+          if(cLuz.checked && R.sinHora > 0){
+            h += ' El corte de luz ha dejado ' + R.sinHora + ' registros <b>sin hora v&aacute;lida</b>: '
+               + 'est&aacute;n guardados y no sirven, porque no se sabe de cu&aacute;ndo son.';
+          }
+          if(cPuente.checked && R.enterado >= 0 && R.veces > 0){
+            h += ' Y el aviso lleg&oacute;, pero era puente: nadie lo abri&oacute; hasta el '
+               + reloj2(R.enterado) + '.';
+          }
+          lee.innerHTML = h;
+
+          pie.innerHTML = '<b>' + P.nom + '.</b> Catorce d&iacute;as paso a paso, uno cada ' + DT
+            + ' minutos. La magnitud sube sola ' + DERIVA[np].toFixed(2).replace('.', ',')
+            + ' unidades por paso y cada '
+            + 'actuaci&oacute;n la baja ' + DOSIS + ', pero <b>tarda ' + (RETARDO * DT) + ' minutos '
+            + 'en notarse</b>: por eso hace falta el estado ESPERA. La placa decide con la '
+            + '<b>media de ' + NHIST + '</b> (sesi&oacute;n 5) y avisa <b>por evento con latido</b> '
+            + 'cada 6 h (sesi&oacute;n 6). Los ' + EEPROM + ' bytes de EEPROM y los ' + REG
+            + ' bytes por registro son los de un Arduino Uno de verdad. <b>Las aver&iacute;as y el '
+            + 'gui&oacute;n de los 14 d&iacute;as son nuestros</b>; lo que se sostiene es qu&eacute; '
+            + 'fila de la ficha mueve cada una.';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          np = +b.dataset.p; refresca();
+        });
+        cT.addEventListener('input', refresca);
+        [cSonda, cRed, cLuz, cPuente, cSeguro, cReloj, cAhorra].forEach(function(x){
+          x.addEventListener('change', refresca);
+        });
+
+        refresca();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>El modo seguro</h4>
+        <p><b>Modo seguro</b>: el estado en el que el aparato <b>deja de actuar</b>, se queda quieto y
+           <b>avisa de que se ha parado</b>. No es un fallo: es la respuesta prevista a que algo no
+           cuadre.</p>
+        <p>Hay que decidir <b>tres</b> cosas, y son de examen:</p>
+        <ol>
+          <li><b>Qu&eacute; lo dispara.</b> No vale &laquo;si algo va mal&raquo;. Tienen que ser
+              condiciones que el programa pueda comprobar. Las dos de la escena valen para cualquiera
+              de los tres proyectos:
+              <ul>
+                <li>la lectura <b>no se ha movido nada en seis horas</b> (un sensor de verdad siempre
+                    tiembla un poco: si no tiembla, es que no est&aacute; midiendo);</li>
+                <li>ha tenido que actuar <b>m&aacute;s de ocho veces en 24 horas</b> (si tu planta
+                    necesita ocho riegos en un d&iacute;a, el problema no es la planta).</li>
+              </ul></li>
+          <li><b>Qu&eacute; hace mientras.</b> Lo m&aacute;s seguro suele ser <b>no hacer nada</b>,
+              pero hay que pensarlo: en la l&aacute;mpara, quedarse apagada es seguro; en un
+              calefactor, no.</li>
+          <li><b>C&oacute;mo se sale.</b> Y la respuesta correcta es: <b>a mano</b>. Del modo seguro
+              no se sale solo, porque si se saliera solo volver&iacute;a a meterse, y a salir, y el
+              aviso se convertir&iacute;a en ruido.</li>
+        </ol>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/c6-seta-emergencia.jpg" alt="Cuadro de mandos gris con una seta roja de emergencia sobre un rect&aacute;ngulo amarillo, dos pulsadores blancos rotulados JOG, un piloto rojo y un interruptor ON/OFF" loading="lazy">
+        <figcaption>El modo seguro de toda la vida, en su versi&oacute;n de hierro: la <b>seta de emergencia</b> de un cuadro de mandos de taller. F&iacute;jate en dos detalles que son exactamente las decisiones de arriba. Primero, el <b>color y el fondo amarillo</b> est&aacute;n normalizados para que se encuentre sin pensar. Y segundo, las <b>flechas circulares</b> dibujadas encima: para soltarla hay que <b>girarla</b>, no basta con volver a pulsar. Salir del paro tiene que costar, y tiene que hacerlo una persona. Tu <code>case SEGURO</code> hace lo mismo con software.
+          <span class="credito">Cjp24 &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Emergency_stop_button.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>La ficha con la que se defiende un proyecto</h4>
+        <p>En la presentaci&oacute;n no se defiende una opini&oacute;n: se defienden <b>n&uacute;meros
+           medidos</b>. Estos son los que hay que llevar, y todos salen de la escena o de vuestro
+           propio registro:</p>
+        <ol>
+          <li><b>Cu&aacute;ntas veces actu&oacute;</b> en el periodo, y <b>cu&aacute;ntas de m&aacute;s</b>.</li>
+          <li><b>Cu&aacute;nto tiempo estuvo el problema sin resolver</b>, y cu&aacute;nto se pas&oacute;
+              de rosca. Son <b>dos</b> filas, no una: los dos fallos de la sesi&oacute;n 4.</li>
+          <li><b>Cu&aacute;ntos avisos mand&oacute;</b> y cu&aacute;ntos llegaron.</li>
+          <li><b>Cu&aacute;ntos registros guard&oacute;</b> y cu&aacute;ntos no cupieron.</li>
+          <li><b>Cu&aacute;ntas veces entr&oacute; en modo seguro</b> y por qu&eacute;.</li>
+          <li><b>Cu&aacute;nto tard&oacute; una persona en enterarse</b> de la primera aver&iacute;a.</li>
+          <li><b>En qu&eacute; estado acab&oacute;.</b></li>
+        </ol>
+        <p>Y despu&eacute;s, una tabla de <b>aver&iacute;as</b>: qu&eacute; le hicisteis, qu&eacute;
+           hizo &eacute;l y qu&eacute; fila de arriba se movi&oacute;. Esa tabla es la que separa un
+           proyecto que <b>funciona</b> de uno que <b>funcion&oacute; el d&iacute;a de la foto</b>.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Dos datos del Arduino Uno que salen en la escena y conviene saber de d&oacute;nde vienen:</p>
+        <ul>
+          <li>La <b>EEPROM</b> son <b>1.024 bytes</b>, y es la &uacute;nica memoria de la placa que
+              sobrevive al apagado. A 8 bytes por registro caben <b>128 registros</b>: guardando uno
+              cada media hora se llena en <b>2 d&iacute;as y 16 horas</b>. Por eso el mando de
+              &laquo;guardo solo cuando pasa algo&raquo; cambia tanto.</li>
+          <li>Cada celda de esa EEPROM aguanta unas <b>100.000 escrituras</b> y se gasta. Un registro
+              cada media hora durante un curso son unas 12.000: cabe de sobra. Un registro por
+              segundo se la carga en <b>un d&iacute;a</b>. En la memoria RAM esto no pasa; en la
+              EEPROM, s&iacute;.</li>
+        </ul>
+        <p>Y un pariente cercano del modo seguro, un piso m&aacute;s abajo: el <b>perro guardi&aacute;n</b>
+           (<i>watchdog</i>) que el propio chip lleva dentro. Es un contador que hay que poner a cero
+           cada poco desde el programa; si el programa se cuelga y deja de hacerlo, el contador llega
+           al final y <b>reinicia la placa</b>. La misma idea que el latido de la sesi&oacute;n 6:
+           dejar de dar se&ntilde;ales de vida <b>es</b> una se&ntilde;al.</p>
+      </div>
+      <div class="nota">
+        <span class="n-tag">D&oacute;nde acaba esta unidad</span>
+        Aqu&iacute; se prepara <b>el contenido t&eacute;cnico</b> de la defensa: la m&aacute;quina de
+        estados, el modo seguro y la ficha de n&uacute;meros. C&oacute;mo se presenta &mdash;el
+        gui&oacute;n, los apoyos, hablar en p&uacute;blico&mdash; es el criterio 3.1 y se trabaja en
+        las unidades 1 y 2. El <b>impacto ambiental</b> de lo que hab&eacute;is construido se mide
+        aqu&iacute; como una fila m&aacute;s, pero se trata en la <b>unidad 8</b>.
+      </div>
+      <div class="video" id="video-c6-estados" data-vid="z3geTtX4Fvo">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Programar Arduino como si fuera una m&aacute;quina de estados finitos">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Programar Arduino como si fuera una m&aacute;quina de estados finitos</b>
+            <span>Canal: Construyendo a Chispas</span>
+          </span>
+        </button>
+        <p class="video-nota">La m&aacute;quina de estados escrita de cero en Arduino, con el <code>switch</code> delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=z3geTtX4Fvo" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 8 &middot; R&oacute;mpelo t&uacute; y prepara la ficha</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.1</span><span class="chip">C.3</span><span class="chip">C.4</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; vuestra m&aacute;quina de estados (7 min)</h4>
+          <p>Dibujad en la libreta los estados de <b>vuestro</b> proyecto, con una flecha por cada
+             transici&oacute;n y, encima de cada flecha, <b>la condici&oacute;n que la dispara</b>. Y
+             al lado, escribid el <code>switch</code> con sus <code>case</code>: no hace falta que
+             compile, hace falta que est&eacute;n todos los estados.</p>
+          <p>Dos preguntas que hay que contestar dentro del dibujo: <b>&iquest;qu&eacute; dispara
+             vuestro modo seguro?</b> (dos condiciones comprobables, no &laquo;si algo va mal&raquo;)
+             y <b>&iquest;c&oacute;mo se sale de &eacute;l?</b></p>
+          <h4>Segunda parte &middot; la tabla de aver&iacute;as (7 min)</h4>
+          <p>Con la escena en vuestro proyecto, encended las aver&iacute;as <b>de una en una</b> y
+             anotad qu&eacute; fila de la ficha se mueve:</p>
+          <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
+            <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+              <th>aver&iacute;a</th><th>sin protecci&oacute;n</th><th>con protecci&oacute;n</th>
+              <th>qu&eacute; fila lo delata</th></tr>
+            <tr><td>la sonda se sale</td><td></td><td></td><td></td></tr>
+            <tr><td>se cae la red</td><td></td><td></td><td></td></tr>
+            <tr><td>se va la luz</td><td></td><td></td><td></td></tr>
+            <tr><td>nadie mira el m&oacute;vil</td><td></td><td></td><td></td></tr>
+          </table>
+          <p>Y una pregunta con trampa: con la sonda fuera y el modo seguro puesto, el tiempo con el
+             problema sin resolver <b>sube</b>. &iquest;Est&aacute; entonces el modo seguro
+             empeorando las cosas? Contestad en dos frases.</p>
+          <h4>Tercera parte &middot; los tres minutos (6 min)</h4>
+          <p>Escribid el gui&oacute;n de la demostraci&oacute;n, con los tiempos marcados:</p>
+          <ol class="pasos">
+            <li><b>0:00-0:30</b> &mdash; el problema, en una frase, y d&oacute;nde est&aacute; en el
+                centro.</li>
+            <li><b>0:30-1:30</b> &mdash; el aparato funcionando. Decid <b>c&oacute;mo vais a provocar
+                que act&uacute;e</b> delante de la gente, sin esperar a que se seque una maceta.</li>
+            <li><b>1:30-2:15</b> &mdash; <b>lo romp&eacute;is vosotros</b> delante de todos (sacad la
+                sonda) y ense&ntilde;&aacute;is el modo seguro y el aviso en el m&oacute;vil.</li>
+            <li><b>2:15-3:00</b> &mdash; tres n&uacute;meros de la ficha y la frase de hasta
+                d&oacute;nde vale lo que hab&eacute;is medido.</li>
+          </ol>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El diagrama de estados, con las condiciones en las flechas <b>(2 puntos)</b>.</li>
+            <li>El <code>switch</code>, con todos los estados <b>(2 puntos)</b>.</li>
+            <li>Las dos condiciones del modo seguro son <b>comprobables</b> <b>(1 punto)</b>.</li>
+            <li>La tabla de aver&iacute;as, completa <b>(2 puntos)</b>.</li>
+            <li>La respuesta a la pregunta con trampa dice que el modo seguro <b>no arregla, avisa</b>
+                <b>(1 punto)</b>.</li>
+            <li>El gui&oacute;n de tres minutos, con la rotura dentro <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre y test &middot; 8 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; no se puede escribir &laquo;esta lectura no me la creo&raquo; dentro de un <code>si media &gt; 700</code>?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque para desconfiar hay que <b>comparar con algo</b>: con lo que le&iacute;a antes, con cu&aacute;ntas veces ha actuado hoy, con en qu&eacute; situaci&oacute;n est&aacute;. Un programa escrito como una lista de instrucciones no guarda nada de eso. Una m&aacute;quina de estados s&iacute;.</p></div></details></li>
+        <li>Dad dos condiciones <b>comprobables</b> que puedan disparar el modo seguro.
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que la lectura <b>no se haya movido nada en seis horas</b> (un sensor de verdad siempre tiembla: si no tiembla, no est&aacute; midiendo) y que el aparato haya tenido que actuar <b>m&aacute;s de ocho veces en 24 horas</b>. Las dos las puede comprobar el programa; &laquo;si algo va mal&raquo; no.</p></div></details></li>
+        <li>Con la sonda fuera y el modo seguro puesto, el tiempo con la tierra seca <b>sube</b>. &iquest;Es entonces peor el modo seguro?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No, pero hay que decirlo bien: el modo seguro <b>no arregla el problema, lo hace visible</b>. Para la m&aacute;quina y pide un humano. Sin &eacute;l la planta no est&aacute; mejor: est&aacute; ahogada por doscientos riegos, y nadie se ha enterado. Lo que hace el modo seguro es cambiar un fallo silencioso por uno que avisa.</p></div></details></li>
+        <li>&iquest;Qu&eacute; tiene que llevar la ficha con la que defend&eacute;is el proyecto?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>N&uacute;meros medidos</b>, no impresiones: veces que actu&oacute; y de ellas cu&aacute;ntas de m&aacute;s, tiempo con el problema sin resolver y tiempo pasado de rosca, avisos mandados y llegados, registros guardados y perdidos, veces en modo seguro, cu&aacute;nto tard&oacute; alguien en enterarse y en qu&eacute; estado acab&oacute;. Y debajo, la tabla de aver&iacute;as que le hicisteis vosotros.</p></div></details></li>
+
+      </ol>
+      <div class="ta" id="test-c6b">
+        <h4>Lo que tiene que haber quedado de la unidad entera</h4>
+        <div class="ta-p" data-ok="1">
+          <p>1. La bomba de vuestro riego arranc&oacute; de madrugada con la tierra mojada. &iquest;Cu&aacute;l es la causa m&aacute;s probable?</p>
+          <label class="ta-op"><input type="radio" name="c6b-0" value="0">El umbral estaba demasiado bajo y hay que subirlo.</label>
+          <label class="ta-op"><input type="radio" name="c6b-0" value="1">Una medida suelta dio un valor falso y el programa, que decide con una sola medida, se la crey&oacute;.</label>
+          <label class="ta-op"><input type="radio" name="c6b-0" value="2">El conversor A/D se estrope&oacute;.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Basta con que alguien roce la sonda para que una lectura no corresponda a nada. Si el programa decide con el valor de ese instante, act&uacute;a. Subir el umbral no lo arregla: lo sube tambi&eacute;n para los casos de verdad.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>2. &iquest;Qu&eacute; hace la l&iacute;nea <code>pos = (pos + 1) % N;</code> de un buffer circular?</p>
+          <label class="ta-op"><input type="radio" name="c6b-1" value="0">Calcula la media de las N medidas.</label>
+          <label class="ta-op"><input type="radio" name="c6b-1" value="1">Hace que el &iacute;ndice vuelva a 0 al llegar al final, para escribir encima de la medida m&aacute;s vieja.</label>
+          <label class="ta-op"><input type="radio" name="c6b-1" value="2">Divide la lectura entre N para que quepa en un byte.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es el resto de la divisi&oacute;n: cuando <code>pos</code> llega a N, <code>N % N</code> vale 0. Sin esa l&iacute;nea el programa escribe fuera del array, encima de otras variables, y en Arduino eso no da error.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>3. Tu sensor da de vez en cuando un pico enorme de un solo instante. &iquest;Media o mediana?</p>
+          <label class="ta-op"><input type="radio" name="c6b-2" value="0">Media, que es m&aacute;s f&aacute;cil de programar.</label>
+          <label class="ta-op"><input type="radio" name="c6b-2" value="1">Mediana: el pico se va a un extremo de la lista ordenada y no entra en la cuenta.</label>
+          <label class="ta-op"><input type="radio" name="c6b-2" value="2">Da igual, las dos hacen lo mismo con los mismos bytes.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La media <b>reparte</b> el pico entre las N medidas, o sea que lo estira: contamina N decisiones en vez de una. La mediana lo <b>tira</b>. Ocupan los mismos bytes, pero no sirven para lo mismo.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>4. &iquest;Qu&eacute; se paga siempre por decidir con la media de N medidas, haya picos o no?</p>
+          <label class="ta-op"><input type="radio" name="c6b-3" value="0">Nada, alisar es gratis.</label>
+          <label class="ta-op"><input type="radio" name="c6b-3" value="1">2N bytes de memoria y un retraso de unas N/2 medidas en enterarse.</label>
+          <label class="ta-op"><input type="radio" name="c6b-3" value="2">Que el conversor pierde resoluci&oacute;n.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La memoria se cuenta (2N bytes de los 2.048 de un Uno) y el retraso tambi&eacute;n: con medidas cada dos minutos, una media de 20 tarda unos 20 minutos en enterarse de un cambio.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>5. <code>int suma = 0;</code> y luego se suman 40 lecturas de hasta 1023. &iquest;Qu&eacute; pasa?</p>
+          <label class="ta-op"><input type="radio" name="c6b-4" value="0">Nada: 40.920 cabe de sobra.</label>
+          <label class="ta-op"><input type="radio" name="c6b-4" value="1">Se desborda, porque un <code>int</code> llega a 32.767, y la media sale mal sin que el programa avise.</label>
+          <label class="ta-op"><input type="radio" name="c6b-4" value="2">El compilador da un error y no deja subir el sketch.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es el mismo desbordamiento de la sesi&oacute;n 1, ahora escondido en el acumulador de la media. Se arregla con <code>long suma = 0;</code>, que son 2 bytes m&aacute;s una sola vez.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>6. Vuestro Arduino Uno tiene que mandar el dato fuera del aula. &iquest;Qu&eacute; hace falta?</p>
+          <label class="ta-op"><input type="radio" name="c6b-5" value="0">Nada, el Uno lleva wifi.</label>
+          <label class="ta-op"><input type="radio" name="c6b-5" value="1">Un ordenador que lea el puerto serie, o un m&oacute;dulo ESP-01 (~2 &euro;), o cambiar la placa por un ESP32.</label>
+          <label class="ta-op"><input type="radio" name="c6b-5" value="2">Activar el wifi por software en el <code>setup()</code>.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El Uno no tiene wifi ni Ethernet. Las tres soluciones tienen precio y pega, y eso va en la memoria del proyecto: el m&oacute;dulo ESP-01, adem&aacute;s, funciona a 3,3 V y el Uno saca 5 V.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>7. &iquest;Para qu&eacute; sirve un <b>latido</b> si el aparato ya avisa cuando pasa algo?</p>
+          <label class="ta-op"><input type="radio" name="c6b-6" value="0">Para que la gr&aacute;fica quede m&aacute;s bonita.</label>
+          <label class="ta-op"><input type="radio" name="c6b-6" value="1">Porque un aparato estropeado y uno tranquilo se ven igual: los dos callan. El latido hace que el silencio se pueda detectar.</label>
+          <label class="ta-op"><input type="radio" name="c6b-6" value="2">Para sincronizar la hora de la placa con el servidor.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Con avisos solo por evento, dejar de mandar no se distingue de que todo vaya bien. El latido pone el silencio del lado de las aver&iacute;as. Es lo que hace el <i>Keep Alive</i> de MQTT.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>8. Se cae la red nueve horas y el aparato guarda en memoria lo que no puede mandar. &iquest;Basta?</p>
+          <label class="ta-op"><input type="radio" name="c6b-7" value="0">S&iacute;: si se guarda, no se pierde nada.</label>
+          <label class="ta-op"><input type="radio" name="c6b-7" value="1">No: hace falta adem&aacute;s <b>reintentar</b> al volver la red, y aun as&iacute; la cola tiene tope.</label>
+          <label class="ta-op"><input type="radio" name="c6b-7" value="2">No: hay que mandarlo todo dos veces por si acaso.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Guardar sin reintentar es perder despacio: el aviso puede quedarse dentro d&iacute;as. Y con 1.200 bytes y mensajes de 24 caben 50: lo que llegue despu&eacute;s se pierde igual.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>9. Entrenas con 40 medidas y pruebas con otras 40 <b>elegidas al azar de las mismas jornadas</b>. Sale un 93 %. &iquest;Qu&eacute; mide ese n&uacute;mero?</p>
+          <label class="ta-op"><input type="radio" name="c6b-8" value="0">C&oacute;mo le ir&aacute; en cualquier maceta.</label>
+          <label class="ta-op"><input type="radio" name="c6b-8" value="1">C&oacute;mo le va en esas mismas jornadas y con ese mismo sensor, que no es la pregunta que importa.</label>
+          <label class="ta-op"><input type="radio" name="c6b-8" value="2">Que el modelo est&aacute; bien entrenado y ya se puede usar.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es una <b>fuga</b>: el conjunto de prueba comparte d&iacute;a, sitio y sensor con el de entrenamiento. Dejando fuera una jornada entera, el mismo modelo con los mismos ejemplos baja al 73 %.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>10. &iquest;Con qu&eacute; dos cosas hay que comparar siempre un modelo entrenado?</p>
+          <label class="ta-op"><input type="radio" name="c6b-9" value="0">Con otro modelo m&aacute;s grande y con uno m&aacute;s peque&ntilde;o.</label>
+          <label class="ta-op"><input type="radio" name="c6b-9" value="1">Con el modelo tonto que dice siempre lo mismo, y con el mejor <code>si</code> de una l&iacute;nea que puedas escribir a mano.</label>
+          <label class="ta-op"><input type="radio" name="c6b-9" value="2">Con el mismo modelo entrenado dos veces, para ver si sale igual.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Son los dos suelos. Si no les gana a los dos, no lo pongas: un <code>si</code> se lee, se depura, se explica en la defensa y cabe en 2 kB de memoria.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>11. &iquest;Qu&eacute; es exactamente el <b>modo seguro</b> de vuestro aparato?</p>
+          <label class="ta-op"><input type="radio" name="c6b-10" value="0">Un modo que arregla la aver&iacute;a y sigue funcionando.</label>
+          <label class="ta-op"><input type="radio" name="c6b-10" value="1">Un estado en el que deja de actuar, se queda quieto, avisa de que se ha parado y del que <b>no se sale solo</b>.</label>
+          <label class="ta-op"><input type="radio" name="c6b-10" value="2">Bajar la potencia del actuador a la mitad hasta que alguien lo mire.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> No arregla nada: para la m&aacute;quina y pide un humano. Y se sale a mano a prop&oacute;sito, igual que una seta de emergencia, que hay que girar para soltarla.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>12. Con la sonda fuera del tiesto y <b>sin</b> modo seguro, el aparato manda 216 avisos, y 198 de ellos dicen &laquo;he regado&raquo;. &iquest;Por qu&eacute; es eso peor que no mandar ninguno?</p>
+          <label class="ta-op"><input type="radio" name="c6b-11" value="0">Porque gasta datos.</label>
+          <label class="ta-op"><input type="radio" name="c6b-11" value="1">Porque ninguno de esos avisos dice que algo va mal: son los mismos que mandar&iacute;a si todo fuera bien, solo que muchos.</label>
+          <label class="ta-op"><input type="radio" name="c6b-11" value="2">Porque llena la EEPROM.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Una aver&iacute;a que se manifiesta como &laquo;m&aacute;s de lo normal&raquo; no se detecta sola: hace falta que el programa sospeche y mande un aviso <b>distinto</b>. Si no, el que recibe ve actividad y supone que todo va bien.</div>
+        </div>
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Y con esto se cierra la unidad</span>
+        Empezaste con un programa de bloques que no se pod&iacute;a ni mandar por el m&oacute;vil y
+        acabas con un aparato que mide de verdad, se acuerda de lo que ha visto, decide, avisa a
+        alguien, guarda lo que cabe y <b>sabe pararse cuando algo no cuadra</b>. Lo que queda de curso
+        le a&ntilde;ade movimiento (<b>unidad 7</b>, rob&oacute;tica), le pasa la factura ambiental
+        (<b>unidad 8</b>) y pregunta a qui&eacute;n sirve (<b>unidad 9</b>). Pero el aparato, como
+        aparato, ya est&aacute; terminado. Y sabes decir hasta d&oacute;nde llega, que es la parte que
+        casi nadie sabe hacer.
+      </div>
+
+    </section>
+
+  </div>
 
 
   <section class="cc-aviso" id="licencia"

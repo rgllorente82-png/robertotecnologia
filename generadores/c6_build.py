@@ -41,6 +41,7 @@ import avatar_flat
 from c6_escenas import BLOQUES_Y_CODIGO, CONVERSOR
 from c6_escenas2 import MENSAJE, CLASIFICADOR
 from test_auto import test
+import c6b_texto
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USA_AVATAR = [False]
@@ -1042,11 +1043,12 @@ S = [
          minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
                    (u"10'", u'Cierre y test')],
          chips=[u'CE4 &middot; 4.2', u'CE5 &middot; 5.1', u'C.1', u'C.4'], cuerpo=S4),
-    dict(corto=u'Decidir con memoria', pendiente=True),
-    dict(corto=u'Montar el aviso de verdad', pendiente=True),
-    dict(corto=u'Entrenar con vuestros datos', pendiente=True),
-    dict(corto=u'El sistema completo', pendiente=True),
 ]
+
+# --- la segunda mitad, escrita aparte en c6b_texto.py ---
+# Aterriza en el proyecto YA DECIDIDO (PROYECTOS.md, bloque DECIDIDO): riego,
+# ventilacion o lampara. Las cuatro escenas llevan los tres en pestanas.
+S += c6b_texto.sesiones(bloque)
 
 CFG = dict(
     ruta='4eso/Tecnologia/tema6/',
@@ -1072,3 +1074,5 @@ if __name__ == '__main__':
     print('Tema 6 de 4.o generado: %d bytes, %d sesiones (%d escritas, %d pendientes)'
           % (len(html), len(S), sum(1 for x in S if not x.get('pendiente')),
              sum(1 for x in S if x.get('pendiente'))))
+    for aviso in c6b_texto.PENDIENTES:
+        print('  !! ' + aviso)

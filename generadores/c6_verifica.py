@@ -19,6 +19,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from playwright.sync_api import sync_playwright
+import c6b_gemelos as G
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 URL = 'file://' + os.path.join(RAIZ, '4eso', 'Tecnologia', 'tema6', 'index.html')
@@ -58,6 +59,15 @@ def fila(texto, etiqueta):
 
 def valor(texto, etiqueta, k=0):
     return numeros(fila(texto, etiqueta))[k]
+
+
+# Mover un mando de rango desde Playwright: poner .value no dispara el evento.
+SET = "e => { e.value = %d; e.dispatchEvent(new Event('input')); }"
+
+
+def jsround(x):
+    """toFixed(0) del navegador: 92,5 sale 93. El round() de Python dice 92."""
+    return int(math.floor(x + 0.5))
 
 
 # --------------------------------------------------------------------------
@@ -130,8 +140,11 @@ with sync_playwright() as p:
     bts = pag.query_selector_all('#nav button')
     check(len(bts) == 8, 'hay 8 botones de sesion (hay %d)' % len(bts))
     aptos = [b for b in bts if b.get_attribute('disabled') is None]
-    check(len(aptos) == 4, 'cuatro sesiones escritas y cuatro en preparacion (escritas: %d)'
+    check(len(aptos) == 8, 'las 8 sesiones estan escritas, ninguna en preparacion (escritas: %d)'
           % len(aptos))
+    cuerpos = pag.eval_on_selector_all('[id^="ses-"]', 'es => es.length')
+    check(cuerpos == 8, 'hay 8 cuerpos de sesion (hay %d)' % cuerpos)
+    check('en preparaci' not in pag.content(), 'no queda ninguna sesion "en preparacion"')
 
     print('== El narrador')
     check(pag.query_selector('#narr-c6') is not None, 'la unidad lleva su voz con avatar')
@@ -493,27 +506,366 @@ with sync_playwright() as p:
         check(eje in pag.inner_text('#pie-c4'), 'el conjunto %d rotula su eje (%s)' % (k, eje))
     pag.click('#seg-c4 button[data-d="0"]')
 
-    # ---------------------------------------------------------------- test
-    print('== El test')
-    check(len(pag.query_selector_all('#test-c6 .ta-p')) == 10, 'el test tiene 10 preguntas')
-    check(len(pag.query_selector_all('#test-c6 .ta-por')) == 10, 'y las 10 explican por que')
-    oks = pag.eval_on_selector_all('#test-c6 .ta-p', 'ps => ps.map(p => +p.dataset.ok)')
-    for i, ok in enumerate(oks):
-        pag.check('#test-c6 input[name="c6-%d"][value="%d"]' % (i, ok))
-    pag.click('#test-c6 [data-a="corregir"]')
-    pag.wait_for_timeout(200)
-    check(pag.inner_text('#test-c6 .ta-nota').strip().startswith('10 de 10'),
-          'contestando bien las diez, la nota es 10 de 10')
-    check(pag.eval_on_selector('#test-c6 .ta-por', "e => getComputedStyle(e).display") != 'none',
-          'al corregir aparecen las explicaciones')
-    pag.click('#test-c6 [data-a="otra"]')
-    pag.wait_for_timeout(200)
-    check(not pag.query_selector_all('#test-c6 input:checked'),
-          '"borrar y repetir" deja el test limpio')
+    # ---------------------------------------------------------------- S5
+    # Las sesiones 5 a 8 se comparan contra c6b_gemelos.py, que es el mismo
+    # modelo escrito otra vez en Python. Si una escena dejara de calcular y
+    # empezara a fingir, las dos cuentas dejarian de coincidir.
+    print('== Sesion 5 * decidir con el historico')
+    pag.click('#nav button[data-ses="5"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#svg-mem', 'e => e.innerHTML')) > 8000,
+          'la escena pinta el dia entero de medidas')
+    check(len(pag.query_selector_all('#cod-mem')) == 1, 'y el panel de codigo esta')
+
+    def pon_mem(regla, n, tipo=0, picos=True, u=600):
+        pag.click('#regla-mem button[data-r="%d"]' % regla)
+        pag.click('#tipo-mem button[data-t="%d"]' % tipo)
+        pag.eval_on_selector('#mem-n', SET % n)
+        pag.eval_on_selector('#mem-u', SET % u)
+        if pag.is_checked('#mem-picos') != picos:
+            pag.click('#mem-picos')
+        pag.wait_for_timeout(160)
+        return pag.inner_text('#tabla-mem')
+
+    CASOS_MEM = [(0, 0, 1, 0, True, 600), (0, 1, 5, 0, True, 600), (0, 1, 10, 0, True, 600),
+                 (0, 1, 20, 0, True, 600), (0, 2, 5, 0, True, 600), (0, 2, 9, 0, True, 600),
+                 (0, 3, 20, 0, True, 600), (0, 0, 1, 0, False, 600), (0, 2, 9, 1, True, 600),
+                 (0, 1, 10, 0, True, 650), (0, 1, 10, 0, True, 520)]
+    for np_, regla, n, tipo, picos, u in CASOS_MEM:
+        t = pon_mem(regla, n, tipo, picos, u)
+        e = G.mem_mide(np_, regla, n, u=u, tipo=tipo, picos=picos)
+        eti = 'regla %d N=%d tipo=%d picos=%s u=%d' % (regla, n, tipo, picos, u)
+        arr = numeros(fila(t, 'de m'))
+        check([int(x) for x in arr[:2]] == [e['arrF'], e['arr']],
+              '%s -> arranques %s en pantalla, %d de %d calculados'
+              % (eti, arr[:2], e['arrF'], e['arr']))
+        check(int(valor(t, 'falsas alarmas')) == e['falsas'],
+              '%s -> falsas alarmas %d = %d' % (eti, valor(t, 'falsas alarmas'), e['falsas']))
+        check(int(valor(t, 'se le pasan')) == e['pasa'],
+              '%s -> se le pasan %d = %d' % (eti, valor(t, 'se le pasan'), e['pasa']))
+        check(int(valor(t, 'episodios de verdad')) == e['eps'],
+              '%s -> episodios %d = %d' % (eti, valor(t, 'episodios de verdad'), e['eps']))
+        dicho = fila(t, 'tarda de media')
+        signo = -1 if dicho.startswith('−') else 1
+        check(signo * numeros(dicho)[0] == round(e['ret']),
+              '%s -> retardo %s min en pantalla, %.0f calculado' % (eti, dicho, e['ret']))
+        check(int(valor(t, 'memoria del')) == e['bytes'],
+              '%s -> %d bytes = %d' % (eti, valor(t, 'memoria del'), e['bytes']))
+
+    # las tres afirmaciones de la sesion, como aserciones
+    m_ult = G.mem_mide(0, 0, 1)
+    m_med5 = G.mem_mide(0, 1, 5)
+    m_mdn5 = G.mem_mide(0, 2, 5)
+    m_med20 = G.mem_mide(0, 1, 20)
+    check(m_ult['arrF'] > m_med5['arrF'] > m_mdn5['arrF'] == 0,
+          'la mediana de 5 quita los arranques falsos que la media de 5 no quita '
+          '(ultimo %d, media %d, mediana %d)' % (m_ult['arrF'], m_med5['arrF'], m_mdn5['arrF']))
+    check(m_med20['ret'] > m_med5['ret'] > m_ult['ret'],
+          'mas N es mas retardo (%.0f < %.0f < %.0f min)'
+          % (m_ult['ret'], m_med5['ret'], m_med20['ret']))
+    check(G.mem_mide(0, 2, 9, tipo=1)['bytes'] * 2 == G.mem_mide(0, 2, 9, tipo=0)['bytes'],
+          'guardar en byte ocupa la mitad que guardar en int')
+    check(G.mem_mide(0, 3, 20)['ret'] < 0,
+          'la tendencia se adelanta al problema (%.0f min)' % G.mem_mide(0, 3, 20)['ret'])
+    # el panel de codigo se reescribe con lo que haya elegido
+    pon_mem(1, 14)
+    cod = pag.inner_text('#cod-mem')
+    check('const byte N = 14;' in cod and 'suma / N > 600' in cod,
+          'el codigo lleva la N y el umbral que hay puestos')
+    pon_mem(2, 14)
+    check('ordena(c, N)' in pag.inner_text('#cod-mem'), 'con la mediana el codigo ordena')
+    pon_mem(2, 14, tipo=1)
+    check('x / 4' in pag.inner_text('#cod-mem'), 'con byte el codigo divide entre 4')
+    pon_mem(0, 10)
+    check('ni miro lo guardado' in pag.inner_text('#cod-mem'),
+          'con el ultimo valor el codigo dice que no mira el historico')
+    check(pag.eval_on_selector('#mem-n', 'e => e.disabled') is True,
+          'y el mando de N se desactiva, porque no pinta nada')
+    for k, txt in ((1, 'sensor de temperatura'), (2, 'LDR')):
+        pag.click('#seg-mem button[data-p="%d"]' % k)
+        pag.wait_for_timeout(200)
+        check(txt in pag.text_content('#svg-mem'), 'el proyecto %d rotula su sensor (%s)' % (k, txt))
+    pag.click('#seg-mem button[data-p="0"]')
+
+    # ---------------------------------------------------------------- S6
+    print('== Sesion 6 * el aviso que alguien lee')
+    pag.click('#nav button[data-ses="6"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#svg-avi', 'e => e.innerHTML')) > 5000,
+          'la escena pinta las dos semanas')
+
+    def pon_avi(pol, reg=0, vP=500, vL=560, red=True, buf=False, mudo=False):
+        pag.click('#pol-avi button[data-o="%d"]' % pol)
+        pag.click('#reg-avi button[data-r="%d"]' % reg)
+        pag.eval_on_selector('#avi-p', SET % vP)
+        pag.eval_on_selector('#avi-l', SET % vL)
+        for cid, quiero in (('avi-red', red), ('avi-buf', buf), ('avi-mudo', mudo)):
+            if pag.is_checked('#' + cid) != quiero:
+                pag.click('#' + cid)
+        pag.wait_for_timeout(220)
+        return pag.inner_text('#tabla-avi')
+
+    CASOS_AVI = [(0, 0, 0, 500, 560, True, False, True),
+                 (0, 0, 0, 500, 560, True, False, True),
+                 (0, 1, 0, 500, 560, True, False, True),
+                 (0, 1, 1, 500, 560, True, False, True),
+                 (0, 2, 1, 500, 560, True, False, True),
+                 (0, 2, 1, 500, 0, True, False, True),
+                 (0, 1, 1, 500, 560, True, True, False),
+                 (0, 1, 1, 500, 560, True, False, False),
+                 (1, 2, 1, 500, 560, True, False, True),
+                 (2, 2, 1, 500, 560, True, False, True),
+                 (0, 0, 0, 1000, 560, False, False, False)]
+    for np_, pol, reg, vP, vL, red, buf, mudo in CASOS_AVI:
+        pag.click('#seg-avi button[data-p="%d"]' % np_)
+        pag.wait_for_timeout(150)
+        t = pon_avi(pol, reg, vP, vL, red, buf, mudo)
+        e = G.avi_simula(np_, pol, reg, vP=vP, vL=vL, red=red, buf=buf, mudo=mudo)
+        eti = 'proy %d pol %d reg %d P%d L%d red=%s cola=%s mudo=%s' % (
+            np_, pol, reg, vP, vL, red, buf, mudo)
+        check(int(valor(t, 'mensajes que salen')) == e['sale'],
+              '%s -> salen %d = %d' % (eti, valor(t, 'mensajes que salen'), e['sale']))
+        check(int(valor(t, 'le llegan a una')) == e['llega'],
+              '%s -> llegan %d = %d' % (eti, valor(t, 'le llegan a una'), e['llega']))
+        check(int(valor(t, 'se pierden en la')) == e['perdidos'],
+              '%s -> perdidos %d = %d' % (eti, valor(t, 'se pierden en la'), e['perdidos']))
+        check(int(valor(t, 'incidencias')) == e['eps'],
+              '%s -> incidencias %d = %d' % (eti, valor(t, 'incidencias'), e['eps']))
+        check(int(valor(t, 'no se supieron')) == e['nunca'],
+              '%s -> no se supieron %d = %d' % (eti, valor(t, 'no se supieron'), e['nunca']))
+        check(int(valor(t, 'falsas alarmas')) == e['falsas'],
+              '%s -> falsas de silencio %d = %d' % (eti, valor(t, 'falsas alarmas'), e['falsas']))
+        sil = fila(t, 'el silencio del aparato')
+        if not mudo:
+            check(sil == 'no lo hay', '%s -> sin averia no hay silencio que descubrir' % eti)
+        elif e['mudo'] < 0:
+            check('NO se descubre' in sil, '%s -> el silencio NO se descubre' % eti)
+        else:
+            check('se descubre' in sil, '%s -> el silencio se descubre (%s)' % (eti, sil))
+    pag.click('#seg-avi button[data-p="0"]')
+
+    # las cuatro afirmaciones de la sesion
+    a_per = G.avi_simula(0, 0, 0, vP=0, mudo=True)
+    a_eve = G.avi_simula(0, 1, 1, mudo=True)
+    a_lat = G.avi_simula(0, 2, 1, mudo=True)
+    check(a_per['sale'] > 40 * a_eve['sale'],
+          'el periodico de 5 min manda %d veces mas mensajes que el de evento (%d vs %d)'
+          % (a_per['sale'] // a_eve['sale'], a_per['sale'], a_eve['sale']))
+    check(a_eve['mudo'] < 0 and a_lat['mudo'] >= 0,
+          'sin latido el silencio no se descubre y con latido si')
+    check(G.avi_simula(0, 1, 0, mudo=True)['sale'] > a_eve['sale'],
+          'decidir con el ultimo valor dispara mas mensajes que la media de 10 (%d vs %d)'
+          % (G.avi_simula(0, 1, 0, mudo=True)['sale'], a_eve['sale']))
+    sin = G.avi_simula(0, 1, 1, buf=False)
+    con = G.avi_simula(0, 1, 1, buf=True)
+    check(sin['nunca'] == 1 and con['nunca'] == 0 and con['espera'] > sin['espera'],
+          'la cola convierte una incidencia perdida en una sabida tarde '
+          '(%d -> %d nunca, %.0f -> %.0f min)'
+          % (sin['nunca'], con['nunca'], sin['espera'], con['espera']))
+    check(G.avi_simula(0, 2, 1, vL=0, mudo=True)['falsas'] >= 1,
+          'un latido rapido convierte la caida de red en una falsa alarma')
+
+    # ---------------------------------------------------------------- S7
+    print('== Sesion 7 * entrenar con los datos de la clase')
+    pag.click('#nav button[data-ses="7"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#svg-dat', 'e => e.innerHTML')) > 5000,
+          'la escena pinta las 120 medidas')
+    check(len(pag.eval_on_selector('#curva-dat', 'e => e.innerHTML')) > 800,
+          'y la curva de aprendizaje')
+
+    def pon_dat(corte, cars, n):
+        pag.click('#corte-dat button[data-c="%d"]' % corte)
+        pag.click('#cars-dat button[data-k="%d"]' % cars)
+        pag.eval_on_selector('#dat-n', SET % n)
+        pag.wait_for_timeout(260)
+        return pag.inner_text('#tabla-dat')
+
+    for np_ in (0, 1, 2):
+        pag.click('#seg-dat button[data-p="%d"]' % np_)
+        pag.wait_for_timeout(150)
+        for corte in (0, 1):
+            for cars in (0, 1):
+                for n in (20, 40, 80):
+                    t = pon_dat(corte, cars, n)
+                    e = G.dat_mide(np_, corte, n, cars)
+                    eti = 'proy %d corte %d cars %d n=%d' % (np_, corte, cars, n)
+                    check(int(valor(t, 'SUS ejemplos')) == jsround(e['ent']),
+                          '%s -> en los suyos %d %% = %d %%'
+                          % (eti, valor(t, 'SUS ejemplos'), jsround(e['ent'])))
+                    check(int(valor(t, 'acierta en los de')) == jsround(e['pru']),
+                          '%s -> en prueba %d %% = %d %%'
+                          % (eti, valor(t, 'acierta en los de'), jsround(e['pru'])))
+                    check(int(valor(t, 'modelo tonto')) == jsround(e['tonto']),
+                          '%s -> tonto %d %% = %d %%'
+                          % (eti, valor(t, 'modelo tonto'), jsround(e['tonto'])))
+                    um = numeros(fila(t, 'umbral escrito'))
+                    check([int(um[0]), int(um[1])] == [jsround(e['umbral']), e['u']],
+                          '%s -> umbral a mano %s = %d %% con lectura > %d'
+                          % (eti, um, jsround(e['umbral']), e['u']))
+    pag.click('#seg-dat button[data-p="0"]')
+
+    # las afirmaciones de la sesion, para los tres proyectos
+    for np_ in (0, 1, 2):
+        az = G.dat_mide(np_, 0, 40, 1)
+        jo = G.dat_mide(np_, 1, 40, 1)
+        check(jo['pru'] < az['pru'] - 10,
+              'proy %d: partir por jornada hunde el acierto (%.0f %% -> %.0f %%)'
+              % (np_, az['pru'], jo['pru']))
+        check(jo['ent'] >= 90,
+              'proy %d: y aun asi sigue acertando el %.0f %% de los suyos' % (np_, jo['ent']))
+        un = G.dat_mide(np_, 0, 40, 0)
+        check(az['pru'] > un['pru'],
+              'proy %d: la tendencia sube el acierto (%.0f %% -> %.0f %%)'
+              % (np_, un['pru'], az['pru']))
+    B = G.dat_banco(0)
+    check(len(B) == 120 and len(set(x['d'] for x in B)) == 4,
+          'el banco son 120 medidas de cuatro jornadas')
+    check(len([x for x in B if x['d'] == 3]) == 30,
+          'y la cuarta jornada, la de prueba, tiene 30')
+
+    # ---------------------------------------------------------------- S8
+    print('== Sesion 8 * el sistema entero')
+    pag.click('#nav button[data-ses="8"]')
+    pag.wait_for_timeout(400)
+    check(len(pag.eval_on_selector('#maq-sis', 'e => e.innerHTML')) > 1500,
+          'la escena pinta el diagrama de estados')
+    check(len(pag.eval_on_selector('#svg-sis', 'e => e.innerHTML')) > 20000,
+          'y los catorce dias')
+
+    AVER = ('sis-sonda', 'sis-red', 'sis-luz', 'sis-puente')
+    PROT = ('sis-seguro', 'sis-reloj', 'sis-ahorra')
+
+    def pon_sis(**kw):
+        for cid, ini in (('sis-sonda', 0), ('sis-red', 0), ('sis-luz', 0), ('sis-puente', 0),
+                         ('sis-seguro', 1), ('sis-reloj', 0), ('sis-ahorra', 0)):
+            quiero = bool(kw.get(cid.split('-')[1], ini))
+            if pag.is_checked('#' + cid) != quiero:
+                pag.click('#' + cid)
+        pag.wait_for_timeout(420)
+        return pag.inner_text('#tabla-sis')
+
+    CASOS_SIS = [(0, {}), (0, {'sonda': 1, 'seguro': 0}), (0, {'sonda': 1}),
+                 (0, {'sonda': 1, 'puente': 1}), (0, {'red': 1}),
+                 (0, {'luz': 1, 'ahorra': 1}), (0, {'luz': 1, 'ahorra': 1, 'reloj': 1}),
+                 (0, {'ahorra': 1}), (0, {'sonda': 1, 'red': 1, 'luz': 1, 'puente': 1,
+                                          'seguro': 0}),
+                 (1, {}), (1, {'sonda': 1, 'seguro': 0}), (2, {'sonda': 1})]
+    for np_, kw in CASOS_SIS:
+        pag.click('#seg-sis button[data-p="%d"]' % np_)
+        pag.wait_for_timeout(150)
+        t = pon_sis(**kw)
+        e = G.sis_simula(np_, sonda=bool(kw.get('sonda')), red=bool(kw.get('red')),
+                         luz=bool(kw.get('luz')), puente=bool(kw.get('puente')),
+                         seguro=bool(kw.get('seguro', 1)), reloj=bool(kw.get('reloj')),
+                         ahorra=bool(kw.get('ahorra')))
+        eti = 'proy %d %s' % (np_, kw or 'sin averias')
+        check(int(numeros(fila(t, 'en 14 d'))[0]) == e['act'],
+              '%s -> actuaciones %s = %d' % (eti, fila(t, 'en 14 d'), e['act']))
+        check(int(valor(t, 'no hac')) == e['actMal'],
+              '%s -> de mas %d = %d' % (eti, valor(t, 'no hac'), e['actMal']))
+        check(int(valor(t, 'avisos que salen')) == e['sale'],
+              '%s -> avisos %d = %d' % (eti, valor(t, 'avisos que salen'), e['sale']))
+        check(int(valor(t, 'se pierden')) == e['perdidosMsg'],
+              '%s -> avisos perdidos %d = %d' % (eti, valor(t, 'se pierden'), e['perdidosMsg']))
+        reg = numeros(fila(t, 'registros guardados'))
+        check([int(reg[0]), int(reg[1])] == [e['guardados'], e['bytesEE']],
+              '%s -> registros %s = %d (%d B)' % (eti, reg, e['guardados'], e['bytesEE']))
+        check(int(valor(t, 'no cupieron')) == e['perdidosReg'],
+              '%s -> no cupieron %d = %d' % (eti, valor(t, 'no cupieron'), e['perdidosReg']))
+        check(int(valor(t, 'sin hora')) == e['sinHora'],
+              '%s -> sin hora %d = %d' % (eti, valor(t, 'sin hora'), e['sinHora']))
+        check(int(valor(t, 'modo seguro')) == e['veces'],
+              '%s -> modo seguro %d = %d' % (eti, valor(t, 'modo seguro'), e['veces']))
+        check(fila(t, 'acaba en') == e['estadoFinal'],
+              '%s -> acaba en %s = %s' % (eti, fila(t, 'acaba en'), e['estadoFinal']))
+    pag.click('#seg-sis button[data-p="0"]')
+
+    # las afirmaciones de la sesion
+    s_bien = G.sis_simula(0)
+    s_mal = G.sis_simula(0, sonda=True, seguro=False)
+    s_seg = G.sis_simula(0, sonda=True, seguro=True)
+    check(s_mal['act'] > 20 * s_bien['act'],
+          'sin modo seguro, la sonda fuera dispara %d actuaciones frente a %d'
+          % (s_mal['act'], s_bien['act']))
+    check(s_mal['enterado'] is None and s_seg['enterado'] is not None,
+          'sin modo seguro nadie se entera y con el si')
+    check(s_seg['minMal'] > s_mal['minMal'],
+          'y el modo seguro NO arregla el problema: deja mas tiempo sin resolver '
+          '(%.0f h frente a %.0f h)' % (s_seg['horasMal'], s_mal['horasMal']))
+    check(s_mal['minAhogo'] > 100 * 60,
+          'a cambio, sin modo seguro se pasa %.0f h de rosca' % s_mal['horasAhogo'])
+    s_pue = G.sis_simula(0, sonda=True, puente=True)
+    check(s_pue['enterado'] > s_seg['enterado'],
+          'con el puente el aviso llega igual y se lee mucho mas tarde')
+    check(s_bien['perdidosReg'] > 500 and G.sis_simula(0, ahorra=True)['perdidosReg'] == 0,
+          'guardando cada media hora la EEPROM se llena, y guardando por eventos no')
+    check(G.sis_simula(0, luz=True, ahorra=True)['sinHora'] > 0
+          and G.sis_simula(0, luz=True, ahorra=True, reloj=True)['sinHora'] == 0,
+          'el corte de luz deja registros sin hora, y el reloj con pila lo evita')
+
+    # el mando de instante recorre la simulacion y el diagrama lo sigue
+    vistos = set()
+    for v in (0, 30, 200, 900, 2300, 4000):
+        pag.eval_on_selector('#sis-t', SET % v)
+        pag.wait_for_timeout(200)
+        vistos.add(pag.inner_text('#vt-sis').split('·')[-1].strip())
+    check(len(vistos) >= 2, 'el mando de instante ensena estados distintos (%s)' % sorted(vistos))
+    pag.check('#sis-sonda')
+    pag.uncheck('#sis-seguro')
+    pag.eval_on_selector('#sis-t', SET % 4000)
+    pag.wait_for_timeout(300)
+    resalta = pag.evaluate(
+        "() => [...document.querySelectorAll('#maq-sis rect')]"
+        ".filter(r => +r.getAttribute('stroke-width') > 2).length")
+    check(resalta == 1, 'el diagrama resalta exactamente un estado (resalta %d)' % resalta)
+    pag.uncheck('#sis-sonda')
+    pag.check('#sis-seguro')
+
+    # ---------------------------------------------------------------- tests
+    # Son DOS: el de la sesion 4 sobre las cuatro primeras y el de la sesion 8
+    # sobre la unidad entera. Tienen que convivir sin pisarse los name= de los
+    # radios; si compartieran identificador, contestar uno marcaria el otro.
+    print('== Los dos tests')
+    for idt, ses, n in (('c6', 4, 10), ('c6b', 8, 12)):
+        pag.click('#nav button[data-ses="%d"]' % ses)
+        pag.wait_for_timeout(300)
+        check(len(pag.query_selector_all('#test-%s .ta-p' % idt)) == n,
+              'el test %s tiene %d preguntas' % (idt, n))
+        check(len(pag.query_selector_all('#test-%s .ta-por' % idt)) == n,
+              'y las %d explican por que' % n)
+        oks = pag.eval_on_selector_all('#test-%s .ta-p' % idt, 'ps => ps.map(p => +p.dataset.ok)')
+        for i, ok in enumerate(oks):
+            pag.check('#test-%s input[name="%s-%d"][value="%d"]' % (idt, idt, i, ok))
+        pag.click('#test-%s [data-a="corregir"]' % idt)
+        pag.wait_for_timeout(200)
+        check(pag.inner_text('#test-%s .ta-nota' % idt).strip().startswith('%d de %d' % (n, n)),
+              'contestandolas bien todas, la nota del test %s es %d de %d' % (idt, n, n))
+        check(pag.eval_on_selector('#test-%s .ta-por' % idt,
+                                   "e => getComputedStyle(e).display") != 'none',
+              'al corregir el test %s aparecen las explicaciones' % idt)
+
+    # los dos a la vez: contestar el de la sesion 8 no ha marcado nada en el de la 4
+    nombres = pag.eval_on_selector_all(
+        '.ta input[type="radio"]', "es => es.map(e => e.name.replace(/-\\d+$/, ''))")
+    check(sorted(set(nombres)) == ['c6', 'c6b'],
+          'los radios de los dos tests usan identificadores distintos (%s)'
+          % sorted(set(nombres)))
+    check(len([x for x in nombres if x == 'c6']) == 30
+          and len([x for x in nombres if x == 'c6b']) == 36,
+          'y son 30 radios del test c6 y 36 del c6b (hay %d y %d)'
+          % (len([x for x in nombres if x == 'c6']), len([x for x in nombres if x == 'c6b'])))
+    for idt in ('c6', 'c6b'):
+        pag.click('#nav button[data-ses="%d"]' % (4 if idt == 'c6' else 8))
+        pag.wait_for_timeout(250)
+        pag.click('#test-%s [data-a="otra"]' % idt)
+        pag.wait_for_timeout(200)
+        check(not pag.query_selector_all('#test-%s input:checked' % idt),
+              '"borrar y repetir" deja limpio el test %s' % idt)
 
     # -------------------------------------------------- libreta, fotos y videos
     print('== Bloques de libreta, fotos y videos')
-    for n in (1, 2, 3, 4):
+    for n in (1, 2, 3, 4, 5, 6, 7, 8):
         pag.click('#nav button[data-ses="%d"]' % n)
         pag.wait_for_timeout(200)
         cop = pag.eval_on_selector_all('#ses-%d .copiar' % n, 'e => e.length')
@@ -526,7 +878,7 @@ with sync_playwright() as p:
         check(vid == 1, 'la sesion %d tiene su video' % n)
 
     minimos = {'c6-cafetera-trojan.png': 140}
-    for n in (1, 2, 3, 4):
+    for n in (1, 2, 3, 4, 5, 6, 7, 8):
         pag.click('#nav button[data-ses="%d"]' % n)
         pag.wait_for_timeout(350)
         ims = pag.query_selector_all('#ses-%d .foto img' % n)
