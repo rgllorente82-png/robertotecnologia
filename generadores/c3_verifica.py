@@ -418,7 +418,8 @@ with sync_playwright() as p:
     rotas = []
     for src in imgs:
         ruta = os.path.normpath(os.path.join(base, src))
-        if not os.path.exists(ruta) or os.path.getsize(ruta) < 10000:
+        # el peso no dice nada: una foto bien comprimida pesa poco y esta entera
+        if not os.path.exists(ruta) or os.path.getsize(ruta) < 2000:
             rotas.append(src)
         elif open(ruta, 'rb').read(2) != b'\xff\xd8':
             rotas.append(src + ' (no es un JPEG)')

@@ -296,8 +296,20 @@ with sync_playwright() as p:
             check(len(img.get_attribute('alt') or '') > 60,
                   'la foto %s describe en el alt lo que se ve' % src)
         fichero = os.path.join(RAIZ, 'img', src)
-        check(os.path.exists(fichero) and os.path.getsize(fichero) > 20000,
-              'el fichero %s esta bajado y no viene vacio' % src)
+        # No se mide en bytes: una foto bien comprimida puede pesar 15 KB y
+        # estar perfecta. Lo que se comprueba es que sea una imagen de verdad
+        # y con tamanio de foto, no un fichero a medio bajar.
+        cabecera = open(fichero, 'rb').read(2) if os.path.exists(fichero) else b''
+        check(cabecera == b'\xff\xd8', 'el fichero %s esta bajado y es un JPEG' % src)
+        # y lo que la pagina declara que mide es lo que mide de verdad: si
+        # alguien reduce una foto y no vuelve a pasar afina_fotos.py, el hueco
+        # que reserva el navegador deja de cuadrar y esto lo dice
+        if img:
+            dicho = (img.get_attribute('width'), img.get_attribute('height'))
+            real = img.evaluate('e => [e.naturalWidth, e.naturalHeight]')
+            check(dicho == (str(real[0]), str(real[1])) and real[0] >= 200,
+                  'y %s declara el tamanio que tiene: dice %sx%s, mide %dx%d'
+                  % (src, dicho[0], dicho[1], real[0], real[1]))
     check(len(pag.query_selector_all('.video[data-vid]')) == 5, 'hay cinco videos, sin cargar')
     check(len(pag.query_selector_all('.video iframe')) == 0,
           'ningun iframe de YouTube se carga sin pulsarlo')

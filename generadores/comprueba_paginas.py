@@ -40,16 +40,18 @@ ROTULOS = [
 
 
 def paginas():
-    for base in CARPETAS:
-        if not os.path.isdir(base):
-            continue
-        for nombre in sorted(os.listdir(base)):
-            ruta = os.path.join(base, nombre, 'index.html')
-            if os.path.exists(ruta):
-                yield ruta
-        suelta = os.path.join(base, 'index.html')
-        if os.path.exists(suelta):
-            yield suelta
+    """Todas las paginas del sitio, no una lista escrita a mano.
+
+    Antes miraba dos carpetas y se dejaba fuera cuatro paginas: la portada, las
+    dos entradas de curso y el 404. Justo la portada es donde un rotulo roto
+    aguanto publicado sin que nadie lo viera, asi que la lista a mano era
+    precisamente el problema.
+    """
+    for base, carpetas, ficheros in os.walk(RAIZ):
+        carpetas[:] = [c for c in carpetas if c not in ('.git', 'generadores')]
+        for nombre in sorted(ficheros):
+            if nombre.endswith('.html'):
+                yield os.path.join(base, nombre)
 
 
 def revisa(ruta):
