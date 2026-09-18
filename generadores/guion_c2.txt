@@ -1,0 +1,15 @@
+Bienvenido a la unidad dos: diseño y fabricación, del material al producto.
+
+En la unidad uno decidiste qué ibas a construir y por qué. Tienes el problema detectado, tienes una idea y tienes un grupo. Ahora empieza la parte en la que se rompen los proyectos, que es hacerlo de verdad.
+
+Y aquí va lo primero que hay que aceptar: un dibujo no es una pieza. Entre los dos hay un abismo lleno de decisiones que casi nadie ve hasta que se le caen encima.
+
+Te pongo un ejemplo, y es real. Le pides a un compañero una tapa con cuatro agujeros separados veinticinco milímetros. Él lo hace perfecto: mide veinticinco, marca; otros veinticinco, marca; y así cuatro veces. Cada medida impecable, con un error de dos décimas de milímetro, que es menos que el grosor de la raya del lápiz. Y el cuarto agujero sale casi un milímetro fuera de sitio, porque los cuatro errores se han sumado. Nadie se ha equivocado, y la pieza no vale.
+
+Eso es esta unidad. Aprender a decir las cosas en un plano de manera que la pieza salga bien aunque la haga otra persona, en otro sitio y otro día.
+
+Vas a ver que nadie ha fabricado nunca una pieza de ocho milímetros exactos, y que por eso una cota sin tolerancia no dice nada. Vas a calcular si dos piezas van a encajar antes de tocar el material, con un eje y un agujero delante. Vas a descubrir que un tornillo de acero aguanta ciento setenta kilos y que, aun así, tu unión se rompe con quince, porque lo que falla no es el tornillo: es el plástico de alrededor del agujero. Y vas a terminar eligiendo con qué fabricar cada pieza, con el precio, el tiempo y la precisión de las tres técnicas delante.
+
+Una advertencia, porque cambia la manera de trabajar: la técnica con la que vas a fabricar no se elige al final. Se elige antes, porque decide lo que puedes dibujar.
+
+Vamos allá.
