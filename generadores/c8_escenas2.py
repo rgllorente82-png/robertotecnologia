@@ -662,7 +662,10 @@ ENERGIA = u'''
           todo();
         });
         [elPer, elDes].forEach(function(el){ el.addEventListener('input', todo); });
-        PIEZAS.concat([{id:'o4-duerme'}]).forEach(function(p){
+        /* La bomba va aqui expresamente: no esta en PIEZAS, porque tiene su
+           propio ciclo, asi que si no se la nombra se queda sin oyente y la
+           casilla no repinta nada. Paso, y solo se vio pulsandola. */
+        PIEZAS.concat([{id:'o4-duerme'}, {id:'o4-bomba'}]).forEach(function(p){
           document.getElementById(p.id).addEventListener('change', todo);
         });
 
