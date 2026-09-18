@@ -14,6 +14,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from unidad_base import pagina, bloque, ficha, pregunta
 from u10_robot import banco
 from u10_s3 import S3
+from u10_s4 import S4
+from u10_s5 import S5
+from u10_s6 import S6
 import avatar_flat
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -285,8 +288,24 @@ S.append(dict(corto=u'La placa: micro:bit',
               minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
               chips=[u'CE5 &middot; 5.1', u'CE5 &middot; 5.2', u'C.1', u'C.2'],
               cuerpo=S3))
-for c in [u'Sensores y entradas', u'El robot', u'Proyecto y test']:
-    S.append(dict(corto=c, pendiente=True))
+S.append(dict(corto=u'Sensores y entradas',
+              titulo=u'La farola no mira el reloj: mira la luz',
+              entradilla=u'Un sensor no ve ni entiende: da un n&uacute;mero. Y un programa entiende un n&uacute;mero de la &uacute;nica manera que sabe, compar&aacute;ndolo.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE5 &middot; 5.2', u'C.2', u'C.3'],
+              cuerpo=S4))
+S.append(dict(corto=u'El robot',
+              titulo=u'Cu&aacute;nta luz hay no es lo mismo que por d&oacute;nde est&aacute;',
+              entradilla=u'Un n&uacute;mero solo no tiene direcci&oacute;n. De c&oacute;mo se resuelve eso salieron los primeros robots aut&oacute;nomos, en 1948.',
+              minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"20'", u'Pr&aacute;ctica'), (u"5'", u'Cierre')],
+              chips=[u'CE5 &middot; 5.2', u'CE5 &middot; 5.3', u'C.3', u'C.4'],
+              cuerpo=S5))
+S.append(dict(corto=u'Proyecto y test',
+              titulo=u'Algo de tu casa que no funciona porque alguien tiene que acordarse',
+              entradilla=u'Un proyecto no termina cuando funciona: termina cuando puedes demostrar con n&uacute;meros que es mejor que no hacer nada.',
+              minutado=[(u"15'", u'Proyecto'), (u"15'", u'&iquest;Merece la pena?'), (u"20'", u'Test'), (u"10'", u'Cierre')],
+              chips=[u'CE5 &middot; 5.1', u'CE5 &middot; 5.3', u'C.3', u'C.4'],
+              cuerpo=S6))
 
 CFG = dict(
     ruta='2eso/TyD/tema10/',
