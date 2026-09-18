@@ -1,0 +1,2912 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial</title>
+<meta name="description" content="Tema 6 de Tecnolog&iacute;a de 4.&ordm; de ESO: del bloque al c&oacute;digo de Arduino, entradas analógicas y el conversor A/D, qu&eacute; es de verdad el IoT y c&oacute;mo aprende un clasificador con ejemplos.">
+<meta name="license" content="CC BY-SA 4.0">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema6/">
+<meta name="author" content="Roberto P. García Llorente">
+<meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
+<meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
+<meta name="copyright" content="&copy; 2026 Roberto P. García Llorente">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial","url":"https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema6/","inLanguage":"es",
+ "license":"https://creativecommons.org/licenses/by-sa/4.0/",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
+ "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
+ "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
+</script>
+<style>
+:root{
+  --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --grid:rgba(66,133,244,.09);
+  --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
+  --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --grid:rgba(138,180,248,.09)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.top{background:var(--surface);border-bottom:2px solid var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;position:sticky;top:0;z-index:50}
+header.top .wrap{padding-block:16px 0}
+.eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor}
+h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spacing:-.015em}
+nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
+nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
+  border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
+nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[disabled]{opacity:.45;cursor:default}
+main{padding-block:26px 70px}
+.ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
+.ses-head h2{font-size:22px;margin:6px 0 8px;letter-spacing:-.01em}
+.ses-head p{margin:0 0 14px;color:var(--ink-soft)}
+.minutado{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.min{font-family:var(--f-m);font-size:11.5px;border:1px solid var(--line);border-radius:2px;padding:4px 9px;color:var(--ink-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-m);font-size:11px;border:1px solid var(--goo-azul);color:var(--goo-azul);border-radius:2px;padding:3px 8px}
+.chip.sab{border-color:var(--line);color:var(--ink-soft)}
+.bloque{margin-bottom:34px}
+.rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+.rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
+  display:inline-grid;place-items:center;font-weight:500}
+.rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
+.bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
+.bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
+.bloque:nth-of-type(4n+4) .rotulo .num{background:var(--goo-amarillo);color:#202124}
+.bloque:nth-of-type(4n+4) .rotulo::after{background:var(--goo-amarillo)}
+h3{font-size:18px;margin:22px 0 6px;letter-spacing:-.01em}
+h4{font-size:15.5px;margin:16px 0 4px}
+.bloque ul,.bloque ol{padding-left:22px}
+.bloque li{margin-bottom:5px}
+.nota,.aviso,.def{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:14px 16px;margin:16px 0}
+.nota{border-left:5px solid var(--goo-azul)}
+.aviso{border-left:5px solid var(--goo-amarillo)}
+.def{border-left:5px solid var(--goo-verde)}
+.n-tag{display:block;font-family:var(--f-m);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-soft);margin-bottom:5px}
+.nota .n-tag{color:var(--goo-azul)}
+.escena{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:18px 0}
+.escena-barra{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line)}
+.escena-titulo{font-family:var(--f-m);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:6px 12px;
+  font:400 12px var(--f-m);color:var(--ink-soft);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.lienzo{padding:10px;background:var(--surface);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:20px 20px}
+.lienzo svg{width:100%;height:auto;display:block}
+.pie{padding:12px 16px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink-soft)}
+.ficha{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;margin:16px 0;overflow:hidden}
+.ficha-cab{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;
+  background:var(--ink);color:var(--surface);padding:12px 16px;font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.08em;text-transform:uppercase}
+.ficha-cab .chip{border-color:var(--surface);color:var(--surface)}
+.ficha-cuerpo{padding:16px}
+.resp{border:1px solid var(--line);border-radius:2px;margin:8px 0}
+.resp summary{cursor:pointer;padding:9px 13px;font-family:var(--f-m);font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-soft)}
+.resp summary::-webkit-details-marker{display:none}
+.resp-cuerpo{padding:0 13px 13px}
+.resp-cuerpo p:last-child{margin-bottom:0}
+
+.narra{display:flex;gap:14px;align-items:flex-start}
+.avatar-caja{flex:none;width:104px}
+.avatar-caja svg.avatar{width:104px;height:72px;display:block}
+.avatar.habla{animation:habla .34s ease-in-out infinite alternate}
+@keyframes habla{from{transform:translateY(0)}to{transform:translateY(-2.5px)}}
+.globo{flex:1;background:var(--surface-2);border:1.5px solid var(--line);border-radius:2px;padding:11px 13px;position:relative}
+.globo::before{content:"";position:absolute;left:-9px;top:20px;width:0;height:0;
+  border-top:8px solid transparent;border-bottom:8px solid transparent;border-right:9px solid var(--line)}
+.avatar-dice{margin-top:8px;font-family:var(--f-m);font-size:12px;color:var(--goo-azul);font-style:italic}
+.voz-no{margin:10px 0 0;font-size:13px;color:var(--ink-soft)}
+@media (max-width:520px){.narra{flex-direction:column;align-items:center}.globo::before{display:none}}
+
+.reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
+  border-radius:2px;padding:14px 16px;margin:16px 0}
+.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa p{margin:0}
+.resp.revela summary{color:var(--goo-azul);font-weight:500}
+.resp.revela[open] summary{color:var(--ink-soft)}
+.resp.revela table{margin:0}
+.secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
+.secuencia li.oculto *{visibility:hidden}
+.secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
+#btn-secuencia{background:var(--surface);border:1.5px solid var(--goo-azul);color:var(--goo-azul);
+  border-radius:2px;padding:7px 14px;font:500 12px var(--f-m);cursor:pointer}
+#btn-secuencia:disabled{border-color:var(--line);color:var(--ink-soft);cursor:default}
+
+/* series del grafico de coste: validadas con el script de dataviz
+   claro  #ea4335/#1a73e8  -> min CVD 27.0, vision normal 36.8
+   oscuro #ef5350/#4285f4  -> min CVD 24.6, vision normal 33.2 */
+:root{--c-analog:#ea4335;--c-digital:#1a73e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c-analog:#ef5350;--c-digital:#4285f4}}
+.ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+.etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
+
+
+.foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
+.foto img{width:100%;height:auto;display:block}
+.foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
+.credito{display:block;margin-top:7px;font-family:var(--f-m);font-size:10.5px;color:var(--ink-soft);letter-spacing:.02em}
+.credito a{color:var(--ink-soft)}
+.galeria-ri{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));margin:16px 0}
+.galeria-ri .foto{margin:0}
+.galeria-ri figcaption{font-size:13.5px}
+
+.video{margin:16px 0}
+.video-play{width:100%;display:flex;align-items:center;gap:16px;padding:22px 20px;cursor:pointer;
+  background:var(--surface);border:1.5px solid var(--line);border-radius:2px;text-align:left;
+  transition:border-color .18s ease}
+.video-play:hover{border-color:var(--goo-rojo)}
+.video-tri{flex:none;width:52px;height:38px;border-radius:6px;background:var(--goo-rojo);position:relative}
+.video-tri::after{content:"";position:absolute;left:20px;top:11px;border-left:14px solid #fff;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.video-txt b{display:block;font:500 16px var(--f-b);color:var(--ink);margin-bottom:3px}
+.video-txt span{font:400 12px var(--f-m);color:var(--ink-soft)}
+.video-nota{margin:9px 0 0;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+.video iframe{width:100%;aspect-ratio:16/9;height:auto;border:1.5px solid var(--line);border-radius:2px;display:block}
+
+/* lo que se copia en la libreta, frente a lo que es solo para entender */
+.copiar{background:var(--surface);border:2px solid var(--goo-azul);border-radius:2px;
+  padding:16px 18px;margin:18px 0;position:relative}
+.copiar::before{content:"PARA LA LIBRETA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-azul);color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  padding:3px 9px;border-radius:2px}
+.copiar > :first-child{margin-top:6px}
+.copiar > :last-child{margin-bottom:0}
+.copiar h4{font-size:15px;margin:10px 0 4px}
+.entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
+.entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
+.entender b{color:var(--ink)}
+@media print{
+  .entender,.escena,.video,.narra,nav.sesiones{display:none}
+  .copiar{border-width:1.5px;break-inside:avoid}
+}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+
+/* ---- test de autoevaluacion ---- */
+.ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.ta::before{content:"AUTOEVALUACI D3N";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.ta h4{margin:8px 0 14px;font-size:16px}
+.ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.ta-p:first-of-type{border-top:0}
+.ta-p > p{margin:0 0 9px;font-weight:500}
+.ta-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.ta-op:hover{border-color:var(--goo-azul)}
+.ta-op input{margin-right:9px}
+.ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+.ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.ta.corregido .ta-por{display:block}
+.ta-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.ta-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.ta-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.ta{break-inside:avoid}.ta-por{display:block}}
+
+/* ---- banco de programacion ---- */
+.prog{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.prog-izq{flex:1 1 380px;min-width:300px}
+.prog-der{flex:0 1 230px;min-width:200px}
+.prog-lista{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+  min-height:150px;max-height:260px;overflow:auto;padding:6px;margin:0 0 10px}
+.prog-lista ol{margin:0;padding:0 0 0 26px}
+.prog-lista li{font-family:var(--f-m);font-size:13px;padding:2px 0;line-height:1.5}
+.prog-lista li.activa{background:var(--accent-soft);border-radius:2px}
+.prog-lista .vacio{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);padding:8px 4px;margin:0}
+.prog-bot{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 10px}
+.prog-bot button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+  background:var(--surface);color:var(--ink);border-radius:2px;padding:7px 10px;cursor:pointer}
+.prog-bot button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+.prog-bot button.ir{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+.prog-bot button.ir:hover{color:#fff}
+.prog-est{font-family:var(--f-m);font-size:13px;margin:0;line-height:1.6}
+.prog-est b{font-size:13.5px}
+
+/* ---- la lectura de aula, al final de la unidad ---- */
+.lectura{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:2px solid var(--goo-verde);border-radius:2px;padding:18px;margin:26px 0 8px;position:relative}
+.lectura::before{content:"LECTURA DE AULA";position:absolute;top:-11px;left:14px;
+  background:var(--goo-verde);color:#fff;font-family:var(--f-m);font-size:10.5px;
+  letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.lectura svg{flex:none;width:44px;height:44px;color:var(--goo-verde);margin-top:4px}
+.lectura h3{margin:6px 0 6px;font-size:17px}
+.lectura p{margin:0 0 10px;font-size:15px;line-height:1.6}
+.lectura a.pdf{display:inline-block;font-family:var(--f-m);font-size:13px;
+  background:var(--goo-verde);color:#fff;text-decoration:none;border-radius:2px;padding:9px 15px}
+@media print{.lectura{display:none}}
+.rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
+.hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
+.hito.on{fill:var(--goo-azul)}
+.eje-t{fill:none;stroke:var(--line);stroke-width:2}
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 13px;border-radius:2px;background:rgba(18,32,46,.95);
+  color:#fff;text-decoration:none;font:500 12px var(--f-b);letter-spacing:.02em}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:620px){.cc-sello .cc-autor{display:none}}
+.cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
+.cc-aviso h2{font-size:17px;margin:0 0 8px}
+.cc-aviso h3{font-size:14px;margin:14px 0 4px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
+footer .wrap{padding-block:18px 26px}
+@media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+/* ---- avatar narrador, plano y sincronizado con la voz ---- */
+.narrador{display:flex;gap:16px;align-items:flex-start;background:var(--surface);
+  border:1.5px solid var(--line);border-radius:2px;padding:16px;margin:18px 0}
+.narrador-fig{flex:none;width:110px}
+.narrador-fig svg{width:110px;height:120px;display:block}
+.narrador-txt{flex:1;min-width:0}
+.narrador-txt h4{margin:0 0 3px;font-size:15.5px}
+.narrador-quien{font-family:var(--f-m);font-size:11px;color:var(--ink-soft);display:block;margin-bottom:9px}
+.narrador-barra{height:4px;background:var(--surface-2);border-radius:2px;overflow:hidden;margin:11px 0 8px}
+.narrador-barra i{display:block;height:100%;width:0;background:var(--goo-azul);transition:width .1s linear}
+.narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
+@media (max-width:520px){.narrador{flex-direction:column;align-items:center}
+  .narrador-txt{text-align:center}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 6</div>
+    <h1>Programaci&oacute;n, IoT e inteligencia artificial</h1>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; De bloques a c&oacute;digo</button><button type="button" data-ses="2">S2 &middot; Entradas analógicas</button><button type="button" data-ses="3">S3 &middot; IoT, sin misticismo</button><button type="button" data-ses="4">S4 &middot; IA, sin humo</button><button type="button" data-ses="5" disabled>S5 &middot; Decidir con memoria</button><button type="button" data-ses="6" disabled>S6 &middot; Montar el aviso de verdad</button><button type="button" data-ses="7" disabled>S7 &middot; Entrenar con vuestros datos</button><button type="button" data-ses="8" disabled>S8 &middot; El sistema completo</button></nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="ses-1">
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+      <h2>Tu programa de bloques es un dibujo, y adem&aacute;s te esconde algo</h2>
+      <p>El mismo programa, en bloques y en C++, uno al lado del otro. Y la l&iacute;nea que los bloques no ten&iacute;an: decir de qu&eacute; tipo es cada n&uacute;mero.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip sab">C.1</span><span class="chip sab">C.2</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Este curso todo gira alrededor de <b>un proyecto</b>: un aparato de verdad, con un sensor
+         que se entera de algo y un actuador que hace algo. Un riego que no deja morir la planta del
+         aula en Semana Santa, un aviso de que el aula est&aacute; cargada, un contenedor que dice que
+         est&aacute; lleno. Todos tienen una placa dentro, y todos tienen que estar programados.</p>
+
+      <div class="narrador" id="narr-c6">
+        <div class="narrador-fig" id="narr-c6-fig"></div>
+        <div class="narrador-txt">
+          <h4>De qu&eacute; va esta unidad</h4>
+          <span class="narrador-quien">Una placa puede decidir sola. &iquest;Y si adem&aacute;s pudiera avisarte desde lejos, o aprender de lo que ve?</span>
+          <div class="seg">
+            <button type="button" data-a="play">&#9654; Escuchar</button>
+            <button type="button" data-a="stop">&#9632; Parar</button>
+          </div>
+          <div class="narrador-barra"><i></i></div>
+          <p class="narrador-nota">Voz sintetizada sobre gui&oacute;n propio. La boca sigue el volumen real de la voz.</p>
+        </div>
+      </div>
+
+      <script>
+      (function(){
+        var C = document.getElementById('narr-c6');
+        if(!C) return;
+        var fig = document.getElementById('narr-c6-fig');
+        var barra = C.querySelector('.narrador-barra i');
+        var ENV = [0.0, 0.0, 0.0, 0.001, 0.882, 0.932, 0.658, 0.334, 1.0, 0.488, 0.369, 0.312, 0.144, 1.0, 0.901, 0.961, 0.83, 0.335, 0.54, 0.567, 0.89, 0.318, 0.358, 0.47, 0.469, 0.298, 0.119, 0.017, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.697, 0.712, 0.425, 0.917, 0.578, 0.994, 0.719, 1.0, 0.726, 0.977, 0.26, 0.515, 0.586, 0.349, 0.067, 1.0, 0.425, 0.367, 0.67, 0.236, 0.601, 0.307, 0.739, 0.682, 0.394, 0.299, 0.062, 0.001, 0.0, 0.238, 1.0, 0.706, 0.326, 0.592, 0.622, 0.365, 0.54, 0.646, 0.288, 0.035, 0.001, 0.069, 0.902, 1.0, 0.983, 0.789, 0.66, 0.784, 0.452, 0.26, 0.072, 0.001, 0.155, 0.928, 0.851, 0.712, 0.872, 0.394, 0.073, 0.623, 0.65, 0.743, 0.513, 0.074, 0.716, 0.803, 0.629, 0.561, 0.532, 0.354, 0.606, 0.35, 0.349, 0.448, 0.676, 0.416, 0.433, 0.303, 0.171, 0.433, 0.49, 0.433, 0.308, 0.325, 0.267, 0.114, 0.267, 0.142, 0.011, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.002, 0.856, 0.453, 0.104, 0.811, 0.825, 0.986, 0.745, 0.953, 0.892, 0.25, 0.716, 0.842, 0.053, 0.651, 0.627, 0.251, 0.122, 0.879, 0.355, 0.463, 0.55, 0.271, 0.409, 0.353, 0.316, 0.411, 0.367, 0.411, 0.269, 0.043, 0.001, 0.0, 0.279, 0.592, 0.428, 0.791, 0.84, 0.86, 0.665, 0.715, 0.363, 0.434, 0.549, 0.162, 0.889, 0.671, 0.793, 0.49, 0.399, 0.332, 0.362, 0.227, 0.373, 0.407, 0.353, 0.26, 0.105, 0.014, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.473, 0.764, 0.768, 0.963, 0.798, 0.759, 0.233, 0.003, 0.0, 0.0, 0.166, 0.629, 0.334, 0.341, 1.0, 0.703, 0.601, 0.321, 0.942, 0.315, 0.409, 1.0, 0.689, 0.385, 0.553, 0.303, 0.903, 0.422, 0.088, 0.475, 0.561, 0.999, 0.897, 0.778, 0.393, 0.103, 0.615, 0.893, 0.798, 0.542, 0.468, 0.391, 0.291, 0.311, 0.262, 0.325, 0.25, 0.046, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.4, 0.914, 0.894, 0.586, 0.899, 0.103, 0.768, 0.433, 0.455, 0.61, 0.55, 0.302, 0.12, 0.007, 0.0, 0.0, 0.205, 0.925, 0.425, 0.664, 1.0, 0.672, 0.16, 0.926, 0.55, 0.828, 0.8, 0.763, 0.522, 0.364, 0.763, 1.0, 0.082, 0.506, 0.22, 0.451, 0.451, 0.294, 0.67, 0.602, 0.978, 0.465, 0.737, 0.092, 0.5, 0.082, 0.442, 0.592, 0.719, 0.328, 0.542, 0.365, 0.396, 0.822, 0.635, 0.707, 0.473, 0.369, 0.435, 0.428, 0.204, 0.039, 0.001, 0.0, 0.225, 0.69, 0.692, 0.386, 0.335, 0.206, 0.467, 0.824, 0.221, 0.02, 0.0, 0.001, 0.57, 0.792, 0.109, 0.615, 0.355, 0.294, 0.375, 0.303, 0.211, 0.075, 0.01, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.0, 0.0, 0.0, 0.0, 0.002, 0.606, 0.668, 0.757, 0.824, 0.122, 0.937, 0.873, 0.343, 0.496, 1.0, 0.364, 0.663, 0.463, 0.146, 0.668, 0.598, 0.205, 0.463, 0.607, 0.472, 0.96, 0.806, 0.771, 0.827, 0.849, 0.642, 0.293, 0.376, 0.293, 0.407, 0.649, 0.339, 0.205, 0.021, 0.001, 0.0, 0.444, 0.981, 0.608, 0.889, 0.693, 0.438, 0.37, 0.863, 0.328, 0.291, 0.804, 0.057, 0.844, 0.126, 0.818, 0.695, 0.748, 0.973, 0.933, 0.779, 0.596, 0.281, 0.43, 0.299, 0.212, 0.22, 0.139, 0.083, 0.066, 0.013, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.476, 1.0, 0.879, 0.83, 0.967, 0.439, 0.341, 0.543, 0.769, 0.334, 0.472, 0.331, 0.435, 0.935, 0.666, 0.32, 0.546, 0.204, 0.69, 0.747, 0.769, 0.494, 0.621, 0.578, 0.318, 0.205, 0.033, 0.0, 0.0, 0.355, 0.829, 0.35, 0.493, 0.802, 0.523, 0.826, 0.502, 0.658, 0.662, 0.83, 0.708, 0.819, 0.53, 0.334, 0.236, 0.345, 0.226, 0.102, 0.011, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.115, 0.356, 1.0, 1.0, 0.914, 0.907, 1.0, 0.978, 0.868, 0.671, 0.436, 0.079, 0.54, 0.452, 0.179, 0.652, 0.782, 0.318, 0.299, 0.111, 0.003, 0.0, 0.0, 0.0, 0.07, 0.896, 0.849, 0.384, 0.709, 1.0, 0.683, 0.276, 0.553, 0.214, 0.48, 0.403, 0.31, 0.165, 0.044, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.077, 0.294, 0.84, 0.421, 1.0, 0.867, 0.82, 0.61, 0.164, 0.004, 0.0, 0.622, 1.0, 0.918, 0.371, 0.687, 0.786, 0.766, 0.634, 0.514, 0.376, 0.672, 0.502, 0.086, 0.67, 0.823, 0.087, 0.451, 0.377, 0.313, 0.525, 0.666, 0.538, 0.468, 0.327, 0.364, 0.38, 0.305, 0.277, 0.155, 0.024, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.582, 1.0, 0.661, 0.445, 1.0, 0.61, 0.381, 0.985, 0.719, 0.67, 0.971, 0.81, 1.0, 0.459, 0.453, 0.37, 0.288, 0.444, 0.073, 0.216, 0.225, 0.045, 0.002, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.254, 0.92, 0.424, 0.597, 0.776, 0.376, 0.94, 0.564, 0.743, 0.222, 1.0, 0.556, 0.389, 0.626, 0.162, 0.441, 0.764, 0.333, 0.531, 0.46, 0.403, 0.327, 0.242, 0.116, 0.006, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.554, 1.0, 0.804, 0.444, 0.765, 0.784, 0.997, 0.806, 0.832, 0.938, 0.625, 1.0, 0.863, 0.568, 0.196, 0.662, 0.592, 0.289, 0.183, 0.512, 0.64, 0.73, 0.375, 0.246, 0.117, 0.062, 0.004, 0.003, 0.007, 0.784, 0.613, 0.358, 0.883, 0.448, 0.369, 0.924, 0.68, 0.744, 0.277, 0.638, 0.33, 0.064, 0.988, 0.704, 0.361, 0.364, 0.194, 0.042, 0.623, 0.582, 0.808, 0.667, 0.138, 0.309, 0.685, 0.096, 0.445, 0.689, 0.768, 0.752, 0.307, 0.356, 0.319, 0.379, 0.84, 0.497, 0.425, 0.545, 0.472, 0.588, 0.4, 0.292, 0.259, 0.19, 0.049, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.103, 0.548, 0.993, 0.906, 0.515, 0.345, 0.442, 0.642, 0.711, 0.81, 0.339, 0.525, 0.469, 0.826, 0.633, 0.277, 0.756, 0.641, 0.66, 0.332, 0.453, 0.572, 0.55, 0.622, 0.37, 0.364, 0.364, 0.759, 0.668, 0.596, 0.641, 0.415, 0.395, 0.284, 0.333, 0.179, 0.006, 0.004, 0.001, 0.0, 0.0, 0.0, 0.043, 1.0, 0.934, 0.272, 0.867, 0.304, 1.0, 0.985, 0.495, 0.602, 0.486, 0.412, 0.541, 0.925, 0.74, 0.463, 0.234, 0.159, 0.046, 0.84, 0.48, 0.116, 0.499, 1.0, 0.624, 0.307, 0.013, 0.77, 0.111, 0.55, 0.581, 0.493, 0.968, 0.682, 0.509, 0.246, 0.312, 0.921, 0.674, 0.499, 0.335, 0.315, 0.248, 0.28, 0.116, 0.007, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.055, 0.9, 0.496, 0.104, 1.0, 0.797, 0.477, 0.256, 0.019, 0.001, 0.0, 0.0, 0.05, 0.807, 0.916, 0.869, 0.949, 0.431, 0.779, 0.436, 0.556, 0.206, 0.444, 0.316, 0.314, 0.103, 0.261, 0.242, 0.096, 0.075, 0.016, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.031, 0.203, 0.548, 1.0, 0.921, 0.965, 0.386, 0.102, 0.931, 0.649, 0.556, 0.449, 0.201, 0.003, 0.0, 0.0, 0.047, 0.907, 0.803, 0.629, 0.595, 0.898, 1.0, 0.198, 0.873, 0.604, 0.928, 0.802, 0.617, 0.639, 0.575, 0.666, 0.907, 0.638, 0.278, 0.334, 0.788, 0.194, 0.259, 0.446, 0.451, 0.806, 0.202, 0.473, 0.44, 0.388, 0.302, 0.356, 0.297, 0.187, 0.028, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.018, 0.789, 1.0, 0.345, 0.991, 0.226, 0.955, 0.932, 0.472, 0.286, 0.339, 0.128, 0.089, 0.003, 0.0, 0.0, 0.0, 0.052, 0.902, 0.903, 0.522, 0.061, 0.0, 0.0, 0.0, 0.004, 0.339, 0.819, 0.457, 0.088, 0.002, 0.0, 0.0, 0.0, 0.001, 0.005, 0.702, 0.923, 0.586, 0.713, 0.603, 0.476, 0.633, 0.873, 0.764, 0.541, 0.343, 0.081, 0.002, 0.0, 0.001, 0.662, 0.138, 0.731, 0.9, 0.692, 0.82, 1.0, 0.597, 0.589, 0.575, 0.486, 0.253, 0.488, 0.32, 0.294, 0.375, 0.251, 0.223, 0.128, 0.012, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.304, 0.825, 1.0, 0.881, 0.581, 0.513, 0.858, 0.697, 1.0, 0.489, 0.477, 0.214, 0.244, 0.738, 0.825, 0.41, 0.396, 0.827, 0.474, 0.241, 0.484, 0.075, 0.712, 0.326, 0.406, 0.513, 0.781, 0.71, 0.133, 0.327, 0.175, 0.017, 0.001, 0.001, 0.028, 0.878, 0.776, 0.317, 0.523, 0.095, 0.827, 0.539, 0.698, 0.595, 0.292, 0.614, 0.629, 0.735, 0.075, 0.31, 0.216, 0.033, 0.001, 0.0, 0.0, 0.001, 0.513, 0.852, 0.346, 0.508, 0.086, 0.925, 0.889, 0.401, 0.284, 0.304, 0.112, 0.002, 0.001, 0.001, 0.001, 0.001, 0.002, 0.753, 0.258, 0.815, 0.505, 0.695, 0.42, 0.702, 1.0, 0.644, 0.368, 0.538, 0.642, 0.933, 0.783, 0.185, 0.558, 0.951, 0.767, 0.541, 0.6, 0.405, 0.259, 0.527, 0.877, 0.821, 0.608, 0.371, 0.403, 0.364, 0.21, 0.423, 0.308, 0.241, 0.212, 0.058, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.539, 0.31, 0.388, 1.0, 0.699, 0.054, 0.485, 0.298, 0.065, 0.003, 0.001, 0.205, 0.967, 0.888, 0.242, 1.0, 1.0, 0.654, 0.417, 0.84, 0.405, 1.0, 0.831, 0.62, 0.446, 0.204, 0.568, 0.455, 0.255, 0.389, 0.832, 0.435, 0.294, 0.435, 0.139, 0.277, 0.314, 0.272, 0.308, 0.179, 0.445, 0.3, 0.193, 0.077, 0.003, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.005, 0.717, 0.301, 0.306, 1.0, 1.0, 0.969, 0.846, 0.649, 0.375, 0.327, 0.211, 0.037, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.079, 0.391, 1.0, 0.325, 0.543, 0.632, 0.219, 0.689, 0.72, 0.856, 0.774, 0.901, 0.379, 0.475, 0.519, 0.407, 0.5, 0.473, 0.216, 0.514, 0.416, 1.0, 0.614, 0.42, 0.603, 0.263, 0.448, 0.687, 0.888, 0.438, 0.46, 0.458, 0.196, 0.629, 0.158, 0.24, 0.283, 0.202, 0.087, 0.012, 0.001, 0.002, 0.653, 0.995, 0.813, 0.359, 0.542, 0.117, 0.486, 0.534, 0.243, 0.681, 0.252, 0.252, 0.445, 0.584, 0.771, 0.58, 0.615, 0.214, 0.113, 0.561, 0.321, 0.048, 0.001, 0.001, 0.001, 0.671, 0.688, 0.871, 0.29, 0.527, 0.631, 0.739, 0.318, 0.38, 0.398, 0.219, 0.303, 0.501, 0.218, 0.173, 0.159, 0.064, 0.026, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.342, 1.0, 0.431, 0.574, 0.911, 0.697, 1.0, 0.387, 0.303, 0.499, 0.354, 0.044, 0.818, 0.775, 0.853, 0.571, 0.363, 0.377, 0.413, 0.091, 0.485, 0.437, 0.289, 0.655, 0.604, 0.155, 0.059, 0.0, 0.0, 0.001, 0.052, 0.682, 0.327, 0.936, 0.415, 0.6, 0.244, 0.333, 0.737, 0.507, 0.823, 1.0, 0.555, 0.614, 0.31, 0.43, 0.34, 0.878, 0.634, 0.32, 0.112, 0.826, 0.649, 0.627, 0.72, 0.816, 0.113, 0.966, 0.869, 0.769, 0.55, 0.442, 0.34, 0.375, 0.38, 0.296, 0.176, 0.049, 0.002, 0.0, 0.0, 0.0, 0.001, 0.017, 0.83, 0.104, 0.915, 0.95, 0.661, 0.55, 0.879, 0.791, 1.0, 0.752, 0.429, 0.246, 0.168, 0.24, 0.85, 0.988, 0.439, 0.563, 1.0, 0.809, 0.746, 0.582, 0.358, 0.49, 0.498, 0.441, 0.497, 0.289, 0.239, 0.497, 0.453, 0.852, 0.866, 0.254, 0.425, 0.093, 0.454, 0.401, 0.34, 0.258, 0.337, 0.41, 0.189, 0.195, 0.295, 0.127, 0.097, 0.037, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.313, 0.959, 0.431, 0.586, 0.952, 0.892, 0.612, 0.752, 0.829, 0.695, 0.357, 0.793, 0.209, 0.444, 0.663, 0.375, 0.556, 0.402, 0.899, 0.778, 0.733, 0.251, 0.335, 0.693, 0.507, 0.742, 0.585, 0.327, 0.544, 0.756, 0.424, 0.743, 0.701, 0.784, 0.08, 0.454, 0.079, 0.397, 0.481, 0.809, 0.362, 0.381, 0.173, 0.012, 0.0, 0.0, 0.094, 0.307, 0.628, 0.111, 1.0, 0.708, 0.405, 0.26, 0.038, 0.001, 0.001, 0.001, 0.363, 0.557, 0.726, 0.537, 0.388, 0.528, 0.888, 0.558, 0.302, 0.74, 0.601, 0.732, 0.266, 0.176, 0.386, 0.345, 0.477, 0.848, 0.358, 0.013, 0.783, 0.608, 0.065, 0.448, 0.878, 0.519, 0.094, 0.764, 0.827, 0.136, 0.392, 0.344, 0.225, 0.053, 0.236, 0.172, 0.018, 0.001, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.001, 0.156, 0.545, 1.0, 0.818, 0.883, 0.436, 0.105, 0.91, 0.963, 1.0, 0.276, 0.626, 0.473, 0.379, 0.305, 0.218, 0.091, 0.008, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];            /* una muestra cada 66 ms, de 0 a 1 */
+        var PASO = 0.066;
+        var audio = new Audio('../../../audio/c6-programacion.mp3');
+        audio.preload = 'none';
+        var raf = null, parpadeo = 0, tParp = 0;
+
+        /* El personaje se dibuja entero cada cuadro: la boca depende del
+           volumen de la voz en ese instante, y los ojos parpadean solos.   */
+        function dibuja(a, ojosCerrados){
+          var abre = 3 + a * 13;                 /* alto de la boca */
+          var ancho = 15 + a * 5;
+          var ceja = -a * 2.5;                   /* las cejas acompanan */
+          var ojo = ojosCerrados
+            ? '<path d="M35 46 h11 M64 46 h11" stroke="#202124" stroke-width="2.6" stroke-linecap="round"/>'
+            : '<circle cx="40.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="69.5" cy="46" r="4.2" fill="#202124"/>'
+            + '<circle cx="42" cy="44.6" r="1.5" fill="#fff"/>'
+            + '<circle cx="71" cy="44.6" r="1.5" fill="#fff"/>';
+          return '<svg viewBox="0 0 110 120" aria-hidden="true">'
+            /* cuerpo, en azul de la web */
+            + '<path d="M22 120 v-18 q0-16 16-20 h34 q16 4 16 20 v18 Z" fill="#4285f4"/>'
+            + '<path d="M46 82 h18 v12 h-18 Z" fill="#e8b48a"/>'
+            /* cabeza */
+            + '<rect x="26" y="20" width="58" height="66" rx="16" fill="#f3d3b3" stroke="#d3ae87" stroke-width="2"/>'
+            /* pelo, plano y geometrico */
+            + '<path d="M26 40 v-6 q0-14 29-14 q29 0 29 14 v6 q-8-9-29-9 q-21 0-29 9 Z" fill="#3c4043"/>'
+            /* cejas */
+            + '<path d="M33 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + '<path d="M64 ' + (37+ceja) + ' h13" stroke="#3c4043" stroke-width="3" stroke-linecap="round"/>'
+            + ojo
+            /* colorete */
+            + '<circle cx="32" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            + '<circle cx="78" cy="58" r="5" fill="#ea4335" opacity=".17"/>'
+            /* boca: se abre con la voz */
+            + '<ellipse cx="55" cy="66" rx="' + (ancho/2).toFixed(1) + '" ry="' + (abre/2).toFixed(1)
+            + '" fill="#8c3b2e"/>'
+            + (a > 0.35 ? '<ellipse cx="55" cy="' + (66 + abre/4).toFixed(1)
+                 + '" rx="' + (ancho/3).toFixed(1) + '" ry="' + (abre/5).toFixed(1) + '" fill="#c96a5a"/>' : '')
+            + '</svg>';
+        }
+
+        function cuadro(){
+          var t = audio.currentTime;
+          var i = Math.floor(t / PASO);
+          var a = (i >= 0 && i < ENV.length) ? ENV[i] : 0;
+          /* parpadeo cada 3-5 segundos */
+          if(t > tParp){ parpadeo = 6; tParp = t + 3 + Math.random()*2; }
+          if(parpadeo > 0) parpadeo--;
+          fig.innerHTML = dibuja(a, parpadeo > 3);
+          if(audio.duration) barra.style.width = (100*t/audio.duration).toFixed(1) + '%';
+          if(!audio.paused) raf = requestAnimationFrame(cuadro);
+        }
+
+        C.querySelector('[data-a="play"]').addEventListener('click', function(){
+          audio.currentTime = 0;
+          audio.play().then(function(){ cuadro(); }).catch(function(){
+            C.querySelector('.narrador-nota').innerHTML =
+              'No se ha podido reproducir el audio. Comprueba el sonido del equipo.';
+          });
+        });
+        C.querySelector('[data-a="stop"]').addEventListener('click', function(){
+          audio.pause(); audio.currentTime = 0;
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+        audio.addEventListener('ended', function(){
+          if(raf) cancelAnimationFrame(raf);
+          fig.innerHTML = dibuja(0, false); barra.style.width = '0';
+        });
+
+        fig.innerHTML = dibuja(0, false);
+      })();
+      </script>
+
+      <p>En 2.&ordm; ya programaste, y por bloques. As&iacute; que vamos a empezar con un encargo
+         peque&ntilde;o y tonto, a ver qu&eacute; pasa.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Tienes un programa de bloques que funciona. <b>M&aacute;ndaselo al grupo de al lado</b> para que
+        lo use, lo corrija y te lo devuelva cambiado. Por el m&oacute;vil, ahora mismo, sin levantarte.
+      </div>
+      <p>La &uacute;nica manera es hacerle una <b>captura de pantalla</b>. Y ah&iacute; se ve el problema
+         entero de golpe, porque una captura:</p>
+      <ul>
+        <li><b>no se puede ejecutar</b>: es un dibujo de un programa, no un programa;</li>
+        <li><b>no se puede buscar</b> dentro (&iquest;d&oacute;nde pon&iacute;a el 200?);</li>
+        <li><b>no se puede comparar</b> con la de ayer para ver qu&eacute; han cambiado;</li>
+        <li>y <b>no se puede pegar</b> en ella el ejemplo que trae la hoja de caracter&iacute;sticas de
+            tu sensor, porque ese ejemplo viene escrito en texto. Todos vienen en texto.</li>
+      </ul>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento antes de seguir</span>
+        <p>Los bloques no eran un juguete: ordenaban de verdad. Entonces, &iquest;qu&eacute; es
+           <b>exactamente</b> lo que se gana escribiendo lo mismo en texto? Escribe dos cosas en el
+           cuaderno. Una la vas a acertar; la otra probablemente no, y es la importante.</p>
+      </div>
+      <p>La que casi nadie acierta es esta: los bloques <b>te escond&iacute;an una decisi&oacute;n</b>. Una
+         decisi&oacute;n que en una placa de verdad la tienes que tomar t&uacute;, y que cuando se toma mal
+         el programa no da error: <b>da un n&uacute;mero equivocado</b>, que es mucho peor.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <p>La placa de este curso es un <b>Arduino</b>. No es m&aacute;s lista que la micro:bit: es m&aacute;s
+         desnuda, y eso es justo lo que nos interesa.</p>
+      <figure class="foto">
+        <img src="../../../img/c6-arduino-uno.jpg" alt="Placa Arduino Uno vista desde arriba, con el microcontrolador ATmega328P en el centro y las dos hileras de conectores" loading="lazy">
+        <figcaption>Un <b>Arduino Uno</b>. El chip negro alargado del centro es el microcontrolador, un <b>ATmega328P</b>: ah&iacute; dentro est&aacute; tu programa y ah&iacute; dentro se ejecuta. Abajo a la derecha, rotulado <b>ANALOG IN</b>, est&aacute; el conector que usaremos en la sesi&oacute;n siguiente; arriba, los pines digitales. El cristal marcado <b>16.000</b> es el reloj: 16 millones de pasos por segundo.
+          <span class="credito">Suyash Dwivedi &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_(1).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <h3>Lo que ya sab&iacute;as, con otro nombre</h3>
+      <p>Un programa de Arduino se llama <b>sketch</b> y tiene dos partes obligatorias. No son dos
+         inventos nuevos: son exactamente los dos bloques con los que empezabas en 2.&ordm;</p>
+      <div class="copiar">
+        <h4>La estructura de un sketch</h4>
+        <pre style="font-family:var(--f-m);font-size:13px;line-height:1.55;margin:6px 0;white-space:pre-wrap">void setup() {
+  // se ejecuta UNA vez, al encender o al pulsar reset
+}
+
+void loop() {
+  // se ejecuta PARA SIEMPRE, una vuelta detr&aacute;s de otra
+}</pre>
+        <ul>
+          <li><code>setup()</code> es <b>&laquo;al iniciar&raquo;</b>. Ah&iacute; se dice qu&eacute; pin es
+              entrada y cu&aacute;l salida, y se abre el puerto serie.</li>
+          <li><code>loop()</code> es <b>&laquo;para siempre&raquo;</b>. Cuando llega al final, vuelve a
+              empezar, y as&iacute; hasta que se quite la corriente.</li>
+          <li>Todo lo dem&aacute;s del lenguaje cabe en tres reglas: cada instrucci&oacute;n acaba en
+              <b>punto y coma</b>, lo que va junto se agrupa entre <b>llaves</b>, y lo que empieza por
+              <code>//</code> es un <b>comentario</b> que la placa se salta.</li>
+        </ul>
+      </div>
+      <p>Aqu&iacute; tienes el mismo programa escrito de las dos maneras, una al lado de la otra.
+         Pulsa <b>una instrucci&oacute;n</b> y sigue a la vez el bloque iluminado y la l&iacute;nea
+         iluminada. Son lo mismo.</p>
+
+      <div class="escena" id="esc-c1">
+        <div class="escena-barra">
+          <span class="escena-titulo">El mismo programa, en los dos idiomas &middot; ejec&uacute;talo</span>
+          <div class="seg" id="seg-c1">
+            <button type="button" data-t="int" aria-pressed="true">int</button>
+            <button type="button" data-t="long">long</button>
+            <button type="button" data-t="float">float</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="c1">
+            <div class="c1-col">
+              <p class="c1-rot">Bloques &middot; lo que hac&iacute;as en 2.&ordm;</p>
+              <svg viewBox="0 0 300 360" id="svg-c1" role="img"
+                   aria-label="Pila de bloques con al iniciar y para siempre; se ilumina el bloque que se est&aacute; ejecutando"></svg>
+            </div>
+            <div class="c1-col">
+              <p class="c1-rot">C&oacute;digo &middot; C++ de Arduino</p>
+              <div class="c1-cod" id="cod-c1"></div>
+              <p class="c1-rot">Monitor serie</p>
+              <div class="c1-serie" id="serie-c1"></div>
+            </div>
+          </div>
+          <div class="c1-mandos">
+            <div class="c1-fila">
+              <label for="c1-paso">cuenta = cuenta +</label>
+              <input type="number" id="c1-paso" value="1" step="0.5" min="-2000" max="2000">
+              <span class="c1-ayuda">prueba 1, luego 0,5, luego 1000</span>
+            </div>
+            <div class="c1-fila">
+              <button type="button" data-a="paso">Una instrucci&oacute;n</button>
+              <button type="button" data-a="vuelta">Una vuelta entera</button>
+              <label for="c1-n">Dar</label>
+              <input type="number" id="c1-n" value="40" min="1" max="5000" step="1">
+              <button type="button" data-a="tanda">vueltas de golpe</button>
+              <button type="button" data-a="reinicia">Reiniciar</button>
+            </div>
+          </div>
+          <div class="c1-caja">
+            <div class="c1-var" id="var-c1"></div>
+            <div class="c1-ram">
+              <svg viewBox="0 0 320 44" id="ram-c1" role="img"
+                   aria-label="Barra con los 2048 bytes de memoria de la placa y lo que ocupa la variable"></svg>
+            </div>
+          </div>
+          <p class="c1-est" id="est-c1"></p>
+        </div>
+        <div class="pie" id="pie-c1"></div>
+      </div>
+
+      <style>
+      .c1{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+      .c1-col{flex:1 1 280px;min-width:250px}
+      .c1-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:0 0 6px}
+      .c1-col + .c1-col .c1-rot{margin-top:12px}
+      .c1-col + .c1-col .c1-rot:first-child{margin-top:0}
+      .c1-cod{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        font-family:var(--f-m);font-size:12.5px;line-height:1.6;overflow-x:auto}
+      .c1-cod .ln{display:flex;gap:10px;padding:1px 8px 1px 0;white-space:pre}
+      .c1-cod .ln i{flex:none;width:26px;text-align:right;color:var(--ink-soft);font-style:normal;
+        font-size:11px;background:var(--surface-2);padding-right:5px}
+      .c1-cod .ln.ev{background:var(--accent-soft)}
+      .c1-cod .ln.ev i{background:var(--goo-azul);color:#fff}
+      .c1-cod b{color:var(--goo-azul);font-weight:500}
+      .c1-serie{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        font-family:var(--f-m);font-size:12.5px;line-height:1.55;padding:7px 10px;height:92px;
+        overflow-y:auto;color:var(--ink)}
+      .c1-serie .vacio{color:var(--ink-soft)}
+      .c1-mandos{margin-top:12px}
+      .c1-fila{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 8px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .c1-fila input[type="number"]{width:78px;font-family:var(--f-m);font-size:12.5px;padding:4px 5px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .c1-fila button{font-family:var(--f-m);font-size:12.5px;border:1.5px solid var(--line);
+        background:var(--surface);color:var(--ink);border-radius:2px;padding:6px 10px;cursor:pointer}
+      .c1-fila button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+      .c1-ayuda{color:var(--ink-soft)}
+      .c1-caja{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:6px}
+      .c1-var{flex:1 1 300px;font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+      .c1-var b{color:var(--ink)}
+      .c1-var .num{color:var(--goo-azul);font-weight:500}
+      .c1-ram{flex:1 1 240px;min-width:220px}
+      .c1-est{font-family:var(--f-m);font-size:12.5px;line-height:1.65;color:var(--ink-soft);margin:10px 0 0}
+      .c1-est b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-c1');
+        if(!svg) return;
+        var caja = document.getElementById('esc-c1');
+        var cod = document.getElementById('cod-c1');
+        var serie = document.getElementById('serie-c1');
+        var vbox = document.getElementById('var-c1');
+        var ram = document.getElementById('ram-c1');
+        var est = document.getElementById('est-c1');
+        var pie = document.getElementById('pie-c1');
+        var seg = document.getElementById('seg-c1');
+        var campoPaso = document.getElementById('c1-paso');
+        var campoN = document.getElementById('c1-n');
+
+        /* ---- los tipos, tal y como son en una placa AVR de 8 bits ---- */
+        var TIPOS = {
+          'int':   {bytes: 2, min: -32768, max: 32767, entero: true},
+          'long':  {bytes: 4, min: -2147483648, max: 2147483647, entero: true},
+          'float': {bytes: 4, min: null, max: null, entero: false}
+        };
+        var RAM_PLACA = 2048;          /* bytes de SRAM de un Arduino UNO */
+
+        /* ---- el programa: una sola lista, dos representaciones ---- */
+        var PASOS = [
+          {g: 0, blq: 'poner el pin 13 como salida',        ln: 3},
+          {g: 0, blq: 'abrir el monitor serie a 9600',      ln: 4},
+          {g: 1, blq: 'cambiar cuenta por PASO',            ln: 8, ef: 'suma'},
+          {g: 1, blq: 'escribir cuenta en el serie',        ln: 9, ef: 'imprime'},
+          {g: 1, blq: 'encender el LED del pin 13',         ln: 10, ef: 'on'},
+          {g: 1, blq: 'esperar 200 ms',                     ln: 11},
+          {g: 1, blq: 'apagar el LED del pin 13',           ln: 12, ef: 'off'},
+          {g: 1, blq: 'esperar 200 ms',                     ln: 13}
+        ];
+
+        var tipo = 'int', paso = 1, i = 0;
+        var cuenta = 0, ideal = 0, vueltas = 0, led = false, desborde = false;
+        var salida = [];
+
+        function T(){ return TIPOS[tipo]; }
+
+        /* "+ 0,5" para el codigo; "0,5" a secas para el rotulo del bloque */
+        function textoPaso(){
+          return (paso < 0 ? '- ' : '+ ') + String(Math.abs(paso)).replace('.', ',');
+        }
+        function soloPaso(){ return String(paso).replace('.', ','); }
+
+        /* --- guardar un numero en una variable de este tipo: es AQUI donde el
+               tipo deja de ser un adorno y se nota --- */
+        function guarda(v){
+          var t = T();
+          if(!t.entero) return Math.fround(v);        /* float de 4 bytes, de verdad */
+          var n = Math.trunc(v);                       /* C++ trunca hacia cero */
+          var rango = t.max - t.min + 1;
+          var w = ((n - t.min) % rango + rango) % rango + t.min;
+          if(w !== n) desborde = true;
+          return w;
+        }
+
+        /* --- como lo escribe el Serial de Arduino: los float, con 2 decimales --- */
+        function comoSerial(v){
+          return T().entero ? String(v) : v.toFixed(2);
+        }
+        function bonito(v){
+          return (T().entero ? String(v) : String(Math.round(v * 10000) / 10000)).replace('.', ',');
+        }
+
+        function ejecuta(){
+          var s = PASOS[i];
+          if(s.ef === 'suma'){ ideal = ideal + paso; cuenta = guarda(cuenta + paso); }
+          else if(s.ef === 'imprime'){ salida.push(comoSerial(cuenta)); if(salida.length > 400) salida.shift(); }
+          else if(s.ef === 'on') led = true;
+          else if(s.ef === 'off') led = false;
+          i++;
+          if(i >= PASOS.length){ i = 2; vueltas++; }   /* setup no se repite */
+        }
+
+        function vuelta(){
+          var tope = 0;
+          do { ejecuta(); tope++; } while(i !== 2 && tope < 40);
+        }
+
+        /* --- una tanda: se salta el dibujo y solo hace la aritmetica --- */
+        function tanda(n){
+          while(i < 2) ejecuta();            /* setup se ejecuta si no lo habia hecho ya */
+          for(var k = 0; k < n; k++){
+            ideal = ideal + paso;
+            cuenta = guarda(cuenta + paso);
+            salida.push(comoSerial(cuenta));
+            if(salida.length > 400) salida.shift();
+            vueltas++;
+          }
+          i = 2; led = false;
+        }
+
+        function reinicia(){
+          i = 0; cuenta = 0; ideal = 0; vueltas = 0;
+          led = false; desborde = false; salida = [];
+          pinta();
+        }
+
+        /* ---- dibujo de los bloques: las alturas se calculan, no se copian ---- */
+        function pintaBloques(){
+          var AN = 214, AL = 26, HUE = 5, X = 16, SANGRIA = 14;
+          var m = '<style>.c1b{font:11.5px var(--f-m)}.c1h{font:500 12px var(--f-m)}</style>';
+          var y = 14;
+          [0, 1].forEach(function(g){
+            var col = g === 0 ? 'var(--goo-verde)' : 'var(--goo-azul)';
+            var rot = g === 0 ? 'al iniciar' : 'para siempre';
+            m += '<rect x="' + X + '" y="' + y + '" width="' + AN + '" height="' + AL
+               + '" rx="4" fill="' + col + '"></rect>'
+               + '<text x="' + (X + 11) + '" y="' + (y + 17.5) + '" class="c1h" fill="#fff">'
+               + rot + '</text>';
+            y += AL + HUE;
+            PASOS.forEach(function(s, k){
+              if(s.g !== g) return;
+              var act = (k === i);
+              var txt = s.ef === 'suma' ? ('cambiar cuenta por ' + soloPaso()) : s.blq;
+              m += '<rect x="' + (X + SANGRIA) + '" y="' + y + '" width="' + (AN - SANGRIA)
+                 + '" height="' + AL + '" rx="4" fill="' + (act ? 'var(--accent-soft)' : 'var(--surface)')
+                 + '" stroke="' + (act ? 'var(--goo-azul)' : 'var(--line)')
+                 + '" stroke-width="' + (act ? 2.2 : 1.3) + '"></rect>'
+                 + '<text x="' + (X + SANGRIA + 10) + '" y="' + (y + 17) + '" class="c1b" fill="var(--ink)">'
+                 + txt + '</text>';
+              y += AL + 4;
+            });
+            y += 14;
+          });
+          /* el LED del pin 13, que es lo unico que se ve desde fuera */
+          m += '<circle cx="272" cy="30" r="12" fill="' + (led ? 'var(--goo-rojo)' : 'var(--surface-2)')
+             + '" stroke="var(--line)" stroke-width="1.5"></circle>'
+             + '<text x="272" y="56" text-anchor="middle" class="c1b" fill="var(--ink-soft)">pin 13</text>';
+          svg.innerHTML = m;
+        }
+
+        function pintaCodigo(){
+          var decl = tipo + ' cuenta = 0;';
+          var suma = '  cuenta = cuenta ' + textoPaso().replace(',', '.') + ';';
+          var L = [decl, '', 'void setup() {', '  pinMode(13, OUTPUT);',
+                   '  Serial.begin(9600);', '}', '', 'void loop() {', suma,
+                   '  Serial.println(cuenta);', '  digitalWrite(13, HIGH);',
+                   '  delay(200);', '  digitalWrite(13, LOW);', '  delay(200);', '}'];
+          var activa = PASOS[i] ? PASOS[i].ln : -1;
+          var h = '';
+          L.forEach(function(t, k){
+            var esc = t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+            if(k === 0) esc = '<b>' + tipo + '</b>' + esc.slice(tipo.length);
+            h += '<div class="ln' + (k === activa ? ' ev' : '') + '"><i>' + (k + 1) + '</i>'
+               + (esc || ' ') + '</div>';
+          });
+          cod.innerHTML = h;
+        }
+
+        function pintaSerie(){
+          if(!salida.length){ serie.innerHTML = '<span class="vacio">Todav&iacute;a no ha escrito nada.</span>'; return; }
+          serie.innerHTML = salida.slice(-60).join('<br>');
+          serie.scrollTop = serie.scrollHeight;
+        }
+
+        function pintaRam(){
+          var t = T(), AN = 300, X = 10, Y = 9, AL = 16;
+          var ancho = Math.max(2.5, AN * t.bytes / RAM_PLACA);
+          var caben = Math.floor(RAM_PLACA / t.bytes);
+          ram.innerHTML = '<style>.c1r{font:10.5px var(--f-m);fill:var(--ink-soft)}</style>'
+            + '<rect x="' + X + '" y="' + Y + '" width="' + AN + '" height="' + AL
+            + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.2"></rect>'
+            + '<rect x="' + X + '" y="' + Y + '" width="' + ancho.toFixed(2) + '" height="' + AL
+            + '" fill="var(--goo-azul)"></rect>'
+            + '<text x="' + X + '" y="' + (Y + AL + 11) + '" class="c1r">'
+            + t.bytes + ' B de ' + RAM_PLACA + ' &middot; caben ' + caben + ' variables como esta</text>';
+        }
+
+        function pintaVar(){
+          var t = T();
+          var rango = t.entero ? ('de ' + t.min + ' a ' + t.max)
+            : 'unos 7 d&iacute;gitos de precisi&oacute;n, no m&aacute;s';
+          vbox.innerHTML = '<b>cuenta</b> &middot; tipo <b>' + tipo + '</b> &middot; ocupa <b>'
+            + t.bytes + ' bytes</b> &middot; ' + rango
+            + '<br>vale <span class="num">' + bonito(cuenta) + '</span>'
+            + ' &middot; vueltas del <b>loop</b>: <span class="num">' + vueltas + '</span>';
+        }
+
+        function pintaEstado(){
+          var t = T(), h = '';
+          var dif = ideal - cuenta;
+          if(desborde){
+            h += '<b style="color:var(--goo-rojo)">Se ha desbordado.</b> Un <b>' + tipo
+               + '</b> solo llega a ' + t.max + '. Al pasarse, no da error: <b>da la vuelta</b> '
+               + 'y sigue por ' + t.min + '. Por eso cuenta vale ahora ' + bonito(cuenta)
+               + ' cuando la suma de verdad iba por ' + String(ideal).replace('.', ',') + '. ';
+          }
+          if(t.entero && Math.abs(dif) > 0.0001 && !desborde){
+            h += '<b style="color:var(--goo-rojo)">La cuenta no es la que pediste.</b> Sumando '
+               + textoPaso() + ' ' + vueltas + ' veces deber&iacute;a valer '
+               + String(Math.round(ideal * 10000) / 10000).replace('.', ',')
+               + ', y vale <b>' + bonito(cuenta) + '</b>: se han perdido '
+               + String(Math.round(dif * 10000) / 10000).replace('.', ',') + ' por el camino. '
+               + 'No es un fallo de la placa: has dicho que cuenta es un <b>' + tipo
+               + '</b>, y en un entero <b>no caben los decimales</b>, as&iacute; que cada suma los tira. ';
+          }
+          if(!h && vueltas > 0){
+            h = 'La cuenta va bien: ' + vueltas + ' vueltas &times; ' + textoPaso()
+              + ' = <b>' + bonito(cuenta) + '</b>. ';
+          }
+          if(!t.entero && vueltas > 0){
+            h += 'Fíjate en el serie: un <b>float</b> se imprime con <b>dos decimales</b> '
+               + 'salvo que pidas otra cosa.';
+          }
+          if(!vueltas) h = 'Pulsa <b>una instrucci&oacute;n</b> y sigue a la vez el bloque '
+                         + 'iluminado y la l&iacute;nea iluminada: son lo mismo dicho de dos maneras.';
+          est.innerHTML = h;
+          pie.innerHTML = 'setup() se ejecuta <b>una vez</b> y loop() <b>para siempre</b>: son '
+            + '&laquo;al iniciar&raquo; y &laquo;para siempre&raquo; con otro nombre. Lo que no ten&iacute;an '
+            + 'los bloques es la primera l&iacute;nea: ah&iacute; hay que decir <b>de qu&eacute; tipo</b> es cada '
+            + 'variable, y el tipo decide cu&aacute;ntos bytes ocupa, hasta d&oacute;nde cuenta y si admite '
+            + 'decimales.';
+        }
+
+        function pinta(){ pintaBloques(); pintaCodigo(); pintaSerie(); pintaRam(); pintaVar(); pintaEstado(); }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-t]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          tipo = b.dataset.t; reinicia();
+        });
+        campoPaso.addEventListener('input', function(){
+          var v = parseFloat(campoPaso.value);
+          paso = isNaN(v) ? 0 : v;
+          reinicia();
+        });
+        caja.querySelector('[data-a="paso"]').addEventListener('click', function(){ ejecuta(); pinta(); });
+        caja.querySelector('[data-a="vuelta"]').addEventListener('click', function(){ vuelta(); pinta(); });
+        caja.querySelector('[data-a="tanda"]').addEventListener('click', function(){
+          var n = parseInt(campoN.value, 10);
+          if(!n || n < 1) return;
+          tanda(Math.min(n, 5000)); pinta();
+        });
+        caja.querySelector('[data-a="reinicia"]').addEventListener('click', reinicia);
+
+        reinicia();
+      })();
+      </script>
+
+      <h3>Y ahora, la l&iacute;nea que los bloques no ten&iacute;an</h3>
+      <p>Mira la primera l&iacute;nea del c&oacute;digo: <code>int cuenta = 0;</code>. En bloques, para tener
+         una variable, la creabas y ya. Aqu&iacute; hay que decir adem&aacute;s <b>de qu&eacute; tipo es</b>, y
+         eso no es burocracia.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Tu m&oacute;vil tiene varios <b>gigabytes</b> de memoria y un sistema operativo que va
+           buscando hueco para cada cosa sobre la marcha. Un Arduino Uno tiene <b>2.048 bytes</b> de
+           memoria de trabajo y <b>no tiene sistema operativo</b>: no hay nadie a quien pedirle sitio.
+           Por eso el sitio se reserva <b>antes</b> de que el programa arranque, y para reservarlo hay
+           que saber cu&aacute;nto. Eso es lo que dice el tipo.</p>
+        <p>Dos mil bytes es menos que este p&aacute;rrafo.</p>
+      </div>
+      <div class="copiar">
+        <h4>Los tipos que vas a usar</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+            <th>tipo</th><th>bytes</th><th>qu&eacute; guarda</th></tr>
+          <tr><td><code>bool</code></td><td>1</td><td>solo <code>true</code> o <code>false</code></td></tr>
+          <tr><td><code>char</code></td><td>1</td><td>de &minus;128 a 127, o una letra</td></tr>
+          <tr><td><code>int</code></td><td>2</td><td>de &minus;32.768 a 32.767, <b>sin decimales</b></td></tr>
+          <tr><td><code>unsigned int</code></td><td>2</td><td>de 0 a 65.535, sin negativos</td></tr>
+          <tr><td><code>long</code></td><td>4</td><td>de &minus;2.147.483.648 a 2.147.483.647</td></tr>
+          <tr><td><code>float</code></td><td>4</td><td>con decimales, unas 7 cifras de precisi&oacute;n</td></tr>
+        </table>
+        <p style="margin-top:10px">El tipo decide <b>tres cosas</b>: cu&aacute;ntos bytes ocupa,
+           <b>hasta d&oacute;nde cuenta</b> y <b>si admite decimales</b>. Elegir mal no da error: da
+           n&uacute;meros mal.</p>
+      </div>
+      <p>Vuelve a la escena de arriba y haz dos pruebas. Las dos fallan, y fallan <b>callando</b>.</p>
+      <div class="copiar">
+        <h4>Las dos trampas de los enteros</h4>
+        <ul>
+          <li><b>Truncamiento.</b> Con <code>int</code>, escribe 0,5 en el paso y da 40 vueltas.
+              <code>cuenta</code> sigue valiendo <b>0</b>. Cada suma da 0,5 y al guardarla en un entero
+              se tiran los decimales. No hay aviso.</li>
+          <li><b>Desbordamiento.</b> Con <code>int</code>, escribe 1000 y da 40 vueltas.
+              A las 33 vueltas deber&iacute;a valer 33.000, pero el m&aacute;ximo de un <code>int</code> es
+              32.767: al pasarse <b>da la vuelta</b> y se queda en un n&uacute;mero <b>negativo</b>.
+              Tampoco hay aviso.</li>
+          <li>La misma prueba con <code>long</code> va bien: caben m&aacute;s n&uacute;meros porque ocupa
+              el doble.</li>
+        </ul>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Dos cosas que conviene saber y que no vienen en casi ning&uacute;n sitio:</p>
+        <ul>
+          <li>En un <b>Arduino Uno</b> un <code>int</code> ocupa 2 bytes. En una placa de 32 bits
+              (ESP32, Arduino Due, Uno R4) ocupa <b>4</b>, y el mismo programa deja de desbordarse.
+              El tipo depende de la placa, no del lenguaje.</li>
+          <li>En el Uno, <code>double</code> es <b>exactamente lo mismo</b> que <code>float</code>:
+              4 bytes. Poner <code>double</code> creyendo que se gana precisi&oacute;n no gana nada.</li>
+        </ul>
+      </div>
+      <div class="video" id="video-c6-setup" data-vid="7uV4Jh30Oho">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Las funciones setup y loop &middot; Curso de Arduino: De Cero a Maker">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Las funciones setup y loop &middot; Curso de Arduino: De Cero a Maker</b>
+            <span>Canal: H&eacute;ctor P&eacute;rez</span>
+          </span>
+        </button>
+        <p class="video-nota">Doce minutos con el entorno de Arduino delante, por si quieres ver escribir el sketch de cero antes de la pr&aacute;ctica. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=7uV4Jh30Oho" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 1 &middot; El mismo programa, y el tipo que le toca a cada cosa</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">C.1</span><span class="chip">C.2</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; en Tinkercad (10 min)</h4>
+          <p>Abrid <b>Tinkercad Circuits</b>, poned un Arduino Uno y un LED en el pin 13 con su
+             resistencia. Escribid el sketch <b>en c&oacute;digo</b> (no en bloques) para que parpadee y
+             para que escriba en el monitor serie cu&aacute;ntas veces ha parpadeado.</p>
+          <ol class="pasos">
+            <li>Copiad en la libreta el sketch entero, con sus llaves y sus puntos y coma.</li>
+            <li>Al lado, dibujad los <b>bloques equivalentes</b> y unid con una flecha cada bloque con
+                su l&iacute;nea. Tiene que haber tantas flechas como instrucciones.</li>
+          </ol>
+          <h4>Segunda parte &middot; el tipo de cada dato (10 min)</h4>
+          <p>Vuestro proyecto de curso va a guardar n&uacute;meros. Para cada uno, decid
+             <b>qu&eacute; tipo</b> usar&iacute;ais, <b>cu&aacute;ntos bytes</b> ocupa y <b>por qu&eacute;</b>
+             ese y no otro:</p>
+          <ul>
+            <li>Las veces que se ha regado la planta este mes <i>(riego autom&aacute;tico)</i>.</li>
+            <li>Los cent&iacute;metros que hay desde la tapa hasta la basura, de 0 a 200
+                <i>(contenedor que avisa)</i>.</li>
+            <li>La temperatura del aula con un decimal, de 0 a 40 &deg;C <i>(aviso de ventilaci&oacute;n)</i>.</li>
+            <li>Los <b>milisegundos</b> que lleva encendida la placa, sabiendo que en una hora ya van
+                3.600.000. <i>Este tiene truco: mirad hasta d&oacute;nde llega cada tipo.</i></li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>El sketch compila en Tinkercad y el LED parpadea <b>(3 puntos)</b>.</li>
+            <li>Las flechas entre bloques y l&iacute;neas est&aacute;n todas y son correctas <b>(2 puntos)</b>.</li>
+            <li>Los cuatro tipos elegidos, con sus bytes <b>(3 puntos)</b>.</li>
+            <li>La justificaci&oacute;n del cuarto dice que un <code>int</code> se queda corto
+                <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; hace <code>setup()</code> y qu&eacute; hace <code>loop()</code>?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><code>setup()</code> se ejecuta <b>una sola vez</b> al encender la placa; <code>loop()</code> se repite <b>para siempre</b>. Son &laquo;al iniciar&raquo; y &laquo;para siempre&raquo; de los bloques.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; hay que decir el tipo de una variable, si en bloques no hac&iacute;a falta?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la placa <b>reserva la memoria antes</b> de arrancar y no tiene sistema operativo que le busque hueco sobre la marcha: hay que decirle cu&aacute;ntos bytes. De paso, el tipo decide hasta d&oacute;nde cuenta y si admite decimales.</p></div></details></li>
+        <li>Un programa suma 1000 a un <code>int</code> una y otra vez y a las 33 vueltas el n&uacute;mero se vuelve negativo. &iquest;Qu&eacute; ha pasado y c&oacute;mo se arregla?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se ha <b>desbordado</b>: 33.000 no cabe en un <code>int</code>, que llega a 32.767, y al pasarse da la vuelta. No es un fallo de la placa, es el tipo. Se arregla usando <code>long</code>, que ocupa 4 bytes en vez de 2.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; es peor este tipo de fallo que uno que pare el programa?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque <b>no avisa</b>. El programa sigue corriendo y dando n&uacute;meros, solo que equivocados, y nadie se entera hasta que el riego se salta un d&iacute;a o el aviso no salta. Un programa que se para se arregla; uno que miente, hay que pillarlo.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya sabes escribir el programa. Pero mira lo que sabe leer la placa hasta ahora: un pin que
+        est&aacute; a 0 o a 1, como un bot&oacute;n. Y la pregunta de tu proyecto no es
+        &laquo;&iquest;hay tierra?&raquo;: es <b>&iquest;cu&aacute;nto de seca est&aacute;?</b>. Eso no
+        es s&iacute; o no, y con lo que sabes hoy no se puede medir.
+      </div>
+
+      <div class="copiar" style="border-color:var(--goo-verde)">
+        <h4>Lectura del tema</h4>
+        <p>Una sesi&oacute;n entera dedicada a leer y contestar, y no va al final: conviene hacerla
+           <b>pronto</b>, porque cuenta por qu&eacute; importan las tres cosas que vienen despu&eacute;s.
+           <b>30 p&aacute;rrafos numerados</b>: cada uno lee el suyo en voz alta, en orden.
+           Despu&eacute;s, diez preguntas por escrito.</p>
+        <p style="margin-top:10px"><a href="lectura-tema6.pdf" target="_blank" rel="noopener"
+           style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
+           &#8595; Cuando el aparato decide solo &middot; PDF</a></p>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-2" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 2 &middot; 60 minutos</div>
+      <h2>El sensor no dice &laquo;seco&raquo;: dice 731</h2>
+      <p>Una entrada digital no mide, compara. Para saber cu&aacute;nto hace falta un conversor, y el conversor tiene escalones.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.2</span><span class="chip sab">C.3</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>El programa de la sesi&oacute;n pasada ya se ejecuta en la placa. Vamos a enchufarle el sensor
+         de vuestro proyecto y a leerlo con lo &uacute;nico que sabemos hasta ahora,
+         <code>digitalRead()</code>.</p>
+      <div class="aviso">
+        <span class="n-tag">La prueba</span>
+        Sonda de humedad clavada en tierra seca: el programa dice <b>1</b>. La riegas un poco: dice
+        <b>1</b>. La riegas m&aacute;s: dice <b>1</b>. La metes en un vaso de agua: dice <b>0</b>.
+        Cuatro situaciones distintas y solo dos respuestas.
+      </div>
+      <p>No es que el sensor sea malo. El sensor est&aacute; dando una tensi&oacute;n distinta en cada
+         caso; lo que pasa es que la entrada digital <b>no mide</b>: compara con un umbral que trae
+         de f&aacute;brica y suelta s&iacute; o no.</p>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>En un Arduino Uno alimentado a 5 V, una entrada digital da <b>1</b> por encima de unos
+           <b>3,0 V</b> y <b>0</b> por debajo de unos <b>1,5 V</b>. Entre medias, ni lo uno ni lo otro:
+           lo que salga. Ese umbral <b>no lo eliges t&uacute;</b> y no aparece en tu programa.</p>
+      </div>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Lo que quieres saber no es &laquo;&iquest;hay agua?&raquo;. Es <b>cu&aacute;nta</b>. Y
+           &laquo;cu&aacute;nta&raquo; no es una respuesta de s&iacute; o no: es un <b>n&uacute;mero</b>.
+           &iquest;De d&oacute;nde puede salir ese n&uacute;mero, si lo &uacute;nico que llega al pin es
+           una tensi&oacute;n?</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <p>La pieza que falta lleva dentro del chip desde el principio y tiene un nombre que suena peor
+         de lo que es: <b>conversor analógico-digital</b>, o <b>A/D</b>. En Arduino se usa con una
+         sola instrucci&oacute;n:</p>
+      <div class="copiar">
+        <h4>Definiciones</h4>
+        <p><b>Se&ntilde;al analógica</b>: la que puede tomar <b>cualquier</b> valor dentro de un
+           margen. La tensi&oacute;n que da un sensor es analógica: entre 0 y 5 V hay infinitos
+           valores.</p>
+        <p><b>Se&ntilde;al digital</b>: la que solo puede tomar valores <b>de una lista</b>. Un
+           n&uacute;mero entero es digital: entre 512 y 513 no hay nada.</p>
+        <p><b>Conversor A/D</b>: el circuito que convierte una tensi&oacute;n en un n&uacute;mero
+           entero. En el Arduino Uno es de <b>10 bits</b>: 2<sup>10</sup> = <b>1.024</b> valores
+           distintos, numerados de <b>0 a 1.023</b>.</p>
+        <p><code>analogRead(A0)</code> devuelve ese n&uacute;mero. No devuelve voltios, ni grados, ni
+           por ciento: devuelve un entero de 0 a 1023.</p>
+      </div>
+      <p>Y aqu&iacute; est&aacute; la idea de la sesi&oacute;n. Si entre 0 y 5 V hay infinitos valores y el
+         conversor solo tiene 1.024 casillas, <b>tiene que juntar valores distintos en la misma
+         casilla</b>. Eso es el <b>escal&oacute;n</b>, y se ve:</p>
+
+      <div class="escena" id="esc-c2">
+        <div class="escena-barra">
+          <span class="escena-titulo">Del mundo al n&uacute;mero &middot; y del n&uacute;mero otra vez al mundo</span>
+          <div class="seg" id="seg-c2">
+            <button type="button" data-s="0" aria-pressed="true">Humedad del suelo</button>
+            <button type="button" data-s="1">Luz (LDR)</button>
+            <button type="button" data-s="2">Temperatura (TMP36)</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="c2">
+            <div class="c2-izq">
+              <svg viewBox="0 0 440 250" id="svg-c2" role="img"
+                   aria-label="Escalera del conversor: tensiones en el eje horizontal y n&uacute;mero entero en el vertical"></svg>
+            </div>
+            <div class="c2-der">
+              <div class="c2-fila">
+                <label for="c2-mag" id="lab-c2">Magnitud</label>
+                <input type="range" id="c2-mag" min="0" max="1000" step="1" value="500">
+                <span class="val" id="val-c2"></span>
+              </div>
+              <div class="c2-fila">
+                <label>Conversor</label>
+                <div class="seg" id="bits-c2">
+                  <button type="button" data-b="8">8 bits</button>
+                  <button type="button" data-b="10" aria-pressed="true">10 bits</button>
+                  <button type="button" data-b="12">12 bits</button>
+                </div>
+              </div>
+              <div class="c2-fila">
+                <label>Referencia</label>
+                <div class="seg" id="vref-c2">
+                  <button type="button" data-v="5" aria-pressed="true">5 V</button>
+                  <button type="button" data-v="3.3">3,3 V</button>
+                  <button type="button" data-v="1.1">1,1 V</button>
+                </div>
+              </div>
+              <div class="c2-fila">
+                <label for="c2-dec">Decimales que escribo</label>
+                <input type="range" id="c2-dec" min="0" max="6" step="1" value="4">
+                <span class="val" id="dec-c2"></span>
+              </div>
+              <div class="c2-tabla" id="tabla-c2"></div>
+            </div>
+          </div>
+          <p class="c2-lee" id="lee-c2"></p>
+        </div>
+        <div class="pie" id="pie-c2"></div>
+      </div>
+
+      <style>
+      .c2{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+      .c2-izq{flex:1 1 390px;min-width:300px}
+      .c2-der{flex:1 1 290px;min-width:265px}
+      .c2-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 9px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .c2-fila label{min-width:118px}
+      .c2-fila input[type="range"]{flex:1 1 120px;min-width:100px;accent-color:var(--goo-azul)}
+      .c2-fila .val{font-weight:500;color:var(--goo-azul);min-width:72px;text-align:right}
+      .c2-fila .seg button{padding:5px 9px;font-size:11.5px}
+      .c2-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12.5px;line-height:1.75;margin-top:4px}
+      .c2-tabla .f{display:flex;justify-content:space-between;gap:10px}
+      .c2-tabla .f span:first-child{color:var(--ink-soft)}
+      .c2-tabla .f b{color:var(--ink);font-weight:500;text-align:right}
+      .c2-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .c2-lee{font-family:var(--f-m);font-size:13px;line-height:1.75;color:var(--ink-soft);margin:12px 0 0}
+      .c2-lee b{color:var(--ink)}
+      .c2-lee .grande{font-size:17px;color:var(--goo-azul);font-weight:500}
+      .c2-lee .falso{color:var(--goo-rojo);text-decoration:line-through;opacity:.8}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-c2');
+        if(!svg) return;
+        var caja = document.getElementById('esc-c2');
+        var seg = document.getElementById('seg-c2');
+        var segBits = document.getElementById('bits-c2');
+        var segVref = document.getElementById('vref-c2');
+        var mag = document.getElementById('c2-mag');
+        var dec = document.getElementById('c2-dec');
+        var lab = document.getElementById('lab-c2');
+        var valm = document.getElementById('val-c2');
+        var vald = document.getElementById('dec-c2');
+        var tabla = document.getElementById('tabla-c2');
+        var lee = document.getElementById('lee-c2');
+        var pie = document.getElementById('pie-c2');
+
+        var VCC = 5.0;                 /* la placa alimenta el sensor a 5 V */
+
+        /* ---- tres sensores, tres modelos DECLARADOS ----
+           Cada uno dice que tension pone en el pin para un valor de la magnitud.
+           No son adornos: la escalera se dibuja sobre el numero que salga de aqui. */
+        var SENSORES = [
+          {
+            nom: 'Humedad del suelo', uni: '%', rot: 'Humedad del suelo',
+            min: 0, max: 100, paso: 1, ini: 35, dec: 0,
+            /* sonda resistiva en divisor: seco -> casi Vcc, empapado -> casi 0 */
+            v: function(h){ return VCC * (1 - h / 100) * 0.94 + 0.12; },
+            /* la inversa, para volver del numero a la magnitud */
+            m: function(v){ return 100 * (1 - (v - 0.12) / (VCC * 0.94)); },
+            ley: 'V = 5 &middot; (1 &minus; h/100) &middot; 0,94 + 0,12',
+            nota: 'Modelo lineal de una sonda resistiva barata. El sensor de verdad no es tan '
+                + 'recto y adem&aacute;s se oxida, pero la cuenta del conversor es la misma.'
+          },
+          {
+            nom: 'Luz', uni: 'lux', rot: 'Luz que le llega',
+            min: 0, max: 1000, paso: 1, ini: 520, dec: 0, log: [1, 2000],
+            /* LDR (10 kilohmios a 10 lux, gamma 0,7) arriba y 10 kilohmios fijos abajo */
+            v: function(E){
+              var R = 10000 * Math.pow(Math.max(E, 0.05) / 10, -0.7);
+              return VCC * 10000 / (10000 + R);
+            },
+            m: function(v){
+              if(v <= 0.0001 || v >= VCC) return null;
+              var R = 10000 * (VCC - v) / v;
+              return 10 * Math.pow(R / 10000, -1 / 0.7);
+            },
+            ley: 'R<sub>LDR</sub> = 10 k&Omega; &middot; (E/10)<sup>&minus;0,7</sup> &nbsp;&middot;&nbsp; '
+               + 'V = 5 &middot; 10 k / (10 k + R<sub>LDR</sub>)',
+            nota: 'Divisor de tensi&oacute;n con una LDR arriba y 10 k&Omega; abajo. El exponente 0,7 '
+                + 'es el de una LDR de sulfuro de cadmio corriente.'
+          },
+          {
+            nom: 'Temperatura', uni: '&deg;C', rot: 'Temperatura del aire',
+            min: -40, max: 125, paso: 1, ini: 21, dec: 0,
+            v: function(T){ return 0.5 + 0.01 * T; },
+            m: function(v){ return (v - 0.5) * 100; },
+            ley: 'V = 0,5 V + 0,01 V/&deg;C &middot; T',
+            nota: 'Es la hoja de caracter&iacute;sticas del TMP36: 500 mV a 0 &deg;C y 10 mV por grado.'
+          }
+        ];
+
+        var ns = 0, bits = 10, vref = 5.0;
+
+        function S(){ return SENSORES[ns]; }
+        function niveles(){ return Math.pow(2, bits); }
+        function pasoV(){ return vref / niveles(); }
+
+        /* valor de la magnitud que pide el mando (con escala log si el sensor lo pide) */
+        function magnitud(){
+          var s = S(), t = +mag.value / 1000;
+          if(s.log){
+            var a = Math.log(s.log[0]), b = Math.log(s.log[1]);
+            return Math.exp(a + t * (b - a));
+          }
+          return s.min + t * (s.max - s.min);
+        }
+
+        function coma(x, d){ return x.toFixed(d).replace('.', ','); }
+
+        function mide(){
+          var s = S(), M = magnitud();
+          var V = s.v(M);
+          var recorta = false;
+          if(V > vref){ V = vref; recorta = true; }        /* el pin no puede pasar de Vref */
+          if(V < 0){ V = 0; recorta = true; }
+          var N = niveles();
+          var bruto = Math.floor(V / vref * N);
+          var lect = Math.min(N - 1, Math.max(0, bruto));
+          /* la formula que usa todo el mundo con Arduino: el fondo de escala es el ultimo numero */
+          var Vrec = lect * vref / (N - 1);
+          var Mrec = s.m(Vrec);
+          /* la franja de tensiones que dan EXACTAMENTE este mismo numero */
+          var baja = lect * pasoV(), alta = (lect + 1) * pasoV();
+          if(lect === N - 1) alta = vref;
+          /* cuanto vale un escalon en unidades de verdad, aqui. En el ultimo numero
+             se mide el escalon anterior: si no, saldria cero y mentiria. */
+          var kk = Math.min(lect, N - 2);
+          var m0 = s.m(kk * vref / (N - 1));
+          var m1 = s.m((kk + 1) * vref / (N - 1));
+          var pasoM = (m1 === null || m0 === null) ? null : Math.abs(m1 - m0);
+          return {M: M, V: V, lect: lect, Vrec: Vrec, Mrec: Mrec, baja: baja, alta: alta,
+                  pasoM: pasoM, recorta: recorta, N: N};
+        }
+
+        /* ---- la escalera, dibujada escalon a escalon alrededor del punto ---- */
+        function pintaEscalera(r){
+          var X0 = 52, Y0 = 26, AN = 360, AL = 168;
+          var vent = 9;                                   /* escalones a la vista */
+          var k0 = Math.max(0, r.lect - Math.floor(vent / 2));
+          if(k0 + vent > r.N) k0 = Math.max(0, r.N - vent);
+          var vA = k0 * pasoV(), vB = (k0 + vent) * pasoV();
+          var px = function(v){ return X0 + (v - vA) / (vB - vA) * AN; };
+          var py = function(k){ return Y0 + AL - (k - k0 + 0.5) / vent * AL; };
+
+          var m = '<style>.c2t{font:10.5px var(--f-m);fill:var(--ink-soft)}'
+                + '.c2n{font:500 11px var(--f-m);fill:var(--goo-azul)}</style>';
+          /* la franja del numero actual, que es lo que hay que ver */
+          m += '<rect x="' + px(r.baja).toFixed(1) + '" y="' + Y0 + '" width="'
+             + Math.max(1, px(r.alta) - px(r.baja)).toFixed(1) + '" height="' + AL
+             + '" fill="var(--accent-soft)"></rect>';
+          /* ejes */
+          m += '<path d="M' + X0 + ' ' + Y0 + ' V' + (Y0 + AL) + ' H' + (X0 + AN)
+             + '" fill="none" stroke="var(--line)" stroke-width="1.5"></path>';
+          /* los escalones */
+          var d = '';
+          for(var k = k0; k < k0 + vent; k++){
+            var xa = px(k * pasoV()), xb = px((k + 1) * pasoV()), y = py(k);
+            d += (k === k0 ? 'M' : 'L') + Math.max(X0, xa).toFixed(1) + ' ' + y.toFixed(1)
+               + 'L' + Math.min(X0 + AN, xb).toFixed(1) + ' ' + y.toFixed(1);
+            if(k + 1 < k0 + vent) d += 'L' + Math.min(X0 + AN, xb).toFixed(1) + ' ' + py(k + 1).toFixed(1);
+            m += '<text x="' + (X0 - 7) + '" y="' + (y + 3.5) + '" text-anchor="end" class="c2t">'
+               + k + '</text>';
+          }
+          m += '<path d="' + d + '" fill="none" stroke="var(--goo-azul)" stroke-width="2.2"></path>';
+          /* la tension de verdad y el punto en el que cae */
+          if(r.V >= vA && r.V <= vB){
+            m += '<path d="M' + px(r.V).toFixed(1) + ' ' + Y0 + ' V' + (Y0 + AL)
+               + '" stroke="var(--goo-rojo)" stroke-width="1.6" stroke-dasharray="4 3"></path>'
+               + '<circle cx="' + px(r.V).toFixed(1) + '" cy="' + py(r.lect).toFixed(1)
+               + '" r="5" fill="var(--goo-rojo)"></circle>';
+          }
+          /* rotulos de los ejes */
+          m += '<text x="' + X0 + '" y="' + (Y0 + AL + 15) + '" class="c2t">' + coma(vA, 4) + ' V</text>'
+             + '<text x="' + (X0 + AN) + '" y="' + (Y0 + AL + 15) + '" text-anchor="end" class="c2t">'
+             + coma(vB, 4) + ' V</text>'
+             + '<text x="' + X0 + '" y="' + (Y0 - 10) + '" class="c2t">n&uacute;mero que da analogRead()</text>'
+             + '<text x="' + (X0 + AN / 2) + '" y="' + (Y0 + AL + 32) + '" text-anchor="middle" class="c2t">'
+             + 'tensi&oacute;n en el pin &middot; un escal&oacute;n = ' + coma(pasoV() * 1000, 2) + ' mV</text>';
+          /* la franja, escrita */
+          m += '<text x="' + (X0 + AN / 2) + '" y="' + (Y0 + AL + 48) + '" text-anchor="middle" class="c2n">'
+             + 'todo lo que caiga entre ' + coma(r.baja, 4) + ' V y ' + coma(r.alta, 4)
+             + ' V da el mismo ' + r.lect + '</text>';
+          svg.innerHTML = m;
+        }
+
+        /* cuantos decimales estan sostenidos por el escalon */
+        function decimalesReales(p){
+          if(!p || !isFinite(p) || p <= 0) return 0;
+          return Math.max(0, Math.ceil(-Math.log(p) / Math.LN10));
+        }
+
+        function pinta(){
+          var s = S(), r = mide();
+          lab.innerHTML = s.rot;
+          valm.innerHTML = coma(r.M, s.log ? 0 : s.dec) + ' ' + s.uni;
+          vald.innerHTML = dec.value;
+
+          pintaEscalera(r);
+
+          /* map() de Arduino hace la division con ENTEROS, y trunca */
+          var exacto = r.lect * 100 / (r.N - 1);
+          var mapeado = Math.trunc(r.lect * 100 / (r.N - 1));
+
+          var fil = function(a, b, top){
+            return '<div class="f' + (top ? ' top' : '') + '"><span>' + a + '</span><b>' + b + '</b></div>';
+          };
+          tabla.innerHTML =
+              fil('tensi&oacute;n en el pin', coma(r.V, 4) + ' V' + (r.recorta ? ' (recortada)' : ''))
+            + fil('escal&oacute;n del conversor', coma(pasoV() * 1000, 3) + ' mV')
+            + fil('analogRead() devuelve', r.lect + ' de 0 a ' + (r.N - 1))
+            + fil('vuelta a voltios', coma(r.Vrec, 4) + ' V', true)
+            + fil('vuelta a ' + s.uni.replace('&deg;C', 'grados'),
+                  r.Mrec === null ? '&mdash;' : coma(r.Mrec, 2) + ' ' + s.uni)
+            + fil('un escal&oacute;n, en ' + s.uni.replace('&deg;C', 'grados'),
+                  r.pasoM === null ? '&mdash;' : coma(r.pasoM, 3) + ' ' + s.uni, true)
+            + fil('map(lectura, 0, ' + (r.N - 1) + ', 0, 100) &middot; % de la escala',
+                  mapeado + ' %')
+            + fil('la misma cuenta sin truncar', coma(exacto, 2) + ' %');
+
+          /* el numero con los decimales que pide el alumno, tachando los que no existen */
+          var d = +dec.value, fiables = decimalesReales(r.pasoM);
+          var txt = (r.Mrec === null) ? '&mdash;' : coma(r.Mrec, d);
+          var pintado = txt;
+          if(r.Mrec !== null && d > fiables){
+            var corte = txt.length - (d - fiables);
+            pintado = txt.slice(0, corte) + '<span class="falso">' + txt.slice(corte) + '</span>';
+          }
+          var h = 'Tu programa escribir&iacute;a <span class="grande">' + pintado + ' ' + s.uni + '</span>. ';
+          if(r.Mrec === null){
+            h += 'Con esta referencia el sensor ya no dice nada &uacute;til aqu&iacute;.';
+          } else if(d > fiables){
+            h += '<b style="color:var(--goo-rojo)">Los ' + (d - fiables) + ' &uacute;ltimos d&iacute;gitos '
+               + 'no existen.</b> El conversor salta de ' + coma(r.pasoM, 3) + ' ' + s.uni
+               + ' en ' + coma(r.pasoM, 3) + ' ' + s.uni + ', as&iacute; que solo puedes escribir <b>'
+               + fiables + '</b> decimal' + (fiables === 1 ? '' : 'es') + '. Lo dem&aacute;s son ceros '
+               + 'que ha puesto la divisi&oacute;n, no medidas.';
+          } else {
+            h += 'Esos decimales <b>s&iacute;</b> los sostiene el sensor: el escal&oacute;n vale '
+               + coma(r.pasoM, 3) + ' ' + s.uni + '.';
+          }
+          if(r.recorta){
+            h += ' <b style="color:var(--goo-rojo)">Ojo:</b> la tensi&oacute;n del sensor se sale de la '
+               + 'referencia de ' + coma(vref, 1) + ' V. Por encima de ah&iacute; el conversor da siempre '
+               + (r.N - 1) + ' y <b>ya no distingue nada</b>.';
+          }
+          lee.innerHTML = h;
+          pie.innerHTML = '<b>' + s.nom + '.</b> ' + s.ley + '. ' + s.nota
+            + ' El n&uacute;mero de la pantalla sale de esa f&oacute;rmula y de floor(V / Vref &middot; '
+            + r.N + '); no hay ninguna cifra escrita a mano.';
+        }
+
+        function cambiaSensor(k){
+          ns = k;
+          var s = S();
+          if(s.log){
+            var a = Math.log(s.log[0]), b = Math.log(s.log[1]);
+            mag.value = Math.round((Math.log(s.ini) - a) / (b - a) * 1000);
+          } else {
+            mag.value = Math.round((s.ini - s.min) / (s.max - s.min) * 1000);
+          }
+          pinta();
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-s]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          cambiaSensor(+b.dataset.s);
+        });
+        segBits.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-b]'); if(!b) return;
+          segBits.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          bits = +b.dataset.b; pinta();
+        });
+        segVref.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-v]'); if(!b) return;
+          segVref.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          vref = +b.dataset.v; pinta();
+        });
+        mag.addEventListener('input', pinta);
+        dec.addEventListener('input', pinta);
+
+        cambiaSensor(0);
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>El escal&oacute;n, y la cuenta de volver</h4>
+        <p><b>Escal&oacute;n</b> (o resoluci&oacute;n): lo que hay que cambiar la tensi&oacute;n para que
+           el n&uacute;mero cambie en uno.</p>
+        <p style="font-family:var(--f-m);font-size:14px">escal&oacute;n = V<sub>ref</sub> /
+           2<sup>bits</sup> = 5 V / 1.024 = <b>0,00488 V = 4,88 mV</b></p>
+        <p>Para volver del n&uacute;mero a voltios:</p>
+        <p style="font-family:var(--f-m);font-size:14px">V = lectura &middot; V<sub>ref</sub> / 1023</p>
+        <p>Y de voltios a lo que mide el sensor, con la f&oacute;rmula de <b>su</b> hoja de
+           caracter&iacute;sticas. Por ejemplo, un term&oacute;metro TMP36 da 0,5 V a 0 &deg;C y sube
+           10 mV por cada grado, as&iacute; que:</p>
+        <p style="font-family:var(--f-m);font-size:14px">&deg;C = (V &minus; 0,5) &middot; 100</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Habr&aacute;s visto que arriba aparecen <b>1.024 y 1.023</b>, y no es una errata.
+           El escal&oacute;n vale V<sub>ref</sub>/<b>1024</b> porque hay 1.024 escalones; la cuenta de
+           volver se hace dividiendo entre <b>1023</b> porque as&iacute; el n&uacute;mero m&aacute;s alto
+           corresponde exactamente a V<sub>ref</sub>. Las dos cuentas se diferencian en un 0,1 %, que es
+           menos de lo que se equivoca el propio conversor. Se dice porque las dos circulan y conviene
+           saber de d&oacute;nde sale cada una.</p>
+        <p>Otro dato que sirve en el proyecto: cada <code>analogRead()</code> tarda unos
+           <b>100 microsegundos</b>. Si el <code>loop()</code> lee diez sensores, ah&iacute; se va un
+           milisegundo por vuelta.</p>
+      </div>
+
+      <h3>La trampa de los decimales que no hay</h3>
+      <p>En la escena, sube el mando de <b>decimales que escribo</b> hasta 4 y mira lo que pasa:
+         aparecen d&iacute;gitos <b>tachados</b>. No es un adorno. Son cifras que la divisi&oacute;n ha
+         calculado y que <b>el sensor no puede sostener</b>.</p>
+      <figure class="foto">
+        <img src="../../../img/c6-potenciometro.jpg" alt="Potenci&oacute;metro de eje met&aacute;lico con sus tres patillas, visto de cerca" loading="lazy">
+        <figcaption>Un <b>potenci&oacute;metro</b>: una resistencia con un cursor que se mueve con el eje. Es lo que vais a usar en Tinkercad como sensor de mentira, porque hace lo mismo que cualquier sensor de verdad: <b>poner en el pin una tensi&oacute;n que var&iacute;a poco a poco</b>. Al girarlo despacio ver&eacute;is que la lectura no sube de uno en uno de forma continua: <b>salta</b>. Eso son los escalones.
+          <span class="credito">Iainf &middot; CC BY 2.5 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Potentiometer.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>Cu&aacute;ntos decimales puedes escribir</h4>
+        <p>Calcula cu&aacute;nto vale <b>un escal&oacute;n en tus unidades</b> y escribe solo hasta ah&iacute;.</p>
+        <p>Ejemplo con el TMP36 a 5 V: el escal&oacute;n vale 4,88 mV y el sensor da 10 mV por grado,
+           as&iacute; que un escal&oacute;n son <b>0,49 &deg;C</b>. Tu term&oacute;metro <b>no puede
+           distinguir medio grado</b>. Si el programa escribe <code>21.37</code>, el 7 no existe y el
+           3 es discutible: lo honrado es <b>21,4 &deg;C</b>.</p>
+        <p>Que un n&uacute;mero tenga muchos decimales no lo hace m&aacute;s exacto. Los decimales de
+           m&aacute;s los ha puesto la <b>divisi&oacute;n</b>, no la medida.</p>
+      </div>
+
+      <h3>map(), y su letra peque&ntilde;a</h3>
+      <div class="copiar">
+        <h4>Pasar de un margen a otro</h4>
+        <p><code>map(valor, desdeMin, desdeMax, hastaMin, hastaMax)</code> convierte un n&uacute;mero
+           de un margen a otro. <code>map(lectura, 0, 1023, 0, 100)</code> pasa la lectura a
+           porcentaje.</p>
+        <p><b>Cuidado:</b> <code>map()</code> hace la cuenta con <b>enteros</b> y <b>trunca</b>: tira
+           los decimales en vez de redondear. <code>map(5, 0, 1023, 0, 100)</code> da <b>0</b>, no 0,49.
+           Y solo devuelve 100 cuando la lectura vale exactamente 1023.</p>
+        <p>Si necesitas los decimales, haz la cuenta t&uacute; con <code>float</code>:
+           <code>float pct = lectura * 100.0 / 1023.0;</code></p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>En la escena, cambia la <b>referencia</b> de 5 V a 1,1 V con el term&oacute;metro puesto.
+           El escal&oacute;n baja de 0,49 &deg;C a 0,11 &deg;C: mides cuatro veces m&aacute;s fino. Pero
+           a cambio, por encima de 60 &deg;C la tensi&oacute;n se sale de la referencia y el conversor da
+           siempre el n&uacute;mero m&aacute;s alto: <b>deja de distinguir</b>. M&aacute;s resoluci&oacute;n
+           o m&aacute;s margen; las dos a la vez, no. Esto es una decisi&oacute;n de dise&ntilde;o, y es
+           vuestra.</p>
+      </div>
+      <div class="video" id="video-c6-analog" data-vid="ddOaXUWQxbI">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Potenci&oacute;metro con Arduino y Tinkercad &middot; leer entradas analógicas">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Potenci&oacute;metro con Arduino y Tinkercad &middot; leer entradas analógicas</b>
+            <span>Canal: Novatech</span>
+          </span>
+        </button>
+        <p class="video-nota">El montaje exacto de la pr&aacute;ctica, hecho en Tinkercad, por si quer&eacute;is verlo antes de montarlo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=ddOaXUWQxbI" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 2 &middot; Del n&uacute;mero a unidades de verdad</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.2</span><span class="chip">C.3</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; en Tinkercad (10 min)</h4>
+          <p>Arduino Uno, un potenci&oacute;metro con el cursor a <b>A0</b> y los extremos a 5 V y GND.
+             Sketch: leer <code>analogRead(A0)</code> y escribir en el monitor serie la
+             <b>lectura</b> y la <b>tensi&oacute;n</b>, separadas por una coma.</p>
+          <ol class="pasos">
+            <li>Girad el eje a <b>cinco</b> posiciones repartidas y anotad la pareja de valores.</li>
+            <li>Comprobad una de ellas <b>a mano</b>, con la f&oacute;rmula, y ved si os da lo mismo
+                que la placa.</li>
+            <li>Girad muy despacio y mirad la lectura: anotad <b>si sube de uno en uno o a saltos</b>,
+                y explicad por qu&eacute;.</li>
+          </ol>
+          <h4>Segunda parte &middot; el escal&oacute;n de vuestro sensor (10 min)</h4>
+          <p>Calculad, para <b>dos</b> de estos tres, cu&aacute;nto vale un escal&oacute;n en las unidades
+             que le importan al proyecto. Escribid la cuenta completa, con unidades en cada paso:</p>
+          <ul>
+            <li><b>Aviso de ventilaci&oacute;n</b>: term&oacute;metro TMP36 (10 mV por grado), a 5 V.
+                &iquest;Cu&aacute;ntos grados vale un escal&oacute;n? &iquest;Tiene sentido escribir
+                d&eacute;cimas?</li>
+            <li><b>L&aacute;mpara que se ajusta sola</b>: la LDR del montaje de la escena. Con el mando
+                de luz a 100 lux, &iquest;cu&aacute;nto vale un escal&oacute;n en lux? &iquest;Y a
+                1.000 lux? <i>(No vale lo mismo, y esa es la gracia.)</i></li>
+            <li><b>Riego autom&aacute;tico</b>: sonda de humedad. Con el modelo de la escena,
+                &iquest;cu&aacute;ntos escalones hay entre tierra seca y tierra empapada?</li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Las cinco parejas lectura/tensi&oacute;n, anotadas <b>(2 puntos)</b>.</li>
+            <li>La comprobaci&oacute;n a mano coincide con la placa <b>(2 puntos)</b>.</li>
+            <li>La explicaci&oacute;n de los saltos nombra el escal&oacute;n <b>(2 puntos)</b>.</li>
+            <li>Los dos escalones calculados, con unidades en cada paso <b>(3 puntos)</b>.</li>
+            <li>Se dice cu&aacute;ntos decimales tiene sentido escribir <b>(1 punto)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Por qu&eacute; una entrada digital no sirve para saber cu&aacute;nto de seca est&aacute; la tierra?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque no mide: <b>compara</b> con un umbral de f&aacute;brica y devuelve 0 o 1. Toda la informaci&oacute;n intermedia se pierde, y justo esa era la que interesaba.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; <code>analogRead()</code> llega a 1023 y no a 1000?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el conversor es de <b>10 bits</b>: 2<sup>10</sup> = 1.024 valores distintos, numerados desde el 0. El &uacute;ltimo es el 1023.</p></div></details></li>
+        <li>Tu programa escribe <code>21.37</code> grados con un TMP36 a 5 V. &iquest;Cu&aacute;ntos de esos d&iacute;gitos son de verdad?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Un escal&oacute;n del conversor vale 4,88 mV, y el sensor da 10 mV por grado: <b>0,49 &deg;C por escal&oacute;n</b>. El term&oacute;metro no distingue medio grado, as&iacute; que lo honrado es <b>21,4 &deg;C</b>. El 7 lo ha puesto la divisi&oacute;n.</p></div></details></li>
+        <li>&iquest;Qu&eacute; devuelve <code>map(5, 0, 1023, 0, 100)</code> y por qu&eacute;?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>0.</b> La cuenta exacta ser&iacute;a 0,49, pero <code>map()</code> trabaja con enteros y <b>trunca</b>. Si hacen falta decimales hay que hacer la cuenta a mano con <code>float</code>.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Ya tienes un aparato que se entera de lo que pasa y decide solo. Pero decide
+        <b>en silencio y en el aula</b>. Si la bomba se atasca el martes de Semana Santa, te enteras
+        nueve d&iacute;as despu&eacute;s, con la planta seca. Hace falta que el aparato
+        <b>avise desde lejos</b>, y ah&iacute; casi todo el mundo dice &laquo;lo conecto a
+        internet&raquo; sin saber qu&eacute; significa eso exactamente.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-3" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
+      <h2>Decide bien, pero decide en silencio y desde el aula</h2>
+      <p>Un aparato que manda un dato a un sitio y otro que lo lee. Protocolo, identificador, dato y hora. Y qui&eacute;n se queda todo eso.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.3</span><span class="chip sab">C.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Vuestro aparato ya funciona: lee, decide y act&uacute;a. Y ahora llega el puente.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo</span>
+        Nueve d&iacute;as sin clase. Quer&eacute;is poder mirar desde casa si la planta se ha regado,
+        si el aula se ha quedado a 35 &deg;C o si el contenedor est&aacute; lleno. Escribid en el
+        cuaderno, en dos minutos, <b>qu&eacute; hace falta exactamente</b>.
+      </div>
+      <p>Lo que sale casi siempre es <i>&laquo;una app&raquo;</i> o <i>&laquo;conectarlo a
+         internet&raquo;</i>. Las dos respuestas tienen el mismo problema: no dicen nada. Una app es
+         una pantalla, y una pantalla no puede ense&ntilde;ar un dato que nadie ha mandado.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>Olvida la palabra internet. Para que t&uacute;, en tu casa, veas un n&uacute;mero que ha
+           medido una placa que est&aacute; en el aula, <b>&iquest;cu&aacute;ntas cosas distintas tienen
+           que ocurrir?</b> Escr&iacute;belas como pasos.</p>
+      </div>
+      <p>Son dos, y ninguna es misteriosa: <b>alguien tiene que mandar un mensaje</b> y <b>alguien
+         tiene que estar escuchando</b>. Todo lo dem&aacute;s &mdash;la nube, el IoT, los aparatos
+         inteligentes&mdash; son nombres para esas dos cosas.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <p>Que esto no es nuevo lo demuestra la primera c&aacute;mara que se puso en la red, y lo que se
+         ve&iacute;a en ella era tan importante como esto:</p>
+      <figure class="foto" style="max-width:284px;margin-left:auto;margin-right:auto">
+        <img src="../../../img/c6-cafetera-trojan.png" alt="Ventana de ordenador titulada xcoffee con la imagen en blanco y negro de una jarra de caf&eacute; medio llena sobre su placa" loading="lazy" style="image-rendering:pixelated">
+        <figcaption>Esto es la imagen entera: <b>142 &times; 159 puntos en blanco y negro</b>, ampliada aqu&iacute; para que se vea. En <b>1991</b>, en el laboratorio de inform&aacute;tica de la Universidad de Cambridge, Quentin Stafford-Fraser y Paul Jardetzky apuntaron una c&aacute;mara a la cafetera del pasillo y escribieron un programa, <b>XCoffee</b>, para verla desde el despacho y no bajar en balde. En <b>noviembre de 1993</b> Daniel Gordon y Martyn Johnson la sacaron a la web, y se hizo famosa en el mundo entero. Se apag&oacute; el <b>22 de agosto de 2001</b>. Un aparato que manda un dato y otro que lo mira: <b>eso</b> es lo que hoy se llama IoT.
+          <span class="credito">Quentin Stafford-Fraser &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Trojan_Room_coffee_pot_xcoffee.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <div class="copiar">
+        <h4>Definiciones</h4>
+        <p><b>IoT</b> (<i>internet de las cosas</i>): aparatos que no son ordenadores &mdash;una
+           placa, un contador de la luz, una b&aacute;scula&mdash; que <b>mandan</b> lo que miden a
+           otro sitio de la red y a veces <b>reciben</b> &oacute;rdenes desde all&iacute;.</p>
+        <p>Un mensaje de uno de esos aparatos lleva <b>cuatro cosas</b>, y ninguna m&aacute;s:</p>
+        <ul>
+          <li><b>Qui&eacute;n</b> lo manda: un <b>identificador</b>. Sin &eacute;l, el dato no vale
+              nada: 38 % &iquest;de qu&eacute;?</li>
+          <li><b>Qu&eacute;</b> mide: la magnitud, el valor y su <b>unidad</b>.</li>
+          <li><b>Cu&aacute;ndo</b>: la <b>marca de tiempo</b>. La pone el aparato, o el que recibe al
+              recibirlo.</li>
+          <li><b>A d&oacute;nde</b>: la direcci&oacute;n del servidor y el <b>protocolo</b>, que es el
+              idioma en que se escribe el mensaje.</li>
+        </ul>
+        <p>Todo lo dem&aacute;s que viaja es <b>sobre</b>: sirve para que el mensaje llegue y se
+           entienda, no para medir nada.</p>
+      </div>
+      <p>Aqu&iacute; tienes el mensaje de verdad, escrito en los tres formatos que se usan.
+         Cambia el identificador, el valor y cada cu&aacute;nto se manda, y mira lo que ocupa cada uno
+         y lo que eso supone en un curso entero.</p>
+
+      <div class="escena" id="esc-c3">
+        <div class="escena-barra">
+          <span class="escena-titulo">Un dato que sale de la placa &middot; qu&eacute; se manda exactamente</span>
+          <div class="seg" id="seg-c3">
+            <button type="button" data-p="0" aria-pressed="true">Texto plano</button>
+            <button type="button" data-p="1">HTTP + JSON</button>
+            <button type="button" data-p="2" >MQTT</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="c3">
+            <div class="c3-izq">
+              <p class="c3-rot">El mensaje, tal cual sale</p>
+              <div class="c3-msg" id="msg-c3"></div>
+              <p class="c3-rot">Un cuadrito por byte &middot; primero el sobre, luego tu dato</p>
+              <svg viewBox="0 0 330 130" id="svg-c3" role="img"
+                   aria-label="Rejilla con un cuadrito por cada byte del mensaje, separando sobre y dato"></svg>
+            </div>
+            <div class="c3-der">
+              <div class="c3-fila">
+                <label for="c3-id">Identificador</label>
+                <input type="text" id="c3-id" value="aula12" maxlength="16">
+              </div>
+              <div class="c3-fila">
+                <label>Magnitud</label>
+                <div class="seg" id="mag-c3">
+                  <button type="button" data-m="0" aria-pressed="true">humedad</button>
+                  <button type="button" data-m="1">temp</button>
+                  <button type="button" data-m="2">distancia</button>
+                </div>
+              </div>
+              <div class="c3-fila">
+                <label for="c3-val">Valor medido</label>
+                <input type="range" id="c3-val" min="0" max="100" step="1" value="38">
+                <span class="val" id="vval-c3"></span>
+              </div>
+              <div class="c3-fila">
+                <label for="c3-per">Env&iacute;a cada</label>
+                <input type="range" id="c3-per" min="0" max="1000" step="1" value="520">
+                <span class="val" id="vper-c3"></span>
+              </div>
+              <label class="c3-chk"><input type="checkbox" id="c3-hora" checked> llevar la hora dentro del mensaje</label>
+              <label class="c3-chk"><input type="checkbox" id="c3-tcp"> contar tambi&eacute;n el sobre de TCP/IP (+40 B)</label>
+              <label class="c3-chk"><input type="checkbox" id="c3-tls"> mandarlo cifrado (TLS, +22 B por mensaje)</label>
+              <div class="c3-tabla" id="tabla-c3"></div>
+            </div>
+          </div>
+          <p class="c3-rot" style="margin-top:14px">Por d&oacute;nde pasa, y qui&eacute;n lee qu&eacute;</p>
+          <svg viewBox="0 0 700 150" id="ruta-c3" role="img"
+               aria-label="Camino del dato desde la placa hasta el m&oacute;vil, con lo que ve cada salto"></svg>
+          <p class="c3-lee" id="lee-c3"></p>
+        </div>
+        <div class="pie" id="pie-c3"></div>
+      </div>
+
+      <style>
+      .c3{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+      .c3-izq{flex:1 1 330px;min-width:290px}
+      .c3-der{flex:1 1 300px;min-width:270px}
+      .c3-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--ink-soft);margin:0 0 6px}
+      .c3-izq .c3-rot + .c3-msg + .c3-rot{margin-top:12px}
+      .c3-msg{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        font-family:var(--f-m);font-size:12px;line-height:1.7;padding:9px 11px;
+        white-space:pre-wrap;word-break:break-all;min-height:96px;color:var(--ink)}
+      .c3-msg .sobre{color:var(--ink-soft)}
+      .c3-msg .dato{color:var(--goo-verde);font-weight:500}
+      .c3-msg .nl{color:var(--goo-amarillo)}
+      .c3-fila{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 9px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .c3-fila label{min-width:104px}
+      .c3-fila input[type="range"]{flex:1 1 110px;min-width:95px;accent-color:var(--goo-azul)}
+      .c3-fila input[type="text"]{flex:1 1 130px;font-family:var(--f-m);font-size:12.5px;padding:4px 6px;
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+      .c3-fila .val{font-weight:500;color:var(--goo-azul);min-width:76px;text-align:right}
+      .c3-fila .seg button{padding:5px 9px;font-size:11.5px}
+      .c3-chk{display:flex;align-items:center;gap:7px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 7px;cursor:pointer}
+      .c3-chk input{accent-color:var(--goo-azul)}
+      .c3-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12.5px;line-height:1.75;margin-top:6px}
+      .c3-tabla .f{display:flex;justify-content:space-between;gap:10px}
+      .c3-tabla .f span:first-child{color:var(--ink-soft)}
+      .c3-tabla .f b{color:var(--ink);font-weight:500;text-align:right}
+      .c3-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .c3-lee{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:10px 0 0}
+      .c3-lee b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-c3');
+        if(!svg) return;
+        var ruta = document.getElementById('ruta-c3');
+        var caja = document.getElementById('esc-c3');
+        var seg = document.getElementById('seg-c3');
+        var segMag = document.getElementById('mag-c3');
+        var cId = document.getElementById('c3-id');
+        var cVal = document.getElementById('c3-val');
+        var cPer = document.getElementById('c3-per');
+        var cHora = document.getElementById('c3-hora');
+        var cTcp = document.getElementById('c3-tcp');
+        var cTls = document.getElementById('c3-tls');
+        var vval = document.getElementById('vval-c3');
+        var vper = document.getElementById('vper-c3');
+        var msg = document.getElementById('msg-c3');
+        var tabla = document.getElementById('tabla-c3');
+        var lee = document.getElementById('lee-c3');
+        var pie = document.getElementById('pie-c3');
+
+        var MAGS = [
+          {c: 'hum', uni: '%', min: 0, max: 100, ini: 38},
+          {c: 'temp', uni: 'C', min: -5, max: 45, ini: 21},
+          {c: 'dist', uni: 'cm', min: 0, max: 200, ini: 47}
+        ];
+        var HORA = '2026-09-18T10:05:00Z';
+        var SERVIDOR = 'datos.iescentro.es';
+        var TCP_IP = 40;        /* 20 bytes de cabecera IPv4 + 20 de cabecera TCP */
+        var TLS_REG = 22;       /* 5 de cabecera de registro + 1 de tipo + 16 de sello */
+
+        var prot = 0, nm = 0;
+
+        function ident(){
+          var t = (cId.value || 'sensor').toLowerCase().replace(/[^a-z0-9-]/g, '');
+          return t || 'sensor';
+        }
+        function periodo(){
+          /* el mando va de 1 s a 3600 s en escala logaritmica */
+          var t = +cPer.value / 1000;
+          return Math.max(1, Math.round(Math.exp(Math.log(1) + t * (Math.log(3600) - Math.log(1)))));
+        }
+        function esc(t){ return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+        /* ---- el mensaje: trozos, cada uno marcado como sobre o como dato ---- */
+        function arma(){
+          var id = ident(), m = MAGS[nm], v = cVal.value, hora = cHora.checked;
+          if(prot === 0){
+            var t = [['dato', id], ['sobre', ';'], ['dato', m.c], ['sobre', ';'], ['dato', String(v)]];
+            if(hora){ t.push(['sobre', ';']); t.push(['dato', HORA]); }
+            t.push(['nl', '\n']);
+            return {trozos: t, nombre: 'una l&iacute;nea de texto'};
+          }
+          if(prot === 2){
+            var topic = 'ies/' + id + '/' + m.c;
+            var carga = String(v) + (hora ? ';' + HORA : '');
+            /* los 4 primeros bytes de un PUBLISH son binarios y no se pueden escribir
+               como texto: se ensenan entre corchetes y se cuentan como 4, que es lo
+               que ocupan de verdad (tipo+banderas, longitud, y los 2 del tema). */
+            return {trozos: [
+              ['sobre', '[0x30][' + (2 + topic.length + carga.length) + ']'],
+              ['sobre', '[len tema=' + topic.length + ']'],
+              ['dato', topic],
+              ['dato', carga]
+            ], nombre: 'un PUBLISH de MQTT', fijo: 4, topic: topic, carga: carga};
+          }
+          var cuerpo = '{"id":"' + id + '","mag":"' + m.c + '","val":' + v
+                     + (hora ? ',"ts":"' + HORA + '"' : '') + '}';
+          var cab = ['POST /api/v1/medidas HTTP/1.1',
+                     'Host: ' + SERVIDOR,
+                     'Content-Type: application/json',
+                     'Content-Length: ' + cuerpo.length,
+                     'Connection: close'].join('\r\n') + '\r\n\r\n';
+          return {trozos: [['sobre', cab], ['dato', cuerpo]], nombre: 'una petici&oacute;n HTTP'};
+        }
+
+        /* Los trozos llevan los caracteres de verdad (incluidos CR y LF), asi que
+           contar bytes es contar caracteres: todo lo que se manda aqui es ASCII. */
+        function cuenta(a){
+          var sobre = 0, dato = 0;
+          a.trozos.forEach(function(t){
+            if(t[0] === 'dato') dato += t[1].length; else sobre += t[1].length;
+          });
+          if(a.fijo !== undefined){
+            sobre = a.fijo; dato = a.topic.length + a.carga.length;
+          }
+          return {sobre: sobre, dato: dato};
+        }
+
+        function pintaMensaje(a){
+          var h = '';
+          a.trozos.forEach(function(t){
+            var txt = t[1].replace(/\r?\n/g, '\u00b6\n');
+            h += '<span class="' + (t[0] === 'nl' ? 'nl' : t[0]) + '">' + esc(txt) + '</span>';
+          });
+          msg.innerHTML = h;
+        }
+
+        function pintaBytes(c, extra){
+          var L = 8, HUE = 2, COLS = 32, X0 = 6, Y0 = 8;
+          var total = c.sobre + c.dato + extra;
+          var m = '<style>.c3b{font:10px var(--f-m);fill:var(--ink-soft)}</style>';
+          for(var k = 0; k < Math.min(total, 320); k++){
+            var col = k < c.sobre ? 'var(--ink-soft)'
+                    : (k < c.sobre + c.dato ? 'var(--goo-verde)' : 'var(--goo-amarillo)');
+            var x = X0 + (k % COLS) * (L + HUE), y = Y0 + Math.floor(k / COLS) * (L + HUE);
+            m += '<rect x="' + x + '" y="' + y + '" width="' + L + '" height="' + L
+               + '" fill="' + col + '" opacity="' + (k < c.sobre ? '.45' : '1') + '"></rect>';
+          }
+          var filas = Math.ceil(Math.min(total, 320) / COLS);
+          var yb = Y0 + filas * (L + HUE) + 14;
+          m += '<text x="' + X0 + '" y="' + yb + '" class="c3b">'
+             + c.sobre + ' B de sobre &middot; ' + c.dato + ' B de dato'
+             + (extra ? ' &middot; ' + extra + ' B a&ntilde;adidos' : '') + '</text>'
+             + '<text x="' + X0 + '" y="' + (yb + 14) + '" class="c3b">total <tspan '
+             + 'fill="var(--ink)">' + total + ' bytes</tspan>'
+             + (total > 320 ? ' (se dibujan los 320 primeros)' : '') + '</text>';
+          svg.innerHTML = m;
+        }
+
+        function pintaRuta(c, total){
+          var tls = cTls.checked;
+          /* las cajas son de 132 px porque el rotulo mas largo, "router del centro",
+             mide 17 caracteres y a 10,5 px de monoespaciada ocupa unos 107. */
+          var AN = 132, MED = AN / 2;
+          var N = [
+            {x: 74, r: 'tu placa', v: 'escribe el dato'},
+            {x: 254, r: 'router del centro', v: tls ? 'no ve el dato' : 've el dato entero'},
+            {x: 442, r: 'servidor (br&oacute;ker)', v: 've y GUARDA el dato'},
+            {x: 626, r: 'tu m&oacute;vil', v: 'lee el dato'}
+          ];
+          var m = '<style>.c3r{font:10.5px var(--f-m);fill:var(--ink)}'
+                + '.c3s{font:10px var(--f-m);fill:var(--ink-soft)}</style>';
+          for(var k = 0; k < N.length - 1; k++){
+            m += '<path d="M' + (N[k].x + MED) + ' 42 H' + (N[k + 1].x - MED)
+               + '" stroke="var(--line)" stroke-width="2"></path>'
+               + '<path d="M' + (N[k + 1].x - MED - 6) + ' 37 l7 5 l-7 5" fill="none" '
+               + 'stroke="var(--line)" stroke-width="2"></path>';
+          }
+          N.forEach(function(n, k){
+            var peligro = (k === 1 && !tls) || k === 2;
+            m += '<rect x="' + (n.x - MED) + '" y="22" width="' + AN + '" height="40" rx="3" '
+               + 'fill="var(--surface)" stroke="' + (peligro ? 'var(--goo-rojo)' : 'var(--line)')
+               + '" stroke-width="' + (peligro ? 2 : 1.4) + '"></rect>'
+               + '<text x="' + n.x + '" y="46" text-anchor="middle" class="c3r">' + n.r + '</text>'
+               + '<text x="' + n.x + '" y="78" text-anchor="middle" class="c3s">' + n.v + '</text>';
+          });
+          m += '<text x="8" y="106" class="c3s">Con cifrado, el router sigue viendo <tspan '
+             + 'fill="var(--goo-rojo)">con qui&eacute;n hablas, cu&aacute;nto y cada cu&aacute;nto</tspan>:'
+             + '</text>'
+             + '<text x="8" y="122" class="c3s">' + total + ' B hacia ' + SERVIDOR + ' cada '
+             + periodo() + ' s. Eso ya dice si hay alguien en el edificio,</text>'
+             + '<text x="8" y="138" class="c3s">aunque no diga cu&aacute;nta humedad hay.</text>';
+          ruta.innerHTML = m;
+        }
+
+        function pinta(){
+          var m = MAGS[nm];
+          cVal.min = m.min; cVal.max = m.max;
+          vval.innerHTML = cVal.value + ' ' + m.uni;
+          var P = periodo();
+          vper.innerHTML = P < 60 ? (P + ' s')
+            : (P < 3600 ? (Math.round(P / 60) + ' min') : '1 h');
+
+          var a = arma(), c = cuenta(a);
+          var extra = (cTcp.checked ? TCP_IP : 0) + (cTls.checked ? TLS_REG : 0);
+          var total = c.sobre + c.dato + extra;
+          pintaMensaje(a);
+          pintaBytes(c, extra);
+          pintaRuta(c, total);
+
+          var alDia = Math.floor(86400 / P);
+          var bDia = total * alDia;
+          var curso = 300;                                  /* dias de un curso escolar */
+          var fil = function(x, y, top){
+            return '<div class="f' + (top ? ' top' : '') + '"><span>' + x + '</span><b>' + y + '</b></div>';
+          };
+          tabla.innerHTML =
+              fil('lo que ocupa ' + a.nombre, total + ' bytes')
+            + fil('de eso, tu dato', c.dato + ' B (' + Math.round(100 * c.dato / total) + ' %)')
+            + fil('mensajes al d&iacute;a', alDia.toLocaleString('es-ES'), true)
+            + fil('al d&iacute;a', (bDia / 1024).toFixed(1).replace('.', ',') + ' kB')
+            + fil('al mes (30 d&iacute;as)', (bDia * 30 / 1048576).toFixed(2).replace('.', ',') + ' MB')
+            + fil('filas guardadas en un curso', (alDia * curso).toLocaleString('es-ES'), true)
+            + fil('y ocupan', (bDia * curso / 1048576).toFixed(1).replace('.', ',') + ' MB');
+
+          lee.innerHTML = 'Un mensaje de este aparato lleva <b>cuatro cosas</b> y ninguna m&aacute;s: '
+            + '<b>qui&eacute;n</b> (' + ident() + '), <b>qu&eacute;</b> (' + m.c + ' = ' + cVal.value + ' '
+            + m.uni + '), <b>cu&aacute;ndo</b> (' + (cHora.checked ? 'la marca de tiempo que ves'
+            : 'no va dentro: la pone el servidor al recibirlo') + ') y <b>a d&oacute;nde</b> ('
+            + SERVIDOR + '). Todo lo dem&aacute;s &mdash;los ' + c.sobre + ' bytes en gris&mdash; es '
+            + 'sobre: sirve para que el mensaje llegue y se entienda, no para medir nada.';
+
+          pie.innerHTML = 'Las cuentas salen de la cadena de arriba, car&aacute;cter a car&aacute;cter. '
+            + 'En MQTT se cuentan los <b>4 bytes</b> binarios de cabecera (tipo y longitud, 2; '
+            + 'longitud del tema, 2) que no se pueden escribir como texto. Los +40 B de TCP/IP son '
+            + '20 de cabecera IPv4 y 20 de cabecera TCP; los +22 B de TLS son 5 de cabecera de '
+            + 'registro, 1 de tipo y 16 de sello de autenticidad, y <b>no</b> incluyen el saludo '
+            + 'inicial, que es bastante m&aacute;s largo y se hace una vez por conexi&oacute;n.';
+        }
+
+        seg.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-p]'); if(!b) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          prot = +b.dataset.p; pinta();
+        });
+        segMag.addEventListener('click', function(e){
+          var b = e.target.closest('button[data-m]'); if(!b) return;
+          segMag.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+          });
+          nm = +b.dataset.m;
+          cVal.min = MAGS[nm].min; cVal.max = MAGS[nm].max; cVal.value = MAGS[nm].ini;
+          pinta();
+        });
+        [cId, cVal, cPer].forEach(function(x){ x.addEventListener('input', pinta); });
+        [cHora, cTcp, cTls].forEach(function(x){ x.addEventListener('change', pinta); });
+
+        pinta();
+      })();
+      </script>
+
+      <div class="copiar">
+        <h4>Dos maneras de hablar</h4>
+        <p><b>Petici&oacute;n y respuesta</b> (<b>HTTP</b>): el aparato llama al servidor, le entrega el
+           dato y espera contestaci&oacute;n. Es lo mismo que hace tu navegador al abrir una
+           p&aacute;gina. Ventaja: lo entiende todo el mundo. Pega: el <b>sobre es enorme</b> comparado
+           con el dato, y el que quiere leerlo tiene que preguntar una y otra vez.</p>
+        <p><b>Publicar y suscribirse</b> (<b>MQTT</b>): el aparato <b>publica</b> en un
+           <b>tema</b> (por ejemplo <code>ies/aula12/hum</code>) y se lo manda a un intermediario, el
+           <b>br&oacute;ker</b>. Quien quiera enterarse se <b>suscribe</b> a ese tema, y el br&oacute;ker
+           se lo env&iacute;a en cuanto llega. Ventaja: el mensaje es <b>diminuto</b> y nadie tiene que
+           estar preguntando. Pega: hace falta un br&oacute;ker, y eso es alguien.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>MQTT no se invent&oacute; para casas inteligentes. Lo hicieron en <b>1999</b> Andy
+           Stanford-Clark (IBM) y Arlen Nipper (Arcom) para vigilar <b>oleoductos</b>, con sensores
+           conectados por <b>sat&eacute;lite</b>: el enlace era car&iacute;simo y lento, as&iacute; que
+           cada byte contaba. Por eso un mensaje de MQTT puede ser de <b>dos bytes</b>. Esa obsesi&oacute;n
+           por lo peque&ntilde;o es lo que lo hizo perfecto para aparatos a pilas, veinte a&ntilde;os
+           despu&eacute;s.</p>
+        <p>Y un aviso pr&aacute;ctico: un <b>Arduino Uno no se conecta solo</b>. No tiene wifi ni
+           Ethernet. Hace falta a&ntilde;adirle un m&oacute;dulo (un ESP8266, una placa ESP32 en su
+           lugar, o una tarjeta de Ethernet). Eso cambia el presupuesto del proyecto, y hay que
+           decirlo en la memoria.</p>
+      </div>
+
+      <h3>La pregunta inc&oacute;moda</h3>
+      <p>Ahora mira la parte de abajo de la escena y activa <b>mandarlo cifrado</b>. El router del
+         centro deja de ver el dato. Pero fíjate en lo que <b>sigue</b> viendo.</p>
+      <div class="copiar">
+        <h4>Lo que el cifrado no tapa</h4>
+        <p>El cifrado protege <b>el contenido</b> del mensaje. No tapa los <b>metadatos</b>:
+           qui&eacute;n habla con qui&eacute;n, cu&aacute;nto ocupa y <b>cada cu&aacute;nto</b>.</p>
+        <p>Con eso basta para saber cosas que nadie ha mandado. Una medida cada 30 segundos desde un
+           aula, durante un curso, son m&aacute;s de <b>ochocientas mil filas</b> con su hora: dicen a
+           qu&eacute; hora se abre el centro, qu&eacute; d&iacute;as no va nadie, cu&aacute;nto dur&oacute;
+           el puente y a qu&eacute; hora se qued&oacute; alguien hasta tarde. Y el <b>br&oacute;ker</b>
+           lo ve todo siempre: es el que guarda.</p>
+        <p>Un dato de una planta no es un dato de una persona. Pero un dato de un <b>aula</b>, con su
+           hora, <b>habla de las personas que hay dentro</b>, aunque nadie lo haya escrito.</p>
+      </div>
+      <div class="copiar">
+        <h4>Las tres preguntas antes de conectar algo</h4>
+        <ol>
+          <li><b>&iquest;Qu&eacute; sale exactamente?</b> No &laquo;datos&raquo;: la lista de campos,
+              escrita.</li>
+          <li><b>&iquest;D&oacute;nde se queda, y cu&aacute;nto tiempo?</b> Qui&eacute;n es el
+              due&ntilde;o del servidor y cu&aacute;ndo se borra.</li>
+          <li><b>&iquest;Qui&eacute;n puede pedirlo?</b> Y con qu&eacute; permiso.</li>
+        </ol>
+        <p>Si las tres no tienen respuesta, el aparato <b>no est&aacute; terminado</b>, aunque
+           funcione.</p>
+      </div>
+      <div class="video" id="video-c6-mqtt" data-vid="RpjSwriOi9U">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Qu&eacute; es MQTT">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Qu&eacute; es MQTT</b>
+            <span>Canal: Easy Learning</span>
+          </span>
+        </button>
+        <p class="video-nota">Una introducci&oacute;n al protocolo, con el br&oacute;ker y los temas. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=RpjSwriOi9U" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 3 &middot; El mensaje de vuestro proyecto, y lo que arrastra</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.3</span><span class="chip">C.4</span></span>
+          <span>Grupos de tres &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; dise&ntilde;ar el mensaje (8 min)</h4>
+          <p>Elegid <b>dos</b> de los proyectos del curso &mdash;por ejemplo el <b>riego</b> y el
+             <b>aviso de ventilaci&oacute;n</b>&mdash; y escribid para cada uno, en la libreta:</p>
+          <ol class="pasos">
+            <li>El <b>identificador</b> que le pondr&iacute;ais, y por qu&eacute; ese.</li>
+            <li>Los <b>campos</b> del mensaje, con sus unidades.</li>
+            <li>El <b>tema</b> de MQTT, con la misma forma que en la escena.</li>
+            <li>Cada <b>cu&aacute;nto</b> hay que mandarlo. Ojo: no es lo mismo una planta, que cambia
+                en horas, que un contenedor, que se llena en minutos. Razonadlo.</li>
+          </ol>
+          <h4>Segunda parte &middot; las cuentas (6 min)</h4>
+          <p>Con la escena, y anotando los n&uacute;meros:</p>
+          <ul>
+            <li>Cu&aacute;ntos <b>bytes</b> ocupa vuestro mensaje en MQTT y en HTTP.</li>
+            <li>Qu&eacute; <b>porcentaje</b> de cada uno es dato de verdad.</li>
+            <li>Cu&aacute;ntas <b>filas</b> se guardan en un curso con el periodo que hab&eacute;is
+                elegido.</li>
+          </ul>
+          <h4>Tercera parte &middot; las tres preguntas (6 min)</h4>
+          <p>Contestad por escrito, para <b>uno</b> de los dos proyectos, las tres preguntas del
+             recuadro anterior. Y una cuarta, esta con nombre y apellidos:
+             <b>&iquest;a qui&eacute;n le tendr&iacute;ais que pedir permiso en el centro</b> antes de
+             poner ese aparato a mandar datos fuera?</p>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>Los cuatro campos de los dos mensajes, con unidades <b>(3 puntos)</b>.</li>
+            <li>El periodo elegido est&aacute; razonado con lo que tarda en cambiar la magnitud
+                <b>(2 puntos)</b>.</li>
+            <li>Las tres cuentas, con sus n&uacute;meros <b>(2 puntos)</b>.</li>
+            <li>Las tres preguntas contestadas sin frases hechas <b>(2 puntos)</b>.</li>
+            <li>La cuarta pregunta se&ntilde;ala a alguien concreto <b>(1 punto)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
+
+      <ol>
+              <li>&iquest;Qu&eacute; cuatro cosas lleva el mensaje de un aparato conectado?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Qui&eacute;n</b> (identificador), <b>qu&eacute;</b> (magnitud, valor y unidad), <b>cu&aacute;ndo</b> (marca de tiempo) y <b>a d&oacute;nde</b> (direcci&oacute;n y protocolo). Lo dem&aacute;s es sobre.</p></div></details></li>
+        <li>&iquest;Qu&eacute; diferencia hay entre HTTP y MQTT, en una frase cada uno?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>HTTP</b>: el aparato <i>pregunta</i> al servidor y espera respuesta; el sobre es grande. <b>MQTT</b>: el aparato <i>publica</i> en un tema y un br&oacute;ker se lo pasa a quien se haya suscrito; el mensaje es diminuto.</p></div></details></li>
+        <li>El mensaje va cifrado. &iquest;Qu&eacute; puede saber a&uacute;n el router del centro?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Los <b>metadatos</b>: con qui&eacute;n habla la placa, cu&aacute;nto ocupa cada mensaje y cada cu&aacute;nto lo manda. Con eso se sabe si hay alguien en el edificio, aunque no se lea ni un dato.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; el periodo de env&iacute;o es una decisi&oacute;n y no un detalle?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque decide tres cosas a la vez: cu&aacute;nto <b>tarda</b> en enterarse la gente, cu&aacute;nta <b>bater&iacute;a y datos</b> gasta el aparato y cu&aacute;nto <b>rastro</b> deja guardado. M&aacute;s a menudo no es siempre mejor.</p></div></details></li>
+
+      </ol>
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        F&iacute;jate en que <b>todas</b> las decisiones de estas tres sesiones han sido iguales:
+        t&uacute; escrib&iacute;as una regla y la placa la aplicaba. <code>si lectura &gt; 600</code>.
+        Ahora te voy a pedir algo que <b>sabes reconocer perfectamente</b> con los ojos y que
+        <b>no vas a poder escribir</b> en un <code>si</code>. Y ah&iacute; empieza otra cosa.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-4" hidden>
+    <div class="ses-head">
+      <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
+      <h2>Escribe el <code>si</code>. Ah, &iquest;que no puedes?</h2>
+      <p>Hay cosas que sabes reconocer y no sabes explicar. Ah&iacute; se cambian las reglas por ejemplos, con todo lo que eso arrastra.</p>
+      <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Cierre y test</span></div>
+      <div class="chips"><span class="chip">CE4 &middot; 4.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">C.1</span><span class="chip sab">C.4</span></div>
+    </div>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
+
+      <p>Hasta aqu&iacute;, todo lo que decide vuestro aparato lo hab&eacute;is decidido vosotros:
+         <code>si la lectura pasa de 600, riega</code>. La placa no ha tenido ni una idea propia, y
+         eso est&aacute; muy bien, porque as&iacute; se puede depurar.</p>
+      <div class="aviso">
+        <span class="n-tag">El encargo de hoy</span>
+        El <b>contenedor que avisa</b> ya sabe decir que est&aacute; lleno. Ahora tiene que avisar
+        <b>solo si est&aacute; lleno de papel</b>, no de pl&aacute;stico.
+        <b>Escribid el <code>si</code>.</b> Cinco minutos.
+      </div>
+      <p>Lo que pasa en esos cinco minutos es siempre lo mismo. Alguien propone el peso: el
+         pl&aacute;stico pesa menos... salvo un brik lleno. Alguien propone el ultrasonidos: mide la
+         distancia, no el material. Alguien propone el color: no hay sensor de color, y el papel de
+         revista es de todos los colores.</p>
+      <p>Probad con otro. La sonda del <b>riego</b> da una lectura alta cuando la tierra est&aacute;
+         seca. Y tambi&eacute;n cuando <b>la sonda se ha salido del tiesto</b>. Escribid el
+         <code>si</code> que distinga esas dos cosas. Tampoco sale.</p>
+      <div class="reto-piensa">
+        <span class="n-tag">Piensa un momento</span>
+        <p>T&uacute; distingues papel de pl&aacute;stico <b>de un vistazo</b>, sin dudar. Y sin embargo
+           no puedes escribir la regla. &iquest;C&oacute;mo puede ser que sepas hacer algo y no sepas
+           <b>explicar</b> c&oacute;mo lo haces?</p>
+      </div>
+      <p>Esa pregunta no es de tecnolog&iacute;a, es m&aacute;s vieja. Y la respuesta pr&aacute;ctica que
+         se encontr&oacute; es la que da nombre a esta sesi&oacute;n: si no sabes escribir la regla,
+         <b>da ejemplos</b> y deja que la regla la busque un programa.</p>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <div class="copiar">
+        <h4>Programar y entrenar: qui&eacute;n pone qu&eacute;</h4>
+        <table style="width:100%;border-collapse:collapse;font-size:14.5px">
+          <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
+            <th></th><th>Programar</th><th>Entrenar</th></tr>
+          <tr><td>t&uacute; pones</td><td>la <b>regla</b></td><td>los <b>ejemplos</b>, ya clasificados</td></tr>
+          <tr><td>el programa pone</td><td>aplicarla</td><td>los <b>n&uacute;meros</b> de la regla</td></tr>
+          <tr><td>si falla</td><td>lees la regla y la arreglas</td>
+              <td>miras los ejemplos, porque la regla son n&uacute;meros</td></tr>
+          <tr><td>funciona bien cuando</td><td>sabes explicarlo</td>
+              <td>sabes reconocerlo pero no explicarlo</td></tr>
+        </table>
+        <p style="margin-top:10px">Entrenar <b>no</b> es que la m&aacute;quina piense. Es una
+           b&uacute;squeda: t&uacute; eliges <b>qu&eacute; forma</b> tiene la regla (aqu&iacute;, una
+           recta) y el programa busca los n&uacute;meros que mejor separan <b>tus</b> ejemplos.</p>
+      </div>
+      <div class="copiar">
+        <h4>El vocabulario, que es corto</h4>
+        <ul>
+          <li><b>Caracter&iacute;stica</b>: cada n&uacute;mero que se le da al modelo para decidir.
+              Aqu&iacute; son dos, porque as&iacute; caben en un dibujo.</li>
+          <li><b>Ejemplo</b>: unas caracter&iacute;sticas <b>con su respuesta puesta por una persona</b>.</li>
+          <li><b>Etiqueta</b>: esa respuesta. Alguien tuvo que ponerla a mano, una a una.</li>
+          <li><b>Modelo</b>: la regla ya con sus n&uacute;meros dentro.</li>
+          <li><b>Pesos</b>: esos n&uacute;meros. Aqu&iacute; se llaman w&#8321;, w&#8322; y b.</li>
+          <li><b>Entrenamiento</b>: el proceso de buscarlos corrigiendo cada vez que falla.</li>
+          <li><b>Conjunto de prueba</b>: ejemplos que se apartan y <b>no se usan</b> para entrenar,
+              para ver si el modelo sirve fuera de lo que ya ha visto.</li>
+        </ul>
+      </div>
+      <p>Ahora entr&eacute;nalo t&uacute;. Pincha en el plano para poner ejemplos de cada clase y pulsa
+         <b>Entrenar</b>. Con <b>solo una pasada</b> ver&aacute;s c&oacute;mo se mueve la recta: cada vez
+         que se equivoca con un ejemplo, empuja los pesos un poco hacia &eacute;l. Eso es todo lo que
+         hace entrenar.</p>
+
+      <div class="escena" id="esc-c4">
+        <div class="escena-barra">
+          <span class="escena-titulo">Entr&eacute;nalo t&uacute; &middot; pon los ejemplos y mira qu&eacute; aprende</span>
+          <div class="seg" id="seg-c4">
+            <button type="button" data-d="0" aria-pressed="true">Riego</button>
+            <button type="button" data-d="1">Ventilaci&oacute;n</button>
+            <button type="button" data-d="2">El caso de 1969</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <div class="c4">
+            <div class="c4-izq">
+              <svg viewBox="0 0 430 310" id="svg-c4" role="img"
+                   aria-label="Plano con los ejemplos de las dos clases y la recta que ha aprendido el modelo"></svg>
+            </div>
+            <div class="c4-der">
+              <div class="c4-fila">
+                <label>Al pinchar</label>
+                <div class="seg" id="modo-c4">
+                  <button type="button" data-o="0" aria-pressed="true">pongo ejemplo</button>
+                  <button type="button" data-o="1">pregunto</button>
+                </div>
+              </div>
+              <div class="c4-fila">
+                <label>Clase</label>
+                <div class="seg" id="clase-c4">
+                  <button type="button" data-c="1" aria-pressed="true" id="cA-c4">A</button>
+                  <button type="button" data-c="0" id="cB-c4">B</button>
+                </div>
+              </div>
+              <div class="c4-fila">
+                <button type="button" data-a="repartidos">Ejemplos repartidos</button>
+                <button type="button" data-a="sesgados" id="c4-sesgados">Ejemplos sesgados</button>
+                <button type="button" data-a="vaciar">Vaciar</button>
+              </div>
+              <div class="c4-fila">
+                <button type="button" data-a="entrenar" class="fuerte">Entrenar</button>
+                <button type="button" data-a="epoca">Solo una pasada</button>
+              </div>
+              <label class="c4-chk"><input type="checkbox" id="c4-prueba"><span>ense&ntilde;ar los
+                24 datos de prueba (el modelo <b>no</b> los ha visto)</span></label>
+              <div class="c4-tabla" id="tabla-c4"></div>
+            </div>
+          </div>
+          <p class="c4-lee" id="lee-c4"></p>
+        </div>
+        <div class="pie" id="pie-c4"></div>
+      </div>
+
+      <style>
+      .c4{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start}
+      .c4-izq{flex:1 1 380px;min-width:300px}
+      .c4-der{flex:1 1 280px;min-width:255px}
+      .c4-izq svg{cursor:crosshair}
+      .c4-fila{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:0 0 9px;
+        font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      .c4-fila label{min-width:74px}
+      .c4-fila button{font-family:var(--f-m);font-size:12px;border:1.5px solid var(--line);
+        background:var(--surface);color:var(--ink);border-radius:2px;padding:6px 10px;cursor:pointer}
+      .c4-fila button:hover{border-color:var(--goo-azul);color:var(--goo-azul)}
+      .c4-fila button.fuerte{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+      .c4-fila button.fuerte:hover{color:#fff}
+      .c4-fila button[disabled]{opacity:.45;cursor:default}
+      .c4-fila .seg button{padding:5px 9px;font-size:11.5px}
+      .c4-chk{display:flex;align-items:flex-start;gap:7px;font-family:var(--f-m);font-size:12px;
+        color:var(--ink-soft);margin:0 0 9px;cursor:pointer;line-height:1.5}
+      .c4-chk input{accent-color:var(--goo-azul);margin-top:2px}
+      .c4-tabla{border:1.5px solid var(--line);border-radius:2px;background:var(--surface);
+        padding:9px 11px;font-family:var(--f-m);font-size:12px;line-height:1.7}
+      .c4-tabla .f{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+      .c4-tabla .f span:first-child{color:var(--ink-soft)}
+      .c4-tabla .f b{color:var(--ink);font-weight:500;text-align:right;white-space:nowrap}
+      .c4-tabla .f.top{border-top:1px solid var(--line-soft);margin-top:5px;padding-top:5px}
+      .c4-tabla .mal b{color:var(--goo-rojo)}
+      .c4-lee{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:12px 0 0}
+      .c4-lee b{color:var(--ink)}
+      </style>
+
+      <script>
+      (function(){
+        var svg = document.getElementById('svg-c4');
+        if(!svg) return;
+        var caja = document.getElementById('esc-c4');
+        var seg = document.getElementById('seg-c4');
+        var segModo = document.getElementById('modo-c4');
+        var segClase = document.getElementById('clase-c4');
+        var chkPrueba = document.getElementById('c4-prueba');
+        /* OJO con el id: la navegacion de la pagina oculta todo lo que empiece por
+           "ses-", que son los paneles de cada sesion. Este boton no puede llamarse asi. */
+        var btnSes = document.getElementById('c4-sesgados');
+        var tabla = document.getElementById('tabla-c4');
+        var lee = document.getElementById('lee-c4');
+        var pie = document.getElementById('pie-c4');
+
+        /* ---- geometria del plano, calculada una vez ---- */
+        var X0 = 56, Y0 = 16, AN = 342, AL = 232;
+        var px = function(x){ return X0 + x * AN; };
+        var py = function(y){ return Y0 + AL - y * AL; };
+        var ax = function(X){ return (X - X0) / AN; };
+        var ay = function(Y){ return (Y0 + AL - Y) / AL; };
+
+        /* ---- los tres conjuntos ---- */
+        var CONJ = [
+          {nom: 'Riego autom&aacute;tico',
+           ejeX: 'lectura del sensor de humedad', ejeY: 'horas desde el &uacute;ltimo riego',
+           x0: 0, x1: 1023, y0: 0, y1: 72, xu: '', yu: ' h',
+           A: 'regar', B: 'no regar',
+           /* la regla de verdad, en coordenadas normalizadas */
+           verdad: function(x, y){ return x + 0.6 * y - 0.85 > 0; },
+           regla: 'seco + 0,6 &middot; tiempo &gt; 0,85'},
+          {nom: 'Aviso de aula mal ventilada',
+           ejeX: 'temperatura', ejeY: 'humedad relativa',
+           x0: 16, x1: 30, y0: 25, y1: 85, xu: ' &deg;C', yu: ' %',
+           A: 'abrir la ventana', B: 'est&aacute; bien',
+           verdad: function(x, y){ return x + 0.8 * y - 0.9 > 0; },
+           regla: 'temperatura + 0,8 &middot; humedad &gt; 0,9'},
+          {nom: 'El caso de 1969',
+           ejeX: 'medida A', ejeY: 'medida B',
+           x0: 0, x1: 1, y0: 0, y1: 1, xu: '', yu: '',
+           A: 's&iacute;', B: 'no',
+           verdad: function(x, y){ return (x > 0.5) !== (y > 0.5); },
+           regla: 'una s&iacute; y la otra no (el famoso XOR)'}
+        ];
+
+        var nd = 0, modo = 0, clase = 1;
+        var pts = [], w1 = 0, w2 = 0, b = 0, pasadas = 0, convergio = false, pregunta = null;
+
+        function C(){ return CONJ[nd]; }
+        function LR(){ return 0.08; }
+
+        /* semilla propia: los conjuntos de ejemplo salen SIEMPRE iguales */
+        var sem = 0;
+        function rnd(){ sem = (sem * 1103515245 + 12345) % 2147483648; return sem / 2147483648; }
+
+        function neto(x, y){ return w1 * x + w2 * y + b; }
+        function dice(x, y){ return neto(x, y) >= 0 ? 1 : 0; }
+
+        /* ---- una pasada del perceptron sobre todos los ejemplos ---- */
+        function epoca(){
+          var cambios = 0, lr = LR();
+          pts.forEach(function(p){
+            var s = p.c === 1 ? 1 : -1;
+            if(s * neto(p.x, p.y) <= 0){
+              w1 += lr * s * p.x; w2 += lr * s * p.y; b += lr * s;
+              cambios++;
+            }
+          });
+          pasadas++;
+          convergio = (cambios === 0);
+          return cambios;
+        }
+
+        function entrena(){
+          w1 = 0; w2 = 0; b = 0; pasadas = 0; convergio = false;
+          for(var k = 0; k < 200; k++){ if(epoca() === 0) break; }
+        }
+
+        /* ---- banco de prueba: 24 puntos repartidos que el modelo no ve ---- */
+        function banco(){
+          var out = [];
+          sem = 20260918;
+          for(var k = 0; k < 24; k++){
+            var x, y, i = 0;
+            do { x = 0.05 + rnd() * 0.9; y = 0.05 + rnd() * 0.9; i++; }
+            while(cerca(x, y) && i < 40);
+            out.push({x: x, y: y, c: C().verdad(x, y) ? 1 : 0});
+          }
+          return out;
+        }
+        /* Los puntos pegados a la frontera se descartan: no queremos discutir empates.
+           En los dos casos lineales se mide la distancia real a la recta. */
+        function cerca(x, y){
+          if(nd === 2) return Math.abs(x - 0.5) < 0.09 || Math.abs(y - 0.5) < 0.09;
+          if(nd === 0) return Math.abs(x + 0.6 * y - 0.85) / Math.sqrt(1 + 0.36) < 0.05;
+          return Math.abs(x + 0.8 * y - 0.9) / Math.sqrt(1 + 0.64) < 0.05;
+        }
+
+        function carga(sesgado){
+          pts = [];
+          sem = sesgado ? 777001 : 424242;
+          var n = 20;
+          if(nd === 2){
+            /* el caso de 1969 se pone en cuatro grupos a proposito: asi se VE que
+               son cuatro y que ninguna recta deja dos y dos del mismo lado */
+            [[0.25, 0.25], [0.25, 0.75], [0.75, 0.25], [0.75, 0.75]].forEach(function(c){
+              for(var j = 0; j < 5; j++){
+                var x = c[0] + (rnd() - 0.5) * 0.24;
+                var y = c[1] + (rnd() - 0.5) * 0.24;
+                pts.push({x: x, y: y, c: C().verdad(x, y) ? 1 : 0});
+              }
+            });
+            entrena(); pregunta = null; pinta();
+            return;
+          }
+          for(var k = 0; k < n; k++){
+            var x, y, i = 0;
+            do {
+              x = 0.05 + rnd() * 0.9;
+              y = sesgado ? (0.02 + rnd() * 0.22) : (0.05 + rnd() * 0.9);
+              i++;
+            } while(cerca(x, y) && i < 40);
+            pts.push({x: x, y: y, c: C().verdad(x, y) ? 1 : 0});
+          }
+          entrena(); pregunta = null; pinta();
+        }
+
+        function mide(lista){
+          var vp = 0, fp = 0, fn = 0, vn = 0, nA = 0;
+          lista.forEach(function(p){
+            var d = dice(p.x, p.y);
+            if(p.c === 1) nA++;
+            if(p.c === 1 && d === 1) vp++;
+            else if(p.c === 0 && d === 1) fp++;
+            else if(p.c === 1 && d === 0) fn++;
+            else vn++;
+          });
+          var n = lista.length;
+          return {vp: vp, fp: fp, fn: fn, vn: vn, n: n, nA: nA,
+                  ok: vp + vn,
+                  pct: n ? 100 * (vp + vn) / n : 0,
+                  tonto: n ? 100 * Math.max(nA, n - nA) / n : 0};
+        }
+
+        function pintaPlano(){
+          var c = C(), prueba = chkPrueba.checked, P = prueba ? banco() : [];
+          var m = '<style>.c4t{font:10.5px var(--f-m);fill:var(--ink-soft)}'
+                + '.c4e{font:11px var(--f-m);fill:var(--ink)}</style>';
+          /* marco */
+          m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + AN + '" height="' + AL
+             + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.4"></rect>';
+          /* Las dos regiones que ha aprendido el modelo, pintadas por franjas
+             verticales. El color de cada trozo se consulta al modelo en el CENTRO
+             del trozo: asi sale bien tambien cuando la recta se va fuera del cuadro
+             (w2 casi cero), que es justo lo que pasa en el caso de 1969. */
+          if(w1 !== 0 || w2 !== 0){
+            var TIRAS = 57, ANCHO = (AN / TIRAS + 0.6).toFixed(1);
+            for(var k = 0; k < TIRAS; k++){
+              var xm = (k + 0.5) / TIRAS;
+              var yc = (w2 !== 0) ? Math.max(0, Math.min(1, -(b + w1 * xm) / w2)) : 0;
+              var trozos = [[yc, 1, (yc + 1) / 2], [0, yc, yc / 2]];
+              trozos.forEach(function(t){
+                var alto = py(t[0]) - py(t[1]);
+                if(alto <= 0.05) return;
+                m += '<rect x="' + px(k / TIRAS).toFixed(1) + '" y="' + py(t[1]).toFixed(1)
+                   + '" width="' + ANCHO + '" height="' + alto.toFixed(1) + '" fill="'
+                   + (dice(xm, t[2]) === 1 ? 'var(--goo-rojo)' : 'var(--goo-azul)')
+                   + '" opacity=".07"></rect>';
+              });
+            }
+          }
+          /* la recta aprendida */
+          if(w1 !== 0 || w2 !== 0){
+            var seg2 = [];
+            [[0, null], [1, null], [null, 0], [null, 1]].forEach(function(q){
+              if(q[0] !== null && w2 !== 0){
+                var yy = -(b + w1 * q[0]) / w2;
+                if(yy >= 0 && yy <= 1) seg2.push([q[0], yy]);
+              }
+              if(q[1] !== null && w1 !== 0){
+                var xx = -(b + w2 * q[1]) / w1;
+                if(xx >= 0 && xx <= 1) seg2.push([xx, q[1]]);
+              }
+            });
+            if(seg2.length >= 2){
+              m += '<path d="M' + px(seg2[0][0]).toFixed(1) + ' ' + py(seg2[0][1]).toFixed(1)
+                 + 'L' + px(seg2[1][0]).toFixed(1) + ' ' + py(seg2[1][1]).toFixed(1)
+                 + '" stroke="var(--ink)" stroke-width="2.4"></path>';
+            }
+          }
+          /* los datos de prueba, huecos */
+          P.forEach(function(p){
+            var bien = dice(p.x, p.y) === p.c;
+            m += '<rect x="' + (px(p.x) - 4.5).toFixed(1) + '" y="' + (py(p.y) - 4.5).toFixed(1)
+               + '" width="9" height="9" fill="none" stroke="'
+               + (p.c === 1 ? 'var(--goo-rojo)' : 'var(--goo-azul)') + '" stroke-width="1.8"></rect>'
+               + (bien ? '' : '<path d="M' + (px(p.x) - 7).toFixed(1) + ' ' + (py(p.y) - 7).toFixed(1)
+                  + ' l14 14 M' + (px(p.x) + 7).toFixed(1) + ' ' + (py(p.y) - 7).toFixed(1)
+                  + ' l-14 14" stroke="var(--ink)" stroke-width="1.3" opacity=".8"></path>');
+          });
+          /* los ejemplos */
+          pts.forEach(function(p){
+            m += '<circle cx="' + px(p.x).toFixed(1) + '" cy="' + py(p.y).toFixed(1) + '" r="5.4" fill="'
+               + (p.c === 1 ? 'var(--goo-rojo)' : 'var(--goo-azul)')
+               + '" stroke="var(--surface)" stroke-width="1.4"></circle>';
+          });
+          /* la pregunta suelta */
+          if(pregunta){
+            var d = dice(pregunta.x, pregunta.y);
+            m += '<circle cx="' + px(pregunta.x).toFixed(1) + '" cy="' + py(pregunta.y).toFixed(1)
+               + '" r="9" fill="none" stroke="var(--goo-amarillo)" stroke-width="3"></circle>'
+               + '<circle cx="' + px(pregunta.x).toFixed(1) + '" cy="' + py(pregunta.y).toFixed(1)
+               + '" r="3.5" fill="' + (d === 1 ? 'var(--goo-rojo)' : 'var(--goo-azul)') + '"></circle>';
+          }
+          /* ejes */
+          m += '<text x="' + X0 + '" y="' + (Y0 + AL + 16) + '" class="c4t">'
+             + c.x0 + c.xu + '</text>'
+             + '<text x="' + (X0 + AN) + '" y="' + (Y0 + AL + 16) + '" text-anchor="end" class="c4t">'
+             + c.x1 + c.xu + '</text>'
+             + '<text x="' + (X0 + AN / 2) + '" y="' + (Y0 + AL + 32) + '" text-anchor="middle" class="c4e">'
+             + c.ejeX + '</text>'
+             + '<text x="' + (X0 - 8) + '" y="' + (Y0 + AL) + '" text-anchor="end" class="c4t">'
+             + c.y0 + c.yu + '</text>'
+             + '<text x="' + (X0 - 8) + '" y="' + (Y0 + 9) + '" text-anchor="end" class="c4t">'
+             + c.y1 + c.yu + '</text>'
+             + '<text x="14" y="' + (Y0 + AL / 2) + '" text-anchor="middle" class="c4e" transform="rotate(-90 14 '
+             + (Y0 + AL / 2) + ')">' + c.ejeY + '</text>';
+          svg.innerHTML = m;
+        }
+
+        function pinta(){
+          pintaPlano();
+          var c = C();
+          document.getElementById('cA-c4').innerHTML = 'A &middot; ' + c.A;
+          document.getElementById('cB-c4').innerHTML = 'B &middot; ' + c.B;
+          btnSes.disabled = (nd === 2);
+
+          var e = mide(pts), p = mide(banco());
+          var fil = function(x, y, cl){
+            return '<div class="f ' + (cl || '') + '"><span>' + x + '</span><b>' + y + '</b></div>';
+          };
+          var hay = pts.length > 0;
+          tabla.innerHTML =
+              fil('ejemplos dados', pts.length + ' &middot; ' + e.nA + ' de A, '
+                  + (pts.length - e.nA) + ' de B')
+            + fil('pasadas', pasadas + (convergio ? ' (ya no falla)' : ' (sigue fallando)'))
+            + fil('pesos', 'w&#8321;=' + w1.toFixed(2).replace('.', ',')
+                  + ' w&#8322;=' + w2.toFixed(2).replace('.', ',')
+                  + ' b=' + b.toFixed(2).replace('.', ','))
+            + fil('acierta en SUS ejemplos', hay ? (e.ok + '/' + e.n + ' &middot; '
+                  + e.pct.toFixed(0) + ' %') : '&mdash;', 'top')
+            + fil('falsas alarmas / se le pasan', e.fp + ' / ' + e.fn)
+            + fil('el modelo tonto acertar&iacute;a',
+                  hay ? (e.tonto.toFixed(0) + ' %') : '&mdash;')
+            + fil('acierta en los 24 de prueba', p.pct.toFixed(0) + ' %',
+                  'top' + (p.pct < e.pct - 12 ? ' mal' : ''));
+
+          var h = '';
+          if(!pts.length){
+            h = 'No le has dado ning&uacute;n ejemplo todav&iacute;a, as&iacute; que no ha aprendido nada. '
+              + 'Pincha en el plano para poner puntos de cada clase, o carga un conjunto con los '
+              + 'botones, y pulsa <b>Entrenar</b>.';
+          } else if(nd === 2 && !convergio){
+            h = '<b style="color:var(--goo-rojo)">No converge, y no va a converger.</b> Estos cuatro '
+              + 'grupos no se pueden separar con <b>una sola recta</b>: pruebes lo que pruebes, siempre '
+              + 'queda al menos un grupo del lado equivocado. Esto lo demostraron Minsky y Papert en '
+              + '<b>1969</b>, y par&oacute; la investigaci&oacute;n en redes neuronales durante a&ntilde;os. '
+              + 'La salida no fue cambiar de ejemplos: fue poner <b>varias capas</b>.';
+          } else if(p.pct < e.pct - 12){
+            h = '<b style="color:var(--goo-rojo)">Mira las dos &uacute;ltimas filas.</b> Acierta el '
+              + e.pct.toFixed(0) + ' % de los ejemplos que le diste y solo el ' + p.pct.toFixed(0)
+              + ' % de los de prueba. No se ha &laquo;estropeado&raquo;: ha aprendido <b>exactamente lo '
+              + 'que le ense&ntilde;aste</b>, y lo que le ense&ntilde;aste estaba todo en la misma esquina '
+              + 'del plano. Del resto del plano no sabe nada, y aun as&iacute; contesta.';
+          } else if(convergio){
+            h = 'Ha encontrado una recta que separa <b>todos</b> tus ejemplos, y adem&aacute;s acierta '
+              + p.pct.toFixed(0) + ' % en los que no hab&iacute;a visto. Fíjate en que t&uacute; no has '
+              + 'escrito ninguna regla: has dado ejemplos, y los n&uacute;meros w&#8321;, w&#8322; y b '
+              + 'los ha buscado &eacute;l corrigiendo cada vez que fallaba.';
+          } else {
+            h = 'Todav&iacute;a falla en alguno de tus ejemplos. Pulsa <b>solo una pasada</b> varias veces '
+              + 'y mira c&oacute;mo se mueve la recta: cada vez que se equivoca, empuja los pesos un poco '
+              + 'hacia el punto que ha fallado. Eso es <b>todo</b> lo que hace entrenar.';
+          }
+          if(pregunta){
+            h += ' &middot; Del punto que has preguntado dice <b>'
+               + (dice(pregunta.x, pregunta.y) === 1 ? c.A : c.B) + '</b>, y lo dice con la misma '
+               + 'seguridad tanto si acierta como si no.';
+          }
+          lee.innerHTML = h;
+
+          pie.innerHTML = '<b>' + c.nom + '.</b> Los ejes son ' + c.ejeX + ' y ' + c.ejeY
+            + '. La regla que decide de verdad en este ejemplo es <b>' + c.regla + '</b>, y el '
+            + 'modelo <b>no la conoce</b>: solo ve los puntos. El entrenamiento es un perceptr&oacute;n, '
+            + 'con paso de aprendizaje 0,08 y tope de 200 pasadas.';
+        }
+
+        /* ---- pinchar en el plano ---- */
+        svg.addEventListener('click', function(ev){
+          var r = svg.getBoundingClientRect();
+          var X = (ev.clientX - r.left) / r.width * 430;
+          var Y = (ev.clientY - r.top) / r.height * 310;
+          var x = ax(X), y = ay(Y);
+          if(x < 0 || x > 1 || y < 0 || y > 1) return;
+          if(modo === 1){ pregunta = {x: x, y: y}; pinta(); return; }
+          pts.push({x: x, y: y, c: clase});
+          entrena(); pinta();
+        });
+
+        seg.addEventListener('click', function(e){
+          var bt = e.target.closest('button[data-d]'); if(!bt) return;
+          seg.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === bt ? 'true' : 'false');
+          });
+          nd = +bt.dataset.d; carga(false);
+        });
+        segModo.addEventListener('click', function(e){
+          var bt = e.target.closest('button[data-o]'); if(!bt) return;
+          segModo.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === bt ? 'true' : 'false');
+          });
+          modo = +bt.dataset.o;
+        });
+        segClase.addEventListener('click', function(e){
+          var bt = e.target.closest('button[data-c]'); if(!bt) return;
+          segClase.querySelectorAll('button').forEach(function(x){
+            x.setAttribute('aria-pressed', x === bt ? 'true' : 'false');
+          });
+          clase = +bt.dataset.c;
+        });
+        caja.querySelector('[data-a="repartidos"]').addEventListener('click', function(){ carga(false); });
+        caja.querySelector('[data-a="sesgados"]').addEventListener('click', function(){ carga(true); });
+        caja.querySelector('[data-a="vaciar"]').addEventListener('click', function(){
+          pts = []; w1 = 0; w2 = 0; b = 0; pasadas = 0; convergio = false; pregunta = null; pinta();
+        });
+        caja.querySelector('[data-a="entrenar"]').addEventListener('click', function(){ entrena(); pinta(); });
+        caja.querySelector('[data-a="epoca"]').addEventListener('click', function(){ epoca(); pinta(); });
+        chkPrueba.addEventListener('change', pinta);
+
+        carga(false);
+      })();
+      </script>
+
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Esto no es una simulaci&oacute;n de un algoritmo: <b>es</b> el algoritmo, y tiene
+           sesenta y tantos a&ntilde;os.</p>
+      </div>
+      <figure class="foto">
+        <img src="../../../img/c6-perceptron.jpg" alt="Fotograf&iacute;a en blanco y negro de 1960: una m&aacute;quina grande con dos focos apuntando a un soporte, un hombre coloc&aacute;ndole una l&aacute;mina, y al fondo armarios llenos de circuitos" loading="lazy">
+        <figcaption>El <b>Mark I Perceptron</b>, montado en 1959 en el Cornell Aeronautical Laboratory a partir de la idea que Frank Rosenblatt public&oacute; en <b>1958</b>, con dinero de la Marina de los Estados Unidos. Los dos focos iluminan la l&aacute;mina que se le ense&ntilde;a; detr&aacute;s hay una rejilla de <b>400 fotoc&eacute;lulas</b> de 20&times;20 que son sus caracter&iacute;sticas. Y los pesos &mdash;lo que en la escena son w&#8321; y w&#8322;&mdash; eran <b>potenci&oacute;metros de verdad, movidos por motorcitos</b> durante el entrenamiento: aprender era, literalmente, girar tornillos. Los armarios del fondo est&aacute;n llenos de ellos.
+          <span class="credito">National Museum of the U.S. Navy &middot; dominio p&uacute;blico &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:330-PSA-80-60_(USN_710739)_(20897323365).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <p>La prensa de la &eacute;poca se vino arriba. Tras la rueda de prensa de la Marina, el
+         <i>New York Times</i> escribi&oacute; que aquello era &laquo;el embri&oacute;n de un ordenador
+         electr&oacute;nico que esperan que sea capaz de andar, hablar, ver, escribir, reproducirse y ser
+         consciente de su existencia&raquo;. Reconocer&aacute;s el tono: es el mismo de hoy.</p>
+      <p>Lo que ped&iacute;a la m&aacute;quina de verdad est&aacute; en la escena. Y su l&iacute;mite,
+         tambi&eacute;n. Pulsa <b>El caso de 1969</b> y entrena todo lo que quieras.</p>
+      <div class="copiar">
+        <h4>Lo que un modelo NO puede hacer</h4>
+        <ul>
+          <li><b>No puede aprender lo que su forma no permite.</b> Una recta separa lo que se puede
+              separar con una recta, y nada m&aacute;s. Marvin Minsky y Seymour Papert lo demostraron
+              en <b>1969</b>, y la investigaci&oacute;n en redes neuronales se par&oacute; durante
+              a&ntilde;os. La salida no fue cambiar de ejemplos: fue poner <b>varias capas</b>.</li>
+          <li><b>No sabe nada de donde no le has dado ejemplos.</b> Y aun as&iacute; contesta, con la
+              misma seguridad.</li>
+          <li><b>No sabe por qu&eacute; dice lo que dice.</b> Su regla son tres n&uacute;meros.</li>
+        </ul>
+      </div>
+
+      <h3>Los tres n&uacute;meros que hay que pedir siempre</h3>
+      <p>Pulsa <b>Ejemplos sesgados</b>. Son veinte ejemplos correctos: nadie ha mentido al
+         etiquetarlos. Solo que est&aacute;n todos tomados en la <b>misma franja</b> del plano, como si
+         los hubierais recogido todos el mismo d&iacute;a. Mira las dos &uacute;ltimas filas de la tabla.</p>
+      <div class="copiar">
+        <h4>Los tres n&uacute;meros</h4>
+        <ol>
+          <li><b>Acierto sobre sus propios ejemplos.</b> Es el que se ense&ntilde;a en los anuncios y
+              es el que menos vale.</li>
+          <li><b>Acierto sobre ejemplos que no ha visto.</b> Es el &uacute;nico que dice si sirve.
+              Si el primero es alto y este bajo, el modelo <b>se ha aprendido tus ejemplos</b>, no el
+              problema.</li>
+          <li><b>Lo que acertar&iacute;a un modelo tonto</b> que dijera siempre la clase m&aacute;s
+              repetida. Si tu modelo no le gana a eso, no sirve de nada. Con 99 sanos y 1 enfermo, decir
+              siempre &laquo;sano&raquo; acierta el <b>99 %</b>.</li>
+        </ol>
+      </div>
+      <div class="copiar">
+        <h4>Y no todos los fallos cuestan igual</h4>
+        <p><b>Falsa alarma</b>: dice que s&iacute; y era que no. <b>Se le pasa</b>: dice que no y era
+           que s&iacute;.</p>
+        <ul>
+          <li>En el <b>riego</b>, una falsa alarma riega de m&aacute;s (se gasta agua); si se le pasa,
+              la planta se muere. Los dos fallos <b>no cuestan lo mismo</b>.</li>
+          <li>En el <b>contenedor</b>, una falsa alarma hace bajar al conserje en balde; si se le pasa,
+              se desborda. Aqu&iacute; la cuenta es otra.</li>
+        </ul>
+        <p>Por eso un modelo no se juzga con un n&uacute;mero: se juzga con los <b>dos tipos de
+           fallo</b> y con lo que cuesta cada uno <b>en tu proyecto</b>.</p>
+      </div>
+      <div class="entender">
+        <span class="e-tag">Solo para entenderlo</span>
+        <p>Lo que se llama hoy inteligencia artificial es esto mismo, mucho m&aacute;s grande: en vez
+           de 2 caracter&iacute;sticas, millones; en vez de una recta, capas y capas; en vez de 20
+           ejemplos, una parte enorme de lo que hay escrito en internet. Pero las tres frases de arriba
+           <b>siguen valiendo enteras</b>, y la de los ejemplos sesgados es la que m&aacute;s problemas
+           ha dado en la vida real.</p>
+      </div>
+      <div class="video" id="video-c6-sesgos" data-vid="fP_f-aNZFLo">
+        <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Sesgos algor&iacute;tmicos en la inteligencia artificial">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Sesgos algor&iacute;tmicos en la inteligencia artificial</b>
+            <span>Canal: Fundaci&oacute;n VTR</span>
+          </span>
+        </button>
+        <p class="video-nota">Casos reales de modelos que aprendieron lo que hab&iacute;a en sus ejemplos, con las consecuencias que tuvo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
+          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=fP_f-aNZFLo" target="_blank" rel="noopener">&aacute;brelo
+          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</p>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 15 min</div>
+      <div class="ficha">
+        <div class="ficha-cab">
+          <span>Actividad 4 &middot; Entrenar, medir y decidir qu&eacute; fallo duele m&aacute;s</span>
+          <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.1</span><span class="chip">C.4</span></span>
+          <span>Parejas &middot; 20 min</span>
+        </div>
+        <div class="ficha-cuerpo">
+          <h4>Primera parte &middot; entrenar (8 min)</h4>
+          <p>Con la escena de arriba, y anotando los n&uacute;meros en una tabla de cuatro columnas
+             (ejemplos, acierto en los suyos, acierto en los de prueba, modelo tonto):</p>
+          <ol class="pasos">
+            <li>Vaciad y poned <b>vosotros</b> ocho ejemplos, cuatro de cada clase, repartidos.
+                Entrenad y anotad la fila.</li>
+            <li>Cargad <b>Ejemplos repartidos</b>. Anotad la fila.</li>
+            <li>Cargad <b>Ejemplos sesgados</b>. Anotad la fila. Marcad la casilla de los datos de
+                prueba y dibujad en la libreta <b>d&oacute;nde</b> se equivoca (los que salen tachados).</li>
+            <li>Con los sesgados puestos, pulsad <b>preguntar</b> y pinchad en la zona donde no hay
+                ejemplos. &iquest;Contesta? &iquest;Duda?</li>
+          </ol>
+          <h4>Segunda parte &middot; el l&iacute;mite (4 min)</h4>
+          <p>Cargad <b>El caso de 1969</b> y entrenad varias veces. Escribid en dos frases
+             <b>por qu&eacute;</b> no converge, y qu&eacute; habr&iacute;a que cambiar: &iquest;m&aacute;s
+             ejemplos, m&aacute;s pasadas, u otra cosa?</p>
+          <h4>Tercera parte &middot; el coste del fallo (8 min)</h4>
+          <p>Elegid <b>dos</b> de los proyectos del curso. Para cada uno, escribid:</p>
+          <ul>
+            <li>Qu&eacute; ser&iacute;a una <b>falsa alarma</b> y qu&eacute; ser&iacute;a que <b>se le
+                pase</b>, con ejemplos concretos.</li>
+            <li>Cu&aacute;l de los dos fallos es m&aacute;s caro, y <b>por qu&eacute;</b>.</li>
+            <li>Qui&eacute;n tendr&iacute;a que <b>etiquetar</b> los ejemplos si quisierais entrenar algo
+                de verdad, cu&aacute;ntos har&iacute;an falta y <b>cu&aacute;nto tiempo</b> llevar&iacute;a.
+                <i>Calculadlo: a diez segundos por ejemplo, 500 ejemplos son...</i></li>
+          </ul>
+          <h4>C&oacute;mo se eval&uacute;a</h4>
+          <ul>
+            <li>La tabla con las tres filas y sus tres n&uacute;meros <b>(3 puntos)</b>.</li>
+            <li>El dibujo de d&oacute;nde falla el modelo sesgado <b>(1 punto)</b>.</li>
+            <li>La explicaci&oacute;n del caso de 1969 dice que el problema es <b>la forma de la
+                regla</b>, no la cantidad de ejemplos <b>(2 puntos)</b>.</li>
+            <li>Los dos tipos de fallo, con ejemplos concretos de cada proyecto <b>(2 puntos)</b>.</li>
+            <li>La cuenta del tiempo de etiquetado, hecha <b>(2 puntos)</b>.</li>
+          </ul>
+</div>
+      </div>
+
+    </section>
+    <section class="bloque">
+      <div class="rotulo"><span class="num">03</span> Cierre y test &middot; 10 min</div>
+
+      <ol>
+              <li>&iquest;Cu&aacute;ndo merece la pena entrenar en vez de programar una regla?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Cuando <b>sabes reconocer</b> la respuesta pero <b>no sabes escribirla</b> como una comparaci&oacute;n. Si la puedes escribir, escr&iacute;bela: es m&aacute;s barata, m&aacute;s r&aacute;pida y se puede depurar.</p></div></details></li>
+        <li>Tu modelo acierta el 99 % y solo hay un caso raro de cada cien. &iquest;Es bueno?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Seguramente no. Un modelo que dijera siempre &laquo;lo normal&raquo; tambi&eacute;n acertar&iacute;a el 99 %. Hay que mirar <b>los dos tipos de fallo</b> y compararlo con ese modelo tonto.</p></div></details></li>
+        <li>En el caso de 1969 no converge. &iquest;Se arregla dando m&aacute;s ejemplos?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>No.</b> El problema no es la cantidad de ejemplos: es que se le ha pedido separar con <b>una recta</b> algo que no se puede separar con una recta. Hay que cambiar la <b>forma</b> de la regla, que es lo que hacen las redes de varias capas.</p></div></details></li>
+        <li>Un modelo entrenado con datos de una sola zona contesta igual de seguro fuera de ella. &iquest;Por qu&eacute; es peligroso?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la seguridad con la que contesta <b>no depende</b> de si tiene motivos. No dice &laquo;esto no lo he visto nunca&raquo;: aplica su recta y suelta una respuesta. Quien la lee no tiene manera de distinguir esa de una buena.</p></div></details></li>
+
+      </ol>
+      <div class="ta" id="test-c6">
+        <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
+        <div class="ta-p" data-ok="1">
+          <p>1. &iquest;Qu&eacute; hace <code>loop()</code> en un sketch de Arduino?</p>
+          <label class="ta-op"><input type="radio" name="c6-0" value="0">Se ejecuta una vez, al encender la placa.</label>
+          <label class="ta-op"><input type="radio" name="c6-0" value="1">Se repite sin parar mientras la placa tenga corriente.</label>
+          <label class="ta-op"><input type="radio" name="c6-0" value="2">Repite el n&uacute;mero de veces que se le diga entre par&eacute;ntesis.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> <code>loop()</code> es &laquo;para siempre&raquo;: cuando llega al final vuelve a empezar. El que se ejecuta una sola vez es <code>setup()</code>.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>2. Un programa guarda en un <code>int</code> el resultado de <code>0 + 0,5</code> y lo repite cuarenta veces. &iquest;Cu&aacute;nto vale al final?</p>
+          <label class="ta-op"><input type="radio" name="c6-1" value="0">20</label>
+          <label class="ta-op"><input type="radio" name="c6-1" value="1">0</label>
+          <label class="ta-op"><input type="radio" name="c6-1" value="2">0,5</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Un <code>int</code> <b>no admite decimales</b>: cada suma da 0,5 y al guardarla se trunca a 0. Nunca llega a 1, y el programa no avisa de nada.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>3. &iquest;Por qu&eacute; hay que declarar el tipo de una variable en Arduino y en bloques no hac&iacute;a falta?</p>
+          <label class="ta-op"><input type="radio" name="c6-2" value="0">Porque el lenguaje C++ es m&aacute;s antiguo y lo arrastra.</label>
+          <label class="ta-op"><input type="radio" name="c6-2" value="1">Porque la placa reserva la memoria antes de arrancar y necesita saber cu&aacute;ntos bytes ocupa cada cosa.</label>
+          <label class="ta-op"><input type="radio" name="c6-2" value="2">Porque as&iacute; el programa se ejecuta m&aacute;s r&aacute;pido.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Un Arduino Uno tiene 2.048 bytes y no tiene sistema operativo que busque hueco sobre la marcha: el sitio se reserva antes, y para eso hay que saber cu&aacute;nto.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>4. <code>analogRead()</code> en un Arduino Uno devuelve&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c6-3" value="0">la tensi&oacute;n del pin en voltios, con decimales</label>
+          <label class="ta-op"><input type="radio" name="c6-3" value="1">un n&uacute;mero entero de 0 a 1023</label>
+          <label class="ta-op"><input type="radio" name="c6-3" value="2">un 0 o un 1, seg&uacute;n un umbral</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El conversor es de 10 bits: 2<sup>10</sup> = 1.024 valores, numerados de 0 a 1023. Pasar eso a voltios o a grados es trabajo de tu programa.</div>
+        </div>
+        <div class="ta-p" data-ok="0">
+          <p>5. Con una referencia de 5 V y un conversor de 10 bits, &iquest;cu&aacute;nto vale un escal&oacute;n?</p>
+          <label class="ta-op"><input type="radio" name="c6-4" value="0">5 V / 1.024 = 4,88 mV</label>
+          <label class="ta-op"><input type="radio" name="c6-4" value="1">5 V / 10 = 0,5 V</label>
+          <label class="ta-op"><input type="radio" name="c6-4" value="2">5 V / 100 = 50 mV</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Hay 1.024 escalones repartidos entre 0 y la referencia. Dos tensiones que se diferencien en menos de 4,88 mV dan <b>el mismo n&uacute;mero</b>.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>6. Un TMP36 da 10 mV por grado y el conversor tiene escalones de 4,88 mV. Tu programa escribe <code>21.37</code>. &iquest;Qu&eacute; pasa?</p>
+          <label class="ta-op"><input type="radio" name="c6-5" value="0">Nada: el sensor es preciso hasta la cent&eacute;sima.</label>
+          <label class="ta-op"><input type="radio" name="c6-5" value="1">Que el escal&oacute;n vale 0,49 &deg;C, as&iacute; que los &uacute;ltimos d&iacute;gitos los ha puesto la divisi&oacute;n, no la medida.</label>
+          <label class="ta-op"><input type="radio" name="c6-5" value="2">Que hay que cambiar el sensor porque est&aacute; estropeado.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> 4,88 mV entre 10 mV/&deg;C son 0,49 &deg;C por escal&oacute;n: el term&oacute;metro no distingue medio grado. Lo honrado es escribir 21,4 &deg;C.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>7. &iquest;Qu&eacute; cuatro cosas lleva dentro el mensaje de un aparato conectado?</p>
+          <label class="ta-op"><input type="radio" name="c6-6" value="0">La contrase&ntilde;a, el wifi, la IP y el modelo de la placa.</label>
+          <label class="ta-op"><input type="radio" name="c6-6" value="1">Qui&eacute;n lo manda, qu&eacute; mide, cu&aacute;ndo y a d&oacute;nde va.</label>
+          <label class="ta-op"><input type="radio" name="c6-6" value="2">El programa, el sensor, el actuador y el usuario.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Identificador, magnitud con su valor y su unidad, marca de tiempo y destino con su protocolo. Todo lo dem&aacute;s que viaja es sobre.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>8. El mensaje va cifrado. &iquest;Qu&eacute; sigue viendo el router por el que pasa?</p>
+          <label class="ta-op"><input type="radio" name="c6-7" value="0">Nada en absoluto: el cifrado lo tapa todo.</label>
+          <label class="ta-op"><input type="radio" name="c6-7" value="1">Con qui&eacute;n habla la placa, cu&aacute;nto ocupa el mensaje y cada cu&aacute;nto lo manda.</label>
+          <label class="ta-op"><input type="radio" name="c6-7" value="2">Solo el valor num&eacute;rico, pero no de qu&eacute; sensor viene.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Son los <b>metadatos</b>. Con una medida cada poco tiempo desde un aula se sabe a qu&eacute; hora se abre el centro y qu&eacute; d&iacute;as no va nadie, sin leer un solo dato.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>9. &iquest;En qu&eacute; se diferencia entrenar un modelo de programar una regla?</p>
+          <label class="ta-op"><input type="radio" name="c6-8" value="0">En que al entrenar la m&aacute;quina razona por su cuenta.</label>
+          <label class="ta-op"><input type="radio" name="c6-8" value="1">En que al programar t&uacute; pones la regla y al entrenar pones los ejemplos, y el programa busca los n&uacute;meros de la regla.</label>
+          <label class="ta-op"><input type="radio" name="c6-8" value="2">En que entrenar solo sirve para im&aacute;genes.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Entrenar es una b&uacute;squeda: t&uacute; eliges qu&eacute; forma tiene la regla y das ejemplos etiquetados; el programa ajusta los pesos corrigiendo cada vez que falla.</div>
+        </div>
+        <div class="ta-p" data-ok="1">
+          <p>10. Un modelo acierta el 96 % de los ejemplos con los que se entren&oacute; y el 61 % de los que no hab&iacute;a visto. &iquest;Qu&eacute; ha pasado?</p>
+          <label class="ta-op"><input type="radio" name="c6-9" value="0">Que necesita m&aacute;s pasadas de entrenamiento.</label>
+          <label class="ta-op"><input type="radio" name="c6-9" value="1">Que ha aprendido los ejemplos que le disteis, y esos ejemplos no representaban el problema entero.</label>
+          <label class="ta-op"><input type="radio" name="c6-9" value="2">Que el conjunto de prueba est&aacute; mal etiquetado.</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es la se&ntilde;al t&iacute;pica de un conjunto de ejemplos <b>sesgado</b>: el modelo funciona donde le ense&ntilde;aste y falla fuera, y aun as&iacute; contesta con la misma seguridad.</div>
+        </div>
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Siguiente sesi&oacute;n</span>
+        Vuelve un momento a la sesi&oacute;n 2 y mira el umbral: <code>si lectura &gt; 600</code>.
+        &iquest;Qu&eacute; pasa cuando la lectura se queda <b>justo</b> en 600 y tiembla? Que la bomba
+        se enciende y se apaga veinte veces por minuto. El umbral solo no basta: hace falta que el
+        programa <b>se acuerde de lo que decidi&oacute; antes</b>.
+      </div>
+
+    </section>
+
+  </div>
+
+  <div id="ses-5" hidden><div class="ses-head"><h2>Sesi&oacute;n 5 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-6" hidden><div class="ses-head"><h2>Sesi&oacute;n 6 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-7" hidden><div class="ses-head"><h2>Sesi&oacute;n 7 en preparaci&oacute;n</h2></div></div>
+
+  <div id="ses-8" hidden><div class="ses-head"><h2>Sesi&oacute;n 8 en preparaci&oacute;n</h2></div></div>
+
+
+  <div class="lectura">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+      <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"
+            stroke-linejoin="round"/><path d="M24 12 v32"/>
+    </svg>
+    <div>
+      <h3>Lectura de aula</h3>
+      <p>Treinta p&aacute;rrafos numerados y diez preguntas. Ocupa <b>una sesi&oacute;n entera</b>:
+         se lee en voz alta por turnos, un p&aacute;rrafo cada uno, y luego se contesta por escrito.
+         Trae su cabecera para el nombre, el grupo y la fecha.</p>
+      <a class="pdf" href="lectura-tema6.pdf" download>Descargar el PDF</a>
+    </div>
+  </div>
+
+  <section class="cc-aviso" id="licencia"
+  xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+  <h2>Licencia y uso</h2>
+  <p><span property="dct:title">Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial</span> &middot; &copy; 2026
+     <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
+  <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
+     Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
+     siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
+     derivadas con esta misma licencia.</p>
+  <h3>C&oacute;mo citar</h3>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial</i>. https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema6/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <h3>Qu&eacute; cubre</h3>
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+     est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
+     autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
+     propia licencia.</p>
+  <h3>Otros usos</h3>
+  <p>Para usos que excedan la licencia, abre una incidencia en
+     <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
+</section>
+</main>
+
+<footer><div class="wrap">Tema 6 &middot; 4.&ordm; de ESO &middot; Tecnolog&iacute;a</div></footer>
+
+<script>
+(function(){
+  var nav = document.getElementById('nav');
+  if(!nav) return;
+  nav.addEventListener('click', function(e){
+    var b = e.target.closest('button[data-ses]');
+    if(!b || b.disabled) return;
+    nav.querySelectorAll('button').forEach(function(x){
+      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+    });
+    document.querySelectorAll('[id^="ses-"]').forEach(function(p){
+      p.hidden = (p.id !== 'ses-' + b.dataset.ses);
+    });
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script>
+/* El test se corrige aqui mismo: no se manda nada a ningun servidor. */
+(function(){
+  document.querySelectorAll('.ta').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.ta-nota');
+    if(!corregir || !otra || !nota) return;   /* no es un test de este molde */
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.ta-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.ta-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
+<a class="cc-sello" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
+   title="Material bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> <span class="cc-autor">&middot; Roberto P. Garc&iacute;a Llorente</span></span>
+</a>
+<script>
+(function(){var m=document.querySelector('.cc-sello');if(!m)return;var c=m.cloneNode(true);
+new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
+.observe(document.body,{childList:true,subtree:true});})();
+</script>
+</body>
+</html>

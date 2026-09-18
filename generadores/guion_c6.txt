@@ -1,0 +1,13 @@
+Una placa puede decidir sola. Eso ya lo viste el curso pasado: un sensor, un umbral, y la máquina hace algo sin que nadie esté delante.
+
+Esta unidad va tres pasos más allá, y cada uno se apoya en el anterior.
+
+Primero, dejamos los bloques y escribimos código de verdad. No por presumir: porque un programa de bloques es un dibujo que no se puede mandar, ni buscar, ni comparar. Y porque los bloques te escondían una decisión, la de decir qué tipo de número guardas. Cuando esa decisión se toma mal, el programa no da error. Da un número equivocado, que es mucho peor.
+
+Segundo, le enseñamos a la placa a leer el mundo. Un sensor no dice seco. Dice setecientos treinta y uno. Y ese número viene por escalones: hay tensiones distintas que dan exactamente el mismo número. De ahí sale la pregunta más útil de toda la unidad: cuántos de los decimales que escribe tu programa son de verdad.
+
+Tercero, que avise desde lejos. Sin misterio: un aparato manda un mensaje y otro lo lee. Cuatro campos, quién, qué, cuándo y a dónde, y todo lo demás es sobre. Y una pregunta que no se hace casi nunca: quién se queda ese dato, cuánto tiempo, y qué se puede saber con él aunque vaya cifrado.
+
+Y cuarto, lo que hoy se llama inteligencia artificial. Aquí no hay humo. Vas a entrenar un clasificador en esta misma página, con los ejemplos que pongas tú, y vas a ver tres cosas: que aprende exactamente lo que le das, que contesta igual de seguro cuando no tiene ni idea, y que hay problemas que no puede resolver por mucho que le insistas.
+
+Al final de las ocho sesiones tendrás un aparato que mide, decide, avisa y sabe explicar por qué hace lo que hace. Vamos con la primera.
