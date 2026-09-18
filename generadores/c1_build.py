@@ -181,7 +181,8 @@ S1_TEORIA = u'''
            u'<b>Dean Kamen</b>. El inversor John Doerr dijo que ser&iacute;a &laquo;m&aacute;s '
            u'importante que internet&raquo;, y Steve Jobs, que era &laquo;tan grande como el PC&raquo;. '
            u'Costaba <b>5.000 d&oacute;lares</b>. En toda su vida comercial se vendieron '
-           u'<b>140.000 unidades</b>, y la producci&oacute;n se par&oacute; en <b>junio de 2020</b>. '
+           u'<b>140.000 unidades</b>. El final se anunci&oacute; en <b>junio de 2020</b> y el '
+           u'&uacute;ltimo sali&oacute; de la f&aacute;brica el <b>15 de julio</b> de ese a&ntilde;o. '
            u'Esta foto es de 2006 y ense&ntilde;a d&oacute;nde acab&oacute;: rutas tur&iacute;sticas y '
            u'patrullas. No en lo que iba a cambiar las ciudades.',
            u'Richard from DC, US', u'CC BY 2.0',

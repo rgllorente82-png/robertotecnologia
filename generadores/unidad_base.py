@@ -67,12 +67,17 @@ LECTURA_CSS = u"""
 """
 
 
-def lectura(cfg):
+def lectura(cfg, ya_escrito=u''):
     """El enlace a la lectura de aula, si el PDF esta junto a la pagina.
 
     Las lecturas se generaban y se quedaban huerfanas: el fichero estaba en la
     carpeta del tema pero ninguna pagina enlazaba a el, asi que un alumno no
     podia llegar. Ahora lo pone el molde: si el PDF existe, el enlace sale solo.
+
+    `ya_escrito` es el cuerpo de las sesiones, y esta para NO repetirlo. Al
+    poner este bloque automatico, las unidades que ya enlazaban la lectura a
+    mano pasaron a ofrecerla dos veces: doce de diecinueve, y el tema 6 de 2.o
+    tres veces. Si el PDF ya esta enlazado ahi dentro, aqui no se pone nada.
     """
     raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     carpeta = os.path.join(raiz, *cfg['ruta'].strip('/').split('/'))
@@ -80,6 +85,8 @@ def lectura(cfg):
     if not pdfs:
         return u''
     fichero = os.path.basename(pdfs[0])
+    if fichero in ya_escrito:
+        return u''
     return u'''
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
@@ -150,7 +157,7 @@ def pagina(cfg):
 %s
 %s
 </body>
-</html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos, lectura(cfg),
+</html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos, lectura(cfg, cuerpos),
                aviso_licencia(cfg['titulo'], canon),
                cfg['tema'], cfg['curso'], cfg['materia'], NAV_JS + VIDEO_JS + test_auto.JS, SELLO)
 

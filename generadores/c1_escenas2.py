@@ -88,7 +88,7 @@ MATRIZ = u'''
           {t: 'Barato', ay: '5 = menos de 2 &euro;; 1 = m&aacute;s de 15 &euro;'},
           {t: 'Aguanta 9 d&iacute;as solo', ay: '5 = riega sin nadie; 1 = hay que estar'},
           {t: 'R&aacute;pido de montar', ay: '5 = una sesi&oacute;n; 1 = cinco o m&aacute;s'},
-          {t: 'Cumple el encargo', ay: 'sensor + actuador programados; 1 = no lleva'},
+          {t: 'Cumple el encargo', ay: '5 = sensor + actuador programados; 1 = no lleva'},
           {t: 'Poco riesgo con el agua', ay: '5 = el agua no toca nada; 1 = la moja entera'}
         ];
         var pesos = BASE.slice();
