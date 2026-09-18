@@ -106,6 +106,21 @@ if os.path.exists(MOLDE):
     check(anchos == {(210, 297)}, 'y sus hojas son A4 de verdad  %s' % (anchos or ''))
     check(len(cajas) == 1, 'y es una sola hoja: una fotocopia por grupo')
 
+PLANO = os.path.join(RAIZ, '2eso', 'TyD', 'tema4', 'plano-tensegridad-grande.pdf')
+check(os.path.exists(PLANO) and os.path.getsize(PLANO) > 20000,
+      'el plano de la tensegridad grande esta donde dice el enlace')
+check('plano-tensegridad-grande.pdf' in texto, 'y la ficha lo enlaza')
+check('flexi&oacute;n' in texto,
+      'la ficha dice que el brazo de la grande trabaja a flexion, que es lo que la cambia')
+if os.path.exists(PLANO):
+    crudo2 = io.open(PLANO, 'rb').read()
+    cajas2 = set(re.findall(rb'/MediaBox\s*\[([^\]]*)\]', crudo2))
+    medidas = set()
+    for c in cajas2:
+        v = [float(x) for x in c.split()]
+        medidas.add((round((v[2]-v[0])*25.4/72), round((v[3]-v[1])*25.4/72)))
+    check(medidas == {(210, 297)}, 'y tambien es A4  %s' % (medidas or ''))
+
 check('Pru&eacute;balo t&uacute; antes' in texto,
       'la de los tubos avisa de que hay que probarla antes: lo que aguanta depende del alto')
 
