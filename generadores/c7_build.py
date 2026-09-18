@@ -53,6 +53,7 @@ import avatar_flat
 from c7_escenas import AULA, RECORRIDO
 from c7_escenas2 import BRAZO, ESTADOS
 from test_auto import test
+import c7b_texto
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USA_AVATAR = [False]
@@ -1231,11 +1232,14 @@ S = [
          minutado=[(u"10'", u'Reto'), (u"25'", u'Teor&iacute;a'), (u"15'", u'Pr&aacute;ctica'),
                    (u"10'", u'Cierre y test')],
          chips=[u'CE4 &middot; 4.1', u'B.2', u'B.3', u'B.4'], cuerpo=S4),
-    dict(corto=u'Del esquema al montaje', pendiente=True),
-    dict(corto=u'Que sepa volver a casa', pendiente=True),
-    dict(corto=u'Seguridad y caso peor', pendiente=True),
-    dict(corto=u'El robot entero', pendiente=True),
 ]
+
+# --- la segunda mitad, escrita aparte en c7b_texto.py ---
+# Aqui la unidad cambia de marcha: el proyecto del curso YA esta decidido
+# (PROYECTOS.md, bloque DECIDIDO del 18-sep-2026), asi que las sesiones 5 a 8
+# no rotan ejemplos: aterrizan en el riego automatico y en sus dos variantes.
+S += c7b_texto.sesiones(bloque)
+PENDIENTES.extend(c7b_texto.PENDIENTES)
 
 CFG = dict(
     ruta='4eso/Tecnologia/tema7/',
