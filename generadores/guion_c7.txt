@@ -1,0 +1,15 @@
+Una máquina que se corrige sola ya la tienes. La montaste en la unidad cuatro: un sensor que mide, algo que compara y un actuador que empuja hasta que el número cuadra. En la cinco le pusiste la electrónica que hace falta para mover de verdad, y en la seis la programaste y hasta la conectaste.
+
+Y con todo eso, nadie llamaría robot a un horno.
+
+En esta unidad vamos a averiguar qué es exactamente lo que le falta. No es que parezca un muñeco, ni que tenga ruedas. La pregunta que separa un robot de lo que no lo es cabe en una línea: si cambias el mundo, ¿cambia lo que hace la máquina?
+
+Vamos a verlo en un aula con los muebles movidos, y vamos a ver cómo un programa grabado se queda sin media habitación sin enterarse.
+
+Después bajaremos a los motores, que es donde casi todo el mundo se estrella: un motor de corriente continua no sabe dónde está. Ni lo sabe ni puede saberlo, y decirle que avance dos segundos no es decirle que avance medio metro.
+
+Luego montaremos un brazo de dos eslabones y haremos la cuenta que da el sitio de la punta a partir de los ángulos. Y veremos que la cuenta de vuelta, la que de verdad necesitas, no tiene una respuesta, sino dos.
+
+Y para terminar, la herramienta que ordena todo esto: la máquina de estados. Cuatro estados, cinco eventos, veinte casillas que hay que contestar una a una. Las que dejes en blanco son, exactamente, por donde se va a romper.
+
+Ocho sesiones. Empezamos.
