@@ -118,8 +118,20 @@ def main():
     tabla = videos()
     salida, malos = [], 0
     print(u'%d videos que mirar\n' % len(tabla))
+    sin_red = 0
     for i, (vid, donde) in enumerate(sorted(tabla.items(), key=lambda x: x[1]), 1):
         estado, titulo, detalle = mira(vid)
+
+        # si los primeros fallan todos por no llegar a YouTube, no tiene sentido
+        # gastar 92 intentos: lo que pasa es que esta red no llega, y hay que
+        # decirlo en vez de sacar 92 lineas de «no se sabe» que parecen un informe
+        sin_red = sin_red + 1 if u'no hay salida a internet' in detalle else 0
+        if sin_red >= 5:
+            print(u'\nDesde aqui no se llega a youtube.com: %s' % detalle.split('internet: ')[-1].strip())
+            print(u'Este script no adivina: hay que correrlo desde una red que llegue.')
+            print(u'Ningun video queda comprobado.')
+            return 2
+
         if estado != OK:
             malos += 1
         salida.append({'id': vid, 'estado': estado, 'titulo': titulo,
