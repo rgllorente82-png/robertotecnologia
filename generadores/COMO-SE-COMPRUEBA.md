@@ -26,6 +26,7 @@ o para una acción automática.
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`, `u2`, `u4`…`u10` |
 | Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, y sus párrafos vayan sin saltos (las 19, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
 | Que cada mando de las escenas —deslizador, casilla, desplegable, botón— **diga lo que es**: no basta con que haya un texto al lado, tiene que estar atado | `python generadores/comprueba_mandos.py [filtro]` |
+| Que el texto se pueda agrandar al 200 % sin que nada se corte ni se desborde (WCAG 1.4.4, nivel AA) | `python generadores/comprueba_zoom.py [filtro]` |
 | El contraste de los rótulos de las escenas, en tema claro y en oscuro, mirando la figura del propio SVG que hay debajo del texto y no sólo el fondo del DOM. Un rótulo con halo no cuenta: el halo es la solución | `python generadores/comprueba_contraste.py [filtro]` |
 
 Los dos primeros se complementan: `comprueba_sitio.py` no entra en ninguna
