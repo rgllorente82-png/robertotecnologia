@@ -10,6 +10,9 @@ sigue con la calculadora se encuentra con que su profesor no sabe dividir.
 Que hace. Busca en el texto cualquier cosa de la forma «cuenta = resultado»,
 la calcula otra vez y compara. Sabe de:
 
+  - cuentas escritas con palabras en vez de simbolos: «0,2 V por 250 mA son
+    50 mW» y «120 entre 4 son 30». Ahi se escondio un error real, porque solo
+    se buscaba x, ÷ y =
   - decimales con coma y miles con punto, que es como estan escritos
   - pi, que aparece en el paso a paso del motor
   - cambios de unidad: 5 / 1024 = 4,9 mV es correcto aunque de 0,00488, y
@@ -113,11 +116,28 @@ def evalua(piezas, valores):
     return eval(py, {'__builtins__': {}}, {})
 
 
+# Las cuentas no siempre llevan simbolos. Para 2.o sobre todo, se escriben
+# con palabras: «0,2 V por 250 mA son 50 mW». Ahi se escondio un error real
+# —2,5 V por 250 mA decian que eran 300 mW, y son 625— porque el comprobador
+# solo buscaba x, ÷ y =. Se traducen a simbolos antes de mirar, y asi las
+# revisa la misma maquinaria de siempre, con sus unidades y su horquilla.
+PALABRAS = re.compile(
+    r'(?<![\w,.])(%s%s)\s+(por|entre)\s+(%s%s)\s+(?:son|da|dan|hacen)\s+(%s)'
+    % (NUM, UNI, NUM, UNI, NUM))
+
+
+def en_simbolos(s):
+    return PALABRAS.sub(
+        lambda m: u'%s %s %s = %s' % (m.group(1), u'\u00d7' if m.group(2) == u'por' else u'/',
+                                      m.group(3), m.group(4)),
+        s)
+
+
 def texto(f):
     s = io.open(f, encoding='utf-8').read()
     s = re.sub(r'<script.*?</script>', ' ', s, flags=re.S)
     s = re.sub(r'<style.*?</style>', ' ', s, flags=re.S)
-    return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', s)))
+    return en_simbolos(re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', ' ', s))))
 
 
 def paso(escrito):
