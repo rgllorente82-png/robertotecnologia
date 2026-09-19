@@ -78,6 +78,15 @@ DUR = [int(x) for x in re.findall(r"d:(\d+)", gantt)]
 check(DUR == [5, 10, 12, 8, 10, 5, 15, 5],
       'las ocho duraciones son las de la hoja de proceso (%s)' % DUR)
 
+# La hoja de proceso esta escrita dos veces: como tabla en la teoria y como
+# duraciones dentro de la escena. Si una se toca y la otra no, el alumno ve una
+# tabla que no cuadra con el dibujo de al lado, y nadie se entera.
+_tabla = re.search(r'<h4>La hoja de proceso</h4>.*?</table>', texto, re.S)
+check(_tabla is not None, 'la teoria trae la tabla de la hoja de proceso')
+if _tabla:
+    _min = [int(x) for x in re.findall(r'<td>(\d+) min</td>', _tabla.group(0))]
+    check(_min == DUR, 'la tabla de la teoria dice los mismos minutos que la escena (%s)' % _min)
+
 ANTES = {}
 for a, b in re.findall(r'(\d+):\[([\d,]+)\]', re.search(r'var ANTES = \{(.*?)\};', gantt, re.S).group(1)):
     ANTES[int(a)] = [int(x) for x in b.split(',')]
