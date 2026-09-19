@@ -15,5 +15,9 @@ Pillow>=10
 # comprueban la maqueta de la lectura, aunque ellos no dibujen nada.
 reportlab>=4
 
+# Para leer los PDF de las lecturas y comprobarlos por dentro. La importa
+# comprueba_lecturas.py; sin ella se planta al arrancar.
+PyMuPDF>=1.24
+
 # Y el navegador, una sola vez:
 #   python -m playwright install chromium

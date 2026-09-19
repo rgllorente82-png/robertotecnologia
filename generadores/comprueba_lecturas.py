@@ -14,14 +14,30 @@ import sys
 import fitz  # PyMuPDF
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMAS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']
+
+# Miraba solo las diez lecturas de 2.o, y las nueve de 4.o se quedaban sin
+# comprobar. Ahora se buscan todas: asi, una lectura nueva entra sola.
+CURSOS = [(u'2eso', ('2eso', 'TyD')), (u'4eso', ('4eso', 'Tecnologia'))]
+
+
+def lecturas():
+    for clave, carpeta in CURSOS:
+        base = os.path.join(RAIZ, *carpeta)
+        if not os.path.isdir(base):
+            continue
+        for tema in sorted(os.listdir(base), key=lambda s: (len(s), s)):
+            n = tema[4:] if tema.startswith('tema') else None
+            if not n:
+                continue
+            ruta = os.path.join(base, tema, 'lectura-tema%s.pdf' % n)
+            if os.path.isfile(ruta):
+                yield clave, n, ruta
+
 
 fallos = 0
-for t in TEMAS:
-    ruta = os.path.join(RAIZ, '2eso', 'TyD', 'tema' + t, 'lectura-tema%s.pdf' % t)
-    if not os.path.isfile(ruta):
-        print(u'tema%-3s  ---  no hay PDF' % t)
-        continue
+hay = 0
+for clave, t, ruta in lecturas():
+    hay += 1
 
     doc = fitz.open(ruta)
     texto = u'\n'.join(pag.get_text() for pag in doc)
@@ -52,8 +68,9 @@ for t in TEMAS:
 
     estado = u'OK' if not mal else u'MAL: ' + u', '.join(mal)
     fallos += 1 if mal else 0
-    print(u'tema%-3s  %d pag  %2d parrafos  %2d preguntas  cabecera:%s  %s'
-          % (t, npaginas, npar, preg, u'si' if cab else u'NO', estado))
+    print(u'%-5s tema%-3s  %d pag  %2d parrafos  %2d preguntas  cabecera:%s  %s'
+          % (clave, t, npaginas, npar, preg, u'si' if cab else u'NO', estado))
 
-print(u'\n%s' % (u'TODO CORRECTO' if not fallos else u'%d lecturas con fallos' % fallos))
+print(u'\n%d lecturas miradas' % hay)
+print(u'%s' % (u'TODO CORRECTO' if not fallos else u'%d lecturas con fallos' % fallos))
 sys.exit(1 if fallos else 0)
