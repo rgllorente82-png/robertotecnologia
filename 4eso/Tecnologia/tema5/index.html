@@ -327,8 +327,6 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
-/* tablas anchas en el movil: se desplazan ellas, no la pagina */
-@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 /* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
@@ -348,6 +346,8 @@ footer .wrap{padding-block:18px 26px}
   .escena-barra .seg,.video-play{display:none}
   .escena{break-inside:avoid}
 }
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
 </head>
 <body>
@@ -5860,7 +5860,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
               y se pide con margen. <b>Regla: la fuente, al doble del pico.</b> Aqu&iacute;, una de
               <b>5 V y 1 A</b> va sobrada y cuesta lo mismo que una de 500 mA.</li>
           <li>La <b>media</b> manda en la <b>pila</b>, si va con pila: una de 2000 mAh a 47 mA de
-              media dura 2000 / 47 = <b>42 horas</b>. Menos de dos d&iacute;as. Ah&iacute; se ve de
+              media dura 2000 / 47 = <b>42,5 horas</b>. Menos de dos d&iacute;as. Ah&iacute; se ve de
               un vistazo que <b>este proyecto no puede ir con pilas</b>, y eso hay que saberlo
               antes de comprarlas.</li>
         </ul>
@@ -6126,7 +6126,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           <label class="ta-op"><input type="radio" name="c5b-9" value="1">Una de 5 V y 50 mA: lo que manda es la media</label>
           <label class="ta-op"><input type="radio" name="c5b-9" value="2">Una de 5 V y 305 mA exactos, para no desperdiciar</label>
           <label class="ta-op"><input type="radio" name="c5b-9" value="3">Da igual: el Arduino regula lo que le sobre</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> La fuente tiene que poder dar lo que se pida <b>a la vez</b>, o sea el pico, y se pide con margen (la regla c&oacute;moda es el doble). La media sirve para otra cosa: para saber cu&aacute;nto durar&iacute;a una pila. A 47 mA, una de 2000 mAh aguanta 42 horas, que es la manera de descubrir que este proyecto no puede ir con pilas.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La fuente tiene que poder dar lo que se pida <b>a la vez</b>, o sea el pico, y se pide con margen (la regla c&oacute;moda es el doble). La media sirve para otra cosa: para saber cu&aacute;nto durar&iacute;a una pila. A 47 mA, una de 2000 mAh aguanta 42,5 horas, que es la manera de descubrir que este proyecto no puede ir con pilas.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>

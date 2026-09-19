@@ -44,7 +44,12 @@ def main():
             saltadas += 1
             continue
         if MARCA in s:
-            s = re.sub(re.escape(MARCA) + r'\n@media[^\n]*\n', u'', s)
+            # Ya esta puesta: se deja donde este. Antes se quitaba y se volvia
+            # a pegar al final, y como afina_impresion.py mete lo suyo por
+            # delante, las dos se turnaban en mover la regla y cada pasada
+            # ensuciaba dieciocho paginas sin cambiar nada de lo que hacen.
+            saltadas += 1
+            continue
         # el ultimo </style> del <head> es el de la hoja principal de la pagina
         cabeza = s.index(u'</head>') if u'</head>' in s else len(s)
         try:
@@ -55,7 +60,8 @@ def main():
         s = s[:corte] + REGLA + s[corte:]
         io.open(pag, 'w', encoding='utf-8').write(s)
         puestas += 1
-    print(u'%d paginas con tablas arregladas, %d sin tablas' % (puestas, saltadas))
+    print(u'%d paginas con la regla puesta, %d que ya la tenian o no tienen tablas'
+          % (puestas, saltadas))
     return 0
 
 

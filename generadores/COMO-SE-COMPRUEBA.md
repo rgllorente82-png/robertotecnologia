@@ -17,7 +17,7 @@ o para una acción automática.
 | Qué mira | Cómo se lanza |
 |---|---|
 | Caracteres rotos, NUL, UTF-8 inválido y rótulos a medias en las 27 páginas, entidades HTML que se han quedado sin su & por una sustitución mal hecha —«cajetcajétíniacute;n»— y que los apartados de «Cómo se evalúa» de cada ficha sumen 10 puntos | `python generadores/comprueba_paginas.py` |
-| Que las cuentas escritas en la prosa cuadren, incluidas las escritas con palabras —«0,2 V por 250 mA son 50 mW»— (173 ahora mismo) | `python generadores/comprueba_cuentas.py` |
+| Que las cuentas escritas en la prosa cuadren, incluidas las escritas con palabras —«0,2 V por 250 mA son 50 mW», con las unidades escritas con letra— (177 ahora mismo) | `python generadores/comprueba_cuentas.py` |
 | Que los enlaces internos lleven a alguna parte: ficheros, anclas y rutas absolutas resueltas contra la base de publicación, que se lee de la dirección canónica | `python generadores/comprueba_enlaces.py [--fuera]` |
 | Que los tests no se pisen entre ellos, que la respuesta buena no caiga siempre en el mismo sitio, y qué unidades no tienen ninguno. Cuenta los dos moldes que hay en el sitio: `.ta` y el `.test` del tema 5 de 2.º | `python generadores/comprueba_tests.py` |
 | Que los vídeos de YouTube se puedan ver, y **sin cuenta**: separa el que no se deja empotrar, el que pide edad, el que es **sólo para miembros del canal** y el borrado. Necesita red: si no llega a youtube.com para y lo dice, en vez de sacar 92 «no se sabe». Con `--lista` saca sólo los enlaces por unidad, y eso sí va sin red | `python generadores/comprueba_videos.py [--json]` |

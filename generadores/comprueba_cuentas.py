@@ -49,7 +49,13 @@ NUM = r'(?:π|\d[\d.,]*\d|\d)'
 # "180 s x 130 / 60 = 390" la cuenta empieza en el 180, no en el 130. Sin esto
 # el comprobador se inventaba un fallo en una cuenta perfecta, que es la mejor
 # manera de que deje de leerlo nadie.
-UNI = r'(?:\s*(?:s|h|min|días?|años?|g|kg|mg|mm|cm|m|km|V|mV|A|mA|W|mW|kW|kWh|Wh|mAh|Ω|N|rpm|%|MJ|kJ|ml|L|px))?'
+# En 2.o las unidades se escriben con letra mas veces que con simbolo, y
+# una cuenta que el comprobador no reconoce es una cuenta sin vigilar.
+PALABRA_UNI = (r'gramos?|kilos?|kilogramos?|metros?|centímetros?|milímetros?|'
+               r'segundos?|minutos?|horas?|días?|años?|voltios?|amperios?|vatios?|'
+               r'julios?|newtons?|litros?')
+UNI = (r'(?:\s*(?:s|h|min|días?|años?|g|kg|mg|mm|cm|m|km|V|mV|A|mA|W|mW|kW|kWh|Wh|'
+       r'mAh|Ω|N|rpm|%|MJ|kJ|ml|L|px|' + PALABRA_UNI + r'))?')
 OP = u'[×x·*/÷]'
 TERM = r'%s%s(?:\s*%s\s*%s%s)*' % (NUM, UNI, OP, NUM, UNI)
 EXPR = r'%s(?:\s*[+−-]\s*%s)*' % (TERM, TERM)
@@ -163,12 +169,32 @@ def horquilla(expr):
     cuentas correctas, y un comprobador que se queja de lo que esta bien deja
     de leerse a la semana.
     """
+    # Antes de quitar las unidades se anota cuales las llevaban: un entero
+    # suelto —el «2» de «60 mm x 2»— es una cuenta, no una medida, y darle
+    # media unidad de horquilla abria la banda de 89 a 151 y dejaba pasar
+    # cualquier disparate. Con unidad al lado si es una medida y la conserva.
+    con_unidad = []
+    for term in re.split(u'\\s*[\u00d7x\u00b7*/\u00f7+\u2212-]\\s*', expr):
+        term = term.strip()
+        if not term:
+            continue
+        m = re.match(NUM, term)
+        con_unidad.append(bool(m) and bool(term[m.end():].strip()))
     limpio = re.sub(UNI + u'(?=\\s*[\u00d7x\u00b7*/\u00f7+\u2212-]|\\s*$)', '', expr)
     piezas = [q for q in re.split(u'(\\s*[\u00d7x\u00b7*/\u00f7+\u2212-]\\s*)', limpio) if q.strip()]
     numeros = [q for q in piezas
                if q.strip() not in (u'\u00d7', 'x', u'\u00b7', '*', '/', u'\u00f7', '+', '-', u'\u2212')]
     base = [valor(q) for q in numeros]
-    pasos = [0.0 if q.strip() == u'\u03c0' else paso(q) for q in numeros]
+
+    def escalon(k, q):
+        q = q.strip()
+        if q == u'\u03c0':
+            return 0.0
+        entero = ',' not in q and '.' not in q
+        if entero and k < len(con_unidad) and not con_unidad[k]:
+            return 0.0
+        return paso(q)
+    pasos = [escalon(k, q) for k, q in enumerate(numeros)]
     if len(numeros) > 8:
         v = evalua(piezas, base)
         return v, v
