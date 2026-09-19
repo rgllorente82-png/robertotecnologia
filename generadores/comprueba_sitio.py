@@ -126,10 +126,13 @@ def main():
                                       % etq)
 
                 # el pie de cada escena tiene que anunciarse solo al cambiar
+                # alguna escena usa `.pie` dos veces —una fila de botones y el
+                # pie de verdad—, asi que basta con que uno de ellos se anuncie
                 sordas = pg.eval_on_selector_all(
                     '.escena', """es => es.filter(e => e.offsetParent || e.getClientRects().length)
-                             .filter(e => { const p = e.querySelector('.pie');
-                                            return p && p.getAttribute('aria-live') !== 'polite'; })
+                             .filter(e => { const ps = [...e.querySelectorAll('.pie')];
+                                            return ps.length &&
+                                              !ps.some(p => p.getAttribute('aria-live') === 'polite'); })
                              .map(e => e.id || '(sin id)')""")
                 for esc in sordas:
                     fallos.append(u'%s: el pie de #%s no es region viva' % (etq, esc))
