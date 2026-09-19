@@ -154,6 +154,18 @@ def main():
                     if not boton.count():
                         continue
                     boton.click()
+                    # corregido, cada pregunta tiene que decir con PALABRAS cual
+                    # era la buena: el color solo no lo distingue todo el mundo
+                    sin_palabra = pg.evaluate(
+                        """(id) => {
+                            const T = document.getElementById(id);
+                            const ps = [...T.querySelectorAll('.ta-p, .test-p')];
+                            return ps.filter(p => !p.querySelector('.ta-marca, .marca')).length;
+                        }""", tid)
+                    if sin_palabra:
+                        fallos.append(u'%s: en el test #%s, %d preguntas corregidas solo con color'
+                                      % (etq, tid, sin_palabra))
+
                     nota = T.locator('.ta-nota, .test-nota').first.inner_text().strip()
                     # el molde `.ta` dice «12 de 12» a secas y el `.test` del tema 5
                     # de 2.o lo envuelve en una frase mas larga: vale con que este

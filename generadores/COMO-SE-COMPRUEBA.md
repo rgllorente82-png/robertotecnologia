@@ -55,6 +55,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | La tinta que va **encima** de una barra de color, que es oscura en los dos temas porque los rellenos están elegidos para resaltar | `python generadores/afina_sobre_color.py` |
 | Que el pie de cada escena sea una región viva, para que un lector de pantalla anuncie la explicación al pulsar un botón | `python generadores/afina_lectores.py` |
 | Que el navegador de sesiones **diga** cuál está abierta y no sólo la pinte: `aria-selected` no es válido en un `<button>` y el navegador lo descarta | `python generadores/afina_navegador.py` |
+| Que el test corregido diga con **palabras** cuál era la buena, y no sólo con el color, y que la nota se anuncie al corregir | `python generadores/afina_test.py` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |
 | Bajar de Wikimedia Commons una foto con su crédito y su licencia. Necesita red | `python generadores/bajar_fotos.py` |
 

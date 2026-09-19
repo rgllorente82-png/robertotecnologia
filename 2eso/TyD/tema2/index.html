@@ -647,6 +647,12 @@
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -2174,7 +2180,7 @@
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.</p>
       </div>
@@ -2985,8 +2991,17 @@
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -2999,7 +3014,10 @@
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
