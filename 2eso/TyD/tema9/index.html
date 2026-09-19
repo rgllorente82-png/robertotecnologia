@@ -2827,10 +2827,10 @@ footer .wrap{padding-block:18px 26px}
             }
             s += texto(46, y+16, escapa(p.n),
                        {s:12, f:1, c: dentro ? 'var(--ink)' : 'var(--ink-soft)'});
-            s += texto(336, y+16, escapa(p.lic), {s:10.5,
-                       c: dentro ? 'var(--ink-soft)' : 'var(--line)'});
+            s += texto(336, y+16, escapa(p.lic), {s:10.5, c:'var(--ink-soft)'});
             s += texto(618, y+16, dentro ? e.v : 'no la usas',
-                       {s:10.5, a:'end', p:dentro, c: dentro ? COLOR[e.c] : 'var(--line)'});
+                       {s:10.5, a:'end', p:dentro,
+                        c: dentro ? COLOR[e.c] : 'var(--ink-soft)'});
           });
 
           s += '<rect x="16" y="250" width="608" height="64" fill="'

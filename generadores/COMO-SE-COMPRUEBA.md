@@ -23,6 +23,8 @@ o para una acción automática.
 | Que los vídeos de YouTube se puedan ver, y **sin cuenta**. Necesita red: si no llega a youtube.com para y lo dice, en vez de sacar 92 «no se sabe» | `python generadores/comprueba_videos.py [--json]` |
 | Las lecturas en PDF | `python generadores/comprueba_lecturas.py` |
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`, `u2`, `u4`…`u10` |
+| Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, y sus párrafos vayan sin saltos (las 19, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
+| El contraste de los rótulos de las escenas, en tema claro y en oscuro. Ojo al leerlo: un rótulo blanco sobre una barra de color sale como «contraste 1» y no pasa nada —los que importan son los grises | `python generadores/comprueba_contraste.py` |
 
 `u1_verifica.py` es el ejemplo de lo que se espera de un verificador: para el
 diagrama de Gantt de la sesión 4 no compara con una copia de sus números, sino
