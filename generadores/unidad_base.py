@@ -14,7 +14,7 @@ NAV_JS = u"""
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -110,7 +110,7 @@ def pagina(cfg):
     botones = u''.join(
         u'<button type="button" data-ses="%d"%s%s>S%d &middot; %s</button>' % (
             i + 1,
-            u' aria-selected="true"' if i == 0 else u'',
+            u' aria-pressed="true"' if i == 0 else u'',
             u' disabled' if s.get('pendiente') else u'',
             i + 1, s['corto'])
         for i, s in enumerate(cfg['sesiones']))

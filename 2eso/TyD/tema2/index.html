@@ -173,7 +173,7 @@
     transition:background .18s,color .18s,border-color .18s;
   }
   nav.sesiones button:hover{border-color:var(--accent);color:var(--ink)}
-  nav.sesiones button[aria-selected="true"]{
+  nav.sesiones button[aria-pressed="true"]{
     background:var(--ink);
     color:var(--paper);
     border-color:var(--ink);
@@ -524,7 +524,7 @@
   .btn{padding:10px 22px; transition:background .2s ease}
   
   .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
-  nav.sesiones button[aria-selected="true"], .seg button[aria-pressed="true"]{
+  nav.sesiones button[aria-pressed="true"], .seg button[aria-pressed="true"]{
     background:var(--accent-soft); color:var(--accent); border-color:transparent; font-weight:500;
   }
 
@@ -577,7 +577,7 @@
     background:var(--surface); color:var(--ink-soft);
     border:1.5px solid var(--line); border-radius:2px; font-weight:400;
   }
-  nav.sesiones button[aria-selected="true"]{
+  nav.sesiones button[aria-pressed="true"]{
     background:var(--ink); color:var(--surface); border-color:var(--ink); font-weight:500;
   }
   .seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
@@ -606,7 +606,7 @@
     --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995}}
 
   /* pestaña activa en azul Google */
-  nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+  nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
   .seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
   .btn.primary{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 
@@ -692,7 +692,7 @@
       <h1 class="tema">Representación gráfica de un proyecto</h1>
     </div>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema">
-      <button type="button" data-ses="1" aria-selected="true">S1 · ¿Por qué dibujamos?</button>
+      <button type="button" data-ses="1" aria-pressed="true">S1 · ¿Por qué dibujamos?</button>
       <button type="button" data-ses="2">S2 · Boceto, croquis y plano</button>
       <button type="button" data-ses="3">S3 · Las tres vistas</button>
       <button type="button" data-ses="4">S4 · Tipos de líneas</button>
@@ -2263,7 +2263,7 @@
   nav.addEventListener('click', function(e){
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
-    nav.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-selected', x===b ? 'true':'false'); });
+    nav.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
     for(var i=1;i<=6;i++){
       var p = document.getElementById('ses-'+i);
       if(p) p.hidden = (String(i) !== b.dataset.ses);

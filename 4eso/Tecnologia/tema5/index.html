@@ -64,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -335,7 +335,7 @@ footer .wrap{padding-block:18px 26px}
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 5</div>
     <h1>Electr&oacute;nica y neum&aacute;tica</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El sensor y el divisor</button><button type="button" data-ses="2">S2 &middot; El transistor</button><button type="button" data-ses="3">S3 &middot; Fuerza con aire</button><button type="button" data-ses="4">S4 &middot; Mandar el aire</button><button type="button" data-ses="5">S5 &middot; Del esquema al montaje</button><button type="button" data-ses="6">S6 &middot; El programa que decide</button><button type="button" data-ses="7">S7 &middot; Electrov&aacute;lvulas y secuencias</button><button type="button" data-ses="8">S8 &middot; El automatismo completo</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; El sensor y el divisor</button><button type="button" data-ses="2">S2 &middot; El transistor</button><button type="button" data-ses="3">S3 &middot; Fuerza con aire</button><button type="button" data-ses="4">S4 &middot; Mandar el aire</button><button type="button" data-ses="5">S5 &middot; Del esquema al montaje</button><button type="button" data-ses="6">S6 &middot; El programa que decide</button><button type="button" data-ses="7">S7 &middot; Electrov&aacute;lvulas y secuencias</button><button type="button" data-ses="8">S8 &middot; El automatismo completo</button></nav>
   </div>
 </header>
 
@@ -6188,7 +6188,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);

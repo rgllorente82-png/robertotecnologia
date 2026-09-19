@@ -111,6 +111,29 @@ def main():
                             fallos.append(u'%s: la escena #%s%s deja el lienzo vacio'
                                           % (etq, esc['id'], u' en «%s»' % paso if paso else u''))
 
+                # el navegador tiene que DECIR cual es la sesion abierta, y no
+                # solo pintarla: `aria-selected` no vale en un <button> y el
+                # navegador lo descarta sin avisar
+                if n:
+                    estado = pg.eval_on_selector_all(
+                        '#nav button[data-ses]',
+                        'bs => bs.map(b => b.getAttribute("aria-pressed"))')
+                    if estado.count('true') != 1:
+                        fallos.append(u'%s: %d botones de sesion dicen estar abiertos'
+                                      % (etq, estado.count('true')))
+                    elif estado[i] != 'true':
+                        fallos.append(u'%s: el boton que dice estar abierto no es el de esta sesion'
+                                      % etq)
+
+                # el pie de cada escena tiene que anunciarse solo al cambiar
+                sordas = pg.eval_on_selector_all(
+                    '.escena', """es => es.filter(e => e.offsetParent || e.getClientRects().length)
+                             .filter(e => { const p = e.querySelector('.pie');
+                                            return p && p.getAttribute('aria-live') !== 'polite'; })
+                             .map(e => e.id || '(sin id)')""")
+                for esc in sordas:
+                    fallos.append(u'%s: el pie de #%s no es region viva' % (etq, esc))
+
                 # ancho en el movil
                 d = movil.evaluate("() => [document.documentElement.scrollWidth,"
                                    " document.documentElement.clientWidth]")
