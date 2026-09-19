@@ -47,3 +47,9 @@ ninguno, en vez de saltárselas en silencio.
 `afina_movil.py` tampoco comprueba: **pone**. La regla que hace que una tabla
 ancha se desplace dentro de su caja en vez de arrastrar la página entera por
 debajo de 560 px. Idempotente, y solo toca las páginas que tienen tablas.
+
+`afina_movimiento.py`, igual: pone en las 27 páginas la regla que respeta el
+ajuste de accesibilidad «reducir el movimiento» del sistema. Con el ajuste
+puesto, las animaciones y transiciones se quedan en casi nada y los
+desplazamientos automáticos dejan de ser suaves; sin él no cambia nada. Antes
+solo lo respetaba una página, y a medias.

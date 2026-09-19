@@ -291,6 +291,11 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
