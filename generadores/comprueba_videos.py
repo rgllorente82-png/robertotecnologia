@@ -10,10 +10,17 @@ sesion. En clase eso es un video que no existe.
 
 Esto lo comprueba uno a uno, y distingue los casos:
 
-  OK                  se ve, y se ve empotrado y sin cuenta
+  OK                    se ve, y se ve empotrado y sin cuenta
   NO SE PUEDE EMPOTRAR  existe, pero su autor no deja verlo fuera de YouTube
   PIDE INICIAR SESION   restriccion de edad: en clase no vale
+  SOLO PARA MIEMBROS    hay que estar suscrito de pago al canal para verlo
   PRIVADO O BORRADO     ya no esta
+
+El de los miembros es el mas traicionero: el video sale en las busquedas, tiene
+su portada y su titulo, y oEmbed contesta 200 tan contento, porque el video ES
+publico. Lo que no es publico es verlo. Antes caia en el cajon de «no se puede
+empotrar», que manda a buscar el problema donde no esta: ahi no hay nada que
+arreglar en la pagina, hay que cambiar de video.
 
 No se puede correr desde cualquier sitio: hace falta salida a internet hacia
 youtube.com. Desde el entorno donde se escribio esto no la hay, asi que el
@@ -23,6 +30,8 @@ Si al correrlo algo no cuadra, es mas probable que sea de esto que de YouTube.
     python comprueba_videos.py            todos, y al final los que fallan
     python comprueba_videos.py --json     lo mismo en JSON, para pegarlo en un
                                           sitio o guardarlo
+    python comprueba_videos.py --lista     solo los enlaces, por unidad, para
+                                          repasarlos a ojo. Esto si va sin red
 """
 import io
 import json
@@ -44,8 +53,56 @@ RAIZ = os.path.dirname(AQUI)
 UA = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) robertotecnologia/1.0',
       'Accept-Language': 'es-ES,es;q=0.9'}
 
-OK, NO_EMPOTRA, SESION, MUERTO, DUDA = (
-    u'OK', u'NO SE PUEDE EMPOTRAR', u'PIDE INICIAR SESION', u'PRIVADO O BORRADO', u'NO SE SABE')
+OK, NO_EMPOTRA, SESION, MIEMBROS, MUERTO, DUDA = (
+    u'OK', u'NO SE PUEDE EMPOTRAR', u'PIDE INICIAR SESION', u'SOLO PARA MIEMBROS',
+    u'PRIVADO O BORRADO', u'NO SE SABE')
+
+# Un video «solo para miembros del canal» es el caso mas traicionero de todos:
+# sale en las busquedas, tiene su portada, su titulo y su duracion, y oEmbed
+# contesta 200 tan contento, porque el video ES publico. Lo que no es publico
+# es verlo. Antes caia en el cajon de NO SE PUEDE EMPOTRAR, que es otra cosa y
+# manda a buscar el problema donde no esta: ahi no hay nada que arreglar en la
+# pagina, hay que cambiar de video.
+MARCAS_MIEMBROS = (
+    u'ypcTrailerRenderer',          # el trozo de muestra que ponen en su lugar
+    u'"isMembersOnly":true',
+    u'sponsorsOnlyVideo',
+    u'MEMBERSHIP',
+    u'miembros de este canal',
+    u'los miembros del canal',
+    u'\u00danete a este canal',
+    u'channel\'s members',
+    u'Join this channel',
+)
+
+
+def clasifica(codigo_oembed, codigo_empotrado, cuerpo):
+    u"""Que le pasa a un video, mirando lo que han contestado los dos sitios.
+
+    Aparte para poder probarla sin red, que es justo lo que no hay donde se
+    escribio esto. Devuelve (estado, detalle).
+    """
+    texto = cuerpo or u''
+
+    # lo primero, porque un video de miembros tambien dice UNPLAYABLE y, si se
+    # mira en otro orden, se lleva la etiqueta equivocada
+    if any(m in texto for m in MARCAS_MIEMBROS):
+        motivo = re.search(r'"reason"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]{0,90})"', texto)
+        return MIEMBROS, (motivo.group(1) if motivo
+                          else u'el empotrado dice que hay que ser miembro del canal')
+
+    if re.search(r'"status"\s*:\s*"(LOGIN_REQUIRED|AGE_VERIFICATION_REQUIRED)"', texto) or \
+       u'Inicia sesi' in texto or u'Sign in to confirm your age' in texto:
+        return SESION, u'el empotrado pide cuenta'
+
+    if re.search(r'"status"\s*:\s*"(UNPLAYABLE|ERROR)"', texto):
+        motivo = re.search(r'"reason"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]{0,90})"', texto)
+        return ((NO_EMPOTRA if codigo_oembed == 200 else MUERTO),
+                (motivo.group(1) if motivo else u'el empotrado dice que no se puede ver'))
+
+    if codigo_oembed == 200 and codigo_empotrado == 200:
+        return OK, u''
+    return DUDA, u'oEmbed %s, empotrado %s' % (codigo_oembed, codigo_empotrado)
 
 
 def paginas():
@@ -101,20 +158,34 @@ def mira(vid):
     codigo2, cuerpo2 = baja('https://www.youtube.com/embed/' + vid)
     if codigo2 is None:
         return DUDA, titulo, u'no hay salida a internet'
-    texto = cuerpo2 or u''
-    if re.search(r'"status"\s*:\s*"(LOGIN_REQUIRED|AGE_VERIFICATION_REQUIRED)"', texto) or \
-       u'Inicia sesi' in texto or u'Sign in to confirm your age' in texto:
-        return SESION, titulo, u'el empotrado pide cuenta'
-    if re.search(r'"status"\s*:\s*"(UNPLAYABLE|ERROR)"', texto):
-        motivo = re.search(r'"reason"\s*:\s*\{\s*"simpleText"\s*:\s*"([^"]{0,90})"', texto)
-        return (NO_EMPOTRA if codigo == 200 else MUERTO), titulo, \
-               (motivo.group(1) if motivo else u'el empotrado dice que no se puede ver')
-    if codigo == 200:
-        return OK, titulo, u''
-    return DUDA, titulo, u'oEmbed %s, empotrado %s' % (codigo, codigo2)
+    estado, detalle = clasifica(codigo, codigo2, cuerpo2)
+    return estado, titulo, detalle
+
+
+def lista():
+    u"""Los videos con su enlace, por unidad. Esto si funciona sin red.
+
+    Para repasarlos a ojo cuando no se puede o no se quiere lanzar la
+    comprobacion: se abre cada enlace y se mira. Un video que pide inscribirse
+    al canal se reconoce enseguida, porque en vez del video sale el boton de
+    unirse.
+    """
+    tabla = videos()
+    por_pagina = {}
+    for vid, donde in tabla.items():
+        for d in donde:
+            por_pagina.setdefault(d, []).append(vid)
+    for pagina in sorted(por_pagina, key=lambda s: (s.split(os.sep)[0], len(s), s)):
+        print(u'\n%s' % pagina)
+        for vid in sorted(por_pagina[pagina]):
+            print(u'   https://www.youtube.com/watch?v=%s' % vid)
+    print(u'\n%d videos en %d paginas' % (len(tabla), len(por_pagina)))
+    return 0
 
 
 def main():
+    if '--lista' in sys.argv:
+        return lista()
     tabla = videos()
     salida, malos = [], 0
     print(u'%d videos que mirar\n' % len(tabla))
