@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 660" width="780" height="660">
+<rect width="780" height="660" fill="#fff"/>
+<style>text{font-family:monospace;font-size:12px;fill:#5f6368}.t{font-size:13px;fill:#202124}.c{font-size:11px;fill:#1a73e8}.p{fill:#f1f3f4;stroke:#202124;stroke-width:2;stroke-linejoin:round}</style>
+<rect x="40" y="64" width="166.5" height="259" class="p"/>
+<rect x="119.55" y="138" width="7.4" height="92.5" fill="#fff" stroke="#202124" stroke-width="2"/>
+<text class="t" x="40" y="38">Respaldo del m&#243;vil</text>
+<text x="40" y="54">90 x 140</text>
+<text class="c" x="136.95" y="158">ranura 4 x 50:</text>
+<text class="c" x="136.95" y="174">donde pongas el puntal</text>
+<text class="c" x="136.95" y="190">es la inclinaci&#243;n</text>
+<polygon points="330,178.7 487.25,178.7 330,64" class="p"/>
+<rect x="304.1" y="141.7" width="25.9" height="7.4" class="p"/>
+<rect x="355.9" y="178.7" width="25.9" height="7.4" class="p"/>
+<text class="t" x="304.1" y="38">El puntal de detr&#225;s</text>
+<text x="304.1" y="54">el tri&#225;ngulo, 85 x 62</text>
+<text class="c" x="501.25" y="152.8">esta lengueta entra en la ranura del respaldo</text>
+<text class="c" x="501.25" y="194.7">y esta, en la base</text>
+<rect x="330" y="300" width="240.5" height="166.5" class="p"/>
+<rect x="396.6" y="327.75" width="7.4" height="111" fill="#fff" stroke="#202124" stroke-width="2"/>
+<rect x="507.6" y="370.3" width="7.4" height="25.9" fill="#fff" stroke="#202124" stroke-width="2"/>
+<text class="t" x="330" y="274">La base, debajo de las dos</text>
+<text x="330" y="290">130 x 90</text>
+<text class="c" x="404.6" y="484.5">ranura del respaldo</text>
+<text class="c" x="515.6" y="500.5">ranura del puntal</text>
+<path d="M50 590 H310" stroke="#dadce0" stroke-width="1.5"/>
+<rect x="60" y="584.4" width="182" height="5.6" class="p"/>
+<polygon points="110.4,584.4 116,584.4 189.423,402.672 183.823,402.672" class="p"/>
+<polygon points="194.4,584.4 313.4,584.4 194.4,497.6" fill="#fce8b2" stroke="#202124" stroke-width="2"/>
+<text class="t" x="60" y="454">El conjunto, de perfil</text>
+<text x="60" y="470">el puntal empuja el respaldo; los tres se apoyan en la base</text>
+</svg>

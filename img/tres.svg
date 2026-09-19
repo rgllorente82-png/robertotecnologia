@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="520" height="330">
+<style>
+ text{font:12px "DejaVu Sans",sans-serif;fill:#202124}
+ .ti{font-size:14px;font-weight:700}
+ .t{font-size:11px;fill:#5f6368}.b{font-size:11px;fill:#1a73e8}
+ .mesa{stroke:#9aa0a6;stroke-width:2}
+ .base{stroke:#a5783f;stroke-width:7;stroke-linecap:round}
+ .resp{stroke:#8a5a2b;stroke-width:7;stroke-linecap:round}
+ .punt{stroke:#c9973f;stroke-width:7;stroke-linecap:round}
+ 
+ .plom{stroke:#1a73e8;stroke-width:1.2;stroke-dasharray:4 4}
+</style><rect width="100%" height="100%" fill="#fff"/>
+<path class="mesa" d="M30 280 H419"/>
+<path class="base" d="M60.0 280.0 L379.0 280.0"/>
+<path class="resp" d="M159.0 280.0 L270.6 40.7"/>
+<path class="punt" d="M233.4 120.5 L341.6 280.0"/>
+<path fill="#3c4043" opacity=".4" d="M152.4 273.4 L291.9 -25.7 L307.8 -18.2 L168.4 280.8 Z"/>
+<circle cx="222.5" cy="148.0" r="5" fill="#1a73e8"/>
+<path class="plom" d="M222.5 148.0 V280"/>
+<circle cx="60.0" cy="280.0" r="4" fill="#188038"/>
+<circle cx="379.0" cy="280.0" r="4" fill="#188038"/>
+<text class="ti" x="16" y="24">ATRIL DE TRES PIEZAS &#183; vista de lado</text>
+<text class="b" x="278.6" y="44.7">C &#183; respaldo</text>
+<text class="b" x="297.5" y="200.2">A &#183; puntal</text>
+<text class="b" x="168.5" y="296.0">B &#183; base</text>
+<text class="b" x="141.9" y="-19.7">el m&#243;vil, tumbado 25&#186;</text>
+<text class="b" x="231.5" y="144.0">centro de gravedad de todo</text>
+<text class="t" x="16" y="302">el peso cae a 74 mm del frente; la base apoya de 0 a 145: le sobran 71 mm por detr&#225;s</text>
+<text class="t" x="16" y="318">el puntal cierra el tri&#225;ngulo B-C-A: sin &#233;l, el respaldo se dobla hacia atr&#225;s como una bisagra</text>
+</svg>
