@@ -72,6 +72,20 @@ esta misma licencia.
 propia licencia, indicada bajo cada una; ni los vídeos, que son de sus autores y
 están enlazados; ni las tipografías, de Google Fonts.
 
+## Lo que falta
+
+Dos cosas, y las dos necesitan una red que llegue a donde este repositorio no
+llega:
+
+- **Comprobar uno a uno los 92 vídeos de YouTube.** Están empotrados sin cookies
+  de seguimiento y todos traen debajo su enlace directo, pero que un vídeo
+  concreto se deje ver sin cuenta depende de cómo lo tenga configurado su autor
+  —empotrado desactivado, restricción de edad, sólo para miembros del canal—, y
+  eso sólo lo contesta YouTube. Lo clasifica `comprueba_videos.py`.
+- **Fotografías para el tema 3 de 2.º**, el de materiales, que es la única unidad
+  sin ninguna. Las trae `bajar_fotos.py` de Wikimedia Commons, con su autor y su
+  licencia.
+
 ## Erratas
 
 Si encuentras un error —una cuenta que no sale, una definición torcida, un
