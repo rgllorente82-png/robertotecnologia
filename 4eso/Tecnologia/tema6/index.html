@@ -2721,71 +2721,71 @@ void loop() {
       </ol>
       <div class="ta" id="test-c6">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. &iquest;Qu&eacute; hace <code>loop()</code> en un sketch de Arduino?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p1">
+          <p id="test-c6-p1">1. &iquest;Qu&eacute; hace <code>loop()</code> en un sketch de Arduino?</p>
           <label class="ta-op"><input type="radio" name="c6-0" value="0">Se ejecuta una vez, al encender la placa.</label>
           <label class="ta-op"><input type="radio" name="c6-0" value="1">Se repite sin parar mientras la placa tenga corriente.</label>
           <label class="ta-op"><input type="radio" name="c6-0" value="2">Repite el n&uacute;mero de veces que se le diga entre par&eacute;ntesis.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> <code>loop()</code> es &laquo;para siempre&raquo;: cuando llega al final vuelve a empezar. El que se ejecuta una sola vez es <code>setup()</code>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. Un programa guarda en un <code>int</code> el resultado de <code>0 + 0,5</code> y lo repite cuarenta veces. &iquest;Cu&aacute;nto vale al final?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p2">
+          <p id="test-c6-p2">2. Un programa guarda en un <code>int</code> el resultado de <code>0 + 0,5</code> y lo repite cuarenta veces. &iquest;Cu&aacute;nto vale al final?</p>
           <label class="ta-op"><input type="radio" name="c6-1" value="0">20</label>
           <label class="ta-op"><input type="radio" name="c6-1" value="1">0</label>
           <label class="ta-op"><input type="radio" name="c6-1" value="2">0,5</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un <code>int</code> <b>no admite decimales</b>: cada suma da 0,5 y al guardarla se trunca a 0. Nunca llega a 1, y el programa no avisa de nada.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. &iquest;Por qu&eacute; hay que declarar el tipo de una variable en Arduino y en bloques no hac&iacute;a falta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p3">
+          <p id="test-c6-p3">3. &iquest;Por qu&eacute; hay que declarar el tipo de una variable en Arduino y en bloques no hac&iacute;a falta?</p>
           <label class="ta-op"><input type="radio" name="c6-2" value="0">Porque el lenguaje C++ es m&aacute;s antiguo y lo arrastra.</label>
           <label class="ta-op"><input type="radio" name="c6-2" value="1">Porque la placa reserva la memoria antes de arrancar y necesita saber cu&aacute;ntos bytes ocupa cada cosa.</label>
           <label class="ta-op"><input type="radio" name="c6-2" value="2">Porque as&iacute; el programa se ejecuta m&aacute;s r&aacute;pido.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un Arduino Uno tiene 2.048 bytes y no tiene sistema operativo que busque hueco sobre la marcha: el sitio se reserva antes, y para eso hay que saber cu&aacute;nto.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. <code>analogRead()</code> en un Arduino Uno devuelve&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p4">
+          <p id="test-c6-p4">4. <code>analogRead()</code> en un Arduino Uno devuelve&hellip;</p>
           <label class="ta-op"><input type="radio" name="c6-3" value="0">la tensi&oacute;n del pin en voltios, con decimales</label>
           <label class="ta-op"><input type="radio" name="c6-3" value="1">un n&uacute;mero entero de 0 a 1023</label>
           <label class="ta-op"><input type="radio" name="c6-3" value="2">un 0 o un 1, seg&uacute;n un umbral</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El conversor es de 10 bits: 2<sup>10</sup> = 1.024 valores, numerados de 0 a 1023. Pasar eso a voltios o a grados es trabajo de tu programa.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>5. Con una referencia de 5 V y un conversor de 10 bits, &iquest;cu&aacute;nto vale un escal&oacute;n?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6-p5">
+          <p id="test-c6-p5">5. Con una referencia de 5 V y un conversor de 10 bits, &iquest;cu&aacute;nto vale un escal&oacute;n?</p>
           <label class="ta-op"><input type="radio" name="c6-4" value="0">5 V / 1.024 = 4,88 mV</label>
           <label class="ta-op"><input type="radio" name="c6-4" value="1">5 V / 10 = 0,5 V</label>
           <label class="ta-op"><input type="radio" name="c6-4" value="2">5 V / 100 = 50 mV</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Hay 1.024 escalones repartidos entre 0 y la referencia. Dos tensiones que se diferencien en menos de 4,88 mV dan <b>el mismo n&uacute;mero</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Un TMP36 da 10 mV por grado y el conversor tiene escalones de 4,88 mV. Tu programa escribe <code>21.37</code>. &iquest;Qu&eacute; pasa?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p6">
+          <p id="test-c6-p6">6. Un TMP36 da 10 mV por grado y el conversor tiene escalones de 4,88 mV. Tu programa escribe <code>21.37</code>. &iquest;Qu&eacute; pasa?</p>
           <label class="ta-op"><input type="radio" name="c6-5" value="0">Nada: el sensor es preciso hasta la cent&eacute;sima.</label>
           <label class="ta-op"><input type="radio" name="c6-5" value="1">Que el escal&oacute;n vale 0,49 &deg;C, as&iacute; que los &uacute;ltimos d&iacute;gitos los ha puesto la divisi&oacute;n, no la medida.</label>
           <label class="ta-op"><input type="radio" name="c6-5" value="2">Que hay que cambiar el sensor porque est&aacute; estropeado.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 4,88 mV entre 10 mV/&deg;C son 0,49 &deg;C por escal&oacute;n: el term&oacute;metro no distingue medio grado. Lo honrado es escribir 21,4 &deg;C.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Qu&eacute; cuatro cosas lleva dentro el mensaje de un aparato conectado?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p7">
+          <p id="test-c6-p7">7. &iquest;Qu&eacute; cuatro cosas lleva dentro el mensaje de un aparato conectado?</p>
           <label class="ta-op"><input type="radio" name="c6-6" value="0">La contrase&ntilde;a, el wifi, la IP y el modelo de la placa.</label>
           <label class="ta-op"><input type="radio" name="c6-6" value="1">Qui&eacute;n lo manda, qu&eacute; mide, cu&aacute;ndo y a d&oacute;nde va.</label>
           <label class="ta-op"><input type="radio" name="c6-6" value="2">El programa, el sensor, el actuador y el usuario.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Identificador, magnitud con su valor y su unidad, marca de tiempo y destino con su protocolo. Todo lo dem&aacute;s que viaja es sobre.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. El mensaje va cifrado. &iquest;Qu&eacute; sigue viendo el router por el que pasa?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p8">
+          <p id="test-c6-p8">8. El mensaje va cifrado. &iquest;Qu&eacute; sigue viendo el router por el que pasa?</p>
           <label class="ta-op"><input type="radio" name="c6-7" value="0">Nada en absoluto: el cifrado lo tapa todo.</label>
           <label class="ta-op"><input type="radio" name="c6-7" value="1">Con qui&eacute;n habla la placa, cu&aacute;nto ocupa el mensaje y cada cu&aacute;nto lo manda.</label>
           <label class="ta-op"><input type="radio" name="c6-7" value="2">Solo el valor num&eacute;rico, pero no de qu&eacute; sensor viene.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Son los <b>metadatos</b>. Con una medida cada poco tiempo desde un aula se sabe a qu&eacute; hora se abre el centro y qu&eacute; d&iacute;as no va nadie, sin leer un solo dato.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. &iquest;En qu&eacute; se diferencia entrenar un modelo de programar una regla?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p9">
+          <p id="test-c6-p9">9. &iquest;En qu&eacute; se diferencia entrenar un modelo de programar una regla?</p>
           <label class="ta-op"><input type="radio" name="c6-8" value="0">En que al entrenar la m&aacute;quina razona por su cuenta.</label>
           <label class="ta-op"><input type="radio" name="c6-8" value="1">En que al programar t&uacute; pones la regla y al entrenar pones los ejemplos, y el programa busca los n&uacute;meros de la regla.</label>
           <label class="ta-op"><input type="radio" name="c6-8" value="2">En que entrenar solo sirve para im&aacute;genes.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Entrenar es una b&uacute;squeda: t&uacute; eliges qu&eacute; forma tiene la regla y das ejemplos etiquetados; el programa ajusta los pesos corrigiendo cada vez que falla.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Un modelo acierta el 96 % de los ejemplos con los que se entren&oacute; y el 61 % de los que no hab&iacute;a visto. &iquest;Qu&eacute; ha pasado?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p10">
+          <p id="test-c6-p10">10. Un modelo acierta el 96 % de los ejemplos con los que se entren&oacute; y el 61 % de los que no hab&iacute;a visto. &iquest;Qu&eacute; ha pasado?</p>
           <label class="ta-op"><input type="radio" name="c6-9" value="0">Que necesita m&aacute;s pasadas de entrenamiento.</label>
           <label class="ta-op"><input type="radio" name="c6-9" value="1">Que ha aprendido los ejemplos que le disteis, y esos ejemplos no representaban el problema entero.</label>
           <label class="ta-op"><input type="radio" name="c6-9" value="2">Que el conjunto de prueba est&aacute; mal etiquetado.</label>
@@ -5591,85 +5591,85 @@ void loop() {
       </ol>
       <div class="ta" id="test-c6b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. La bomba de vuestro riego arranc&oacute; de madrugada con la tierra mojada. &iquest;Cu&aacute;l es la causa m&aacute;s probable?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p1">
+          <p id="test-c6b-p1">1. La bomba de vuestro riego arranc&oacute; de madrugada con la tierra mojada. &iquest;Cu&aacute;l es la causa m&aacute;s probable?</p>
           <label class="ta-op"><input type="radio" name="c6b-0" value="0">El umbral estaba demasiado bajo y hay que subirlo.</label>
           <label class="ta-op"><input type="radio" name="c6b-0" value="1">Una medida suelta dio un valor falso y el programa, que decide con una sola medida, se la crey&oacute;.</label>
           <label class="ta-op"><input type="radio" name="c6b-0" value="2">El conversor A/D se estrope&oacute;.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Basta con que alguien roce la sonda para que una lectura no corresponda a nada. Si el programa decide con el valor de ese instante, act&uacute;a. Subir el umbral no lo arregla: lo sube tambi&eacute;n para los casos de verdad.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Qu&eacute; hace la l&iacute;nea <code>pos = (pos + 1) % N;</code> de un buffer circular?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p2">
+          <p id="test-c6b-p2">2. &iquest;Qu&eacute; hace la l&iacute;nea <code>pos = (pos + 1) % N;</code> de un buffer circular?</p>
           <label class="ta-op"><input type="radio" name="c6b-1" value="0">Calcula la media de las N medidas.</label>
           <label class="ta-op"><input type="radio" name="c6b-1" value="1">Hace que el &iacute;ndice vuelva a 0 al llegar al final, para escribir encima de la medida m&aacute;s vieja.</label>
           <label class="ta-op"><input type="radio" name="c6b-1" value="2">Divide la lectura entre N para que quepa en un byte.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el resto de la divisi&oacute;n: cuando <code>pos</code> llega a N, <code>N % N</code> vale 0. Sin esa l&iacute;nea el programa escribe fuera del array, encima de otras variables, y en Arduino eso no da error.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Tu sensor da de vez en cuando un pico enorme de un solo instante. &iquest;Media o mediana?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p3">
+          <p id="test-c6b-p3">3. Tu sensor da de vez en cuando un pico enorme de un solo instante. &iquest;Media o mediana?</p>
           <label class="ta-op"><input type="radio" name="c6b-2" value="0">Media, que es m&aacute;s f&aacute;cil de programar.</label>
           <label class="ta-op"><input type="radio" name="c6b-2" value="1">Mediana: el pico se va a un extremo de la lista ordenada y no entra en la cuenta.</label>
           <label class="ta-op"><input type="radio" name="c6b-2" value="2">Da igual, las dos hacen lo mismo con los mismos bytes.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La media <b>reparte</b> el pico entre las N medidas, o sea que lo estira: contamina N decisiones en vez de una. La mediana lo <b>tira</b>. Ocupan los mismos bytes, pero no sirven para lo mismo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Qu&eacute; se paga siempre por decidir con la media de N medidas, haya picos o no?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p4">
+          <p id="test-c6b-p4">4. &iquest;Qu&eacute; se paga siempre por decidir con la media de N medidas, haya picos o no?</p>
           <label class="ta-op"><input type="radio" name="c6b-3" value="0">Nada, alisar es gratis.</label>
           <label class="ta-op"><input type="radio" name="c6b-3" value="1">2N bytes de memoria y un retraso de unas N/2 medidas en enterarse.</label>
           <label class="ta-op"><input type="radio" name="c6b-3" value="2">Que el conversor pierde resoluci&oacute;n.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La memoria se cuenta (2N bytes de los 2.048 de un Uno) y el retraso tambi&eacute;n: con medidas cada dos minutos, una media de 20 tarda unos 20 minutos en enterarse de un cambio.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. <code>int suma = 0;</code> y luego se suman 40 lecturas de hasta 1023. &iquest;Qu&eacute; pasa?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p5">
+          <p id="test-c6b-p5">5. <code>int suma = 0;</code> y luego se suman 40 lecturas de hasta 1023. &iquest;Qu&eacute; pasa?</p>
           <label class="ta-op"><input type="radio" name="c6b-4" value="0">Nada: 40.920 cabe de sobra.</label>
           <label class="ta-op"><input type="radio" name="c6b-4" value="1">Se desborda, porque un <code>int</code> llega a 32.767, y la media sale mal sin que el programa avise.</label>
           <label class="ta-op"><input type="radio" name="c6b-4" value="2">El compilador da un error y no deja subir el sketch.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el mismo desbordamiento de la sesi&oacute;n 1, ahora escondido en el acumulador de la media. Se arregla con <code>long suma = 0;</code>, que son 2 bytes m&aacute;s una sola vez.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Vuestro Arduino Uno tiene que mandar el dato fuera del aula. &iquest;Qu&eacute; hace falta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p6">
+          <p id="test-c6b-p6">6. Vuestro Arduino Uno tiene que mandar el dato fuera del aula. &iquest;Qu&eacute; hace falta?</p>
           <label class="ta-op"><input type="radio" name="c6b-5" value="0">Nada, el Uno lleva wifi.</label>
           <label class="ta-op"><input type="radio" name="c6b-5" value="1">Un ordenador que lea el puerto serie, o un m&oacute;dulo ESP-01 (~2 &euro;), o cambiar la placa por un ESP32.</label>
           <label class="ta-op"><input type="radio" name="c6b-5" value="2">Activar el wifi por software en el <code>setup()</code>.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El Uno no tiene wifi ni Ethernet. Las tres soluciones tienen precio y pega, y eso va en la memoria del proyecto: el m&oacute;dulo ESP-01, adem&aacute;s, funciona a 3,3 V y el Uno saca 5 V.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Para qu&eacute; sirve un <b>latido</b> si el aparato ya avisa cuando pasa algo?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p7">
+          <p id="test-c6b-p7">7. &iquest;Para qu&eacute; sirve un <b>latido</b> si el aparato ya avisa cuando pasa algo?</p>
           <label class="ta-op"><input type="radio" name="c6b-6" value="0">Para que la gr&aacute;fica quede m&aacute;s bonita.</label>
           <label class="ta-op"><input type="radio" name="c6b-6" value="1">Porque un aparato estropeado y uno tranquilo se ven igual: los dos callan. El latido hace que el silencio se pueda detectar.</label>
           <label class="ta-op"><input type="radio" name="c6b-6" value="2">Para sincronizar la hora de la placa con el servidor.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con avisos solo por evento, dejar de mandar no se distingue de que todo vaya bien. El latido pone el silencio del lado de las aver&iacute;as. Es lo que hace el <i>Keep Alive</i> de MQTT.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. Se cae la red nueve horas y el aparato guarda en memoria lo que no puede mandar. &iquest;Basta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p8">
+          <p id="test-c6b-p8">8. Se cae la red nueve horas y el aparato guarda en memoria lo que no puede mandar. &iquest;Basta?</p>
           <label class="ta-op"><input type="radio" name="c6b-7" value="0">S&iacute;: si se guarda, no se pierde nada.</label>
           <label class="ta-op"><input type="radio" name="c6b-7" value="1">No: hace falta adem&aacute;s <b>reintentar</b> al volver la red, y aun as&iacute; la cola tiene tope.</label>
           <label class="ta-op"><input type="radio" name="c6b-7" value="2">No: hay que mandarlo todo dos veces por si acaso.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Guardar sin reintentar es perder despacio: el aviso puede quedarse dentro d&iacute;as. Y con 1.200 bytes y mensajes de 24 caben 50: lo que llegue despu&eacute;s se pierde igual.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Entrenas con 40 medidas y pruebas con otras 40 <b>elegidas al azar de las mismas jornadas</b>. Sale un 93 %. &iquest;Qu&eacute; mide ese n&uacute;mero?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p9">
+          <p id="test-c6b-p9">9. Entrenas con 40 medidas y pruebas con otras 40 <b>elegidas al azar de las mismas jornadas</b>. Sale un 93 %. &iquest;Qu&eacute; mide ese n&uacute;mero?</p>
           <label class="ta-op"><input type="radio" name="c6b-8" value="0">C&oacute;mo le ir&aacute; en cualquier maceta.</label>
           <label class="ta-op"><input type="radio" name="c6b-8" value="1">C&oacute;mo le va en esas mismas jornadas y con ese mismo sensor, que no es la pregunta que importa.</label>
           <label class="ta-op"><input type="radio" name="c6b-8" value="2">Que el modelo est&aacute; bien entrenado y ya se puede usar.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es una <b>fuga</b>: el conjunto de prueba comparte d&iacute;a, sitio y sensor con el de entrenamiento. Dejando fuera una jornada entera, el mismo modelo con los mismos ejemplos baja al 73 %.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. &iquest;Con qu&eacute; dos cosas hay que comparar siempre un modelo entrenado?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p10">
+          <p id="test-c6b-p10">10. &iquest;Con qu&eacute; dos cosas hay que comparar siempre un modelo entrenado?</p>
           <label class="ta-op"><input type="radio" name="c6b-9" value="0">Con otro modelo m&aacute;s grande y con uno m&aacute;s peque&ntilde;o.</label>
           <label class="ta-op"><input type="radio" name="c6b-9" value="1">Con el modelo tonto que dice siempre lo mismo, y con el mejor <code>si</code> de una l&iacute;nea que puedas escribir a mano.</label>
           <label class="ta-op"><input type="radio" name="c6b-9" value="2">Con el mismo modelo entrenado dos veces, para ver si sale igual.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Son los dos suelos. Si no les gana a los dos, no lo pongas: un <code>si</code> se lee, se depura, se explica en la defensa y cabe en 2 kB de memoria.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>11. &iquest;Qu&eacute; es exactamente el <b>modo seguro</b> de vuestro aparato?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p11">
+          <p id="test-c6b-p11">11. &iquest;Qu&eacute; es exactamente el <b>modo seguro</b> de vuestro aparato?</p>
           <label class="ta-op"><input type="radio" name="c6b-10" value="0">Un modo que arregla la aver&iacute;a y sigue funcionando.</label>
           <label class="ta-op"><input type="radio" name="c6b-10" value="1">Un estado en el que deja de actuar, se queda quieto, avisa de que se ha parado y del que <b>no se sale solo</b>.</label>
           <label class="ta-op"><input type="radio" name="c6b-10" value="2">Bajar la potencia del actuador a la mitad hasta que alguien lo mire.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No arregla nada: para la m&aacute;quina y pide un humano. Y se sale a mano a prop&oacute;sito, igual que una seta de emergencia, que hay que girar para soltarla.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>12. Con la sonda fuera del tiesto y <b>sin</b> modo seguro, el aparato manda 216 avisos, y 198 de ellos dicen &laquo;he regado&raquo;. &iquest;Por qu&eacute; es eso peor que no mandar ninguno?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p12">
+          <p id="test-c6b-p12">12. Con la sonda fuera del tiesto y <b>sin</b> modo seguro, el aparato manda 216 avisos, y 198 de ellos dicen &laquo;he regado&raquo;. &iquest;Por qu&eacute; es eso peor que no mandar ninguno?</p>
           <label class="ta-op"><input type="radio" name="c6b-11" value="0">Porque gasta datos.</label>
           <label class="ta-op"><input type="radio" name="c6b-11" value="1">Porque ninguno de esos avisos dice que algo va mal: son los mismos que mandar&iacute;a si todo fuera bien, solo que muchos.</label>
           <label class="ta-op"><input type="radio" name="c6b-11" value="2">Porque llena la EEPROM.</label>

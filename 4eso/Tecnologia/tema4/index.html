@@ -2600,71 +2600,71 @@ repetir siempre:
       <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
       <div class="ta" id="test-c4">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Un tostador con temporizador es un sistema de control en lazo abierto porque&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p1">
+          <p id="test-c4-p1">1. Un tostador con temporizador es un sistema de control en lazo abierto porque&hellip;</p>
           <label class="ta-op"><input type="radio" name="c4-0" value="0">no lleva electr&oacute;nica, solo un muelle y una resistencia</label>
           <label class="ta-op"><input type="radio" name="c4-0" value="1">no mide el resultado: cumple el tiempo que le has puesto y para</label>
           <label class="ta-op"><input type="radio" name="c4-0" value="2">siempre quema el pan</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que define el lazo abierto no es la tecnolog&iacute;a ni que funcione mal, sino que la orden <b>no depende del resultado</b>. El tostador nunca prueba el pan.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. La cocina baja de 20 a 5&nbsp;&deg;C. El horno en lazo abierto aplicaba el 64&nbsp;% de sus 1500&nbsp;W y se quedaba en 180&nbsp;&deg;C, con p&eacute;rdidas de 6&nbsp;W/&deg;C. &iquest;D&oacute;nde se queda ahora?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p2">
+          <p id="test-c4-p2">2. La cocina baja de 20 a 5&nbsp;&deg;C. El horno en lazo abierto aplicaba el 64&nbsp;% de sus 1500&nbsp;W y se quedaba en 180&nbsp;&deg;C, con p&eacute;rdidas de 6&nbsp;W/&deg;C. &iquest;D&oacute;nde se queda ahora?</p>
           <label class="ta-op"><input type="radio" name="c4-1" value="0">en 180&nbsp;&deg;C, porque el 64&nbsp;% no ha cambiado</label>
           <label class="ta-op"><input type="radio" name="c4-1" value="1">en 165&nbsp;&deg;C</label>
           <label class="ta-op"><input type="radio" name="c4-1" value="2">en 115&nbsp;&deg;C</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> T = T<sub>amb</sub> + u &middot; P / k = 5 + 0,64 &middot; 1500 / 6 = 5 + 160 = <b>165&nbsp;&deg;C</b>. La potencia es la misma; lo que ha cambiado es el punto de partida, y el horno no se entera porque no mira.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Un lazo cerrado con la resistencia al 100&nbsp;% no consigue llegar a la consigna. Eso significa que&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p3">
+          <p id="test-c4-p3">3. Un lazo cerrado con la resistencia al 100&nbsp;% no consigue llegar a la consigna. Eso significa que&hellip;</p>
           <label class="ta-op"><input type="radio" name="c4-2" value="0">el sensor est&aacute; roto</label>
           <label class="ta-op"><input type="radio" name="c4-2" value="1">el actuador se ha quedado corto: est&aacute; saturado</label>
           <label class="ta-op"><input type="radio" name="c4-2" value="2">hay que bajar la consigna hasta que llegue</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un lazo cerrado corrige <b>mientras le quede actuador</b>. Cuando pide m&aacute;s del 100&nbsp;% ya no hay nada m&aacute;s que dar: eso es la <b>saturaci&oacute;n</b>, y no se arregla controlando mejor, sino con m&aacute;s potencia o menos p&eacute;rdidas.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. En un diagrama de bloques de lazo cerrado, &iquest;cu&aacute;l es la &uacute;nica flecha que va hacia atr&aacute;s?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p4">
+          <p id="test-c4-p4">4. En un diagrama de bloques de lazo cerrado, &iquest;cu&aacute;l es la &uacute;nica flecha que va hacia atr&aacute;s?</p>
           <label class="ta-op"><input type="radio" name="c4-3" value="0">la que va del controlador al actuador</label>
           <label class="ta-op"><input type="radio" name="c4-3" value="1">la que lleva la medida del sensor hasta el comparador</label>
           <label class="ta-op"><input type="radio" name="c4-3" value="2">la que trae la consigna</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Esa flecha es la <b>realimentaci&oacute;n</b>, y es exactamente lo que cierra el lazo. Si la borras, el dibujo que queda es el de un lazo abierto.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Una sonda de humedad da 620 al aire (0&nbsp;%) y 280 en agua (100&nbsp;%). Est&aacute; leyendo 450. &iquest;Qu&eacute; humedad hay?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p5">
+          <p id="test-c4-p5">5. Una sonda de humedad da 620 al aire (0&nbsp;%) y 280 en agua (100&nbsp;%). Est&aacute; leyendo 450. &iquest;Qu&eacute; humedad hay?</p>
           <label class="ta-op"><input type="radio" name="c4-4" value="0">45&nbsp;%, que es 450 dividido entre 10</label>
           <label class="ta-op"><input type="radio" name="c4-4" value="1">50&nbsp;%</label>
           <label class="ta-op"><input type="radio" name="c4-4" value="2">62&nbsp;%</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La recta es L = 620 &minus; 3,4 &middot; H, as&iacute; que H = (620 &minus; 450) / 3,4 = 170 / 3,4 = <b>50&nbsp;%</b>. La lectura no es el porcentaje, y aqu&iacute; adem&aacute;s <b>baja</b> cuando la humedad sube.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. &iquest;Por qu&eacute; hay que pasar la consigna al idioma del sensor antes de restar?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p6">
+          <p id="test-c4-p6">6. &iquest;Por qu&eacute; hay que pasar la consigna al idioma del sensor antes de restar?</p>
           <label class="ta-op"><input type="radio" name="c4-5" value="0">porque Arduino no sabe restar n&uacute;meros con decimales</label>
           <label class="ta-op"><input type="radio" name="c4-5" value="1">porque restar dos n&uacute;meros que est&aacute;n en unidades distintas no significa nada</label>
           <label class="ta-op"><input type="radio" name="c4-5" value="2">porque el comparador solo admite n&uacute;meros positivos</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> &laquo;40&nbsp;% menos 450 cuentas&raquo; no es ning&uacute;n error: son cosas distintas. Para restar, los dos n&uacute;meros tienen que hablar la misma lengua. Da igual cu&aacute;l traduzcas, pero uno de los dos hay que traducirlo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Un term&oacute;stato con consigna 21&nbsp;&deg;C e hist&eacute;resis de 1&nbsp;&deg;C&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p7">
+          <p id="test-c4-p7">7. Un term&oacute;stato con consigna 21&nbsp;&deg;C e hist&eacute;resis de 1&nbsp;&deg;C&hellip;</p>
           <label class="ta-op"><input type="radio" name="c4-6" value="0">mantiene la habitaci&oacute;n exactamente a 21&nbsp;&deg;C</label>
           <label class="ta-op"><input type="radio" name="c4-6" value="1">enciende por debajo de 20,5 y apaga por encima de 21,5, as&iacute; que la temperatura oscila entre esos dos valores</label>
           <label class="ta-op"><input type="radio" name="c4-6" value="2">enciende a 21 y apaga a 22</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La banda va <b>repartida a los dos lados</b> de la consigna: C &plusmn; h/2. Y esa oscilaci&oacute;n no es una aver&iacute;a: es el precio inevitable de un actuador que solo sabe estar encendido o apagado.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>8. Si estrechas mucho la banda de hist&eacute;resis&hellip;</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c4-p8">
+          <p id="test-c4-p8">8. Si estrechas mucho la banda de hist&eacute;resis&hellip;</p>
           <label class="ta-op"><input type="radio" name="c4-7" value="0">la temperatura se ajusta m&aacute;s, pero el rel&eacute; dura mucho menos</label>
           <label class="ta-op"><input type="radio" name="c4-7" value="1">mejora todo: m&aacute;s precisi&oacute;n y menos consumo</label>
           <label class="ta-op"><input type="radio" name="c4-7" value="2">la caldera se enciende menos veces</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Estrechar la banda ajusta la temperatura y <b>multiplica las conmutaciones</b>. Con 100.000 ciclos de vida, pasar de 8 a 43 ciclos por hora divide la vida del rel&eacute; entre cinco. Esa es la negociaci&oacute;n, y no hay manera de ganarla entera.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Un list&oacute;n uniforme de 80&nbsp;cm y 150&nbsp;g gira sobre uno de sus extremos. &iquest;Qu&eacute; par hace falta para sostenerlo horizontal?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p9">
+          <p id="test-c4-p9">9. Un list&oacute;n uniforme de 80&nbsp;cm y 150&nbsp;g gira sobre uno de sus extremos. &iquest;Qu&eacute; par hace falta para sostenerlo horizontal?</p>
           <label class="ta-op"><input type="radio" name="c4-8" value="0">0,150 &middot; 9,81 &middot; 0,80 = 1,18&nbsp;N&middot;m</label>
           <label class="ta-op"><input type="radio" name="c4-8" value="1">0,150 &middot; 9,81 &middot; 0,40 = 0,59&nbsp;N&middot;m</label>
           <label class="ta-op"><input type="radio" name="c4-8" value="2">0,150 &middot; 9,81 = 1,47&nbsp;N&middot;m, que es lo que pesa</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El peso de una barra uniforme act&uacute;a en su <b>centro</b>, as&iacute; que el brazo es L/2 = 0,40&nbsp;m. Usar los 80&nbsp;cm enteros es el fallo m&aacute;s habitual y da justo el doble. La tercera opci&oacute;n no es ni siquiera un par: son newtons.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Un motor da 0,8&nbsp;kg&middot;cm a 200&nbsp;rpm. Le pones una reductora con z<sub>1</sub>&nbsp;=&nbsp;20, z<sub>2</sub>&nbsp;=&nbsp;100 y rendimiento 0,90. &iquest;Qu&eacute; hay en la salida?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4-p10">
+          <p id="test-c4-p10">10. Un motor da 0,8&nbsp;kg&middot;cm a 200&nbsp;rpm. Le pones una reductora con z<sub>1</sub>&nbsp;=&nbsp;20, z<sub>2</sub>&nbsp;=&nbsp;100 y rendimiento 0,90. &iquest;Qu&eacute; hay en la salida?</p>
           <label class="ta-op"><input type="radio" name="c4-9" value="0">4&nbsp;kg&middot;cm y 1000&nbsp;rpm</label>
           <label class="ta-op"><input type="radio" name="c4-9" value="1">3,6&nbsp;kg&middot;cm y 40&nbsp;rpm</label>
           <label class="ta-op"><input type="radio" name="c4-9" value="2">0,16&nbsp;kg&middot;cm y 40&nbsp;rpm</label>
@@ -5256,71 +5256,71 @@ void loop() {
       <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
       <div class="ta" id="test-c4b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Tu l&aacute;mpara con control todo-nada parpadea varias veces por segundo. &iquest;Qu&eacute; lo arregla de verdad?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p1">
+          <p id="test-c4b-p1">1. Tu l&aacute;mpara con control todo-nada parpadea varias veces por segundo. &iquest;Qu&eacute; lo arregla de verdad?</p>
           <label class="ta-op"><input type="radio" name="c4b-0" value="0">estrechar mucho la banda de hist&eacute;resis</label>
           <label class="ta-op"><input type="radio" name="c4b-0" value="1">pasar a control proporcional: darle al LED un brillo intermedio</label>
           <label class="ta-op"><input type="radio" name="c4b-0" value="2">poner un sensor m&aacute;s caro</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El problema no es la banda: es que el actuador <b>solo tiene dos posiciones</b>. Estrechar la banda hace que parpadee m&aacute;s r&aacute;pido; ensancharla, que se note m&aacute;s. La salida es darle valores intermedios, y para eso est&aacute; el <b>proporcional</b> con PWM.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. Consigna de humedad 40&nbsp;% y banda proporcional de 40 puntos. La maceta est&aacute; al 25&nbsp;%. &iquest;A qu&eacute; porcentaje manda la bomba?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p2">
+          <p id="test-c4b-p2">2. Consigna de humedad 40&nbsp;% y banda proporcional de 40 puntos. La maceta est&aacute; al 25&nbsp;%. &iquest;A qu&eacute; porcentaje manda la bomba?</p>
           <label class="ta-op"><input type="radio" name="c4b-1" value="0">al 25&nbsp;%</label>
           <label class="ta-op"><input type="radio" name="c4b-1" value="1">al 37,5&nbsp;%</label>
           <label class="ta-op"><input type="radio" name="c4b-1" value="2">al 100&nbsp;%, porque est&aacute; por debajo de la consigna</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Error = 40 &minus; 25 = 15. u = error / BP = 15 / 40 = <b>0,375</b>, o sea el <b>37,5&nbsp;%</b>. Solo se pone a tope cuando el error llega a la banda entera, 40 puntos.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Un control proporcional bien ajustado deja la humedad en el 37 cuando le pides 40. Eso&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p3">
+          <p id="test-c4b-p3">3. Un control proporcional bien ajustado deja la humedad en el 37 cuando le pides 40. Eso&hellip;</p>
           <label class="ta-op"><input type="radio" name="c4b-2" value="0">es un fallo de ajuste: con m&aacute;s paciencia se corrige</label>
           <label class="ta-op"><input type="radio" name="c4b-2" value="1">es inevitable, porque el mando sale del error: sin error no hay mando</label>
           <label class="ta-op"><input type="radio" name="c4b-2" value="2">significa que el sensor est&aacute; mal calibrado</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Si el error fuera cero, u = error / BP ser&iacute;a cero, la bomba se parar&iacute;a y la maceta se secar&iacute;a. El proporcional <b>necesita equivocarse para trabajar</b>. Se reduce estrechando la banda, y se elimina con la acci&oacute;n <b>integral</b>, que ya no es de 4.&ordm;.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Qu&eacute; hace <code>analogWrite(9, 102)</code> en un Arduino Uno?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p4">
+          <p id="test-c4b-p4">4. &iquest;Qu&eacute; hace <code>analogWrite(9, 102)</code> en un Arduino Uno?</p>
           <label class="ta-op"><input type="radio" name="c4b-3" value="0">saca 102 voltios por el pin 9</label>
           <label class="ta-op"><input type="radio" name="c4b-3" value="1">saca una se&ntilde;al PWM en el pin 9 encendida el 40&nbsp;% del tiempo</label>
           <label class="ta-op"><input type="radio" name="c4b-3" value="2">lee el valor 102 del pin 9</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El rango es de 0 a 255, as&iacute; que 102 / 255 = <b>0,40</b>. El pin se enciende y se apaga unas 490 veces por segundo y est&aacute; encendido el 40&nbsp;% de cada ciclo: eso es <b>PWM</b>. La tensi&oacute;n sigue siendo 5&nbsp;V cuando est&aacute; encendido.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. <code>if (seco) digitalWrite(BOMBA, HIGH); delay(1800000);</code> &mdash; &iquest;qu&eacute; tiene de malo?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p5">
+          <p id="test-c4b-p5">5. <code>if (seco) digitalWrite(BOMBA, HIGH); delay(1800000);</code> &mdash; &iquest;qu&eacute; tiene de malo?</p>
           <label class="ta-op"><input type="radio" name="c4b-4" value="0">nada: comprueba cada media hora, que est&aacute; bien para un riego</label>
           <label class="ta-op"><input type="radio" name="c4b-4" value="1">que si enciende la bomba, no la puede apagar hasta media hora despu&eacute;s</label>
           <label class="ta-op"><input type="radio" name="c4b-4" value="2">que <code>delay</code> no admite n&uacute;meros tan grandes</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Durante el <code>delay</code> el programa <b>no hace nada</b>: no mide, no decide y no puede apagar lo que encendi&oacute;. A 100&nbsp;ml por minuto, media hora de bomba son <b>tres litros</b> en el suelo del aula.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. &iquest;Para qu&eacute; sirve el patr&oacute;n de <code>millis()</code>?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p6">
+          <p id="test-c4b-p6">6. &iquest;Para qu&eacute; sirve el patr&oacute;n de <code>millis()</code>?</p>
           <label class="ta-op"><input type="radio" name="c4b-5" value="0">para que el programa vaya m&aacute;s r&aacute;pido</label>
           <label class="ta-op"><input type="radio" name="c4b-5" value="1">para espaciar las decisiones sin dejar de mirar entre una y otra</label>
           <label class="ta-op"><input type="radio" name="c4b-5" value="2">para medir cu&aacute;nto tarda el agua en llegar a la sonda</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El lazo sigue girando miles de veces por segundo; lo &uacute;nico que se espacia es la <b>decisi&oacute;n</b>. Entre decisi&oacute;n y decisi&oacute;n el programa puede atender el bot&oacute;n, mirar el dep&oacute;sito y, sobre todo, apagar la bomba.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>7. Riegas y la sonda tarda diez minutos en notar el agua. Si el programa riega &laquo;hasta que la sonda diga basta&raquo;&hellip;</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c4b-p7">
+          <p id="test-c4b-p7">7. Riegas y la sonda tarda diez minutos en notar el agua. Si el programa riega &laquo;hasta que la sonda diga basta&raquo;&hellip;</p>
           <label class="ta-op"><input type="radio" name="c4b-6" value="0">echar&aacute; unos diez minutos de bomba antes de enterarse: alrededor de un litro</label>
           <label class="ta-op"><input type="radio" name="c4b-6" value="1">no pasa nada, porque acabar&aacute; parando</label>
           <label class="ta-op"><input type="radio" name="c4b-6" value="2">hay que estrechar la banda de hist&eacute;resis</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Eso es <b>tiempo muerto</b>: la lectura no se mueve <b>nada</b> mientras el agua va de camino, as&iacute; que el programa sigue regando. A 100&nbsp;ml/min son unos <b>1000&nbsp;ml</b>. Contra el tiempo muerto no hay ajuste que valga: hay que echar una <b>dosis</b> y <b>esperar</b>.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>8. Pesas la maceta empapada (780&nbsp;g) y seca del todo (620&nbsp;g). Hoy pesa 700&nbsp;g. &iquest;Qu&eacute; humedad tiene?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c4b-p8">
+          <p id="test-c4b-p8">8. Pesas la maceta empapada (780&nbsp;g) y seca del todo (620&nbsp;g). Hoy pesa 700&nbsp;g. &iquest;Qu&eacute; humedad tiene?</p>
           <label class="ta-op"><input type="radio" name="c4b-7" value="0">50&nbsp;%</label>
           <label class="ta-op"><input type="radio" name="c4b-7" value="1">80&nbsp;%</label>
           <label class="ta-op"><input type="radio" name="c4b-7" value="2">no se puede saber sin la sonda</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La maceta guarda 780 &minus; 620 = 160&nbsp;g de agua como mucho, y ahora tiene 700 &minus; 620 = 80. Entonces H = 100 &middot; 80 / 160 = <b>50&nbsp;%</b>. Una b&aacute;scula de cocina calibra una sonda mejor que cualquier n&uacute;mero copiado de internet.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. &iquest;Por qu&eacute; gasta m&aacute;s agua un riego con la sonda clavada junto al gotero y a un cent&iacute;metro de profundidad?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c4b-p9">
+          <p id="test-c4b-p9">9. &iquest;Por qu&eacute; gasta m&aacute;s agua un riego con la sonda clavada junto al gotero y a un cent&iacute;metro de profundidad?</p>
           <label class="ta-op"><input type="radio" name="c4b-8" value="0">porque ah&iacute; la sonda se moja m&aacute;s y se estropea antes</label>
           <label class="ta-op"><input type="radio" name="c4b-8" value="1">porque mide la costra, que se seca en horas, y no el cepell&oacute;n, donde bebe la planta</label>
           <label class="ta-op"><input type="radio" name="c4b-8" value="2">porque a esa profundidad la lectura es menos precisa</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La costra se seca en horas y el cepell&oacute;n aguanta d&iacute;as. Si mides arriba, pides agua que la planta no necesita, y esa agua se evapora sin llegar a la ra&iacute;z. En la escena son <b>100&nbsp;ml</b> a la semana: de 500 se baja a 400.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>10. Pones un tope de &laquo;nunca m&aacute;s de 150&nbsp;s de bomba al d&iacute;a&raquo; y compruebas que no cambia nada. &iquest;Lo quitas?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c4b-p10">
+          <p id="test-c4b-p10">10. Pones un tope de &laquo;nunca m&aacute;s de 150&nbsp;s de bomba al d&iacute;a&raquo; y compruebas que no cambia nada. &iquest;Lo quitas?</p>
           <label class="ta-op"><input type="radio" name="c4b-9" value="0">no: no hace nada mientras todo va bien, y lo hace todo el d&iacute;a que el sensor miente</label>
           <label class="ta-op"><input type="radio" name="c4b-9" value="1">s&iacute;, el c&oacute;digo que no hace nada sobra</label>
           <label class="ta-op"><input type="radio" name="c4b-9" value="2">s&iacute;, pero solo si el sensor es capacitivo</label>

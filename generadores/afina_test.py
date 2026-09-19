@@ -14,9 +14,10 @@ Tres arreglos, todos dentro del molde, sin tocar ninguna pregunta:
     Se pone desde el JS, asi que antes de corregir no se ve nada;
   * la nota es una **region viva**, de modo que al pulsar «Corregir» se anuncia
     «7 de 10» sin tener que ir a buscarla;
-  * el grupo de opciones de cada pregunta se anuncia con su enunciado
-    (`role="radiogroup"` y `aria-labelledby`), que es lo que convierte «opcion
-    2 de 3» en algo que se pueda contestar.
+  * el bloque de cada pregunta se anuncia con su enunciado (`role="group"` y
+    `aria-labelledby`). Sin eso, al entrar en las opciones se oye «Las otras dos
+    lucen mas, porque les llega mas tension, boton de opcion» y en ningun
+    momento la pregunta: las tres opciones llegan sin enunciado.
 
 El molde `.test` del tema 5 de 2.o ya ensenaba una palabra; esto lleva la misma
 idea al molde que usa el resto del sitio.
@@ -71,6 +72,46 @@ JS_LIMPIA_NUEVO = u"""      T.querySelectorAll('.ta-op').forEach(function(L){
       });"""
 
 
+def etiqueta_preguntas(s):
+    """Pone `role="group"` y `aria-labelledby` en cada pregunta.
+
+    El identificador sale del `id` del test y del numero de la pregunta, asi
+    que es estable: volver a pasar el script no cambia nada."""
+    def por_test(m):
+        cab, cuerpo = m.group(1), m.group(2)
+        tid = re.search(r'id="([^"]+)"', cab)
+        if not tid:
+            return m.group(0)
+        tid = tid.group(1)
+        n = [0]
+
+        def por_pregunta(mm):
+            n[0] += 1
+            etq = u'%s-p%d' % (tid, n[0])
+            abre, dentro = mm.group(1), mm.group(2)
+            if u'aria-labelledby' in abre:
+                return mm.group(0)
+            # el enunciado es el primer <p> de la pregunta
+            dentro2, hechos = re.subn(r'<p( class="test-enun")?>',
+                                      lambda e: u'<p%s id="%s">' % (e.group(1) or u'', etq),
+                                      dentro, count=1)
+            if not hechos:
+                return mm.group(0)
+            abre2 = abre[:-1] + u' role="group" aria-labelledby="%s">' % etq
+            return abre2 + dentro2
+
+        cuerpo = re.sub(r'(<div class="ta-p"[^>]*>)(.*?)(?=<div class="ta-p"|<div class="ta-pie")',
+                        por_pregunta, cuerpo, flags=re.S)
+        cuerpo = re.sub(r'(<li class="test-p"[^>]*>)(.*?)(?=</li>)',
+                        por_pregunta, cuerpo, flags=re.S)
+        return cab + cuerpo
+
+    # el molde `.ta` cierra con <p class="ta-aviso"> y el `.test` del tema 5 con
+    # <div class="test-pie">, y este ultimo no lleva un </div> justo delante
+    return re.sub(r'(<div class="(?:ta|test)" id="[^"]+">)(.*?)(?=<p class="ta-aviso"|<div class="test-pie")',
+                  por_test, s, flags=re.S)
+
+
 def paginas():
     for r, ds, fs in os.walk(RAIZ):
         ds[:] = [d for d in ds if d not in SALTAR]
@@ -95,6 +136,9 @@ def main():
         # la nota, que se anuncie al corregir
         s = re.sub(r'<span class="ta-nota"></span>',
                    u'<span class="ta-nota" role="status" aria-live="polite"></span>', s)
+
+        # cada pregunta, un grupo con su enunciado por nombre
+        s = etiqueta_preguntas(s)
 
         if s != antes:
             io.open(pag, 'w', encoding='utf-8', newline='').write(s)

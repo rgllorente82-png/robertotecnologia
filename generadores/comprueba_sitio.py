@@ -154,6 +154,20 @@ def main():
                     if not boton.count():
                         continue
                     boton.click()
+                    # cada pregunta tiene que ser un grupo con su enunciado por
+                    # nombre: si no, las opciones llegan sin la pregunta
+                    sin_grupo = pg.evaluate(
+                        """(id) => {
+                            const T = document.getElementById(id);
+                            return [...T.querySelectorAll('.ta-p, .test-p')].filter(p => {
+                              const l = p.getAttribute('aria-labelledby');
+                              return !l || !document.getElementById(l);
+                            }).length;
+                        }""", tid)
+                    if sin_grupo:
+                        fallos.append(u'%s: en el test #%s, %d preguntas cuyas opciones se '
+                                      u'anuncian sin el enunciado' % (etq, tid, sin_grupo))
+
                     # corregido, cada pregunta tiene que decir con PALABRAS cual
                     # era la buena: el color solo no lo distingue todo el mundo
                     sin_palabra = pg.evaluate(
