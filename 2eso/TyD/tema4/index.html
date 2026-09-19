@@ -1984,9 +1984,15 @@ footer .wrap{padding-block:18px 26px}
 
           /* los botones invisibles de cada cuadro */
           for(var k = 0; k < P; k++){
+            /* La zona de pulsar es tambien parada del tabulador: con Intro o
+               espacio el cuadro va pasando por sus cuatro estados.          */
+            var COMO = ['sin diagonal', 'con una diagonal',
+                        'con la otra diagonal', 'con las dos diagonales'];
             m += '<rect x="' + (X0 + k*ANCHO + 14) + '" y="' + (Y0 - ALTO + 14) + '" width="'
                + (ANCHO-28) + '" height="' + (ALTO-28) + '" fill="transparent" '
-               + 'style="cursor:pointer" data-cuadro="' + k + '"></rect>';
+               + 'style="cursor:pointer" data-cuadro="' + k + '"'
+               + ' tabindex="0" role="button" aria-label="Cuadro ' + (k+1)
+               + ', ' + COMO[diag[k]] + '"></rect>';
             if(!diag[k]){
               m += '<text x="' + (X0 + k*ANCHO + ANCHO/2) + '" y="' + (Y0 - ALTO/2 + 5)
                  + '" text-anchor="middle" class="et" fill="' + GR + '" style="pointer-events:none">pulsa</text>';
@@ -2026,11 +2032,25 @@ footer .wrap{padding-block:18px 26px}
           pie.innerHTML = texto;
         }
 
-        svg.addEventListener('click', function(e){
-          var r = e.target.closest('[data-cuadro]'); if(!r) return;
+        function gira(r){
           var k = +r.dataset.cuadro;
           diag[k] = (diag[k] + 1) % 4;
           pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve al mismo cuadro para seguir con el tabulador.          */
+          var nuevo = svg.querySelector('[data-cuadro="' + k + '"]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
+        svg.addEventListener('click', function(e){
+          var r = e.target.closest('[data-cuadro]');
+          if(r) gira(r);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var r = e.target.closest ? e.target.closest('[data-cuadro]') : null;
+          if(!r) return;
+          e.preventDefault();
+          gira(r);
         });
         seg.addEventListener('click', function(e){
           var b = e.target.closest('button[data-t]'); if(!b) return;

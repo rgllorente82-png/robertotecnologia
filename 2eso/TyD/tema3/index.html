@@ -641,7 +641,13 @@ footer .wrap{padding-block:18px 26px}
           MAT.forEach(function(x, i){
             var px = X + i*W;
             var sel = (raya === i) ? 'var(--goo-azul)' : ((rayado === i) ? 'var(--goo-rojo)' : 'var(--line)');
-            m += '<g class="mat" data-i="' + i + '" style="cursor:pointer">';
+            /* Cada material es tambien parada del tabulador: se elige con
+               Intro o con espacio, igual que pulsandolo.                    */
+            var papel = (raya === i) ? ', con el que rayas'
+                      : ((rayado === i) ? ', al que rayas' : '');
+            m += '<g class="mat" data-i="' + i + '" style="cursor:pointer"'
+               + ' tabindex="0" role="button" aria-label="' + x.n
+               + ', dureza ' + String(x.d).replace('.', ',') + papel + '">';
             m += '<rect x="' + px + '" y="60" width="66" height="58" rx="4" fill="' + x.c +
                  '" stroke="' + sel + '" stroke-width="' + ((raya===i||rayado===i) ? 3.5 : 1.5) + '"></rect>';
             /* si esta siendo rayado y pierde, se le dibuja el arana~zo */
@@ -685,13 +691,27 @@ footer .wrap{padding-block:18px 26px}
           }
         }
 
-        svg.addEventListener('click', function(e){
-          var g = e.target.closest('.mat'); if(!g) return;
+        function elige(g){
           var i = +g.dataset.i;
           if(raya === null) raya = i;
           else if(rayado === null) rayado = i;
           else { raya = i; rayado = null; }
           pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve al mismo material para seguir con el tabulador.        */
+          var nuevo = svg.querySelector('.mat[data-i="' + i + '"]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('.mat');
+          if(g) elige(g);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var g = e.target.closest ? e.target.closest('.mat') : null;
+          if(!g) return;
+          e.preventDefault();
+          elige(g);
         });
         seg.addEventListener('click', function(){ raya = null; rayado = null; pinta(); });
         pinta();
@@ -1593,7 +1613,11 @@ footer .wrap{padding-block:18px 26px}
             var x = X + i*W;
             var act = (sel === i);
             var col = act ? 'var(--goo-azul)' : 'var(--line)';
-            m += '<g class="fase" data-i="'+i+'" style="cursor:pointer">';
+            /* Cada fase es tambien parada del tabulador: se abre y se cierra
+               con Intro o con espacio, igual que pulsandola.                */
+            m += '<g class="fase" data-i="'+i+'" style="cursor:pointer"'
+               + ' tabindex="0" role="button" aria-expanded="'+(act?'true':'false')
+               + '" aria-label="'+f.n+'">';
             m += '<rect x="'+x+'" y="'+Y+'" width="96" height="46" rx="3" fill="'+(act?'var(--accent-soft)':'var(--surface)')
                + '" stroke="'+col+'" stroke-width="'+(act?3:1.5)+'"></rect>';
             m += '<text x="'+(x+48)+'" y="'+(Y+28)+'" text-anchor="middle" class="rotulo-svg" '
@@ -1628,9 +1652,25 @@ footer .wrap{padding-block:18px 26px}
             pie.innerHTML = 'El modelo <b>circular</b>: lo que se tira vuelve a entrar como materia prima. '
               + 'No es reciclar por gusto: es que <b>extraer sale car&iacute;simo</b>, como viste con el aluminio.';
         }
+        function abre(g){
+          var i = +g.dataset.i;
+          sel = (sel === i) ? -1 : i;
+          pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve a la misma fase para seguir con el tabulador.          */
+          var nuevo = svg.querySelector('.fase[data-i="' + i + '"]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
         svg.addEventListener('click', function(e){
-          var g = e.target.closest('.fase'); if(!g) return;
-          sel = (sel === +g.dataset.i) ? -1 : +g.dataset.i; pinta();
+          var g = e.target.closest('.fase');
+          if(g) abre(g);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var g = e.target.closest ? e.target.closest('.fase') : null;
+          if(!g) return;
+          e.preventDefault();
+          abre(g);
         });
         seg.addEventListener('click', function(e){
           var b = e.target.closest('button[data-c]'); if(!b) return;

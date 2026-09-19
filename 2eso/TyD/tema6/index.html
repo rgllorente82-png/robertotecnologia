@@ -1545,7 +1545,12 @@ footer .wrap{padding-block:18px 26px}
            paralelo (donde debajo pasa la rama vertical).                    */
         function pintaLampara(cx, cy, i, c, b){
           var luce = !rota[i] && !c.abierto;
-          var s = '<g class="lamp" data-l="' + i + '">';
+          /* La lampara es tambien parada del tabulador: con Intro o espacio
+             se funde y se repara, igual que pulsandola.                     */
+          var s = '<g class="lamp" data-l="' + i + '" tabindex="0" role="switch"'
+                + ' aria-checked="' + (rota[i] ? 'true' : 'false') + '"'
+                + ' aria-label="L&#225;mpara ' + (i + 1) + ', '
+                + (rota[i] ? 'fundida' : 'entera') + '">';
           if(rota[i]){
             /* Lampara fundida: el aspa se dibuja partida por el medio, que es
                justo lo que le ha pasado al filamento.                        */
@@ -1603,12 +1608,25 @@ footer .wrap{padding-block:18px 26px}
         }
         function fila(a, b){ return '<tr><td>' + a + '</td><td>' + b + '</td></tr>'; }
 
-        svg.addEventListener('click', function(e){
-          var g = e.target.closest('[data-l]');
-          if(!g) return;
+        function funde(g){
           var i = parseInt(g.dataset.l, 10);
           rota[i] = !rota[i];
           pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve a la misma lampara para seguir con el tabulador.       */
+          var nuevo = svg.querySelector('[data-l="' + i + '"][tabindex]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('[data-l]');
+          if(g) funde(g);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var g = e.target.closest ? e.target.closest('[data-l]') : null;
+          if(!g) return;
+          e.preventDefault();
+          funde(g);
         });
         seg.addEventListener('click', function(e){
           var b = e.target.closest('button[data-m]');
