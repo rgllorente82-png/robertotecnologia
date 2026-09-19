@@ -51,8 +51,12 @@ calcularlos desde la definición del problema, en Python, y los contrasta con lo
 que la página dibuja de verdad en un navegador. Si no coinciden, uno de los dos
 está mal —y unas cuantas veces ha sido el verificador—.
 
-Se comprueban también las cuentas escritas en la prosa, los enlaces internos, los
-caracteres, los tests, las lecturas en PDF y el contraste de los rótulos.
+Las **diecinueve unidades y los dos temas 0** —las veintiuna páginas de
+tema— tienen su verificador. Se
+comprueban además las cuentas escritas en la prosa, los enlaces internos, los
+caracteres, los tests, las lecturas en PDF, el contraste de los rótulos, que el
+texto se pueda agrandar al 200 % sin que nada se corte, y que los códigos de
+criterios y saberes de cada unidad existan de verdad en el currículo.
 
 → [`generadores/COMO-SE-COMPRUEBA.md`](generadores/COMO-SE-COMPRUEBA.md)
 

@@ -5,7 +5,8 @@
 
 Por cada PDF: que se abra, cuantas paginas tiene, que la cabecera para el nombre
 este, y que los parrafos numerados vayan 1, 2, 3... sin saltos ni repetidos, y
-que las preguntas vayan 1 a 10. Sale 0 si todo va bien.
+que las preguntas vayan 1 a 10. Ademas, que ninguna cita a un parrafo por su
+numero —«lo del parrafo 15»— apunte fuera del texto. Sale 0 si todo va bien.
 """
 import os
 import re
@@ -71,6 +72,30 @@ for clave, t, ruta in lecturas():
     print(u'%-5s tema%-3s  %d pag  %2d parrafos  %2d preguntas  cabecera:%s  %s'
           % (clave, t, npaginas, npar, preg, u'si' if cab else u'NO', estado))
 
-print(u'\n%d lecturas miradas' % hay)
+# Las preguntas remiten a los parrafos por su numero —«lo del parrafo 15»—, y
+# ese numero se descoloca en cuanto se mete un parrafo nuevo en medio. Paso al
+# escribir la lectura del tema 0 de 4.o: dos parrafos anadidos dejaron dos
+# preguntas apuntando una linea mas abajo de lo que debian. Aqui se mira al
+# menos que ninguna referencia se salga del texto.
+def referencias():
+    sueltas = 0
+    for clave, t, pdf in sorted(lecturas()):
+        doc = fitz.open(pdf)
+        texto = u'\n'.join(pg.get_text() for pg in doc)
+        doc.close()
+        tope = max([int(x) for x in re.findall(r'(?m)^\s*(\d{1,3})\s*$', texto)] or [0])
+        for cita in re.findall(u'p\u00e1rrafos? (\\d{1,3})', texto):
+            if not (1 <= int(cita) <= tope):
+                sueltas += 1
+                print(u'%-5s tema%-3s  cita el parrafo %s y el texto llega al %d'
+                      % (clave, t, cita, tope))
+    return sueltas
+
+
+sueltas = referencias()
+if sueltas:
+    fallos += sueltas
+
+print(u'\n%d lecturas miradas, %d referencias a parrafos que no existen' % (hay, sueltas))
 print(u'%s' % (u'TODO CORRECTO' if not fallos else u'%d lecturas con fallos' % fallos))
 sys.exit(1 if fallos else 0)
