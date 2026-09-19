@@ -130,9 +130,36 @@ check(reciclado / virgen < 0.5,
 check(u'Reciclarlo cuesta menos de la mitad' in texto, u'el texto del acero lo dice asi')
 
 virgen, reciclado = MET['cobre']
-check(reciclado / virgen < 0.10,
-      u'cobre: reciclar cuesta menos del 10 %% (%.1f %%)' % (100 * reciclado / virgen))
-check(u'menos del 10&nbsp;%' in texto, u'el texto del cobre lo dice asi')
+check(0.25 <= reciclado / virgen <= 0.33,
+      u'cobre: reciclar cuesta poco mas de la cuarta parte (%.1f %%)' % (100 * reciclado / virgen))
+check(u'poco m&aacute;s de la cuarta parte' in texto, u'el texto del cobre lo dice asi')
+
+
+# Los mismos kilos de los mismos metales salen en 4.o tema 3, alli en MJ/kg.
+# Tenian que decir lo mismo y no lo decian: 2.o daba para el acero el doble
+# y para el cobre reciclado un tercio de lo que da 4.o. Un alumno hace los
+# dos cursos; la misma magnitud no puede tener dos respuestas en el sitio.
+CUATRO = os.path.join(RAIZ, '4eso', 'Tecnologia', 'tema3', 'index.html')
+otro = io.open(CUATRO, encoding='utf-8').read()
+MJ_POR_KWH = 3.6
+alli = {}
+for nombre, virgen, reciclado in re.findall(
+        r"\['([^']+)',\s*[\d.]+,\s*([\d.]+),\s*([\d.]+)\]", otro):
+    for metal in ('acero', 'cobre'):
+        if metal in nombre.lower():
+            alli.setdefault(metal, (float(virgen), float(reciclado)))
+check(set(alli) == set(('acero', 'cobre')),
+      u'4.o tema 3 trae el acero y el cobre para poder comparar')
+for metal, (virgen4, reciclado4) in sorted(alli.items()):
+    virgen2, reciclado2 = MET[metal]
+    for que, aqui, alla in ((u'virgen', virgen2, virgen4),
+                            (u'reciclado', reciclado2, reciclado4)):
+        check(abs(aqui * MJ_POR_KWH - alla) / alla < 0.12,
+              u'%s %s: 2.o dice %s kWh/kg = %.1f MJ/kg y 4.o dice %s MJ/kg'
+              % (metal, que, aqui, aqui * MJ_POR_KWH, alla))
+check(abs(MET['aluminio'][0] * MJ_POR_KWH - 186) / 186 < 0.12,
+      u'aluminio virgen: 2.o dice %s kWh/kg = %.0f MJ/kg y 4.o dice 186 MJ/kg'
+      % (MET['aluminio'][0], MET['aluminio'][0] * MJ_POR_KWH))
 
 check(MET['aluminio'][0] == max(v for v, _ in MET.values()),
       u'el aluminio es el mas caro de extraer, que es de lo que va la escena')

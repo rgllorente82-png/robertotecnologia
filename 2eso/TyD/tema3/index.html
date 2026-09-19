@@ -1116,19 +1116,22 @@ footer .wrap{padding-block:18px 26px}
         var seg = document.getElementById('seg-metal');
         if(!svg) return;
 
-        /* kWh por kg, valores redondeados de fuentes industriales */
+        /* kWh por kg. Son las mismas cifras que maneja 4.o tema 3 en MJ/kg
+           (acero 25 y 10, cobre 60 y 17, aluminio 186), divididas por 3,6.
+           Antes no coincidian: 2.o daba para el acero el doble y para el
+           cobre reciclado un tercio de lo que dice 4.o. */
         var MET = {
-          aluminio:{n:'Aluminio', mineral:'Bauxita', virgen:45, reciclado:2.3, col:'#b9c2cc',
+          aluminio:{n:'Aluminio', mineral:'Bauxita', virgen:52, reciclado:2.6, col:'#b9c2cc',
             txt:'Sacar aluminio de la bauxita exige <b>electrolisis</b>: pasar corriente a lo bruto durante '
               + 'horas. Por eso las f&aacute;bricas de aluminio se ponen al lado de centrales el&eacute;ctricas. '
               + 'Reciclarlo solo pide fundirlo, y eso es <b>el 5&nbsp;% de la energ&iacute;a</b>. Una lata reciclada '
               + 'gasta veinte veces menos energ&iacute;a que una hecha de mineral.'},
-          acero:{n:'Acero', mineral:'Hematita', virgen:14, reciclado:5.5, col:'#7a8590',
+          acero:{n:'Acero', mineral:'Hematita', virgen:7, reciclado:2.8, col:'#7a8590',
             txt:'El hierro se saca del mineral en un <b>alto horno</b>, quem&aacute;ndolo con carb&oacute;n a 1.500&nbsp;&deg;C. '
               + 'Reciclarlo cuesta menos de la mitad, y adem&aacute;s es el material m&aacute;s reciclado del mundo: es '
               + '<b>magn&eacute;tico</b>, as&iacute; que separarlo de la basura es trivial.'},
-          cobre:{n:'Cobre', mineral:'Calcopirita', virgen:16, reciclado:1.5, col:'#c98a4b',
-            txt:'Reciclar cobre cuesta <b>menos del 10&nbsp;%</b> que extraerlo. Y eso explica un problema '
+          cobre:{n:'Cobre', mineral:'Calcopirita', virgen:17, reciclado:4.7, col:'#c98a4b',
+            txt:'Reciclar cobre cuesta <b>poco m&aacute;s de la cuarta parte</b> que extraerlo. Y eso explica un problema '
               + 'muy real: el robo de cable. No se roba por el cable, se roba porque el cobre recuperado '
               + 'vale casi lo mismo que el nuevo.'}
         };
@@ -1136,7 +1139,7 @@ footer .wrap{padding-block:18px 26px}
 
         function pinta(){
           var d = MET[sel], m = '';
-          var X = 168, W = 372, MAX = 46;
+          var X = 168, W = 372, MAX = 55;
 
           function fila(y, etq, val, col, sub){
             var w = W * val / MAX;
