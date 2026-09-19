@@ -22,9 +22,15 @@ o para una acción automática.
 | Que los tests no se pisen entre ellos, y qué unidades no tienen ninguno. Cuenta los dos moldes que hay en el sitio: `.ta` y el `.test` del tema 5 de 2.º | `python generadores/comprueba_tests.py` |
 | Que los vídeos de YouTube se puedan ver, y **sin cuenta**. Necesita red: si no llega a youtube.com para y lo dice, en vez de sacar 92 «no se sabe» | `python generadores/comprueba_videos.py [--json]` |
 | Las lecturas en PDF | `python generadores/comprueba_lecturas.py` |
+| **Las 27 páginas, sesión por sesión**: errores de JavaScript, escenas que dejan el lienzo vacío, desplazamiento a lo ancho en un móvil de 390 px, y que cada test dé «N de N» contestando bien y se borre del todo | `python generadores/comprueba_sitio.py [filtro]` |
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`, `u2`, `u4`…`u10` |
 | Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, y sus párrafos vayan sin saltos (las 19, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
 | El contraste de los rótulos de las escenas, en tema claro y en oscuro. Ojo al leerlo: un rótulo blanco sobre una barra de color sale como «contraste 1» y no pasa nada —los que importan son los grises | `python generadores/comprueba_contraste.py` |
+
+Los dos primeros se complementan: `comprueba_sitio.py` no entra en ninguna
+unidad pero no se salta ninguna, así que es lo que pilla lo que se rompe en
+todas partes a la vez —tocar el CSS común, un script compartido—; los
+`*_verifica.py` entran hondo en una sola.
 
 `u1_verifica.py` es el ejemplo de lo que se espera de un verificador: para el
 diagrama de Gantt de la sesión 4 no compara con una copia de sus números, sino
@@ -69,6 +75,7 @@ buenas**: los dos scripts paran y lo dicen.
 for v in c1 c2 c3 c4 c5 c6 c7 c8 c9 u1 u2 u4 u5 u6 u7 u8 u9 u10; do
   python generadores/${v}_verifica.py | tail -1
 done
+python generadores/comprueba_sitio.py
 python generadores/comprueba_cuentas.py
 python generadores/comprueba_tests.py
 python generadores/comprueba_paginas.py
