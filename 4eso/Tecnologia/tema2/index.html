@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -588,7 +588,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="ct-cuenta" id="ct-cuenta"></p>
         </div>
-        <div class="pie" id="pie-ct"></div>
+        <div class="pie" id="pie-ct" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1119,7 +1119,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
           </div>
         </div>
-        <div class="pie" id="pie-aj"></div>
+        <div class="pie" id="pie-aj" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1670,7 +1670,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="un-cuenta" id="un-cuenta"></p>
         </div>
-        <div class="pie" id="pie-un"></div>
+        <div class="pie" id="pie-un" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2204,7 +2204,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="tl-cuenta" id="tl-cuenta"></p>
         </div>
-        <div class="pie" id="pie-tl"></div>
+        <div class="pie" id="pie-tl" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2894,7 +2894,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="md-cuenta" id="md-cuenta"></p>
         </div>
-        <div class="pie" id="pie-md"></div>
+        <div class="pie" id="pie-md" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3567,7 +3567,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="co-cuenta" id="co-cuenta"></p>
         </div>
-        <div class="pie" id="pie-co"></div>
+        <div class="pie" id="pie-co" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4184,7 +4184,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="ci-cuenta" id="ci-cuenta"></p>
         </div>
-        <div class="pie" id="pie-ci"></div>
+        <div class="pie" id="pie-ci" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4825,7 +4825,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="cd-cuenta" id="cd-cuenta"></p>
         </div>
-        <div class="pie" id="pie-cd"></div>
+        <div class="pie" id="pie-cd" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>

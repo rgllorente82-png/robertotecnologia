@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -507,7 +507,7 @@ footer .wrap{padding-block:18px 26px}
             <button type="button" data-c="reset">&#8635; Reiniciar</button>
           </div>
         </div>
-        <div class="pie" id="pie-cpu"></div>
+        <div class="pie" id="pie-cpu" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -589,7 +589,7 @@ footer .wrap{padding-block:18px 26px}
                + (on ? 'var(--goo-azul)' : 'var(--surface-2)')+'" stroke="'
                + (on ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="1.5"></rect>';
             m += '<text x="'+(fx+50)+'" y="71" text-anchor="middle" class="rotulo-svg" '
-               + 'style="font-size:9.5px;font-weight:500;fill:'+(on ? '#fff' : 'var(--ink-soft)')
+               + 'style="font-size:9.5px;font-weight:500;fill:'+(on ? 'var(--tinta-sobre)' : 'var(--ink-soft)')
                + '">'+FASES[f]+'</text>';
           }
           /* El ciclo vuelve al principio: de debajo de EJECUTA (centro x=560) a
@@ -961,7 +961,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 330" id="svg-ram" role="img"
                aria-label="Comparaci&oacute;n entre la memoria RAM, con pocos huecos y muy r&aacute;pida, y el almacenamiento, enorme y lento"></svg>
         </div>
-        <div class="pie" id="pie-ram"></div>
+        <div class="pie" id="pie-ram" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1349,7 +1349,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 306" id="svg-bits" role="img"
                aria-label="Ocho interruptores que forman un byte, le&iacute;do como n&uacute;mero, como letra y como nivel de gris"></svg>
         </div>
-        <div class="pie" id="pie-bits"></div>
+        <div class="pie" id="pie-bits" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1756,7 +1756,7 @@ footer .wrap{padding-block:18px 26px}
             <button type="button" data-m="32">32 medidas</button>
           </div>
         </div>
-        <div class="pie" id="pie-adc"></div>
+        <div class="pie" id="pie-adc" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2203,7 +2203,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 326" id="svg-plan" role="img"
                aria-label="Reparto del tiempo de una CPU entre cinco programas, con el tiempo que tarda cada uno en terminar"></svg>
         </div>
-        <div class="pie" id="pie-plan"></div>
+        <div class="pie" id="pie-plan" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2648,7 +2648,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 410" id="svg-diag" role="img"
                aria-label="Cadena de siete piezas de un ordenador y seis pruebas para averiguar en cu&aacute;l est&aacute; la aver&iacute;a"></svg>
         </div>
-        <div class="pie" id="pie-diag"></div>
+        <div class="pie" id="pie-diag" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>

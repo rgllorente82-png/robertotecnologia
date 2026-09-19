@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -542,7 +542,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q1-lee" id="q1-lee"></p>
         </div>
-        <div class="pie" id="q1-pie"></div>
+        <div class="pie" id="q1-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1056,7 +1056,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q2-lee" id="q2-lee"></p>
         </div>
-        <div class="pie" id="q2-pie"></div>
+        <div class="pie" id="q2-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1668,7 +1668,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="q3-tabla" id="q3-tabla"></div>
           <p class="q3-lee" id="q3-lee"></p>
         </div>
-        <div class="pie" id="q3-pie"></div>
+        <div class="pie" id="q3-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1693,7 +1693,10 @@ footer .wrap{padding-block:18px 26px}
       .q3-lee .grande{font-size:17px;color:var(--goo-azul);font-weight:500}
       .q3-lee .malo{color:var(--goo-rojo)}
       .q3-rot{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
-      .q3-num{fill:#fff;font-family:var(--f-m);font-size:10.5px;font-weight:500}
+      /* el mismo numero cae sobre barras de colores distintos, y una de ellas
+         es gris: con halo se lee encima de cualquiera de las dos */
+      .q3-num{fill:var(--tinta-sobre);font-family:var(--f-m);font-size:10.5px;font-weight:500;
+        paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}
       .q3-etq{fill:var(--ink);font-family:var(--f-m);font-size:11.5px;font-weight:500}
       </style>
 
@@ -2208,7 +2211,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q4-lee" id="q4-lee"></p>
         </div>
-        <div class="pie" id="q4-pie"></div>
+        <div class="pie" id="q4-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2930,7 +2933,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q5-lee" id="q5-lee"></p>
         </div>
-        <div class="pie" id="q5-pie"></div>
+        <div class="pie" id="q5-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3538,7 +3541,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q6-lee" id="q6-lee"></p>
         </div>
-        <div class="pie" id="q6-pie"></div>
+        <div class="pie" id="q6-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4074,7 +4077,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q7-lee" id="q7-lee"></p>
         </div>
-        <div class="pie" id="q7-pie"></div>
+        <div class="pie" id="q7-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4113,7 +4116,7 @@ footer .wrap{padding-block:18px 26px}
       .q7-lee .malo{color:var(--goo-rojo)}
       .q7-rot{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
       .q7-etq{fill:var(--ink);font-family:var(--f-m);font-size:11.5px;font-weight:500}
-      .q7-num{fill:#fff;font-family:var(--f-m);font-size:10.5px;font-weight:500}
+      .q7-num{fill:var(--tinta-sobre);font-family:var(--f-m);font-size:10.5px;font-weight:500}
       </style>
 
       <script>
@@ -4827,7 +4830,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q8-lee" id="q8-lee"></p>
         </div>
-        <div class="pie" id="q8-pie"></div>
+        <div class="pie" id="q8-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>

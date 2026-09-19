@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -586,7 +586,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="p1-est" id="est-p1"></p>
         </div>
-        <div class="pie" id="pie-p1"></div>
+        <div class="pie" id="pie-p1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1162,7 +1162,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="p2-malos" id="malos-p2"></div>
           <p class="p2-est" id="est-p2"></p>
         </div>
-        <div class="pie" id="pie-p2"></div>
+        <div class="pie" id="pie-p2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1695,7 +1695,7 @@ footer .wrap{padding-block:18px 26px}
           <p class="p3-est" id="est-p3"></p>
           <div class="p3-sens" id="sens-p3"></div>
         </div>
-        <div class="pie" id="pie-p3"></div>
+        <div class="pie" id="pie-p3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1722,7 +1722,12 @@ footer .wrap{padding-block:18px 26px}
       .p3-sens div{font-family:var(--f-m);font-size:12px;line-height:1.5;color:var(--ink-soft);
         border-left:3px solid var(--line);padding-left:9px}
       .p3-sens div.vuelca{border-left-color:var(--goo-rojo);color:var(--ink)}
-      .p3-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+      /* Este rotulo empieza DENTRO de la barra de color y, si la barra es corta,
+         acaba fuera: el mismo texto cruza dos fondos. Un halo del color del
+         papel lo hace legible en los dos, y en los dos temas, sin tocar el
+         color de la letra. */
+      .p3-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;
+        paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
       .p3-txt.fuerte{fill:var(--ink);font-weight:500}
       </style>
 
@@ -2124,7 +2129,7 @@ footer .wrap{padding-block:18px 26px}
           <p class="p4-est" id="est-p4"></p>
           <div class="p4-cambio" id="cambio-p4"></div>
         </div>
-        <div class="pie" id="pie-p4"></div>
+        <div class="pie" id="pie-p4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2702,7 +2707,7 @@ footer .wrap{padding-block:18px 26px}
           <p class="p5-est" id="est-p5"></p>
           <div class="p5-tabla" id="tabla-p5"></div>
         </div>
-        <div class="pie" id="pie-p5"></div>
+        <div class="pie" id="pie-p5" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3257,7 +3262,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="p6-doc" id="doc-p6"></div>
           <p class="p6-est" id="est-p6"></p>
         </div>
-        <div class="pie" id="pie-p6"></div>
+        <div class="pie" id="pie-p6" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3885,7 +3890,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="p7-tabla" id="tabla-p7"></div>
           <p class="p7-est" id="est-p7"></p>
         </div>
-        <div class="pie" id="pie-p7"></div>
+        <div class="pie" id="pie-p7" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3925,7 +3930,11 @@ footer .wrap{padding-block:18px 26px}
       .p7-est{font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin:12px 0 0}
       .p7-est b{color:var(--ink)}
       .p7-est .mal{color:var(--goo-rojo)}
-      .p7-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:10px}
+      /* varios de estos rotulos caen ENCIMA de una barra de color a media
+         opacidad: el halo del color del papel los hace legibles ahi y fuera,
+         en los dos temas, sin tener que adivinar el color de la mezcla */
+      .p7-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:10px;
+        paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}
       .p7-txt.fuerte{fill:var(--ink);font-weight:500}
       </style>
 
@@ -4481,7 +4490,7 @@ footer .wrap{padding-block:18px 26px}
             <p class="p8-est" id="ereq-p8"></p>
           </div>
         </div>
-        <div class="pie" id="pie-p8"></div>
+        <div class="pie" id="pie-p8" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>

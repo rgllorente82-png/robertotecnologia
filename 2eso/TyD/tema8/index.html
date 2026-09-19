@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -516,7 +516,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 430" id="svg-ruta" role="img"
                aria-label="Una red de routers por la que viajan seis paquetes numerados desde un servidor hasta un m&oacute;vil"></svg>
         </div>
-        <div class="pie" id="pie-ruta"></div>
+        <div class="pie" id="pie-ruta" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -878,7 +878,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-dns" role="img"
                aria-label="Un m&oacute;vil preguntando por un nombre a un servidor DNS, que a su vez pregunta a la ra&iacute;z, al servidor de .es y al del sitio"></svg>
         </div>
-        <div class="pie" id="pie-dns"></div>
+        <div class="pie" id="pie-dns" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1300,7 +1300,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 344" id="svg-espia" role="img"
                aria-label="Los cinco saltos por los que pasa lo que escribes y lo que puede leer cada uno"></svg>
         </div>
-        <div class="pie" id="pie-espia"></div>
+        <div class="pie" id="pie-espia" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1509,7 +1509,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 312" id="svg-clave" role="img"
                aria-label="Ana y Bruno eligen cada uno un n&uacute;mero secreto y acaban con el mismo n&uacute;mero compartido sin hab&eacute;rselo dicho"></svg>
         </div>
-        <div class="pie" id="pie-clave"></div>
+        <div class="pie" id="pie-clave" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1888,7 +1888,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 420" id="svg-huella" role="img"
                aria-label="Tabla con los rasgos que tu navegador cuenta a cualquier web y cu&aacute;nto identifican"></svg>
         </div>
-        <div class="pie" id="pie-huella"></div>
+        <div class="pie" id="pie-huella" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2370,7 +2370,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 400" id="svg-fuerza" role="img"
                aria-label="C&aacute;lculo de cu&aacute;ntas combinaciones tiene una contrase&ntilde;a y cu&aacute;nto se tarda en probarlas todas"></svg>
         </div>
-        <div class="pie" id="pie-fuerza"></div>
+        <div class="pie" id="pie-fuerza" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2645,7 +2645,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 348" id="svg-hash" role="img"
                aria-label="La huella sha-256 de una contrase&ntilde;a, la de otra persona con la misma contrase&ntilde;a y la de la misma cambiando una letra"></svg>
         </div>
-        <div class="pie" id="pie-hash"></div>
+        <div class="pie" id="pie-hash" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3238,7 +3238,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 430" id="svg-nube" role="img"
                aria-label="Los sitios donde vive una copia de un archivo y cu&aacute;les sobreviven a cada desastre"></svg>
         </div>
-        <div class="pie" id="pie-nube"></div>
+        <div class="pie" id="pie-nube" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3748,7 +3748,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 372" id="svg-derechos" role="img"
                aria-label="Qu&eacute; derecho est&aacute;s ejerciendo, el plazo que tienen para contestarte y si ya tienes edad para decidir t&uacute; solo"></svg>
         </div>
-        <div class="pie" id="pie-derechos"></div>
+        <div class="pie" id="pie-derechos" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>

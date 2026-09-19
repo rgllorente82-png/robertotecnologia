@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -623,7 +623,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-circuito" role="img"
                aria-label="Banco de montaje: una pila, una l&aacute;mpara, un interruptor y tres cables que se pueden poner y quitar"></svg>
         </div>
-        <div class="pie" id="pie-circuito"></div>
+        <div class="pie" id="pie-circuito" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -836,7 +836,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-simb" role="img"
                aria-label="L&aacute;mina con los diez s&iacute;mbolos normalizados que se usan en el tema"></svg>
         </div>
-        <div class="pie">Dibujar &laquo;una bombillita&raquo; en vez del c&iacute;rculo con el aspa no es un
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">Dibujar &laquo;una bombillita&raquo; en vez del c&iacute;rculo con el aspa no es un
           capricho de notaci&oacute;n: el s&iacute;mbolo est&aacute; normalizado para que un esquema tuyo lo entienda
           alguien que no hable tu idioma. <b>Copia esta l&aacute;mina en la libreta</b>: la vas a usar el
           resto del tema.</div>
@@ -1109,7 +1109,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-ohm" role="img"
                aria-label="Circuito con amper&iacute;metro y volt&iacute;metro, y gr&aacute;fica de la intensidad frente a la tensi&oacute;n"></svg>
         </div>
-        <div class="pie" id="pie-ohm"></div>
+        <div class="pie" id="pie-ohm" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1431,7 +1431,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-sp" role="img"
                aria-label="Tres l&aacute;mparas conectadas en serie o en paralelo a una pila de 4,5 voltios"></svg>
         </div>
-        <div class="pie" id="pie-sp"></div>
+        <div class="pie" id="pie-sp" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1908,7 +1908,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-regleta" role="img"
                aria-label="Ocho aparatos que se pueden enchufar a una regleta, con la corriente de cada uno y un indicador de la corriente total"></svg>
         </div>
-        <div class="pie" id="pie-regleta"></div>
+        <div class="pie" id="pie-regleta" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2569,7 +2569,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-led" role="img"
                aria-label="Circuito con una fuente, un pulsador, un LED y su resistencia limitadora, y la escala de valores de resistencia que existen en el comercio"></svg>
         </div>
-        <div class="pie" id="pie-led"></div>
+        <div class="pie" id="pie-led" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3239,7 +3239,7 @@ footer .wrap{padding-block:18px 26px}
           <button type="button" id="test-corrige">Corregir</button>
           <button type="button" id="test-otra" class="flojo">Otra tanda</button>
         </div>
-        <div class="pie" id="pie-test"></div>
+        <div class="pie" id="pie-test" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>

@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -551,7 +551,7 @@ void loop() {
           </div>
           <p class="c1-est" id="est-c1"></p>
         </div>
-        <div class="pie" id="pie-c1"></div>
+        <div class="pie" id="pie-c1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -702,7 +702,7 @@ void loop() {
             var rot = g === 0 ? 'al iniciar' : 'para siempre';
             m += '<rect x="' + X + '" y="' + y + '" width="' + AN + '" height="' + AL
                + '" rx="4" fill="' + col + '"></rect>'
-               + '<text x="' + (X + 11) + '" y="' + (y + 17.5) + '" class="c1h" fill="#fff">'
+               + '<text x="' + (X + 11) + '" y="' + (y + 17.5) + '" class="c1h" fill="var(--tinta-sobre)">'
                + rot + '</text>';
             y += AL + HUE;
             PASOS.forEach(function(s, k){
@@ -1095,7 +1095,7 @@ void loop() {
           </div>
           <p class="c2-lee" id="lee-c2"></p>
         </div>
-        <div class="pie" id="pie-c2"></div>
+        <div class="pie" id="pie-c2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1235,7 +1235,11 @@ void loop() {
           var px = function(v){ return X0 + (v - vA) / (vB - vA) * AN; };
           var py = function(k){ return Y0 + AL - (k - k0 + 0.5) / vent * AL; };
 
-          var m = '<style>.c2t{font:10.5px var(--f-m);fill:var(--ink-soft)}'
+          /* estos rotulos caen sobre las franjas de color de la escena, asi que
+             llevan halo del color del papel: se leen dentro y fuera, y en los
+             dos temas, sin depender de con que franja coincidan */
+          var m = '<style>.c2t{font:10.5px var(--f-m);fill:var(--ink-soft);'
+                + 'paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}'
                 + '.c2n{font:500 11px var(--f-m);fill:var(--goo-azul)}</style>';
           /* la franja del numero actual, que es lo que hay que ver */
           m += '<rect x="' + px(r.baja).toFixed(1) + '" y="' + Y0 + '" width="'
@@ -1660,7 +1664,7 @@ void loop() {
                aria-label="Camino del dato desde la placa hasta el m&oacute;vil, con lo que ve cada salto"></svg>
           <p class="c3-lee" id="lee-c3"></p>
         </div>
-        <div class="pie" id="pie-c3"></div>
+        <div class="pie" id="pie-c3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2184,7 +2188,7 @@ void loop() {
           </div>
           <p class="c4-lee" id="lee-c4"></p>
         </div>
-        <div class="pie" id="pie-c4"></div>
+        <div class="pie" id="pie-c4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2950,7 +2954,7 @@ void guarda(int x) {
           </div>
           <p class="mem-lee" id="lee-mem"></p>
         </div>
-        <div class="pie" id="pie-mem"></div>
+        <div class="pie" id="pie-mem" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3649,7 +3653,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </div>
           <p class="avi-lee" id="lee-avi"></p>
         </div>
-        <div class="pie" id="pie-avi"></div>
+        <div class="pie" id="pie-avi" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4316,7 +4320,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </div>
           <p class="dat-lee" id="lee-dat"></p>
         </div>
-        <div class="pie" id="pie-dat"></div>
+        <div class="pie" id="pie-dat" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4495,7 +4499,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
         function py(v){ return Y0 + AL - (v + 300) / 600 * AL; }
 
         function pinta(R, w){
-          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft)}'
+          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft);paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}'
                 + '.date{font:10.5px var(--f-m);fill:var(--ink)}</style>';
           m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + AN + '" height="' + AL
              + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
@@ -4577,7 +4581,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           var qy = function(v){
             return CY0 + CAL - (Math.max(40, Math.min(100, v)) - 40) / 60 * CAL;
           };
-          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft)}</style>';
+          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft);paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}</style>';
           m += '<rect x="' + CX0 + '" y="' + CY0 + '" width="' + CAN + '" height="' + CAL
              + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
           [50, 75, 100].forEach(function(v){
@@ -4984,7 +4988,7 @@ void loop() {
           </div>
           <p class="sis-lee" id="lee-sis"></p>
         </div>
-        <div class="pie" id="pie-sis"></div>
+        <div class="pie" id="pie-sis" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>

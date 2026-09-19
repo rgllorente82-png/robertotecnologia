@@ -601,9 +601,9 @@
   
 
   /* ---- los cuatro colores de Google, planos ---- */
-  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853}
+  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995}}
+    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995}}
 
   /* pestaña activa en azul Google */
   nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
@@ -851,7 +851,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie" data-pie>Pulsa <b>Siguiente</b> para empezar.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true">Pulsa <b>Siguiente</b> para empezar.</div>
       </div>
     </section>
 
@@ -943,7 +943,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie"><b>Dibujo técnico:</b> aquí no hay interpretación posible. Los muros miden lo que dicen las cotas, las puertas abren hacia donde marca el arco y con este plano el albañil levanta la casa. Está dibujado <b>a escala 1:50</b>: cada centímetro del papel son 50 cm reales.</div>
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true"><b>Dibujo técnico:</b> aquí no hay interpretación posible. Los muros miden lo que dicen las cotas, las puertas abren hacia donde marca el arco y con este plano el albañil levanta la casa. Está dibujado <b>a escala 1:50</b>: cada centímetro del papel son 50 cm reales.</div>
       </div>
 
       <div class="aviso">
@@ -1148,7 +1148,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie" data-pie><b>Artístico:</b> reconoces la taza al instante, pero no puedes fabricarla: no sabes cuánto mide ni de qué grosor es la pared.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true"><b>Artístico:</b> reconoces la taza al instante, pero no puedes fabricarla: no sabes cuánto mide ni de qué grosor es la pared.</div>
       </div>
 
       <div class="aviso">
@@ -1357,7 +1357,7 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 300" id="svg-fases" role="img" aria-label="La misma pieza en L dibujada como boceto a mano alzada, como croquis acotado y como plano a escala con cajetín"></svg>
         </div>
-        <div class="pie" data-pie><b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true"><b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.</div>
       </div>
     </section>
 
@@ -1523,7 +1523,7 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 360" id="svg-vistas" role="img" aria-label="Una pieza en perspectiva y la obtención de su alzado, planta y perfil en sistema europeo"></svg>
         </div>
-        <div class="pie" data-pie>La pieza, en perspectiva. Pulsa <b>Siguiente</b> para ir sacando las vistas.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true">La pieza, en perspectiva. Pulsa <b>Siguiente</b> para ir sacando las vistas.</div>
       </div>
 
       <div class="nota">
@@ -1722,7 +1722,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie" data-pie>Las cinco líneas a la vez, como en un plano de verdad. Pulsa una para aislarla.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true">Las cinco líneas a la vez, como en un plano de verdad. Pulsa una para aislarla.</div>
       </div>
     </section>
 
@@ -1917,7 +1917,7 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 360" id="svg-norma" role="img" aria-label="Formatos de la serie A, efecto de la escala y partes de una cota"></svg>
         </div>
-        <div class="pie" data-pie-norma>Cada formato es la mitad del anterior, doblado por el lado largo.</div>
+        <div class="pie" data-pie-norma role="status" aria-live="polite" aria-atomic="true">Cada formato es la mitad del anterior, doblado por el lado largo.</div>
       </div>
 
       <p style="margin-top:18px">Y el cajet&iacute;n, que es lo que m&aacute;s puntos cuesta y lo que
@@ -1936,7 +1936,7 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 360" id="svg-cajetin" role="img" aria-label="El A4 en vertical y en apaisado con sus m&aacute;rgenes, y el cajet&iacute;n de 180 por 30 mm con sus cinco casillas acotadas"></svg>
         </div>
-        <div class="pie" data-pie-cajetin>El marco no es el borde del papel: 20 mm por la izquierda, que es por donde se archiva, y 10 mm por los otros tres lados.</div>
+        <div class="pie" data-pie-cajetin role="status" aria-live="polite" aria-atomic="true">El marco no es el borde del papel: 20 mm por la izquierda, que es por donde se archiva, y 10 mm por los otros tres lados.</div>
       </div>
     </section>
 

@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -516,7 +516,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Palanca con el punto de apoyo m&oacute;vil: al acercar el apoyo a la carga
                            baja la fuerza necesaria y sube el recorrido de la mano"></svg>
         </div>
-        <div class="pie" id="pie-palanca"></div>
+        <div class="pie" id="pie-palanca" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -892,7 +892,7 @@ footer .wrap{padding-block:18px 26px}
                            entre el n&uacute;mero de tramos y la cuerda que hay que tirar se multiplica
                            por ese mismo n&uacute;mero"></svg>
         </div>
-        <div class="pie" id="pie-poleas"></div>
+        <div class="pie" id="pie-poleas" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1299,7 +1299,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Dos ruedas dentadas engranadas girando en sentidos contrarios, una cadena
                            entre dos pi&ntilde;ones y un tornillo sin fin con su rueda"></svg>
         </div>
-        <div class="pie" id="pie-engranajes"></div>
+        <div class="pie" id="pie-engranajes" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1763,7 +1763,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 330" id="svg-caja" role="img"
                aria-label="Caja de cambios: dos ejes con pares de ruedas dentadas de distinto tama&ntilde;o"></svg>
         </div>
-        <div class="pie" id="pie-caja"></div>
+        <div class="pie" id="pie-caja" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1875,7 +1875,7 @@ footer .wrap{padding-block:18px 26px}
           m += rot(xt, 126, 'salida: ' + Math.round(rpm2) + ' rpm', TI, 13);
           m += rot(xt, 146, (i < 1 ? 'fuerza &times; ' + (1/i).toFixed(1)
                                    : 'fuerza &times; ' + (1/i).toFixed(2) + ' (pierde)'),
-                   i < 1 ? 'var(--goo-verde)' : RO, 13);
+                   i < 1 ? 'var(--verde-texto)' : RO, 13);
           m += rot(40, 302, 'Todos los pares suman ' + SUMA + ' dientes: los ejes est&aacute;n '
                  + 'a una distancia fija.', GR, 11.5);
           svg.innerHTML = m;
@@ -2097,7 +2097,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Mecanismo de biela y manivela: la manivela gira y el pist&oacute;n va y viene
                            dentro del cilindro, con la gr&aacute;fica de su recorrido a lo largo de una vuelta"></svg>
         </div>
-        <div class="pie" id="pie-biela"></div>
+        <div class="pie" id="pie-biela" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2382,7 +2382,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Leva con seguidor, tornillo con tuerca y pi&ntilde;&oacute;n con cremallera, con
                            la altura del seguidor y el avance por vuelta calculados"></svg>
         </div>
-        <div class="pie" id="pie-transforma"></div>
+        <div class="pie" id="pie-transforma" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3027,7 +3027,7 @@ footer .wrap{padding-block:18px 26px}
                            dientes elegidos, con los di&aacute;metros y la distancia entre centros calculados"
                preserveAspectRatio="xMidYMid meet"></svg>
         </div>
-        <div class="pie" id="pie-plantilla"></div>
+        <div class="pie" id="pie-plantilla" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3357,7 +3357,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Cadena de mecanismos: motor, dos etapas de transmisi&oacute;n y una de
                            transformaci&oacute;n, con las vueltas y la fuerza calculadas en cada punto"></svg>
         </div>
-        <div class="pie" id="pie-cadena"></div>
+        <div class="pie" id="pie-cadena" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3400,10 +3400,15 @@ footer .wrap{padding-block:18px 26px}
           if(s.indexOf('.') >= 0) s = s.replace(/0+$/, '').replace(/\.$/, '');
           return s;
         }
+        /* el color del borde y el del titulo no son el mismo: el verde de rellenar
+           no se lee como texto sobre el fondo claro (2,75 : 1) */
+        var TINTA_DE = {'var(--goo-verde)': 'var(--verde-texto)',
+                        'var(--goo-amarillo)': 'var(--amar-texto)'};
+
         function caja(x, y, w, h, titulo, l1, l2, col, tam){
           var m = '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="3" fill="'
                 + S2 + '" stroke="' + col + '" stroke-width="2.2"></rect>';
-          m += rot(x + w/2, y + 20, titulo, col, 11.5, 'middle');
+          m += rot(x + w/2, y + 20, titulo, TINTA_DE[col] || col, 11.5, 'middle');
           if(l1) m += rot(x + w/2, y + 41, l1, TI, tam || 10.5, 'middle');
           if(l2) m += rot(x + w/2, y + 59, l2, GR, 10, 'middle');
           return m;

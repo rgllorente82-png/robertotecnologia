@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -613,7 +613,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Barra con el reparto de la energ&iacute;a del aparato entre fabricar, transportar, usar y tirar, y gr&aacute;fica del a&ntilde;o en que usarlo pasa a pesar m&aacute;s que fabricarlo"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m1"></div>
-        <div class="pie" id="pie-m1"></div>
+        <div class="pie" id="pie-m1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1200,7 +1200,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Regla a escala con la energ&iacute;a de producir el metal y la mucho menor de volver a fundirlo, y recta de la energ&iacute;a de la mezcla seg&uacute;n el porcentaje de reciclado"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m2"></div>
-        <div class="pie" id="pie-m2"></div>
+        <div class="pie" id="pie-m2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1713,7 +1713,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Espesor calculado de la tapa en cada material y clasificaci&oacute;n de los materiales seg&uacute;n los pesos elegidos"></svg>
         </div>
         <div class="m3-tabla" id="tabla-m3"></div>
-        <div class="pie" id="pie-m3"></div>
+        <div class="pie" id="pie-m3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2261,7 +2261,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Tiempo de desmontaje union por union, comparaci&oacute;n entre lo que cuesta repararlo y lo que cuesta uno nuevo, e &iacute;ndice de reparabilidad"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m4"></div>
-        <div class="pie" id="pie-m4"></div>
+        <div class="pie" id="pie-m4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2370,7 +2370,7 @@ footer .wrap{padding-block:18px 26px}
                  + '" height="' + H + '" fill="none" stroke="var(--surface)" stroke-width="1"/>';
               if(x2 - x1 > 54){
                 s += '<text x="' + ((x1+x2)/2).toFixed(1) + '" y="' + (Y + H/2 + 4)
-                   + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:#fff">'
+                   + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:var(--tinta-sobre)">'
                    + rot + '</text>';
               }
             }
@@ -2459,7 +2459,7 @@ footer .wrap{padding-block:18px 26px}
               s += '<rect x="' + xi.toFixed(1) + '" y="' + Y4 + '" width="' + w.toFixed(1)
                  + '" height="' + H4 + '" fill="' + t[2] + '"/>';
               if(w > 92) s += '<text x="' + (xi + w/2).toFixed(1) + '" y="' + (Y4 + 18)
-                 + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:#fff">'
+                 + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:var(--tinta-sobre)">'
                  + t[0] + '</text>';
             }
             xi += w;
@@ -2983,7 +2983,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Cascada con lo que queda de un kilo despu&eacute;s de cada etapa del reciclado, y curva de lo que sigue en el mismo uso despu&eacute;s de varias vueltas"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m5"></div>
-        <div class="pie" id="pie-m5"></div>
+        <div class="pie" id="pie-m5" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3553,7 +3553,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Megajulios por kilo y kilos de CO&#8322; equivalente por kilo de seis materiales, y desglose del material elegido"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m6"></div>
-        <div class="pie" id="pie-m6"></div>
+        <div class="pie" id="pie-m6" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -4080,7 +4080,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Linea del tiempo de veinte a&ntilde;os con las fabricaciones, reparaciones y reciclados de cada estrategia, y megajulios totales de cada una"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m7"></div>
-        <div class="pie" id="pie-m7"></div>
+        <div class="pie" id="pie-m7" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -4591,7 +4591,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Reparto de los megajulios del proyecto entre sus piezas, la electr&oacute;nica y el uso, y an&aacute;lisis de sensibilidad con el recorrido que provoca cada dato incierto"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m8"></div>
-        <div class="pie" id="pie-m8"></div>
+        <div class="pie" id="pie-m8" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>

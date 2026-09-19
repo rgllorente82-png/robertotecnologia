@@ -25,7 +25,7 @@ o para una acción automática.
 | **Las 27 páginas, sesión por sesión**: errores de JavaScript, escenas que dejan el lienzo vacío, desplazamiento a lo ancho en un móvil de 390 px, y que cada test dé «N de N» contestando bien y se borre del todo | `python generadores/comprueba_sitio.py [filtro]` |
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`, `u2`, `u4`…`u10` |
 | Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, y sus párrafos vayan sin saltos (las 19, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
-| El contraste de los rótulos de las escenas, en tema claro y en oscuro. Ojo al leerlo: un rótulo blanco sobre una barra de color sale como «contraste 1» y no pasa nada —los que importan son los grises | `python generadores/comprueba_contraste.py` |
+| El contraste de los rótulos de las escenas, en tema claro y en oscuro, mirando la figura del propio SVG que hay debajo del texto y no sólo el fondo del DOM. Un rótulo con halo no cuenta: el halo es la solución | `python generadores/comprueba_contraste.py [filtro]` |
 
 Los dos primeros se complementan: `comprueba_sitio.py` no entra en ninguna
 unidad pero no se salta ninguna, así que es lo que pilla lo que se rompe en
@@ -51,7 +51,9 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | El enlace «Ir al tema N» al final del cierre de cada unidad, con el título leído del `<h1>` de destino | `python generadores/pon_enlace_siguiente.py` |
 | Que una tabla ancha se desplace dentro de su caja y no arrastre la página en un móvil | `python generadores/afina_movil.py` |
 | Que se respete el ajuste de accesibilidad «reducir el movimiento» (WCAG 2.3.3 y 2.2.2) | `python generadores/afina_movimiento.py` |
-| Un ámbar que se pueda leer como texto, oscuro en el tema claro y claro en el oscuro, separado del ámbar de rellenar barras y bordes | `python generadores/afina_ambar.py` |
+| Las tintas de **texto** del ámbar y del verde, que como colores de rellenar no se leen sobre fondo claro: oscuras en el tema claro y claras en el oscuro | `python generadores/afina_tintas.py` |
+| La tinta que va **encima** de una barra de color, que es oscura en los dos temas porque los rellenos están elegidos para resaltar | `python generadores/afina_sobre_color.py` |
+| Que el pie de cada escena sea una región viva, para que un lector de pantalla anuncie la explicación al pulsar un botón | `python generadores/afina_lectores.py` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |
 | Bajar de Wikimedia Commons una foto con su crédito y su licencia. Necesita red | `python generadores/bajar_fotos.py` |
 
@@ -93,3 +95,20 @@ existe. Son **generadores de un solo uso**: levantaron la primera versión de un
 página que después se ha editado a mano muchas veces. No se arreglan a
 propósito, porque volverlos ejecutables invita a regenerar una página y perder
 todo lo escrito encima.
+
+## Tres reglas de color, que salieron de medir
+
+Los cuatro colores del sitio están elegidos para **rellenar**, y usarlos para
+otra cosa sale mal de maneras que no se ven leyendo el código:
+
+1. **Como texto sobre fondo claro**, el ámbar da 1,71 : 1 y el verde 3,06. Para
+   eso están `--amar-texto` y `--verde-texto`, que cambian con el tema. Los de
+   rellenar no se tocan: las barras y los bordes siguen igual.
+2. **Como fondo de un texto**, la tinta que va encima es `--tinta-sobre`, oscura
+   **en los dos temas**, porque los rellenos son saturados en el claro y pastel
+   en el oscuro, y la tinta oscura gana en ambos. El texto blanco encima de una
+   barra se lee en el tema claro y desaparece en el oscuro.
+3. **Cuando un rótulo cruza dos fondos** —empieza dentro de una barra de ancho
+   variable y acaba fuera—, ningún color acierta: lleva **halo**, o sea
+   `paint-order:stroke` con un trazo del color del papel. `comprueba_contraste.py`
+   no cuenta los rótulos con halo, porque el halo es la solución.

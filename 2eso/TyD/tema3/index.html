@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -352,7 +352,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 260" id="svg-bici" role="img"
                aria-label="Comparaci&oacute;n de un cuadro de bicicleta en acero, aluminio y fibra de carbono"></svg>
         </div>
-        <div class="pie" id="pie-bici"></div>
+        <div class="pie" id="pie-bici" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -592,7 +592,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 240" id="svg-mohs" role="img"
                aria-label="Ensayo de rayado entre materiales seg&uacute;n la escala de Mohs"></svg>
         </div>
-        <div class="pie" id="pie-mohs"></div>
+        <div class="pie" id="pie-mohs" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -830,7 +830,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 230" id="svg-veta" role="img"
                aria-label="Una tabla se parte con facilidad a favor de la veta y resiste en contra; el contrachapado cruza las capas"></svg>
         </div>
-        <div class="pie" id="pie-veta"></div>
+        <div class="pie" id="pie-veta" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1093,7 +1093,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 250" id="svg-metal" role="img"
                aria-label="Energ&iacute;a necesaria para producir un kilo de metal desde el mineral frente a reciclarlo"></svg>
         </div>
-        <div class="pie" id="pie-metal"></div>
+        <div class="pie" id="pie-metal" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1321,7 +1321,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 230" id="svg-plast" role="img"
                aria-label="Al calentarlo, un termopl&aacute;stico se ablanda y se puede remoldear; un termoestable se quema"></svg>
         </div>
-        <div class="pie" id="pie-plast"></div>
+        <div class="pie" id="pie-plast" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1543,7 +1543,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 240" id="svg-ciclo" role="img"
                aria-label="Ciclo de vida lineal frente a circular de una botella"></svg>
         </div>
-        <div class="pie" id="pie-ciclo"></div>
+        <div class="pie" id="pie-ciclo" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>

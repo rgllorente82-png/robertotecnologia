@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -420,7 +420,7 @@ footer .wrap{padding-block:18px 26px}
             <text x="572" y="206" style="font:400 10px var(--f-m);fill:var(--goo-azul)">delante</text>
           </svg>
         </div>
-        <div class="pie">La t&eacute;cnica aporta el <b>saber hacer</b> y la ciencia el <b>saber por qu&eacute;</b>. La tecnolog&iacute;a
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">La t&eacute;cnica aporta el <b>saber hacer</b> y la ciencia el <b>saber por qu&eacute;</b>. La tecnolog&iacute;a
           los junta para resolver un problema concreto. Y la flecha de puntos importa: a veces la tecnolog&iacute;a
           funciona antes de que la ciencia sepa explicarla, y es ella la que obliga a investigar.</div>
       </div>
@@ -484,7 +484,7 @@ footer .wrap{padding-block:18px 26px}
             </g>
           </svg>
         </div>
-        <div class="pie">Es el mismo bucle para una piedra tallada y para un cohete. Y es exactamente lo que
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">Es el mismo bucle para una piedra tallada y para un cohete. Y es exactamente lo que
           vas a hacer t&uacute; en cada proyecto de este curso.</div>
       </div>
       <p>Ese bucle lleva funcionando dos millones y medio de a&ntilde;os, y es exactamente lo que vas a hacer t&uacute;
@@ -526,8 +526,8 @@ footer .wrap{padding-block:18px 26px}
             </g>
             <circle cx="110" cy="130" r="30" fill="var(--goo-rojo)"/>
             <circle cx="110" cy="130" r="30" fill="none" stroke="var(--ink)" stroke-width="1"/>
-            <text x="110" y="126" text-anchor="middle" style="font-size:8px;fill:#fff;font-family:var(--f-m)">LA MISMA</text>
-            <text x="110" y="137" text-anchor="middle" style="font-size:8px;fill:#fff;font-family:var(--f-m)">CANCI&Oacute;N</text>
+            <text x="110" y="126" text-anchor="middle" style="font-size:8px;fill:var(--tinta-sobre);font-family:var(--f-m)">LA MISMA</text>
+            <text x="110" y="137" text-anchor="middle" style="font-size:8px;fill:var(--tinta-sobre);font-family:var(--f-m)">CANCI&Oacute;N</text>
             <circle cx="110" cy="130" r="3.6" fill="#1b1b1f"/>
 
             <!-- brazo y aguja -->
@@ -590,7 +590,7 @@ footer .wrap{padding-block:18px 26px}
             <text class="rotulo-svg" x="275" y="168" text-anchor="middle" style="font-size:13px;fill:var(--ink)">vs</text>
           </svg>
         </div>
-        <div class="pie">A la izquierda, una <b>onda física</b> tallada en plástico: la aguja la recorre y la convierte
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">A la izquierda, una <b>onda física</b> tallada en plástico: la aguja la recorre y la convierte
           en sonido. A la derecha, <b>números</b>: 42 quiere decir que en ese instante el altavoz debe estar en esa
           posición. Un plato lee un surco; un móvil lee una lista.</div>
       </div>
@@ -611,7 +611,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 230" id="svg-audio" role="img"
                aria-label="Comparación entre una grabación analógica que se degrada al copiarse y un archivo digital que no"></svg>
         </div>
-        <div class="pie" id="pie-audio">Las dos copias son la original. Todavía suenan igual.</div>
+        <div class="pie" id="pie-audio" role="status" aria-live="polite" aria-atomic="true">Las dos copias son la original. Todavía suenan igual.</div>
       </div>
 
       <div class="nota">
@@ -794,7 +794,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="lienzo">
         <svg viewBox="0 0 640 210" id="svg-tiempo" role="img" aria-label="L&iacute;nea del tiempo de la tecnolog&iacute;a"></svg>
       </div>
-      <div class="pie" id="pie-tiempo">
+      <div class="pie" id="pie-tiempo" role="status" aria-live="polite" aria-atomic="true">
         <div class="narra">
           <div class="avatar-caja" id="avatar-caja"></div>
           <div class="globo"><span id="txt-tiempo"></span>

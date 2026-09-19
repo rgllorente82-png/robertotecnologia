@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -360,7 +360,7 @@ footer .wrap{padding-block:18px 26px}
             <a href="../../../video/u4-estructuras.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
           </video>
         </div>
-        <div class="pie">Lleva <b>subt&iacute;tulos</b>: lo que se oye tambi&eacute;n est&aacute; escrito, por si el aula
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">Lleva <b>subt&iacute;tulos</b>: lo que se oye tambi&eacute;n est&aacute; escrito, por si el aula
           est&aacute; ruidosa o prefieres leerlo. Qu&eacute;date con la frase del principio, porque es la que
           explica el resto del tema: <b>una estructura no aguanta porque sea fuerte, aguanta porque reparte</b>.
           <br><br>V&iacute;deo y voz propios, hechos con manim. La foto de la torre es de
@@ -380,7 +380,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 340" id="svg-hierro" role="img"
                aria-label="Comparacion de una barra maciza, una viga en I y una celosia que aguantan la misma carga"></svg>
         </div>
-        <div class="pie" id="pie-hierro"></div>
+        <div class="pie" id="pie-hierro" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -540,7 +540,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 210" id="svg-esf" role="img"
                aria-label="Los cinco esfuerzos: traccion, compresion, flexion, torsion y cortadura"></svg>
         </div>
-        <div class="pie" id="pie-esf"></div>
+        <div class="pie" id="pie-esf" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -640,7 +640,7 @@ footer .wrap{padding-block:18px 26px}
             <a href="../../../video/triangulacion.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
           </video>
         </div>
-        <div class="pie">F&iacute;jate en una cosa mientras lo ves: <b>ninguna barra cambia de longitud</b>.
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">F&iacute;jate en una cosa mientras lo ves: <b>ninguna barra cambia de longitud</b>.
           Lo &uacute;nico que se mueve son los &aacute;ngulos. Y aun as&iacute;, el cuadrado se desploma y el tri&aacute;ngulo no.
           <br><br>V&iacute;deo propio, hecho con manim, con voz propia. Es material de la web, bajo la misma licencia. Las dos fotos del final proceden de Wikimedia Commons: torre de alta tensi&oacute;n de <i>HighVoltage 5576</i> (CC0) y &laquo;Paris, Eiffelturm 2014&raquo; de <i>Dietmar Rabich</i> (<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">CC BY-SA 4.0</a>).</div>
       </div>
@@ -797,7 +797,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 280" id="svg-fam" role="img"
                aria-label="Las seis familias de estructuras, con el esfuerzo que domina en cada una"></svg>
         </div>
-        <div class="pie" id="pie-fam"></div>
+        <div class="pie" id="pie-fam" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1190,7 +1190,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 330" id="svg-sec" role="img"
                aria-label="Cuatro secciones de acero con la misma area y muy distinto aguante a flexion"></svg>
         </div>
-        <div class="pie" id="pie-sec"></div>
+        <div class="pie" id="pie-sec" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1330,7 +1330,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 200" id="svg-perf" role="img"
                aria-label="Perfiles comerciales: doble T, tubo, angular, U y T"></svg>
         </div>
-        <div class="pie" id="pie-perf"></div>
+        <div class="pie" id="pie-perf" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1535,7 +1535,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 348" id="svg-vuelco" role="img"
                aria-label="Un objeto sobre una rampa que se inclina, con la vertical de su centro de gravedad"></svg>
         </div>
-        <div class="pie" id="pie-vuelco"></div>
+        <div class="pie" id="pie-vuelco" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1839,7 +1839,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 320" id="svg-tri" role="img"
                aria-label="Celos&iacute;a de cuatro cuadros en la que se ponen y quitan diagonales"></svg>
         </div>
-        <div class="pie" id="pie-tri"></div>
+        <div class="pie" id="pie-tri" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2556,7 +2556,7 @@ footer .wrap{padding-block:18px 26px}
             <svg viewBox="0 0 640 330" id="svg-cadena" role="img"
                  aria-label="La cadena colgando y la misma curva del rev&eacute;s hecha arco, con la flecha y el empuje horizontal para tres tensiones"></svg>
           </div>
-          <div class="pie" data-pie-cadena>Cuanto m&aacute;s tensa la cuelgas, m&aacute;s plana queda y m&aacute;s empuja hacia los lados.</div>
+          <div class="pie" data-pie-cadena role="status" aria-live="polite" aria-atomic="true">Cuanto m&aacute;s tensa la cuelgas, m&aacute;s plana queda y m&aacute;s empuja hacia los lados.</div>
         </div>
 
         <script>

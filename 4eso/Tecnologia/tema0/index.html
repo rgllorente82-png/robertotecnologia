@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -440,7 +440,7 @@ footer .wrap{padding-block:18px 26px}
             <text x="572" y="206" style="font:400 10px var(--f-m);fill:var(--goo-azul)">delante</text>
           </svg>
         </div>
-        <div class="pie">La t&eacute;cnica aporta el <b>saber hacer</b> y la ciencia el <b>saber por qu&eacute;</b>. La tecnolog&iacute;a
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">La t&eacute;cnica aporta el <b>saber hacer</b> y la ciencia el <b>saber por qu&eacute;</b>. La tecnolog&iacute;a
           los junta para resolver un problema concreto. Y la flecha de puntos importa: a veces la tecnolog&iacute;a
           funciona antes de que la ciencia sepa explicarla, y es ella la que obliga a investigar.</div>
       </div>
@@ -550,7 +550,7 @@ footer .wrap{padding-block:18px 26px}
             <text x="592" y="210" text-anchor="end" class="etq">DIGITAL &middot; 300 &euro;</text>
           </svg>
         </div>
-        <div class="pie">
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">
           <p style="margin:0 0 8px">Un disco prensado cuesta unos 2&nbsp;&euro; por unidad: mil copias son mil
             veces ese coste. Un archivo cuesta producirlo <b>una vez</b> &mdash;grabar, mezclar, masterizar&mdash;
             y a partir de ah&iacute; la copia n&uacute;mero mil cuesta pr&aacute;cticamente lo mismo que la segunda: nada.</p>
@@ -614,7 +614,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="lienzo">
         <svg viewBox="0 0 640 210" id="svg-tiempo" role="img" aria-label="L&iacute;nea del tiempo de la tecnolog&iacute;a"></svg>
       </div>
-      <div class="pie" id="pie-tiempo">
+      <div class="pie" id="pie-tiempo" role="status" aria-live="polite" aria-atomic="true">
         <div class="narra">
           <div class="avatar-caja" id="avatar-caja"></div>
           <div class="globo"><span id="txt-tiempo"></span>

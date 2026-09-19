@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -422,7 +422,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 250" id="svg-proceso" role="img"
                aria-label="Los siete pasos del proceso tecnol&oacute;gico, con la vuelta atr&aacute;s desde evaluar hasta dise&ntilde;ar"></svg>
         </div>
-        <div class="pie" id="pie-proceso"></div>
+        <div class="pie" id="pie-proceso" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -756,7 +756,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="lienzo" style="padding:16px">
           <table id="tabla-matriz" style="width:100%;border-collapse:collapse;font-size:14px"></table>
         </div>
-        <div class="pie" id="pie-matriz"></div>
+        <div class="pie" id="pie-matriz" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1035,7 +1035,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-definicion" role="img"
                aria-label="El mismo perchero de puerta dibujado como boceto sin medidas, como croquis acotado en mil&iacute;metros y como despiece de sus cuatro piezas"></svg>
         </div>
-        <div class="pie" id="pie-definicion"></div>
+        <div class="pie" id="pie-definicion" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1371,7 +1371,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 300" id="svg-gantt" role="img"
                aria-label="Diagrama de Gantt del montaje del perchero, con las ocho tareas en tres repartos distintos"></svg>
         </div>
-        <div class="pie" id="pie-gantt"></div>
+        <div class="pie" id="pie-gantt" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1457,8 +1457,13 @@ footer .wrap{padding-block:18px 26px}
 
             var etiqueta = (t.espera ? 'espera' : (P.quien[j] || '')) ;
             if(etiqueta && w > 26){
+              /* el rotulo va DENTRO de la barra, asi que su color depende de si
+                 la barra esta rellena o hueca, no del tema: los rellenos son
+                 claros en oscuro y saturados en claro, y la tinta oscura se lee
+                 encima de los dos */
+              var tinta = (!t.espera && !P.critica[j]) ? 'var(--ink)' : 'var(--tinta-sobre)';
               m += '<text x="' + (x + w/2).toFixed(1) + '" y="' + (y + ALTO * 0.68) + '" fill="' +
-                   (t.espera || !P.critica[j] ? 'var(--ink)' : '#fff') + '" text-anchor="middle" ' +
+                   tinta + '" text-anchor="middle" ' +
                    'font-family="var(--f-m)" font-size="10">' + etiqueta + '</text>';
             }
           });
@@ -1665,7 +1670,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 260" id="svg-uniones" role="img"
                aria-label="La misma junta en T resuelta con cola, con un clavo, con un tornillo y con tornillo m&aacute;s cola, y c&oacute;mo falla cada una"></svg>
         </div>
-        <div class="pie" id="pie-uniones"></div>
+        <div class="pie" id="pie-uniones" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>

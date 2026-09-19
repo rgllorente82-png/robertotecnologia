@@ -34,7 +34,10 @@ que se mueve al tocarlo —una polea que sube, un diagrama de Gantt que se
 reparte, un circuito que se mide— dibujado en SVG desde el propio navegador.
 
 El sitio se ve en claro y en oscuro, se lee en un móvil sin desplazarse a lo
-ancho, y respeta el ajuste de accesibilidad de «reducir el movimiento».
+ancho, y respeta el ajuste de accesibilidad de «reducir el movimiento». El pie
+de cada escena es una región viva, así que un lector de pantalla anuncia la
+explicación al pulsar un botón: para quien no ve el dibujo, ese pie **es** la
+escena.
 
 ## Cómo se comprueba que está bien
 
