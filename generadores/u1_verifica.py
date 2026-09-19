@@ -29,6 +29,7 @@ y el test de la sesion 6.
     python u1_verifica.py
 """
 import io
+import math
 import json
 import os
 import re
@@ -75,7 +76,7 @@ print(u'')
 print(u'== El Gantt de la sesion 4, rehecho desde la definicion')
 gantt = texto[texto.index("var TAREAS = ["):texto.index("var X0 = 150")]
 DUR = [int(x) for x in re.findall(r"d:(\d+)", gantt)]
-check(DUR == [5, 10, 12, 8, 10, 5, 15, 5],
+check(DUR == [5, 8, 10, 10, 12, 8, 10, 5],
       'las ocho duraciones son las de la hoja de proceso (%s)' % DUR)
 
 # La hoja de proceso esta escrita dos veces: como tabla en la teoria y como
@@ -90,7 +91,7 @@ if _tabla:
 ANTES = {}
 for a, b in re.findall(r'(\d+):\[([\d,]+)\]', re.search(r'var ANTES = \{(.*?)\};', gantt, re.S).group(1)):
     ANTES[int(a)] = [int(x) for x in b.split(',')]
-check(ANTES == {2: [1], 3: [1], 4: [2], 5: [2, 3], 6: [4, 5], 7: [6], 8: [7]},
+check(ANTES == {2: [1], 3: [1], 4: [2], 5: [3], 6: [4, 5], 7: [6], 8: [7]},
       'las precedencias son las que dice el texto (%s)' % ANTES)
 
 
@@ -134,13 +135,13 @@ for clave, etiqueta in (('solo', 'uno detras de otro'), ('dos', 'repartido entre
     # holgura de verdad: se retrasa la tarea un minuto y se mira si mueve el final
     mia = [1 if monta(dur, rec, j)[1] > mi_fin else 0 for j in range(len(dur))]
     check(mia == critica, '«%s»: las tareas sin holgura son las marcadas (%s)' % (etiqueta, mia))
-    # la tarea 7 es el secado: ocupa tiempo pero no es trabajo de nadie
+    # la tarea 7 es la cola de la base de corte: ocupa tiempo y no es trabajo
     trabajo = sum(d for k, d in enumerate(dur) if k != 6)
-    check(trabajo == (65 if clave == 'retraso' else 55),
+    check(trabajo == (68 if clave == 'retraso' else 58),
           '«%s»: el trabajo de las personas suma %d minutos' % (etiqueta, trabajo))
 
 # lo que dicen los pies tiene que ser lo que sale de la cuenta
-for clave, minutos in (('solo', 70), ('dos', 52), ('retraso', 62)):
+for clave, minutos in (('solo', 68), ('dos', 50), ('retraso', 60)):
     tramo = gantt[gantt.index(clave + ': {'):]
     tramo = tramo[:tramo.index('}')]
     check(('<b>%d minutos</b>' % minutos) in tramo or ('<b>%d</b>' % minutos) in tramo,
@@ -148,16 +149,32 @@ for clave, minutos in (('solo', 70), ('dos', 52), ('retraso', 62)):
 
 print(u'')
 print(u'== Las medidas del croquis salen de los requisitos')
-check(4 * 120 + 2 * 110 == 700, '4 x 120 + 2 x 110 = 700')
-check(40 + 5 == 45, '40 de puerta + 5 de holgura = 45')
+# Las cuatro medidas del soporte salen de un requisito, y aqui se vuelven a
+# sacar de los requisitos en vez de copiarlas del dibujo.
+MOVIL_ANCHO, HOLGURA = 80, 5            # «que quepa un movil con funda»
+CRUCE, COLA, GRUESO = 36, 70, 4         # «que no vuelque» y el carton medido
+ALTO_B, MUESCA_X, MUESCA_H = 80, 14, 10
+check(MOVIL_ANCHO + 2 * HOLGURA == 90, '80 del movil + 2 x 5 de holgura = 90 de ancho')
+check(CRUCE + GRUESO + COLA == 110, '36 + 4 de grueso + 70 de cola = 110 de largo')
+check(ALTO_B // 2 == 40, 'la ranura es la mitad de la altura de B: 80 / 2 = 40')
+
+# el angulo de la pantalla, que es el requisito que de verdad manda: sale del
+# desnivel entre la muesca de B y el canto de A, no de copiarlo de ningun sitio
+ALTO_A = 120
+grados = math.degrees(math.atan2(ALTO_A - (ALTO_B - MUESCA_H), CRUCE - MUESCA_X))
+check(60 <= grados <= 70,
+      'con 120 de respaldo y la muesca a 14 la pantalla queda a %.0f grados, dentro de 60-70' % grados)
+
 mm = re.search(r'var MM = \{([^}]*)\}', texto).group(1)
-for clave, valor in (('travesano', 700), ('separacion', 120), ('margen', 110),
-                     ('escotadura', 45), ('gancho_alto', 220), ('percha', 60)):
+for clave, valor in (('ancho', 90), ('altoA', ALTO_A), ('altoB', ALTO_B), ('largo', 110),
+                     ('cruce', CRUCE), ('cola', COLA), ('grueso', GRUESO), ('ranura', 40),
+                     ('muesca_x', MUESCA_X), ('muesca_h', MUESCA_H)):
     check(('%s:%d' % (clave, valor)) in mm.replace(' ', ''),
           'la escena usa %s = %d' % (clave, valor))
-check('8 &times; 0,5 = <b>4 mm</b>' in texto, 'el grosor del lapiz: 8 x 0,5 = 4 mm')
-check(texto.count('2 + 1 + 5 + 4') == 0 and 'doce en total' in texto,
-      'el despiece dice doce piezas (2 + 1 + 5 + 4 = %d)' % (2 + 1 + 5 + 4))
+check('A es MAS ALTA que B' in texto,
+      'la escena dice por que A tiene que ser mas alta que B')
+check('dos en total' in texto and 'doce en total' not in texto,
+      'el despiece dice dos piezas y no doce')
 
 print(u'')
 print(u'== El test de la sesion 6')
@@ -192,7 +209,7 @@ else:
         for ses, escena, botones in (
                 (3, 'esc-definicion', ['boceto', 'croquis', 'despiece']),
                 (4, 'esc-gantt', ['solo', 'dos', 'retraso']),
-                (5, 'esc-uniones', ['cola', 'clavo', 'tornillo', 'mixta'])):
+                (5, 'esc-uniones', ['cinta', 'cola', 'holgado', 'justo'])):
             pg.click('#nav button[data-ses="%d"]' % ses)
             for p in botones:
                 pg.click('#%s .seg button[data-p="%s"]' % (escena, p))

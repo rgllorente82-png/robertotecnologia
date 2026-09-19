@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tema 1 &middot; El proceso tecnol&oacute;gico</title>
-<meta name="description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones de taller y evaluaci&oacute;n del proyecto, con escenas interactivas y test.">
+<meta name="description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones y evaluaci&oacute;n del proyecto, todo alrededor de un soporte de m&oacute;vil de cart&oacute;n que se construye en clase, con escenas interactivas y test.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="Tema 1 &middot; El proceso tecnol&oacute;gico">
-<meta property="og:description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones de taller y evaluaci&oacute;n del proyecto, con escenas interactivas y test.">
+<meta property="og:description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones y evaluaci&oacute;n del proyecto, todo alrededor de un soporte de m&oacute;vil de cart&oacute;n que se construye en clase, con escenas interactivas y test.">
 <meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
 <meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema1.png">
 <meta property="og:image:width" content="1200">
@@ -347,8 +347,9 @@ footer .wrap{padding-block:18px 26px}
       <p>Un problema de verdad, de los que pasan en un instituto:</p>
       <div class="aviso">
         <span class="n-tag">El problema</span>
-        <b>En vuestra clase, los abrigos acaban siempre en el suelo o colgados del respaldo de la silla.
-        No hay percheros y no se pueden hacer agujeros en la pared.</b>
+        <b>Cuando us&aacute;is el m&oacute;vil en clase para consultar algo, acaba tumbado en la mesa: hay que
+        agacharse para verlo, se tapa con la libreta y se lleva todos los golpes. Y no se puede comprar
+        nada, porque el presupuesto de material es cero.</b>
       </div>
       <p>Ten&eacute;is <b>cinco minutos</b> y una hoja. Resolvedlo. Sin instrucciones, sin m&eacute;todo, sin
          que yo os diga nada m&aacute;s.</p>
@@ -359,8 +360,8 @@ footer .wrap{padding-block:18px 26px}
            pasado de discutir. <b>&iquest;Cu&aacute;l de las soluciones es la buena?</b></p>
       </div>
       <p>No se puede saber. Y ese es el problema: no porque las ideas sean malas, sino porque
-         <b>no hay forma de compararlas</b>. Nadie ha dicho cu&aacute;ntos abrigos, ni cu&aacute;nto puede costar, ni
-         de qu&eacute; se hace, ni c&oacute;mo se sabr&iacute;a si funciona.</p>
+         <b>no hay forma de compararlas</b>. Nadie ha dicho qu&eacute; m&oacute;viles tiene que aguantar, ni con
+         qu&eacute; inclinaci&oacute;n, ni de qu&eacute; se hace, ni c&oacute;mo se sabr&iacute;a si funciona.</p>
   
     </section>
     <section class="bloque">
@@ -447,7 +448,7 @@ footer .wrap{padding-block:18px 26px}
 
         var PASOS = [
           {n:'NECESIDAD',  t:'Detectar la necesidad',
-           d:'Qu&eacute; falta y a qui&eacute;n le falta. Los abrigos en el suelo.'},
+           d:'Qu&eacute; falta y a qui&eacute;n le falta. El m&oacute;vil tumbado en la mesa.'},
           {n:'ANALIZAR',   t:'Analizar el problema',
            d:'Escribir los <b>requisitos</b>: qu&eacute; tiene que cumplir la soluci&oacute;n. Es el paso que casi todo el mundo se salta.'},
           {n:'IDEAS',      t:'Buscar ideas',
@@ -505,7 +506,7 @@ footer .wrap{padding-block:18px 26px}
           var p = PASOS[i];
           var extra = '';
           if(i === 1) extra = '<br><b style="color:var(--goo-amarillo)">Este es el paso que decide si tu proyecto se puede evaluar o no.</b>';
-          if(roto)    extra = '<br><b style="color:var(--goo-rojo)">La madera no aguanta el peso. Vuelves al dise&ntilde;o: eso no es fracasar, es como funciona.</b>';
+          if(roto)    extra = '<br><b style="color:var(--goo-rojo)">La ranura sali&oacute; ancha y el soporte baila. Vuelves al dise&ntilde;o: eso no es fracasar, es como funciona.</b>';
           pie.innerHTML = '<b>' + (i+1) + ' &middot; ' + p.t + '</b><br>' + p.d + extra;
         }
 
@@ -620,8 +621,7 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
       <h3>Y no es una l&iacute;nea recta</h3>
-      <p>Casi siempre se vuelve atr&aacute;s. Construyes y descubres que la madera no aguanta: vuelves al
-         dise&ntilde;o. Eso <b>no es fracasar</b>, es c&oacute;mo funciona. Lo que ser&iacute;a un fallo es descubrirlo
+      <p>Casi siempre se vuelve atr&aacute;s. Construyes y descubres que la ranura no aprieta: vuelves al dise&ntilde;o. Eso <b>no es fracasar</b>, es c&oacute;mo funciona. Lo que ser&iacute;a un fallo es descubrirlo
          cuando ya has fabricado mil unidades.</p>
   
     </section>
@@ -629,18 +629,19 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
       <div class="ficha">
         <div class="ficha-cab">
-          <span>Actividad 1 &middot; Los requisitos del perchero</span>
+          <span>Actividad 1 &middot; Los requisitos del soporte</span>
           <span class="chips"><span class="chip">1.1</span><span class="chip">2.1</span></span>
           <span>Parejas &middot; 25 min</span>
         </div>
         <div class="ficha-cuerpo">
           <h4>Qu&eacute; hay que hacer</h4>
-          <p>Volved al problema de los abrigos. <b>Sin proponer ninguna soluci&oacute;n todav&iacute;a</b>, escribid la
-             lista de requisitos que tendr&iacute;a que cumplir.</p>
+          <p>Volved al problema del m&oacute;vil tumbado. <b>Sin proponer ninguna soluci&oacute;n todav&iacute;a</b>,
+             escribid la lista de requisitos que tendr&iacute;a que cumplir.</p>
           <ol class="pasos">
             <li>Al menos <b>ocho requisitos</b>, cada uno en una l&iacute;nea.</li>
-            <li>Que sean <b>comprobables</b>. &laquo;Que sea bonito&raquo; no vale; &laquo;que no ocupe m&aacute;s de
-                30 cm de pasillo&raquo; s&iacute;.</li>
+            <li>Que sean <b>comprobables</b>. &laquo;Que sea bonito&raquo; no vale; &laquo;que la pantalla quede
+                entre 60&ordm; y 70&ordm; respecto a la mesa&raquo; s&iacute;, porque eso se mide con un
+                transportador.</li>
             <li>Marcad cu&aacute;les son <b>imprescindibles</b> y cu&aacute;les son deseables.</li>
             <li>Al final, y solo al final, escribid <b>una</b> idea de soluci&oacute;n en tres l&iacute;neas.</li>
           </ol>
@@ -673,7 +674,7 @@ footer .wrap{padding-block:18px 26px}
               <li>&iquest;Por qu&eacute; se escriben los requisitos antes de pensar soluciones?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque son el <b>criterio</b> con el que se compara despu&eacute;s. Sin ellos no se puede decidir qu&eacute; soluci&oacute;n es mejor, solo cu&aacute;l gusta m&aacute;s.</p></div></details></li>
         <li>&laquo;Que sea resistente&raquo;: &iquest;es un buen requisito?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. No es comprobable. S&iacute; lo ser&iacute;a: <b>&laquo;que aguante cinco abrigos de 600 g sin deformarse&raquo;</b>.</p></div></details></li>
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. No es comprobable. S&iacute; lo ser&iacute;a: <b>&laquo;que sujete un m&oacute;vil de 165 mm sin volcar al tocar la pantalla&raquo;</b>.</p></div></details></li>
         <li>&iquest;Qu&eacute; se hace si al construir descubres que el dise&ntilde;o no funciona?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se vuelve al paso de dise&ntilde;o. El proceso tecnol&oacute;gico <b>no es una l&iacute;nea recta</b>: volver atr&aacute;s forma parte de &eacute;l.</p></div></details></li>
 
@@ -780,12 +781,12 @@ footer .wrap{padding-block:18px 26px}
         if(!tb) return;
 
         var CRIT = [
-          {n:'Cabe en el aula', p:3},
-          {n:'Aguanta 5 abrigos', p:3},
-          {n:'Cuesta menos de 10 &euro;', p:2},
+          {n:'Deja la pantalla a 60-70&ordm;', p:3},
+          {n:'Sujeta el m&oacute;vil sin volcar', p:3},
+          {n:'Sale de una caja usada', p:2},
           {n:'Se monta en una sesi&oacute;n', p:1}
         ];
-        var IDEAS = ['Barra entre dos mesas', 'Perchero de pie', 'Ganchos en las sillas'];
+        var IDEAS = ['Dos piezas encastradas', 'Una tira doblada en Z', 'Una caja recortada'];
         var v = IDEAS.map(function(){ return CRIT.map(function(){ return 0; }); });
 
         function total(i){
@@ -871,7 +872,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="ficha-cuerpo">
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
-            <li><b>Seis ideas en seis minutos</b> para el problema de los abrigos. Una por minuto, sin
+            <li><b>Seis ideas en seis minutos</b> para el problema del m&oacute;vil. Una por minuto, sin
                 criticar ninguna. Si os atasc&aacute;is, apuntad una absurda a prop&oacute;sito y seguid.</li>
             <li>Elegid <b>cuatro criterios</b> de vuestra lista de requisitos de la sesi&oacute;n anterior.</li>
             <li>Dadle a cada criterio un <b>peso</b> de 1 a 3, y justificad en una l&iacute;nea por qu&eacute; ese peso.</li>
@@ -926,7 +927,7 @@ footer .wrap{padding-block:18px 26px}
     <div class="ses-head">
       <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
       <h2>De una frase a algo que se pueda construir</h2>
-      <p>Tu idea ha ganado la matriz. Ahora hay que convertirla en medidas, piezas y materiales, porque una idea no se puede serrar.</p>
+      <p>Tu idea ha ganado la matriz. Ahora hay que convertirla en medidas, piezas y materiales, porque una idea no se puede cortar.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.1</span><span class="chip sab">A.2</span><span class="chip sab">B.1</span></div>
     </div>
@@ -996,7 +997,7 @@ footer .wrap{padding-block:18px 26px}
          saber cu&aacute;ntas piezas hay, de qu&eacute; son y cu&aacute;nto mide cada una. A separar el conjunto
          en sus piezas se le llama <b>despiece</b>, y a la tabla que las lista, <b>lista de materiales</b>.</p>
       <p>Parece burocracia y es justo lo contrario: es la lista de la compra. Sin ella llegas al taller,
-         descubres que faltan dos tarugos y pierdes la sesi&oacute;n entera.</p>
+         descubres que te falta la mitad del cart&oacute;n y pierdes la sesi&oacute;n entera.</p>
 
       <div class="copiar">
         <h4>La lista de materiales</h4>
@@ -1004,30 +1005,45 @@ footer .wrap{padding-block:18px 26px}
         <table>
           <thead><tr><th scope="col">Pieza</th><th scope="col">Cant.</th><th scope="col">Material</th><th scope="col">Medidas (mm)</th><th scope="col">De d&oacute;nde sale</th></tr></thead>
           <tbody>
-            <tr><td>Gancho lateral</td><td>2</td><td>Contrachapado 10 mm</td><td>220 &times; 90</td><td>Recorte del taller</td></tr>
-            <tr><td>Travesa&ntilde;o</td><td>1</td><td>List&oacute;n de pino</td><td>700 &times; 20 &times; 20</td><td>Se compra de 1 m</td></tr>
-            <tr><td>Percha</td><td>5</td><td>Tarugo de haya</td><td>&empty; 12 &times; 60</td><td>Se compra de 1 m</td></tr>
-            <tr><td>Tornillo rosca madera</td><td>4</td><td>Acero</td><td>3,5 &times; 30</td><td>Taller</td></tr>
+            <tr><td>A &middot; respaldo</td><td>1</td><td>Cart&oacute;n de caja, 4 mm</td><td>90 &times; 80</td><td>Caja de folios</td></tr>
+            <tr><td>B &middot; costilla</td><td>1</td><td>Cart&oacute;n de caja, 4 mm</td><td>110 &times; 80</td><td>La misma caja</td></tr>
           </tbody>
         </table>
-        <p>Es la lista de un <b>perchero de puerta</b>: dos ganchos que montan a caballo sobre la hoja de
-           la puerta, un travesa&ntilde;o entre ellos y cinco perchas. Cero agujeros en la pared.</p>
+        <p>Es la lista de un <b>soporte de m&oacute;vil</b>: dos piezas de cart&oacute;n que se encastran en cruz,
+           una de pie y otra tumbada. Cero tornillos, cero pegamento y cero euros, porque el cart&oacute;n
+           sale de una caja que iba a la basura.</p>
+        <p>F&iacute;jate en lo corta que es la lista. Eso no es pobreza de proyecto: es una <b>decisi&oacute;n</b>.
+           Cada pieza que a&ntilde;ades es una pieza que hay que trazar, cortar, medir y que puede salir mal.</p>
       </div>
 
       <h3>Las medidas no se inventan: salen de los requisitos</h3>
       <p>Esta es la parte que de verdad distingue el dise&ntilde;o del dibujo. Cada n&uacute;mero del croquis
          tiene que poder contestar a la pregunta <i>&iquest;y por qu&eacute; ese?</i>. Mirad de d&oacute;nde
-         salen los del perchero:</p>
+         salen los del soporte:</p>
       <ul>
-        <li><b>&laquo;Que quepan cinco abrigos&raquo;</b> &rarr; cinco perchas. Un abrigo colgado ocupa unos
-            <b>120 mm</b>, as&iacute; que de la primera a la &uacute;ltima hay 4 &times; 120 = <b>480 mm</b>,
-            y dejando 110 mm de margen a cada lado el travesa&ntilde;o mide 480 + 220 = <b>700 mm</b>.</li>
-        <li><b>&laquo;Que aguante cinco abrigos&raquo;</b> &rarr; 5 &times; 600 g = <b>3.000 g</b>, o sea
-            <b>3 kg</b> colgando del centro del travesa&ntilde;o. Con eso ya se puede elegir grosor y ensayarlo.</li>
-        <li><b>&laquo;Sin taladrar la pared&raquo;</b> &rarr; se cuelga del canto de la puerta. La puerta
-            del aula tiene <b>40 mm</b> de grueso, as&iacute; que la escotadura del gancho mide 40 + 5 =
-            <b>45 mm</b>: los 5 mm son la holgura para que entre y salga.</li>
+        <li><b>&laquo;Que quepa un m&oacute;vil con funda&raquo;</b> &rarr; el m&aacute;s ancho del aula mide
+            <b>80 mm</b>. Dejando <b>5 mm</b> de aire a cada lado, las dos piezas miden 80 + 2 &times; 5 =
+            <b>90 mm</b> de ancho. Ni una m&aacute;s: el cart&oacute;n que sobra por los lados no sujeta nada
+            y s&iacute; estorba en la mochila.</li>
+        <li><b>&laquo;Que la pantalla quede entre 60&ordm; y 70&ordm;&raquo;</b> &rarr; el m&oacute;vil se apoya
+            abajo en el tope y arriba en el canto de A. Con el respaldo a <b>80 mm</b> de alto y el tope a
+            <b>36 mm</b> por delante, sale un poco m&aacute;s de <b>65&ordm;</b>. Y no se discute a ojo: se
+            mide con el <b>transportador</b> cuando est&eacute; montado.</li>
+        <li><b>&laquo;Que no vuelque al tocar la pantalla&raquo;</b> &rarr; la costilla lleva <b>70 mm</b> de
+            cola por detr&aacute;s del respaldo. Con eso el largo de B sale solo: 36 + 4 + 70 =
+            <b>110 mm</b>. Los 4 son el grueso del propio cart&oacute;n de A, que tambi&eacute;n ocupa.</li>
+        <li><b>&laquo;Que se monte sin pegamento&raquo;</b> &rarr; encastre en cruz. Cada ranura mide de
+            ancho <b>lo que mida tu cart&oacute;n</b> &mdash;m&iacute;delo con el calibre, suele andar por los
+            4 mm&mdash; y de profundidad la <b>mitad</b> de la altura: 80 &divide; 2 = <b>40 mm</b>. As&iacute;
+            las dos piezas se cruzan y quedan a ras.</li>
       </ul>
+      <div class="nota">
+        <span class="n-tag">La medida que no te van a dar</span>
+        El ancho de la ranura no lo pone este croquis, y no es un olvido: el cart&oacute;n de una caja de
+        pl&aacute;tanos no mide lo mismo que el de una de folios. Si la haces m&aacute;s ancha que tu cart&oacute;n,
+        el soporte <b>baila</b>; si la haces m&aacute;s estrecha, al meterla a la fuerza <b>revientas la onda</b>
+        y ya no agarra nunca. M&iacute;delo, y haz una <b>prueba en un recorte</b> antes de tocar la pieza buena.
+      </div>
       <div class="aviso">
         <span class="n-tag">Regla</span>
         Una medida que no puedas justificar con un <b>requisito</b> o con una <b>comprobaci&oacute;n</b>
@@ -1037,7 +1053,7 @@ footer .wrap{padding-block:18px 26px}
 
       <div class="escena" id="esc-definicion">
         <div class="escena-barra">
-          <span class="escena-titulo">El mismo perchero, en tres niveles de definici&oacute;n</span>
+          <span class="escena-titulo">El mismo soporte, en tres niveles de definici&oacute;n</span>
           <div class="seg" id="seg-definicion">
             <button type="button" data-p="boceto" aria-pressed="true">Boceto</button>
             <button type="button" data-p="croquis">Croquis acotado</button>
@@ -1046,7 +1062,7 @@ footer .wrap{padding-block:18px 26px}
         </div>
         <div class="lienzo">
           <svg viewBox="0 0 640 300" id="svg-definicion" role="img"
-               aria-label="El mismo perchero de puerta dibujado como boceto sin medidas, como croquis acotado en mil&iacute;metros y como despiece de sus cuatro piezas"></svg>
+               aria-label="El mismo soporte de m&oacute;vil dibujado como boceto sin medidas, como croquis acotado en mil&iacute;metros y como despiece de sus dos piezas de cart&oacute;n"></svg>
         </div>
         <div class="pie" id="pie-definicion" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
@@ -1058,13 +1074,21 @@ footer .wrap{padding-block:18px 26px}
         var seg = document.getElementById('seg-definicion');
         if(!svg) return;
 
-        /* geometria del perchero, en milimetros; el dibujo va a escala 1:2 */
-        var MM = {travesano:700, separacion:120, margen:110, gancho_alto:220,
-                  gancho_ancho:90, escotadura:45, percha:60, canto:20, chapa:10};
-        var K = 0.5;                            /* pixeles por milimetro */
-        var X0 = 40, YB = 170;                  /* origen del travesano en el alzado */
+        /* geometria del soporte, en milimetros. Todas las medidas salen de un
+           requisito y estan escritas aqui una sola vez: si cambia el grueso
+           del carton, cambia una linea y el dibujo entero se entera.
+
+           La clave del cacharro: A es MAS ALTA que B. Si las dos midieran lo
+           mismo, el movil quedaria tumbado. El desnivel entre la muesca de B
+           y el canto de A es lo que le da la inclinacion. */
+        var MM = {ancho:90, altoA:120, altoB:80, largo:110, cruce:36, cola:70,
+                  grueso:4, ranura:40, muesca_x:14, muesca_w:12, muesca_h:10,
+                  movil:165, canto_movil:12};
+        /* la escala la manda el movil, que con 165 mm es lo mas alto del dibujo */
+        var K = 0.95;                           /* pixeles por milimetro */
+        var X0 = 96, YB = 238;                  /* el frente de la base, sobre la mesa */
         function mm(v){ return v * K; }
-        function xm(v){ return X0 + mm(v); }
+        function px(mx, my){ return [X0 + mx * K, YB - my * K]; }
 
         var LIN = 'var(--ink)', SUAVE = 'var(--ink-soft)', AZ = 'var(--goo-azul)';
 
@@ -1077,127 +1101,135 @@ footer .wrap{padding-block:18px 26px}
                  '" text-anchor="' + (anc||'middle') + '" font-family="var(--f-m)" font-size="' +
                  (tam||11) + '">' + s + '</text>';
         }
-        /* cota horizontal, con sus dos remates y el numero encima de la linea */
         function cotaH(x1,x2,y,s){
           var m = linea(x1,y,x2,y,AZ,1.2) + linea(x1,y-4,x1,y+4,AZ,1.2) + linea(x2,y-4,x2,y+4,AZ,1.2);
           if(x2 - x1 < 42) return m + texto(x2 + 7, y + 3.5, s, AZ, 'start', 10.5);
-          m += '<rect x="' + ((x1+x2)/2 - 17) + '" y="' + (y-9) + '" width="34" height="13" fill="var(--surface)"></rect>';
+          m += '<rect x="' + ((x1+x2)/2 - 15) + '" y="' + (y-9) + '" width="30" height="13" fill="var(--surface)"></rect>';
           return m + texto((x1+x2)/2, y+1.5, s, AZ, 'middle', 10.5);
         }
         function cotaV(x,y1,y2,s){
           var m = linea(x,y1,x,y2,AZ,1.2) + linea(x-4,y1,x+4,y1,AZ,1.2) + linea(x-4,y2,x+4,y2,AZ,1.2);
-          m += '<rect x="' + (x-17) + '" y="' + ((y1+y2)/2 - 7) + '" width="34" height="13" fill="var(--surface)"></rect>';
+          if(Math.abs(y2 - y1) < 30) return m + texto(x + 7, (y1+y2)/2 + 3.5, s, AZ, 'start', 10.5);
+          m += '<rect x="' + (x-15) + '" y="' + ((y1+y2)/2 - 7) + '" width="30" height="13" fill="var(--surface)"></rect>';
           return m + texto(x, (y1+y2)/2 + 3.5, s, AZ, 'middle', 10.5);
         }
 
-        /* ALZADO: el perchero visto de frente, colgado del canto de la puerta */
+        /* PERFIL: visto de lado, que es donde se ve por que funciona */
         function alzado(acotado){
-          var m = '', i, x;
-          var gAlto = mm(MM.gancho_alto), gAncho = mm(MM.gancho_ancho);
-          var yTop = YB - gAlto, hBarra = mm(MM.canto);
+          var m = '';
+          var mx1 = MM.muesca_x - MM.muesca_w/2, mx2 = MM.muesca_x + MM.muesca_w/2;
+          var fondo = MM.altoB - MM.muesca_h;
 
-          /* la hoja de la puerta, detras de todo; su canto superior es la linea de arriba */
-          m += '<rect x="' + (X0 - 26) + '" y="' + (yTop + mm(MM.chapa)) + '" width="' + (mm(MM.travesano) + 52) +
-               '" height="' + (300 - yTop - mm(MM.chapa)) + '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.2"></rect>';
-          m += texto(X0 - 20, 258, 'hoja de la puerta', SUAVE, 'start', 10.5);
+          m += linea(X0 - 30, YB, X0 + mm(MM.largo) + 46, YB, 'var(--line)', 1.5);
 
-          /* los dos ganchos, uno en cada extremo del travesano */
-          [0, MM.travesano].forEach(function(pos, k){
-            var x0 = k ? xm(pos) - gAncho : xm(pos);
-            m += '<rect x="' + x0 + '" y="' + (yTop - 4) + '" width="' + gAncho + '" height="' + (gAlto + 4) +
-                 '" rx="2" fill="var(--surface)" stroke="' + LIN + '" stroke-width="2.2"></rect>';
-          });
+          /* B, la costilla: rectangulo con la muesca donde apoya el movil */
+          var d = 'M' + px(0,0)[0] + ' ' + px(0,0)[1] +
+                  ' L' + px(MM.largo,0)[0] + ' ' + px(MM.largo,0)[1] +
+                  ' L' + px(MM.largo,MM.altoB)[0] + ' ' + px(MM.largo,MM.altoB)[1] +
+                  ' L' + px(mx2,MM.altoB)[0] + ' ' + px(mx2,MM.altoB)[1] +
+                  ' L' + px(mx2,fondo)[0] + ' ' + px(mx2,fondo)[1] +
+                  ' L' + px(mx1,fondo)[0] + ' ' + px(mx1,fondo)[1] +
+                  ' L' + px(mx1,MM.altoB)[0] + ' ' + px(mx1,MM.altoB)[1] +
+                  ' L' + px(0,MM.altoB)[0] + ' ' + px(0,MM.altoB)[1] + ' Z';
+          m += '<path d="' + d + '" fill="var(--surface-2)" stroke="' + LIN +
+               '" stroke-width="2.4" stroke-linejoin="round"></path>';
 
-          /* travesano */
-          m += '<rect x="' + xm(0) + '" y="' + YB + '" width="' + mm(MM.travesano) + '" height="' + hBarra +
-               '" rx="1.5" fill="var(--surface)" stroke="' + LIN + '" stroke-width="2.4"></rect>';
+          /* A, el respaldo, de canto: una tira del grueso del carton */
+          m += '<rect x="' + px(MM.cruce,0)[0] + '" y="' + px(0,MM.altoA)[1] + '" width="' + mm(MM.grueso) +
+               '" height="' + mm(MM.altoA) + '" fill="' + LIN + '" stroke="' + LIN + '" stroke-width="1.6"></rect>';
 
-          /* perchas: apuntan hacia quien mira, asi que de frente son circulos */
-          for(i = 0; i < 5; i++){
-            x = xm(MM.margen + i * MM.separacion);
-            m += '<circle cx="' + x.toFixed(1) + '" cy="' + (YB + hBarra/2) + '" r="7" fill="var(--surface-2)" stroke="' +
-                 LIN + '" stroke-width="2"></circle>';
-            m += '<circle cx="' + x.toFixed(1) + '" cy="' + (YB + hBarra/2) + '" r="1.6" fill="' + LIN + '"></circle>';
-          }
+          /* la ranura de A, escondida detras de B: linea de trazos */
+          m += linea(px(MM.cruce + MM.grueso/2, 0)[0], px(0,0)[1],
+                     px(MM.cruce + MM.grueso/2, MM.ranura)[0], px(0,MM.ranura)[1],
+                     SUAVE, 1.4, 'stroke-dasharray="4 3"');
+
+          /* el movil: apoya abajo en la muesca y se recuesta en el canto de A */
+          var abajo = px(MM.muesca_x, fondo), arriba = px(MM.cruce, MM.altoA);
+          var dx = arriba[0]-abajo[0], dy = arriba[1]-abajo[1];
+          var L = Math.sqrt(dx*dx+dy*dy), ux = dx/L, uy = dy/L;
+          var fin = [abajo[0] + ux*mm(MM.movil), abajo[1] + uy*mm(MM.movil)];
+          var nx = -uy*mm(MM.canto_movil), ny = ux*mm(MM.canto_movil);
+          m += '<path d="M' + abajo[0].toFixed(1) + ' ' + abajo[1].toFixed(1) +
+               ' L' + fin[0].toFixed(1) + ' ' + fin[1].toFixed(1) +
+               ' L' + (fin[0]+nx).toFixed(1) + ' ' + (fin[1]+ny).toFixed(1) +
+               ' L' + (abajo[0]+nx).toFixed(1) + ' ' + (abajo[1]+ny).toFixed(1) +
+               ' Z" fill="none" stroke="' + SUAVE + '" stroke-width="1.8" stroke-dasharray="6 4"></path>';
+          m += texto(fin[0] + nx + 10, fin[1] + ny + 4, 'el m&oacute;vil', SUAVE, 'start', 10.5);
+          /* las letras, como van escritas en las piezas de verdad */
+          var la = px(MM.cruce + MM.grueso/2, MM.altoA - 6);
+          m += linea(la[0], la[1], la[0] + 62, la[1] - 30, SUAVE, 1);
+          m += texto(la[0] + 66, la[1] - 26, 'A &middot; respaldo, de canto', SUAVE, 'start', 10.5);
+          m += texto(px(MM.largo - 18, 0)[0], px(0, MM.altoB/2 - 6)[1], 'B', LIN, 'middle', 13);
 
           if(acotado){
-            m += cotaH(xm(0), xm(MM.margen), 214, '110');
-            m += cotaH(xm(MM.margen), xm(MM.margen + MM.separacion), 214, '120');
-            m += cotaH(xm(0), xm(MM.travesano), 238, '700');
+            m += cotaH(px(0,0)[0], px(MM.cruce,0)[0], YB + 20, '36');
+            m += cotaH(px(0,0)[0], px(MM.largo,0)[0], YB + 42, '110');
+            m += cotaV(px(MM.largo,0)[0] + 26, px(0,MM.altoB)[1], YB, '80');
+            m += cotaV(px(MM.largo,0)[0] + 58, px(0,MM.altoA)[1], YB, '120');
+            m += linea(px(MM.cruce+MM.grueso,MM.altoA)[0], px(0,MM.altoA)[1],
+                       px(MM.largo,0)[0] + 58, px(0,MM.altoA)[1], 'var(--line)', 1);
+            m += cotaH(px(mx1,0)[0], px(mx2,0)[0], px(0,MM.altoB)[1] - 12, '12');
+            m += texto(px(0,0)[0] - 12, px(0,fondo)[1] + 4, '10', AZ, 'end', 10.5);
+            m += cotaH(px(MM.cruce,0)[0], px(MM.cruce+MM.grueso,0)[0], px(0,MM.altoB)[1] - 30, '4');
           }
-          m += texto(xm(MM.travesano/2), 40, 'ALZADO', SUAVE, 'middle', 10.5);
+          m += texto(px(MM.largo/2, 0)[0], 40, 'PERFIL', SUAVE, 'middle', 10.5);
           return m;
         }
 
-        /* DETALLE: el gancho visto de lado, que es donde se ve el grueso de la puerta */
+        /* DETALLE: el encastre en cruz, que es toda la union que lleva */
         function detalle(acotado){
-          var XD = 492, yTop = 88, yBarra = 178;
-          var esc = mm(MM.escotadura), vuelo = mm(MM.percha), canto = mm(MM.canto);
+          var XD = 470, YD = 92, KK = 0.95;
+          var w = MM.ancho*KK, h = MM.altoA*KK, g = MM.grueso*KK, r = MM.ranura*KK;
           var m = '';
 
-          /* la puerta, en seccion: aqui si se ve su grueso */
-          m += '<rect x="' + XD + '" y="' + yTop + '" width="' + esc + '" height="' + (270 - yTop) +
-               '" fill="var(--surface-2)" stroke="var(--line)" stroke-width="1.2"></rect>';
-          m += texto(XD + esc/2, 258, 'puerta', SUAVE, 'middle', 10);
+          m += '<path d="M' + XD + ' ' + YD + ' h' + w + ' v' + h + ' h-' + ((w-g)/2) + ' v-' + r +
+               ' h-' + g + ' v' + r + ' h-' + ((w-g)/2) + ' Z" fill="var(--surface-2)" stroke="' + LIN +
+               '" stroke-width="2.2" stroke-linejoin="round"></path>';
+          m += texto(XD + w/2, YD - 12, 'A de frente, y B asomando', SUAVE, 'middle', 10.5);
 
-          /* el gancho: una U invertida de contrachapado que abraza el canto */
-          var xa = XD - 2.5, xb = XD + esc + 2.5, yA = yTop - 6;
-          m += '<path d="M' + xa + ' ' + yBarra + ' V' + (yA + 8) + ' Q' + xa + ' ' + yA + ' ' + (xa + 8) + ' ' + yA +
-               ' H' + (xb - 8) + ' Q' + xb + ' ' + yA + ' ' + xb + ' ' + (yA + 8) + ' V' + yBarra +
-               '" stroke="' + LIN + '" stroke-width="5" fill="none" stroke-linejoin="round"></path>';
-
-          /* el travesano, cortado: un cuadrado de 20 x 20 */
-          m += '<rect x="' + (xb - canto/2) + '" y="' + yBarra + '" width="' + canto + '" height="' + canto +
-               '" fill="var(--surface)" stroke="' + LIN + '" stroke-width="2"></rect>';
-          /* la percha, que sale hacia delante */
-          m += '<rect x="' + (xb + canto/2) + '" y="' + (yBarra + canto/2 - 3) + '" width="' + vuelo +
-               '" height="6" rx="3" fill="var(--surface-2)" stroke="' + LIN + '" stroke-width="2"></rect>';
+          m += '<rect x="' + (XD + (w-g)/2) + '" y="' + (YD + h - r) + '" width="' + g + '" height="' + (r + 22) +
+               '" fill="var(--surface)" stroke="' + LIN + '" stroke-width="2.2"></rect>';
 
           if(acotado){
-            m += cotaH(xa, xb, yA - 14, '45');
-            m += cotaV(xb + vuelo + 34, yA, yBarra, '220');
-            m += cotaH(xb + canto/2, xb + canto/2 + vuelo, yBarra + 40, '60');
+            m += cotaV(XD + (w-g)/2 - 20, YD + h - r, YD + h, '40');
+            m += cotaH(XD + (w-g)/2, XD + (w+g)/2, YD + h - r - 12, '4');
+            m += cotaH(XD, XD + w, YD + h + 44, '90');
           }
-          m += texto(XD + esc/2 + 10, 40, 'DETALLE DEL GANCHO', SUAVE, 'middle', 10.5);
-          m += texto(XD + esc/2 + 10, 53, 'visto de lado', SUAVE, 'middle', 10);
           return m;
         }
 
         function conjunto(acotado){
           var m = alzado(acotado) + detalle(acotado);
-          m += linea(452, 30, 452, 280, 'var(--line)', 1);
-          m += texto(320, 292, acotado ? 'Cotas en mil&iacute;metros'
+          m += linea(440, 30, 440, 282, 'var(--line)', 1);
+          m += texto(240, 294, acotado ? 'Cotas en mil&iacute;metros'
                                        : 'Sin una sola medida: todav&iacute;a es una idea', SUAVE, 'middle', 10.5);
           return m;
         }
 
-        /* las cuatro piezas, sueltas y con su cantidad; a la misma escala entre ellas */
+        /* las dos piezas, planas, como hay que trazarlas en el carton */
         function despiece(){
-          var m = '';
-          var piezas = [
-            {x: 105, y: 74,  w: 45,  h: 110, r: 2,   n: 'Gancho lateral', c: '&times; 2', d: '220 &times; 90 &middot; contrach. 10'},
-            {x: 205, y: 152, w: 350, h: 10,  r: 1.5, n: 'Travesa&ntilde;o',    c: '&times; 1', d: '700 &times; 20 &times; 20 &middot; pino'},
-            {x: 230, y: 216, w: 30,  h: 6,   r: 3,   n: 'Percha',          c: '&times; 5', d: '&empty; 12 &times; 60 &middot; haya'}
-          ];
-          piezas.forEach(function(p){
-            m += '<rect x="' + p.x + '" y="' + p.y + '" width="' + p.w + '" height="' + p.h + '" rx="' + p.r +
-                 '" fill="var(--surface-2)" stroke="' + LIN + '" stroke-width="2.2"></rect>';
-            m += texto(p.x + p.w/2, p.y + p.h + 22, p.n, LIN, 'middle', 11.5);
-            m += texto(p.x + p.w/2, p.y + p.h + 36, p.c + ' &middot; ' + p.d, SUAVE, 'middle', 10);
-          });
-          /* la escotadura del gancho, que es justo lo que lo hace un gancho */
-          m += '<rect x="' + (105 + 11.25) + '" y="74" width="22.5" height="46" fill="var(--surface)" stroke="' + LIN +
-               '" stroke-width="2.2"></rect>';
-          m += texto(105 + 22.5, 134, '45', AZ, 'middle', 10);
-          /* el tornillo, con su cabeza, que si no parece otra percha */
-          var xt = 452, yt = 216;
-          m += '<rect x="' + xt + '" y="' + (yt + 1) + '" width="16" height="4" fill="var(--surface-2)" stroke="' +
-               LIN + '" stroke-width="1.6"></rect>';
-          m += '<rect x="' + (xt - 4) + '" y="' + (yt - 1.5) + '" width="5" height="9" rx="1" fill="var(--surface-2)" stroke="' +
-               LIN + '" stroke-width="1.6"></rect>';
-          m += texto(xt + 8, yt + 28, 'Tornillo', LIN, 'middle', 11.5);
-          m += texto(xt + 8, yt + 42, '&times; 4 &middot; 3,5 &times; 30 &middot; acero', SUAVE, 'middle', 10);
-          m += texto(320, 292, 'Cuatro piezas distintas, doce en total', SUAVE, 'middle', 10.5);
+          var KK = 1.32, m = '';
+          var wA = MM.ancho*KK, hA = MM.altoA*KK, g = MM.grueso*KK, r = MM.ranura*KK;
+          var wB = MM.largo*KK, hB = MM.altoB*KK;
+          var mx1 = (MM.muesca_x - MM.muesca_w/2)*KK, mx2 = (MM.muesca_x + MM.muesca_w/2)*KK,
+              mh = MM.muesca_h*KK;
+
+          var ax = 74, ay = 56;
+          m += '<path d="M' + ax + ' ' + ay + ' h' + wA + ' v' + hA + ' h-' + ((wA-g)/2) + ' v-' + r +
+               ' h-' + g + ' v' + r + ' h-' + ((wA-g)/2) + ' Z" fill="var(--surface-2)" stroke="' + LIN +
+               '" stroke-width="2.2" stroke-linejoin="round"></path>';
+          m += texto(ax + wA/2, ay + hA + 24, 'A &middot; respaldo', LIN, 'middle', 11.5);
+          m += texto(ax + wA/2, ay + hA + 38, '&times; 1 &middot; 90 &times; 120 &middot; cart&oacute;n 4', SUAVE, 'middle', 10);
+
+          var bx = 330, by = 96, cr = (MM.cruce - MM.grueso/2)*KK, cr2 = (MM.cruce + MM.grueso/2)*KK;
+          m += '<path d="M' + bx + ' ' + by + ' h' + mx1 + ' v' + mh + ' h' + (mx2-mx1) + ' v-' + mh +
+               ' h' + (cr - mx2) + ' v' + r + ' h' + g + ' v-' + r + ' h' + (wB - cr2) +
+               ' v' + hB + ' h-' + wB + ' Z" fill="var(--surface-2)" stroke="' + LIN +
+               '" stroke-width="2.2" stroke-linejoin="round"></path>';
+          m += texto(bx + wB/2, by + hB + 24, 'B &middot; costilla', LIN, 'middle', 11.5);
+          m += texto(bx + wB/2, by + hB + 38, '&times; 1 &middot; 110 &times; 80 &middot; cart&oacute;n 4', SUAVE, 'middle', 10);
+
+          m += texto(320, 294, 'Dos piezas distintas, dos en total: la muesca de B es donde se sienta el m&oacute;vil', SUAVE, 'middle', 10.5);
           return m;
         }
 
@@ -1205,9 +1237,9 @@ footer .wrap{padding-block:18px 26px}
           boceto:   {pinta: function(){ return conjunto(false); },
                      pie: 'El <b>boceto</b> se dibuja a mano alzada y sin medidas. Sirve para pensar y para ense&ntilde;ar la idea en diez segundos. Con esto no se puede construir: no dice cu&aacute;nto mide nada. <i>(Aqu&iacute; va con l&iacute;neas limpias para que se lea en pantalla; en tu cuaderno va a pulso, y da igual que tiemble.)</i>'},
           croquis:  {pinta: function(){ return conjunto(true); },
-                     pie: 'El <b>croquis acotado</b> es el mismo dibujo con los n&uacute;meros puestos, en mil&iacute;metros y cada uno una sola vez. Los 700 salen de 4 &times; 120 + 2 &times; 110; los 45, del grueso de la puerta m&aacute;s la holgura. Ya se puede cortar. Tambi&eacute;n va <b>a mano alzada</b>: lo que tiene que estar bien son las cotas, no el pulso.'},
+                     pie: 'El <b>croquis acotado</b> es el mismo dibujo con los n&uacute;meros puestos, en mil&iacute;metros y cada uno una sola vez. Los 90 salen de 80 + 2 &times; 5; los 110, de 36 + 4 + 70; los 40 de la ranura, de 80 &divide; 2. Ya se puede cortar. Tambi&eacute;n va <b>a mano alzada</b>: lo que tiene que estar bien son las cotas, no el pulso.'},
           despiece: {pinta: despiece,
-                     pie: 'El <b>despiece</b> es la lista de la compra: cuatro piezas distintas y doce en total. Es lo que evita llegar al taller y descubrir que faltan dos tarugos.'}
+                     pie: 'El <b>despiece</b> es lo que hay que trazar en el cart&oacute;n: dos piezas, planas, con su ranura. Aqu&iacute; se ve que la ranura de A sube desde abajo y la de B baja desde arriba; si las dos fueran por el mismo lado, no habr&iacute;a manera de cruzarlas.'}
         };
 
         function pinta(k){
@@ -1273,8 +1305,8 @@ footer .wrap{padding-block:18px 26px}
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En las <b>medidas</b>. Los dos van a mano alzada, pero el boceto sirve para pensar y el croquis para decidir: lleva las cotas escritas, en mil&iacute;metros.</p></div></details></li>
         <li>&iquest;Para qu&eacute; sirve la lista de materiales si el croquis ya lo ense&ntilde;a todo?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El croquis ense&ntilde;a c&oacute;mo queda; la lista dice <b>qu&eacute; hay que traer</b>: cu&aacute;ntas piezas, de qu&eacute; material y de qu&eacute; medida comercial. Es la lista de la compra, y sin ella se pierde una sesi&oacute;n de taller.</p></div></details></li>
-        <li>El travesa&ntilde;o del ejemplo mide 700 mm. &iquest;De d&oacute;nde sale ese n&uacute;mero?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Del requisito de los cinco abrigos: si cada uno ocupa 120 mm, de la primera percha a la &uacute;ltima hay 4 &times; 120 = 480 mm, y con 110 mm de margen a cada lado, 480 + 220 = <b>700 mm</b>. Ninguna medida se inventa.</p></div></details></li>
+        <li>La pieza B del ejemplo mide 110 mm de largo. &iquest;De d&oacute;nde sale ese n&uacute;mero?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>De tres requisitos sumados: 36 mm por delante del respaldo &mdash;lo que hace falta para que la pantalla quede a 66&ordm;&mdash;, m&aacute;s los 4 mm que ocupa el cart&oacute;n del propio respaldo, m&aacute;s 70 mm de cola por detr&aacute;s para que no vuelque al tocar la pantalla. 36 + 4 + 70 = <b>110 mm</b>. Ninguna medida se inventa.</p></div></details></li>
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
@@ -1298,25 +1330,24 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
       <div class="aviso">
-        <span class="n-tag">Dos grupos, el mismo perchero</span>
+        <span class="n-tag">Dos grupos, el mismo soporte</span>
         Mismo croquis, mismo material, misma hora de empezar y las mismas manos. Al acabar la
-        sesi&oacute;n, el grupo A tiene el perchero montado y el grupo B tiene cuatro piezas cortadas
-        y a dos personas mirando. <b>&iquest;Qu&eacute; ha pasado?</b>
+        sesi&oacute;n, el grupo A tiene el soporte montado y el grupo B tiene una pieza cortada, la otra a
+        medias y a dos personas mirando. <b>&iquest;Qu&eacute; ha pasado?</b>
       </div>
       <div class="reto-piensa">
         <span class="n-tag">Cinco minutos, por parejas</span>
         <p>Escribid <b>tres causas posibles</b>, y al lado de cada una, qu&eacute; habr&iacute;a que haber
            hecho antes de entrar al taller para evitarla.</p>
       </div>
-      <p>Poned en com&uacute;n. Casi todas las respuestas caen en tres sitios, y ninguno tiene que ver
-         con lo bien que se maneja una sierra:</p>
+      <p>Poned en com&uacute;n. Casi todas las respuestas caen en tres sitios, y ninguno tiene que ver con lo bien que se maneja un c&uacute;ter:</p>
       <ol>
         <li><b>Nadie sab&iacute;a qu&eacute; le tocaba.</b> Cuatro personas alrededor de la misma pieza y
             ninguna con la siguiente preparada.</li>
-        <li><b>El orden era imposible.</b> Se intent&oacute; lijar una pieza que a&uacute;n no estaba cortada,
-            o taladrar el travesa&ntilde;o cuando ya estaba encolado.</li>
-        <li><b>Nadie cont&oacute; con las esperas.</b> La cola blanca tarda lo que tarda, y eso no se
-            acelera dando prisa.</li>
+        <li><b>El orden era imposible.</b> Se intent&oacute; cortar una ranura en una pieza que a&uacute;n no
+            ten&iacute;a contorno, o encastrar sin haber probado antes el ancho de la ranura en un recorte.</li>
+        <li><b>Nadie cont&oacute; con las esperas.</b> Hay dos bases de corte para quince parejas, y la cola
+            tarda lo que tarda: eso no se acelera dando prisa.</li>
       </ol>
       <div class="entender">
         <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
@@ -1343,14 +1374,14 @@ footer .wrap{padding-block:18px 26px}
         <table>
           <thead><tr><th scope="col">N.&ordm;</th><th scope="col">Tarea</th><th scope="col">Qui&eacute;n</th><th scope="col">Herramienta</th><th scope="col">Previsto</th><th scope="col">Real</th></tr></thead>
           <tbody>
-            <tr><td>1</td><td>Marcar todas las piezas</td><td>Los dos</td><td>Escuadra y l&aacute;piz</td><td>5 min</td><td></td></tr>
-            <tr><td>2</td><td>Cortar el travesa&ntilde;o y los tarugos</td><td>A</td><td>Arco de sierra</td><td>10 min</td><td></td></tr>
-            <tr><td>3</td><td>Cortar los dos ganchos</td><td>B</td><td>Segueta</td><td>12 min</td><td></td></tr>
-            <tr><td>4</td><td>Taladrar los cinco agujeros</td><td>A</td><td>Taladro, broca de 12</td><td>8 min</td><td></td></tr>
-            <tr><td>5</td><td>Lijar todo</td><td>B</td><td>Lija de grano 120</td><td>10 min</td><td></td></tr>
-            <tr><td>6</td><td>Encolar perchas y ganchos</td><td>Los dos</td><td>Cola blanca, sargentos</td><td>5 min</td><td></td></tr>
-            <tr><td>7</td><td><b>Esperar a que agarre la cola</b></td><td>Nadie</td><td>&mdash;</td><td>15 min</td><td></td></tr>
-            <tr><td>8</td><td>Atornillar y probar</td><td>Los dos</td><td>Destornillador</td><td>5 min</td><td></td></tr>
+            <tr><td>1</td><td>Medir el grueso del cart&oacute;n y escuadrar el trozo</td><td>Los dos</td><td>Calibre y escuadra</td><td>5 min</td><td></td></tr>
+            <tr><td>2</td><td>Trazar la pieza A</td><td>A</td><td>Regla, escuadra y l&aacute;piz</td><td>8 min</td><td></td></tr>
+            <tr><td>3</td><td>Trazar la pieza B</td><td>B</td><td>Regla, escuadra y l&aacute;piz</td><td>10 min</td><td></td></tr>
+            <tr><td>4</td><td>Cortar el contorno de A</td><td>A</td><td>C&uacute;ter y regla met&aacute;lica</td><td>10 min</td><td></td></tr>
+            <tr><td>5</td><td>Cortar el contorno de B</td><td>B</td><td>C&uacute;ter y regla met&aacute;lica</td><td>12 min</td><td></td></tr>
+            <tr><td>6</td><td>Cortar las dos ranuras y la muesca</td><td>Los dos</td><td>C&uacute;ter y recorte de prueba</td><td>8 min</td><td></td></tr>
+            <tr><td>7</td><td><b>Esperar turno de la base de corte</b></td><td>Nadie</td><td>&mdash;</td><td>10 min</td><td></td></tr>
+            <tr><td>8</td><td>Montar, medir el &aacute;ngulo y ajustar</td><td>Los dos</td><td>Transportador</td><td>5 min</td><td></td></tr>
           </tbody>
         </table>
         <p>La columna <b>Real</b> se rellena en el taller. Es la que ense&ntilde;a a calcular tiempos, y
@@ -1358,12 +1389,14 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <h3>El orden no es libre</h3>
-      <p>Hay tareas que <b>no pueden empezar</b> hasta que otra termine: no se lija lo que no
-         est&aacute; cortado, y no se taladra un travesa&ntilde;o que ya lleva las perchas pegadas. A eso
-         se le llama <b>precedencia</b>, y es lo que convierte una lista en un plan.</p>
-      <p>Y hay una tarea especial en la tabla de arriba: la n.&ordm; 7. Dura quince minutos y no la
-         hace nadie. Las esperas <b>tambi&eacute;n ocupan tiempo</b>, y un plan que no las dibuje
-         miente.</p>
+      <p>Hay tareas que <b>no pueden empezar</b> hasta que otra termine: no se corta lo que no
+         est&aacute; trazado, y no se cortan las ranuras de una pieza que todav&iacute;a no tiene contorno.
+         A eso se le llama <b>precedencia</b>, y es lo que convierte una lista en un plan.</p>
+      <p>Y hay una tarea especial en la tabla de arriba: la n.&ordm; 7. Dura diez minutos y no la
+         hace nadie: es la <b>cola de la base de corte</b>, que en el aula hay dos y sois quince
+         parejas. Las esperas <b>tambi&eacute;n ocupan tiempo</b>, y un plan que no las dibuje miente.
+         Esta adem&aacute;s es de las peores, porque no depende de vosotros: depende de que los de al
+         lado terminen.</p>
       <div class="def">
         <span class="n-tag">Diagrama de Gantt</span>
         Dibujo del plan: una fila por tarea y una barra tan larga como dure, sobre una escala de
@@ -1373,7 +1406,7 @@ footer .wrap{padding-block:18px 26px}
 
       <div class="escena" id="esc-gantt">
         <div class="escena-barra">
-          <span class="escena-titulo">El mismo perchero, tres planes distintos</span>
+          <span class="escena-titulo">El mismo soporte, tres planes distintos</span>
           <div class="seg" id="seg-gantt">
             <button type="button" data-p="solo" aria-pressed="true">Uno detr&aacute;s de otro</button>
             <button type="button" data-p="dos">Repartido entre dos</button>
@@ -1382,7 +1415,7 @@ footer .wrap{padding-block:18px 26px}
         </div>
         <div class="lienzo">
           <svg viewBox="0 0 640 300" id="svg-gantt" role="img"
-               aria-label="Diagrama de Gantt del montaje del perchero, con las ocho tareas en tres repartos distintos"></svg>
+               aria-label="Diagrama de Gantt del montaje del soporte de m&oacute;vil, con las ocho tareas en tres repartos distintos"></svg>
         </div>
         <div class="pie" id="pie-gantt" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
@@ -1396,42 +1429,42 @@ footer .wrap{padding-block:18px 26px}
 
         /* las ocho tareas de la hoja de proceso, con su duracion en minutos */
         var TAREAS = [
-          {c:'1', n:'Marcar',            d:5},
-          {c:'2', n:'Cortar travesa&ntilde;o', d:10},
-          {c:'3', n:'Cortar ganchos',    d:12},
-          {c:'4', n:'Taladrar',          d:8},
-          {c:'5', n:'Lijar',             d:10},
-          {c:'6', n:'Encolar',           d:5},
-          {c:'7', n:'Secado',            d:15, espera:true},
-          {c:'8', n:'Atornillar',        d:5}
+          {c:'1', n:'Medir y escuadrar', d:5},
+          {c:'2', n:'Trazar A',          d:8},
+          {c:'3', n:'Trazar B',          d:10},
+          {c:'4', n:'Cortar A',          d:10},
+          {c:'5', n:'Cortar B',          d:12},
+          {c:'6', n:'Ranuras y muesca',  d:8},
+          {c:'7', n:'Cola de la base',   d:10, espera:true},
+          {c:'8', n:'Montar y medir',    d:5}
         ];
 
         /* cada plan dice a que minuto empieza cada tarea, quien la hace,
            y cuales estan en el camino que decide el final */
         var PLANES = {
           solo: {
-            ini:[0,5,15,27,35,45,50,65], quien:['','','','','','','',''],
+            ini:[0,5,13,23,33,45,53,63], quien:['','','','','','','',''],
             rec:['A','A','A','A','A','A','','A'],
-            critica:[1,1,1,1,1,1,1,1], fin:70,
-            pie:'Una sola persona, una tarea detr&aacute;s de otra: <b>70 minutos</b>. Los 55 de trabajo m&aacute;s los 15 de secado. No cabe en una sesi&oacute;n, y eso se sabe <b>ahora</b> y no a diez minutos del timbre.'
+            critica:[1,1,1,1,1,1,1,1], fin:68,
+            pie:'Una sola persona, una tarea detr&aacute;s de otra: <b>68 minutos</b>. Los 58 de trabajo m&aacute;s los 10 de cola. No cabe en una sesi&oacute;n, y eso se sabe <b>ahora</b> y no a diez minutos del timbre.'
           },
           dos: {
-            ini:[0,5,5,15,17,27,32,47], quien:['AB','A','B','A','B','AB','','AB'],
+            ini:[0,5,5,13,15,27,35,45], quien:['AB','A','B','A','B','AB','','AB'],
             rec:['AB','A','B','A','B','AB','','AB'],
-            critica:[1,0,1,0,1,1,1,1], fin:52,
-            pie:'Repartido entre dos: <b>52 minutos</b>, y cabe. Fijaos en <i>Taladrar</i>: acaba en el minuto 23 y no hace falta hasta el 27, as&iacute; que tiene <b>4 minutos de holgura</b>; <i>Cortar travesa&ntilde;o</i> tiene 2. Las otras seis, las de barra maciza, no tienen ninguna: si una se retrasa un minuto, el perchero se retrasa un minuto.'
+            critica:[1,0,1,0,1,1,1,1], fin:50,
+            pie:'Repartido entre dos: <b>50 minutos</b>, y cabe. Fijaos en <i>Cortar A</i>: acaba en el minuto 23 y no hace falta hasta el 27, as&iacute; que tiene <b>4 minutos de holgura</b>; <i>Trazar A</i> tiene otros 4. Las otras seis, las de barra maciza, no tienen ninguna: si una se retrasa un minuto, el soporte se retrasa un minuto.'
           },
           retraso: {
-            ini:[0,5,5,15,27,37,42,57], dur:[5,10,22,8,10,5,15,5],
+            ini:[0,5,5,13,15,37,45,55], dur:[5,8,10,10,22,8,10,5],
             quien:['AB','A','B','A','B','AB','','AB'],
             rec:['AB','A','B','A','B','AB','','AB'],
-            critica:[1,0,1,0,1,1,1,1], fin:62,
-            pie:'Cortar los ganchos se complica y tarda <b>22 minutos</b> en vez de 12. Como estaba en el camino cr&iacute;tico, los 10 minutos de m&aacute;s son 10 minutos de m&aacute;s para todos: <b>62</b>. Si se hubiera atascado <i>Taladrar</i>, que ten&iacute;a holgura, no habr&iacute;a pasado casi nada.'
+            critica:[1,0,1,0,1,1,1,1], fin:60,
+            pie:'Cortar B se complica &mdash;la muesca se rompe y hay que empezar la pieza otra vez&mdash; y tarda <b>22 minutos</b> en vez de 12. Como estaba en el camino cr&iacute;tico, los 10 minutos de m&aacute;s son 10 minutos de m&aacute;s para todos: <b>60</b>. Si se hubiera atascado <i>Cortar A</i>, que ten&iacute;a holgura, no habr&iacute;a pasado casi nada.'
           }
         };
 
         /* que tarea no puede empezar hasta que acabe cual (por su numero) */
-        var ANTES = {2:[1], 3:[1], 4:[2], 5:[2,3], 6:[4,5], 7:[6], 8:[7]};
+        var ANTES = {2:[1], 3:[1], 4:[2], 5:[3], 6:[4,5], 7:[6], 8:[7]};
 
         var X0 = 150, X1 = 616, Y0 = 34, ALTO = 22, HUECO = 6, ESCALA = 70;
         function px(min){ return X0 + (X1 - X0) * min / ESCALA; }
@@ -1513,23 +1546,29 @@ footer .wrap{padding-block:18px 26px}
       <div class="copiar">
         <h4>Siete normas del taller</h4>
         <ol>
-          <li><b>Gafas de protecci&oacute;n</b> siempre que algo corte, taladre o lije. Una viruta de
-              madera en un ojo no se quita sola.</li>
-          <li><b>La pieza va sujeta</b>, con sargento o con tornillo de banco. Nunca con la otra mano.</li>
-          <li><b>Las dos manos detr&aacute;s del filo.</b> Se sierra empujando, no tirando hacia el cuerpo.</li>
-          <li><b>Pelo recogido, mangas cerradas y nada colgando</b> del cuello cerca del taladro.</li>
-          <li><b>Se avisa antes de encender</b> cualquier m&aacute;quina, y no se habla a quien la
-              est&aacute; usando.</li>
-          <li><b>La mesa se deja limpia</b>: una herramienta en el borde acaba en un pie.</li>
-          <li><b>Si algo se rompe o se atasca, se para y se avisa.</b> Forzar una herramienta atascada
+          <li>El <b>c&uacute;ter siempre sobre la base de corte</b>, nunca directamente sobre la mesa. Una
+              cuchilla que resbala sobre la madera salta, y salta hacia donde no est&aacute;s mirando.</li>
+          <li>La regla que gu&iacute;a el corte es <b>met&aacute;lica</b>. Con una de pl&aacute;stico, el c&uacute;ter
+              se come el canto y en ese mismo momento se te va la mano por encima.</li>
+          <li>La mano que sujeta la regla va <b>detr&aacute;s del filo y con los dedos arqueados</b>, nunca
+              estirados por delante. Y se corta <b>hacia fuera</b>, no hacia el cuerpo.</li>
+          <li><b>Varias pasadas suaves</b>, nunca una a lo bestia. El cart&oacute;n de 4 mm no se atraviesa
+              de una: quien lo intenta aprieta, el c&uacute;ter se desv&iacute;a y sale torcido, o peor.</li>
+          <li><b>Cuchilla nueva o reci&eacute;n partida.</b> Una cuchilla roma no corta menos: obliga a
+              apretar m&aacute;s, que es justo lo que hace que patine.</li>
+          <li>El c&uacute;ter <b>se cierra en cuanto se suelta</b>, aunque sea un segundo, y no se deja en
+              el borde de la mesa. Una herramienta en el borde acaba en un pie.</li>
+          <li>Si algo se rompe o se atasca, <b>se para y se avisa</b>. Forzar una herramienta atascada
               es la forma m&aacute;s r&aacute;pida de hacerse da&ntilde;o.</li>
         </ol>
       </div>
       <div class="aviso">
         <span class="n-tag">La regla que m&aacute;s se salta</span>
-        La herramienta que m&aacute;s respeto da es la m&aacute;s ruidosa, y la que pilla a la gente
-        desprevenida es el <b>c&uacute;ter</b>: peque&ntilde;o, silencioso y casi siempre empujado hacia la
-        mano que sujeta. Sujeta con el sargento y corta <b>hacia fuera</b>, siempre.
+        La herramienta que m&aacute;s respeto da es la m&aacute;s ruidosa, y la que manda gente a la
+        enfermer&iacute;a es el <b>c&uacute;ter</b>: peque&ntilde;o, silencioso y casi siempre empujado hacia la
+        mano que sujeta. En este proyecto es la <b>&uacute;nica</b> herramienta que corta, as&iacute; que toda
+        la seguridad de la unidad cabe en una frase: <b>dedos arqueados detr&aacute;s de la regla y el
+        corte hacia fuera</b>.
       </div>
     </section>
 
@@ -1537,7 +1576,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
       <div class="ficha">
         <div class="ficha-cab">
-          <span>Actividad 4 &middot; La hoja de proceso y el Gantt de vuestro perchero</span>
+          <span>Actividad 4 &middot; La hoja de proceso y el Gantt de vuestro soporte</span>
           <span class="chips"><span class="chip">1.2</span><span class="chip">1.3</span></span>
           <span>Parejas &middot; 25 min</span>
         </div>
@@ -1577,13 +1616,13 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
 
       <p>Comparad los tiempos totales de las distintas parejas. Van a salir muy distintos, con el
-         mismo perchero. Eso no significa que unos sean m&aacute;s r&aacute;pidos: significa que unos han
+         mismo soporte. Eso no significa que unos sean m&aacute;s r&aacute;pidos: significa que unos han
          contado las esperas y otros no.</p>
       <ol>
         <li>&iquest;Por qu&eacute; el secado de la cola ocupa una fila del Gantt si no lo hace nadie?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque ocupa <b>tiempo</b>, y el plan es un reparto del tiempo, no del trabajo. Una espera que no est&aacute; dibujada aparece igual, pero por sorpresa y cuando ya no queda sesi&oacute;n.</p></div></details></li>
         <li>&iquest;Qu&eacute; es la holgura de una tarea?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Los minutos que puede retrasarse <b>sin retrasar el final</b>. En el ejemplo, <i>Taladrar</i> acaba en el minuto 23 y no hace falta hasta el 27: tiene 4 minutos de holgura. Las tareas sin holgura son las que hay que vigilar.</p></div></details></li>
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Los minutos que puede retrasarse <b>sin retrasar el final</b>. En el ejemplo, <i>Cortar A</i> acaba en el minuto 23 y no hace falta hasta el 27: tiene 4 minutos de holgura. Las tareas sin holgura son las que hay que vigilar.</p></div></details></li>
         <li>Vais dos en el grupo y una tarea la ten&eacute;is que hacer los dos juntos. &iquest;Eso ayuda o estorba?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Estorba, salvo que la tarea lo exija de verdad (sujetar mientras el otro encola, por ejemplo). Mientras los dos est&aacute;is en la misma pieza, <b>ninguna otra avanza</b>. Se ve en el Gantt: una fila ocupada y el resto vac&iacute;o.</p></div></details></li>
       </ol>
@@ -1639,7 +1678,7 @@ footer .wrap{padding-block:18px 26px}
          que parecen tonter&iacute;as y no lo son:</p>
       <ul>
         <li>La raya del l&aacute;piz tiene grosor. Un l&aacute;piz normal deja medio mil&iacute;metro, y en
-            ocho cortes eso son 8 &times; 0,5 = <b>4 mm</b>: una pieza que ya no encaja. Por eso se sierra
+            ocho cortes eso son 8 &times; 0,5 = <b>4 mm</b>: una ranura que ya no aprieta. Por eso se corta
             siempre <b>por fuera de la raya</b>, del lado que se tira.</li>
         <li>Las medidas se toman <b>todas desde el mismo extremo</b>, no una desde cada punta.
             Si encadenas medidas, encadenas errores.</li>
@@ -1648,40 +1687,46 @@ footer .wrap{padding-block:18px 26px}
          se ve derecha y no lo est&aacute;.</p>
 
       <h3>2 &middot; Cortar</h3>
-      <p>La sierra corta con su propio peso: apretar no acelera nada y tuerce el corte. Se empieza
-         despacio y con la hoja casi tumbada, tirando hacia atr&aacute;s dos o tres veces para abrir la
-         entalladura; cuando la ranura ya gu&iacute;a, se sierra normal. Y la pieza va <b>sujeta</b>: con
-         sargento o en el tornillo de banco. Nunca con la mano libre.</p>
+      <p>El c&uacute;ter no atraviesa el cart&oacute;n de una pasada, y quien lo intenta lo paga dos veces: se
+         desv&iacute;a y encima aplasta la onda. Se hacen <b>tres pasadas</b>. La primera s&oacute;lo marca,
+         rompiendo el papel de arriba; la segunda entra en la onda; la tercera termina. Y la regla
+         <b>no se mueve entre pasada y pasada</b>, porque si se mueve el corte sale escalonado.</p>
+      <p>Para las <b>ranuras</b> hay un truco que ahorra piezas: se cortan los dos lados primero y el
+         fondo al final, y el recorte se saca <b>tirando</b>, nunca haciendo palanca con el c&uacute;ter.
+         Una ranura empezada por el fondo se abre sola y se lleva la pieza por delante.</p>
       <div class="aviso">
-        <span class="n-tag">Los &uacute;ltimos cent&iacute;metros</span>
-        Casi todos los cortes se estropean al final, cuando la pieza empieza a colgar y se astilla.
-        Al llegar ah&iacute;, <b>sujeta el trozo que cae</b> y baja el ritmo.
+        <span class="n-tag">Los dos &uacute;ltimos cent&iacute;metros</span>
+        Casi todos los cortes se estropean al final, cuando el trozo que sobra empieza a colgar y tira
+        del papel. Al llegar ah&iacute;, <b>sujeta el recorte con la mano libre</b> y baja el ritmo.
       </div>
 
       <h3>3 &middot; Unir</h3>
-      <p>Aqu&iacute; est&aacute; el fallo t&iacute;pico del taller de 2.&ordm;: se encola la <b>testa</b> de una
-         pieza contra la cara de otra y se da por hecho que aguanta. No aguanta, y no es culpa de la
-         cola.</p>
+      <p>Y aqu&iacute; viene lo mejor de este proyecto: <b>no hay que unir nada</b>. Las dos piezas se
+         sujetan solas porque una entra en la otra. A esa uni&oacute;n se le llama <b>encastre</b>, y no
+         lleva ni cola, ni grapas, ni cinta.</p>
       <div class="def">
-        <span class="n-tag">Testa y cara</span>
-        La <b>testa</b> es la punta de la pieza, donde se ven los extremos de las fibras cortadas: por
-        ah&iacute; la madera se bebe la cola como una pajita y casi no queda pegamento en la junta. La
-        <b>cara</b> es el lado largo, con las fibras de lado: ah&iacute; la cola agarra de verdad.
+        <span class="n-tag">Encastre a media madera</span>
+        Uni&oacute;n en la que cada pieza lleva una <b>ranura de la mitad de su altura</b>, una desde
+        arriba y otra desde abajo, y se cruzan. Se llama as&iacute; desde mucho antes de que hubiera
+        cart&oacute;n, porque se hace igual en madera. Aguanta porque <b>trabaja la forma</b>, no el
+        pegamento: para separarlas hay que romper una de las dos.
       </div>
+      <p>Que aguante o no depende de un solo n&uacute;mero: <b>el ancho de la ranura</b>. Y ese n&uacute;mero
+         no se copia de ning&uacute;n sitio, se mide en tu cart&oacute;n y se prueba en un recorte.</p>
 
       <div class="escena" id="esc-uniones">
         <div class="escena-barra">
-          <span class="escena-titulo">La misma junta, con cuatro soluciones</span>
+          <span class="escena-titulo">La misma uni&oacute;n, con cuatro soluciones</span>
           <div class="seg" id="seg-uniones">
-            <button type="button" data-p="cola" aria-pressed="true">Solo cola</button>
-            <button type="button" data-p="clavo">Un clavo</button>
-            <button type="button" data-p="tornillo">Un tornillo</button>
-            <button type="button" data-p="mixta">Tornillo y cola</button>
+            <button type="button" data-p="cinta" aria-pressed="true">Solo cinta</button>
+            <button type="button" data-p="cola">Solo cola</button>
+            <button type="button" data-p="holgado">Ranura holgada</button>
+            <button type="button" data-p="justo">Ranura justa</button>
           </div>
         </div>
         <div class="lienzo">
-          <svg viewBox="0 0 640 260" id="svg-uniones" role="img"
-               aria-label="La misma junta en T resuelta con cola, con un clavo, con un tornillo y con tornillo m&aacute;s cola, y c&oacute;mo falla cada una"></svg>
+          <svg viewBox="0 0 640 300" id="svg-uniones" role="img"
+               aria-label="El mismo encastre resuelto con cinta, con cola, con una ranura holgada y con una ranura justa, y c&oacute;mo falla cada uno"></svg>
         </div>
         <div class="pie" id="pie-uniones" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
@@ -1696,22 +1741,18 @@ footer .wrap{padding-block:18px 26px}
         var LIN = 'var(--ink)', SUAVE = 'var(--ink-soft)';
         var VERDE = 'var(--goo-verde)', ROJO = 'var(--goo-rojo)', AMAR = 'var(--goo-amarillo)';
 
-        /* una junta en T: la pieza de arriba apoya su testa en la cara de la de abajo */
-        var AX = 150, AW = 340, AY = 168, AH = 30;      /* pieza de abajo */
-        var BX = 290, BW = 44,  BY = 52,  BH = 116;     /* pieza de arriba */
+        /* el encastre en cruz, visto de frente: B es la costilla, de canto, y A
+           el respaldo con su ranura. Lo que se ensena es que la union depende
+           de UN numero: el ancho de la ranura contra el grueso del carton. */
+        var AX = 150, AW = 340, AY = 150, AH = 100;     /* la pieza A, de frente */
+        var GRUESO = 16;                                /* el carton, a esta escala */
 
-        function fibrasH(x, y, w, h, n){
+        /* la onda del carton, que es lo que se aplasta cuando la ranura va justa */
+        function onda(x, y, w, h){
           var m = '', i;
-          for(i = 1; i < n; i++)
-            m += '<path d="M' + (x + 4) + ' ' + (y + h * i / n) + ' H' + (x + w - 4) +
-                 '" stroke="var(--line)" stroke-width="1"></path>';
-          return m;
-        }
-        function fibrasV(x, y, w, h, n){
-          var m = '', i;
-          for(i = 1; i < n; i++)
-            m += '<path d="M' + (x + w * i / n) + ' ' + (y + 4) + ' V' + (y + h - 4) +
-                 '" stroke="var(--line)" stroke-width="1"></path>';
+          for(i = 0; i * 12 < w - 6; i++)
+            m += '<path d="M' + (x + 4 + i * 12) + ' ' + (y + 2) + ' q6 ' + (h/2 - 2) + ' 0 ' + (h - 4) +
+                 '" stroke="var(--line)" stroke-width="1" fill="none"></path>';
           return m;
         }
         function texto(x,y,s,c,anc,tam){
@@ -1719,85 +1760,88 @@ footer .wrap{padding-block:18px 26px}
                  '" font-family="var(--f-m)" font-size="' + (tam||11) + '">' + s + '</text>';
         }
         function flecha(x, y1, y2, c, etiqueta){
-          var d = (y2 > y1) ? -9 : 9;      /* la punta mira hacia donde acaba */
+          var d = (y2 > y1) ? -9 : 9;
           var m = '<path d="M' + x + ' ' + y1 + ' V' + y2 + '" stroke="' + c + '" stroke-width="2.4"></path>';
           m += '<path d="M' + (x - 6) + ' ' + (y2 + d) + ' L' + x + ' ' + y2 + ' L' + (x + 6) + ' ' + (y2 + d) +
                '" stroke="' + c + '" stroke-width="2.4" fill="none"></path>';
           return m + texto(x + 12, (y1 + y2) / 2, etiqueta, c, 'start', 11);
         }
+        /* la costilla B, de canto, entrando por la ranura de A */
+        function costilla(hueco, color){
+          var x = AX + AW/2 - hueco/2;
+          var m = '<rect x="' + (AX + AW/2 - GRUESO/2) + '" y="' + (AY - 66) + '" width="' + GRUESO +
+                  '" height="' + (AH + 66) + '" fill="var(--surface)" stroke="' + LIN + '" stroke-width="2.2"></rect>';
+          m += onda(AX + AW/2 - GRUESO/2, AY - 66, GRUESO, AH + 66);
+          if(hueco > GRUESO){
+            m += '<rect x="' + x + '" y="' + (AY + AH - 54) + '" width="' + hueco + '" height="54" fill="' +
+                 color + '" opacity=".14"></rect>';
+          }
+          return m;
+        }
 
         var MODOS = {
-          cola: {
+          cinta: {
+            hueco: GRUESO,
             dibuja: function(){
-              return '<rect x="' + (BX - 3) + '" y="' + (AY - 4) + '" width="' + (BW + 6) + '" height="5" fill="' +
+              var x = AX + AW/2;
+              return '<rect x="' + (x - 38) + '" y="' + (AY + AH - 16) + '" width="76" height="10" rx="2" fill="' +
                      ROJO + '" opacity=".45"></rect>' +
-                     texto(BX + BW + 22, AY - 8, 'la cola, en la testa', ROJO, 'start', 10.5);
+                     texto(x + 52, AY + AH - 8, 'una tira de cinta', ROJO, 'start', 10.5);
             },
-            veredicto: ['Se despega', ROJO],
-            pie: '<b>Solo cola, y por la testa.</b> Las fibras cortadas se beben el pegamento y en la junta queda muy poco. Aguanta el peso de la pieza y poco m&aacute;s: en cuanto alguien cuelga un abrigo y tira, se abre.'
+            veredicto: ['Aguanta una clase', ROJO],
+            pie: '<b>Solo cinta.</b> Es lo primero que hace todo el mundo y funciona&hellip; hasta que el soporte lleva un rato en una mochila. La cinta pierde con el calor de la mano y con el polvo del cart&oacute;n, y cuando se despega no avisa: se despega entera de golpe.'
           },
-          clavo: {
+          cola: {
+            hueco: GRUESO,
             dibuja: function(){
-              var x = BX + BW / 2;
-              return '<path d="M' + x + ' ' + (AY + AH - 2) + ' V' + (BY + 34) + '" stroke="' + SUAVE +
-                     '" stroke-width="3"></path>' +
-                     '<circle cx="' + x + '" cy="' + (AY + AH - 2) + '" r="3.4" fill="' + SUAVE + '"></circle>' +
-                     texto(BX + BW + 22, BY + 46, 'el clavo solo aprieta', SUAVE, 'start', 10.5);
+              var x = AX + AW/2;
+              return '<rect x="' + (x - 26) + '" y="' + (AY + AH - 8) + '" width="52" height="7" fill="' +
+                     AMAR + '" opacity=".55"></rect>' +
+                     texto(x + 40, AY + AH - 2, 'cola en el canto', AMAR, 'start', 10.5);
             },
-            veredicto: ['Se sale', AMAR],
-            pie: '<b>Un clavo.</b> Sujeta mientras nadie tire en su direcci&oacute;n: aguanta bien de lado y muy mal a lo largo, porque lo &uacute;nico que lo retiene es el rozamiento de la madera. Y cada vez que la pieza se mueve, el agujero se agranda.'
+            veredicto: ['Se lleva el papel', AMAR],
+            pie: '<b>Solo cola.</b> El cart&oacute;n es papel con aire dentro, y la cola se mete en la onda en vez de quedarse en la junta. Aguanta m&aacute;s que la cinta, pero al tirar no se despega: <b>se lleva la capa de papel</b> y deja la onda al aire. Y eso ya no tiene arreglo.'
           },
-          tornillo: {
+          holgado: {
+            hueco: GRUESO + 10,
             dibuja: function(){
-              var x = BX + BW / 2, m = '', i;
-              m += '<path d="M' + x + ' ' + (AY + AH - 2) + ' V' + (BY + 34) + '" stroke="' + SUAVE + '" stroke-width="3"></path>';
-              for(i = 0; i < 9; i++)
-                m += '<path d="M' + (x - 4.5) + ' ' + (AY + AH - 6 - i * 9) + ' L' + (x + 4.5) + ' ' + (AY + AH - 10 - i * 9) +
-                     '" stroke="' + SUAVE + '" stroke-width="1.6"></path>';
-              m += '<rect x="' + (x - 7) + '" y="' + (AY + AH - 5) + '" width="14" height="4" rx="1" fill="' + SUAVE + '"></rect>';
-              m += texto(BX + BW + 22, BY + 46, 'la rosca muerde la madera', SUAVE, 'start', 10.5);
-              return m;
+              var x = AX + AW/2;
+              return flecha(x + 74, AY + AH - 36, AY + AH - 36, AMAR, '') +
+                     '<path d="M' + (x + 52) + ' ' + (AY + AH - 30) + ' h26 m-26 12 h26" stroke="' + AMAR +
+                     '" stroke-width="2.4"></path>' +
+                     texto(x + 84, AY + AH - 22, 'juego: baila', AMAR, 'start', 10.5);
             },
-            veredicto: ['Aguanta', VERDE],
-            pie: '<b>Un tornillo.</b> La rosca no roza: <i>muerde</i>. Aguanta much&iacute;simo m&aacute;s que el clavo y se puede desmontar. Con una condici&oacute;n: <b>agujero gu&iacute;a</b> un poco m&aacute;s fino que el tornillo, o la pieza se abre por la mitad, sobre todo cerca de una punta.'
+            veredicto: ['Baila', AMAR],
+            pie: '<b>Encastre holgado.</b> La ranura sali&oacute; de 6 mm para un cart&oacute;n de 4. Entra suave, da gusto&hellip; y el soporte se mueve. Con el m&oacute;vil encima, ese juego se convierte en balanceo, y el balanceo acaba rompiendo el fondo de la ranura. Una ranura demasiado ancha no se arregla: se corta otra pieza.'
           },
-          mixta: {
+          justo: {
+            hueco: GRUESO,
             dibuja: function(){
-              var x = BX + BW / 2, m = '', i;
-              m += '<rect x="' + (BX - 3) + '" y="' + (AY - 4) + '" width="' + (BW + 6) + '" height="5" fill="' +
-                   VERDE + '" opacity=".5"></rect>';
-              m += '<path d="M' + x + ' ' + (AY + AH - 2) + ' V' + (BY + 34) + '" stroke="' + SUAVE + '" stroke-width="3"></path>';
-              for(i = 0; i < 9; i++)
-                m += '<path d="M' + (x - 4.5) + ' ' + (AY + AH - 6 - i * 9) + ' L' + (x + 4.5) + ' ' + (AY + AH - 10 - i * 9) +
-                     '" stroke="' + SUAVE + '" stroke-width="1.6"></path>';
-              m += '<rect x="' + (x - 7) + '" y="' + (AY + AH - 5) + '" width="14" height="4" rx="1" fill="' + SUAVE + '"></rect>';
-              m += texto(BX + BW + 22, AY - 8, 'el tornillo aprieta mientras la cola agarra', VERDE, 'start', 10.5);
-              return m;
+              var x = AX + AW/2;
+              return texto(x + 52, AY + AH - 22, 'entra a presi&oacute;n y ah&iacute; se queda', VERDE, 'start', 10.5);
             },
-            veredicto: ['Aguanta, y no se mueve', VERDE],
-            pie: '<b>Tornillo y cola.</b> Es lo que hace un carpintero. El tornillo hace de sargento permanente y la cola rellena la junta, as&iacute; que la pieza deja de moverse &mdash;y lo que no se mueve, no se afloja&mdash;. Para el perchero, esta.'
+            veredicto: ['Aguanta, y se desmonta', VERDE],
+            pie: '<b>Encastre justo.</b> La ranura mide lo que mide el cart&oacute;n. Entra con un poco de fuerza y ya no se mueve, porque lo que trabaja es <b>la forma</b>, no ning&uacute;n pegamento. Se desmonta cuando quieras y cabe plano en la mochila. Para este soporte, esta.'
           }
         };
 
         function pinta(k){
           var M = MODOS[k], m = '';
-          /* pieza de abajo: se le ve la cara, con las fibras a lo largo */
-          m += '<rect x="' + AX + '" y="' + AY + '" width="' + AW + '" height="' + AH +
-               '" fill="var(--surface-2)" stroke="' + LIN + '" stroke-width="2.2"></rect>';
-          m += fibrasH(AX, AY, AW, AH, 4);
-          m += texto(AX - 8, AY + 20, 'travesa&ntilde;o', SUAVE, 'end', 11);
-          /* pieza de arriba: apoya su testa, con las fibras de pie */
-          m += '<rect x="' + BX + '" y="' + BY + '" width="' + BW + '" height="' + BH +
-               '" fill="var(--surface-2)" stroke="' + LIN + '" stroke-width="2.2"></rect>';
-          m += fibrasV(BX, BY, BW, BH, 4);
-          m += texto(BX + BW / 2, BY - 10, 'gancho', SUAVE, 'middle', 11);
+          /* A, de frente, con su ranura: el hueco cambia segun el modo */
+          var hx = AX + AW/2 - M.hueco/2;
+          m += '<path d="M' + AX + ' ' + AY + ' h' + AW + ' v' + AH + ' h-' + (AX + AW - hx - M.hueco) +
+               ' v-54 h-' + M.hueco + ' v54 h-' + (hx - AX) +
+               ' Z" fill="var(--surface-2)" stroke="' + LIN + '" stroke-width="2.2" stroke-linejoin="round"></path>';
+          m += texto(AX - 8, AY + 26, 'A', SUAVE, 'end', 12);
+          m += costilla(M.hueco, M.veredicto[1]);
+          m += texto(AX + AW/2, AY - 76, 'B', SUAVE, 'middle', 12);
           m += M.dibuja();
-          /* el abrigo cuelga del travesano y tira de el hacia abajo, separandolo del gancho */
-          m += flecha(AX + 62, AY + AH + 6, AY + AH + 52, M.veredicto[1], '');
-          m += texto(AX + 74, AY + AH + 36, 'el abrigo tira hacia abajo', SUAVE, 'start', 10.5);
-          m += '<rect x="20" y="212" width="' + (M.veredicto[0].length * 7.6 + 26) + '" height="26" rx="2" fill="' +
+          /* el movil se apoya arriba y empuja hacia atras */
+          m += flecha(AX + 56, AY - 50, AY - 10, M.veredicto[1], '');
+          m += texto(AX + 68, AY - 34, 'el m&oacute;vil empuja', SUAVE, 'start', 10.5);
+          m += '<rect x="20" y="256" width="' + (M.veredicto[0].length * 7.6 + 26) + '" height="26" rx="2" fill="' +
                M.veredicto[1] + '" opacity=".16"></rect>';
-          m += texto(33, 229, M.veredicto[0], M.veredicto[1], 'start', 12.5);
+          m += texto(33, 273, M.veredicto[0], M.veredicto[1], 'start', 12.5);
           svg.innerHTML = m;
           pie.innerHTML = M.pie;
           seg.querySelectorAll('button').forEach(function(b){
@@ -1808,23 +1852,26 @@ footer .wrap{padding-block:18px 26px}
           var b = e.target.closest('button[data-p]');
           if(b) pinta(b.dataset.p);
         });
-        pinta('cola');
+        pinta('cinta');
       })();
       </script>
 
-      <p>La cola blanca necesita <b>presi&oacute;n</b> mientras agarra &mdash;en vuestra hoja de proceso le
-         disteis 15 minutos de sargento&mdash; y un d&iacute;a entero para curar del todo. Mirad siempre el
-         bote: cada una es distinta. Y limpiad la que rebosa <b>antes</b> de que seque, porque despu&eacute;s
-         no se lija: se arranca.</p>
+      <p>Si a pesar de todo dais un punto de cola a alguna esquina &mdash;a veces conviene, para que una
+         ranura que qued&oacute; un pelo ancha no baile&mdash;, poned <b>poca</b>: el cart&oacute;n se la bebe por
+         la onda y la que sobra empapa el papel y lo abomba. Y limpiad la que rebose <b>antes</b> de que
+         seque, porque despu&eacute;s no se quita: arranca el papel con ella.</p>
 
       <h3>4 &middot; Acabar</h3>
       <ul>
-        <li>Se lija <b>en el sentido de la fibra</b>. A contrafibra quedan rayas que solo se ven cuando
-            ya est&aacute; barnizado, que es cuando ya no tiene arreglo.</li>
-        <li>Se empieza por el grano m&aacute;s grueso y se termina por el m&aacute;s fino, sin saltarse
-            ninguno: el fino no borra las rayas del grueso.</li>
-        <li>Se <b>matan los cantos</b>, o sea se redondean un poco. Un canto vivo astilla y engancha
-            la ropa &mdash;y esto es un perchero&mdash;.</li>
+        <li>En cart&oacute;n no se lija ni se barniza: se <b>repasan los cantos</b>. Un corte en tres
+            pasadas deja pelusa de papel en el borde, y se quita pasando el dedo, no rasc&aacute;ndola
+            con el c&uacute;ter.</li>
+        <li>Se <b>prueba el encaje antes de forzarlo</b>. Si la costilla no entra con la mano, no
+            entra a martillazos: se repasa la ranura con una pasada m&aacute;s, y se vuelve a probar.
+            Una ranura se puede ensanchar; no se puede estrechar.</li>
+        <li>Se escriben la <b>A</b> y la <b>B</b> en las piezas, y el nombre de los dos en la
+            costilla. Parece una tonter&iacute;a hasta que hay veintiocho soportes iguales encima de
+            la misma mesa.</li>
       </ul>
     </section>
 
@@ -1874,12 +1921,12 @@ footer .wrap{padding-block:18px 26px}
          planificar de memoria sale siempre optimista. Por eso se anota: para que el pr&oacute;ximo Gantt
          sea mejor que este.</p>
       <ol>
-        <li>&iquest;Por qu&eacute; se sierra por fuera de la raya y no por encima?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la raya tiene grosor y la sierra tambi&eacute;n. Si cortas por el medio, te comes medio mil&iacute;metro de la pieza buena cada vez; en ocho cortes son 8 &times; 0,5 = <b>4 mm</b>. Se corta del lado del trozo que se tira.</p></div></details></li>
-        <li>&iquest;Por qu&eacute; una junta encolada por la testa aguanta tan poco?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque en la testa las fibras est&aacute;n cortadas y <b>absorben la cola</b> como pajitas: casi no queda pegamento en la junta. Se resuelve a&ntilde;adiendo algo mec&aacute;nico &mdash;un tornillo, una espiga&mdash; o buscando una uni&oacute;n cara con cara.</p></div></details></li>
-        <li>&iquest;Para qu&eacute; sirve el agujero gu&iacute;a antes de meter un tornillo?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Para que la madera no se abra. El tornillo empuja las fibras hacia los lados, y cerca de una punta eso raja la pieza. El agujero gu&iacute;a va un poco <b>m&aacute;s fino</b> que el tornillo, para que la rosca siga mordiendo.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se corta por fuera de la raya y no por encima?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque la raya tiene grosor y la cuchilla tambi&eacute;n. Si cortas por el medio, te comes medio mil&iacute;metro de la pieza buena cada vez; en ocho cortes son 8 &times; 0,5 = <b>4 mm</b>. Se corta del lado del trozo que se tira.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; una uni&oacute;n de cart&oacute;n pegada a tope aguanta tan poco?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el cart&oacute;n es <b>papel con aire dentro</b>: la cola se mete en la onda en vez de quedarse en la junta, y lo que acaba cediendo no es el pegamento sino el propio cart&oacute;n, que se abre en dos capas. La soluci&oacute;n no es m&aacute;s cola: es unir <b>por la forma</b>, con un encastre.</p></div></details></li>
+        <li>&iquest;Por qu&eacute; se prueba la ranura en un recorte antes de cortarla en la pieza buena?
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque el ancho bueno depende del cart&oacute;n que tengas, y una ranura <b>se puede ensanchar pero no estrechar</b>. Si te pasas, la pieza est&aacute; perdida y hay que cortar otra; si te quedas corto, das otra pasada y ya est&aacute;. El recorte cuesta treinta segundos y ahorra una pieza entera.</p></div></details></li>
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
@@ -1902,19 +1949,21 @@ footer .wrap{padding-block:18px 26px}
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> El ensayo &middot; 15 min</div>
 
-      <p>Sacad la hoja del primer d&iacute;a, la de los ocho requisitos. Hoy no se opina sobre el
-         perchero: se le hacen pruebas.</p>
+      <p>Sacad la hoja del primer d&iacute;a, la de los ocho requisitos. Hoy no se opina sobre el soporte: se le hacen pruebas.</p>
       <div class="copiar">
-        <h3 class="h-menor">C&oacute;mo se hace una prueba de carga</h3>
+        <h3 class="h-menor">C&oacute;mo se hace una prueba de verdad</h3>
         <ul>
-          <li>Con la <b>carga prevista</b>, no con la que quepa. Si el requisito dec&iacute;a cinco abrigos
-              de 600 g, se cargan <b>3 kg</b>: cinco abrigos de verdad, o <b>tres botellas de litro</b>
-              llenas de agua, que pesan pr&aacute;cticamente lo mismo y se cuelgan mejor.</li>
-          <li>Se carga <b>poco a poco</b> y se mira la pieza, no el reloj.</li>
-          <li>Se mide algo: cu&aacute;nto se dobla el travesa&ntilde;o por el centro, con una regla apoyada
-              en los extremos. Un n&uacute;mero vale m&aacute;s que un &laquo;parece que aguanta&raquo;.</li>
-          <li><b>Nadie debajo</b>, y las gafas puestas. Una prueba de carga es una prueba de rotura
-              que esperas que no llegue.</li>
+          <li>Con <b>el m&oacute;vil de verdad</b>, no con uno cualquiera. Si el requisito dec&iacute;a 165 mm
+              y 12 mm con funda, se prueba con ese, y si en la clase hay uno m&aacute;s grande, tambi&eacute;n
+              con ese. Un soporte que s&oacute;lo aguanta el m&oacute;vil de quien lo hizo no cumple.</li>
+          <li>Se <b>mide</b>, no se opina: el &aacute;ngulo con el transportador apoyado en la mesa. Un
+              n&uacute;mero vale m&aacute;s que un &laquo;parece que est&aacute; bien&raquo;, y adem&aacute;s se puede
+              comparar con el de otra pareja.</li>
+          <li>Se prueba <b>lo que va a pasar de verdad</b>: pulsar la pantalla con el dedo, que es
+              cuando vuelcan. Se empuja en la parte de arriba, despacio, y se mira si se levanta la
+              cola de la costilla.</li>
+          <li>Y se prueba lo aburrido: <b>montarlo y desmontarlo cinco veces</b>. Si a la quinta la
+              ranura ya no aprieta, el soporte no dura un trimestre, y eso hay que escribirlo.</li>
         </ul>
       </div>
       <div class="reto-piensa">
@@ -1940,11 +1989,10 @@ footer .wrap{padding-block:18px 26px}
         <table>
           <thead><tr><th scope="col">Requisito</th><th scope="col">C&oacute;mo se comprueba</th><th scope="col">Resultado</th><th scope="col">&iquest;Cumple?</th></tr></thead>
           <tbody>
-            <tr><td>Aguanta 5 abrigos de 600 g</td><td>Colgar 3 kg y mirar</td><td>Aguanta; se dobla 4 mm</td><td>S&iacute;</td></tr>
-            <tr><td>No ocupa m&aacute;s de 30 cm de pasillo</td><td>Medir con el metro</td><td>Sobresale 9 cm</td><td>S&iacute;</td></tr>
-            <tr><td>Se monta sin taladrar la pared</td><td>Montarlo</td><td>Se cuelga del canto</td><td>S&iacute;</td></tr>
-            <tr><td>Se pone y se quita en menos de 10 s</td><td>Cron&oacute;metro</td><td>14 s: roza arriba</td><td><b>No</b></td></tr>
-          </tbody>
+            <tr><td>Sujeta un m&oacute;vil de 165 &times; 80 &times; 12</td><td>Probarlo con tres m&oacute;viles</td><td>Los tres aguantan</td><td>S&iacute;</td></tr>
+            <tr><td>La pantalla queda entre 60&ordm; y 70&ordm;</td><td>Transportador sobre la mesa</td><td>66&ordm;</td><td>S&iacute;</td></tr>
+            <tr><td>No vuelca al pulsar la pantalla</td><td>Empujar arriba con un dedo</td><td>No se levanta</td><td>S&iacute;</td></tr>
+            <tr><td>Se monta y desmonta sin herramientas</td><td>Cinco veces seguidas</td><td>A la quinta ya baila</td><td class="no">No</td></tr>
         </table>
       </div>
 
@@ -1952,8 +2000,8 @@ footer .wrap{padding-block:18px 26px}
       <p>Que salga un <i>no</i> no es un suspenso: es informaci&oacute;n, y es exactamente para lo que
          sirve este paso. Hay <b>tres</b> salidas honradas, y una que no existe:</p>
       <ol>
-        <li><b>Corregir la pieza.</b> En el ejemplo: lijar la escotadura un mil&iacute;metro m&aacute;s y
-            volver a cronometrar.</li>
+        <li><b>Corregir la pieza.</b> En el ejemplo: cortar otra costilla con la ranura un pelo m&aacute;s
+              estrecha y volver a cronometrar.</li>
         <li><b>Cambiar el dise&ntilde;o.</b> Se vuelve al paso 4 con lo aprendido. Esto es la vuelta atr&aacute;s
             de la que hablamos el primer d&iacute;a, y es normal.</li>
         <li><b>Cambiar el requisito</b>, si de verdad era irreal &mdash;y explicando por qu&eacute;, con el
@@ -1984,8 +2032,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
       <div class="nota">
         <span class="n-tag">El apartado 8 es el que m&aacute;s dice de vosotros</span>
-        Un &laquo;lo har&iacute;amos igual&raquo; significa casi siempre que no se ha mirado. Un
-        &laquo;pondr&iacute;amos el travesa&ntilde;o de 30 mm porque con 20 se dobl&oacute; 4 mm&raquo;
+        Un &laquo;lo har&iacute;amos igual&raquo; significa casi siempre que no se ha mirado. Un &laquo;har&iacute;amos la ranura de 3,5 mm porque con 4 acab&oacute; bailando&raquo;
         demuestra que hab&eacute;is entendido vuestro propio proyecto.
       </div>
       <div class="entender">
@@ -2047,7 +2094,7 @@ footer .wrap{padding-block:18px 26px}
           <p id="test-u1-p2">2. De estos tres, &iquest;cu&aacute;l est&aacute; bien escrito como requisito?</p>
           <label class="ta-op"><input type="radio" name="u1-1" value="0">Que sea resistente</label>
           <label class="ta-op"><input type="radio" name="u1-1" value="1">Que quede bonito en el aula</label>
-          <label class="ta-op"><input type="radio" name="u1-1" value="2">Que aguante cinco abrigos de 600 g sin deformarse</label>
+          <label class="ta-op"><input type="radio" name="u1-1" value="2">Que sujete un m&oacute;vil de 165 mm sin volcar al tocar la pantalla</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La prueba es esta: <i>&iquest;podr&iacute;an dos personas discutir sobre si se cumple?</i> Con los dos primeros, s&iacute;. Con el tercero no: se cuelgan 3 kg y se mira. Un requisito bueno se comprueba con una regla, un cron&oacute;metro o un s&iacute;/no.</div>
         </div>
 
@@ -2076,11 +2123,11 @@ footer .wrap{padding-block:18px 26px}
         </div>
 
         <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u1-p6">
-          <p id="test-u1-p6">6. En el perchero del ejemplo, el travesa&ntilde;o mide 700 mm. Ese n&uacute;mero sale de&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u1-5" value="0">la medida a la que se venden los listones</label>
-          <label class="ta-op"><input type="radio" name="u1-5" value="1">un requisito: cinco abrigos a 120 mm cada uno, m&aacute;s 110 mm de margen a cada lado</label>
+          <p id="test-u1-p6">6. En el soporte del ejemplo, la costilla mide 110 mm de largo. Ese n&uacute;mero sale de&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u1-5" value="0">la medida a la que se venden las cajas</label>
+          <label class="ta-op"><input type="radio" name="u1-5" value="1">tres requisitos sumados: 36 mm por delante, 4 del grueso del respaldo y 70 de cola</label>
           <label class="ta-op"><input type="radio" name="u1-5" value="2">lo que parec&iacute;a bien proporcionado en el dibujo</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> 4 &times; 120 = 480 mm de la primera percha a la &uacute;ltima, m&aacute;s 2 &times; 110 de margen: 480 + 220 = <b>700 mm</b>. Una medida que no puedas justificar con un requisito o con una comprobaci&oacute;n es una medida inventada, y siempre se descubre tarde.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> 36 + 4 + 70 = <b>110 mm</b>. Una medida que no puedas justificar con un requisito o con una comprobaci&oacute;n es una medida inventada, y siempre se descubre tarde.</div>
         </div>
 
         <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u1-p7">
@@ -2099,12 +2146,12 @@ footer .wrap{padding-block:18px 26px}
           <div class="ta-por"><b>Por qu&eacute;:</b> Las tareas con holgura se pueden retrasar un poco sin consecuencias; las que no la tienen son las que mandan en la hora de acabar, y son las que hay que vigilar. Saber cu&aacute;les son es media planificaci&oacute;n.</div>
         </div>
 
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u1-p9">
-          <p id="test-u1-p9">9. Pegas la punta de un list&oacute;n contra la cara de otro solo con cola. &iquest;Qu&eacute; va a pasar?</p>
-          <label class="ta-op"><input type="radio" name="u1-8" value="0">aguantar&aacute; m&aacute;s que con tornillo, porque pega toda la superficie</label>
-          <label class="ta-op"><input type="radio" name="u1-8" value="1">aguantar&aacute; lo mismo que si la pegases por la cara</label>
-          <label class="ta-op"><input type="radio" name="u1-8" value="2">aguantar&aacute; poco: la testa se bebe la cola y en la junta queda muy poca</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> En la <b>testa</b> las fibras est&aacute;n cortadas y absorben la cola como pajitas. La soluci&oacute;n es a&ntilde;adir algo mec&aacute;nico &mdash;tornillo con agujero gu&iacute;a, o una espiga&mdash;: el tornillo hace de sargento permanente y la cola rellena la junta.</div>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u1-p9">
+          <p id="test-u1-p9">9. Pegas las dos piezas de cart&oacute;n con cola, a tope, en vez de encastrarlas. &iquest;Qu&eacute; va a pasar?</p>
+          <label class="ta-op"><input type="radio" name="u1-8" value="0">aguantar&aacute; m&aacute;s que encastradas, porque pega toda la superficie</label>
+          <label class="ta-op"><input type="radio" name="u1-8" value="1">aguantar&aacute; poco, y al tirar se llevar&aacute; la capa de papel</label>
+          <label class="ta-op"><input type="radio" name="u1-8" value="2">aguantar&aacute; lo mismo, porque la cola de madera vale para todo</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El cart&oacute;n es <b>papel con aire dentro</b>. La cola se mete en la onda en vez de quedarse en la junta, y lo que acaba fallando no es el pegamento: es el propio cart&oacute;n, que se abre en dos y deja la onda al aire. Por eso aqu&iacute; se une <b>por la forma</b> y no por el pegamento, que adem&aacute;s se desmonta y cabe plano en la mochila.</div>
         </div>
 
         <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u1-p10">
