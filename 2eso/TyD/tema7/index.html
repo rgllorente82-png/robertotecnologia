@@ -1409,7 +1409,9 @@ footer .wrap{padding-block:18px 26px}
 
           for(i = 0; i < 8; i++){
             var x = 30 + i * 72.5, on = bits[i];
-            m += '<g class="bit-sw" data-i="'+i+'" style="cursor:pointer">';
+            m += '<g class="bit-sw" data-i="'+i+'" style="cursor:pointer" tabindex="0" role="button"'
+               + ' aria-label="Bit '+i+' ('+PESOS[i]+'): '+(on ? 'Cerrado' : 'Abierto')+'"'
+               + ' aria-pressed="'+(on ? 'true' : 'false')+'">';
             m += '<rect x="'+x.toFixed(1)+'" y="36" width="60" height="118" rx="3" fill="'
                + (on ? 'var(--accent-soft)' : 'var(--surface-2)')+'" stroke="'
                + (on ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="'+(on ? 2 : 1.5)+'"></rect>';
@@ -1493,6 +1495,12 @@ footer .wrap{padding-block:18px 26px}
 
         svg.addEventListener('click', function(e){
           var g = e.target.closest('.bit-sw'); if(!g) return;
+          var i = +g.dataset.i; bits[i] = bits[i] ? 0 : 1; pinta();
+        });
+        svg.addEventListener('keydown', function(e){
+          var g = e.target.closest('[role="button"]'); if(!g) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           var i = +g.dataset.i; bits[i] = bits[i] ? 0 : 1; pinta();
         });
         seg.addEventListener('click', function(e){
@@ -2761,7 +2769,10 @@ footer .wrap{padding-block:18px 26px}
             var y = 146 + i * 37, r = hechas[i + 1];
             var hecho = (r !== undefined);
             m += '<g class="pr-fila" data-j="' + (i + 1) + '" style="cursor:'
-               + (hecho || resuelto ? 'default' : 'pointer') + '">';
+               + (hecho || resuelto ? 'default' : 'pointer') + '" tabindex="'
+               + (hecho || resuelto ? '-1' : '0') + '" role="button"'
+               + ' aria-label="Prueba ' + (i + 1) + ': ' + PRUEBAS[i] + '"'
+               + ' aria-disabled="' + (hecho || resuelto ? 'true' : 'false') + '">';
             m += '<rect x="20" y="' + y + '" width="600" height="32" rx="2" fill="'
                + (hecho ? 'var(--surface-2)' : 'var(--surface)') + '" stroke="'
                + (hecho ? (r ? 'var(--goo-verde)' : 'var(--goo-rojo)') : 'var(--line)')
@@ -2819,6 +2830,13 @@ footer .wrap{padding-block:18px 26px}
 
         svg.addEventListener('click', function(e){
           var g = e.target.closest('.pr-fila'); if(!g) return;
+          if(sospechosos.length === 1) return;
+          prueba(+g.dataset.j);
+        });
+        svg.addEventListener('keydown', function(e){
+          var g = e.target.closest('[role="button"]'); if(!g) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           if(sospechosos.length === 1) return;
           prueba(+g.dataset.j);
         });

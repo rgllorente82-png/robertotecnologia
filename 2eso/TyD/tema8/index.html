@@ -700,7 +700,9 @@ footer .wrap{padding-block:18px 26px}
                + (roto ? 'roto' : E[i][2]+' ms')+'</text>';
             /* zona de clic, ancha y transparente */
             m += '<path class="tramo" data-i="'+i+'" d="M'+A.x+' '+A.y+' L'+B.x+' '+B.y
-               + '" fill="none" stroke="transparent" stroke-width="16" style="cursor:pointer"></path>';
+               + '" fill="none" stroke="transparent" stroke-width="16" style="cursor:pointer"'
+               + ' tabindex="0" role="button" aria-label="Cable '+i+' ('+(E[i][0])+' a '+(E[i][1])+')"'
+               + ' aria-pressed="'+(roto ? 'true' : 'false')+'"></path>';
           }
 
           /* nodos */
@@ -805,6 +807,14 @@ footer .wrap{padding-block:18px 26px}
 
         svg.addEventListener('click', function(e){
           var l = e.target.closest('.tramo'); if(!l) return;
+          var i = +l.dataset.i;
+          if(cortes[i]) delete cortes[i]; else cortes[i] = 1;
+          pinta();
+        });
+        svg.addEventListener('keydown', function(e){
+          var l = e.target.closest('[role="button"]'); if(!l) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           var i = +l.dataset.i;
           if(cortes[i]) delete cortes[i]; else cortes[i] = 1;
           pinta();
@@ -1392,7 +1402,8 @@ footer .wrap{padding-block:18px 26px}
 
           for(i = 0; i < SALTOS.length; i++){
             var x = 16 + i * 128, s = SALTOS[i], act = (i === sel);
-            m += '<g class="salto" data-i="'+i+'" style="cursor:pointer">';
+            m += '<g class="salto" data-i="'+i+'" style="cursor:pointer" tabindex="0" role="button"'
+               + ' aria-label="'+s.etq+': '+s.sub+'" aria-pressed="'+(act ? 'true' : 'false')+'">';
             m += '<rect x="'+x+'" y="44" width="110" height="56" rx="2" fill="'
                + (act ? 'var(--accent-soft)' : 'var(--surface)')+'" stroke="'
                + (act ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="'+(act ? 2 : 1.5)+'"></rect>';
@@ -1466,6 +1477,12 @@ footer .wrap{padding-block:18px 26px}
 
         svg.addEventListener('click', function(e){
           var g = e.target.closest('.salto'); if(!g) return;
+          sel = +g.dataset.i; pinta();
+        });
+        svg.addEventListener('keydown', function(e){
+          var g = e.target.closest('[role="button"]'); if(!g) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           sel = +g.dataset.i; pinta();
         });
         seg.addEventListener('click', function(e){

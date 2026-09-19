@@ -744,7 +744,9 @@ footer .wrap{padding-block:18px 26px}
             s.push('<text x="' + (x.ben >= 0 ? 396 : 396) + '" y="' + (yy + 17)
                  + '" class="q1-val" text-anchor="start">' + meur(x.ben) + '</text>');
             s.push('<rect x="0" y="' + yy + '" width="470" height="' + alto
-                 + '" fill="transparent" style="cursor:pointer" data-i="' + x.i + '"></rect>');
+                 + '" fill="transparent" style="cursor:pointer" data-i="' + x.i + '"'
+                 + ' tabindex="0" role="button" aria-label="' + x.c.n + '"'
+                 + ' aria-pressed="' + (x.i === sel ? 'true' : 'false') + '"></rect>');
           });
           svg.innerHTML = s.join('');
 
@@ -793,6 +795,14 @@ footer .wrap{padding-block:18px 26px}
         svg.addEventListener('click', function(e){
           var t = e.target.closest('[data-i]');
           if(!t) return;
+          sel = +t.dataset.i;
+          pinta();
+        });
+        svg.addEventListener('keydown', function(e){
+          var t = e.target.closest('[role="button"]');
+          if(!t) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           sel = +t.dataset.i;
           pinta();
         });

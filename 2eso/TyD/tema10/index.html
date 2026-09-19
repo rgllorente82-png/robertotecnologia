@@ -1299,7 +1299,9 @@ footer .wrap{padding-block:18px 26px}
               var on = luz[y*5+x];
               m += '<rect x="' + (112 + x*20) + '" y="' + (44 + y*20) + '" width="13" height="13" rx="2" '
                  + 'fill="' + (on ? '#ff3b30' : '#3a3a3a') + '" stroke="' + (on ? '#ff8a80' : '#4a4a4a')
-                 + '" stroke-width="1" style="cursor:pointer" data-luz="' + (y*5+x) + '"></rect>';
+                 + '" stroke-width="1" style="cursor:pointer" data-luz="' + (y*5+x) + '"'
+                 + ' tabindex="0" role="button" aria-pressed="' + (on ? 'true' : 'false') + '"'
+                 + ' aria-label="LED fila ' + y + ' columna ' + x + '"></rect>';
             }
           }
           /* los dos botones */
@@ -1332,6 +1334,15 @@ footer .wrap{padding-block:18px 26px}
         svg.addEventListener('click', function(e){
           var r = e.target.closest('[data-luz]');
           if(!r || modo !== 0) return;
+          var i = +r.dataset.luz;
+          luz[i] = luz[i] ? 0 : 1;
+          marca(0);
+        });
+        svg.addEventListener('keydown', function(e){
+          var r = e.target.closest('[role="button"]');
+          if(!r || modo !== 0) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           var i = +r.dataset.luz;
           luz[i] = luz[i] ? 0 : 1;
           marca(0);
