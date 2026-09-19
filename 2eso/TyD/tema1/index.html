@@ -1403,7 +1403,7 @@ footer .wrap{padding-block:18px 26px}
             ini:[0,5,5,15,17,27,32,47], quien:['AB','A','B','A','B','AB','','AB'],
             rec:['AB','A','B','A','B','AB','','AB'],
             critica:[1,0,1,0,1,1,1,1], fin:52,
-            pie:'Repartido entre dos: <b>52 minutos</b>, y cabe. Fijaos en <i>Taladrar</i>: acaba en el minuto 23 y no hace falta hasta el 27, as&iacute; que tiene <b>4 minutos de holgura</b>. Las tareas en azul oscuro no la tienen: si una se retrasa un minuto, el perchero se retrasa un minuto.'
+            pie:'Repartido entre dos: <b>52 minutos</b>, y cabe. Fijaos en <i>Taladrar</i>: acaba en el minuto 23 y no hace falta hasta el 27, as&iacute; que tiene <b>4 minutos de holgura</b>; <i>Cortar travesa&ntilde;o</i> tiene 2. Las otras seis, las de barra maciza, no tienen ninguna: si una se retrasa un minuto, el perchero se retrasa un minuto.'
           },
           retraso: {
             ini:[0,5,5,15,27,37,42,57], dur:[5,10,22,8,10,5,15,5],
@@ -1442,13 +1442,15 @@ footer .wrap{padding-block:18px 26px}
             m += '<text x="' + (X0 - 10) + '" y="' + (y + ALTO * 0.68) + '" fill="var(--ink)" ' +
                  'text-anchor="end" font-family="var(--f-m)" font-size="11">' + t.c + '. ' + t.n + '</text>';
 
+            /* la barra maciza es la que no tiene holgura y la hueca a trazos la que si:
+               asi se distinguen por la forma, que no depende del tema claro u oscuro */
             var relleno = t.espera ? 'var(--goo-amarillo)'
-                                   : (P.critica[j] ? 'var(--goo-azul)' : 'var(--accent-soft)');
-            var borde   = t.espera ? 'var(--goo-amarillo)'
-                                   : 'var(--goo-azul)';
+                                   : (P.critica[j] ? 'var(--goo-azul)' : 'var(--surface-2)');
+            var borde   = t.espera ? 'var(--goo-amarillo)' : 'var(--goo-azul)';
+            var trazos  = (!t.espera && !P.critica[j]) ? ' stroke-dasharray="5 3"' : '';
             m += '<rect x="' + x.toFixed(1) + '" y="' + y + '" width="' + Math.max(w, 3).toFixed(1) +
                  '" height="' + ALTO + '" rx="2" fill="' + relleno + '" stroke="' + borde +
-                 '" stroke-width="1.4" opacity="' + (t.espera ? '.55' : '1') + '"></rect>';
+                 '" stroke-width="1.6"' + trazos + ' opacity="' + (t.espera ? '.55' : '1') + '"></rect>';
 
             var etiqueta = (t.espera ? 'espera' : (P.quien[j] || '')) ;
             if(etiqueta && w > 26){
