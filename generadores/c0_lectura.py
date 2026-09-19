@@ -69,9 +69,9 @@ P = [
     u'<b>regalar el servicio deja de ser una locura</b>. Puedes dárselo a mil millones de personas '
     u'sin arruinarte.',
 
-    u'Segunda: si es gratis, alguien lo paga. Y lo que se paga con lo que tú aportas, que son tus '
-    u'datos y tu atención. No es una maldad escondida; es la única manera de sostener algo cuyo '
-    u'precio de producción es cero.',
+    u'Segunda: si es gratis, alguien lo paga. Y se paga con lo único que tú aportas: tus datos y tu '
+    u'atención. No es una maldad escondida; es la única manera de sostener algo cuyo precio de '
+    u'producción es cero.',
 
     u'Tercera, y es la que más se nota al mirar alrededor: el que llega primero se lo queda casi '
     u'todo. Si a ti te cuesta lo mismo servir a diez que a diez millones, y a tu competidor '
@@ -189,27 +189,25 @@ P = [
 ]
 
 PREGUNTAS = [
-    u'Explica qué es el coste marginal y por qué la lectura dice que, hasta lo digital, siempre '
-    u'había sido mayor que cero.',
-    u'Con los datos de los párrafos 3 y 4, calcula lo que cuestan 1, 250 y 5.000 copias en vinilo y '
-    u'en archivo. Haz una tabla y di a partir de cuántas copias el vinilo cuesta el doble que el '
-    u'archivo.',
-    u'De las cuatro consecuencias que se deducen del coste marginal cero, elige la que te parezca '
-    u'menos evidente y explícala con un servicio que uses.',
-    u'La imprenta es de hacia 1455 y la primera ley de derechos de autor de 1710. ¿Qué dice la '
-    u'lectura que demuestra ese hueco de dos siglos y medio? Busca un ejemplo actual del mismo '
-    u'retraso.',
-    u'¿Qué son muestrear y cuantificar? ¿Por qué dice la lectura que digitalizar siempre pierde '
-    u'algo, y por qué eso no es un inconveniente frente al vinilo?',
-    u'El telégrafo de 1844 era digital y no había ordenadores. Explica por qué eso obliga a '
-    u'corregir la definición de digitalización que usa casi todo el mundo.',
-    u'Distingue los tres sentidos de «digitalización» con un ejemplo propio de cada uno, sacado de '
-    u'tu instituto o de una tienda que conozcas.',
+    u'Explica qué es el coste marginal y por qué la lectura dice que, hasta lo digital, siempre había '
+    u'sido mayor que cero.',
+    u'Con los datos de los párrafos 3 y 4, calcula lo que cuestan 1, 250 y 5.000 copias en vinilo y en '
+    u'archivo. Haz una tabla y di a partir de cuántas copias el vinilo cuesta el doble que el archivo.',
+    u'La imprenta es de hacia 1455 y la primera ley de derechos de autor de 1710. ¿Qué dice la lectura '
+    u'que demuestra ese hueco de dos siglos y medio? Busca un ejemplo actual del mismo retraso.',
+    u'¿Qué son muestrear y cuantificar? ¿Por qué dice la lectura que digitalizar siempre pierde algo, '
+    u'y por qué eso no es un inconveniente frente al vinilo?',
+    u'El telégrafo de 1844 era digital y no había ordenadores. Explica por qué eso obliga a corregir '
+    u'la definición de digitalización que usa casi todo el mundo.',
+    u'Distingue los tres sentidos de «digitalización» con un ejemplo propio de cada uno, sacado de tu '
+    u'instituto o de una tienda que conozcas.',
     u'¿Por qué dice la lectura que la segunda propiedad —que la información sea procesable por '
-    u'máquinas— convierte la digitalización en una cuestión política? Nombra las tres preguntas que '
-    u'no tienen respuesta técnica.',
-    u'«La nube pesa.» Justifica la afirmación con tres cosas físicas distintas, y explica qué error '
-    u'de cuentas denuncia el párrafo 28.',
+    u'máquinas— convierte la digitalización en una cuestión política? Nombra las tres preguntas que no '
+    u'tienen respuesta técnica.',
+    u'«La nube pesa.» Justifica la afirmación con tres cosas físicas distintas, y explica qué error de '
+    u'cuentas denuncia el párrafo 28.',
+    u'De las cinco consecuencias que se deducen del coste marginal cero, elige la que te parezca '
+    u'menos evidente y explícala con un servicio que uses.',
     u'Coge un titular reciente que dé una cifra sobre el impacto de una tecnología y aplícale la '
     u'pregunta del párrafo 29: ¿qué entra en esa cuenta y qué se queda fuera? Contéstalo en cinco o '
     u'seis líneas.',

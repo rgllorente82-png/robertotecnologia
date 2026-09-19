@@ -187,26 +187,26 @@ P = [
 ]
 
 PREGUNTAS = [
-    u'Según la lectura, ¿qué cambió exactamente hace 2,6 millones de años? Fíjate en que la '
-    u'respuesta no es «apareció la piedra tallada».',
-    u'¿Por qué dice el párrafo 2 que lo asombroso no es la piedra, sino que la misma forma de '
-    u'golpear aparezca en sitios muy separados? ¿Qué demuestra eso?',
-    u'Escribe en una tabla de tres filas a qué pregunta responde la técnica, a qué responde la '
-    u'ciencia y a qué responde la tecnología. Una línea por cada una, con tus palabras.',
-    u'La lectura dice que la técnica tiene dos límites. Explícalos los dos, y pon un ejemplo tuyo '
-    u'de algo que sepas hacer sin saber por qué funciona.',
-    u'¿Qué pasó en Beauvais en 1284 y por qué se reconstruyó «por si acaso»? ¿Qué le faltaba a '
-    u'quien lo levantó?',
-    u'La ciencia se publica y la técnica se guarda. Explica por qué eso no es una manía de cada '
-    u'una, sino que tiene que ver con para qué sirve cada una.',
-    u'Cuenta el caso de Watt y la termodinámica con las fechas de la lectura, y di qué demuestra '
-    u'sobre el orden entre ciencia y tecnología.',
-    u'Coge un objeto cualquiera de tu casa y recorre con él los cuatro pasos del bucle: qué '
-    u'necesidad resuelve, con qué se resolvió, cómo se probó y qué problema nuevo ha traído.',
-    u'«Ninguna tecnología es neutral en sus consecuencias.» Explica la frase con la agricultura, y '
-    u'después inténtalo con el móvil.',
+    u'Según la lectura, ¿qué cambió exactamente hace 2,6 millones de años? Fíjate en que la respuesta '
+    u'no es «apareció la piedra tallada».',
+    u'¿Por qué dice el párrafo 2 que lo asombroso no es la piedra, sino que la misma forma de golpear '
+    u'aparezca en sitios muy separados? ¿Qué demuestra eso?',
+    u'Escribe en una tabla de tres filas a qué pregunta responde la técnica, a qué responde la ciencia '
+    u'y a qué responde la tecnología. Una línea por cada una, con tus palabras.',
+    u'La lectura dice que la técnica tiene dos límites. Explícalos los dos, y pon un ejemplo tuyo de '
+    u'algo que sepas hacer sin saber por qué funciona.',
+    u'¿Qué pasó en Beauvais en 1284 y por qué se reconstruyó «por si acaso»? ¿Qué le faltaba a quien '
+    u'lo levantó?',
+    u'La ciencia se publica y la técnica se guarda. Explica por qué eso no es una manía de cada una, '
+    u'sino que tiene que ver con para qué sirve cada una.',
+    u'Cuenta el caso de Watt y la termodinámica con las fechas de la lectura, y di qué demuestra sobre '
+    u'el orden entre ciencia y tecnología.',
     u'Un amigo te dice que digitalizar es pasar las cosas al ordenador. Corrígele en cuatro o cinco '
     u'líneas, usando el vinilo y el telégrafo de 1844.',
+    u'Coge un objeto cualquiera de tu casa y recorre con él los cuatro pasos del bucle: qué necesidad '
+    u'resuelve, con qué se resolvió, cómo se probó y qué problema nuevo ha traído.',
+    u'«Ninguna tecnología es neutral en sus consecuencias.» Explica la frase con la agricultura, y '
+    u'después inténtalo con el móvil.',
 ]
 
 
