@@ -68,6 +68,39 @@ def revisa(carpeta, n):
     return bloques, len(grupos), pegas
 
 
+def reparto():
+    u"""Donde cae la respuesta buena dentro de cada test.
+
+    En `test-c7b` era la de en medio en las diez preguntas, y en `test-c6b`
+    en las doce. Quien se diera cuenta sacaba un diez sin leer, y entonces el
+    test deja de servir para lo unico que sirve: que el alumno sepa por donde
+    anda. Se avisa si mas de dos tercios caen en el mismo sitio o si hay tres
+    seguidas donde mismo.
+    """
+    torcidos = 0
+    for _, carpeta, hasta in CURSOS:
+        for n in range(0, hasta):
+            ruta = os.path.join(RAIZ, *(carpeta + ('tema%d' % n, 'index.html')))
+            if not os.path.isfile(ruta):
+                continue
+            texto = sin_scripts(io.open(ruta, encoding='utf-8').read())
+            for tid, cuerpo in re.findall(
+                    r'(?s)<div class="ta" id="([^"]+)">(.*?)(?=<div class="ta" id=|</section>)',
+                    texto):
+                ok = [int(x) for x in re.findall(r'data-ok="(\d)"', cuerpo)]
+                if not ok:
+                    continue
+                c = Counter(ok)
+                tres = any(ok[i] == ok[i + 1] == ok[i + 2] for i in range(len(ok) - 2))
+                if c.most_common(1)[0][1] > 2 * len(ok) / 3.0 or tres:
+                    torcidos += 1
+                    print(u'  %s: la buena cae %s%s'
+                          % (tid, dict(sorted(c.items())),
+                             u', y tres seguidas en el mismo sitio' if tres else u''))
+    print(u'%d tests con la respuesta buena mal repartida' % torcidos)
+    return torcidos
+
+
 def main():
     malas = 0
     sin = 0
@@ -93,6 +126,9 @@ def main():
         print(u'%d unidades con los tests pisandose' % malas)
         return 1
     print(u'ninguna unidad tiene los tests pisandose')
+    if reparto():
+        return 1
+
     if sin:
         print(u'%d unidades sin test que se corrija solo' % sin)
     return 0

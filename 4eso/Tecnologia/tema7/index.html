@@ -2858,17 +2858,17 @@ digitalWrite(motor, LOW);</pre>
       </ol>
       <div class="ta" id="test-c7">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p1">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7-p1">
           <p id="test-c7-p1">1. &iquest;Cu&aacute;l es la pregunta que mejor separa un robot de una m&aacute;quina automática cualquiera?</p>
           <label class="ta-op"><input type="radio" name="c7-0" value="0">&iquest;Tiene motores y un programa dentro?</label>
-          <label class="ta-op"><input type="radio" name="c7-0" value="1">Si cambias el mundo a su alrededor, &iquest;cambia lo que hace?</label>
-          <label class="ta-op"><input type="radio" name="c7-0" value="2">&iquest;Se parece a una persona o a un animal?</label>
+          <label class="ta-op"><input type="radio" name="c7-0" value="1">&iquest;Se parece a una persona o a un animal?</label>
+          <label class="ta-op"><input type="radio" name="c7-0" value="2">Si cambias el mundo a su alrededor, &iquest;cambia lo que hace?</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un lavavajillas tiene motores, programa y hasta sensores, pero sus sensores se miran a s&iacute; mismos y su programa dura lo mismo con dos platos que con veinte. Un robot <b>percibe el entorno</b>, decide a partir de eso y act&uacute;a sobre &eacute;l.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p2">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p2">
           <p id="test-c7-p2">2. En la escena de la sesi&oacute;n 1, al mover los muebles el programa grabado baja del 77 % al 47 % y choca 124 veces. &iquest;Qu&eacute; le falta?</p>
-          <label class="ta-op"><input type="radio" name="c7-1" value="0">M&aacute;s pasos: con m&aacute;s tiempo acabar&iacute;a el aula.</label>
-          <label class="ta-op"><input type="radio" name="c7-1" value="1">Percibir el entorno: gasta los pasos contra una mesa igual que si limpiara, porque no distingue una cosa de otra.</label>
+          <label class="ta-op"><input type="radio" name="c7-1" value="0">Percibir el entorno: gasta los pasos contra una mesa igual que si limpiara, porque no distingue una cosa de otra.</label>
+          <label class="ta-op"><input type="radio" name="c7-1" value="1">M&aacute;s pasos: con m&aacute;s tiempo acabar&iacute;a el aula.</label>
           <label class="ta-op"><input type="radio" name="c7-1" value="2">Un motor m&aacute;s potente para apartar los muebles.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No es cuesti&oacute;n de tiempo ni de fuerza. El programa grabado <b>no lee nada</b>: repite la lista que se grab&oacute; el d&iacute;a que se grab&oacute;, y los 124 choques los da sin enterarse de ninguno.</div>
         </div>
@@ -2879,11 +2879,11 @@ digitalWrite(motor, LOW);</pre>
           <label class="ta-op"><input type="radio" name="c7-2" value="2">Porque <code>delay()</code> no funciona con motores.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El programa no ha cambiado entre una prueba y otra: lo que cambia es la velocidad. Con la pila a media carga, el mismo programa se queda en 38 cm.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p4">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7-p4">
           <p id="test-c7-p4">4. Un motor paso a paso de 200 pasos por vuelta mueve una rueda de 65 mm de di&aacute;metro. &iquest;Cu&aacute;nto avanza en un paso?</p>
-          <label class="ta-op"><input type="radio" name="c7-3" value="0">&pi;&middot;65/200 = 1,021 mm</label>
-          <label class="ta-op"><input type="radio" name="c7-3" value="1">65/200 = 0,325 mm</label>
-          <label class="ta-op"><input type="radio" name="c7-3" value="2">360/200 = 1,8 mm</label>
+          <label class="ta-op"><input type="radio" name="c7-3" value="0">65/200 = 0,325 mm</label>
+          <label class="ta-op"><input type="radio" name="c7-3" value="1">360/200 = 1,8 mm</label>
+          <label class="ta-op"><input type="radio" name="c7-3" value="2">&pi;&middot;65/200 = 1,021 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que avanza es el <b>per&iacute;metro</b> repartido entre los pasos: &pi;&middot;65 = 204,2 mm entre 200 pasos. El 1,8 no son mil&iacute;metros: son los <b>grados</b> que gira el eje en cada paso.</div>
         </div>
         <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p5">
@@ -2900,31 +2900,31 @@ digitalWrite(motor, LOW);</pre>
           <label class="ta-op"><input type="radio" name="c7-5" value="2">Los que tenga el robot; no hay un n&uacute;mero.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Tres n&uacute;meros dicen d&oacute;nde, y otros tres dicen c&oacute;mo est&aacute; puesta. De ah&iacute; los <b>seis ejes</b> de los brazos industriales. Un SCARA lleva cuatro porque para dejar piezas en una bandeja no hace falta inclinarlas.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p7">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p7">
           <p id="test-c7-p7">7. En el brazo de dos eslabones, &iquest;por qu&eacute; la segunda parte de la f&oacute;rmula lleva cos(&theta;&#8321;+&theta;&#8322;) y no cos&nbsp;&theta;&#8322;?</p>
-          <label class="ta-op"><input type="radio" name="c7-6" value="0">Por un convenio de los cat&aacute;logos de robots.</label>
-          <label class="ta-op"><input type="radio" name="c7-6" value="1">Porque &theta;&#8322; se mide respecto al primer eslab&oacute;n, no respecto al eje x: para saber c&oacute;mo est&aacute; el segundo eslab&oacute;n hay que sumar los dos.</label>
+          <label class="ta-op"><input type="radio" name="c7-6" value="0">Porque &theta;&#8322; se mide respecto al primer eslab&oacute;n, no respecto al eje x: para saber c&oacute;mo est&aacute; el segundo eslab&oacute;n hay que sumar los dos.</label>
+          <label class="ta-op"><input type="radio" name="c7-6" value="1">Por un convenio de los cat&aacute;logos de robots.</label>
           <label class="ta-op"><input type="radio" name="c7-6" value="2">Porque as&iacute; el resultado sale en grados y no en radianes.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el fallo cl&aacute;sico, y lo peor es que con &theta;&#8321; = 0 la f&oacute;rmula mala <b>tambi&eacute;n acierta</b>: solo se cae cuando mueves el hombro.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p8">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p8">
           <p id="test-c7-p8">8. Pones un objetivo dentro del espacio de trabajo del brazo de dos eslabones. &iquest;Cu&aacute;ntos juegos de &aacute;ngulos lo alcanzan?</p>
-          <label class="ta-op"><input type="radio" name="c7-7" value="0">Uno, siempre.</label>
-          <label class="ta-op"><input type="radio" name="c7-7" value="1">Dos, uno con el codo hacia cada lado.</label>
+          <label class="ta-op"><input type="radio" name="c7-7" value="0">Dos, uno con el codo hacia cada lado.</label>
+          <label class="ta-op"><input type="radio" name="c7-7" value="1">Uno, siempre.</label>
           <label class="ta-op"><input type="radio" name="c7-7" value="2">Ninguno.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Por eso la cinem&aacute;tica <b>inversa</b> es la dif&iacute;cil: no da una respuesta, da dos, y alguien tiene que elegir mirando con cu&aacute;l no choca el codo. Fuera del espacio de trabajo no hay ninguna.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p9">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7-p9">
           <p id="test-c7-p9">9. &iquest;Qu&eacute; es lo que hace de verdad <code>delay(3000)</code> dentro de un automatismo?</p>
           <label class="ta-op"><input type="radio" name="c7-8" value="0">Guardar los eventos que lleguen para atenderlos en cuanto acabe.</label>
-          <label class="ta-op"><input type="radio" name="c7-8" value="1">Dejar al programa tres segundos sin mirar nada: lo que llegue mientras tanto se pierde y no queda registrado en ning&uacute;n sitio.</label>
-          <label class="ta-op"><input type="radio" name="c7-8" value="2">Bajar el consumo de la placa durante tres segundos.</label>
+          <label class="ta-op"><input type="radio" name="c7-8" value="1">Bajar el consumo de la placa durante tres segundos.</label>
+          <label class="ta-op"><input type="radio" name="c7-8" value="2">Dejar al programa tres segundos sin mirar nada: lo que llegue mientras tanto se pierde y no queda registrado en ning&uacute;n sitio.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No es una pausa: es un rato fuera del mundo. Y lo m&aacute;s probable que llegue mientras no miras es justo el evento de seguridad. Por eso el tiempo se cuenta con <code>millis()</code>.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p10">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p10">
           <p id="test-c7-p10">10. Un automatismo con 4 estados y 5 eventos. &iquest;Cu&aacute;ntas casillas tiene su tabla de transiciones y cu&aacute;ntas hay que contestar?</p>
-          <label class="ta-op"><input type="radio" name="c7-9" value="0">9 casillas, una por estado y por evento.</label>
-          <label class="ta-op"><input type="radio" name="c7-9" value="1">20 casillas, y hay que contestarlas todas, aunque muchas sean &laquo;no hacer nada&raquo;.</label>
+          <label class="ta-op"><input type="radio" name="c7-9" value="0">20 casillas, y hay que contestarlas todas, aunque muchas sean &laquo;no hacer nada&raquo;.</label>
+          <label class="ta-op"><input type="radio" name="c7-9" value="1">9 casillas, una por estado y por evento.</label>
           <label class="ta-op"><input type="radio" name="c7-9" value="2">Solo las que se usan: las dem&aacute;s sobran.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 4 &times; 5 = <b>20</b>. Las que dejes en blanco son exactamente por donde se va a romper el automatismo, porque son los casos que no te has planteado. Contestar &laquo;no hace nada&raquo; <b>es</b> contestar.</div>
         </div>
@@ -5716,10 +5716,10 @@ digitalWrite(motor, LOW);</pre>
           <label class="ta-op"><input type="radio" name="c7b-0" value="2">La bomba est&aacute; averiada y hace un cortocircuito.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En un esquema los cables no tienen resistencia; en tu mesa s&iacute;. Un motor <b>parado</b> pide much&iacute;sima m&aacute;s corriente que girando, y la ca&iacute;da <b>R&middot;I</b> se la come todo el montaje, incluida la placa. Por debajo de 2,7 V la UNO se reinicia <b>a prop&oacute;sito</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p2">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p2">
           <p id="test-c7b-p2">2. &iquest;Por qu&eacute; a veces lo peor es que le lleguen 3,8 V a la placa, y no 2,5?</p>
-          <label class="ta-op"><input type="radio" name="c7b-1" value="0">Porque 3,8 V hacen m&aacute;s da&ntilde;o al chip que 2,5.</label>
-          <label class="ta-op"><input type="radio" name="c7b-1" value="1">Porque con 2,5 V se reinicia y se nota; con 3,8 V funciona pero fuera de lo que el fabricante garantiza a 16 MHz, as&iacute; que va hasta el d&iacute;a que no va.</label>
+          <label class="ta-op"><input type="radio" name="c7b-1" value="0">Porque con 2,5 V se reinicia y se nota; con 3,8 V funciona pero fuera de lo que el fabricante garantiza a 16 MHz, as&iacute; que va hasta el d&iacute;a que no va.</label>
+          <label class="ta-op"><input type="radio" name="c7b-1" value="1">Porque 3,8 V hacen m&aacute;s da&ntilde;o al chip que 2,5.</label>
           <label class="ta-op"><input type="radio" name="c7b-1" value="2">Porque por debajo de 4,5 V el programa se borra de la memoria.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un fallo que se ve se arregla. La <b>zona gris</b> entre 2,7 y 4,5 V es peor porque aprueba en clase y suspende el d&iacute;a de la exposici&oacute;n, con las pilas un poco m&aacute;s gastadas y sin que hayas tocado nada.</div>
         </div>
@@ -5730,17 +5730,17 @@ digitalWrite(motor, LOW);</pre>
           <label class="ta-op"><input type="radio" name="c7b-2" value="2">Subir la tensi&oacute;n de la fuente del actuador.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cuando la placa &laquo;manda 5 V&raquo; quiere decir 5 V <b>respecto a su cero</b>. Si el actuador tiene otro cero, esa orden no significa nada para &eacute;l. Una tensi&oacute;n siempre es una <b>diferencia</b>, y hay que decir respecto a qu&eacute;.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p4">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7b-p4">
           <p id="test-c7b-p4">4. &iquest;Para qu&eacute; sirve referenciar una m&aacute;quina al encenderla?</p>
           <label class="ta-op"><input type="radio" name="c7b-3" value="0">Para calentar los motores antes de usarlos.</label>
-          <label class="ta-op"><input type="radio" name="c7b-3" value="1">Para convertir una cuenta relativa (pasos, pulsos, &aacute;ngulos) en una posici&oacute;n absoluta, yendo a mirar un punto conocido en vez de suponerlo.</label>
-          <label class="ta-op"><input type="radio" name="c7b-3" value="2">Para comprobar que la bater&iacute;a est&aacute; cargada.</label>
+          <label class="ta-op"><input type="radio" name="c7b-3" value="1">Para comprobar que la bater&iacute;a est&aacute; cargada.</label>
+          <label class="ta-op"><input type="radio" name="c7b-3" value="2">Para convertir una cuenta relativa (pasos, pulsos, &aacute;ngulos) en una posici&oacute;n absoluta, yendo a mirar un punto conocido en vez de suponerlo.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un motor no sabe d&oacute;nde est&aacute;: sus cuentas dicen <b>cu&aacute;nto se ha movido</b> desde que empezaste a contar. Sin punto de partida conocido no significan nada, y el punto de partida hay que ir a buscarlo.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p5">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p5">
           <p id="test-c7b-p5">5. Un carro se aproxima a 250 mm/s y el programa mira el final de carrera cada 20 ms. &iquest;Cu&aacute;nto se pasa, solo por eso?</p>
-          <label class="ta-op"><input type="radio" name="c7b-4" value="0">0,08 mm</label>
-          <label class="ta-op"><input type="radio" name="c7b-4" value="1">5 mm</label>
+          <label class="ta-op"><input type="radio" name="c7b-4" value="0">5 mm</label>
+          <label class="ta-op"><input type="radio" name="c7b-4" value="1">0,08 mm</label>
           <label class="ta-op"><input type="radio" name="c7b-4" value="2">20 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 250 mm/s &middot; 0,020 s = <b>5 mm</b>, y a eso hay que sumarle lo que recorra frenando. Por eso la aproximaci&oacute;n final se hace <b>despacio</b>: la incertidumbre es velocidad por tiempo de lazo.</div>
         </div>
@@ -5751,31 +5751,31 @@ digitalWrite(motor, LOW);</pre>
           <label class="ta-op"><input type="radio" name="c7b-5" value="2">Porque el interruptor necesita dos pulsaciones para activarse.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Sale la repetibilidad de ir despacio en casi el tiempo de ir deprisa. Es lo que hace tu impresora 3D cada vez que la enciendes.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p7">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7b-p7">
           <p id="test-c7b-p7">7. Un final de carrera <b>normalmente cerrado</b> y otro <b>normalmente abierto</b>: se rompe el cable de los dos. &iquest;Qu&eacute; pasa?</p>
           <label class="ta-op"><input type="radio" name="c7b-6" value="0">Los dos dejan de funcionar igual.</label>
-          <label class="ta-op"><input type="radio" name="c7b-6" value="1">El normalmente cerrado parece pulsado y la m&aacute;quina se para; el normalmente abierto parece que no ha llegado nunca y la m&aacute;quina sigue empujando.</label>
-          <label class="ta-op"><input type="radio" name="c7b-6" value="2">El normalmente abierto avisa del corte y el cerrado no.</label>
+          <label class="ta-op"><input type="radio" name="c7b-6" value="1">El normalmente abierto avisa del corte y el cerrado no.</label>
+          <label class="ta-op"><input type="radio" name="c7b-6" value="2">El normalmente cerrado parece pulsado y la m&aacute;quina se para; el normalmente abierto parece que no ha llegado nunca y la m&aacute;quina sigue empujando.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al elegir c&oacute;mo se conecta un sensor se est&aacute; eligiendo <b>qu&eacute; pasa cuando se rompe</b>. Por eso en cuanto algo importa se monta normalmente cerrado.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p8">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p8">
           <p id="test-c7b-p8">8. El mecanismo se atasca y el programa espera un fin de carrera que no va a llegar. &iquest;Qu&eacute; le pasa al motor y qu&eacute; lo evita?</p>
-          <label class="ta-op"><input type="radio" name="c7b-7" value="0">Se para solo al notar la resistencia; no hace falta nada.</label>
-          <label class="ta-op"><input type="radio" name="c7b-7" value="1">Se queda con el rotor frenado disipando varios vatios dentro de su carcasa hasta que el barniz del bobinado se pasa. Lo evita un tope de tiempo de maniobra.</label>
+          <label class="ta-op"><input type="radio" name="c7b-7" value="0">Se queda con el rotor frenado disipando varios vatios dentro de su carcasa hasta que el barniz del bobinado se pasa. Lo evita un tope de tiempo de maniobra.</label>
+          <label class="ta-op"><input type="radio" name="c7b-7" value="1">Se para solo al notar la resistencia; no hace falta nada.</label>
           <label class="ta-op"><input type="radio" name="c7b-7" value="2">Pide menos corriente, porque no se mueve.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Parado es cuando <b>m&aacute;s</b> corriente pide. Con 7,5 W dentro pasa de 120 &deg;C en menos de siete minutos. La protecci&oacute;n es una l&iacute;nea: si a los 6 s la maniobra de 4 s no ha acabado, parar y avisar.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p9">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7b-p9">
           <p id="test-c7b-p9">9. Tu brazo va a 600 mm/s, el sensor de presencia est&aacute; a 20 mm y el tiempo de reacci&oacute;n es de 48 ms. &iquest;Sirve?</p>
           <label class="ta-op"><input type="radio" name="c7b-8" value="0">S&iacute;: para eso est&aacute; el sensor.</label>
-          <label class="ta-op"><input type="radio" name="c7b-8" value="1">No: recorre 28,8 mm antes de pararse y solo hay 20. Toca la mano y despu&eacute;s para.</label>
-          <label class="ta-op"><input type="radio" name="c7b-8" value="2">Solo si el sensor es de infrarrojos.</label>
+          <label class="ta-op"><input type="radio" name="c7b-8" value="1">Solo si el sensor es de infrarrojos.</label>
+          <label class="ta-op"><input type="radio" name="c7b-8" value="2">No: recorre 28,8 mm antes de pararse y solo hay 20. Toca la mano y despu&eacute;s para.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 600 &middot; 0,048 = <b>28,8 mm</b>. Un sensor de seguridad no vale por estar puesto: vale si el hueco es mayor que la distancia. Y por encima de &eacute;l, en la lista de medidas, est&aacute; la <b>guarda f&iacute;sica</b>, que no tiene tiempo de reacci&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p10">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p10">
           <p id="test-c7b-p10">10. Se va la luz a mitad de maniobra. &iquest;Cu&aacute;l es la frase que resume el problema?</p>
-          <label class="ta-op"><input type="radio" name="c7b-9" value="0">El programa se borra y hay que volver a cargarlo.</label>
-          <label class="ta-op"><input type="radio" name="c7b-9" value="1">El estado vive en la RAM y la RAM se va con la luz; el mecanismo vive en el mundo y se queda donde estaba.</label>
+          <label class="ta-op"><input type="radio" name="c7b-9" value="0">El estado vive en la RAM y la RAM se va con la luz; el mecanismo vive en el mundo y se queda donde estaba.</label>
+          <label class="ta-op"><input type="radio" name="c7b-9" value="1">El programa se borra y hay que volver a cargarlo.</label>
           <label class="ta-op"><input type="radio" name="c7b-9" value="2">El motor pierde la calibraci&oacute;n de f&aacute;brica.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al volver, el programa arranca en su primer estado y el mecanismo sigue a mitad de camino. El desfase se paga en la punta del brazo con la cuenta de la sesi&oacute;n 3 (L &middot; &epsilon;), y se arregla <b>referenciando al arrancar</b>.</div>
         </div>

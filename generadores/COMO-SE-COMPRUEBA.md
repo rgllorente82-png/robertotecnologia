@@ -19,7 +19,7 @@ o para una acción automática.
 | Caracteres rotos, NUL, UTF-8 inválido y rótulos a medias en las 27 páginas, entidades HTML que se han quedado sin su & por una sustitución mal hecha —«cajetcajétíniacute;n»— y que los apartados de «Cómo se evalúa» de cada ficha sumen 10 puntos | `python generadores/comprueba_paginas.py` |
 | Que las cuentas escritas en la prosa cuadren, incluidas las escritas con palabras —«0,2 V por 250 mA son 50 mW»— (173 ahora mismo) | `python generadores/comprueba_cuentas.py` |
 | Que los enlaces internos lleven a alguna parte: ficheros, anclas y rutas absolutas resueltas contra la base de publicación, que se lee de la dirección canónica | `python generadores/comprueba_enlaces.py [--fuera]` |
-| Que los tests no se pisen entre ellos, y qué unidades no tienen ninguno. Cuenta los dos moldes que hay en el sitio: `.ta` y el `.test` del tema 5 de 2.º | `python generadores/comprueba_tests.py` |
+| Que los tests no se pisen entre ellos, que la respuesta buena no caiga siempre en el mismo sitio, y qué unidades no tienen ninguno. Cuenta los dos moldes que hay en el sitio: `.ta` y el `.test` del tema 5 de 2.º | `python generadores/comprueba_tests.py` |
 | Que los vídeos de YouTube se puedan ver, y **sin cuenta**: separa el que no se deja empotrar, el que pide edad, el que es **sólo para miembros del canal** y el borrado. Necesita red: si no llega a youtube.com para y lo dice, en vez de sacar 92 «no se sabe». Con `--lista` saca sólo los enlaces por unidad, y eso sí va sin red | `python generadores/comprueba_videos.py [--json]` |
 | **Las 27 páginas, sesión por sesión**: errores de JavaScript, escenas que dejan el lienzo vacío, desplazamiento a lo ancho en un móvil de 390 px, que cada test dé «N de N» contestando bien y se borre del todo, que el botón de la sesión abierta lo diga y que el pie de cada escena se anuncie solo | `python generadores/comprueba_sitio.py [filtro]` |
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`…`u10`, y `t0` para los dos temas 0 |
@@ -60,6 +60,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | Que el navegador de sesiones **diga** cuál está abierta y no sólo la pinte: `aria-selected` no es válido en un `<button>` y el navegador lo descarta | `python generadores/afina_navegador.py` |
 | Que el test corregido diga con **palabras** cuál era la buena, y no sólo con el color, y que la nota se anuncie al corregir | `python generadores/afina_test.py` |
 | El enlace de «Saltar al contenido», que evita pasar por las migas y los ocho botones del navegador en cada página (WCAG 2.4.1, nivel A) | `python generadores/afina_salto.py` |
+| Repartir por igual el sitio donde cae la respuesta buena en cada test, moviendo las opciones sin tocar su texto | `python generadores/baraja_tests.py` |
 | Atar cada `<label>` suelto con el mando que va justo detrás, cuando ese mando tiene `id` | `python generadores/afina_mandos.py` |
 | El `scope` de cada celda de encabezado, para que al caer en una casilla se lea «Barato, Bomba sumergible, 2» y no «2» | `python generadores/afina_tablas.py` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |

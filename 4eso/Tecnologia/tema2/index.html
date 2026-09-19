@@ -2601,18 +2601,18 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
       <div class="ta" id="test-c2">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p1">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p1">
           <p id="test-c2-p1">1. Marcas cuatro agujeros midiendo cada uno desde el anterior, 25 mm cada vez, y te equivocas como mucho 0,2 mm en cada medida. En el peor caso, &iquest;d&oacute;nde puede acabar el cuarto?</p>
-          <label class="ta-op"><input type="radio" name="c2-0" value="0">a 0,2 mm de su sitio, porque ese es el error de una medida</label>
-          <label class="ta-op"><input type="radio" name="c2-0" value="1">a 0,8 mm de su sitio</label>
+          <label class="ta-op"><input type="radio" name="c2-0" value="0">a 0,8 mm de su sitio</label>
+          <label class="ta-op"><input type="radio" name="c2-0" value="1">a 0,2 mm de su sitio, porque ese es el error de una medida</label>
           <label class="ta-op"><input type="radio" name="c2-0" value="2">a 0,05 mm, porque los errores se compensan entre s&iacute;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En cadena, cada cota arranca donde acab&oacute; la anterior, as&iacute; que los errores se <b>suman</b>: 4 &middot; 0,2 = <b>0,8 mm</b>. Acotando las cuatro desde el mismo borde, el peor caso se habr&iacute;a quedado en 0,2 mm.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p2">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p2">
           <p id="test-c2-p2">2. &iquest;Por qu&eacute; est&aacute; mal poner en el plano 25 + 25 + 25 + 25 <b>y adem&aacute;s</b> el total de 100?</p>
           <label class="ta-op"><input type="radio" name="c2-1" value="0">porque 25 &middot; 4 no es 100</label>
-          <label class="ta-op"><input type="radio" name="c2-1" value="1">porque es una cota de m&aacute;s: pide algo que no se puede cumplir y no dice cu&aacute;l de las cinco manda</label>
-          <label class="ta-op"><input type="radio" name="c2-1" value="2">porque las cotas totales nunca se ponen en un plano</label>
+          <label class="ta-op"><input type="radio" name="c2-1" value="1">porque las cotas totales nunca se ponen en un plano</label>
+          <label class="ta-op"><input type="radio" name="c2-1" value="2">porque es una cota de m&aacute;s: pide algo que no se puede cumplir y no dice cu&aacute;l de las cinco manda</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las cuatro medidas reales nunca van a sumar 100 exactos. Al poner las cinco cotas, el que fabrica tiene que <b>desobedecer alguna</b> y no le has dicho cu&aacute;l. Se pone la que manda; el total, si acaso, entre par&eacute;ntesis y como cota informativa.</div>
         </div>
         <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p3">
@@ -2629,46 +2629,46 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="c2-3" value="2">que el plano no lleva tolerancias</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El juego m&iacute;nimo sale negativo y el m&aacute;ximo, positivo: la zona del eje y la del agujero se solapan. El mismo plano da piezas que giran y piezas que no, y eso es justo lo que no se puede permitir en una pieza que <b>tiene</b> que girar.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p5">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p5">
           <p id="test-c2-p5">5. El juego de un ajuste var&iacute;a entre 0,013 y 0,050 mm. Si aprietas la tolerancia del agujero de 22 a 11 micras y no tocas el eje&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c2-4" value="0">el juego pasa a variar la mitad, de 0,013 a 0,031</label>
-          <label class="ta-op"><input type="radio" name="c2-4" value="1">el juego deja de variar: sale siempre el mismo</label>
+          <label class="ta-op"><input type="radio" name="c2-4" value="0">el juego deja de variar: sale siempre el mismo</label>
+          <label class="ta-op"><input type="radio" name="c2-4" value="1">el juego pasa a variar la mitad, de 0,013 a 0,031</label>
           <label class="ta-op"><input type="radio" name="c2-4" value="2">no cambia nada, porque el juego lo marca el eje</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que var&iacute;a el juego es <b>la suma de las dos tolerancias</b>: 22 + 15 = 37 micras, que es justo 0,050 &minus; 0,013. Si el agujero baja a 11, la suma pasa a 26 micras y el juego va de 0,013 a 0,039. Baja, pero <b>no a la mitad</b>: la otra tolerancia sigue ah&iacute;.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p6">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p6">
           <p id="test-c2-p6">6. Un tornillo M3 de acero aguanta unos 1700 N. Lo pones en una pieza de PLA de 3 mm, que aguanta 55 N/mm&sup2; de aplastamiento. &iquest;Con cu&aacute;nta fuerza falla la uni&oacute;n?</p>
-          <label class="ta-op"><input type="radio" name="c2-5" value="0">con 1700 N, que es lo que aguanta el tornillo</label>
-          <label class="ta-op"><input type="radio" name="c2-5" value="1">con unos 495 N, y lo que falla es la pieza</label>
+          <label class="ta-op"><input type="radio" name="c2-5" value="0">con unos 495 N, y lo que falla es la pieza</label>
+          <label class="ta-op"><input type="radio" name="c2-5" value="1">con 1700 N, que es lo que aguanta el tornillo</label>
           <label class="ta-op"><input type="radio" name="c2-5" value="2">con 165 N, porque hay que dividir entre los 3 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> &sigma; = F / (d &middot; t), as&iacute; que F = 55 &middot; 3 &middot; 3 = <b>495 N</b>. Manda <b>siempre el menor de los dos</b> modos de fallo, y en nuestros proyectos ese casi nunca es el tornillo: es el material de alrededor del agujero, que se ovala.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p7">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p7">
           <p id="test-c2-p7">7. &iquest;Por qu&eacute; un remache es una uni&oacute;n fija?</p>
           <label class="ta-op"><input type="radio" name="c2-6" value="0">porque es m&aacute;s fuerte que un tornillo</label>
-          <label class="ta-op"><input type="radio" name="c2-6" value="1">porque para ponerlo hay que deformarlo, y esa deformaci&oacute;n no se deshace: para quitarlo hay que taladrarlo</label>
-          <label class="ta-op"><input type="radio" name="c2-6" value="2">porque va pegado adem&aacute;s de remachado</label>
+          <label class="ta-op"><input type="radio" name="c2-6" value="1">porque va pegado adem&aacute;s de remachado</label>
+          <label class="ta-op"><input type="radio" name="c2-6" value="2">porque para ponerlo hay que deformarlo, y esa deformaci&oacute;n no se deshace: para quitarlo hay que taladrarlo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que hace fija una uni&oacute;n no es la fuerza, es que <b>abrirla destruya algo</b>. El remache se abre en p&eacute;talos por la cara de detr&aacute;s y no hay manera de devolverlo a su forma: hay que taladrarle la cabeza y perderlo.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p8">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p8">
           <p id="test-c2-p8">8. Una junta pegada con 20 mm de solape aguanta 2400 N. Si doblas el solape a 40 mm&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c2-7" value="0">aguanta lo mismo: lo que manda es el pegamento, no el tama&ntilde;o</label>
-          <label class="ta-op"><input type="radio" name="c2-7" value="1">aguanta el doble, unos 4800 N, y no cuesta un c&eacute;ntimo m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2-7" value="0">aguanta el doble, unos 4800 N, y no cuesta un c&eacute;ntimo m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2-7" value="1">aguanta lo mismo: lo que manda es el pegamento, no el tama&ntilde;o</label>
           <label class="ta-op"><input type="radio" name="c2-7" value="2">aguanta cuatro veces m&aacute;s</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En el pegado, &tau; = F / &aacute;rea. Doble &aacute;rea, doble fuerza. Es lineal, no al cuadrado, porque solo crece el solape y no el ancho. Y es la &uacute;nica manera de ganar resistencia que sale gratis: se gana <b>dibujando</b>.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p9">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p9">
           <p id="test-c2-p9">9. &iquest;A qu&eacute; revoluciones va una broca de &empty;8 en contrachapado, con una velocidad de corte de 40 m/min?</p>
-          <label class="ta-op"><input type="radio" name="c2-8" value="0">unas 1592 rpm</label>
-          <label class="ta-op"><input type="radio" name="c2-8" value="1">unas 320 rpm</label>
-          <label class="ta-op"><input type="radio" name="c2-8" value="2">unas 5000 rpm, que es lo que da el taladro</label>
+          <label class="ta-op"><input type="radio" name="c2-8" value="0">unas 320 rpm</label>
+          <label class="ta-op"><input type="radio" name="c2-8" value="1">unas 5000 rpm, que es lo que da el taladro</label>
+          <label class="ta-op"><input type="radio" name="c2-8" value="2">unas 1592 rpm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> n = 1000 &middot; V<sub>c</sub> / (&pi; &middot; D) = 40000 / (&pi; &middot; 8) = 40000 / 25,13 = <b>1592 rpm</b>. F&iacute;jate en que D <b>divide</b>: la broca gorda pide menos vueltas, y por eso a las vueltas de una fina quema la madera.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p10">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p10">
           <p id="test-c2-p10">10. Necesitas un agujero de &empty;8 con tolerancia de 22 micras para que un eje gire justo. Con lo que hay en el aula&hellip;</p>
           <label class="ta-op"><input type="radio" name="c2-9" value="0">lo hace el l&aacute;ser, que clava 0,15 mm</label>
-          <label class="ta-op"><input type="radio" name="c2-9" value="1">lo hace la impresora 3D, que clava 0,3 mm</label>
-          <label class="ta-op"><input type="radio" name="c2-9" value="2">ninguna de las tres llega: hay que taladrar por debajo y repasar con escariador, y comprar el eje ya calibrado</label>
+          <label class="ta-op"><input type="radio" name="c2-9" value="1">ninguna de las tres llega: hay que taladrar por debajo y repasar con escariador, y comprar el eje ya calibrado</label>
+          <label class="ta-op"><input type="radio" name="c2-9" value="2">lo hace la impresora 3D, que clava 0,3 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 22 micras son 0,022 mm. El l&aacute;ser da &plusmn;0,15 y la impresora &plusmn;0,3: est&aacute;n <b>un orden de magnitud por encima</b>. Por eso los ejes de un proyecto no se fabrican, se compran calibrados, y lo que se ajusta es el agujero, con escariador o a lima, midiendo.</div>
         </div>
         <div class="ta-pie">
@@ -5206,18 +5206,18 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
       <div class="ta" id="test-c2b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p1">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p1">
           <p id="test-c2b-p1">1. Tienes cuatro agujeros acotados <b>desde el mismo borde</b>, con &plusmn;0,2 mm de error en cada medida. &iquest;Cu&aacute;nto se puede desviar el cuarto en el peor caso?</p>
-          <label class="ta-op"><input type="radio" name="c2b-0" value="0">0,8 mm, porque son cuatro medidas</label>
-          <label class="ta-op"><input type="radio" name="c2b-0" value="1">0,2 mm, y no crece aunque a&ntilde;adas veinte agujeros m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="0">0,2 mm, y no crece aunque a&ntilde;adas veinte agujeros m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="1">0,8 mm, porque son cuatro medidas</label>
           <label class="ta-op"><input type="radio" name="c2b-0" value="2">0,4 mm, la mitad que en cadena</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Acotando desde una referencia, cada cota sale de la misma cara y <b>solo carga con su propio error</b>. El que crece con el n&uacute;mero de cotas es el de la acotaci&oacute;n en cadena, donde cada una arranca donde acab&oacute; la anterior.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p2">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2b-p2">
           <p id="test-c2b-p2">2. En un plano, &iquest;qu&eacute; quiere decir &empty;8 <sup>+0,022</sup><sub>&nbsp;0</sub>?</p>
           <label class="ta-op"><input type="radio" name="c2b-1" value="0">que la pieza mide 8,022 mm</label>
-          <label class="ta-op"><input type="radio" name="c2b-1" value="1">que vale cualquier pieza entre 8,000 y 8,022, y que la tolerancia es de 22 micras</label>
-          <label class="ta-op"><input type="radio" name="c2b-1" value="2">que hay que fabricarla con un error m&aacute;ximo del 0,022 %</label>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="1">que hay que fabricarla con un error m&aacute;ximo del 0,022 %</label>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="2">que vale cualquier pieza entre 8,000 y 8,022, y que la tolerancia es de 22 micras</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La medida &uacute;til no es un n&uacute;mero, es un <b>intervalo</b>: la nominal m&aacute;s cada desviaci&oacute;n. La tolerancia es la anchura de ese permiso, 8,022 &minus; 8,000 = 0,022 mm = 22 &micro;m, y siempre es positiva.</div>
         </div>
         <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p3">
@@ -5227,18 +5227,18 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="c2b-2" value="2">con 36 N</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> &sigma; = F / (d &middot; t), as&iacute; que F = 12 &middot; 3 &middot; 3 = <b>108 N</b>. Manda <b>siempre el menor de los dos</b> modos de fallo, y con material blando ese nunca es el tornillo. Un ni&ntilde;o de 11 kg colgando ya lo rompe.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p4">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p4">
           <p id="test-c2b-p4">4. &iquest;Por qu&eacute; la t&eacute;cnica de fabricaci&oacute;n no se elige al final, con el plano ya terminado?</p>
-          <label class="ta-op"><input type="radio" name="c2b-3" value="0">porque hay lista de espera para la impresora 3D</label>
-          <label class="ta-op"><input type="radio" name="c2b-3" value="1">porque cada t&eacute;cnica obliga a dibujar la pieza de otra manera, y elegirla al final obliga a redibujar</label>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="0">porque cada t&eacute;cnica obliga a dibujar la pieza de otra manera, y elegirla al final obliga a redibujar</label>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="1">porque hay lista de espera para la impresora 3D</label>
           <label class="ta-op"><input type="radio" name="c2b-3" value="2">porque el profesor lo decide antes</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La sierra pide rincones redondeados, el l&aacute;ser pide que todo sea plano y que descuentes la sangr&iacute;a, y la impresora pide cuidado con los voladizos, con la orientaci&oacute;n de las capas y con los agujeros, que salen peque&ntilde;os. <b>El dibujo depende de qui&eacute;n lo vaya a hacer.</b></div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p5">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2b-p5">
           <p id="test-c2b-p5">5. &iquest;Qu&eacute; diferencia hay entre un fichero STL y el modelo del que sali&oacute;?</p>
           <label class="ta-op"><input type="radio" name="c2b-4" value="0">ninguna, el STL es el modelo comprimido</label>
-          <label class="ta-op"><input type="radio" name="c2b-4" value="1">el STL es una piel de tri&aacute;ngulos sin medidas ni historia: no se puede volver a editar de verdad</label>
-          <label class="ta-op"><input type="radio" name="c2b-4" value="2">el STL lleva las cotas y el modelo no</label>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="1">el STL lleva las cotas y el modelo no</label>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="2">el STL es una piel de tri&aacute;ngulos sin medidas ni historia: no se puede volver a editar de verdad</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El modelo guarda <b>el &aacute;rbol de operaciones</b> y las medidas, y por eso puedes volver al paso 2 y cambiar una cota. El STL solo guarda v&eacute;rtices: es el fichero que le das a la m&aacute;quina, como el PDF que mandas a imprimir. Por eso se guardan los dos, y el que no se puede perder es el otro.</div>
         </div>
         <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p6">
@@ -5269,10 +5269,10 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="c2b-8" value="2">siempre 0,40, si las piezas cumplen</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 0,20 + 0,30 + 0,10 + 0,10 = <b>0,70</b>, y J = 0,40 &plusmn; 0,70. Se suman <b>todas</b>, tambi&eacute;n las de las cotas que restan, porque el peor caso es que el hueco salga m&iacute;nimo <b>a la vez</b> que lo que va dentro sale m&aacute;ximo. Y un juego negativo quiere decir que no entra.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p10">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p10">
           <p id="test-c2b-p10">10. Tus seis cotas est&aacute;n pedidas con &plusmn;0,15 y la sierra con la que las haces dispersa &plusmn;0,50. Van a salir mal. &iquest;Qu&eacute; dices en la defensa?</p>
-          <label class="ta-op"><input type="radio" name="c2b-9" value="0">que el grupo no ten&iacute;a buen pulso y hay que practicar m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="c2b-9" value="1">que la tolerancia era m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina, as&iacute; que el fallo est&aacute; en el plano y no en las manos</label>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="0">que la tolerancia era m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina, as&iacute; que el fallo est&aacute; en el plano y no en las manos</label>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="1">que el grupo no ten&iacute;a buen pulso y hay que practicar m&aacute;s</label>
           <label class="ta-op"><input type="radio" name="c2b-9" value="2">que la sierra estaba desajustada y hay que mover el tope</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con &plusmn;0,50 de dispersi&oacute;n, una cota de &plusmn;0,15 <b>no se puede cumplir</b> por bien que se sierre: eso se decidi&oacute; al elegir la t&eacute;cnica, en la sesi&oacute;n 4. El <b>desajuste</b> es otra cosa &mdash;empuja todas las medidas al mismo lado y se corrige moviendo el tope&mdash;; la dispersi&oacute;n se aguanta o se cambia de m&aacute;quina.</div>
         </div>

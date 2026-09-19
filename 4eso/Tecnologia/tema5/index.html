@@ -2908,11 +2908,11 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="c5-0" value="3">Porque la LDR es un componente digital y A0 es una entrada anal&oacute;gica</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El pin es un volt&iacute;metro: mide voltios entre ese punto y masa. Una resistencia colgando no define ninguna tensi&oacute;n, as&iacute; que el pin recoge lo que le llega del ambiente. El divisor es lo que fija esa tensi&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p2">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p2">
           <p id="test-c5-p2">2. En un divisor de 5 V con el sensor abajo, el sensor mide 20 k&#8486; y la fija 5 k&#8486;. &iquest;Qu&eacute; tensi&oacute;n sale?</p>
-          <label class="ta-op"><input type="radio" name="c5-1" value="0">1,0 V</label>
-          <label class="ta-op"><input type="radio" name="c5-1" value="1">2,5 V</label>
-          <label class="ta-op"><input type="radio" name="c5-1" value="2">4,0 V</label>
+          <label class="ta-op"><input type="radio" name="c5-1" value="0">4,0 V</label>
+          <label class="ta-op"><input type="radio" name="c5-1" value="1">1,0 V</label>
+          <label class="ta-op"><input type="radio" name="c5-1" value="2">2,5 V</label>
           <label class="ta-op"><input type="radio" name="c5-1" value="3">5,0 V</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> V = 5 &middot; 20 / (5 + 20) = 4 V. La resistencia m&aacute;s grande se queda con la mayor parte de la tensi&oacute;n, y aqu&iacute; la grande es la de abajo, que es la que se mide.</div>
         </div>
@@ -2924,58 +2924,58 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="c5-2" value="3">La m&aacute;s peque&ntilde;a posible, para que la se&ntilde;al sea m&aacute;s fuerte</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Donde el sensor y la fija valen parecido, el divisor reparte a medias y es donde m&aacute;s se mueve la salida ante un cambio del sensor. Lejos de ah&iacute;, la cuenta apenas cambia y el circuito est&aacute; ciego. Los 10 k&#8486; son tan frecuentes porque muchos sensores andan por ese valor, no por norma.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p4">
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5-p4">
           <p id="test-c5-p4">4. &iquest;Cu&aacute;nto vale un escal&oacute;n del conversor A/D de un Arduino Uno?</p>
           <label class="ta-op"><input type="radio" name="c5-3" value="0">1 mV</label>
-          <label class="ta-op"><input type="radio" name="c5-3" value="1">4,9 mV</label>
-          <label class="ta-op"><input type="radio" name="c5-3" value="2">5 mV justos</label>
-          <label class="ta-op"><input type="radio" name="c5-3" value="3">Depende del sensor que conectes</label>
+          <label class="ta-op"><input type="radio" name="c5-3" value="1">5 mV justos</label>
+          <label class="ta-op"><input type="radio" name="c5-3" value="2">Depende del sensor que conectes</label>
+          <label class="ta-op"><input type="radio" name="c5-3" value="3">4,9 mV</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Son 10 bits, o sea 1024 escalones repartiendo 5 V: 5/1024 = 4,88 mV. Marca el l&iacute;mite de lo que el Arduino puede distinguir, y por eso conviene saberlo de memoria.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p5">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p5">
           <p id="test-c5-p5">5. Una bomba pide 250 mA. &iquest;Qu&eacute; pasa si la conectas directamente a un pin?</p>
-          <label class="ta-op"><input type="radio" name="c5-4" value="0">Funciona, pero m&aacute;s despacio de lo normal</label>
-          <label class="ta-op"><input type="radio" name="c5-4" value="1">No pasa nada: el pin limita solo la corriente que entrega</label>
-          <label class="ta-op"><input type="radio" name="c5-4" value="2">El pin se sobrecarga y puede estropearse, porque su l&iacute;mite son 20 mA (40 absolutos)</label>
+          <label class="ta-op"><input type="radio" name="c5-4" value="0">El pin se sobrecarga y puede estropearse, porque su l&iacute;mite son 20 mA (40 absolutos)</label>
+          <label class="ta-op"><input type="radio" name="c5-4" value="1">Funciona, pero m&aacute;s despacio de lo normal</label>
+          <label class="ta-op"><input type="radio" name="c5-4" value="2">No pasa nada: el pin limita solo la corriente que entrega</label>
           <label class="ta-op"><input type="radio" name="c5-4" value="3">Funciona bien si la bomba es de 5 V</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El l&iacute;mite no es de tensi&oacute;n, es de corriente. El pin no protege: intenta dar lo que le pidan hasta que se degrada. Por eso se pone un transistor en medio, que trae la corriente de otro sitio.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p6">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p6">
           <p id="test-c5-p6">6. &iquest;Qu&eacute; quiere decir que un transistor est&aacute; <b>saturado</b>?</p>
           <label class="ta-op"><input type="radio" name="c5-5" value="0">Que se ha calentado tanto que ya no puede dar m&aacute;s corriente</label>
-          <label class="ta-op"><input type="radio" name="c5-5" value="1">Que le sobra corriente de base, as&iacute; que est&aacute; abierto del todo y apenas se queda con tensi&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="c5-5" value="2">Que trabaja justo en el l&iacute;mite de su ganancia &beta;</label>
+          <label class="ta-op"><input type="radio" name="c5-5" value="1">Que trabaja justo en el l&iacute;mite de su ganancia &beta;</label>
+          <label class="ta-op"><input type="radio" name="c5-5" value="2">Que le sobra corriente de base, as&iacute; que est&aacute; abierto del todo y apenas se queda con tensi&oacute;n</label>
           <label class="ta-op"><input type="radio" name="c5-5" value="3">Que la corriente de colector ha llegado a su m&aacute;ximo absoluto</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Saturado significa abierto del todo: Vce baja a unos 0,2 V y el transistor se comporta como un interruptor cerrado. Se consigue d&aacute;ndole a la base de 5 a 10 veces m&aacute;s corriente de la m&iacute;nima, y sirve para que no se caliente.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p7">
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5-p7">
           <p id="test-c5-p7">7. Carga de 200 mA, transistor con &beta; = 100 y margen de saturaci&oacute;n de 5. &iquest;Qu&eacute; Rb sale?</p>
-          <label class="ta-op"><input type="radio" name="c5-6" value="0">430 &#8486;</label>
-          <label class="ta-op"><input type="radio" name="c5-6" value="1">2,2 k&#8486;</label>
-          <label class="ta-op"><input type="radio" name="c5-6" value="2">4,3 k&#8486;</label>
-          <label class="ta-op"><input type="radio" name="c5-6" value="3">43 &#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="0">2,2 k&#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="1">4,3 k&#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="2">43 &#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="3">430 &#8486;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Ib m&iacute;nima = 200/100 = 2 mA; con margen 5, Ib = 10 mA. Rb = (5 &minus; 0,7)/0,010 = 430 &#8486;. Y 10 mA est&aacute;n por debajo de los 20 mA del pin, as&iacute; que vale.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p8">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p8">
           <p id="test-c5-p8">8. &iquest;Para qu&eacute; sirve el diodo de rueda libre y d&oacute;nde se pone?</p>
           <label class="ta-op"><input type="radio" name="c5-7" value="0">En serie con el motor, para que la corriente vaya en un solo sentido</label>
-          <label class="ta-op"><input type="radio" name="c5-7" value="1">En paralelo con la base, para proteger el pin del Arduino</label>
-          <label class="ta-op"><input type="radio" name="c5-7" value="2">En paralelo con la bobina y al rev&eacute;s, para que la punta de tensi&oacute;n del corte no se la coma el transistor</label>
+          <label class="ta-op"><input type="radio" name="c5-7" value="1">En paralelo con la bobina y al rev&eacute;s, para que la punta de tensi&oacute;n del corte no se la coma el transistor</label>
+          <label class="ta-op"><input type="radio" name="c5-7" value="2">En paralelo con la base, para proteger el pin del Arduino</label>
           <label class="ta-op"><input type="radio" name="c5-7" value="3">En serie con la resistencia de base, para bajar la tensi&oacute;n a 0,7 V</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al cortar, la bobina genera la tensi&oacute;n que haga falta para que su corriente siga pasando (V = L&middot;&Delta;I/&Delta;t, que da cientos o miles de voltios). El diodo, montado al rev&eacute;s en paralelo con la bobina, le abre un camino por donde agotarse sin destruir el transistor.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p9">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p9">
           <p id="test-c5-p9">9. Un cilindro de 40 mm a 6 bar. &iquest;Cu&aacute;nta fuerza da al avanzar?</p>
           <label class="ta-op"><input type="radio" name="c5-8" value="0">75 N</label>
-          <label class="ta-op"><input type="radio" name="c5-8" value="1">240 N</label>
-          <label class="ta-op"><input type="radio" name="c5-8" value="2">754 N</label>
+          <label class="ta-op"><input type="radio" name="c5-8" value="1">754 N</label>
+          <label class="ta-op"><input type="radio" name="c5-8" value="2">240 N</label>
           <label class="ta-op"><input type="radio" name="c5-8" value="3">1508 N</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> A = &pi; &middot; 40&sup2;/4 = 1257 mm&sup2;. F = 0,6 N/mm&sup2; &middot; 1257 = 754 N, unos 77 kg. Recuerda: 1 bar = 0,1 N/mm&sup2;.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p10">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p10">
           <p id="test-c5-p10">10. &iquest;Por qu&eacute; en la industria la mayor&iacute;a de los mandos son indirectos?</p>
-          <label class="ta-op"><input type="radio" name="c5-9" value="0">Porque as&iacute; el cilindro sale siempre m&aacute;s r&aacute;pido, sea cual sea el montaje</label>
-          <label class="ta-op"><input type="radio" name="c5-9" value="1">Porque el bot&oacute;n que aprieta la persona es siempre peque&ntilde;o y blando, la v&aacute;lvula de potencia va junto al cilindro y las se&ntilde;ales se pueden combinar</label>
+          <label class="ta-op"><input type="radio" name="c5-9" value="0">Porque el bot&oacute;n que aprieta la persona es siempre peque&ntilde;o y blando, la v&aacute;lvula de potencia va junto al cilindro y las se&ntilde;ales se pueden combinar</label>
+          <label class="ta-op"><input type="radio" name="c5-9" value="1">Porque as&iacute; el cilindro sale siempre m&aacute;s r&aacute;pido, sea cual sea el montaje</label>
           <label class="ta-op"><input type="radio" name="c5-9" value="2">Porque una v&aacute;lvula 5/2 no se puede accionar a mano de ninguna manera</label>
           <label class="ta-op"><input type="radio" name="c5-9" value="3">Porque la norma ISO 1219 proh&iacute;be el mando directo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con mando directo, cuanto mayor es el cilindro m&aacute;s aire tiene que pasar por el bot&oacute;n, m&aacute;s grande es su asiento y m&aacute;s duro es de apretar. Con indirecto ese bot&oacute;n es siempre el mismo. Adem&aacute;s se pueden montar funciones Y y O en la parte de mando sin tocar la potencia.</div>
@@ -6047,35 +6047,35 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           <label class="ta-op"><input type="radio" name="c5b-0" value="3">Filtra el ruido el&eacute;ctrico del ambiente</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Dos resistencias en serie entre 5 V y masa fijan una tensi&oacute;n en el punto de en medio: V = 5 &middot; R2 / (R1 + R2). Si una de las dos es el sensor, esa tensi&oacute;n se mueve con lo que el sensor mide. Ni amplifica ni protege ni filtra: traduce.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p2">
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5b-p2">
           <p id="test-c5b-p2">2. &iquest;Por qu&eacute; hace falta un transistor entre el pin y la bomba?</p>
           <label class="ta-op"><input type="radio" name="c5b-1" value="0">Porque el pin da 5 V y la bomba necesita 6</label>
           <label class="ta-op"><input type="radio" name="c5b-1" value="1">Porque el transistor convierte la corriente continua en alterna</label>
-          <label class="ta-op"><input type="radio" name="c5b-1" value="2">Porque el pin da 20 mA y la bomba pide 250: la corriente no cuadra, aunque la tensi&oacute;n s&iacute;</label>
-          <label class="ta-op"><input type="radio" name="c5b-1" value="3">Porque sin &eacute;l el programa no puede apagar la bomba</label>
+          <label class="ta-op"><input type="radio" name="c5b-1" value="2">Porque sin &eacute;l el programa no puede apagar la bomba</label>
+          <label class="ta-op"><input type="radio" name="c5b-1" value="3">Porque el pin da 20 mA y la bomba pide 250: la corriente no cuadra, aunque la tensi&oacute;n s&iacute;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El l&iacute;mite de un pin es de <b>corriente</b>: 20 mA recomendados, 40 como m&aacute;ximo absoluto. Una bomba peque&ntilde;a pide 250 mA. El transistor deja pasar esa corriente grande, que viene de otra fuente, mandado por una corriente peque&ntilde;a por la base.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p3">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5b-p3">
           <p id="test-c5b-p3">3. Un cilindro de 32 mm a 6 bar. &iquest;Cu&aacute;nto empuja al avanzar?</p>
-          <label class="ta-op"><input type="radio" name="c5b-2" value="0">96 N</label>
-          <label class="ta-op"><input type="radio" name="c5b-2" value="1">193 N</label>
-          <label class="ta-op"><input type="radio" name="c5b-2" value="2">482 N</label>
+          <label class="ta-op"><input type="radio" name="c5b-2" value="0">482 N</label>
+          <label class="ta-op"><input type="radio" name="c5b-2" value="1">96 N</label>
+          <label class="ta-op"><input type="radio" name="c5b-2" value="2">193 N</label>
           <label class="ta-op"><input type="radio" name="c5b-2" value="3">1206 N</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> A = &pi; &middot; 32&sup2; / 4 = 804 mm&sup2;. Con 1 bar = 0,1 N/mm&sup2;: F = 0,6 &middot; 804 = 482 N, unos 49 kg. El di&aacute;metro va al cuadrado, as&iacute; que doblarlo multiplica la fuerza por cuatro.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p4">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p4">
           <p id="test-c5b-p4">4. &iquest;Por qu&eacute; una llave de paso no sirve para mandar un cilindro de doble efecto?</p>
           <label class="ta-op"><input type="radio" name="c5b-3" value="0">Porque el aire pasar&iacute;a demasiado despacio</label>
-          <label class="ta-op"><input type="radio" name="c5b-3" value="1">Porque solo corta la entrada: el aire que ya hay dentro sigue empujando, y hace falta abrir el escape del otro lado</label>
-          <label class="ta-op"><input type="radio" name="c5b-3" value="2">Porque una llave de paso no aguanta 6 bar</label>
+          <label class="ta-op"><input type="radio" name="c5b-3" value="1">Porque una llave de paso no aguanta 6 bar</label>
+          <label class="ta-op"><input type="radio" name="c5b-3" value="2">Porque solo corta la entrada: el aire que ya hay dentro sigue empujando, y hace falta abrir el escape del otro lado</label>
           <label class="ta-op"><input type="radio" name="c5b-3" value="3">Porque la norma ISO 1219 no tiene s&iacute;mbolo para una llave de paso</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un cilindro no se apaga: se vac&iacute;a. Hace falta una v&aacute;lvula distribuidora que, al cambiar de posici&oacute;n, mande aire a una c&aacute;mara y <b>abra el escape</b> de la otra. Por eso una 5/2 tiene dos escapes, uno por salida de trabajo.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p5">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5b-p5">
           <p id="test-c5b-p5">5. Montas el circuito en la placa de pruebas y metes las dos patillas de la sonda en la misma columna de cinco agujeros. &iquest;Qu&eacute; lee <code>analogRead</code>?</p>
-          <label class="ta-op"><input type="radio" name="c5b-4" value="0">0, porque la sonda est&aacute; cortocircuitada a masa</label>
-          <label class="ta-op"><input type="radio" name="c5b-4" value="1">Lo mismo que antes: la columna no une nada</label>
-          <label class="ta-op"><input type="radio" name="c5b-4" value="2">1023 y clavado, porque la grapa cortocircuita la sonda y el nudo se queda colgando de los 5 V</label>
+          <label class="ta-op"><input type="radio" name="c5b-4" value="0">1023 y clavado, porque la grapa cortocircuita la sonda y el nudo se queda colgando de los 5 V</label>
+          <label class="ta-op"><input type="radio" name="c5b-4" value="1">0, porque la sonda est&aacute; cortocircuitada a masa</label>
+          <label class="ta-op"><input type="radio" name="c5b-4" value="2">Lo mismo que antes: la columna no une nada</label>
           <label class="ta-op"><input type="radio" name="c5b-4" value="3">Un valor que baila, porque el pin queda al aire</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Los cinco agujeros de una columna son un nudo. Con las dos patillas ah&iacute;, la sonda queda puenteada y desaparece del circuito: el nudo del sensor solo tiene la R fija hacia los 5 V y nada hacia masa, as&iacute; que se va a 5 V. La cuenta se clava en 1023 y no se mueve.</div>
         </div>
@@ -6087,34 +6087,34 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           <label class="ta-op"><input type="radio" name="c5b-5" value="3">Que la resistencia de base es demasiado grande</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El emisor de este montaje va a masa, as&iacute; que tiene que marcar 0 V siempre. Si marca otra cosa, o no est&aacute; conectado a masa o lo que has medido no es el emisor. Con colector y emisor cambiados el transistor sigue conduciendo, como seguidor, y el actuador recibe la mitad de tensi&oacute;n: va lento y no se quema nada.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p7">
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5b-p7">
           <p id="test-c5b-p7">7. &iquest;Por qu&eacute; se pone una resistencia de 10 k&#8486; entre la base del transistor y masa?</p>
           <label class="ta-op"><input type="radio" name="c5b-6" value="0">Para limitar la corriente de base, como hace la Rb</label>
-          <label class="ta-op"><input type="radio" name="c5b-6" value="1">Para que la base no quede al aire mientras el pin est&aacute; en entrada, que es todo el primer segundo despu&eacute;s de encender</label>
-          <label class="ta-op"><input type="radio" name="c5b-6" value="2">Para que el transistor sature antes</label>
-          <label class="ta-op"><input type="radio" name="c5b-6" value="3">Para descargar el diodo de rueda libre</label>
+          <label class="ta-op"><input type="radio" name="c5b-6" value="1">Para que el transistor sature antes</label>
+          <label class="ta-op"><input type="radio" name="c5b-6" value="2">Para descargar el diodo de rueda libre</label>
+          <label class="ta-op"><input type="radio" name="c5b-6" value="3">Para que la base no quede al aire mientras el pin est&aacute; en entrada, que es todo el primer segundo despu&eacute;s de encender</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al encender, todos los pines est&aacute;n en entrada y el gestor de arranque se queda alrededor de un segundo. Durante ese rato la base queda al aire y el transistor puede disparar. La resistencia a masa la sujeta en 0 V. Quien limita la corriente de base es la Rb, que es otra.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p8">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p8">
           <p id="test-c5b-p8">8. La alimentaci&oacute;n del Arduino baja de 5,0 a 4,6 V. &iquest;Qu&eacute; le pasa a la cuenta que devuelve el divisor?</p>
           <label class="ta-op"><input type="radio" name="c5b-7" value="0">Baja en la misma proporci&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="c5b-7" value="1">Sube, porque el conversor tiene menos rango</label>
-          <label class="ta-op"><input type="radio" name="c5b-7" value="2">No cambia: el conversor mide tomando la alimentaci&oacute;n como referencia, as&iacute; que se cancela</label>
+          <label class="ta-op"><input type="radio" name="c5b-7" value="1">No cambia: el conversor mide tomando la alimentaci&oacute;n como referencia, as&iacute; que se cancela</label>
+          <label class="ta-op"><input type="radio" name="c5b-7" value="2">Sube, porque el conversor tiene menos rango</label>
           <label class="ta-op"><input type="radio" name="c5b-7" value="3">Se vuelve err&aacute;tica</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> cuenta = 1023 &middot; V / Vcc, y V = Vcc &middot; Rs/(Rf+Rs): la Vcc se va de la f&oacute;rmula. Se llama medida <b>ratiom&eacute;trica</b>. Dejar&iacute;a de valer con un sensor que diera tensi&oacute;n propia (un LM35) o cambiando la referencia del conversor.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p9">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p9">
           <p id="test-c5b-p9">9. Una electrov&aacute;lvula servopilotada tiene sus 24 V, la bobina se calienta y no conmuta. &iquest;Qu&eacute; falta?</p>
           <label class="ta-op"><input type="radio" name="c5b-8" value="0">Corriente: hay que subir la tensi&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="c5b-8" value="1">El diodo de rueda libre</label>
-          <label class="ta-op"><input type="radio" name="c5b-8" value="2">Presi&oacute;n: una servopilotada necesita un m&iacute;nimo (t&iacute;picamente 2 bar) porque el carrete lo mueve el aire, no el im&aacute;n</label>
+          <label class="ta-op"><input type="radio" name="c5b-8" value="1">Presi&oacute;n: una servopilotada necesita un m&iacute;nimo (t&iacute;picamente 2 bar) porque el carrete lo mueve el aire, no el im&aacute;n</label>
+          <label class="ta-op"><input type="radio" name="c5b-8" value="2">El diodo de rueda libre</label>
           <label class="ta-op"><input type="radio" name="c5b-8" value="3">Masa com&uacute;n con el Arduino</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En una servopilotada la bobina solo abre un conducto peque&ntilde;o; el que empuja el carrete es el propio aire de la red. Es mando indirecto metido dentro de la pieza. Sin la presi&oacute;n m&iacute;nima no conmuta por mucha corriente que le des. (Sin masa com&uacute;n la bobina no se calentar&iacute;a.)</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p10">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5b-p10">
           <p id="test-c5b-p10">10. Tu automatismo pide 305 mA de pico y 47 mA de media. &iquest;Qu&eacute; fuente pides?</p>
-          <label class="ta-op"><input type="radio" name="c5b-9" value="0">Una de 5 V y 50 mA: lo que manda es la media</label>
-          <label class="ta-op"><input type="radio" name="c5b-9" value="1">Una de 5 V y 1 A: la fuente se elige por el <b>pico</b>, y con margen</label>
+          <label class="ta-op"><input type="radio" name="c5b-9" value="0">Una de 5 V y 1 A: la fuente se elige por el <b>pico</b>, y con margen</label>
+          <label class="ta-op"><input type="radio" name="c5b-9" value="1">Una de 5 V y 50 mA: lo que manda es la media</label>
           <label class="ta-op"><input type="radio" name="c5b-9" value="2">Una de 5 V y 305 mA exactos, para no desperdiciar</label>
           <label class="ta-op"><input type="radio" name="c5b-9" value="3">Da igual: el Arduino regula lo que le sobre</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La fuente tiene que poder dar lo que se pida <b>a la vez</b>, o sea el pico, y se pide con margen (la regla c&oacute;moda es el doble). La media sirve para otra cosa: para saber cu&aacute;nto durar&iacute;a una pila. A 47 mA, una de 2000 mAh aguanta 42 horas, que es la manera de descubrir que este proyecto no puede ir con pilas.</div>
