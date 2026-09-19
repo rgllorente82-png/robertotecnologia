@@ -162,7 +162,10 @@ check(texto.count('2 + 1 + 5 + 4') == 0 and 'doce en total' in texto,
 print(u'')
 print(u'== El test de la sesion 6')
 t = texto[texto.index('id="test-u1"'):texto.index('ta-pie', texto.index('id="test-u1"'))]
-preguntas = re.findall(r'<div class="ta-p" data-ok="(\d)">(.*?)(?=<div class="ta-p"|$)', t, re.S)
+# el div de cada pregunta lleva mas atributos de los que llevaba (el grupo con
+# su enunciado, por ejemplo), asi que no se busca la etiqueta entera
+preguntas = re.findall(r'<div class="ta-p"[^>]*data-ok="(\d)"[^>]*>(.*?)(?=<div class="ta-p"|$)',
+                       t, re.S)
 check(len(preguntas) == 10, 'tiene diez preguntas (tiene %d)' % len(preguntas))
 nombres = []
 for i, (ok, cuerpo) in enumerate(preguntas, 1):

@@ -670,6 +670,11 @@
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
 }
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
 </style>
 
 <script type="application/ld+json">
@@ -691,6 +696,8 @@
 </script>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap top-inner">
     <div>
@@ -708,7 +715,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <!-- ============ SESIÓN 1 ============ -->
   <div id="ses-1">

@@ -327,9 +327,16 @@ footer .wrap{padding-block:18px 26px}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
 }
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 4</div>
@@ -338,7 +345,7 @@ footer .wrap{padding-block:18px 26px}
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
