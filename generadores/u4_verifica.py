@@ -84,9 +84,21 @@ for n, titulo, sesion in ((1, 'La mesa que flota', 'S1'),
                           (3, 'El puente que se sujeta sin nada', 'S5'),
                           (4, 'La cadena de Gaud', 'S2')):
     check(titulo in texto, 'esta la demostracion %d, "%s"' % (n, titulo))
-check(texto.count('<h4>El n&uacute;mero</h4>') >= 4,
-      'las cuatro dejan un numero, que es lo que el propio bloque promete')
-check(texto.count('<h4>Material</h4>') >= 4, 'las cuatro dicen su material')
+# Los encabezados de las fichas han cambiado de nivel al normalizar la pagina
+# (afina_texto.py sube a h3 el primero de cada ficha), asi que la comprobacion
+# mira la ESTRUCTURA: cada ficha tiene su apartado, este en h3 o en h4.
+_cuerpo = texto[texto.index('<section class="demos"'):]
+_fichas = re.split(r'(?=<div class="ficha-cab">)', _cuerpo)[1:5]
+check(len(_fichas) == 4, 'hay cuatro fichas de demostracion (hay %d)' % len(_fichas))
+for _i, _f in enumerate(_fichas, 1):
+    _enc = re.findall(r'<h[34][^>]*>(.*?)</h[34]>', _f)
+    check(any(e.startswith('Material') for e in _enc),
+          'la demostracion %d dice su material' % _i)
+    check(any('n&uacute;mero' in e for e in _enc),
+          'la demostracion %d deja un numero, que es lo que el bloque promete' % _i)
+# y los encabezados cierran con la misma etiqueta con la que abren
+check(not re.search(r'<h(\d)[^>]*>(?:(?!</?h\d).)*?</h(?!\1)\d>', texto, re.S),
+      'ningun encabezado abre con un nivel y cierra con otro')
 # El molde obligo a que las medidas cuadraran: tres caras de 20 mm son 60, y
 # hacen falta 10 mas de pestania para pegar. La ficha decia 6 x 13 y la tira son
 # 7 x 13. Si alguien cambia una de las dos cosas sin la otra, esto lo dice.
