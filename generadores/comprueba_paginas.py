@@ -15,8 +15,12 @@ Asi que despues de generar, se pasa esto:
 
     python comprueba_paginas.py
 
+Mira ademas que los apartados de «Como se evalua» de cada ficha sumen 10
+puntos, que es de lo primero que comprueba quien va a calificar con ellos.
+
 Devuelve 1 si encuentra algo, para poder encadenarlo con la generacion.
 """
+import html
 import io
 import os
 import re
@@ -54,10 +58,33 @@ def paginas():
                 yield os.path.join(base, nombre)
 
 
+def rubricas(texto):
+    u"""Lo que suma cada apartado de «Como se evalua», que tiene que dar 10.
+
+    Cuidado con la forma de escribirlo: los apartados no siempre ponen
+    «(3 puntos)» a secas, tambien «(4 puntos, uno por caso)». Una primera
+    version solo cogia la forma corta y daba por rota una rubrica que estaba
+    perfecta, que es la mejor manera de que se deje de leer el aviso.
+    """
+    fuera = []
+    for bloque in re.findall(
+            r'(?s)<h4>C&oacute;mo se eval&uacute;a</h4>(.*?)(?=<h4|</div>)', texto):
+        plano = html.unescape(re.sub(r'<[^>]+>', ' ', bloque))
+        puntos = [float(x.replace(u',', u'.'))
+                  for x in re.findall(r'\(([\d,]+)\s*puntos?[^)]*\)', plano)]
+        if puntos and abs(sum(puntos) - 10) > 0.01:
+            fuera.append((sum(puntos), puntos))
+    return fuera
+
+
 def revisa(ruta):
     """Lista de pegas de una pagina. Vacia si esta bien."""
     b = io.open(ruta, 'rb').read()
     pegas = []
+
+    for suma, puntos in rubricas(b.decode('utf-8', 'replace')):
+        pegas.append(u'una rubrica de «Como se evalua» suma %g y no 10: %s'
+                     % (suma, u' + '.join(u'%g' % x for x in puntos)))
 
     if b'\x00' in b:
         i = b.index(b'\x00')
@@ -113,7 +140,8 @@ def main():
     if malas:
         print(u'\n%d paginas de %d con algo que mirar' % (malas, total))
         return 1
-    print(u'%d paginas miradas, ninguna con NUL ni caracteres rotos' % total)
+    print(u'%d paginas miradas, ninguna con NUL ni caracteres rotos,'
+          u' y las rubricas de «Como se evalua» suman 10' % total)
     return 0
 
 

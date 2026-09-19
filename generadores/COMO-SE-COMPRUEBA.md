@@ -16,7 +16,7 @@ o para una acción automática.
 
 | Qué mira | Cómo se lanza |
 |---|---|
-| Caracteres rotos, NUL, UTF-8 inválido y rótulos a medias en las 27 páginas | `python generadores/comprueba_paginas.py` |
+| Caracteres rotos, NUL, UTF-8 inválido y rótulos a medias en las 27 páginas, y que los apartados de «Cómo se evalúa» de cada ficha sumen 10 puntos | `python generadores/comprueba_paginas.py` |
 | Que las cuentas escritas en la prosa cuadren (171 ahora mismo) | `python generadores/comprueba_cuentas.py` |
 | Que los enlaces internos lleven a alguna parte: ficheros, anclas y rutas absolutas resueltas contra la base de publicación, que se lee de la dirección canónica | `python generadores/comprueba_enlaces.py [--fuera]` |
 | Que los tests no se pisen entre ellos, y qué unidades no tienen ninguno. Cuenta los dos moldes que hay en el sitio: `.ta` y el `.test` del tema 5 de 2.º | `python generadores/comprueba_tests.py` |
