@@ -23,7 +23,7 @@ o para una acción automática.
 | Que los vídeos de YouTube se puedan ver, y **sin cuenta**. Necesita red: si no llega a youtube.com para y lo dice, en vez de sacar 92 «no se sabe» | `python generadores/comprueba_videos.py [--json]` |
 | Las lecturas en PDF | `python generadores/comprueba_lecturas.py` |
 | **Las 27 páginas, sesión por sesión**: errores de JavaScript, escenas que dejan el lienzo vacío, desplazamiento a lo ancho en un móvil de 390 px, que cada test dé «N de N» contestando bien y se borre del todo, que el botón de la sesión abierta lo diga y que el pie de cada escena se anuncie solo | `python generadores/comprueba_sitio.py [filtro]` |
-| Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`, `u2`, `u4`…`u10`, y `t0` para los dos temas 0 |
+| Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`…`u10`, y `t0` para los dos temas 0 |
 | Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, y sus párrafos vayan sin saltos (las 19, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
 | Que cada mando de las escenas —deslizador, casilla, desplegable, botón— **diga lo que es**: no basta con que haya un texto al lado, tiene que estar atado | `python generadores/comprueba_mandos.py [filtro]` |
 | Que el texto se pueda agrandar al 200 % sin que nada se corte ni se desborde (WCAG 1.4.4, nivel AA) | `python generadores/comprueba_zoom.py [filtro]` |
