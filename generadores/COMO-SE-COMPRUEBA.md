@@ -25,6 +25,7 @@ o para una acción automática.
 | **Las 27 páginas, sesión por sesión**: errores de JavaScript, escenas que dejan el lienzo vacío, desplazamiento a lo ancho en un móvil de 390 px, que cada test dé «N de N» contestando bien y se borre del todo, que el botón de la sesión abierta lo diga y que el pie de cada escena se anuncie solo | `python generadores/comprueba_sitio.py [filtro]` |
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`, `u2`, `u4`…`u10` |
 | Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, y sus párrafos vayan sin saltos (las 19, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
+| Que cada mando de las escenas —deslizador, casilla, desplegable, botón— **diga lo que es**: no basta con que haya un texto al lado, tiene que estar atado | `python generadores/comprueba_mandos.py [filtro]` |
 | El contraste de los rótulos de las escenas, en tema claro y en oscuro, mirando la figura del propio SVG que hay debajo del texto y no sólo el fondo del DOM. Un rótulo con halo no cuenta: el halo es la solución | `python generadores/comprueba_contraste.py [filtro]` |
 
 Los dos primeros se complementan: `comprueba_sitio.py` no entra en ninguna
@@ -57,6 +58,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | Que el navegador de sesiones **diga** cuál está abierta y no sólo la pinte: `aria-selected` no es válido en un `<button>` y el navegador lo descarta | `python generadores/afina_navegador.py` |
 | Que el test corregido diga con **palabras** cuál era la buena, y no sólo con el color, y que la nota se anuncie al corregir | `python generadores/afina_test.py` |
 | El enlace de «Saltar al contenido», que evita pasar por las migas y los ocho botones del navegador en cada página (WCAG 2.4.1, nivel A) | `python generadores/afina_salto.py` |
+| Atar cada `<label>` suelto con el mando que va justo detrás, cuando ese mando tiene `id` | `python generadores/afina_mandos.py` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |
 | Bajar de Wikimedia Commons una foto con su crédito y su licencia. Necesita red | `python generadores/bajar_fotos.py` |
 

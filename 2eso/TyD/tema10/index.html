@@ -1649,10 +1649,10 @@ footer .wrap{padding-block:18px 26px}
         function tembleque(){ return Math.round((Math.random()*2 - 1) * 12); }
 
         var MANDOS = [
-          '<div class="sx-fila"><label>Luz que le da</label>'
+          '<div class="sx-fila"><label for="sx-luz">Luz que le da</label>'
           + '<input type="range" id="sx-luz" min="0" max="255" step="1" value="128">'
           + '<span class="val" id="sx-luz-v">128</span></div>'
-          + '<div class="sx-fila"><label>Umbral: enciende por debajo de</label>'
+          + '<div class="sx-fila"><label for="sx-umbral">Umbral: enciende por debajo de</label>'
           + '<input type="number" id="sx-umbral" min="0" max="255" step="1" value="50"></div>'
           + '<label class="sx-chk"><input type="checkbox" id="sx-tiembla"> el sensor tiembla '
           + '(como el de verdad)</label>'
@@ -1660,18 +1660,18 @@ footer .wrap{padding-block:18px 26px}
           + '<input type="number" id="sx-apagar" min="0" max="255" step="1" value="80" '
           + 'style="width:58px;margin-left:4px"></label>',
 
-          '<div class="sx-fila"><label>Temperatura</label>'
+          '<div class="sx-fila"><label for="sx-temp">Temperatura</label>'
           + '<input type="range" id="sx-temp" min="-5" max="45" step="1" value="20">'
           + '<span class="val" id="sx-temp-v">20 &deg;C</span></div>'
-          + '<div class="sx-fila"><label>Aviso de fr&iacute;o por debajo de</label>'
+          + '<div class="sx-fila"><label for="sx-frio">Aviso de fr&iacute;o por debajo de</label>'
           + '<input type="number" id="sx-frio" min="-5" max="45" step="1" value="10"></div>'
-          + '<div class="sx-fila"><label>Aviso de calor por encima de</label>'
+          + '<div class="sx-fila"><label for="sx-calor">Aviso de calor por encima de</label>'
           + '<input type="number" id="sx-calor" min="-5" max="45" step="1" value="28"></div>',
 
-          '<div class="sx-fila"><label>Ruido que hay</label>'
+          '<div class="sx-fila"><label for="sx-son">Ruido que hay</label>'
           + '<input type="range" id="sx-son" min="0" max="255" step="1" value="60">'
           + '<span class="val" id="sx-son-v">60</span></div>'
-          + '<div class="sx-fila"><label>Avisa por encima de</label>'
+          + '<div class="sx-fila"><label for="sx-uruido">Avisa por encima de</label>'
           + '<input type="number" id="sx-uruido" min="0" max="255" step="1" value="150"></div>'
         ];
 
@@ -2572,12 +2572,12 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 460 250" id="svg-dj" role="img"
                aria-label="Gr&aacute;fica de la luz a lo largo de un d&iacute;a y las horas que est&aacute; encendida la farola con cada estrategia"></svg>
           <div class="dj-mandos">
-            <div class="dj-fila"><label>Enciende por debajo de</label>
+            <div class="dj-fila"><label for="dj-umbral">Enciende por debajo de</label>
               <input type="range" id="dj-umbral" min="5" max="200" step="1" value="60">
               <span class="dj-val" id="dj-umbral-v">60</span></div>
-            <div class="dj-fila"><label>Potencia de la bombilla</label>
+            <div class="dj-fila"><label for="dj-w">Potencia de la bombilla</label>
               <input type="number" id="dj-w" min="1" max="500" step="1" value="9"> W
-              <label class="corto">Precio del kWh</label>
+              <label class="corto" for="dj-eur">Precio del kWh</label>
               <input type="number" id="dj-eur" min="0.01" max="2" step="0.01" value="0.15"> &euro;</div>
           </div>
           <div class="dj-tabla" id="tabla-dj"></div>

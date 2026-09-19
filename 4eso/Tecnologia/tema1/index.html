@@ -576,7 +576,7 @@ footer .wrap{padding-block:18px 26px}
             <div class="p1-campo">
               <label for="p1-coste">3 &middot; &iquest;Qu&eacute; cuesta cada vez?</label>
               <input type="number" id="p1-coste" min="0" max="1000" step="0.1">
-              <select id="p1-unidad">
+              <select id="p1-unidad" aria-label="Unidad de lo que cuesta cada vez">
                 <option value="min">minutos</option>
                 <option value="h">horas</option>
                 <option value="L">litros</option>
@@ -1372,13 +1372,17 @@ footer .wrap{padding-block:18px 26px}
             return '<option value="' + k + '"' + (k === r.mag ? ' selected' : '') + '>'
                  + MAG[k].t + '</option>';
           }).join('');
+          /* los tres mandos se nombran solos: sin esto, un lector de pantalla
+             dice «cuadro combinado» tres veces y no se sabe cual es cual */
+          var nR = 'del requisito ' + (i + 1);
           return '<div class="p2-req" data-i="' + i + '">'
-               + '<select data-campo="mag">' + ops + '</select>'
-               + '<select data-campo="cmp">'
+               + '<select data-campo="mag" aria-label="Qu&eacute; se mide ' + nR + '">' + ops + '</select>'
+               + '<select data-campo="cmp" aria-label="Comparaci&oacute;n ' + nR + '">'
                + '<option value="ge"' + (r.cmp === 'ge' ? ' selected' : '') + '>ha de ser &ge;</option>'
                + '<option value="le"' + (r.cmp === 'le' ? ' selected' : '') + '>ha de ser &le;</option>'
                + '</select>'
-               + '<input type="number" data-campo="val" value="' + String(r.val) + '" step="0.1">'
+               + '<input type="number" data-campo="val" aria-label="Valor ' + nR
+               + ', en ' + m.ud + '" value="' + String(r.val) + '" step="0.1">'
                + '<span class="ud">' + m.ud + '</span>'
                + '<span class="ver"></span></div>';
         }
@@ -1795,7 +1799,8 @@ footer .wrap{padding-block:18px 26px}
           h += '<tr><th class="alt">Peso de cada criterio (1 a 5)</th>';
           pesos.forEach(function(p, i){
             h += '<td class="peso"><input type="number" data-peso="' + i + '" min="1" max="5" '
-               + 'step="1" value="' + p + '"></td>';
+               + 'step="1" aria-label="Peso del criterio ' + CRIT[i].t + '"'
+               + ' value="' + p + '"></td>';
           });
           h += '<td colspan="2"></td></tr></thead><tbody>';
           var g = ganador(pesos);
@@ -1804,7 +1809,8 @@ footer .wrap{padding-block:18px 26px}
             h += '<tr' + (j === g ? ' class="gana"' : '') + '><td class="alt">' + a.t + '</td>';
             a.n.forEach(function(v, i){
               h += '<td class="nota"><input type="number" data-alt="' + j + '" data-crit="' + i
-                 + '" min="1" max="5" step="1" value="' + v + '"></td>';
+                 + '" min="1" max="5" step="1" aria-label="' + a.t + ', en ' + CRIT[i].t + '"'
+                 + ' value="' + v + '"></td>';
             });
             var t = total(a, pesos);
             h += '<td class="tot">' + t + '</td><td class="pct">'
@@ -3893,7 +3899,8 @@ footer .wrap{padding-block:18px 26px}
             <div class="p7-fila">
               <label for="p7-arranque"><input type="checkbox" id="p7-arranque"> El aparato tarda en
                 arrancar delante de la gente</label>
-              <input type="number" id="p7-muerto" value="40" min="0" max="120" step="5">
+              <input type="number" id="p7-muerto" value="40" min="0" max="120" step="5"
+                aria-label="Segundos que se tarda en arrancar delante de la gente">
               <span class="p7-ud">segundos mirando c&oacute;mo arranca</span>
             </div>
           </div>
@@ -4128,13 +4135,18 @@ footer .wrap{padding-block:18px 26px}
             var sobran = BL[i].pal - cab;
             h += '<tr class="' + (BL[i].clave ? 'clave' : '') + '"><td>' + (k + 1) + '</td>'
                + '<td class="nom">' + BL[i].t + '</td>'
-               + '<td class="bot"><button type="button" data-sube="' + i + '">&#8593;</button> '
-               + '<button type="button" data-baja="' + i + '">&#8595;</button></td>'
-               + '<td class="bot"><button type="button" data-s="' + i + '" data-d="-5">&minus;</button> '
+               + '<td class="bot"><button type="button" data-sube="' + i + '" '
+               + 'aria-label="Subir ' + BL[i].t + '">&#8593;</button> '
+               + '<button type="button" data-baja="' + i + '" '
+               + 'aria-label="Bajar ' + BL[i].t + '">&#8595;</button></td>'
+               + '<td class="bot"><button type="button" data-s="' + i + '" data-d="-5" '
+               + 'aria-label="Cinco segundos menos para ' + BL[i].t + '">&minus;</button> '
                + '<b>' + seg[i] + '</b> '
-               + '<button type="button" data-s="' + i + '" data-d="5">+</button></td>'
+               + '<button type="button" data-s="' + i + '" data-d="5" '
+               + 'aria-label="Cinco segundos mas para ' + BL[i].t + '">+</button></td>'
                + '<td>' + esp(cab, 0) + '</td>'
-               + '<td><input type="number" data-pal="' + i + '" min="0" max="900" step="10" value="'
+               + '<td><input type="number" data-pal="' + i + '" min="0" max="900" step="10" '
+               + 'aria-label="Palabras de ' + BL[i].t + '" value="'
                + BL[i].pal + '"></td>'
                + '<td class="sobra' + (sobran <= 0 ? ' ok' : '') + '">'
                + (sobran > 0 ? '+' + esp(sobran, 0) : esp(sobran, 0)) + '</td>'
@@ -4802,7 +4814,8 @@ footer .wrap{padding-block:18px 26px}
                + '<td class="nom">' + r.t + '</td>'
                + '<td>' + (r.cmp === 'ge' ? '&ge; ' : '&le; ')
                + esp(r.val, r.val === Math.round(r.val) ? 0 : 1) + ' ' + r.ud + '</td>'
-               + '<td><input type="number" data-r="' + i + '" step="0.01" value="'
+               + '<td><input type="number" data-r="' + i + '" step="0.01" '
+               + 'aria-label="Lo medido de ' + r.t + ', en ' + r.ud + '" value="'
                + String(r.med) + '"> ' + r.ud + '</td>'
                /* Con un decimal a proposito: a cero decimales, un -22,5 se
                   redondea de una manera en el navegador y de otra en el

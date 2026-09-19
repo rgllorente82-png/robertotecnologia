@@ -1790,9 +1790,12 @@ footer .wrap{padding-block:18px 26px}
               + '<td class="ind">' + F.n + '<small>' + F.d + '</small></td>'
               + '<td class="n">' + F.cr + '</td>'
               + '<td class="n">' + coma(F.peso, 1) + '</td>'
+              /* en una tabla, el mando se nombra por su fila: si no, se oyen
+                 siete casillas y siete desplegables sin saber de que son */
               + '<td class="n"><input type="number" min="0" max="360" step="5" value="' + seg[j]
-              + '" data-s="' + j + '"></td>'
-              + '<td class="n"><select data-v="' + j + '">'
+              + '" aria-label="Segundos para ' + F.n + '" data-s="' + j + '"></td>'
+              + '<td class="n"><select data-v="' + j + '" aria-label="Nivel que ense&ntilde;as en '
+              + F.n + '">'
               + [0, 1, 2, 3].map(function(k){
                   return '<option value="' + k + '"' + (k === niv[j] ? ' selected' : '') + '>'
                        + k + '</option>';
