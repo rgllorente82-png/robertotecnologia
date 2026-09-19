@@ -81,7 +81,7 @@ están enlazados; ni las tipografías, de Google Fonts.
 
 ## Lo que falta
 
-Dos cosas, y las dos necesitan una red que llegue a donde este repositorio no
+Tres cosas, y las tres necesitan una red que llegue a donde este repositorio no
 llega:
 
 - **Comprobar uno a uno los 92 vídeos de YouTube.** Están empotrados sin cookies
@@ -92,6 +92,13 @@ llega:
 - **Fotografías para el tema 3 de 2.º**, el de materiales, que es la única unidad
   sin ninguna. Las trae `bajar_fotos.py` de Wikimedia Commons, con su autor y su
   licencia.
+- **Un vídeo para los temas 1, 2 y 3 de 2.º**, las tres únicas unidades sin
+  ninguno. La página ya trae el cargador —el vídeo no se descarga hasta que se
+  pulsa—, así que es cuestión de elegirlo; pero elegirlo a ciegas sería poner un
+  enlace que quizá pida cuenta para verse, que es justo lo que no puede pasar.
+
+Lo demás está: las veintiuna páginas de tema tienen sus escenas, su test que se
+corrige solo, sus fichas de actividad y su lectura de aula en PDF.
 
 ## Erratas
 
