@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -136,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -811,6 +811,9 @@ footer .wrap{padding-block:18px 26px}
            azul = comprimido (lo aplastan), rojo = traccionado (lo estiran),
            ambar = fuerza que llega de fuera.                                */
         var AZ = 'var(--goo-azul)', RO = 'var(--goo-rojo)', AM = '#f29900',
+            /* el ambar de las flechas no se lee como TEXTO sobre el papel claro
+               (2,25 : 1), asi que los rotulos usan el ambar de texto */
+            AMT = 'var(--amar-texto)',
             TI = 'var(--ink)', GR = 'var(--ink-soft)', SU = 'var(--accent-soft)';
         var SUELO = 215, sel = 0;
 
@@ -831,7 +834,7 @@ footer .wrap{padding-block:18px 26px}
         /* --- 1. masiva: un muro que solo sabe estar aplastado --- */
         function masiva(){
           var m = '<path d="M290 '+SUELO+' L310 95 H400 L420 '+SUELO+' Z" fill="'+SU+'" stroke="'+AZ+'" stroke-width="3"></path>';
-          m += flecha(355, 55, 355, 88, AM) + rotulo(365, 70, 'carga', AM);
+          m += flecha(355, 55, 355, 88, AM) + rotulo(365, 70, 'carga', AMT);
           for(var i=0;i<3;i++) m += flecha(325+i*20, 120, 325+i*20, 195, AZ);
           m += rotulo(440, 160, 'todo comprimido', AZ);
           m += rotulo(440, 180, 'y todo peso', GR);
@@ -852,8 +855,8 @@ footer .wrap{padding-block:18px 26px}
           m += '<rect x="'+(cx+r2)+'" y="'+cy+'" width="26" height="'+(SUELO-cy)+'" fill="'+SU+'" stroke="'+AZ+'" stroke-width="2.5"></rect>';
           m += flecha(cx, 48, cx, 62, AM);
           m += flecha(cx-r2-30, 190, cx-r2-62, 190, AM) + flecha(cx+r2+30, 190, cx+r2+62, 190, AM);
-          m += rotulo(cx-r2-140, 176, 'empuja hacia fuera', AM);
-          m += rotulo(cx+r2+66, 176, 'y hacia fuera', AM);
+          m += rotulo(cx-r2-140, 176, 'empuja hacia fuera', AMT);
+          m += rotulo(cx+r2+66, 176, 'y hacia fuera', AMT);
           m += rotulo(cx-44, 118, 'comprimida', AZ);
           return m;
         }
@@ -915,7 +918,7 @@ footer .wrap{padding-block:18px 26px}
             m += linea(x, y, x, yd, RO, 2);
           }
           m += linea(185, yd, 535, yd, TI, 6);
-          m += flecha(420, 138, 420, yd-6, AM) + rotulo(428, 158, 'carga', AM);
+          m += flecha(420, 138, 420, yd-6, AM) + rotulo(428, 158, 'carga', AMT);
           m += rotulo(548, yd+4, 'tablero', GR);
           m += rotulo(548, yt+4, 'torres:', AZ);
           m += rotulo(548, yt+20, 'comprimidas', AZ);

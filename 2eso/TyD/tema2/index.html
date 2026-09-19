@@ -305,7 +305,7 @@
 
   /* una cara, un color, el mismo que tendrá su vista */
   :root{--c-alzado:#cde2f3;--c-planta:#d4e8cf;--c-perfil:#f2e0bf;
-        --c-alzado-bd:#2b6f9c;--c-planta-bd:#3f7a45;--c-perfil-bd:#9a7326}
+        --c-alzado-bd:#2b6f9c;--c-planta-bd:#3f7a45;--c-perfil-bd:var(--amar-texto)}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
         --c-alzado:#1b384b;--c-planta:#243d28;--c-perfil:#43331d;
         --c-alzado-bd:#6fb6dd;--c-planta-bd:#7dba82;--c-perfil-bd:#cba85e}}
@@ -601,9 +601,9 @@
   
 
   /* ---- los cuatro colores de Google, planos ---- */
-  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853}
+  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995}}
+    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995}}
 
   /* pestaña activa en azul Google */
   nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}

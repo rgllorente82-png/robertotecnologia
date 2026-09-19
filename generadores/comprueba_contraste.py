@@ -11,6 +11,13 @@ del tema 9 de 2.o, las filas apagadas usaban `--line` y daban 1,4:1 en claro y
 Recorre las 27 paginas, sesion por sesion, en los dos temas, y saca los
 rotulos por debajo de 3:1.
 
+DOS CASOS QUE SALEN Y NO SON UN FALLO, para que nadie los «arregle»:
+
+  * el tema 9 de 2.o tiene una escena que ENSENIA que es el contraste, y su
+    ejemplo malo es, por definicion, un texto de 2,64 : 1;
+  * las letras A y B de la micro:bit del tema 10 son gris claro sobre un
+    circulo oscuro dibujado en el propio SVG, y se leen perfectamente.
+
 CUIDADO AL LEERLO. El fondo lo calcula subiendo por el DOM hasta encontrar un
 `background-color`, y **un rectangulo SVG de color no es un fondo del DOM**:
 por eso un rotulo blanco encima de una barra de color sale como «contraste 1»

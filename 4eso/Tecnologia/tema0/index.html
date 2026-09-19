@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -136,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -395,11 +395,11 @@ footer .wrap{padding-block:18px 26px}
             <!-- TECNICA -->
             <rect x="26" y="26" width="220" height="92" rx="3" fill="var(--surface)" stroke="var(--goo-amarillo)" stroke-width="2.5"/>
             <text x="46" y="52" style="font:500 14px var(--f-b);fill:var(--ink)">T&Eacute;CNICA</text>
-            <text x="46" y="72" style="font:400 12px var(--f-m);fill:var(--goo-amarillo)">&iquest;C&Oacute;MO SE HACE?</text>
+            <text x="46" y="72" style="font:400 12px var(--f-m);fill:var(--amar-texto)">&iquest;C&Oacute;MO SE HACE?</text>
             <text x="46" y="94" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Saber hacerlo con las manos.</text>
             <text x="46" y="110" style="font:400 12.5px var(--f-b);fill:var(--ink-soft)">Se aprende imitando.</text>
             <!-- mano con herramienta -->
-            <g transform="translate(196,58)" stroke="#9a7326" stroke-width="2.2" fill="none" stroke-linecap="round">
+            <g transform="translate(196,58)" stroke="var(--amar-texto)" stroke-width="2.2" fill="none" stroke-linecap="round">
               <path d="M0 22 q-6 -4 -6 -12 v-8 M4 22 v-22 M10 22 v-18 M16 22 q6 -2 6 -10"/>
               <path d="M-8 22 h30 v8 h-30 Z" fill="#fbbc04" opacity=".3" stroke="none"/>
             </g>
@@ -792,7 +792,7 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
                    +'<path d="M78 33 q-5 -4 0 -10 q5 6 0 10 Z" fill="#ea4335"/>',
               dice:'El fuego no se inventa: se cuida.'},
     agri:    {pelo:'<path d="M8 22 h48 l-6 -6 h-36 Z" fill="#d9a441"/><path d="M10 22 h44" stroke="#b5862c" stroke-width="2"/>',
-              prop:'<path d="M78 58 v-26" stroke="#9a7326" stroke-width="3" stroke-linecap="round"/>'
+              prop:'<path d="M78 58 v-26" stroke="var(--amar-texto)" stroke-width="3" stroke-linecap="round"/>'
                    +'<path d="M78 34 q-7 -5 -6 -12 q7 2 6 12 M78 34 q7 -5 6 -12 q-7 2 -6 12" fill="#34a853"/>',
               dice:'Ya no persigo la comida: la siembro.'},
     rueda:   {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#4a3b2f"/>',
@@ -811,8 +811,8 @@ var HITOS = [{"id": "piedra", "pos": 0.02, "ep": "2,6 M a&ntilde;os", "t": "La p
                    +'<path d="M80 27 v6 M80 55 v6 M63 44 h6 M91 44 h6 M69 33 l4 4 M87 51 l4 4 M91 33 l-4 4 M73 51 l-4 4" stroke="#5f6368" stroke-width="3" stroke-linecap="round"/>',
               dice:'Trabaja sin cansarse. Ni un músculo.'},
     electri: {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#3a3a42"/>',
-              prop:'<path d="M80 30 a12 12 0 0 1 8 21 v5 h-16 v-5 a12 12 0 0 1 8 -21 Z" fill="#fbbc04" stroke="#9a7326" stroke-width="1.6"/>'
-                   +'<path d="M72 58 h16 M74 62 h12" stroke="#9a7326" stroke-width="2.4" stroke-linecap="round"/>',
+              prop:'<path d="M80 30 a12 12 0 0 1 8 21 v5 h-16 v-5 a12 12 0 0 1 8 -21 Z" fill="#fbbc04" stroke="var(--amar-texto)" stroke-width="1.6"/>'
+                   +'<path d="M72 58 h16 M74 62 h12" stroke="var(--amar-texto)" stroke-width="2.4" stroke-linecap="round"/>',
               dice:'La energía llega por un cable.'},
     electro: {pelo:'<path d="M14 24 q4 -12 18 -12 q14 0 18 12 q-6 -3 -18 -3 q-12 0 -18 3 Z" fill="#2f3a45"/>',
               prop:'<rect x="66" y="32" width="28" height="24" rx="2" fill="#34a853" stroke="#1e6b33" stroke-width="1.6"/>'

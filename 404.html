@@ -78,7 +78,7 @@ a.tema:nth-child(4n+4)::before{background:var(--g-amarillo)}
 a.tema{padding-top:24px}
 a.tema:nth-child(4n+2) .n{color:var(--g-rojo);background:#fce8e6}
 a.tema:nth-child(4n+3) .n{color:var(--g-verde);background:#e6f4ea}
-a.tema:nth-child(4n+4) .n{color:#9a7326;background:#fef7e0}
+a.tema:nth-child(4n+4) .n{color:var(--amar-texto);background:#fef7e0}
 
 .ico{width:40px;height:40px;display:block;margin-bottom:12px;color:var(--g-azul)}
 a.tema:nth-child(4n+2) .ico{color:var(--g-rojo)}
@@ -133,9 +133,9 @@ a.tema:nth-child(4n+2) .ico,a.tema:nth-child(4n+3) .ico,a.tema:nth-child(4n+4) .
 .cc-sello{border-radius:2px;background:var(--ink);box-shadow:none;backdrop-filter:none}
 .cc-sello:hover{transform:none;background:var(--ink)}
 
-:root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853}
+:root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--amar-texto:#8a6410;--goo-verde:#34a853}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995}}
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--amar-texto:#fdd663;--goo-verde:#81c995}}
 a.tema{border-top:5px solid var(--goo-azul)}
 a.tema:nth-child(4n+2){border-top-color:var(--goo-rojo)}
 a.tema:nth-child(4n+3){border-top-color:var(--goo-verde)}
@@ -143,7 +143,7 @@ a.tema:nth-child(4n+4){border-top-color:var(--goo-amarillo)}
 a.tema .n,a.tema .ico{color:var(--goo-azul);border-color:var(--goo-azul)}
 a.tema:nth-child(4n+2) .n,a.tema:nth-child(4n+2) .ico{color:var(--goo-rojo);border-color:var(--goo-rojo)}
 a.tema:nth-child(4n+3) .n,a.tema:nth-child(4n+3) .ico{color:var(--goo-verde);border-color:var(--goo-verde)}
-a.tema:nth-child(4n+4) .n,a.tema:nth-child(4n+4) .ico{color:#9a7326;border-color:var(--goo-amarillo)}
+a.tema:nth-child(4n+4) .n,a.tema:nth-child(4n+4) .ico{color:var(--amar-texto);border-color:var(--goo-amarillo)}
 .prog-barra i{background:var(--goo-verde)}
 header .eyebrow{color:var(--goo-azul)}
 /* la retícula de la cabecera, en azul Google */

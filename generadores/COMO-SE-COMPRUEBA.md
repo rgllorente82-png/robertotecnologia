@@ -51,6 +51,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | El enlace «Ir al tema N» al final del cierre de cada unidad, con el título leído del `<h1>` de destino | `python generadores/pon_enlace_siguiente.py` |
 | Que una tabla ancha se desplace dentro de su caja y no arrastre la página en un móvil | `python generadores/afina_movil.py` |
 | Que se respete el ajuste de accesibilidad «reducir el movimiento» (WCAG 2.3.3 y 2.2.2) | `python generadores/afina_movimiento.py` |
+| Un ámbar que se pueda leer como texto, oscuro en el tema claro y claro en el oscuro, separado del ámbar de rellenar barras y bordes | `python generadores/afina_ambar.py` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |
 | Bajar de Wikimedia Commons una foto con su crédito y su licencia. Necesita red | `python generadores/bajar_fotos.py` |
 
