@@ -43,3 +43,7 @@ algo mal, así que valen para un gancho de git o para una acción automática.
 `comprueba_tests.py` cuenta ahora los dos moldes de test que hay en el sitio
 —`.ta` y el `.test` del tema 5 de 2.º— y nombra las unidades que no tienen
 ninguno, en vez de saltárselas en silencio.
+
+`afina_movil.py` tampoco comprueba: **pone**. La regla que hace que una tabla
+ancha se desplace dentro de su caja en vez de arrastrar la página entera por
+debajo de 560 px. Idempotente, y solo toca las páginas que tienen tablas.

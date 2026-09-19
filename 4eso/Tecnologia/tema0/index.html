@@ -291,6 +291,8 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
 </head>
 <body>

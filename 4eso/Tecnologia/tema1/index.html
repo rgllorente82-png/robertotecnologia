@@ -311,6 +311,8 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
 </head>
 <body>
@@ -1173,11 +1175,13 @@ footer .wrap{padding-block:18px 26px}
       .p2-med b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--goo-azul)}
       .p2-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
         color:var(--ink-soft);margin:16px 0 6px}
-      .p2-reqs{display:grid;gap:7px}
-      .p2-req{display:flex;align-items:center;gap:7px;flex-wrap:wrap;border:1.5px solid var(--line);
+      .p2-reqs{display:grid;gap:7px;min-width:0}
+      /* sin esto, el <select> mas largo estira la fila y la pagina se va a lo ancho en un movil */
+      .p2-req{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0;border:1.5px solid var(--line);
         border-radius:2px;padding:8px 10px;background:var(--surface);font-family:var(--f-m);font-size:12.5px}
       .p2-req select,.p2-req input[type="number"]{font-family:var(--f-m);font-size:12.5px;padding:4px 5px;
-        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink);
+        max-width:100%;min-width:0}
       .p2-req input[type="number"]{width:68px}
       .p2-req .ud{color:var(--ink-soft);min-width:78px}
       .p2-req .ver{margin-left:auto;font-weight:500;display:flex;gap:9px;align-items:center}
@@ -3276,7 +3280,7 @@ footer .wrap{padding-block:18px 26px}
       .p6-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
         color:var(--ink-soft);margin:16px 0 6px}
       .p6-doc{border:1.5px solid var(--line);border-radius:2px;background:var(--surface)}
-      .p6-l{display:flex;gap:10px;align-items:baseline;padding:6px 10px;border-top:1px solid var(--line-soft);
+      .p6-l{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;padding:6px 10px;border-top:1px solid var(--line-soft);
         font-size:14px;line-height:1.5}
       .p6-l:first-child{border-top:0}
       .p6-l .rot{flex:none;width:118px;font-family:var(--f-m);font-size:11px;color:var(--ink-soft)}

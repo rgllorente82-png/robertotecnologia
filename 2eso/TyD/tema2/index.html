@@ -657,6 +657,8 @@
 .ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
 .ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
 @media print{.ta{break-inside:avoid}.ta-por{display:block}}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
 
 <script type="application/ld+json">
