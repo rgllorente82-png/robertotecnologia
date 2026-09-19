@@ -173,6 +173,17 @@ for clave, valor in (('ancho', 90), ('altoA', ALTO_A), ('altoB', ALTO_B), ('larg
           'la escena usa %s = %d' % (clave, valor))
 check('A es MAS ALTA que B' in texto,
       'la escena dice por que A tiene que ser mas alta que B')
+
+# La lista de materiales esta escrita dos veces: como tabla en la teoria y
+# como medidas dentro de la escena del despiece. Se separaron nada mas
+# cambiar el alto del respaldo: la tabla segui­a diciendo 90 x 80 y el dibujo
+# ya decia 90 x 120. Un alumno que trace por la tabla corta la pieza corta.
+_lista = re.search(r'<h4>La lista de materiales</h4>.*?</table>', texto, re.S)
+check(_lista is not None, 'la teoria trae la lista de materiales')
+if _lista:
+    _medidas = re.findall(r'<td>(\d+) &times; (\d+)</td>', _lista.group(0))
+    check(_medidas == [('90', str(ALTO_A)), ('110', str(ALTO_B))],
+          'la lista de materiales dice las mismas medidas que el despiece (%s)' % _medidas)
 check('dos en total' in texto and 'doce en total' not in texto,
       'el despiece dice dos piezas y no doce')
 
