@@ -2834,8 +2834,10 @@ footer .wrap{padding-block:18px 26px}
           prueba(+g.dataset.j);
         });
         svg.addEventListener('keydown', function(e){
-          var g = e.target.closest('[role="button"]'); if(!g) return;
           if(e.key !== ' ' && e.key !== 'Enter') return;
+          var g = e.target;
+          while(g && !g.dataset.j) g = g.parentNode;
+          if(!g || !g.dataset.j) return;
           e.preventDefault();
           if(sospechosos.length === 1) return;
           prueba(+g.dataset.j);
