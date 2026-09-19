@@ -15,7 +15,9 @@ Asi que despues de generar, se pasa esto:
 
     python comprueba_paginas.py
 
-Mira ademas que los apartados de «Como se evalua» de cada ficha sumen 10
+Mira ademas las entidades HTML que se han quedado sin su & por una
+sustitucion mal hecha, que se publican como texto, y que los apartados de
+«Como se evalua» de cada ficha sumen 10
 puntos, que es de lo primero que comprueba quien va a calificar con ellos.
 
 Devuelve 1 si encuentra algo, para poder encadenarlo con la generacion.
@@ -58,6 +60,24 @@ def paginas():
                 yield os.path.join(base, nombre)
 
 
+# Una entidad a medias —«niacute;n» en vez de «n&iacute;n»— no es un byte roto ni
+# UTF-8 invalido, asi que pasaba por delante de todo lo de aqui y se publicaba
+# tal cual: en el tema 1 de 2.o se leia «cajetcajetiniacute;n» dentro de una
+# frase. Salen de una sustitucion mal hecha, y una de ellas la hice yo con sed,
+# donde el & del reemplazo significa «todo lo encontrado».
+ENTIDADES = ('aacute', 'eacute', 'iacute', 'oacute', 'uacute', 'ntilde', 'uuml',
+             'ccedil', 'iquest', 'iexcl', 'laquo', 'raquo', 'middot', 'mdash',
+             'ndash', 'hellip', 'deg', 'nbsp', 'times', 'sup2', 'sup3')
+SUELTA = re.compile(r'(?<!&)(' + '|'.join(ENTIDADES) + r');')
+
+
+def entidades_rotas(texto):
+    u"""Trozos de entidad que se han quedado sin su &, fuera del JavaScript."""
+    limpio = re.sub(r'(?s)<script\b.*?</script>', ' ', texto)
+    return [limpio[max(0, m.start() - 35):m.end() + 12]
+            for m in SUELTA.finditer(limpio)]
+
+
 def rubricas(texto):
     u"""Lo que suma cada apartado de «Como se evalua», que tiene que dar 10.
 
@@ -81,6 +101,10 @@ def revisa(ruta):
     """Lista de pegas de una pagina. Vacia si esta bien."""
     b = io.open(ruta, 'rb').read()
     pegas = []
+
+    for trozo in entidades_rotas(b.decode('utf-8', 'replace')):
+        pegas.append(u'una entidad HTML se ha quedado sin su &: %s'
+                     % ascii(re.sub(r'\s+', ' ', trozo)))
 
     for suma, puntos in rubricas(b.decode('utf-8', 'replace')):
         pegas.append(u'una rubrica de «Como se evalua» suma %g y no 10: %s'
