@@ -2712,8 +2712,8 @@ footer .wrap{padding-block:18px 26px}
           m += '<text x="' + X0 + '" y="243" class="dj-t">azul = la farola est&aacute; encendida</text>';
           svg.innerHTML = m;
 
-          var f = '<table><tr><th>Estrategia</th><th>Horas al d&iacute;a</th><th>Wh al d&iacute;a</th>'
-                + '<th>&euro; al a&ntilde;o</th><th>A oscuras sin luz</th></tr>';
+          var f = '<table><tr><th scope="col">Estrategia</th><th scope="col">Horas al d&iacute;a</th><th scope="col">Wh al d&iacute;a</th>'
+                + '<th scope="col">&euro; al a&ntilde;o</th><th scope="col">A oscuras sin luz</th></tr>';
           for(i = 0; i < 3; i++){
             var osc = r[i].aoscuras;
             f += '<tr><td>' + NOMBRE[i] + '</td>'
@@ -2802,7 +2802,7 @@ footer .wrap{padding-block:18px 26px}
           </ol>
           <h4>R&uacute;brica</h4>
           <table class="rubrica">
-            <tr><th>Qu&eacute; se mira</th><th>Bien (todo)</th><th>Regular (la mitad)</th><th>Mal (cero)</th><th>Puntos</th></tr>
+            <tr><th scope="col">Qu&eacute; se mira</th><th scope="col">Bien (todo)</th><th scope="col">Regular (la mitad)</th><th scope="col">Mal (cero)</th><th scope="col">Puntos</th></tr>
             <tr><td>El problema es real y est&aacute; bien contado</td>
                 <td>Una frase clara, y se entiende a qui&eacute;n le pasa</td>
                 <td>Se entiende pero es un invento de clase</td>

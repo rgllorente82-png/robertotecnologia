@@ -5055,8 +5055,8 @@ void loop() {
           svg.innerHTML = m;
 
           /* ---------------- la tabla de resultados ---------------- */
-          var f = '<table><tr><th>Sistema</th><th>Agua</th><th>M&iacute;nimo</th>'
-                + '<th>M&aacute;ximo</th><th>Horas marchita</th><th>C&oacute;mo acaba</th></tr>';
+          var f = '<table><tr><th scope="col">Sistema</th><th scope="col">Agua</th><th scope="col">M&iacute;nimo</th>'
+                + '<th scope="col">M&aacute;ximo</th><th scope="col">Horas marchita</th><th scope="col">C&oacute;mo acaba</th></tr>';
           for(k = 0; k < 3; k++){
             var viva = R.seca[k] < 1 && R.max[k] < 99;
             var estado = R.seca[k] > 24 ? 'se ha secado'

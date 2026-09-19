@@ -59,6 +59,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | Que el test corregido diga con **palabras** cuál era la buena, y no sólo con el color, y que la nota se anuncie al corregir | `python generadores/afina_test.py` |
 | El enlace de «Saltar al contenido», que evita pasar por las migas y los ocho botones del navegador en cada página (WCAG 2.4.1, nivel A) | `python generadores/afina_salto.py` |
 | Atar cada `<label>` suelto con el mando que va justo detrás, cuando ese mando tiene `id` | `python generadores/afina_mandos.py` |
+| El `scope` de cada celda de encabezado, para que al caer en una casilla se lea «Barato, Bomba sumergible, 2» y no «2» | `python generadores/afina_tablas.py` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |
 | Bajar de Wikimedia Commons una foto con su crédito y su licencia. Necesita red | `python generadores/bajar_fotos.py` |
 

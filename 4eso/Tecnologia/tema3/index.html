@@ -1493,7 +1493,7 @@ footer .wrap{padding-block:18px 26px}
         <table>
           <caption class="eyebrow">Energ&iacute;a incorporada de los materiales de taller</caption>
           <thead>
-            <tr><th>Material</th><th>Virgen (MJ/kg)</th><th>Reciclado (MJ/kg)</th><th>Ahorro</th></tr>
+            <tr><th scope="col">Material</th><th scope="col">Virgen (MJ/kg)</th><th scope="col">Reciclado (MJ/kg)</th><th scope="col">Ahorro</th></tr>
           </thead>
           <tbody>
             <tr><td>Aluminio</td><td>186</td><td>8,3</td><td>95 %</td></tr>
@@ -1911,11 +1911,11 @@ footer .wrap{padding-block:18px 26px}
           svg.innerHTML = s;
 
           /* --- la tabla, con todo a la vista --- */
-          var h = '<table><caption>Los seis criterios: tres salen de una cuenta y tres son criterio nuestro</caption><thead><tr><th>Material</th><th>E (GPa)</th><th>t (mm)</th>';
+          var h = '<table><caption>Los seis criterios: tres salen de una cuenta y tres son criterio nuestro</caption><thead><tr><th scope="col">Material</th><th scope="col">E (GPa)</th><th scope="col">t (mm)</th>';
           CRIT.forEach(function(c){
-            h += '<th>' + c.nom + (c.cal ? '' : ' *') + '</th>';
+            h += '<th scope="col">' + c.nom + (c.cal ? '' : ' *') + '</th>';
           });
-          h += '<th>Nota</th></tr></thead><tbody>';
+          h += '<th scope="col">Nota</th></tr></thead><tbody>';
           F.slice().sort(function(a,b){
             if(a.fuera && !b.fuera) return 1;
             if(!a.fuera && b.fuera) return -1;

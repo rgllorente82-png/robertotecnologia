@@ -866,7 +866,7 @@ void loop() {
         <h4>Los tipos que vas a usar</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>tipo</th><th>bytes</th><th>qu&eacute; guarda</th></tr>
+            <th scope="col">tipo</th><th scope="col">bytes</th><th scope="col">qu&eacute; guarda</th></tr>
           <tr><td><code>bool</code></td><td>1</td><td>solo <code>true</code> o <code>false</code></td></tr>
           <tr><td><code>char</code></td><td>1</td><td>de &minus;128 a 127, o una letra</td></tr>
           <tr><td><code>int</code></td><td>2</td><td>de &minus;32.768 a 32.767, <b>sin decimales</b></td></tr>
@@ -2124,7 +2124,7 @@ void loop() {
         <h3 class="h-menor">Programar y entrenar: qui&eacute;n pone qu&eacute;</h3>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th></th><th>Programar</th><th>Entrenar</th></tr>
+            <th scope="col"></th><th scope="col">Programar</th><th scope="col">Entrenar</th></tr>
           <tr><td>t&uacute; pones</td><td>la <b>regla</b></td><td>los <b>ejemplos</b>, ya clasificados</td></tr>
           <tr><td>el programa pone</td><td>aplicarla</td><td>los <b>n&uacute;meros</b> de la regla</td></tr>
           <tr><td>si falla</td><td>lees la regla y la arreglas</td>
@@ -2899,7 +2899,7 @@ void guarda(int x) {
         <h4>Lo que cabe de verdad en 2.048 bytes</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>guardando cada medida en&hellip;</th><th>bytes por medida</th><th>caben</th></tr>
+            <th scope="col">guardando cada medida en&hellip;</th><th scope="col">bytes por medida</th><th scope="col">caben</th></tr>
           <tr><td><code>byte</code> (0 a 255, hay que dividir la lectura entre 4)</td><td>1</td><td>2.048</td></tr>
           <tr><td><code>int</code> (la lectura entera, 0 a 1023)</td><td>2</td><td>1.024</td></tr>
           <tr><td><code>long</code></td><td>4</td><td>512</td></tr>
@@ -3364,7 +3364,7 @@ void guarda(int x) {
         <h4>Las cuatro maneras de decidir, y lo que cuesta cada una</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>regla</th><th>qu&eacute; quita</th><th>qu&eacute; cuesta</th></tr>
+            <th scope="col">regla</th><th scope="col">qu&eacute; quita</th><th scope="col">qu&eacute; cuesta</th></tr>
           <tr><td><b>el &uacute;ltimo valor</b></td><td>nada</td><td>2 bytes. Se cree cualquier pico.</td></tr>
           <tr><td><b>media de N</b></td><td>el ruido peque&ntilde;o</td>
               <td>2N bytes y un <b>retraso de N/2 medidas</b>. Al pico no lo quita: lo
@@ -3464,7 +3464,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
              tabla anotando lo que dice la escena:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>regla</th><th>arranques de m&aacute;s</th><th>tarda de media</th><th>bytes</th></tr>
+              <th scope="col">regla</th><th scope="col">arranques de m&aacute;s</th><th scope="col">tarda de media</th><th scope="col">bytes</th></tr>
             <tr><td>el &uacute;ltimo valor</td><td></td><td></td><td></td></tr>
             <tr><td>media de 5</td><td></td><td></td><td></td></tr>
             <tr><td>media de 20</td><td></td><td></td><td></td></tr>
@@ -3544,7 +3544,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
         <h3 class="h-menor">Tres maneras de sacar el dato, con su pega</h3>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>c&oacute;mo</th><th>cuesta</th><th>la pega</th></tr>
+            <th scope="col">c&oacute;mo</th><th scope="col">cuesta</th><th scope="col">la pega</th></tr>
           <tr><td>Por el <b>cable USB</b> a un ordenador del aula, que lee el puerto serie y lo
                   sube &eacute;l</td><td><b>0 &euro;</b></td>
               <td>hace falta un ordenador encendido al lado, todo el rato</td></tr>
@@ -4173,8 +4173,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
              marcado, anotad esta tabla:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>pol&iacute;tica</th><th>mensajes que llegan</th><th>al d&iacute;a</th>
-              <th>incidencias que no se supieron</th><th>&iquest;se descubre el silencio?</th></tr>
+              <th scope="col">pol&iacute;tica</th><th scope="col">mensajes que llegan</th><th scope="col">al d&iacute;a</th>
+              <th scope="col">incidencias que no se supieron</th><th scope="col">&iquest;se descubre el silencio?</th></tr>
             <tr><td>peri&oacute;dico cada 5 min</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>peri&oacute;dico cada 1 h</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>por evento</td><td></td><td></td><td></td><td></td></tr>
@@ -4826,8 +4826,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
              combinaciones:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th></th><th>en sus ejemplos</th><th>en los de prueba</th><th>modelo tonto</th>
-              <th>umbral a mano</th></tr>
+              <th scope="col"></th><th scope="col">en sus ejemplos</th><th scope="col">en los de prueba</th><th scope="col">modelo tonto</th>
+              <th scope="col">umbral a mano</th></tr>
             <tr><td>al azar, solo la lectura</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>al azar, lectura + tendencia</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>por jornada, solo la lectura</td><td></td><td></td><td></td><td></td></tr>
@@ -5546,8 +5546,8 @@ void loop() {
              anotad qu&eacute; fila de la ficha se mueve:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>aver&iacute;a</th><th>sin protecci&oacute;n</th><th>con protecci&oacute;n</th>
-              <th>qu&eacute; fila lo delata</th></tr>
+              <th scope="col">aver&iacute;a</th><th scope="col">sin protecci&oacute;n</th><th scope="col">con protecci&oacute;n</th>
+              <th scope="col">qu&eacute; fila lo delata</th></tr>
             <tr><td>la sonda se sale</td><td></td><td></td><td></td></tr>
             <tr><td>se cae la red</td><td></td><td></td><td></td></tr>
             <tr><td>se va la luz</td><td></td><td></td><td></td></tr>

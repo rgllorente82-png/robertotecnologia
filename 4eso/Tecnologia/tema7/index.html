@@ -1106,8 +1106,8 @@ digitalWrite(motor, LOW);</pre>
         <h4>Qu&eacute; te promete cada motor</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>motor</th><th>t&uacute; le dices</th><th>&iquest;sabe d&oacute;nde est&aacute;?</th>
-            <th>vueltas</th></tr>
+            <th scope="col">motor</th><th scope="col">t&uacute; le dices</th><th scope="col">&iquest;sabe d&oacute;nde est&aacute;?</th>
+            <th scope="col">vueltas</th></tr>
           <tr><td><b>Corriente continua</b></td><td>enciende / apaga</td>
               <td><b>no</b>, ni puede</td><td>sin fin</td></tr>
           <tr><td><b>Servo</b></td><td>un <b>&aacute;ngulo</b></td>
@@ -2634,11 +2634,11 @@ digitalWrite(motor, LOW);</pre>
               + 'hay casos, hay l&iacute;neas.</p>';
             return;
           }
-          var h = '<table><tr><th>estado \\ evento</th>';
-          EV_CORTO.forEach(function(e){ h += '<th>' + e + '</th>'; });
+          var h = '<table><tr><th scope="col">estado \\ evento</th>';
+          EV_CORTO.forEach(function(e){ h += '<th scope="col">' + e + '</th>'; });
           h += '</tr>';
           for(var s = 0; s < 4; s++){
-            h += '<tr><th>' + P.est[s] + '</th>';
+            h += '<tr><th scope="row">' + P.est[s] + '</th>';
             for(var e = 0; e < 5; e++)
               h += '<td class="' + (M.cob[s + '-' + e] ? 'on' : '') + '">'
                  + (M.cob[s + '-' + e] ? '&#10003;' : '&middot;') + '</td>';
@@ -2737,7 +2737,7 @@ digitalWrite(motor, LOW);</pre>
            otra manera, los eventos tambi&eacute;n, y las <b>flechas son las mismas</b>.</p>
         <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:8px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th></th><th>Barrera</th><th>Riego</th><th>Contenedor</th></tr>
+            <th scope="col"></th><th scope="col">Barrera</th><th scope="col">Riego</th><th scope="col">Contenedor</th></tr>
           <tr><td>reposo</td><td>cerrada</td><td>en espera</td><td>vigilando</td></tr>
           <tr><td>actuando</td><td>subiendo</td><td>regando</td><td>avisando</td></tr>
           <tr><td>manteniendo</td><td>abierta</td><td>dejando calar</td><td>aviso puesto</td></tr>
@@ -3054,7 +3054,7 @@ digitalWrite(motor, LOW);</pre>
         <h4>Las tres zonas de una placa Arduino UNO</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>le llegan&hellip;</th><th>y entonces&hellip;</th></tr>
+            <th scope="col">le llegan&hellip;</th><th scope="col">y entonces&hellip;</th></tr>
           <tr><td><b>4,5 V o m&aacute;s</b></td>
               <td>funciona, y el fabricante lo <b>garantiza</b> a 16 MHz</td></tr>
           <tr><td><b>entre 2,7 y 4,5 V</b></td>
@@ -4423,7 +4423,7 @@ digitalWrite(motor, LOW);</pre>
            al comprar la pieza</b></p>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>pieza</th><th>sin &oacute;rdenes se queda&hellip;</th><th>y eso es&hellip;</th></tr>
+            <th scope="col">pieza</th><th scope="col">sin &oacute;rdenes se queda&hellip;</th><th scope="col">y eso es&hellip;</th></tr>
           <tr><td><b>Servo</b></td><td>suelto: el brazo cae por su peso</td>
               <td>malo si hay algo debajo</td></tr>
           <tr><td><b>V&aacute;lvula con muelle</b></td><td>cerrada, sola</td>
@@ -4806,11 +4806,11 @@ digitalWrite(motor, LOW);</pre>
         var TAPA = [[1, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 0]];
 
         function matriz(){
-          var h = '<table><tr><th>protecci&oacute;n \\ fallo</th>';
-          FALLOS.forEach(function(f){ h += '<th>' + f + '</th>'; });
+          var h = '<table><tr><th scope="col">protecci&oacute;n \\ fallo</th>';
+          FALLOS.forEach(function(f){ h += '<th scope="col">' + f + '</th>'; });
           h += '</tr>';
           for(var i = 0; i < 4; i++){
-            h += '<tr><th>' + PROTS[i] + '</th>';
+            h += '<tr><th scope="row">' + PROTS[i] + '</th>';
             for(var j = 0; j < 3; j++){
               var cls = TAPA[i][j] ? (v.p[i] ? 'tapa' : 'falta') : '';
               var txt = TAPA[i][j] ? (v.p[i] ? '&#10003;' : '&#10007;') : '&middot;';
@@ -5088,8 +5088,8 @@ digitalWrite(motor, LOW);</pre>
              pon&eacute;is vosotros, y tienen que ser de vuestra m&aacute;quina de verdad.</p>
           <table style="width:100%;border-collapse:collapse;font-size:14px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>qu&eacute; falla</th><th>qu&eacute; hace la m&aacute;quina hoy</th>
-              <th>qu&eacute; deber&iacute;a hacer</th><th>qu&eacute; lo tapa</th></tr>
+              <th scope="col">qu&eacute; falla</th><th scope="col">qu&eacute; hace la m&aacute;quina hoy</th>
+              <th scope="col">qu&eacute; deber&iacute;a hacer</th><th scope="col">qu&eacute; lo tapa</th></tr>
           </table>
           <p>La columna del medio se rellena <b>con el montaje delante</b>, no de memoria. Y la
              cuarta tiene que decir <b>qu&eacute; pieza o qu&eacute; l&iacute;nea</b>, no

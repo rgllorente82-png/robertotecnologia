@@ -1790,13 +1790,13 @@ footer .wrap{padding-block:18px 26px}
         function esp(v, dec){ return v.toFixed(dec).replace('.', ','); }
 
         function tabla(){
-          var h = '<table><thead><tr><th class="alt">Alternativa</th>';
+          var h = '<table><thead><tr><th scope="col" class="alt">Alternativa</th>';
           CRIT.forEach(function(c, i){
-            h += '<th title="' + c.ay + '">' + c.t + '<br><span style="color:var(--ink-soft)">'
+            h += '<th scope="col" title="' + c.ay + '">' + c.t + '<br><span style="color:var(--ink-soft)">'
                + c.ay + '</span></th>';
           });
-          h += '<th>Total</th><th>%</th></tr>';
-          h += '<tr><th class="alt">Peso de cada criterio (1 a 5)</th>';
+          h += '<th scope="col">Total</th><th scope="col">%</th></tr>';
+          h += '<tr><th scope="row" class="alt">Peso de cada criterio (1 a 5)</th>';
           pesos.forEach(function(p, i){
             h += '<td class="peso"><input type="number" data-peso="' + i + '" min="1" max="5" '
                + 'step="1" aria-label="Peso del criterio ' + CRIT[i].t + '"'
@@ -2311,8 +2311,8 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(R){
-          var h = '<table><thead><tr><th>#</th><th>Tarea</th><th>Qui&eacute;n</th>'
-                + '<th>Sesiones</th><th>Empieza</th><th>Acaba</th><th>Holgura</th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Tarea</th><th scope="col">Qui&eacute;n</th>'
+                + '<th scope="col">Sesiones</th><th scope="col">Empieza</th><th scope="col">Acaba</th><th scope="col">Holgura</th></tr></thead><tbody>';
           BASE.forEach(function(t, i){
             var movida = R.ES[i] !== PARTIDA.ES[i];
             h += '<tr class="' + (R.hol[i] === 0 ? 'crit ' : '') + (movida ? 'movida' : '') + '">'
@@ -2933,9 +2933,9 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(cae, revisar){
-          var h = '<table><thead><tr><th>#</th><th>Sesi&oacute;n</th><th>Qui&eacute;n</th>'
-                + '<th>Qu&eacute; se decidi&oacute;</th><th>Cuelga de</th><th>Por qu&eacute;</th>'
-                + '<th>Rehacerla</th><th></th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Sesi&oacute;n</th><th scope="col">Qui&eacute;n</th>'
+                + '<th scope="col">Qu&eacute; se decidi&oacute;</th><th scope="col">Cuelga de</th><th scope="col">Por qu&eacute;</th>'
+                + '<th scope="col">Rehacerla</th><th scope="col"></th></tr></thead><tbody>';
           DEC.forEach(function(d, i){
             var clase = i === cae ? 'cae' : (revisar.indexOf(i) >= 0 ? 'revisa' : '');
             h += '<tr class="' + clase + '"><td class="c">' + (i + 1) + '</td>'
@@ -4127,9 +4127,9 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(C){
-          var h = '<table><thead><tr><th>#</th><th>Bloque</th><th>Mover</th><th>Segundos</th>'
-                + '<th>Palabras que caben</th><th>Palabras escritas</th><th>Sobran</th>'
-                + '<th>Acaba en</th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Bloque</th><th scope="col">Mover</th><th scope="col">Segundos</th>'
+                + '<th scope="col">Palabras que caben</th><th scope="col">Palabras escritas</th><th scope="col">Sobran</th>'
+                + '<th scope="col">Acaba en</th></tr></thead><tbody>';
           C.S.forEach(function(i, k){
             var cab = caben(i, C);
             var sobran = BL[i].pal - cab;
@@ -4705,8 +4705,8 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(P, R){
-          var h = '<table><thead><tr><th>#</th><th>Tarea</th><th>Previsto</th><th>Lo que tard&oacute;</th>'
-                + '<th>Desv&iacute;o</th><th>Cr&iacute;tica prevista</th><th>Cr&iacute;tica real</th>'
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Tarea</th><th scope="col">Previsto</th><th scope="col">Lo que tard&oacute;</th>'
+                + '<th scope="col">Desv&iacute;o</th><th scope="col">Cr&iacute;tica prevista</th><th scope="col">Cr&iacute;tica real</th>'
                 + '</tr></thead><tbody>';
           T.forEach(function(t, i){
             var d = real[i] - t.plan;
@@ -4802,9 +4802,9 @@ footer .wrap{padding-block:18px 26px}
         var MEDBASE = REQ.map(function(r){ return r.med; });
 
         function pintaReq(){
-          var h = '<table><thead><tr><th>Requisito</th><th>Ped&iacute;amos</th>'
-                + '<th>Hemos medido</th><th>Desv&iacute;o</th><th>C&oacute;mo se ha medido</th>'
-                + '<th></th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">Requisito</th><th scope="col">Ped&iacute;amos</th>'
+                + '<th scope="col">Hemos medido</th><th scope="col">Desv&iacute;o</th><th scope="col">C&oacute;mo se ha medido</th>'
+                + '<th scope="col"></th></tr></thead><tbody>';
           var pasan = 0;
           REQ.forEach(function(r, i){
             var ok = r.cmp === 'ge' ? (r.med >= r.val) : (r.med <= r.val);

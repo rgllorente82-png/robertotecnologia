@@ -1781,9 +1781,9 @@ footer .wrap{padding-block:18px 26px}
 
         /* ---- el armazon de la tabla, una sola vez ---- */
         function monta(){
-          var t = ['<table><tr><th>#</th><th>Indicador</th><th>Criterio</th><th>Peso</th>'
-                 + '<th>Segundos</th><th>Nivel que ense\u00f1o</th><th>Nivel que da el tiempo</th>'
-                 + '<th>Puntos</th></tr>'];
+          var t = ['<table><tr><th scope="col">#</th><th scope="col">Indicador</th><th scope="col">Criterio</th><th scope="col">Peso</th>'
+                 + '<th scope="col">Segundos</th><th scope="col">Nivel que ense\u00f1o</th><th scope="col">Nivel que da el tiempo</th>'
+                 + '<th scope="col">Puntos</th></tr>'];
           FILAS.forEach(function(F, j){
             t.push('<tr data-f="' + j + '">'
               + '<td class="n">' + (j + 1) + '</td>'
