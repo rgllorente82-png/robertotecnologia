@@ -38,11 +38,15 @@ ancho, y respeta el ajuste de accesibilidad de «reducir el movimiento».
 
 ## Cómo se comprueba que está bien
 
-Hay unos cuarenta scripts en [`generadores/`](generadores/) y una regla: **un
-verificador no compara con una copia de los números de la página**, sino que
-vuelve a calcularlos desde la definición del problema, en Python, y los contrasta
-con lo que la página dibuja de verdad en un navegador. Si no coinciden, uno de
-los dos está mal —y a veces es el verificador—.
+En [`generadores/`](generadores/) hay más de doscientos scripts. La mayoría son
+generadores de un solo uso, los que levantaron la primera versión de cada página
+y que después se ha editado a mano; los que se siguen usando están listados abajo.
+
+Los que importan son los **verificadores**, y tienen una regla: un verificador
+**no compara con una copia de los números de la página**, sino que vuelve a
+calcularlos desde la definición del problema, en Python, y los contrasta con lo
+que la página dibuja de verdad en un navegador. Si no coinciden, uno de los dos
+está mal —y unas cuantas veces ha sido el verificador—.
 
 Se comprueban también las cuentas escritas en la prosa, los enlaces internos, los
 caracteres, los tests, las lecturas en PDF y el contraste de los rótulos.
