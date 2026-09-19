@@ -1,0 +1,92 @@
+<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .label { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-small { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .force-arrow { stroke: #e74c3c; stroke-width: 2; fill: none; marker-end: url(#arrowred); }
+      .support { stroke: #2c3e50; stroke-width: 3; }
+      .member { stroke: #3498db; stroke-width: 3; fill: none; }
+    </style>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="400" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="30" class="label" font-size="18">Tipos de Estructuras</text>
+
+  <!-- 1. VIGA (Beam) -->
+  <g>
+    <text x="150" y="80" class="label">Viga</text>
+    <!-- Support -->
+    <circle cx="80" cy="180" r="6" class="support"/>
+    <circle cx="220" cy="180" r="6" class="support"/>
+    <!-- Beam -->
+    <line x1="80" y1="180" x2="220" y2="180" class="member"/>
+    <!-- Load -->
+    <path d="M150,120 L150,160" class="force-arrow" stroke-width="2.5"/>
+    <!-- Labels -->
+    <text x="150" y="110" class="label-small">Carga</text>
+  </g>
+
+  <!-- 2. ARCO (Arch) -->
+  <g>
+    <text x="500" y="80" class="label">Arco</text>
+    <!-- Support -->
+    <circle cx="430" cy="180" r="6" class="support"/>
+    <circle cx="570" cy="180" r="6" class="support"/>
+    <!-- Arch -->
+    <path d="M430,180 Q500,80 570,180" class="member"/>
+    <!-- Load -->
+    <path d="M500,90 L500,130" class="force-arrow" stroke-width="2.5"/>
+    <!-- Labels -->
+    <text x="500" y="50" class="label-small">Compresión</text>
+  </g>
+
+  <!-- 3. CELOSÍA (Truss) -->
+  <g>
+    <text x="850" y="80" class="label">Celosía</text>
+    <!-- Support -->
+    <circle cx="780" cy="180" r="6" class="support"/>
+    <circle cx="920" cy="180" r="6" class="support"/>
+    <!-- Members -->
+    <line x1="780" y1="180" x2="850" y2="100" class="member"/>
+    <line x1="850" y1="100" x2="920" y2="180" class="member"/>
+    <line x1="780" y1="180" x2="920" y2="180" class="member"/>
+    <line x1="850" y1="100" x2="780" y2="180" class="member"/>
+    <line x1="850" y1="100" x2="920" y2="180" class="member"/>
+    <!-- Load -->
+    <path d="M850,60 L850,90" class="force-arrow" stroke-width="2.5"/>
+    <!-- Labels -->
+    <text x="850" y="40" class="label-small">Tracción/Compresión</text>
+  </g>
+
+  <!-- Properties section -->
+  <rect x="30" y="240" width="940" height="140" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="4"/>
+
+  <text x="50" y="265" class="label" font-size="14">Características de cada estructura:</text>
+
+  <!-- Viga characteristics -->
+  <text x="150" y="290" class="label-small" text-anchor="start" font-weight="normal">
+    <tspan x="80" dy="0">• Resiste bien flexión</tspan>
+    <tspan x="80" dy="18">• Distribución uniforme</tspan>
+    <tspan x="80" dy="18">• Uso: pisos, puentes</tspan>
+  </text>
+
+  <!-- Arco characteristics -->
+  <text x="150" y="290" class="label-small" text-anchor="start" font-weight="normal">
+    <tspan x="430" dy="0">• Resiste compresión</tspan>
+    <tspan x="430" dy="18">• Empujes laterales</tspan>
+    <tspan x="430" dy="18">• Uso: puentes, bóvedas</tspan>
+  </text>
+
+  <!-- Celosía characteristics -->
+  <text x="150" y="290" class="label-small" text-anchor="start" font-weight="normal">
+    <tspan x="780" dy="0">• Ligera y resistente</tspan>
+    <tspan x="780" dy="18">• Miembros en tensión</tspan>
+    <tspan x="780" dy="18">• Uso: torres, grúas</tspan>
+  </text>
+</svg>

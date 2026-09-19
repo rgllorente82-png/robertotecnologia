@@ -1,0 +1,89 @@
+<svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { stroke: #3498db; stroke-width: 2; fill: none; marker-end: url(#arrowright); }
+      .data-arrow { stroke: #e74c3c; stroke-width: 2; fill: none; marker-end: url(#arrowred); stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowright" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="400" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="30" class="title" font-size="18">Arquitectura IoT (Internet de las Cosas)</text>
+
+  <!-- Layer 1: Devices/Sensors -->
+  <rect x="40" y="80" width="140" height="80" class="box" fill="#e74c3c"/>
+  <text x="110" y="105" class="title" fill="white">Sensores</text>
+  <text x="110" y="125" class="label" fill="white">Temperatura</text>
+  <text x="110" y="140" class="label" fill="white">Humedad</text>
+
+  <rect x="210" y="80" width="140" height="80" class="box" fill="#e74c3c"/>
+  <text x="280" y="105" class="title" fill="white">Dispositivos</text>
+  <text x="280" y="125" class="label" fill="white">IoT</text>
+  <text x="280" y="140" class="label" fill="white">Inteligentes</text>
+
+  <rect x="380" y="80" width="140" height="80" class="box" fill="#e74c3c"/>
+  <text x="450" y="105" class="title" fill="white">Actuadores</text>
+  <text x="450" y="125" class="label" fill="white">Motores</text>
+  <text x="450" y="140" class="label" fill="white">Relés</text>
+
+  <!-- Arrow from devices to gateway -->
+  <path d="M550,120 L620,120" class="data-arrow"/>
+
+  <!-- Layer 2: Gateway/Edge -->
+  <rect x="620" y="80" width="140" height="80" class="box" fill="#f39c12"/>
+  <text x="690" y="105" class="title" fill="white">Gateway</text>
+  <text x="690" y="125" class="label" fill="white">Comunicación</text>
+  <text x="690" y="140" class="label" fill="white">Procesamiento</text>
+
+  <!-- Arrow to cloud -->
+  <path d="M760,120 L830,120" class="data-arrow"/>
+
+  <!-- Layer 3: Cloud -->
+  <rect x="830" y="80" width="140" height="80" class="box" fill="#3498db"/>
+  <text x="900" y="100" class="title" fill="white">Nube (Cloud)</text>
+  <text x="900" y="120" class="label" fill="white">Almacenamiento</text>
+  <text x="900" y="135" class="label" fill="white">Análisis de datos</text>
+
+  <!-- Arrow down from cloud -->
+  <path d="M900,160 L900,200" class="data-arrow"/>
+
+  <!-- Layer 4: Application -->
+  <rect x="800" y="200" width="200" height="80" class="box" fill="#27ae60"/>
+  <text x="900" y="225" class="title" fill="white">Aplicación</text>
+  <text x="900" y="245" class="label" fill="white">Interfaz Usuario</text>
+  <text x="900" y="260" class="label" fill="white">Toma de decisiones</text>
+
+  <!-- Arrow feedback -->
+  <path d="M800,240 L550,240 L550,160" class="data-arrow" marker-end="url(#arrowred)"/>
+
+  <!-- Communication protocols on left -->
+  <text x="40" y="210" class="title" font-size="11">Protocolos:</text>
+  <g font-family="Arial" font-size="10" fill="#2c3e50">
+    <text x="40" y="230">• WiFi</text>
+    <text x="40" y="245">• Bluetooth</text>
+    <text x="40" y="260">• LTE/5G</text>
+    <text x="40" y="275">• LoRaWAN</text>
+  </g>
+
+  <!-- Data flow description -->
+  <rect x="40" y="310" width="920" height="80" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="4"/>
+
+  <text x="60" y="335" class="label" font-size="11" text-anchor="start" font-weight="bold">Flujo de Datos:</text>
+  <text x="60" y="353" class="label" font-size="10" text-anchor="start">
+    Sensores reciben datos → Dispositivos IoT procesan → Gateway comunica → Nube analiza → Aplicación decide → Actuadores actúan
+  </text>
+  <text x="60" y="370" class="label" font-size="10" text-anchor="start">
+    Ejemplo: Termostato inteligente detecta temperatura (sensor) → Envía a nube → App compara con valor deseado → Activa calefacción (actuador)
+  </text>
+</svg>
