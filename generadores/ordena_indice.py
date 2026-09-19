@@ -136,6 +136,53 @@ def portada(por_curso):
     io.open(raiz, 'w', encoding='utf-8', newline='').write(s)
 
 
+def cuenta_curso(carpeta):
+    """(escritas, totales) de un curso entero, sumando todos sus temas."""
+    base = os.path.join(RAIZ, *carpeta)
+    escritas = total = 0
+    for tema in sorted(os.listdir(base)):
+        ruta = os.path.join(base, tema, 'index.html')
+        if not tema.startswith('tema') or not os.path.exists(ruta):
+            continue
+        c = cuenta_sesiones(carpeta, int(tema[4:]))
+        if c:
+            escritas += c[0]
+            total += c[1]
+        else:
+            escritas += 1        # el tema 0 no lleva navegador: cuenta como una
+            total += 1
+    return escritas, total
+
+
+def pagina_curso(clave):
+    """La pagina de cada curso (2eso/index.html) anuncia cuantas sesiones hay.
+
+    Estaba escrita a mano y se quedo vieja de la peor manera: 2.o decia
+    «4 de 18 sesiones publicadas» teniendo 61, y 4.o «1 de 3» teniendo 73. Es
+    lo primero que ve quien entra por ahi, asi que ahora sale de contar las
+    paginas, como el resto de este script.
+    """
+    ruta = os.path.join(RAIZ, clave, 'index.html')
+    if not os.path.exists(ruta):
+        return None
+    escritas, total = cuenta_curso(CURSOS[clave])
+    s = io.open(ruta, encoding='utf-8').read()
+    pct = int(round(100.0 * escritas / max(1, total)))
+    nueva = (u'<div class="prog"><div class="prog-barra"><i style="width:%d%%"></i></div>'
+             u'<span class="prog-txt">%d de %d sesiones publicadas</span></div>'
+             % (pct, escritas, total))
+    s2 = re.sub(r'<div class="prog">.*?sesiones publicadas</span></div>',
+                nueva, s, count=1, flags=re.S)
+    for pieza in IMPRESCINDIBLES:
+        if pieza not in s2:
+            print(u'   %s: se habria perdido %s, no se toca' % (clave, pieza))
+            return None
+    if s2 != s:
+        io.open(ruta, 'w', encoding='utf-8', newline='').write(s2)
+    print(u'curso    %s: %d de %d sesiones' % (clave, escritas, total))
+    return escritas, total
+
+
 if __name__ == '__main__':
     pedidos = sys.argv[1:] or sorted(CURSOS)
     for clave in pedidos:
@@ -143,3 +190,5 @@ if __name__ == '__main__':
             raise SystemExit(u'no se que curso es "%s"; hay: %s'
                              % (clave, u', '.join(sorted(CURSOS))))
     portada(dict((clave, ordena(clave)) for clave in pedidos))
+    for clave in pedidos:
+        pagina_curso(clave)

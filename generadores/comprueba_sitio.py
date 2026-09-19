@@ -78,13 +78,16 @@ def main():
                     movil.locator('#nav button[data-ses]').nth(i).click()
 
                 # escenas: cada pestana tiene que dibujar y explicar
+                # algunas escenas tienen dos filas de mandos y ensenian una u otra
+                # segun el modo, asi que solo cuentan los botones que se ven
                 escenas = pg.evaluate("""() => {
+                    const visible = e => !!e.offsetParent || e.getClientRects().length > 0;
                     const out = [];
                     for (const e of document.querySelectorAll('.escena')) {
-                      if (!e.offsetParent && e.getClientRects().length === 0) continue;
+                      if (!visible(e)) continue;
                       out.push({id: e.id,
                                 botones: [...e.querySelectorAll('.seg button[data-p]')]
-                                           .map(b => b.dataset.p)});
+                                           .filter(visible).map(b => b.dataset.p)});
                     }
                     return out;
                 }""")
@@ -93,8 +96,10 @@ def main():
                     for paso in pasos:
                         if paso:
                             sel = '#%s .seg button[data-p="%s"]' % (esc['id'], paso)
-                            if pg.locator(sel).count():
-                                pg.click(sel)
+                            bot = pg.locator(sel).first
+                            if not bot.count() or not bot.is_visible():
+                                continue          # el modo actual no ensenia ese mando
+                            bot.click(timeout=5000)
                         d = pg.evaluate("""(id) => {
                             const e = document.getElementById(id);
                             const s = e && e.querySelector('.lienzo svg');
@@ -127,7 +132,9 @@ def main():
                         continue
                     boton.click()
                     nota = T.locator('.ta-nota, .test-nota').first.inner_text().strip()
-                    if not nota.startswith(u'%d de %d' % (total, total)):
+                    # el molde `.ta` dice «12 de 12» a secas y el `.test` del tema 5
+                    # de 2.o lo envuelve en una frase mas larga: vale con que este
+                    if (u'%d de %d' % (total, total)) not in nota:
                         fallos.append(u'%s: el test #%s dice «%s» con todo bien'
                                       % (etq, tid, nota))
                     otra = T.locator('[data-a="otra"], .test-pie button.sec').first

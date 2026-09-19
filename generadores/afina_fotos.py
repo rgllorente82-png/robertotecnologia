@@ -59,6 +59,14 @@ def afina(ruta):
     except Exception:
         return antes, antes, 'no es una imagen'
     formato = im.format
+    # MPO es un JPEG que lleva dentro MAS DE UNA imagen: lo sacan las camaras
+    # estereo y los moviles con doble sensor. El navegador ensenia la primera y
+    # las demas viajan de balde. Paso con la foto del mecanismo de Anticitera:
+    # 2.647 KB para verse en una columna de 858 px, y el script la saltaba por
+    # no llamarse JPEG. Se trata como lo que es, y al guardarla se queda solo
+    # el primer fotograma.
+    if formato == 'MPO':
+        formato = 'JPEG'
     if formato not in ('JPEG', 'PNG'):
         return antes, antes, 'formato que no se toca'
 
