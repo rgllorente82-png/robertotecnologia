@@ -17,11 +17,10 @@ o para una acción automática.
 | Qué mira | Cómo se lanza |
 |---|---|
 | Caracteres rotos, NUL, UTF-8 inválido y rótulos a medias en las 27 páginas, y que los apartados de «Cómo se evalúa» de cada ficha sumen 10 puntos | `python generadores/comprueba_paginas.py` |
-| Que las cuentas escritas en la prosa cuadren (171 ahora mismo) | `python generadores/comprueba_cuentas.py` |
+| Que las cuentas escritas en la prosa cuadren, incluidas las escritas con palabras —«0,2 V por 250 mA son 50 mW»— (173 ahora mismo) | `python generadores/comprueba_cuentas.py` |
 | Que los enlaces internos lleven a alguna parte: ficheros, anclas y rutas absolutas resueltas contra la base de publicación, que se lee de la dirección canónica | `python generadores/comprueba_enlaces.py [--fuera]` |
 | Que los tests no se pisen entre ellos, y qué unidades no tienen ninguno. Cuenta los dos moldes que hay en el sitio: `.ta` y el `.test` del tema 5 de 2.º | `python generadores/comprueba_tests.py` |
 | Que los vídeos de YouTube se puedan ver, y **sin cuenta**. Necesita red: si no llega a youtube.com para y lo dice, en vez de sacar 92 «no se sabe» | `python generadores/comprueba_videos.py [--json]` |
-| Las lecturas en PDF | `python generadores/comprueba_lecturas.py` |
 | **Las 27 páginas, sesión por sesión**: errores de JavaScript, escenas que dejan el lienzo vacío, desplazamiento a lo ancho en un móvil de 390 px, que cada test dé «N de N» contestando bien y se borre del todo, que el botón de la sesión abierta lo diga y que el pie de cada escena se anuncie solo | `python generadores/comprueba_sitio.py [filtro]` |
 | Las escenas de cada unidad, contra un modelo reescrito en Python **desde la definición**, nunca copiado del JavaScript de la página | `python generadores/c1_verifica.py` … `c9`, y `u1`…`u10`, y `t0` para los dos temas 0 |
 | Que las lecturas de aula en PDF se abran, traigan la cabecera de nombre y grupo, sus párrafos vayan sin saltos y ninguna cita a un párrafo por su número apunte fuera del texto (las 21, de los dos cursos) | `python generadores/comprueba_lecturas.py` |
@@ -83,7 +82,7 @@ buenas**: los dos scripts paran y lo dicen.
 ## Un repaso completo
 
 ```
-for v in c1 c2 c3 c4 c5 c6 c7 c8 c9 u1 u2 u4 u5 u6 u7 u8 u9 u10; do
+for v in c1 c2 c3 c4 c5 c6 c7 c8 c9 t0 u1 u2 u3 u4 u5 u6 u7 u8 u9 u10; do
   python generadores/${v}_verifica.py | tail -1
 done
 python generadores/comprueba_sitio.py
@@ -92,6 +91,10 @@ python generadores/comprueba_tests.py
 python generadores/comprueba_paginas.py
 python generadores/comprueba_enlaces.py
 python generadores/comprueba_lecturas.py
+python generadores/comprueba_curriculo.py
+python generadores/comprueba_mandos.py
+python generadores/comprueba_contraste.py
+python generadores/comprueba_zoom.py
 python generadores/comprueba_videos.py     # sólo desde una red que llegue
 ```
 
