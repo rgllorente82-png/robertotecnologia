@@ -305,6 +305,9 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -332,7 +335,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-u10">
         <div class="narrador-fig" id="narr-u10-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va este tema</h4>
+          <h3 class="h-menor">De qu&eacute; va este tema</h3>
           <span class="narrador-quien">Programar no es aprender un idioma raro: es decir las cosas sin dejar huecos</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -775,7 +778,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Bucle</b> (o iteraci&oacute;n): instrucci&oacute;n que hace que un trozo de programa se
            <b>repita</b>. Repetir cuatro veces &laquo;avanza&raquo; ocupa una l&iacute;nea en vez de
            cuatro.</p>
@@ -1106,7 +1109,7 @@ footer .wrap{padding-block:18px 26px}
       <p>La micro:bit es una placa del tama&ntilde;o de media tarjeta de cr&eacute;dito. Lo interesante es
          que todo lo que tiene <b>se ve</b>:</p>
       <div class="copiar">
-        <h4>Qu&eacute; lleva una micro:bit</h4>
+        <h3 class="h-menor">Qu&eacute; lleva una micro:bit</h3>
         <ul>
           <li><b>25 LED</b> en cuadr&iacute;cula de 5 &times; 5: la salida m&aacute;s visible.</li>
           <li><b>Dos botones</b>, A y B: las entradas m&aacute;s sencillas.</li>
@@ -1488,7 +1491,7 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
       <div class="copiar">
-        <h4>Definici&oacute;n</h4>
+        <h3 class="h-menor">Definici&oacute;n</h3>
         <p><b>Sensor</b>: componente que convierte una magnitud f&iacute;sica (luz, temperatura, sonido,
            movimiento&hellip;) en una <b>se&ntilde;al el&eacute;ctrica</b> que el programa puede leer
            <b>como un n&uacute;mero</b>.</p>
@@ -2486,7 +2489,7 @@ footer .wrap{padding-block:18px 26px}
          nadie la riega. La puerta del aula que se queda abierta con la calefacci&oacute;n puesta. Todo
          eso son automatismos que faltan.</p>
       <div class="copiar">
-        <h4>Lo que tiene que tener tu montaje, sin excepci&oacute;n</h4>
+        <h3 class="h-menor">Lo que tiene que tener tu montaje, sin excepci&oacute;n</h3>
         <ol>
           <li>Una <b>entrada</b>: un sensor que mida algo del mundo. No vale un bot&oacute;n, porque
               entonces vuelve a depender de que alguien se acuerde.</li>
@@ -3019,7 +3022,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

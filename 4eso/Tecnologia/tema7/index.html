@@ -305,6 +305,9 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -339,7 +342,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c7">
         <div class="narrador-fig" id="narr-c7-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Ya tienes una m&aacute;quina que se corrige sola. &iquest;Qu&eacute; le falta para moverse por el mundo y hacer algo &uacute;til sin que nadie la vigile?</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -1048,7 +1051,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Lo que sale en todas las clases es esto, y es razonable: se cronometra una vez cu&aacute;nto
          tarda en recorrer medio metro &mdash;pongamos 2,3 segundos&mdash; y se escribe.</p>
       <div class="copiar">
-        <h4>El primer intento</h4>
+        <h3 class="h-menor">El primer intento</h3>
         <pre style="font-family:var(--f-m);font-size:13px;line-height:1.55;margin:6px 0;white-space:pre-wrap">digitalWrite(motor, HIGH);
 delay(2300);
 digitalWrite(motor, LOW);</pre>
@@ -1595,7 +1598,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Grados de libertad</h4>
+        <h3 class="h-menor">Grados de libertad</h3>
         <p><b>Grado de libertad</b> (GdL): cada movimiento <b>independiente</b> que puede hacer un
            mecanismo. Un servo que gira = 1. Un carro que sube y baja = 1. Dos servos encadenados = 2.</p>
         <p>La regla, que es toda la sesi&oacute;n en una l&iacute;nea:</p>
@@ -2181,7 +2184,7 @@ digitalWrite(motor, LOW);</pre>
          en una l&iacute;nea: <b>si alguien pasa la tarjeta, la barrera sube, espera un poco y
          baja</b>.</p>
       <div class="copiar">
-        <h4>El primer programa, que sale solo</h4>
+        <h3 class="h-menor">El primer programa, que sale solo</h3>
         <pre style="font-family:var(--f-m);font-size:13px;line-height:1.55;margin:6px 0;white-space:pre-wrap">void loop() {
   if (tarjetaValida()) {
     subirBarrera();
@@ -2699,7 +2702,7 @@ digitalWrite(motor, LOW);</pre>
               <code>case</code> por estado, y dentro de cada <code>case</code> las transiciones que
               salen de &eacute;l. <b>Nunca</b> un <code>case</code> sin su <code>break;</code>.</li>
           <li>Para esperar: al entrar en el estado se guarda <code>t0 = millis();</code> y en cada
-              vuelta se comprueba <code>if (millis() - t0 &gt; ESPERA) ...</code></li>
+              vuelta se comprueba <code>if (millis() - t0 &gt; ESPERA) &hellip;</code></li>
         </ul>
         <p>Mira las dos versiones de c&oacute;digo de la escena, una al lado de la otra. La de estados
            es m&aacute;s larga; tambi&eacute;n es la &uacute;nica que se puede leer dentro de un mes y
@@ -2948,7 +2951,7 @@ digitalWrite(motor, LOW);</pre>
          m&aacute;quina cambia de estado, el actuador se mueve. Perfecto.</p>
       <p>Y entonces lo montas en la mesa del taller.</p>
       <div class="copiar">
-        <h4>Lo que pasa, y pasa en casi todos los grupos</h4>
+        <h3 class="h-menor">Lo que pasa, y pasa en casi todos los grupos</h3>
         <ol>
           <li>Enchufas. El LED de la placa se enciende. Bien.</li>
           <li>Mojas la sonda, la secas, y la lectura cambia. Muy bien.</li>
@@ -3726,7 +3729,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Referenciado</h4>
+        <h3 class="h-menor">Referenciado</h3>
         <p><b>Referenciar</b> (en ingl&eacute;s, <i>homing</i>) es lo que hace una m&aacute;quina
            nada m&aacute;s encenderse: moverse despacio hasta un punto que reconoce y poner ah&iacute;
            su cero. A partir de ese momento, y solo a partir de ese momento, sus cuentas significan
@@ -4347,7 +4350,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Caso peor</h4>
+        <h3 class="h-menor">Caso peor</h3>
         <p>Cuando se dise&ntilde;a algo que va a quedarse funcionando solo, no se calcula con lo
            normal: se calcula con el <b>caso peor</b>. No &laquo;cu&aacute;nta corriente pide la
            bomba&raquo;, sino <b>cu&aacute;nta pide si se atasca</b>. No &laquo;cu&aacute;nto tarda
@@ -5162,7 +5165,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La ficha t&eacute;cnica de vuestro robot</h4>
+        <h3 class="h-menor">La ficha t&eacute;cnica de vuestro robot</h3>
         <p>Una p&aacute;gina. Es lo que acompa&ntilde;a a cualquier m&aacute;quina de verdad y lo que
            va a ver quien os eval&uacute;e antes de que abr&aacute;is la boca. Seis apartados:</p>
         <ol>
@@ -5834,7 +5837,7 @@ digitalWrite(motor, LOW);</pre>
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

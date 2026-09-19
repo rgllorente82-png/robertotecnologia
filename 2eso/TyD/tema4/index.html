@@ -300,6 +300,9 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -979,7 +982,7 @@ footer .wrap{padding-block:18px 26px}
       </script>
 
       <div class="copiar">
-        <h4>Las seis familias de estructuras</h4>
+        <h3 class="h-menor">Las seis familias de estructuras</h3>
         <ul>
           <li><b>Masiva</b>: mucho material sin huecos, todo comprimido. Presas, murallas.</li>
           <li><b>Abovedada</b>: arcos y b&oacute;vedas que ponen la piedra a compresi&oacute;n. Empujan hacia fuera
@@ -1271,7 +1274,7 @@ footer .wrap{padding-block:18px 26px}
       </script>
 
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Secci&oacute;n</b>: la forma que se ve al cortar una pieza de lado a lado.</p>
         <p><b>Eje neutro</b>: la l&iacute;nea de la secci&oacute;n que, al flexionar la pieza, ni se estira ni se
            acorta. El material que est&aacute; sobre ella casi no trabaja.</p>
@@ -1486,7 +1489,7 @@ footer .wrap{padding-block:18px 26px}
 
       <p>Lo primero es ponerle nombre a las dos cosas que deciden si algo vuelca.</p>
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Centro de gravedad (CDG)</b>: el punto por el que se puede considerar que pasa
            <b>todo el peso</b> de un cuerpo. No tiene por qu&eacute; estar dentro del material: el de un
            aro est&aacute; en el aire, en su centro.</p>
@@ -1798,7 +1801,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Antes de gastar un solo palillo, hay cuatro decisiones que ya sabes tomar. Son las cuatro
          sesiones de este tema, en orden:</p>
       <div class="copiar">
-        <h4>Lista de comprobaci&oacute;n antes de construir</h4>
+        <h3 class="h-menor">Lista de comprobaci&oacute;n antes de construir</h3>
         <ol>
           <li><b>&iquest;Qu&eacute; familia?</b> Con palillos que trabajan bien a compresi&oacute;n y a
               tracci&oacute;n, y con uniones que giran, la respuesta casi siempre es
@@ -2315,7 +2318,7 @@ footer .wrap{padding-block:18px 26px}
         <p>Un cart&oacute;n queda <b>suspendido en el aire sobre otro</b>, sin que se toquen, sujeto
            s&oacute;lo por hilos que parecen flojos. Se le puede poner un libro encima y no se hunde. Se
            llama <b>tensegridad</b>, y no es un truco: es la unidad entera en un objeto.</p>
-        <h4>Material</h4>
+        <h3 class="h-menor">Material</h3>
         <p><b>Una caja de cart&oacute;n, hilo y pegamento.</b> Nada m&aacute;s: dos cuadrados de
            <b>8 cm</b> y dos montantes del mismo cart&oacute;n. Todo cabe en un A4, as&iacute; que es
            <b>una fotocopia por grupo</b>.</p>
@@ -2742,7 +2745,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

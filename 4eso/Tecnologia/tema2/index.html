@@ -305,6 +305,12 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -332,7 +338,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c2">
         <div class="narrador-fig" id="narr-c2-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Ya sabes qu&eacute; vas a construir. Ahora hay que hacerlo, y que encaje</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -993,7 +999,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Las palabras, con la pieza delante</h4>
+        <h3 class="h-menor">Las palabras, con la pieza delante</h3>
         <ul>
           <li><b>Medida nominal</b>: el n&uacute;mero redondo del que se habla. Los <b>8 mm</b> del eje.
               Es una etiqueta, no una medida: puede que ninguna pieza real la tenga.</li>
@@ -1067,7 +1073,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="aj-dos">
               <div class="aj-grupo aj-ag">
-                <h6>El agujero del soporte</h6>
+                <h5 class="h-menor">El agujero del soporte</h5>
                 <div class="aj-fila">
                   <label for="aj-ai">desviaci&oacute;n inferior</label>
                   <input type="range" id="aj-ai" min="-500" max="500" step="5" value="0">
@@ -1559,7 +1565,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Dos familias, y la pregunta que las separa</h4>
+        <h3 class="h-menor">Dos familias, y la pregunta que las separa</h3>
         <p><b>Uniones desmontables</b>: se pueden abrir y volver a cerrar <b>sin estropear nada</b>, y
            tantas veces como haga falta. Tornillo con tuerca, tornillo rosca-chapa, perno, pasador,
            chaveta, brida, im&aacute;n, encaje a presi&oacute;n.</p>
@@ -2088,7 +2094,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>Lo que hay en el aula, y qu&eacute; hace cada cosa</h4>
+        <h3 class="h-menor">Lo que hay en el aula, y qu&eacute; hace cada cosa</h3>
         <ul>
           <li><b>Medir y marcar</b>: regla, escuadra, gramil, punta de trazar y <b>granete</b>. El
               granete hace una picadura donde va el agujero, y sin &eacute;l la broca <b>patina</b> y
@@ -3449,7 +3455,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>1 &middot; La lista de materiales, o despiece</h4>
+        <h3 class="h-menor">1 &middot; La lista de materiales, o despiece</h3>
         <p>Una fila por pieza distinta, y una columna de <b>cantidad</b>: dos flancos iguales son
            <b>una fila con un &times;2</b>, no dos piezas dibujadas dos veces.</p>
         <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
@@ -4089,7 +4095,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La cadena de cotas y la cota de cierre</h4>
+        <h3 class="h-menor">La cadena de cotas y la cota de cierre</h3>
         <p>Se recorre el montaje <b>de un lado a otro, en l&iacute;nea recta</b>, apuntando cada
            medida que te vas encontrando:</p>
         <ul>
@@ -4154,7 +4160,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <div class="ci-tablero">
             <div class="ci-caja" id="ci-c-nom">
-              <h5>La cota de cierre</h5>
+              <h4 class="h-menor">La cota de cierre</h4>
               <p class="ci-num" id="ci-nom-n">&mdash;</p>
               <p class="ci-det" id="ci-nom-d"></p>
             </div>
@@ -4729,7 +4735,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>El expediente de fabricaci&oacute;n: cinco hojas</h4>
+        <h3 class="h-menor">El expediente de fabricaci&oacute;n: cinco hojas</h3>
         <p>Es lo que en la industria acompa&ntilde;a a cada pieza. Una hoja cada uno, ni m&aacute;s:</p>
         <ol>
           <li><b>El plano final</b>, acotado y con tolerancias. El <b>de verdad</b>, con los cambios de
@@ -5355,7 +5361,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

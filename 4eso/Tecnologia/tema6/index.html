@@ -305,6 +305,9 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -337,7 +340,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c6">
         <div class="narrador-fig" id="narr-c6-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Una placa puede decidir sola. &iquest;Y si adem&aacute;s pudiera avisarte desde lejos, o aprender de lo que ve?</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -1021,7 +1024,7 @@ void loop() {
          de lo que es: <b>conversor analógico-digital</b>, o <b>A/D</b>. En Arduino se usa con una
          sola instrucci&oacute;n:</p>
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Se&ntilde;al analógica</b>: la que puede tomar <b>cualquier</b> valor dentro de un
            margen. La tensi&oacute;n que da un sensor es analógica: entre 0 y 5 V hay infinitos
            valores.</p>
@@ -1575,7 +1578,7 @@ void loop() {
       </figure>
 
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>IoT</b> (<i>internet de las cosas</i>): aparatos que no son ordenadores &mdash;una
            placa, un contador de la luz, una b&aacute;scula&mdash; que <b>mandan</b> lo que miden a
            otro sitio de la red y a veces <b>reciben</b> &oacute;rdenes desde all&iacute;.</p>
@@ -2070,7 +2073,7 @@ void loop() {
         <b>Escribid el <code>si</code>.</b> Cinco minutos.
       </div>
       <p>Lo que pasa en esos cinco minutos es siempre lo mismo. Alguien propone el peso: el
-         pl&aacute;stico pesa menos... salvo un brik lleno. Alguien propone el ultrasonidos: mide la
+         pl&aacute;stico pesa menos&hellip; salvo un brik lleno. Alguien propone el ultrasonidos: mide la
          distancia, no el material. Alguien propone el color: no hay sensor de color, y el papel de
          revista es de todos los colores.</p>
       <p>Probad con otro. La sonda del <b>riego</b> da una lectura alta cuando la tierra est&aacute;
@@ -2091,7 +2094,7 @@ void loop() {
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Programar y entrenar: qui&eacute;n pone qu&eacute;</h4>
+        <h3 class="h-menor">Programar y entrenar: qui&eacute;n pone qu&eacute;</h3>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
             <th></th><th>Programar</th><th>Entrenar</th></tr>
@@ -2666,7 +2669,7 @@ void loop() {
             <li>Cu&aacute;l de los dos fallos es m&aacute;s caro, y <b>por qu&eacute;</b>.</li>
             <li>Qui&eacute;n tendr&iacute;a que <b>etiquetar</b> los ejemplos si quisierais entrenar algo
                 de verdad, cu&aacute;ntos har&iacute;an falta y <b>cu&aacute;nto tiempo</b> llevar&iacute;a.
-                <i>Calculadlo: a diez segundos por ejemplo, 500 ejemplos son...</i></li>
+                <i>Calculadlo: a diez segundos por ejemplo, 500 ejemplos son&hellip;</i></li>
           </ul>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
@@ -2846,7 +2849,7 @@ void loop() {
       </figure>
 
       <div class="copiar">
-        <h4>El hist&oacute;rico, y el truco para que no crezca</h4>
+        <h3 class="h-menor">El hist&oacute;rico, y el truco para que no crezca</h3>
         <p>Un <b>hist&oacute;rico</b> son las <b>N &uacute;ltimas</b> medidas guardadas. No todas: las
            N &uacute;ltimas, porque las de hace dos horas ya no dicen nada y la memoria no da.</p>
         <p>Para que ocupe siempre lo mismo se escribe <b>encima de la m&aacute;s vieja</b> dando la
@@ -3509,7 +3512,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <p>Las tres respuestas que valen son estas, y conviene saberlas <b>con su precio</b>, porque
          esto va en la memoria del proyecto:</p>
       <div class="copiar">
-        <h4>Tres maneras de sacar el dato, con su pega</h4>
+        <h3 class="h-menor">Tres maneras de sacar el dato, con su pega</h3>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
             <th>c&oacute;mo</th><th>cuesta</th><th>la pega</th></tr>
@@ -4239,7 +4242,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Cuatro cosas, y en este orden</h4>
+        <h3 class="h-menor">Cuatro cosas, y en este orden</h3>
         <ol>
           <li><b>Recoger.</b> Medidas de verdad, con su hora, de tu sensor. No valen las de internet:
               tu sensor no lee como el suyo.</li>
@@ -4890,7 +4893,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 22 min</div>
 
       <div class="copiar">
-        <h4>El programa como m&aacute;quina de estados</h4>
+        <h3 class="h-menor">El programa como m&aacute;quina de estados</h3>
         <p>Una <b>m&aacute;quina de estados</b> es un programa escrito as&iacute;: en cada momento
            est&aacute; en <b>uno</b> de unos pocos estados con nombre, en cada estado hace una cosa
            distinta, y se pasa de uno a otro solo por las <b>transiciones</b> que t&uacute; hayas
@@ -5726,7 +5729,7 @@ void loop() {
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

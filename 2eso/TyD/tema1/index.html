@@ -711,7 +711,7 @@ footer .wrap{padding-block:18px 26px}
           <li><b>Cantidad antes que calidad.</b> Primero muchas, elegir viene despu&eacute;s.</li>
           <li><b>Nada se critica</b> mientras se propone.</li>
           <li><b>Las ideas raras se apuntan igual.</b> Suelen ser el origen de la buena.</li>
-          <li><b>Se construye sobre lo dicho.</b> «Como lo de X, pero...» vale y mucho.</li>
+          <li><b>Se construye sobre lo dicho.</b> «Como lo de X, pero&hellip;» vale y mucho.</li>
         </ol>
       </div>
 
@@ -956,7 +956,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

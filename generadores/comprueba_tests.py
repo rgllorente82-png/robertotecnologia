@@ -43,7 +43,10 @@ def revisa(carpeta, n):
     s = sin_scripts(io.open(ruta, encoding='utf-8').read())
 
     pegas = []
-    bloques = s.count(u'class="ta"')
+    # hay dos moldes de test en el sitio: el de `.ta` (casi todas las unidades)
+    # y el de `.test` (la unidad 5 de 2.o, que ademas dice a que sesiones volver).
+    # Los dos se corrigen solos, asi que los dos cuentan.
+    bloques = s.count(u'class="ta"') + s.count(u'class="test"')
 
     ids = re.findall(r'\bid="([^"]+)"', s)
     repes = sorted(k for k, v in Counter(ids).items() if v > 1)
@@ -53,7 +56,7 @@ def revisa(carpeta, n):
     grupos = sorted(set(re.findall(r'<input[^>]*type="radio"[^>]*name="([^"]+)"', s)))
 
     # cada grupo de radios tiene que vivir dentro de UN solo test
-    if bloques == 2 and grupos:
+    if bloques == 2 and grupos and s.count(u'class="ta"') == 2:
         corte = s.index(u'class="ta"', s.index(u'class="ta"') + 1)
         arriba = set(re.findall(r'name="([^"]+)"', s[:corte]))
         abajo = set(re.findall(r'name="([^"]+)"', s[corte:]))
@@ -67,6 +70,7 @@ def revisa(carpeta, n):
 
 def main():
     malas = 0
+    sin = 0
     for clave, carpeta, hasta in CURSOS:
         print(u'%s' % clave)
         print(u'   tema  tests  preguntas  estado')
@@ -76,6 +80,8 @@ def main():
                 continue
             bloques, grupos, pegas = r
             if not bloques:
+                print(u'     %-2d     -         -     sin test que se corrija solo' % n)
+                sin += 1
                 continue
             if pegas:
                 malas += 1
@@ -87,6 +93,8 @@ def main():
         print(u'%d unidades con los tests pisandose' % malas)
         return 1
     print(u'ninguna unidad tiene los tests pisandose')
+    if sin:
+        print(u'%d unidades sin test que se corrija solo' % sin)
     return 0
 
 

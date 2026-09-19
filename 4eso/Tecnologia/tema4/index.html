@@ -311,6 +311,9 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -338,7 +341,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c4">
         <div class="narrador-fig" id="narr-c4-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">En 2.&ordm; aprendiste a mover cosas; el que dec&iacute;a cu&aacute;ndo segu&iacute;as siendo t&uacute;</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -956,7 +959,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Las piezas de todo sistema de control</h4>
+        <h3 class="h-menor">Las piezas de todo sistema de control</h3>
         <ul>
           <li><b>Sensor</b> (o transductor): convierte una magnitud f&iacute;sica (temperatura,
               humedad, luz, distancia) en una <b>se&ntilde;al el&eacute;ctrica</b> que el programa
@@ -1538,7 +1541,7 @@ else                    digitalWrite(9, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Control todo-nada</h4>
+        <h3 class="h-menor">Control todo-nada</h3>
         <p><b>Control todo-nada</b> (u <b>on-off</b>, o de dos posiciones): el actuador solo tiene dos
            estados, encendido y apagado, y el controlador elige entre ellos con una
            comparaci&oacute;n. Es el control m&aacute;s barato y m&aacute;s usado que existe.</p>
@@ -2020,7 +2023,7 @@ repetir siempre:
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>El par</h4>
+        <h3 class="h-menor">El par</h3>
         <p><b>Par</b> (o momento de una fuerza): lo que mide la capacidad de una fuerza para hacer
            girar algo alrededor de un eje.</p>
         <p style="font-size:18px;text-align:center;margin:10px 0"><b>M = F &middot; d</b></p>
@@ -2771,7 +2774,7 @@ repetir siempre:
          mucho; si te falta poco, aprieta poco.</b> Y si no te falta nada, no aprietes.</p>
 
       <div class="copiar">
-        <h4>Control proporcional</h4>
+        <h3 class="h-menor">Control proporcional</h3>
         <p><b>Control proporcional</b>: el mando del actuador es <b>proporcional al error</b>, en vez
            de estar solo encendido o apagado.</p>
         <p style="font-size:18px;text-align:center;margin:10px 0">
@@ -3487,7 +3490,7 @@ repetir siempre:
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La forma de un programa de control</h4>
+        <h3 class="h-menor">La forma de un programa de control</h3>
         <p>Un programa de control <b>no espera</b>: da vueltas. En cada vuelta hace lo mismo, y
            deprisa.</p>
         <ol>
@@ -4759,7 +4762,7 @@ void loop() {
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>El protocolo de prueba</h4>
+        <h3 class="h-menor">El protocolo de prueba</h3>
         <p>Una tabla, hecha <b>antes</b> de probar. En la segunda columna se escribe lo que
            <b>deber&iacute;a</b> pasar; en la tercera, lo que pas&oacute;. Si las dos coinciden, la
            prueba est&aacute; superada; si no, hay trabajo.</p>
@@ -5417,7 +5420,7 @@ void loop() {
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';

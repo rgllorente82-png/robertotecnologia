@@ -354,27 +354,31 @@ with sync_playwright() as p:
     print('== Test de autoevaluacion')
     pag.click('#nav button[data-ses="6"]')
     pag.wait_for_timeout(200)
-    preg = pag.query_selector_all('#test-u7 .test-p')
+    preg = pag.query_selector_all('#test-u7 .ta-p')
     check(len(preg) == 10, 'el test tiene 10 preguntas (tiene %d)' % len(preg))
-    check(all(p.query_selector('.test-por').inner_text().strip() for p in preg),
+    check(all(p.query_selector('.ta-por').inner_text().strip() for p in preg),
           'las 10 explican su porque')
-    check(all(len(p.query_selector_all('.test-op')) == 3 for p in preg),
+    check(all(len(p.query_selector_all('.ta-op')) == 3 for p in preg),
           'las 10 tienen tres opciones')
+# Los trozos del test se llaman ta-p, ta-op, ta-por y ta-nota. Este
+# verificador buscaba test-p, test-op... y se quedaba esperando treinta
+# segundos a un selector que no existe en la pagina desde que el test se
+# renombro. Colgado, no rojo: por eso no cantaba.
     # Se contesta bien a todas: tiene que dar 10 de 10.
     pag.evaluate("""() => {
-        document.querySelectorAll('#test-u7 .test-p').forEach(P => {
+        document.querySelectorAll('#test-u7 .ta-p').forEach(P => {
             P.querySelectorAll('input')[+P.dataset.ok].checked = true;
         });
     }""")
     pag.click('#test-u7 [data-a="corregir"]')
     pag.wait_for_timeout(150)
-    check(pag.inner_text('#test-u7 .test-nota').strip().startswith('10 de 10'),
+    check(pag.inner_text('#test-u7 .ta-nota').strip().startswith('10 de 10'),
           'acertandolas todas puntua 10 de 10 (dice "%s")'
-          % pag.inner_text('#test-u7 .test-nota').strip())
-    check(pag.is_visible('#test-u7 .test-por'), 'al corregir aparecen las explicaciones')
+          % pag.inner_text('#test-u7 .ta-nota').strip())
+    check(pag.is_visible('#test-u7 .ta-por'), 'al corregir aparecen las explicaciones')
     pag.click('#test-u7 [data-a="otra"]')
     pag.wait_for_timeout(150)
-    check(not pag.is_visible('#test-u7 .test-por'), 'repetir esconde las explicaciones')
+    check(not pag.is_visible('#test-u7 .ta-por'), 'repetir esconde las explicaciones')
     check(pag.eval_on_selector_all('#test-u7 input', 'l => l.every(i => !i.checked)'),
           'repetir borra las respuestas')
 

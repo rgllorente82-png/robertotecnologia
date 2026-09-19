@@ -1,0 +1,19 @@
+# Lo que hace falta para correr los generadores y los verificadores.
+#
+#   pip install -r generadores/REQUISITOS.txt
+#
+# playwright va clavado a la versión: cada una trae su Chromium, y si la versión
+# de la biblioteca no coincide con el navegador instalado, se planta nada más
+# arrancar diciendo que falta un ejecutable. Si cambias de máquina y el navegador
+# es otro, lo que hay que ajustar es este número, no el código.
+playwright==1.56.0
+
+# Para afinar las fotos y dibujar las tarjetas de compartir.
+Pillow>=10
+
+# Para generar las lecturas de aula en PDF. La arrastran los verificadores que
+# comprueban la maqueta de la lectura, aunque ellos no dibujen nada.
+reportlab>=4
+
+# Y el navegador, una sola vez:
+#   python -m playwright install chromium

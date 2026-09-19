@@ -313,6 +313,9 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -344,7 +347,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-u7">
         <div class="narrador-fig" id="narr-u7-fig"></div>
         <div class="narrador-txt">
-          <h4>De d&oacute;nde sale esta unidad</h4>
+          <h3 class="h-menor">De d&oacute;nde sale esta unidad</h3>
           <span class="narrador-quien">Por qu&eacute; un cable no basta y hubo que inventar la m&aacute;quina que obedece listas</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -775,7 +778,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1';
+                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1180,7 +1183,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1';
+                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1551,7 +1554,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1';
+                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2016,7 +2019,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1';
+                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2449,7 +2452,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1';
+                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2885,7 +2888,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1';
+                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3124,7 +3127,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
