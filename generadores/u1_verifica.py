@@ -165,6 +165,18 @@ grados = math.degrees(math.atan2(ALTO_A - (ALTO_B - MUESCA_H), CRUCE - MUESCA_X)
 check(60 <= grados <= 70,
       'con 120 de respaldo y la muesca a 14 la pantalla queda a %.0f grados, dentro de 60-70' % grados)
 
+# El A4 es un requisito, y de los que se comprueban con la hoja encima. Se
+# rehace aqui: las dos piezas una encima de otra caben, lado a lado no.
+A4_ANCHO, A4_ALTO, MARGEN = 210, 297, 10
+util = (A4_ANCHO - 2 * MARGEN, A4_ALTO - 2 * MARGEN)
+apiladas = (max(90, 110), ALTO_A + ALTO_B + 10)
+check(apiladas[0] <= util[0] and apiladas[1] <= util[1],
+      'apiladas caben en un A4: %d x %d sobre %d x %d utiles' % (apiladas + util))
+check(90 + 110 > util[0],
+      'lado a lado NO caben, que es lo que dice el texto: 200 de ancho sobre %d utiles' % util[0])
+check('110 &times; 210 mm' in texto and 'lado a lado no' in texto.lower(),
+      'la teoria cuenta las dos cosas: que apiladas caben y que lado a lado no')
+
 mm = re.search(r'var MM = \{([^}]*)\}', texto).group(1)
 for clave, valor in (('ancho', 90), ('altoA', ALTO_A), ('altoB', ALTO_B), ('largo', 110),
                      ('cruce', CRUCE), ('cola', COLA), ('grueso', GRUESO), ('ranura', 40),

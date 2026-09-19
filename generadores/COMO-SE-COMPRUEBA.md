@@ -63,6 +63,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | Repartir por igual el sitio donde cae la respuesta buena en cada test, moviendo las opciones sin tocar su texto | `python generadores/baraja_tests.py` |
 | Atar cada `<label>` suelto con el mando que va justo detrás, cuando ese mando tiene `id` | `python generadores/afina_mandos.py` |
 | El `scope` de cada celda de encabezado, para que al caer en una casilla se lea «Barato, Bomba sumergible, 2» y no «2» | `python generadores/afina_tablas.py` |
+| La plantilla a tamaño real del soporte de móvil, en un A4, con el grueso del cartón como parámetro | `python generadores/u1_plantilla.py [grueso]` |
 | El molde y el plano de la tensegridad | `python generadores/u4_molde.py`, `u4_molde_grande.py`, `u4_plano_grande.py` |
 | Bajar de Wikimedia Commons una foto con su crédito y su licencia. Necesita red | `python generadores/bajar_fotos.py` |
 
