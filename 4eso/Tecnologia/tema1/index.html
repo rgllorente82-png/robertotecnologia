@@ -329,6 +329,15 @@ footer .wrap{padding-block:18px 26px}
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>

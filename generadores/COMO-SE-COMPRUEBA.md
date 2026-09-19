@@ -28,6 +28,7 @@ o para una acción automática.
 | Que cada mando de las escenas —deslizador, casilla, desplegable, botón— **diga lo que es**: no basta con que haya un texto al lado, tiene que estar atado | `python generadores/comprueba_mandos.py [filtro]` |
 | Que el texto se pueda agrandar al 200 % sin que nada se corte ni se desborde (WCAG 1.4.4, nivel AA) | `python generadores/comprueba_zoom.py [filtro]` |
 | Que el lector de respuestas de YouTube separe bien los cinco casos, con muestras escritas a mano (no prueba que las marcas sean las de hoy: eso sólo lo dice pasarlo con red) | `python generadores/comprueba_videos_prueba.py` |
+| Que al **imprimir** una unidad salgan sus seis sesiones y no sólo la abierta. No mira el CSS: manda imprimir cada página a PDF y cuenta las cabeceras que salen | `python generadores/comprueba_impresion.py [filtro]` |
 | El contraste de los rótulos de las escenas, en tema claro y en oscuro, mirando la figura del propio SVG que hay debajo del texto y no sólo el fondo del DOM. Un rótulo con halo no cuenta: el halo es la solución | `python generadores/comprueba_contraste.py [filtro]` |
 
 Los dos primeros se complementan: `comprueba_sitio.py` no entra en ninguna
@@ -59,6 +60,7 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | Que el pie de cada escena sea una región viva, para que un lector de pantalla anuncie la explicación al pulsar un botón | `python generadores/afina_lectores.py` |
 | Que el navegador de sesiones **diga** cuál está abierta y no sólo la pinte: `aria-selected` no es válido en un `<button>` y el navegador lo descarta | `python generadores/afina_navegador.py` |
 | Que el test corregido diga con **palabras** cuál era la buena, y no sólo con el color, y que la nota se anuncie al corregir | `python generadores/afina_test.py` |
+| Que al imprimir salgan todas las sesiones, cada una en hoja nueva, y que no se impriman los botones que en papel no se pueden pulsar | `python generadores/afina_impresion.py` |
 | El enlace de «Saltar al contenido», que evita pasar por las migas y los ocho botones del navegador en cada página (WCAG 2.4.1, nivel A) | `python generadores/afina_salto.py` |
 | Repartir por igual el sitio donde cae la respuesta buena en cada test, moviendo las opciones sin tocar su texto | `python generadores/baraja_tests.py` |
 | Atar cada `<label>` suelto con el mando que va justo detrás, cuando ese mando tiene `id` | `python generadores/afina_mandos.py` |

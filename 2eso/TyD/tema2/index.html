@@ -29,6 +29,15 @@
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 <title>Tema 2 &middot; Representaci&oacute;n gr&aacute;fica de un proyecto</title>
 <meta name="description" content="Tema 2 de 2.&ordm; de ESO: dibujo t&eacute;cnico y art&iacute;stico, boceto, croquis y plano, las tres vistas del sistema europeo, tipos de l&iacute;nea, acotaci&oacute;n y el cajet&iacute;n con sus medidas.">
@@ -1809,7 +1818,7 @@
   </div>
     <div id="ses-5" hidden>
     <div class="ses-head">
-      <div class="eyebrow">Sesion 5 &middot; 60 minutos</div>
+      <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
       <h2>Normalizaci&oacute;n: formatos, escalas y cotas</h2>
       <p>Un plano no vale solo porque est&eacute; bien dibujado: tiene que estar dibujado como lo dibuja todo el mundo. Esta sesi&oacute;n va de las reglas que hacen que tu plano se entienda en cualquier taller.</p>
       <div class="minutado">
