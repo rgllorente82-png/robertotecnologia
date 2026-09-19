@@ -372,6 +372,13 @@ footer .wrap{padding-block:18px 26px}
   .escena{break-inside:avoid}
 }
 </style>
+<script>
+/* quien pide reducir el movimiento, lo pide tambien para las escenas */
+window.QUIETO = function(){
+  return !!(window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+};
+</script>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -1672,7 +1679,7 @@ footer .wrap{padding-block:18px 26px}
           pinta();
         });
         pinta();
-        raf = requestAnimationFrame(cuadro);
+        if(!QUIETO()) raf = requestAnimationFrame(cuadro);
       })();
       </script>
 
@@ -1920,7 +1927,7 @@ footer .wrap{padding-block:18px 26px}
           });
           sel = +b.dataset.m; pinta();
         });
-        raf = requestAnimationFrame(cuadro);
+        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(cuadro); }
       })();
       </script>
 
@@ -2306,7 +2313,7 @@ footer .wrap{padding-block:18px 26px}
           pinta();
         });
         pinta();
-        raf = requestAnimationFrame(cuadro);
+        if(!QUIETO()) raf = requestAnimationFrame(cuadro);
       })();
       </script>
 
@@ -2772,7 +2779,7 @@ footer .wrap{padding-block:18px 26px}
           pinta();
         });
         pinta();
-        raf = requestAnimationFrame(cuadro);
+        if(!QUIETO()) raf = requestAnimationFrame(cuadro);
       })();
       </script>
 

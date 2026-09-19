@@ -29,6 +29,8 @@ o para una acción automática.
 | Que el texto se pueda agrandar al 200 % sin que nada se corte ni se desborde (WCAG 1.4.4, nivel AA) | `python generadores/comprueba_zoom.py [filtro]` |
 | Que el lector de respuestas de YouTube separe bien los cinco casos, con muestras escritas a mano (no prueba que las marcas sean las de hoy: eso sólo lo dice pasarlo con red) | `python generadores/comprueba_videos_prueba.py` |
 | Que al **imprimir** una unidad salgan sus seis sesiones y no sólo la abierta. No mira el CSS: manda imprimir cada página a PDF y cuenta las cabeceras que salen | `python generadores/comprueba_impresion.py [filtro]` |
+| Que lo que se maneja **pulsando el dibujo** se pueda manejar también con el teclado (WCAG 2.1.1, nivel A). No lee el JavaScript: pulsa cada elemento del SVG en un navegador, se queda con lo que sale, y luego prueba a llegar a esos mismos dibujos con el teclado desde una carga limpia. No exige que el dibujo reciba el foco, sino que **la función** esté al alcance | `python generadores/comprueba_teclado.py [filtro]` |
+| Que ninguna escena **se mueva sola sin parar** cuando se ha pedido «reducir el movimiento» (WCAG 2.2.2, nivel A). Mira el dibujo al abrir, a los seis segundos y medio segundo después: lo que busca no es que haya cambiado —una animación que se traza sola y se para no incumple nada— sino que **siga cambiando** pasados los cinco | `python generadores/comprueba_movimiento.py [filtro]` |
 | El contraste de los rótulos de las escenas, en tema claro y en oscuro, mirando la figura del propio SVG que hay debajo del texto y no sólo el fondo del DOM. Un rótulo con halo no cuenta: el halo es la solución | `python generadores/comprueba_contraste.py [filtro]` |
 
 Los dos primeros se complementan: `comprueba_sitio.py` no entra en ninguna
@@ -54,7 +56,8 @@ forma de que salga bien cuando trabaja una sola persona y todo es crítico—.
 | Títulos sin saltos de nivel y puntos suspensivos | `python generadores/afina_texto.py` |
 | El enlace «Ir al tema N» al final del cierre de cada unidad, con el título leído del `<h1>` de destino | `python generadores/pon_enlace_siguiente.py` |
 | Que una tabla ancha se desplace dentro de su caja y no arrastre la página en un móvil | `python generadores/afina_movil.py` |
-| Que se respete el ajuste de accesibilidad «reducir el movimiento» (WCAG 2.3.3 y 2.2.2) | `python generadores/afina_movimiento.py` |
+| Que se respete el ajuste «reducir el movimiento» en **el CSS**: animaciones y transiciones de la hoja de estilos | `python generadores/afina_movimiento.py` |
+| Y que se respete también en **el JavaScript**, que es de donde sale casi todo el movimiento del sitio: los bucles de `requestAnimationFrame` arrancan sólo si nadie ha pedido quietud, y si se ha pedido pintan un fotograma parado | `python generadores/afina_movimiento_js.py` |
 | Las tintas de **texto** del ámbar y del verde, que como colores de rellenar no se leen sobre fondo claro: oscuras en el tema claro y claras en el oscuro | `python generadores/afina_tintas.py` |
 | La tinta que va **encima** de una barra de color, que es oscura en los dos temas porque los rellenos están elegidos para resaltar | `python generadores/afina_sobre_color.py` |
 | Que el pie de cada escena sea una región viva, para que un lector de pantalla anuncie la explicación al pulsar un botón | `python generadores/afina_lectores.py` |
@@ -100,6 +103,8 @@ python generadores/comprueba_curriculo.py
 python generadores/comprueba_mandos.py
 python generadores/comprueba_contraste.py
 python generadores/comprueba_zoom.py
+python generadores/comprueba_teclado.py
+python generadores/comprueba_movimiento.py
 python generadores/comprueba_videos.py     # sólo desde una red que llegue
 ```
 

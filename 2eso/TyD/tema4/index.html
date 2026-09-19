@@ -329,6 +329,13 @@ footer .wrap{padding-block:18px 26px}
   .escena{break-inside:avoid}
 }
 </style>
+<script>
+/* quien pide reducir el movimiento, lo pide tambien para las escenas */
+window.QUIETO = function(){
+  return !!(window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+};
+</script>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -705,21 +712,23 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
       <div class="ficha">
         <div class="ficha-cab">
-          <span>Actividad 9 &middot; La torre, otra vez, con cinta</span>
+          <span>Actividad 9 &middot; La torre, otra vez, ya sabiendo por qu&eacute; se cae</span>
           <span class="chips"><span class="chip">2.1</span><span class="chip">3.1</span></span>
           <span>Grupos de cuatro &middot; 20 min</span>
         </div>
         <div class="ficha-cuerpo">
           <h4>Qu&eacute; hay que hacer</h4>
-          <p>La misma torre del principio de la clase, cambiando <b>una sola cosa</b>. Material:
-             <b>cinco folios y 50 cm de cinta</b>. Nada m&aacute;s. O sea: cuatro veces menos papel, y
-             uniones que agarran.</p>
+          <p>La misma torre del principio de la clase, con <b>el mismo material y las mismas
+             reglas</b>: 20 folios, sin cinta, sin pegamento, sin grapas y sin clips. Lo &uacute;nico
+             que ha cambiado son <b>los veinticinco minutos de teor&iacute;a</b> que hay en medio. Esa
+             es la variable del experimento, y la diferencia de altura es su resultado.</p>
           <ol class="pasos">
             <li>Antes de tocar el papel, dibujad el dise&ntilde;o y <b>se&ntilde;alad qu&eacute; esfuerzo</b> sufre cada pieza.</li>
             <li>Construid la torre <b>m&aacute;s alta posible</b> que aguante un libro de texto encima durante
                 un minuto.</li>
             <li>Medid la altura y <b>comparadla con la de la primera torre</b>. Escribid la diferencia
-                en cent&iacute;metros.</li>
+                en cent&iacute;metros, y con el signo que salga: si ha bajado, tambi&eacute;n hay que
+                explicarlo.</li>
             <li>Anotad por d&oacute;nde ha fallado. Si se ha doblado una pieza vertical, decid si fue por
                 aplastamiento o por <b>pandeo</b>.</li>
           </ol>
@@ -736,8 +745,9 @@ footer .wrap{padding-block:18px 26px}
             <span class="n-tag">Dos pistas que casi nadie usa</span>
             Un folio plano no aguanta nada de pie. <b>Enrollado en tubo, aguanta much&iacute;simo</b>: la
             resistencia no depende solo del material, depende tambi&eacute;n de la <b>forma de la secci&oacute;n</b>.
-            Y la segunda se ve al comparar las dos torres: cuando no hay cinta, lo que se rompe casi
-            nunca es el papel. <b>Es la uni&oacute;n.</b>
+            Y la segunda, la que casi nadie ve a la primera: sin cinta, lo que falla casi nunca es el
+            papel. <b>Es la uni&oacute;n.</b> Un doblez, una pesta&ntilde;a metida por una ranura o un
+            canuto dentro de otro aguantan mucho m&aacute;s que dos piezas apoyadas.
           </div>
   </div>
       </div>
@@ -2095,7 +2105,7 @@ footer .wrap{padding-block:18px 26px}
         });
 
         function cuadro(){ t += 0.05; pinta(); raf = requestAnimationFrame(cuadro); }
-        raf = requestAnimationFrame(cuadro);
+        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(cuadro); }
       })();
       </script>
 

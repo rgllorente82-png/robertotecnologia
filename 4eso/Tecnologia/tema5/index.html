@@ -349,6 +349,13 @@ footer .wrap{padding-block:18px 26px}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
+<script>
+/* quien pide reducir el movimiento, lo pide tambien para las escenas */
+window.QUIETO = function(){
+  return !!(window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+};
+</script>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -5230,7 +5237,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           tTx.textContent = coma(+tIn.value / 100, 2) + ' s'; choques = 0;
         });
 
-        raf = requestAnimationFrame(late);
+        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(late); }
       })();
       </script>
 
