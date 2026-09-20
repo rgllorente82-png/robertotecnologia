@@ -523,7 +523,7 @@
   document.addEventListener('click', function(e){
     var o=e.target;
     if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
-       && !capa.contains(o) && o.closest('figure.foto')) abrir(o);
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
   });
   function marcar(){
     var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');

@@ -115,7 +115,7 @@
     <text x="600" y="460" class="label" font-size="10" text-anchor="start" font-weight="bold">Ana responde:</text>
     <rect x="600" y="470" width="350" height="45" fill="#d4edda" stroke="#27ae60" stroke-width="1" rx="3"/>
     <text x="615" y="490" class="label" font-size="9" text-anchor="start">"Hecho: añadí un gráfico explicativo."</text>
-    <text x="615" y="508" class="label" font-size="9" text-anchor="start" fill="#27ae60">✓ Resuélvese comentario</text>
+    <text x="615" y="508" class="label" font-size="9" text-anchor="start" fill="#27ae60">✓ Comentario resuelto</text>
   </g>
 
   <!-- Section 4: Version history -->

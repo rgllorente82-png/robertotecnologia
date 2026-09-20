@@ -42,7 +42,7 @@
     <path d="M150,140 L180,142" class="arrow"/>
     <path d="M150,165 L180,172" class="arrow"/>
 
-    <text x="50" y="210" class="label" font-size="10" text-anchor="start">El SO cambia de programa cada microsegundo.</text>
+    <text x="50" y="210" class="label" font-size="10" text-anchor="start">El SO cambia de programa cada milisegundo.</text>
     <text x="50" y="227" class="label" font-size="10" text-anchor="start">Parece que funcionan todos a la vez, pero se turnan.</text>
   </g>
 

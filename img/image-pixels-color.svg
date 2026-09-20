@@ -133,6 +133,6 @@
 
     <text x="50" y="590" class="label" font-size="10" text-anchor="start" font-weight="bold">Fórmula RGB:</text>
     <text x="50" y="608" class="label" font-size="10" text-anchor="start">Cada valor de 0-255 × 3 colores = 16,7 millones de colores posibles</text>
-    <text x="50" y="625" class="label" font-size="10" text-anchor="start" fill="#666">(255 × 255 × 255 = 16.777.215 colores distintos)</text>
+    <text x="50" y="625" class="label" font-size="10" text-anchor="start" fill="#666">(256 × 256 × 256 = 16.777.216 colores distintos)</text>
   </g>
 </svg>

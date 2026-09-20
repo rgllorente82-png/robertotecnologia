@@ -92,7 +92,7 @@
     <!-- BUCLES -->
     <rect x="50" y="305" width="85" height="80" fill="#FFF3E0" stroke="#F57C00" stroke-width="2" rx="3"/>
     <text x="92.5" y="325" class="concept-title" text-anchor="middle" fill="#F57C00">BUCLES</text>
-    <text x="92.5" y="345" class="concept-text" text-anchor="middle" fill="#333;">Repetar acciones</text>
+    <text x="92.5" y="345" class="concept-text" text-anchor="middle" fill="#333;">Repetir acciones</text>
     <text x="92.5" y="358" class="concept-text" text-anchor="middle" fill="#333;">una cantidad</text>
     <text x="92.5" y="371" class="concept-text" text-anchor="middle" fill="#333;">de veces</text>
 

@@ -54,10 +54,10 @@
       <rect x="450" y="80" width="500" height="120" class="example-box" rx="5"/>
       <text x="470" y="105" class="label" font-weight="bold">Ejemplo 1: LED y batería (típico)</text>
       
-      <text x="470" y="130" class="label">Tienes: Batería 9V, LED que pide 20mA (0.02A)</text>
+      <text x="470" y="130" class="label">Tienes: Batería 9V y un LED que pide 20mA (0.02A) y consume 2V</text>
       <text x="470" y="150" class="label" font-weight="bold">¿Qué resistencia necesitas?</text>
-      <text x="470" y="170" class="label" font-family="'Courier New'">R = V / I = 9V / 0.02A = <tspan fill="#e74c3c" font-weight="bold">450 Ω</tspan></text>
-      <text x="470" y="190" class="label" font-size="11" opacity="0.8">Busca una resistencia de 450 Ohmios para proteger el LED</text>
+      <text x="470" y="170" class="label" font-family="'Courier New'">R = (9V - 2V) / 0.02A = <tspan fill="#e74c3c" font-weight="bold">350 Ω</tspan></text>
+      <text x="470" y="190" class="label" font-size="11" opacity="0.8">350 Ohmios: la resistencia solo tiene que tragarse los 7V que no usa el LED</text>
     </g>
 
     <!-- Example 2: Car starter -->

@@ -24,7 +24,7 @@
 
   <!-- LEFT SIDE: Problem -->
   <g>
-    <text x="150" y="100" class="title" font-size="13" text-anchor="start" font-weight="bold">❌ RECTANGLE - Se deforma</text>
+    <text x="150" y="100" class="title" font-size="13" text-anchor="start" font-weight="bold">❌ RECTÁNGULO · se deforma</text>
 
     <!-- Rectangle frame -->
     <rect x="50" y="140" width="200" height="150" class="beam"/>
@@ -35,7 +35,7 @@
 
     <!-- Force arrows -->
     <path d="M270,215 L310,215" class="force"/>
-    <text x="320" y="220" class="label" font-size="10">Force</text>
+    <text x="320" y="220" class="label" font-size="10">Fuerza</text>
 
     <!-- Deformation -->
     <path d="M50,290 L150,310" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2"/>
@@ -44,7 +44,7 @@
 
   <!-- RIGHT SIDE: Solution -->
   <g>
-    <text x="650" y="100" class="title" font-size="13" text-anchor="start" font-weight="bold">✓ TRIANGLE - Rígido</text>
+    <text x="650" y="100" class="title" font-size="13" text-anchor="start" font-weight="bold">✓ TRIÁNGULO · rígido</text>
 
     <!-- Triangle frame -->
     <line x1="550" y1="290" x2="650" y2="140" class="beam"/>
@@ -58,7 +58,7 @@
 
     <!-- Force arrows -->
     <path d="M770,215 L810,215" class="force"/>
-    <text x="820" y="220" class="label" font-size="10">Same force</text>
+    <text x="820" y="220" class="label" font-size="10">La misma fuerza</text>
 
     <!-- No deformation (show with text) -->
     <text x="650" y="330" class="label" font-size="11" font-weight="bold" fill="#27ae60">No se deforma</text>
@@ -73,7 +73,7 @@
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
       <text x="60" y="430"><b>En el rectángulo:</b> Los vértices pueden moverse. Una fuerza lateral lo deforma porque los ángulos no están fijos.</text>
 
-      <text x="60" y="455"><b>En el triángulo:</b> Los tres lados forman una estructura <b>hiperestática</b>: no hay grados de libertad. Todos los ángulos están determinados por las tres longitudes.</text>
+      <text x="60" y="455"><b>En el triángulo:</b> Los tres lados forman una estructura <b>isostática</b>: no hay grados de libertad. Todos los ángulos están determinados por las tres longitudes.</text>
 
       <text x="60" y="480"><b>Distancia de la diagonal:</b> En un rectángulo, si cambias un ángulo aunque sea 1°, la diagonal cambia de largo. En un triángulo, los tres lados están unidos en su longitud: cambiar uno es IMPOSIBLE sin romper.</text>
 

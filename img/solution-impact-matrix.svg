@@ -69,7 +69,7 @@
   <circle cx="650" cy="120" class="solution-dot" fill="#f39c12"/>
   <text x="650" y="170" class="label" text-anchor="middle" font-weight="bold">2. Riego con IA</text>
   <text x="650" y="185" class="label" text-anchor="middle" font-size="10">+ Aprende del clima</text>
-  <text x="650" y="197" class="label" text-anchor="middle" font-size="10">- ¿Donde entrenar?"</text>
+  <text x="650" y="197" class="label" text-anchor="middle" font-size="10">- ¿Dónde entrenar?</text>
 
   <!-- Solution 3: Recordatorio en papel (LOW effectiveness, LOW complexity) -->
   <circle cx="180" cy="380" class="solution-dot" fill="#95a5a6"/>
