@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .beam { stroke: #8b6914; stroke-width: 3; fill: none; }
+      .node { fill: #2c3e50; }
+      .force { stroke: #e74c3c; stroke-width: 3; fill: none; marker-end: url(#arrowred); }
+      .good { stroke: #27ae60; stroke-width: 2; }
+      .bad { stroke: #e74c3c; stroke-width: 2; stroke-dasharray: 3,2; }
+      .box { stroke: #2c3e50; stroke-width: 2; fill: #e8f4f8; }
+    </style>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Triangulación: El Truco que lo Cambia Todo</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666">Por qué los triángulos no se deforman y los rectángulos sí</text>
+
+  <!-- LEFT SIDE: Problem -->
+  <g>
+    <text x="150" y="100" class="title" font-size="13" text-anchor="start" font-weight="bold">❌ RECTANGLE - Se deforma</text>
+
+    <!-- Rectangle frame -->
+    <rect x="50" y="140" width="200" height="150" class="beam"/>
+    <circle cx="50" cy="140" r="5" class="node"/>
+    <circle cx="250" cy="140" r="5" class="node"/>
+    <circle cx="250" cy="290" r="5" class="node"/>
+    <circle cx="50" cy="290" r="5" class="node"/>
+
+    <!-- Force arrows -->
+    <path d="M270,215 L310,215" class="force"/>
+    <text x="320" y="220" class="label" font-size="10">Force</text>
+
+    <!-- Deformation -->
+    <path d="M50,290 L150,310" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2"/>
+    <path d="M250,140 L270,160" stroke="#e74c3c" stroke-width="2" stroke-dasharray="3,2"/>
+  </g>
+
+  <!-- RIGHT SIDE: Solution -->
+  <g>
+    <text x="650" y="100" class="title" font-size="13" text-anchor="start" font-weight="bold">✓ TRIANGLE - Rígido</text>
+
+    <!-- Triangle frame -->
+    <line x1="550" y1="290" x2="650" y2="140" class="beam"/>
+    <line x1="650" y1="140" x2="750" y2="290" class="beam"/>
+    <line x1="750" y1="290" x2="550" y2="290" class="beam"/>
+    <line x1="650" y1="140" x2="550" y2="290" stroke="#27ae60" stroke-width="2" stroke-dasharray="2,3"/>
+
+    <circle cx="550" cy="290" r="5" class="node"/>
+    <circle cx="650" cy="140" r="5" class="node"/>
+    <circle cx="750" cy="290" r="5" class="node"/>
+
+    <!-- Force arrows -->
+    <path d="M770,215 L810,215" class="force"/>
+    <text x="820" y="220" class="label" font-size="10">Same force</text>
+
+    <!-- No deformation (show with text) -->
+    <text x="650" y="330" class="label" font-size="11" font-weight="bold" fill="#27ae60">No se deforma</text>
+  </g>
+
+  <!-- EXPLANATION SECTION -->
+  <g>
+    <rect x="40" y="380" width="920" height="200" class="box"/>
+
+    <text x="60" y="405" class="title" font-size="13" text-anchor="start" font-weight="bold">¿Por qué funciona?</text>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="430"><b>En el rectángulo:</b> Los vértices pueden moverse. Una fuerza lateral lo deforma porque los ángulos no están fijos.</text>
+
+      <text x="60" y="455"><b>En el triángulo:</b> Los tres lados forman una estructura <b>hiperestática</b>: no hay grados de libertad. Todos los ángulos están determinados por las tres longitudes.</text>
+
+      <text x="60" y="480"><b>Distancia de la diagonal:</b> En un rectángulo, si cambias un ángulo aunque sea 1°, la diagonal cambia de largo. En un triángulo, los tres lados están unidos en su longitud: cambiar uno es IMPOSIBLE sin romper.</text>
+
+      <text x="60" y="505"><b>Aplicación:</b> Cuando necesitas estructura rígida bajo carga (grúas, torres de comunicaciones, cerchas de cubiertas), <b>triangulas</b>. Añades una o más diagonales al rectángulo y creas triángulos internos.</text>
+
+      <text x="60" y="530"><b>Ejemplos:</b> Torre Eiffel (diagonales cruzadas), cerchas de madera (triángulos arriba y abajo), escaleras de aluminio (triángulos laterales), estructura de un puente, jaulas de protección de vehículos.</text>
+
+      <text x="60" y="555"><b>En estructuras grandes:</b> Se triangula en <b>3D</b>, no en 2D. Nace la estructura de barras espaciales: como un esqueleto de tetraedros encajados. Máxima rigidez, mínimo peso.</text>
+    </g>
+  </g>
+
+</svg>
