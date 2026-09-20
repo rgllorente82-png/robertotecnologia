@@ -1,0 +1,124 @@
+<svg viewBox="0 0 1000 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .bit-cell { stroke: #2c3e50; stroke-width: 1; }
+      .mono { font-family: 'Courier New', monospace; font-size: 16px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="550" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Representación Binaria: Ceros y Unos</text>
+
+  <!-- Section 1: What is a bit? -->
+  <g>
+    <text x="50" y="80" class="title" font-size="13" text-anchor="start" font-weight="bold">Un BIT (Binary Digit): 0 ó 1</text>
+
+    <rect x="50" y="100" width="120" height="80" class="box" fill="#e74c3c"/>
+    <text x="110" y="140" class="mono" fill="white" font-size="32">0</text>
+    <text x="110" y="165" class="label" fill="white" font-size="10">Apagado</text>
+
+    <rect x="200" y="100" width="120" height="80" class="box" fill="#27ae60"/>
+    <text x="260" y="140" class="mono" fill="white" font-size="32">1</text>
+    <text x="260" y="165" class="label" fill="white" font-size="10">Encendido</text>
+
+    <text x="50" y="210" class="label" font-size="11" text-anchor="start">La unidad mínima de información en un ordenador.</text>
+    <text x="50" y="228" class="label" font-size="11" text-anchor="start">Con solo DOS símbolos, podemos representar todo.</text>
+  </g>
+
+  <!-- Section 2: Byte -->
+  <g>
+    <text x="450" y="80" class="title" font-size="13" text-anchor="start" font-weight="bold">Un BYTE: 8 bits juntos</text>
+
+    <!-- Byte visualization -->
+    <g transform="translate(450, 100)">
+      <rect x="0" y="0" width="40" height="40" class="bit-cell" fill="#3498db"/>
+      <text x="20" y="28" class="mono" fill="white" font-size="16">0</text>
+
+      <rect x="50" y="0" width="40" height="40" class="bit-cell" fill="#27ae60"/>
+      <text x="70" y="28" class="mono" fill="white" font-size="16">1</text>
+
+      <rect x="100" y="0" width="40" height="40" class="bit-cell" fill="#27ae60"/>
+      <text x="120" y="28" class="mono" fill="white" font-size="16">1</text>
+
+      <rect x="150" y="0" width="40" height="40" class="bit-cell" fill="#3498db"/>
+      <text x="170" y="28" class="mono" fill="white" font-size="16">0</text>
+
+      <rect x="200" y="0" width="40" height="40" class="bit-cell" fill="#27ae60"/>
+      <text x="220" y="28" class="mono" fill="white" font-size="16">1</text>
+
+      <rect x="250" y="0" width="40" height="40" class="bit-cell" fill="#27ae60"/>
+      <text x="270" y="28" class="mono" fill="white" font-size="16">1</text>
+
+      <rect x="300" y="0" width="40" height="40" class="bit-cell" fill="#3498db"/>
+      <text x="320" y="28" class="mono" fill="white" font-size="16">0</text>
+
+      <rect x="350" y="0" width="40" height="40" class="bit-cell" fill="#27ae60"/>
+      <text x="370" y="28" class="mono" fill="white" font-size="16">1</text>
+    </g>
+
+    <text x="450" y="165" class="label" font-size="10" text-anchor="start" font-weight="bold">01101101 = 109 (en decimal)</text>
+    <text x="450" y="185" class="label" font-size="10" text-anchor="start">8 bits permiten representar 256 valores (0-255)</text>
+  </g>
+
+  <!-- Section 3: Powers of 2 -->
+  <g>
+    <text x="50" y="270" class="title" font-size="13" text-anchor="start" font-weight="bold">¿Cuánto se puede guardar con N bits?</text>
+
+    <rect x="50" y="290" width="900" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="70" y="315">Bits</text>
+      <text x="150" y="315">Valores posibles</text>
+      <text x="350" y="315">Ejemplo</text>
+      <text x="650" y="315">Capacidad</text>
+
+      <line x1="50" y1="325" x2="950" y2="325" stroke="#3498db" stroke-width="1"/>
+
+      <!-- 1 bit -->
+      <text x="70" y="350">1 bit</text>
+      <text x="150" y="350" font-weight="bold">2 valores</text>
+      <text x="350" y="350">Sí/No, Verdadero/Falso</text>
+      <text x="650" y="350">—</text>
+
+      <!-- 1 byte (8 bits) -->
+      <text x="70" y="375">8 bits (1 byte)</text>
+      <text x="150" y="375" font-weight="bold">256 valores</text>
+      <text x="350" y="375">Un carácter (A, 5, @, etc.)</text>
+      <text x="650" y="375">1 letra</text>
+
+      <!-- 1 KB -->
+      <text x="70" y="400">1 KB</text>
+      <text x="150" y="400" font-weight="bold">1.024 bytes</text>
+      <text x="350" y="400">Un párrafo de texto</text>
+      <text x="650" y="400">Texto corto</text>
+
+      <!-- 1 MB -->
+      <text x="70" y="425">1 MB</text>
+      <text x="150" y="425" font-weight="bold">1 millón bytes</text>
+      <text x="350" y="425">Una foto de baja resolución</text>
+      <text x="650" y="425">Imagen</text>
+
+      <!-- 1 GB -->
+      <text x="70" y="450">1 GB</text>
+      <text x="150" y="450" font-weight="bold">1.000 millones bytes</text>
+      <text x="350" y="450">15 minutos de vídeo</text>
+      <text x="650" y="450">Vídeo</text>
+
+      <!-- 1 TB -->
+      <text x="70" y="475">1 TB</text>
+      <text x="150" y="475" font-weight="bold">1 billón bytes</text>
+      <text x="350" y="475">2.000 películas HD</text>
+      <text x="650" y="475">Disco duro</text>
+    </g>
+  </g>
+
+  <!-- Bottom note -->
+  <rect x="50" y="510" width="900" height="30" fill="#d4edda" stroke="#27ae60" stroke-width="1" rx="3"/>
+  <text x="500" y="533" class="label" font-size="11" font-weight="bold">Regla: N bits permiten 2^N valores. Con solo dos símbolos (0 y 1), se puede guardar cualquier cosa.</text>
+</svg>

@@ -1,0 +1,134 @@
+<svg viewBox="0 0 1000 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { stroke: #3498db; stroke-width: 2; fill: none; marker-end: url(#arrowright); }
+      .comment-arrow { stroke: #f39c12; stroke-width: 2; fill: none; marker-end: url(#arroworange); }
+    </style>
+    <marker id="arrowright" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f39c12"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="550" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Colaboración Digital: Edición Conjunta</text>
+
+  <!-- Section 1: Without collaboration (Bad) -->
+  <g>
+    <text x="50" y="85" class="title" font-size="12" text-anchor="start" font-weight="bold">❌ Método antiguo: Emails y conflictos</text>
+
+    <!-- Person 1 -->
+    <circle cx="80" cy="150" r="25" fill="#e74c3c"/>
+    <text x="80" y="156" class="label" fill="white" font-size="10">Ana</text>
+
+    <!-- Document v1 -->
+    <rect x="50" y="190" width="60" height="30" class="box" fill="#ecf0f1"/>
+    <text x="80" y="210" class="label" font-size="9">tarea_v1.docx</text>
+
+    <!-- Email arrow -->
+    <path d="M110,210 L170,210" class="arrow"/>
+
+    <!-- Person 2 -->
+    <circle cx="230" cy="150" r="25" fill="#3498db"/>
+    <text x="230" y="156" class="label" fill="white" font-size="10">Bob</text>
+
+    <!-- Document v2 -->
+    <rect x="190" y="190" width="80" height="30" class="box" fill="#ecf0f1"/>
+    <text x="230" y="210" class="label" font-size="9">tarea_v2_bob.docx</text>
+
+    <!-- Problem arrow -->
+    <path d="M80,220 L230,240" class="comment-arrow" stroke-dasharray="5,5"/>
+
+    <!-- Conflict note -->
+    <rect x="50" y="250" width="210" height="60" fill="#ffe8e8" stroke="#e74c3c" stroke-width="1" rx="3"/>
+    <text x="60" y="270" class="label" font-size="10" text-anchor="start" font-weight="bold">⚠ Conflicto:</text>
+    <text x="60" y="290" class="label" font-size="9" text-anchor="start">Los cambios de Ana se pierden</text>
+    <text x="60" y="305" class="label" font-size="9" text-anchor="start">¿Cuál es la versión correcta?</text>
+  </g>
+
+  <!-- Section 2: With cloud collaboration (Good) -->
+  <g>
+    <text x="450" y="85" class="title" font-size="12" text-anchor="start" font-weight="bold">✓ Método moderno: Nube compartida</text>
+
+    <!-- Cloud storage -->
+    <circle cx="550" cy="130" r="35" fill="#3498db"/>
+    <text x="550" y="135" class="label" fill="white" font-size="11" font-weight="bold">NUBE</text>
+
+    <!-- Ana -->
+    <circle cx="450" cy="200" r="25" fill="#e74c3c"/>
+    <text x="450" y="206" class="label" fill="white" font-size="10">Ana</text>
+
+    <!-- Arrow Ana to Cloud (edit) -->
+    <path d="M475,210 L520,165" class="arrow"/>
+    <text x="495" y="190" class="label" font-size="9" fill="#666">edita</text>
+
+    <!-- Bob -->
+    <circle cx="650" cy="200" r="25" fill="#27ae60"/>
+    <text x="650" y="206" class="label" fill="white" font-size="10">Bob</text>
+
+    <!-- Arrow Bob to Cloud (edita) -->
+    <path d="M625,210 L580,165" class="arrow"/>
+    <text x="600" y="190" class="label" font-size="9" fill="#666">edita</text>
+
+    <!-- Shared document (v3) -->
+    <rect x="490" y="245" width="120" height="35" class="box" fill="#e8f4f8"/>
+    <text x="550" y="270" class="label" font-size="10">tarea_v3_FINAL.docx</text>
+
+    <!-- Arrows from Cloud to Document -->
+    <path d="M550,165 L520,245" class="arrow"/>
+    <path d="M550,165 L580,245" class="arrow"/>
+
+    <!-- Comment note -->
+    <rect x="430" y="300" width="240" height="60" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+    <text x="440" y="320" class="label" font-size="10" text-anchor="start" font-weight="bold">✓ Sincronizado:</text>
+    <text x="440" y="340" class="label" font-size="9" text-anchor="start">Una sola versión. Cambios visibles al instante</text>
+    <text x="440" y="355" class="label" font-size="9" text-anchor="start">Historial de quién cambió qué y cuándo</text>
+  </g>
+
+  <!-- Section 3: Comment system -->
+  <g>
+    <text x="50" y="420" class="title" font-size="12" text-anchor="start" font-weight="bold">Comentarios: Feedback sin cambiar</text>
+
+    <!-- Document with text -->
+    <rect x="50" y="440" width="300" height="80" fill="white" stroke="#2c3e50" stroke-width="1" rx="3"/>
+    <text x="70" y="460" class="label" font-size="11" text-anchor="start" font-weight="bold">Documento:</text>
+    <text x="70" y="480" class="label" font-size="10" text-anchor="start">El algoritmo es muy <u style="text-decoration: underline; text-decoration-color: #f39c12; text-decoration-thickness: 2px;">complejo</u></text>
+
+    <!-- Comment bubble -->
+    <rect x="370" y="455" width="200" height="60" fill="#fff3cd" stroke="#f39c12" stroke-width="2" rx="5"/>
+    <text x="380" y="475" class="label" font-size="9" text-anchor="start" font-weight="bold">Bob comentó:</text>
+    <text x="380" y="495" class="label" font-size="9" text-anchor="start">"¿Podrías explicarlo</text>
+    <text x="380" y="510" class="label" font-size="9" text-anchor="start">con un ejemplo?"</text>
+
+    <!-- Arrow from text to comment -->
+    <path d="M350,475 L370,475" class="comment-arrow"/>
+
+    <!-- Resolution -->
+    <text x="600" y="460" class="label" font-size="10" text-anchor="start" font-weight="bold">Ana responde:</text>
+    <rect x="600" y="470" width="350" height="45" fill="#d4edda" stroke="#27ae60" stroke-width="1" rx="3"/>
+    <text x="615" y="490" class="label" font-size="9" text-anchor="start">"Hecho: añadí un gráfico explicativo."</text>
+    <text x="615" y="508" class="label" font-size="9" text-anchor="start" fill="#27ae60">✓ Resuélvese comentario</text>
+  </g>
+
+  <!-- Section 4: Version history -->
+  <g>
+    <text x="50" y="555" class="title" font-size="11" text-anchor="start" font-weight="bold">Historial de versiones:</text>
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="50" y="575">15:30 - Bob: "Añadido resumen"</text>
+      <text x="50" y="590">15:15 - Ana: "Corregida ortografía"</text>
+      <text x="50" y="605">14:45 - Bob: "Primera versión"</text>
+    </g>
+
+    <rect x="550" y="555" width="400" height="65" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+    <text x="570" y="575" class="label" font-size="10" text-anchor="start" font-weight="bold">Ventaja: Volver a cualquier versión anterior sin perder nada</text>
+    <text x="570" y="595" class="label" font-size="9" text-anchor="start">Google Docs, OneDrive, Notion, etc. mantienen todo el historial</text>
+  </g>
+</svg>
