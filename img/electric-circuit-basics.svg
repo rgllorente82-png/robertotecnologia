@@ -1,0 +1,138 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .circuit-line { stroke: #2c3e50; stroke-width: 2; fill: none; }
+      .mono { font-family: 'Courier New', monospace; font-size: 11px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Circuito Eléctrico Básico</text>
+
+  <!-- Section 1: Simple Circuit -->
+  <g>
+    <text x="50" y="80" class="title" font-size="12" text-anchor="start" font-weight="bold">Un circuito mínimo necesita 3 cosas:</text>
+
+    <!-- Battery -->
+    <g>
+      <rect x="80" y="120" width="30" height="50" fill="white" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="85" y1="120" x2="85" y2="100" stroke="#e74c3c" stroke-width="3"/>
+      <line x1="105" y1="120" x2="105" y2="100" stroke="#2c3e50" stroke-width="1"/>
+      <text x="100" y="195" class="label" font-size="10" font-weight="bold">BATERÍA</text>
+      <text x="100" y="210" class="label" font-size="9">(fuente de</text>
+      <text x="100" y="222" class="label" font-size="9">tensión)</text>
+    </g>
+
+    <!-- Wire -->
+    <line x1="115" y1="145" x2="200" y2="145" class="circuit-line"/>
+    <text x="155" y="135" class="label" font-size="9">Cable conductor</text>
+
+    <!-- Bulb/Load -->
+    <g>
+      <circle cx="230" cy="145" r="20" fill="none" stroke="#f39c12" stroke-width="2"/>
+      <circle cx="230" cy="145" r="15" fill="#ffff00" opacity="0.3"/>
+      <text x="230" y="185" class="label" font-size="10" font-weight="bold">CARGA</text>
+      <text x="230" y="200" class="label" font-size="9">(bombilla, LED,</text>
+      <text x="230" y="212" class="label" font-size="9">motor...)</text>
+    </g>
+
+    <!-- Wire back -->
+    <line x1="250" y1="145" x2="320" y2="145" class="circuit-line"/>
+    <line x1="320" y1="145" x2="320" y2="80" class="circuit-line"/>
+
+    <!-- Switch -->
+    <g>
+      <circle cx="320" cy="80" r="8" fill="white" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="328" y1="80" x2="360" y2="80" stroke="#2c3e50" stroke-width="2"/>
+      <text x="360" y="100" class="label" font-size="10" font-weight="bold">INTERRUPTOR</text>
+      <text x="360" y="115" class="label" font-size="9">(abre/cierra</text>
+      <text x="360" y="127" class="label" font-size="9">el circuito)</text>
+    </g>
+
+    <!-- Wire back to battery -->
+    <line x1="360" y1="80" x2="380" y2="80" class="circuit-line"/>
+    <line x1="380" y1="80" x2="380" y2="145" class="circuit-line"/>
+    <line x1="380" y1="145" x2="95" y2="145" class="circuit-line"/>
+  </g>
+
+  <!-- Section 2: Component symbols -->
+  <g>
+    <text x="50" y="290" class="title" font-size="12" text-anchor="start" font-weight="bold">Símbolos de circuito:</text>
+
+    <!-- Resistor -->
+    <g>
+      <rect x="50" y="320" width="70" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+      <text x="85" y="333" class="label" font-size="10" text-anchor="middle" font-weight="bold">⧍⧍⧍⧍</text>
+      <text x="85" y="360" class="label" font-size="9">Resistencia</text>
+      <text x="85" y="373" class="label" font-size="8">(limita corriente)</text>
+    </g>
+
+    <!-- Capacitor -->
+    <g>
+      <rect x="140" y="320" width="70" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+      <line x1="155" y1="320" x2="155" y2="350" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="165" y1="320" x2="165" y2="350" stroke="#2c3e50" stroke-width="2"/>
+      <text x="175" y="360" class="label" font-size="9">Capacitor</text>
+      <text x="175" y="373" class="label" font-size="8">(almacena carga)</text>
+    </g>
+
+    <!-- Diode -->
+    <g>
+      <rect x="230" y="320" width="70" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+      <polygon points="250,335 260,340 260,330" fill="#2c3e50"/>
+      <line x1="260" y1="330" x2="260" y2="340" stroke="#2c3e50" stroke-width="2"/>
+      <text x="265" y="360" class="label" font-size="9">Diodo</text>
+      <text x="265" y="373" class="label" font-size="8">(deja pasar 1 dirección)</text>
+    </g>
+
+    <!-- LED -->
+    <g>
+      <rect x="320" y="320" width="70" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+      <polygon points="330,335 340,340 340,330" fill="#e74c3c"/>
+      <line x1="340" y1="330" x2="340" y2="340" stroke="#e74c3c" stroke-width="2"/>
+      <line x1="335" y1="325" x2="340" y2="320" stroke="#f39c12" stroke-width="2"/>
+      <text x="355" y="360" class="label" font-size="9">LED</text>
+      <text x="355" y="373" class="label" font-size="8">(emite luz)</text>
+    </g>
+
+    <!-- Transistor -->
+    <g>
+      <rect x="410" y="320" width="70" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+      <line x1="430" y1="320" x2="430" y2="350" stroke="#2c3e50" stroke-width="2"/>
+      <polygon points="420,335 440,340 440,330" fill="#2c3e50" opacity="0.6"/>
+      <text x="445" y="360" class="label" font-size="9">Transistor</text>
+      <text x="445" y="373" class="label" font-size="8">(amplifica/controla)</text>
+    </g>
+
+    <!-- Motor -->
+    <g>
+      <rect x="500" y="320" width="70" height="30" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+      <circle cx="535" cy="335" r="12" fill="white" stroke="#2c3e50" stroke-width="2"/>
+      <text x="535" y="340" class="label" font-size="14" font-weight="bold">⊗</text>
+      <text x="535" y="360" class="label" font-size="9">Motor</text>
+      <text x="535" y="373" class="label" font-size="8">(convierte electricidad</text>
+      <text x="535" y="384" class="label" font-size="8">en movimiento)</text>
+    </g>
+  </g>
+
+  <!-- Section 3: Key concepts -->
+  <rect x="50" y="430" width="900" height="140" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
+
+  <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+    <text x="70" y="455" font-weight="bold">Conceptos clave:</text>
+
+    <text x="70" y="480"><b>Voltaje (V):</b> La «presión» eléctrica que empuja los electrones. Batería AA = 1.5V, red = 230V</text>
+
+    <text x="70" y="505"><b>Corriente (I):</b> El flujo de electrones por el cable. Se mide en amperios (A). Más corriente = más brillo/fuerza</text>
+
+    <text x="70" y="530"><b>Resistencia (R):</b> Lo que se opone al flujo. Una bombilla incandescente tiene mucha resistencia (se calienta)</text>
+
+    <text x="70" y="555"><b>Ley de Ohm:</b> V = I × R. Si aumentas voltaje, aumenta corriente. Si aumentas resistencia, baja corriente</text>
+  </g>
+</svg>
