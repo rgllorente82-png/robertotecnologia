@@ -89,7 +89,7 @@
 
       <text x="50" y="445"><b>Trabajabilidad:</b> Facilidad para trabajar. Aluminio y cobre → Muy fácil. Acero → Difícil. Vidrio → Muy difícil.</text>
 
-      <text x="50" y="470"><b>Precio:</b> Plástico < Aluminio < Hierro < Acero especial < Titanio. Siempre hay equilibrio entre prestaciones y coste.</text>
+      <text x="50" y="470"><b>Precio:</b> Plástico &lt; Aluminio &lt; Hierro &lt; Acero especial &lt; Titanio. Siempre hay equilibrio entre prestaciones y coste.</text>
 
       <text x="50" y="495"><b>Sostenibilidad:</b> ¿Se recicla? Acero y Aluminio: Excelente. Plástico: Malo (tarda 450 años). Madera: Renovable. Vidrio: 100% reciclable.</text>
     </g>

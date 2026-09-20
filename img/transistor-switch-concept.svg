@@ -15,11 +15,11 @@
 
   <!-- Title -->
   <text x="500" y="35" class="title" font-size="18">El transistor como interruptor</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">C&oacute;mo una se&ntilde;al peque&ntilde;a en la base controla una corriente grande en el colector</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Cómo una señal pequeña en la base controla una corriente grande en el colector</text>
 
   <!-- LEFT: NO CURRENT (BASE = 0) -->
   <g>
-    <text x="220" y="95" class="title" font-size="13">Base = 0 V (SIN se&ntilde;al)</text>
+    <text x="220" y="95" class="title" font-size="13">Base = 0 V (SIN señal)</text>
 
     <!-- Transistor symbol -->
     <circle cx="220" cy="160" r="35" fill="#e8f4f8" stroke="#3498db" stroke-width="2"/>
@@ -52,7 +52,7 @@
 
   <!-- RIGHT: WITH CURRENT (BASE = 5V) -->
   <g>
-    <text x="780" y="95" class="title" font-size="13">Base = 5 V (con se&ntilde;al)</text>
+    <text x="780" y="95" class="title" font-size="13">Base = 5 V (con señal)</text>
 
     <!-- Transistor symbol -->
     <circle cx="780" cy="160" r="35" fill="#e8f8e8" stroke="#27ae60" stroke-width="2"/>
@@ -94,20 +94,20 @@
 
     <g font-family="Arial" font-size="10.5" fill="#2c3e50" text-anchor="start">
       <text x="60" y="480"><b>1. Amplificación de corriente</b></text>
-      <text x="80" y="498">Una corriente peque&ntilde;a en la base (~10 mA) controla una corriente enorme en el colector (~500 mA).</text>
+      <text x="80" y="498">Una corriente pequeña en la base (~10 mA) controla una corriente enorme en el colector (~500 mA).</text>
       <text x="80" y="515">Es decir: <b>amplificador de corriente</b> · ganancia = Ic / Ib ≈ 50.</text>
 
       <text x="60" y="545"><b>2. Interruptor inteligente</b></text>
-      <text x="80" y="563">La base es como el dedo que pulsa el interruptor, pero en electr&oacute;nico.</text>
+      <text x="80" y="563">La base es como el dedo que pulsa el interruptor, pero en electrónico.</text>
       <text x="80" y="580">Con 5 V en la base: interruptor CERRADO → fluye corriente colector-emisor.</text>
       <text x="80" y="597">Con 0 V en la base: interruptor ABIERTO → NO fluye corriente.</text>
 
       <text x="500" y="480"><b>3. Velocidad y control</b></text>
       <text x="520" y="498">Encendemos y apagamos el transistor miles de veces por segundo.</text>
-      <text x="520" y="515">Eso permite PWM (modulaci&oacute;n de ancho de pulso) para controlar la velocidad de un motor.</text>
+      <text x="520" y="515">Eso permite PWM (modulación de ancho de pulso) para controlar la velocidad de un motor.</text>
 
       <text x="500" y="545"><b>Ejemplo real: Encender un LED desde Arduino</b></text>
-      <text x="520" y="563">• Arduino: pin 5 V (3 mA m&aacute;ximo)</text>
+      <text x="520" y="563">• Arduino: pin 5 V (3 mA máximo)</text>
       <text x="520" y="580">• Transistor base: + esa corriente de 3 mA</text>
       <text x="520" y="597">• Colector: 12 V a un LED de 200 mA (25 W si fuera incandescente)</text>
       <text x="520" y="614">• Arduino controla el LED sin quebrarse gracias al transistor</text>

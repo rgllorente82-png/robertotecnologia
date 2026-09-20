@@ -148,8 +148,6 @@
     <tspan x="600" dy="0">Haz clic arriba para cambiar entre</tspan>
     <tspan x="600" dy="15">SERIE (problemático) y PARALELO (seguro)</tspan>
   </text>
-</svg>
-
 <script type="text/javascript">
   function toggleMode(mode) {
     const serieCircuit = document.getElementById('serie-circuit');
@@ -187,3 +185,4 @@
   // Initialize
   updateLEDs('serie');
 </script>
+</svg>

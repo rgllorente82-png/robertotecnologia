@@ -12,7 +12,7 @@
 
   <!-- Title -->
   <text x="500" y="35" class="title" font-size="18">Las tres clases de palancas</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Se&g&uacute;n d&oacute;nde est&eacute; el fulcro: palancas de 1.ª, 2.ª y 3.ª clase</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Según dónde esté el fulcro: palancas de 1.ª, 2.ª y 3.ª clase</text>
 
   <!-- CLASS 1: FULCRUM IN THE MIDDLE (Fulcro en el centro) -->
   <g>
@@ -95,7 +95,7 @@
 
     <!-- Pros and cons -->
     <g font-family="Arial" font-size="9" fill="#2c3e50">
-      <text x="400" y="285"><b>✓ Ventaja:</b> M&aacute;xima ventaja mec&aacute;nica</text>
+      <text x="400" y="285"><b>✓ Ventaja:</b> Máxima ventaja mecánica</text>
       <text x="400" y="302"><b>✗ Desventaja:</b> La carga se mueve poco</text>
     </g>
   </g>
@@ -134,7 +134,7 @@
 
     <!-- Example -->
     <text x="830" y="240" class="label" font-size="11" font-weight="bold">Ejemplo: Pinzas, antebrazo</text>
-    <text x="830" y="258" class="label" font-size="9" text-anchor="middle">T&uacute; haces fuerza en medio para mover la carga</text>
+    <text x="830" y="258" class="label" font-size="9" text-anchor="middle">Tú haces fuerza en medio para mover la carga</text>
 
     <!-- Pros and cons -->
     <g font-family="Arial" font-size="9" fill="#2c3e50">
@@ -147,7 +147,7 @@
   <g>
     <rect x="30" y="360" width="940" height="370" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
 
-    <text x="500" y="390" class="title" font-size="13">Comparaci&oacute;n de las tres clases</text>
+    <text x="500" y="390" class="title" font-size="13">Comparación de las tres clases</text>
 
     <!-- Comparison table -->
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
@@ -171,7 +171,7 @@
       <text x="70" y="503" fill="#e74c3c" font-weight="bold">2.ª</text>
       <text x="200" y="503" fill="#15212e">Fulcro - Carga - Esfuerzo</text>
       <text x="420" y="503">Carretilla, nueces</text>
-      <text x="620" y="503" font-weight="bold">M&aacute;s ventaja</text>
+      <text x="620" y="503" font-weight="bold">Más ventaja</text>
       <text x="620" y="520" font-size="9">Mejor para levantar cosas</text>
 
       <!-- Row 3: Class 3 -->
@@ -185,12 +185,12 @@
 
     <!-- Key insight -->
     <rect x="50" y="595" width="880" height="120" fill="#f0fef0" stroke="#27ae60" stroke-width="1.5" rx="3"/>
-    <text x="500" y="620" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#188038">Lo importante: La ventaja mec&aacute;nica de la palanca</text>
+    <text x="500" y="620" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#188038">Lo importante: La ventaja mecánica de la palanca</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="70" y="645"><b>Ventaja Mec&aacute;nica (VM) = Distancia del fulcro a la carga ÷ Distancia del fulcro al esfuerzo</b></text>
+      <text x="70" y="645"><b>Ventaja Mecánica (VM) = Distancia del fulcro a la carga ÷ Distancia del fulcro al esfuerzo</b></text>
 
-      <text x="70" y="670">• Si la distancia de la carga es MAYOR, conseguimos m&aacute;s ventaja (2.ª clase es la mejor)</text>
+      <text x="70" y="670">• Si la distancia de la carga es MAYOR, conseguimos más ventaja (2.ª clase es la mejor)</text>
       <text x="70" y="690">• Si la distancia del esfuerzo es MAYOR, perdemos ventaja pero ganamos velocidad/alcance (3.ª clase)</text>
     </g>
   </g>

@@ -15,7 +15,7 @@
 
   <!-- Title -->
   <text x="500" y="35" class="title" font-size="18">Arquitectura IoT: de sensores a decisiones</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">C&oacute;mo un sensor en el huerto se conecta con reglas en la nube</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Cómo un sensor en el huerto se conecta con reglas en la nube</text>
 
   <!-- LEFT: Physical Layer (SENSORS) -->
   <g>

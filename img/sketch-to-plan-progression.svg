@@ -16,15 +16,15 @@
   <rect width="1000" height="700" fill="#f8f9fa"/>
 
   <!-- Title -->
-  <text x="500" y="35" class="title" font-size="18">Del boceto al plano: la evoluci&oacute;n del dibujo</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">C&oacute;mo evoluciona el dibujo desde la idea r&aacute;pida hasta el plano t&eacute;cnico exacto</text>
+  <text x="500" y="35" class="title" font-size="18">Del boceto al plano: la evolución del dibujo</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Cómo evoluciona el dibujo desde la idea rápida hasta el plano técnico exacto</text>
 
   <!-- Left: BOCETO (Sketch) -->
   <g>
     <rect x="30" y="100" width="280" height="280" fill="#fff8e8" stroke="#f39c12" stroke-width="2" rx="4"/>
 
     <text x="170" y="130" class="title" font-size="14">BOCETO</text>
-    <text x="170" y="150" class="label" font-size="9" text-anchor="middle" fill="#f39c12" font-weight="bold">La idea r&aacute;pida</text>
+    <text x="170" y="150" class="label" font-size="9" text-anchor="middle" fill="#f39c12" font-weight="bold">La idea rápida</text>
 
     <!-- Example sketch -->
     <g transform="translate(170, 180)">
@@ -37,7 +37,7 @@
 
     <!-- Characteristics -->
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="50" y="280">✓ R&aacute;pido de hacer</text>
+      <text x="50" y="280">✓ Rápido de hacer</text>
       <text x="50" y="300">✓ Sin instrumentos</text>
       <text x="50" y="320">✓ Solo idea general</text>
       <text x="50" y="340">✗ No tiene medidas</text>
@@ -73,7 +73,7 @@
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
       <text x="380" y="280">✓ Proporciones correctas</text>
       <text x="380" y="300">✓ Medidas aproximadas</text>
-      <text x="380" y="320">✓ R&aacute;pido pero m&aacute;s preciso</text>
+      <text x="380" y="320">✓ Rápido pero más preciso</text>
       <text x="380" y="340">✗ No es exacto</text>
     </g>
   </g>
@@ -86,7 +86,7 @@
     <rect x="690" y="100" width="280" height="280" fill="#f0fef0" stroke="#27ae60" stroke-width="2" rx="4"/>
 
     <text x="830" y="130" class="title" font-size="14">PLANO</text>
-    <text x="830" y="150" class="label" font-size="9" text-anchor="middle" fill="#27ae60" font-weight="bold">Precisi&oacute;n exacta</text>
+    <text x="830" y="150" class="label" font-size="9" text-anchor="middle" fill="#27ae60" font-weight="bold">Precisión exacta</text>
 
     <!-- Example technical plan -->
     <g transform="translate(830, 180)">
@@ -102,15 +102,15 @@
 
       <!-- Title block indicator -->
       <rect x="-35" y="35" width="70" height="20" fill="none" stroke="#27ae60" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="0" y="48" class="code" text-anchor="middle" fill="#27ae60" font-size="8">Cajet&iacute;n</text>
+      <text x="0" y="48" class="code" text-anchor="middle" fill="#27ae60" font-size="8">Cajetín</text>
     </g>
 
     <!-- Characteristics -->
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
       <text x="710" y="280">✓ Medidas exactas</text>
       <text x="710" y="300">✓ Tolerancias</text>
-      <text x="710" y="320">✓ Instrumental (regla, comp&aacute;s)</text>
-      <text x="710" y="340">✓ V&aacute;lido para fabricar</text>
+      <text x="710" y="320">✓ Instrumental (regla, compás)</text>
+      <text x="710" y="340">✓ Válido para fabricar</text>
     </g>
   </g>
 
@@ -118,20 +118,20 @@
   <g>
     <rect x="30" y="420" width="940" height="260" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
 
-    <text x="500" y="450" class="title" font-size="13">El viaje del dibujo t&eacute;cnico</text>
+    <text x="500" y="450" class="title" font-size="13">El viaje del dibujo técnico</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
       <text x="60" y="480"><b>Fase 1: BOCETO</b></text>
-      <text x="80" y="500">Es la idea inicial. Lo haces r&aacute;pido, sin herramientas, solo para capturar lo que imaginas.</text>
+      <text x="80" y="500">Es la idea inicial. Lo haces rápido, sin herramientas, solo para capturar lo que imaginas.</text>
       <text x="80" y="520">Ejemplo: dibujas un taburete en una servilleta.</text>
 
       <text x="60" y="555"><b>Fase 2: CROQUIS</b></text>
-      <text x="80" y="575">Le das forma real al boceto. Ahora respetas las proporciones y a&ntilde;ades medidas aproximadas.</text>
-      <text x="80" y="595">Lo haces en papel milimetrado y puede llevar m&aacute;s tiempo, pero sigue siendo r&aacute;pido.</text>
+      <text x="80" y="575">Le das forma real al boceto. Ahora respetas las proporciones y añades medidas aproximadas.</text>
+      <text x="80" y="595">Lo haces en papel milimetrado y puede llevar más tiempo, pero sigue siendo rápido.</text>
 
       <text x="60" y="630"><b>Fase 3: PLANO</b></text>
       <text x="80" y="650">Es el documento oficial, exacto, con todas las medidas y tolerancias.</text>
-      <text x="80" y="670">Necesita regla, comp&aacute;s, o programas CAD. Con &eacute;l pueden fabricar lo que diseñaste, en cualquier taller del mundo.</text>
+      <text x="80" y="670">Necesita regla, compás, o programas CAD. Con él pueden fabricar lo que diseñaste, en cualquier taller del mundo.</text>
     </g>
   </g>
 

@@ -136,7 +136,7 @@
       <text x="50" y="545"><b>Aluminio:</b> Más ligero que el acero, menos resistente, pero excelente para structures que no pesan mucho</text>
       <text x="50" y="570"><b>Plástico impreso (3D):</b> Débil en todos los esfuerzos, especialmente en tensión y cortante</text>
       <text x="50" y="595"><b>Madera:</b> Resiste bien la compresión <b>paralela</b> a las fibras (columna de madera), pero no la perpendicular</text>
-      <text x="50" y="620"><text x="50" y="620"><b>Evitar fallos:</b> Los ingenieros eligen materiales y formas para que el esfuerzo máximo que sufran sea menor que su límite de ruptura. Y dejan un margen de seguridad.</text>
+      <text x="50" y="620"><b>Evitar fallos:</b> Los ingenieros eligen materiales y formas para que el esfuerzo máximo que sufran sea menor que su límite de ruptura. Y dejan un margen de seguridad.</text>
       <text x="50" y="655"><b>Triangular funciona:</b> Un triángulo no se deforma. Por eso se usan en cerchas, grúas y cualquier sitio donde necesites resistencia máxima</text>
     </g>
   </g>

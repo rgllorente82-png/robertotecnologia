@@ -49,7 +49,7 @@
 
   <!-- RIGHT: Practical examples -->
   <g id="examples">
-    <!-- Example 1: Battery & LED -->
+    <!-- Example 1: Battery &amp; LED -->
     <g>
       <rect x="450" y="80" width="500" height="120" class="example-box" rx="5"/>
       <text x="470" y="105" class="label" font-weight="bold">Ejemplo 1: LED y batería (típico)</text>

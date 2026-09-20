@@ -18,14 +18,14 @@
 
   <!-- Title -->
   <text x="500" y="35" class="title" font-size="18">Un problema no es una idea</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">La diferencia entre problema y soluci&oacute;n</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">La diferencia entre problema y solución</text>
 
   <!-- LEFT: PROBLEM -->
   <g>
     <rect x="30" y="90" width="430" height="280" fill="#fff8e8" stroke="#e74c3c" stroke-width="2" rx="4"/>
     
     <text x="245" y="120" class="title" font-size="13">PROBLEMA</text>
-    <text x="245" y="138" class="label" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="bold">Lo que est&aacute; mal, lo que falta</text>
+    <text x="245" y="138" class="label" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="bold">Lo que está mal, lo que falta</text>
 
     <!-- Example -->
     <g transform="translate(245, 170)">
@@ -39,15 +39,15 @@
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
       <text x="60" y="280">✓ Describe un estado actual</text>
       <text x="60" y="298">✓ Responde a "¿qué va mal?"</text>
-      <text x="60" y="316">✓ Neutral: sin opci&oacute;n preferida</text>
-      <text x="60" y="334">Ejemplo: "Es dif&iacute;cil riego manual"</text>
+      <text x="60" y="316">✓ Neutral: sin opción preferida</text>
+      <text x="60" y="334">Ejemplo: "Es difícil riego manual"</text>
     </g>
   </g>
 
   <!-- Arrow between -->
   <g>
     <path d="M 490 240 L 540 240" stroke="#3498db" stroke-width="2.5" fill="none" marker-end="url(#arrowblue)"/>
-    <text x="515" y="228" class="label" font-size="10" fill="#3498db" font-weight="bold" text-anchor="middle">¿C&oacute;mo lo</text>
+    <text x="515" y="228" class="label" font-size="10" fill="#3498db" font-weight="bold" text-anchor="middle">¿Cómo lo</text>
     <text x="515" y="242" class="label" font-size="10" fill="#3498db" font-weight="bold" text-anchor="middle">arreglamos?</text>
   </g>
 
@@ -55,7 +55,7 @@
   <g>
     <rect x="540" y="90" width="430" height="280" fill="#f0fef0" stroke="#27ae60" stroke-width="2" rx="4"/>
     
-    <text x="755" y="120" class="title" font-size="13">SOLUCI&Oacute;N</text>
+    <text x="755" y="120" class="title" font-size="13">SOLUCIÓN</text>
     <text x="755" y="138" class="label" font-size="10" fill="#27ae60" text-anchor="middle" font-weight="bold">Una forma de arreglarlo</text>
 
     <!-- Example -->
@@ -68,10 +68,10 @@
 
     <!-- Characteristics -->
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="570" y="280">✓ Describe una acci&oacute;n o cambio</text>
-      <text x="570" y="298">✓ Responde a "¿qu&eacute; hacemos?"</text>
+      <text x="570" y="280">✓ Describe una acción o cambio</text>
+      <text x="570" y="298">✓ Responde a "¿qué hacemos?"</text>
       <text x="570" y="316">✓ Preferida: UNA idea, NO todas</text>
-      <text x="570" y="334">Ejemplo: "Sistema autom&aacute;tico"</text>
+      <text x="570" y="334">Ejemplo: "Sistema automático"</text>
     </g>
   </g>
 
@@ -79,7 +79,7 @@
   <g>
     <rect x="30" y="410" width="940" height="280" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
 
-    <text x="500" y="440" class="title" font-size="13">El error m&aacute;s com&uacute;n</text>
+    <text x="500" y="440" class="title" font-size="13">El error más común</text>
 
     <!-- Left side: ERROR -->
     <g>
@@ -89,13 +89,13 @@
       
       <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
         <text x="70" y="515">Lo que escriben:</text>
-        <text x="90" y="535" class="code" fill="#e74c3c">Los ni&ntilde;os duermen poco</text>
+        <text x="90" y="535" class="code" fill="#e74c3c">Los niños duermen poco</text>
         <text x="90" y="555" class="code" fill="#e74c3c">No hay riego en la escuela</text>
         <text x="90" y="575" class="code" fill="#e74c3c">Contamina mucho</text>
         <text x="90" y="595" class="code" fill="#e74c3c">Es muy caro</text>
         
         <text x="70" y="625" font-weight="bold">Problema:</text>
-        <text x="90" y="642">Sin criterios no tienes c&oacute;mo elegir</text>
+        <text x="90" y="642">Sin criterios no tienes cómo elegir</text>
       </g>
     </g>
 
@@ -109,7 +109,7 @@
         <text x="520" y="515">Lo que escriben:</text>
         <text x="540" y="535" class="code" fill="#27ae60">El riego manual cuesta 200h/año</text>
         <text x="540" y="555" class="code" fill="#27ae60">El sistema debe costar &lt;300€</text>
-        <text x="540" y="575" class="code" fill="#27ae60">Ocupar m&aacute;s de 1m² no entra</text>
+        <text x="540" y="575" class="code" fill="#27ae60">Ocupar más de 1m² no entra</text>
         <text x="540" y="595" class="code" fill="#27ae60">Funcionar sin mantenimiento</text>
         
         <text x="520" y="625" font-weight="bold">Ventaja:</text>

@@ -11,19 +11,19 @@
   <rect width="1000" height="700" fill="#f8f9fa"/>
 
   <!-- Title -->
-  <text x="500" y="35" class="title" font-size="18">Tensi&oacute;n, intensidad y resistencia</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">La ley de Ohm: el empu&aacute;n, el caudal y el estorbo</text>
+  <text x="500" y="35" class="title" font-size="18">Tensión, intensidad y resistencia</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">La ley de Ohm: el empuán, el caudal y el estorbo</text>
 
   <!-- THREE CONCEPTS -->
   <!-- TENSION -->
   <g>
     <rect x="30" y="90" width="280" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="4"/>
     
-    <text x="170" y="120" class="title" font-size="13">TENSI&Oacute;N (V)</text>
-    <text x="170" y="138" class="label" font-size="10" fill="#3498db" text-anchor="middle" font-weight="bold">Voltios · Empu&aacute;n</text>
+    <text x="170" y="120" class="title" font-size="13">TENSIÓN (V)</text>
+    <text x="170" y="138" class="label" font-size="10" fill="#3498db" text-anchor="middle" font-weight="bold">Voltios · Empuán</text>
 
     <!-- Analogy: water pressure -->
-    <text x="170" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analog&iacute;a: presión</text>
+    <text x="170" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analogía: presión</text>
     <g transform="translate(170, 190)">
       <rect x="-30" y="-15" width="60" height="30" fill="none" stroke="#3498db" stroke-width="2" rx="3"/>
       <circle cx="-35" cy="0" r="6" fill="#3498db"/>
@@ -44,7 +44,7 @@
     <text x="500" y="138" class="label" font-size="10" fill="#27ae60" text-anchor="middle" font-weight="bold">Amperios · Caudal</text>
 
     <!-- Analogy: water flow -->
-    <text x="500" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analog&iacute;a: flujo de agua</text>
+    <text x="500" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analogía: flujo de agua</text>
     <g transform="translate(500, 190)">
       <path d="M -30 -10 Q 0 0 30 -10" stroke="#27ae60" stroke-width="2" fill="none"/>
       <path d="M -30 10 Q 0 0 30 10" stroke="#27ae60" stroke-width="2" fill="none"/>
@@ -64,7 +64,7 @@
     <text x="830" y="138" class="label" font-size="10" fill="#f39c12" text-anchor="middle" font-weight="bold">Ohmios · Estorbo</text>
 
     <!-- Analogy: pipe diameter -->
-    <text x="830" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analog&iacute;a: tubo estrecho</text>
+    <text x="830" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analogía: tubo estrecho</text>
     <g transform="translate(830, 190)">
       <rect x="-20" y="-8" width="40" height="16" fill="none" stroke="#f39c12" stroke-width="2" rx="2"/>
       <circle cx="-25" cy="0" r="6" fill="#f39c12"/>
@@ -82,7 +82,7 @@
     <rect x="30" y="320" width="940" height="360" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
 
     <text x="500" y="350" class="title" font-size="13">La ley de Ohm: V = I × R</text>
-    <text x="500" y="370" class="label" font-size="10" fill="#666" text-anchor="middle">Tensi&oacute;n = Intensidad × Resistencia</text>
+    <text x="500" y="370" class="label" font-size="10" fill="#666" text-anchor="middle">Tensión = Intensidad × Resistencia</text>
 
     <!-- The triangle -->
     <g transform="translate(500, 420)">
@@ -110,7 +110,7 @@
 
       <!-- Key insight -->
       <rect x="50" y="660" width="900" height="40" fill="#f0f0f0" stroke="#ccc" stroke-width="1" rx="2"/>
-      <text x="500" y="680" text-anchor="middle" font-weight="bold" fill="#2c3e50">Lo importante: si subes tensi&oacute;n Y baja resistencia, la intensidad se dispara (¡cuidado con los cortocircuitos!)</text>
+      <text x="500" y="680" text-anchor="middle" font-weight="bold" fill="#2c3e50">Lo importante: si subes tensión Y baja resistencia, la intensidad se dispara (¡cuidado con los cortocircuitos!)</text>
     </g>
   </g>
 
