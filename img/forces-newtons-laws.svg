@@ -1,0 +1,115 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .box { stroke: #2c3e50; stroke-width: 2; }
+      .arrow { stroke: #e74c3c; stroke-width: 3; fill: none; marker-end: url(#arrowred); }
+      .good { stroke: #27ae60; stroke-width: 3; fill: none; marker-end: url(#arrowgreen); }
+    </style>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Las Tres Leyes de Newton</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666">El fundamento de toda la mecánica clásica</text>
+
+  <!-- LAW 1 -->
+  <g>
+    <rect x="30" y="80" width="300" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="180" y="110" class="title" font-size="13">1ª LEY (Inercia)</text>
+
+    <!-- Visual: object at rest -->
+    <circle cx="150" cy="155" r="20" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
+    <text x="150" y="160" class="label" font-size="10" font-weight="bold">En reposo</text>
+
+    <!-- Visual: object moving -->
+    <circle cx="200" cy="155" r="20" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
+    <text x="200" y="160" class="label" font-size="10" font-weight="bold">Movimiento</text>
+    <path d="M220,155 L250,155" class="good"/>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="50" y="210"><b>Si no hay fuerza:</b> Un objeto en reposo</text>
+      <text x="50" y="225">permanece en reposo. Uno en movimiento</text>
+      <text x="50" y="240">sigue con velocidad constante.</text>
+    </g>
+  </g>
+
+  <!-- LAW 2 -->
+  <g>
+    <rect x="350" y="80" width="300" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="500" y="110" class="title" font-size="13">2ª LEY (F = m·a)</text>
+
+    <!-- Formula box -->
+    <rect x="380" y="130" width="240" height="50" fill="white" stroke="#3498db" stroke-width="2" rx="3"/>
+    <text x="500" y="155" class="title" font-size="12">F = m × a</text>
+
+    <!-- Visual: before and after -->
+    <circle cx="420" cy="205" r="15" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
+    <text x="420" y="210" class="label" font-size="9">m</text>
+    <path d="M435,205 L480,205" class="arrow"/>
+    <text x="460" y="200" class="label" font-size="9">F</text>
+
+    <circle cx="520" cy="205" r="15" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
+    <path d="M535,205 L570,205" class="good" stroke-width="4"/>
+    <text x="555" y="200" class="label" font-size="10" font-weight="bold">a</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="370" y="235"><b>Más fuerza = más aceleración</b></text>
+      <text x="370" y="250">Una fuerza produce aceleración.</text>
+    </g>
+  </g>
+
+  <!-- LAW 3 -->
+  <g>
+    <rect x="670" y="80" width="300" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="820" y="110" class="title" font-size="13">3ª LEY (Acción-Reacción)</text>
+
+    <!-- Visual: two objects pushing each other -->
+    <circle cx="760" cy="160" r="15" fill="#ff9999" stroke="#e74c3c" stroke-width="2"/>
+    <path d="M775,160 L795,160" class="arrow"/>
+
+    <circle cx="840" cy="160" r="15" fill="#99ccff" stroke="#3498db" stroke-width="2"/>
+    <path d="M825,160 L805,160" stroke="#27ae60" stroke-width="3" fill="none"/>
+
+    <text x="820" y="200" class="label" font-size="10" text-anchor="middle" font-weight="bold">Acción ↔ Reacción</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="700" y="235"><b>Si A empuja a B:</b></text>
+      <text x="700" y="250">B empuja a A con igual fuerza</text>
+      <text x="700" y="265">pero en dirección contraria.</text>
+    </g>
+  </g>
+
+  <!-- APPLICATIONS SECTION -->
+  <g>
+    <rect x="30" y="300" width="940" height="380" fill="#fffbea" stroke="#f39c12" stroke-width="2" rx="5"/>
+
+    <text x="60" y="330" class="title" font-size="14" text-anchor="start">Aplicaciones prácticas de las tres leyes</text>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="365"><b>1ª Ley (Inercia):</b> Por eso llevas cinturón de seguridad. El coche frena (fuerza del freno), pero tú sigues hacia adelante (inercia). El cinturón es la fuerza que te detiene contigo.</text>
+
+      <text x="60" y="395"><b>2ª Ley (F = m·a):</b> Un motor pequeño no levanta una carga grande (poca fuerza). Un motor potente sí (mucha fuerza). La aceleración que consigues depende de cuánta fuerza tengas y cuánto pese lo que mueves.</text>
+
+      <text x="60" y="425"><b>3ª Ley (Acción-Reacción):</b> Un cohete expulsa gas hacia abajo (acción). El gas lo empuja hacia arriba (reacción). Un aviador apunta el avión hacia delante, pero su turbo lo empuja hacia atrás: acción-reacción.</text>
+
+      <text x="60" y="460"><b>En máquinas simples:</b> Una palanca de 2º te permite levantar 100 kg con 25 kg de fuerza (ganancia 4:1 en fuerza, pérdida 4:1 en distancia). La energía es la misma: F₁·d₁ = F₂·d₂ (ley de conservación de la energía, que viene de Newton).</text>
+
+      <text x="60" y="495"><b>Peso vs Masa:</b> Tu masa es siempre 70 kg. Tu peso es 70 kg × 9,81 m/s² = 686 N (la fuerza que la gravedad ejerce sobre ti). En otro planeta, tu masa sigue siendo 70 kg, pero tu peso cambia (porque g ≠ 9,81).</text>
+
+      <text x="60" y="530"><b>Sistema solar:</b> Los planetas orbitan el sol porque la gravedad (una fuerza) los mantiene en trayectoria curva. Sin esa fuerza, seguirían recto (1ª ley).</text>
+
+      <text x="60" y="565"><b>Clave:</b> Toda la tecnología (motores, puentes, edificios, aviones, robots) sigue estas tres leyes. Si una máquina funciona, es porque las fuerzas están equilibradas (o acelera como se espera). Si falla, es porque hay una fuerza que no se calculó bien.</text>
+    </g>
+  </g>
+
+</svg>
