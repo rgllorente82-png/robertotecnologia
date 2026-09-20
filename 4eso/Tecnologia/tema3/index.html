@@ -5350,7 +5350,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
 <style>
 .rtz-pista{display:none}
 @media (max-width:760px){
-  figure.foto img[src$=".svg"]{cursor:zoom-in}
+  figure.foto img{cursor:zoom-in}
   .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
     color:var(--muted,#667);text-transform:uppercase}
   /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
@@ -5386,10 +5386,13 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
   var previo=null;
 
-  // ancho al que el diagrama se lee: su tamaño de diseño, nunca menos de 900 px
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
   function anchoUtil(o){
     var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
-    return Math.max(w, 900);
+    return esVector(o) ? Math.max(w, 900) : w;
   }
   function abrir(o){
     previo=o;
@@ -5425,11 +5428,11 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   // recorrer los que hay al cargar.
   document.addEventListener('click', function(e){
     var o=e.target;
-    if(o && o.tagName==='IMG' && /\.svg(\?|$)/i.test(o.getAttribute('src')||'')
-       && !capa.contains(o)) abrir(o);
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && o.closest('figure.foto')) abrir(o);
   });
   function marcar(){
-    var figs=document.querySelectorAll('img[src$=".svg"]');
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
     Array.prototype.forEach.call(figs, function(o){
       if(capa.contains(o) || o.dataset.rtz) return;
       o.dataset.rtz='1';
@@ -5454,6 +5457,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
+
 
 
 </body>

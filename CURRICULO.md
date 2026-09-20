@@ -234,9 +234,9 @@ obliga a que los temas se encadenen, no a que se sumen.
 
 | | Tema | Qué pregunta responde | Qué deja abierto |
 |---|---|---|---|
-| T0 | ¿Qué es la tecnología? | ¿De qué va esta asignatura? | ¿Y cómo se hace, en concreto? |
-| U1 | El proceso tecnológico | ¿Cuál es el método? | Ya sé qué quiero. ¿Cómo se lo explico a otro? |
-| **U2** | **Representación gráfica** | Comunicar el diseño sin ambigüedad | Sé qué construir y cómo decirlo. ¿De qué lo hago? |
+| T0 | ¿Qué es la tecnología? | ¿De qué va esta asignatura? | ¿Y cómo se dice, en concreto, lo que uno quiere construir? |
+| **U2** | **Representación gráfica** | Cómo se representa una pieza sin ambigüedad | Ya sé dibujarlo. ¿Y quién decide qué construir, y en qué orden? |
+| U1 | El proceso tecnológico | ¿Cuál es el método, de la necesidad al objeto montado? | Tengo el método y sé dibujarlo. ¿De qué lo hago? |
 | U3-U5 | Materiales y su impacto | ¿Qué material, y a qué coste ambiental? | Ya tengo material. ¿Cómo hago que se sostenga? |
 | U6 | Estructuras | Que aguante sin romperse | ¿Y si además tiene que moverse? |
 | U7 | Mecanismos | Transmitir y transformar movimiento | El músculo no basta. ¿De dónde saco energía? |
@@ -245,6 +245,24 @@ obliga a que los temas se encadenen, no a que se sumen.
 | U10 | Internet, datos y seguridad | La red, y sus riesgos | ¿Cómo produzco y difundo con esto? |
 | U11 | Herramientas digitales | Comunicar en digital | Cierra el círculo abierto en U2 |
 | U12 | Programación y robótica | Automatizar lo construido | Necesita todo lo anterior: es la cima |
+
+> ⭐ **U2 se da ANTES que U1** (decisión del autor, 20-sep-2026). Los números de
+> la web no cambian —siguen siendo tema 1 y tema 2—, cambia el orden en que se
+> dan. Tres razones, las tres medidas sobre el material ya publicado:
+>
+> 1. **Estaban enseñando lo mismo dos veces.** La sesión 3 del tema 1 («Tres
+>    dibujos que no son el mismo dibujo») y la sesión 2 del tema 2 («Boceto,
+>    croquis y plano») definen los mismos tres conceptos con las mismas palabras.
+> 2. **El tema 1 ya daba por sabido el 2.** Su sesión 5 exige tener «el croquis
+>    acotado y la hoja de proceso a la vista»: se estaba acotando antes de haber
+>    aprendido a acotar.
+> 3. **El tema 2 se motiva solo.** Abre con «¿Por qué dibujamos?» y con el reto
+>    de dibujar un estuche en 30 segundos; no necesita al tema 1 por delante.
+>
+> Esto tensa la regla de no introducir un concepto antes del problema que lo
+> necesita. Se sostiene porque el problema lo crea el propio tema 2 en su primera
+> sesión, y porque el proyecto del tema 1 se convierte en lo que debe ser: el
+> sitio donde se aplica todo, no donde se explica el dibujo por segunda vez.
 
 **Observación sobre el orden del libro.** La cadena funciona: cada unidad deja
 una pregunta que abre la siguiente. Solo hay un detalle que conviene explotar en

@@ -1010,10 +1010,12 @@ footer .wrap{padding-block:18px 26px}
            <b>mil&iacute;metros</b>, y cada una <b>una sola vez</b>.</p>
       </div>
       <div class="nota">
-        <span class="n-tag">Esto se ve entero en el tema siguiente</span>
-        Aqu&iacute; solo hace falta que distingas los tres y que sepas acotar un croquis sencillo. Las
-        <b>vistas</b>, las <b>escalas</b>, las reglas finas de acotaci&oacute;n y el <b>cajet&iacute;n</b>
-        son el <a href="../tema2/">tema 2, <i>Representaci&oacute;n gr&aacute;fica de un proyecto</i></a>, entero.
+        <span class="n-tag">Esto ya lo trabajaste en el tema 2</span>
+        Aqu&iacute; es un recordatorio de tres l&iacute;neas, no materia nueva: las
+        <b>vistas</b>, las <b>escalas</b>, las reglas de acotaci&oacute;n y el <b>cajet&iacute;n</b> los diste
+        en el <a href="../tema2/">tema 2, <i>Representaci&oacute;n gr&aacute;fica de un proyecto</i></a>, que va antes que este.
+        Lo que cambia hoy es para qu&eacute; lo usas: aqu&iacute; el croquis no es el ejercicio, es el papel con el que
+        vais a cortar.
       </div>
 
       <h3>Lo que no se ve en un dibujo bonito: el despiece</h3>
@@ -2244,9 +2246,9 @@ footer .wrap{padding-block:18px 26px}
         <span class="n-tag">Siguiente tema</span>
         En este tema hab&eacute;is dibujado croquis a mano alzada y os ha bastado para cortar cuatro
         piezas. Para algo m&aacute;s complicado no basta: hacen falta <b>vistas</b>, <b>escalas</b>,
-        reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. De eso va el
-        <b>tema 2</b>, entero.
-      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema2/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 2 &middot; Representación gráfica de un proyecto &rarr;</a></p></div>
+        reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. Eso es justo lo que trabajasteis en el
+        <b>tema 2</b>, que disteis antes que este.
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema3/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 3 &middot; Materiales de uso técnico &rarr;</a></p></div>
     </section>
   </div>
 
@@ -2388,7 +2390,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
 <style>
 .rtz-pista{display:none}
 @media (max-width:760px){
-  figure.foto img[src$=".svg"]{cursor:zoom-in}
+  figure.foto img{cursor:zoom-in}
   .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
     color:var(--muted,#667);text-transform:uppercase}
   /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
@@ -2424,10 +2426,13 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
   var previo=null;
 
-  // ancho al que el diagrama se lee: su tamaño de diseño, nunca menos de 900 px
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
   function anchoUtil(o){
     var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
-    return Math.max(w, 900);
+    return esVector(o) ? Math.max(w, 900) : w;
   }
   function abrir(o){
     previo=o;
@@ -2463,11 +2468,11 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   // recorrer los que hay al cargar.
   document.addEventListener('click', function(e){
     var o=e.target;
-    if(o && o.tagName==='IMG' && /\.svg(\?|$)/i.test(o.getAttribute('src')||'')
-       && !capa.contains(o)) abrir(o);
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && o.closest('figure.foto')) abrir(o);
   });
   function marcar(){
-    var figs=document.querySelectorAll('img[src$=".svg"]');
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
     Array.prototype.forEach.call(figs, function(o){
       if(capa.contains(o) || o.dataset.rtz) return;
       o.dataset.rtz='1';
@@ -2492,6 +2497,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
+
 
 
 </body>
