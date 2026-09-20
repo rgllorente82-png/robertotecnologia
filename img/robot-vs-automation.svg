@@ -1,0 +1,77 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .box { stroke: #2c3e50; stroke-width: 2; }
+      .good { fill: #d4edda; stroke: #27ae60; stroke-width: 2; }
+      .bad { fill: #f8d7da; stroke: #e74c3c; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Robot vs Automatismo</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">¿Cuál es la diferencia? ¿Un horno es un robot?</text>
+
+  <!-- LEFT: AUTOMATION (NOT A ROBOT) -->
+  <g>
+    <rect x="30" y="90" width="450" height="480" class="bad" rx="5"/>
+    <text x="255" y="120" class="title" font-size="14">AUTOMATISMO (No es un robot)</text>
+
+    <!-- Example: Dishwasher -->
+    <circle cx="100" cy="180" r="40" fill="#e8e8e8" stroke="#333" stroke-width="2"/>
+    <text x="100" y="185" class="label" font-size="11" text-anchor="middle" font-weight="bold">Lavavajillas</text>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="240"><b>Características:</b></text>
+      <text x="80" y="260">• Tiene programa: ciclos predefinidos</text>
+      <text x="80" y="280">• Tiene sensores: detecta temperatura, nivel</text>
+      <text x="80" y="300">• Tiene actuadores: bombas, calentadores, motores</text>
+
+      <text x="60" y="340"><b>PERO...</b></text>
+      <text x="80" y="360">❌ No percibe el mundo exterior</text>
+      <text x="80" y="380">❌ No se adapta a cambios: si mueves los platos,</text>
+      <text x="95" y="400">sigue igual (falla silenciosamente)</text>
+      <text x="80" y="420">❌ Solo hace lo que le dijeron que hiciera</text>
+
+      <text x="60" y="460"><b>Conclusión:</b> Ejecuta, no decide.</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: ROBOT -->
+  <g>
+    <rect x="520" y="90" width="450" height="480" fill="#d4f1e6" stroke="#27ae60" stroke-width="2" rx="5"/>
+    <text x="745" y="120" class="title" font-size="14">ROBOT (sí es un robot)</text>
+
+    <!-- Example: Vacuum Robot -->
+    <circle cx="670" cy="180" r="40" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+    <text x="670" y="185" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#fff">Roomba</text>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="550" y="240"><b>Características:</b></text>
+      <text x="570" y="260">• Sensores complejos: luz, distancia, suelo</text>
+      <text x="570" y="280">• Actuadores: motores, ruedas, cepillo</text>
+      <text x="570" y="300">• Programa: código que procesa sensores</text>
+
+      <text x="550" y="340"><b>La diferencia clave:</b></text>
+      <text x="570" y="360">✓ Percibe el entorno en tiempo real</text>
+      <text x="570" y="380">✓ Toma decisiones basadas en lo que ve</text>
+      <text x="570" y="400">✓ Se adapta: si hay un obstáculo, lo rodea</text>
+      <text x="570" y="420">✓ Interactúa con el mundo, no solo ejecuta</text>
+
+      <text x="550" y="460"><b>Conclusión:</b> Percibe, decide, actúa.</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM: Key difference -->
+  <g>
+    <rect x="30" y="580" width="940" height="0" fill="none" stroke="none"/>
+    <text x="500" y="595" class="label" font-size="11" text-anchor="middle" fill="#666" font-weight="bold">
+      La clave: Un robot <b>reacciona a cambios en el entorno</b>. Un automatismo sigue su programa sin enterarse.
+    </text>
+  </g>
+
+</svg>

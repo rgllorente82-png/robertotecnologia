@@ -1,0 +1,106 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .mono { font-family: 'Courier New', monospace; font-size: 11px; }
+    </style>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Energ&iacute;a incorporada de materiales</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">MJ para fabricar 1 kg: la &quot;mochila energ&eacute;tica&quot; que lleva cada material</text>
+
+  <!-- Three material columns -->
+
+  <!-- WOOD -->
+  <g>
+    <rect x="40" y="90" width="270" height="350" fill="#f4e8d8" stroke="#8b6914" stroke-width="2" rx="5"/>
+    <text x="175" y="120" class="title" font-size="13">Madera</text>
+
+    <!-- Bar showing energy -->
+    <rect x="80" y="150" width="150" height="40" fill="#d4a574" stroke="#8b6914" stroke-width="1.5"/>
+    <text x="175" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">2,5 MJ</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="225"><b>Ventajas:</b></text>
+      <text x="70" y="245">• M&aacute;s bajo de todos</text>
+      <text x="70" y="260">• Es renovable</text>
+      <text x="70" y="275">• F&aacute;cil de reciclar</text>
+      <text x="70" y="290">• Se recorta f&aacute;cilmente</text>
+
+      <text x="60" y="320"><b>Problema:</b></text>
+      <text x="70" y="340">Menos resistencia: m&aacute;s grueso</text>
+      <text x="70" y="355">= m&aacute;s material total</text>
+    </g>
+  </g>
+
+  <!-- STEEL -->
+  <g>
+    <rect x="365" y="90" width="270" height="350" fill="#e8eef8" stroke="#1a73e8" stroke-width="2" rx="5"/>
+    <text x="500" y="120" class="title" font-size="13">Acero</text>
+
+    <!-- Bar showing energy -->
+    <rect x="405" y="150" width="190" height="40" fill="#4285f4" stroke="#1a73e8" stroke-width="1.5"/>
+    <text x="500" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">32 MJ</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="385" y="225"><b>Ventajas:</b></text>
+      <text x="395" y="245">• Muy resistente</text>
+      <text x="395" y="260">• M&aacute;s delgado = menos kg</text>
+      <text x="395" y="275">• Ampliamente reciclable</text>
+      <text x="395" y="290">• Muchos usos</text>
+
+      <text x="385" y="320"><b>Problema:</b></text>
+      <text x="395" y="340">Mucha energ&iacute;a para</text>
+      <text x="395" y="355">fundir hierro: 1886</text>
+    </g>
+  </g>
+
+  <!-- ALUMINUM -->
+  <g>
+    <rect x="690" y="90" width="270" height="350" fill="#f8f0e8" stroke="#d68910" stroke-width="2" rx="5"/>
+    <text x="825" y="120" class="title" font-size="13">Aluminio</text>
+
+    <!-- Bar showing energy -->
+    <rect x="730" y="150" width="170" height="40" fill="#fbbc04" stroke="#d68910" stroke-width="1.5"/>
+    <text x="825" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">186 MJ</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="710" y="225"><b>Ventajas:</b></text>
+      <text x="720" y="245">• Muy ligero</text>
+      <text x="720" y="260">• Excelente para veh&iacute;culos</text>
+      <text x="720" y="275">• Reciclable indefinidamente</text>
+      <text x="720" y="290">• Resiste corrosion</text>
+
+      <text x="710" y="320"><b>Problema:</b></text>
+      <text x="720" y="340">M&aacute;s caro en energ&iacute;a</text>
+      <text x="720" y="355">que lo que pesa</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM: Key insight -->
+  <g>
+    <rect x="30" y="460" width="940" height="220" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="490" class="title" font-size="13">¿Qu&eacute; significa esto realmente?</text>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="520"><b>1. La cuenta comienza en la f&aacute;brica, no en el bosque</b></text>
+      <text x="80" y="540">Si compras 1 kg de aluminio ya fabricado (lata, marco, etc.), <b>ya lleva dentro 186 MJ de energ&iacute;a</b> que alguien gast&oacute; en la reducci&oacute;n del mineral.</text>
+
+      <text x="60" y="575"><b>2. El aluminio se recicla casi de balde</b></text>
+      <text x="80" y="595">Fundir aluminio reciclado cuesta solo <b>15 MJ, no 186</b>. Por eso reciclar aluminio ahorra el 92% de la energ&iacute;a. El acero reciclado ahorra solo un 20-30%.</text>
+
+      <text x="60" y="630"><b>3. No es lo mismo fabricar que usar</b></text>
+      <text x="80" y="650">En muchos productos, la mitad de la energ&iacute;a total en el ciclo de vida ocurre <b>durante los 5-10 a&ntilde;os de uso</b>, no en los primeros d&iacute;as de fabricaci&oacute;n.</text>
+    </g>
+  </g>
+
+</svg>

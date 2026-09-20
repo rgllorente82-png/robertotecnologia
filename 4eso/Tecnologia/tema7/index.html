@@ -938,6 +938,14 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
 
+      <figure class="foto">
+        <img src="../../../img/robot-vs-automation.svg" width="1000" height="600" loading="lazy"
+             alt="Comparaci&oacute;n entre un automatismo (lavavajillas) y un robot (aspiradora): el automatismo ejecuta sin enterarse, el robot percibe el entorno">
+        <figcaption>La frontera: <b>un robot percibe el entorno y decide basándose en ello</b>. Un automatismo ejecuta su programa pase lo que pase. El lavavajillas no es un robot, aunque sea automático; la Roomba sí, aunque sea más simple.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <h3>De d&oacute;nde sale la palabra, y de d&oacute;nde sale el rebote</h3>
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
@@ -1464,6 +1472,14 @@ digitalWrite(motor, LOW);</pre>
            <b>el robot</b>. Si la rueda patina, el encoder dice que todo va perfecto. Por eso en la
            escena la moqueta le hace lo mismo que al paso a paso.</p>
       </div>
+      <figure class="foto">
+        <img src="../../../img/motor-types-comparison.svg" width="1000" height="700" loading="lazy"
+             alt="Comparaci&oacute;n de tres tipos de motores: DC (r&aacute;pido, barato, no sabe d&oacute;nde est&aacute;), servo (posici&oacute;n exacta, 0-180 grados), stepper (preciso paso a paso)">
+        <figcaption>Los tres motores en este tema: <b>velocidad vs precisión vs coste</b>. Motor DC por tiempo no sabe dónde está. Paso a paso es preciso pero lento y caro. Servo motor llega a una posición exacta pero en rango limitado. La escena de arriba se comporta como si tuviera los tres.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <figure class="foto">
         <img src="../../../img/c7-rotor-paso-a-paso.jpg" width="1280" height="941" alt="Rotor cil&iacute;ndrico de un motor paso a paso, fuera del motor, con su eje y con todo el contorno cubierto de ranuras finas y paralelas al eje, y barniz verde entre ellas" loading="lazy">
         <figcaption>El <b>rotor</b> de un motor paso a paso, sacado de su carcasa. Lo que hace que un paso valga siempre lo mismo no es la electr&oacute;nica: son esas <b>ranuras</b> que le recorren todo el contorno. El rotor se queda quieto en las posiciones en las que sus dientes quedan enfrentados con los del estator, y no en las de en medio. En el tipo m&aacute;s com&uacute;n, el de <b>1,8&deg; por paso</b>, hay <b>50 dientes</b> y el rotor se monta en dos mitades <b>desplazadas medio diente</b> una respecto de la otra: 50 &times; 4 = 200 posiciones por vuelta. El paso angular est&aacute; <b>mecanizado en el metal</b>, y por eso es tan repetible.
@@ -2292,6 +2308,14 @@ digitalWrite(motor, LOW);</pre>
         <p>Las casillas que dejes en blanco son, exactamente, <b>por donde se va a romper</b> el
            automatismo el d&iacute;a que lo pongas en el pasillo.</p>
       </div>
+      <figure class="foto">
+        <img src="../../../img/state-machine-concept.svg" width="1000" height="700" loading="lazy"
+             alt="Concepto de m&aacute;quina de estados: semáforo con tres estados (rojo, amarillo, verde) y transiciones entre ellos; ejemplo de Roomba con estados (espera, explorando, obstáculo, cargando)">
+        <figcaption><b>Máquina de estados</b>: cada círculo es un estado, las flechas son transiciones, y cada transición tiene una condición (cuándo sucede). El semáforo es determinista (siempre pasa el mismo tiempo). La Roomba tiene transiciones basadas en sensores: si choca, gira; si batería baja, va a cargarse.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Abajo tienes la m&aacute;quina montada y <b>funcionando</b>. Pulsa los eventos y mira tres
          cosas a la vez: el diagrama, la l&iacute;nea de c&oacute;digo que te toca y la tabla de
          casillas, que se va encendiendo. El reto es <b>encenderlas las veinte</b>.</p>
