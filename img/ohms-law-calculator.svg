@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      :root { --color-bg: #f8f9fa; --color-text: #2c3e50; }
+      @media (prefers-color-scheme: dark) {
+        :root { --color-bg: #1a1a1a; --color-text: #ecf0f1; }
+      }
+      .bg { fill: var(--color-bg); }
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; text-anchor: middle; fill: var(--color-text); }
+      .label { font-family: Arial, sans-serif; font-size: 13px; fill: var(--color-text); }
+      .triangle { stroke: #3498db; stroke-width: 3; fill: none; }
+      .formula { font-family: 'Courier New', monospace; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #3498db; }
+      .value { font-family: 'Courier New', monospace; font-size: 24px; font-weight: bold; text-anchor: middle; fill: #e74c3c; }
+      .unit { font-family: Arial, sans-serif; font-size: 11px; fill: var(--color-text); text-anchor: middle; }
+      .box-label { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .example-box { stroke: var(--color-text); stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="700" class="bg"/>
+  <text x="500" y="40" class="title">Ley de Ohm: V = I × R</text>
+  <text x="500" y="65" class="label" text-anchor="middle" opacity="0.8">Calculadora interactiva - Ley de Ohm</text>
+
+  <!-- LEFT: Triangle mnemonic -->
+  <g id="triangle-section">
+    <!-- Main triangle -->
+    <polygon points="150,100 150,280 300,190" class="triangle"/>
+    
+    <!-- V at top -->
+    <circle cx="150" cy="100" r="35" fill="#e74c3c" opacity="0.9"/>
+    <text x="150" y="115" class="box-label" font-size="20">V</text>
+    <text x="150" y="130" class="unit">Voltios</text>
+    
+    <!-- I at bottom left -->
+    <circle cx="110" cy="290" r="32" fill="#3498db" opacity="0.9"/>
+    <text x="110" y="305" class="box-label" font-size="20">I</text>
+    <text x="110" y="320" class="unit">Amperios</text>
+    
+    <!-- R at bottom right -->
+    <circle cx="280" cy="290" r="32" fill="#27ae60" opacity="0.9"/>
+    <text x="280" y="305" class="box-label" font-size="20">R</text>
+    <text x="280" y="320" class="unit">Ohmios</text>
+    
+    <!-- Formulas inside triangle -->
+    <text x="150" y="185" class="formula" font-size="13">V = I × R</text>
+    <text x="120" y="225" class="formula" font-size="13">I = V / R</text>
+    <text x="195" y="245" class="formula" font-size="13">R = V / I</text>
+  </g>
+
+  <!-- RIGHT: Practical examples -->
+  <g id="examples">
+    <!-- Example 1: Battery & LED -->
+    <g>
+      <rect x="450" y="80" width="500" height="120" class="example-box" rx="5"/>
+      <text x="470" y="105" class="label" font-weight="bold">Ejemplo 1: LED y batería (típico)</text>
+      
+      <text x="470" y="130" class="label">Tienes: Batería 9V, LED que pide 20mA (0.02A)</text>
+      <text x="470" y="150" class="label" font-weight="bold">¿Qué resistencia necesitas?</text>
+      <text x="470" y="170" class="label" font-family="'Courier New'">R = V / I = 9V / 0.02A = <tspan fill="#e74c3c" font-weight="bold">450 Ω</tspan></text>
+      <text x="470" y="190" class="label" font-size="11" opacity="0.8">Busca una resistencia de 450 Ohmios para proteger el LED</text>
+    </g>
+
+    <!-- Example 2: Car starter -->
+    <g>
+      <rect x="450" y="220" width="500" height="120" class="example-box" rx="5"/>
+      <text x="470" y="245" class="label" font-weight="bold">Ejemplo 2: Motor de arranque (coche)</text>
+      
+      <text x="470" y="270" class="label">Tienes: Batería 12V, Resistencia del motor 0.1Ω</text>
+      <text x="470" y="290" class="label" font-weight="bold">¿Qué corriente circula?</text>
+      <text x="470" y="310" class="label" font-family="'Courier New'">I = V / R = 12V / 0.1Ω = <tspan fill="#e74c3c" font-weight="bold">120A</tspan></text>
+      <text x="470" y="330" class="label" font-size="11" opacity="0.8">¡Corriente ENORME! Por eso el cable del motor es muy grueso</text>
+    </g>
+
+    <!-- Example 3: Light bulb -->
+    <g>
+      <rect x="450" y="360" width="500" height="120" class="example-box" rx="5"/>
+      <text x="470" y="385" class="label" font-weight="bold">Ejemplo 3: Bombilla incandescente</text>
+      
+      <text x="470" y="410" class="label">Sabes: Voltaje 220V (enchufe), Corriente 0.45A</text>
+      <text x="470" y="430" class="label" font-weight="bold">¿Cuál es la resistencia del filamento?</text>
+      <text x="470" y="450" class="label" font-family="'Courier New'">R = V / I = 220V / 0.45A = <tspan fill="#e74c3c" font-weight="bold">489 Ω</tspan></text>
+      <text x="470" y="470" class="label" font-size="11" opacity="0.8">El filamento tiene 489 Ohmios de resistencia (se calienta y brilla)</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM: Key insight -->
+  <rect x="50" y="530" width="900" height="140" fill="#e8f8f5" stroke="#16a085" stroke-width="2" rx="5"/>
+  <g>
+    <text x="70" y="560" class="label" font-weight="bold" fill="#16a085" font-size="14">🔑 La Ley de Ohm es el secreto de la electrónica:</text>
+    
+    <text x="90" y="585" class="label" font-size="12">• Si SUBES el voltaje (V) con R igual → SUBE la corriente</text>
+    <text x="90" y="605" class="label" font-size="12">• Si SUBES la resistencia (R) con V igual → BAJA la corriente</text>
+    <text x="90" y="625" class="label" font-size="12">• La resistencia PROTEGE: evita que entre demasiada corriente</text>
+    <text x="90" y="645" class="label" font-size="12">• La corriente MATA: más de 0.1A puede ser peligroso para humanos</text>
+  </g>
+
+  <!-- Formula reminder -->
+  <g>
+    <circle cx="150" cy="550" r="50" fill="#3498db" opacity="0.15"/>
+    <text x="150" y="555" class="formula" font-size="28">V=IR</text>
+  </g>
+</svg>

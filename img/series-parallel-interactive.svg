@@ -1,0 +1,189 @@
+<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      :root { --color-bg: #f8f9fa; --color-text: #2c3e50; --color-wire: #333; }
+      @media (prefers-color-scheme: dark) {
+        :root { --color-bg: #1a1a1a; --color-text: #ecf0f1; --color-wire: #ccc; }
+      }
+      .bg { fill: var(--color-bg); }
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: var(--color-text); }
+      .label { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; fill: var(--color-text); }
+      .wire { stroke: var(--color-wire); stroke-width: 2; fill: none; }
+      .led-off { fill: none; stroke: #999; stroke-width: 2; }
+      .led-on { fill: #ffff00; stroke: #f39c12; stroke-width: 2; opacity: 0.6; filter: drop-shadow(0 0 8px #f39c12); }
+      .button { cursor: pointer; user-select: none; }
+      .button-rect { stroke: var(--color-text); stroke-width: 2; fill: #e8f8f5; transition: fill 0.3s; }
+      .button-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; fill: var(--color-text); }
+      .active .button-rect { fill: #d5f4e6; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="500" class="bg"/>
+  <text x="600" y="30" class="title" font-size="18">Circuitos Serie vs Paralelo - Interactivo</text>
+  <text x="600" y="50" class="label" font-size="12" opacity="0.7">Haz clic en los botones para cambiar</text>
+
+  <!-- TOGGLE BUTTONS -->
+  <g id="btn-serie" class="button active" onclick="toggleMode('serie')">
+    <rect class="button-rect" x="150" y="70" width="120" height="40" rx="5"/>
+    <text class="button-text" x="210" y="100">SERIE</text>
+  </g>
+
+  <g id="btn-paralelo" class="button" onclick="toggleMode('paralelo')">
+    <rect class="button-rect" x="330" y="70" width="120" height="40" rx="5"/>
+    <text class="button-text" x="390" y="100">PARALELO</text>
+  </g>
+
+  <!-- SERIE CIRCUIT -->
+  <g id="serie-circuit">
+    <!-- Battery -->
+    <rect x="80" y="160" width="20" height="40" fill="white" stroke="#2c3e50" stroke-width="2"/>
+    <line x1="83" y1="160" x2="83" y2="145" stroke="#e74c3c" stroke-width="2"/>
+    <line x1="97" y1="160" x2="97" y2="145" stroke="#333" stroke-width="1"/>
+    <text x="100" y="220" class="label" font-size="10">9V</text>
+
+    <!-- LED 1 -->
+    <circle cx="180" cy="180" r="15" class="led-off" id="led-s1"/>
+    <text x="180" y="210" class="label" font-size="10">LED 1</text>
+    <text x="180" y="223" class="label" font-size="8">Brillante</text>
+
+    <!-- LED 2 -->
+    <circle cx="280" cy="180" r="15" class="led-off" id="led-s2"/>
+    <text x="280" y="210" class="label" font-size="10">LED 2</text>
+    <text x="280" y="223" class="label" font-size="8">Más tenue</text>
+
+    <!-- LED 3 -->
+    <circle cx="380" cy="180" r="15" class="led-off" id="led-s3"/>
+    <text x="380" y="210" class="label" font-size="10">LED 3</text>
+    <text x="380" y="223" class="label" font-size="8">Muy débil</text>
+
+    <!-- Wires -->
+    <line x1="100" y1="160" x2="165" y2="160" class="wire" id="serie-wire-1"/>
+    <line x1="195" y1="180" x2="265" y2="180" class="wire" id="serie-wire-2"/>
+    <line x1="295" y1="180" x2="365" y2="180" class="wire" id="serie-wire-3"/>
+    <line x1="395" y1="180" x2="450" y2="180" class="wire" id="serie-wire-4"/>
+    <line x1="450" y1="180" x2="450" y2="130" class="wire" id="serie-wire-5"/>
+    <line x1="450" y1="130" x2="100" y2="130" class="wire" id="serie-wire-6"/>
+    <line x1="100" y1="130" x2="100" y2="160" class="wire" id="serie-wire-7"/>
+
+    <!-- Characteristics Box -->
+    <rect x="50" y="270" width="450" height="190" fill="#ffe8e8" stroke="#e74c3c" stroke-width="1" rx="3"/>
+    <text x="70" y="290" class="label" font-weight="bold" fill="#e74c3c" font-size="12">Circuito EN SERIE:</text>
+    <text x="70" y="310" class="label" font-size="10">✗ Si un LED se quema, se apagan TODOS</text>
+    <text x="70" y="325" class="label" font-size="10">✗ Voltaje se divide: 9V ÷ 3 = 3V cada uno</text>
+    <text x="70" y="340" class="label" font-size="10">✗ Cada LED brilla menos con más en serie</text>
+    <text x="70" y="360" class="label" font-weight="bold" fill="#2c3e50" font-size="11">Corriente (I): igual en todos los puntos</text>
+    <text x="70" y="375" class="label" font-weight="bold" fill="#2c3e50" font-size="11">Voltaje (V): se divide entre componentes</text>
+    <text x="70" y="390" class="label" font-weight="bold" fill="#2c3e50" font-size="11">Resistencia (R): se suma: R_total = R1+R2+R3</text>
+    <text x="70" y="410" class="label" font-size="10">✓ Uso: Luces navideñas antiguas (ahora peligrosas)</text>
+    <text x="70" y="425" class="label" font-size="10">✓ Ventaja: Control fácil con un interruptor</text>
+    <text x="70" y="450" class="label" font-weight="bold" fill="#e74c3c" font-size="10">⚡ Recuerda: Es fácil que algo falle</text>
+  </g>
+
+  <!-- PARALELO CIRCUIT (Hidden by default) -->
+  <g id="paralelo-circuit" style="display:none">
+    <!-- Battery -->
+    <rect x="80" y="160" width="20" height="40" fill="white" stroke="#2c3e50" stroke-width="2"/>
+    <line x1="83" y1="160" x2="83" y2="145" stroke="#e74c3c" stroke-width="2"/>
+    <line x1="97" y1="160" x2="97" y2="145" stroke="#333" stroke-width="1"/>
+    <text x="100" y="220" class="label" font-size="10">9V</text>
+
+    <!-- Branch 1 -->
+    <circle cx="180" cy="150" r="15" class="led-off" id="led-p1"/>
+    <text x="180" y="180" class="label" font-size="10">LED 1</text>
+    <text x="180" y="193" class="label" font-size="8">Brillante</text>
+
+    <!-- Branch 2 -->
+    <circle cx="280" cy="180" r="15" class="led-off" id="led-p2"/>
+    <text x="280" y="210" class="label" font-size="10">LED 2</text>
+    <text x="280" y="223" class="label" font-size="8">Brillante</text>
+
+    <!-- Branch 3 -->
+    <circle cx="380" cy="210" r="15" class="led-off" id="led-p3"/>
+    <text x="380" y="240" class="label" font-size="10">LED 3</text>
+    <text x="380" y="253" class="label" font-size="8">Brillante</text>
+
+    <!-- Wires -->
+    <line x1="100" y1="160" x2="130" y2="160" class="wire"/>
+    <line x1="130" y1="160" x2="130" y2="80" class="wire"/>
+    <line x1="130" y1="80" x2="435" y2="80" class="wire"/>
+    <line x1="435" y1="80" x2="435" y2="160" class="wire"/>
+
+    <!-- Branch lines -->
+    <line x1="130" y1="150" x2="165" y2="150" class="wire"/>
+    <line x1="195" y1="150" x2="250" y2="150" class="wire"/>
+    <line x1="250" y1="150" x2="250" y2="160" class="wire"/>
+    <line x1="250" y1="160" x2="435" y2="160" class="wire"/>
+
+    <line x1="130" y1="180" x2="265" y2="180" class="wire"/>
+    <line x1="295" y1="180" x2="350" y2="180" class="wire"/>
+    <line x1="350" y1="180" x2="350" y2="160" class="wire"/>
+    <line x1="350" y1="160" x2="435" y2="160" class="wire"/>
+
+    <line x1="130" y1="210" x2="365" y2="210" class="wire"/>
+    <line x1="395" y1="210" x2="450" y2="210" class="wire"/>
+    <line x1="450" y1="210" x2="450" y2="160" class="wire"/>
+    <line x1="450" y1="160" x2="435" y2="160" class="wire"/>
+
+    <!-- Back to battery -->
+    <line x1="100" y1="200" x2="100" y2="230" class="wire"/>
+    <line x1="100" y1="230" x2="435" y2="230" class="wire"/>
+    <line x1="435" y1="230" x2="435" y2="160" class="wire"/>
+
+    <!-- Characteristics Box -->
+    <rect x="50" y="270" width="450" height="190" fill="#d4edda" stroke="#27ae60" stroke-width="1" rx="3"/>
+    <text x="70" y="290" class="label" font-weight="bold" fill="#27ae60" font-size="12">Circuito EN PARALELO:</text>
+    <text x="70" y="310" class="label" font-size="10">✓ Si un LED se quema, los otros siguen funcionando</text>
+    <text x="70" y="325" class="label" font-size="10">✓ Cada LED recibe los 9V completos</text>
+    <text x="70" y="340" class="label" font-size="10">✓ Todos brillan igual sin importar cuántos haya</text>
+    <text x="70" y="360" class="label" font-weight="bold" fill="#2c3e50" font-size="11">Corriente (I): se divide entre ramas</text>
+    <text x="70" y="375" class="label" font-weight="bold" fill="#2c3e50" font-size="11">Voltaje (V): igual en todos los componentes</text>
+    <text x="70" y="390" class="label" font-weight="bold" fill="#2c3e50" font-size="11">Resistencia (R): 1/R_total = 1/R1+1/R2+1/R3</text>
+    <text x="70" y="410" class="label" font-size="10">✓ Uso: Enchufes en casa, luces modernas</text>
+    <text x="70" y="425" class="label" font-size="10">✓ Ventaja: Independencia entre componentes</text>
+    <text x="70" y="450" class="label" font-weight="bold" fill="#27ae60" font-size="10">⚡ Recuerda: Es la forma segura</text>
+  </g>
+
+  <!-- SWITCH TEXT -->
+  <text x="600" y="240" class="label" font-size="11" opacity="0.7" text-anchor="middle">
+    <tspan x="600" dy="0">Haz clic arriba para cambiar entre</tspan>
+    <tspan x="600" dy="15">SERIE (problemático) y PARALELO (seguro)</tspan>
+  </text>
+</svg>
+
+<script type="text/javascript">
+  function toggleMode(mode) {
+    const serieCircuit = document.getElementById('serie-circuit');
+    const paraleloCircuit = document.getElementById('paralelo-circuit');
+    const btnSerie = document.getElementById('btn-serie');
+    const btnParalelo = document.getElementById('btn-paralelo');
+    
+    if (mode === 'serie') {
+      serieCircuit.style.display = 'block';
+      paraleloCircuit.style.display = 'none';
+      btnSerie.classList.add('active');
+      btnParalelo.classList.remove('active');
+      updateLEDs('serie');
+    } else {
+      serieCircuit.style.display = 'none';
+      paraleloCircuit.style.display = 'block';
+      btnSerie.classList.remove('active');
+      btnParalelo.classList.add('active');
+      updateLEDs('paralelo');
+    }
+  }
+  
+  function updateLEDs(mode) {
+    if (mode === 'serie') {
+      ['led-s1', 'led-s2', 'led-s3'].forEach(id => {
+        document.getElementById(id).setAttribute('class', 'led-on');
+      });
+    } else {
+      ['led-p1', 'led-p2', 'led-p3'].forEach(id => {
+        document.getElementById(id).setAttribute('class', 'led-on');
+      });
+    }
+  }
+  
+  // Initialize
+  updateLEDs('serie');
+</script>
