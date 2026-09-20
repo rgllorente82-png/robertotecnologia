@@ -1,0 +1,138 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; }
+      .flowbox { stroke: #2c3e50; stroke-width: 2; }
+      .arrow { stroke: #3498db; stroke-width: 2.5; fill: none; }
+    </style>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Del boceto al plano: la evoluci&oacute;n del dibujo</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">C&oacute;mo evoluciona el dibujo desde la idea r&aacute;pida hasta el plano t&eacute;cnico exacto</text>
+
+  <!-- Left: BOCETO (Sketch) -->
+  <g>
+    <rect x="30" y="100" width="280" height="280" fill="#fff8e8" stroke="#f39c12" stroke-width="2" rx="4"/>
+
+    <text x="170" y="130" class="title" font-size="14">BOCETO</text>
+    <text x="170" y="150" class="label" font-size="9" text-anchor="middle" fill="#f39c12" font-weight="bold">La idea r&aacute;pida</text>
+
+    <!-- Example sketch -->
+    <g transform="translate(170, 180)">
+      <circle cx="0" cy="0" r="30" fill="none" stroke="#e74c3c" stroke-width="2.5" opacity="0.6"/>
+      <circle cx="-25" cy="-15" r="8" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.6"/>
+      <line x1="-15" y1="25" x2="15" y2="25" stroke="#e74c3c" stroke-width="2" opacity="0.6"/>
+      <path d="M -20 15 Q -15 5 -10 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+      <path d="M 10 15 Q 15 5 20 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+    </g>
+
+    <!-- Characteristics -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="50" y="280">✓ R&aacute;pido de hacer</text>
+      <text x="50" y="300">✓ Sin instrumentos</text>
+      <text x="50" y="320">✓ Solo idea general</text>
+      <text x="50" y="340">✗ No tiene medidas</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 310 240 L 370 240" class="arrow" marker-end="url(#arrowblue)"/>
+
+  <!-- Center: CROQUIS (Technical sketch) -->
+  <g>
+    <rect x="360" y="100" width="280" height="280" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="4"/>
+
+    <text x="500" y="130" class="title" font-size="14">CROQUIS</text>
+    <text x="500" y="150" class="label" font-size="9" text-anchor="middle" fill="#3498db" font-weight="bold">Dibujo con proporciones</text>
+
+    <!-- Example technical sketch with measurements -->
+    <g transform="translate(500, 180)">
+      <rect x="-35" y="-25" width="70" height="50" fill="none" stroke="#3498db" stroke-width="2"/>
+      <!-- Dimension lines -->
+      <line x1="-35" y1="-35" x2="35" y2="-35" stroke="#3498db" stroke-width="1"/>
+      <line x1="-35" y1="-32" x2="-35" y2="-38" stroke="#3498db" stroke-width="1"/>
+      <line x1="35" y1="-32" x2="35" y2="-38" stroke="#3498db" stroke-width="1"/>
+      <text x="0" y="-28" class="code" text-anchor="middle" fill="#3498db" font-size="9">70 mm</text>
+
+      <line x1="40" y1="-25" x2="40" y2="25" stroke="#3498db" stroke-width="1"/>
+      <line x1="37" y1="-25" x2="43" y2="-25" stroke="#3498db" stroke-width="1"/>
+      <line x1="37" y1="25" x2="43" y2="25" stroke="#3498db" stroke-width="1"/>
+      <text x="50" y="5" class="code" fill="#3498db" font-size="9">50 mm</text>
+    </g>
+
+    <!-- Characteristics -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="380" y="280">✓ Proporciones correctas</text>
+      <text x="380" y="300">✓ Medidas aproximadas</text>
+      <text x="380" y="320">✓ R&aacute;pido pero m&aacute;s preciso</text>
+      <text x="380" y="340">✗ No es exacto</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 640 240 L 700 240" class="arrow" marker-end="url(#arrowblue)"/>
+
+  <!-- Right: PLANO (Technical plan) -->
+  <g>
+    <rect x="690" y="100" width="280" height="280" fill="#f0fef0" stroke="#27ae60" stroke-width="2" rx="4"/>
+
+    <text x="830" y="130" class="title" font-size="14">PLANO</text>
+    <text x="830" y="150" class="label" font-size="9" text-anchor="middle" fill="#27ae60" font-weight="bold">Precisi&oacute;n exacta</text>
+
+    <!-- Example technical plan -->
+    <g transform="translate(830, 180)">
+      <rect x="-35" y="-25" width="70" height="50" fill="none" stroke="#27ae60" stroke-width="2.5"/>
+      <!-- Exact dimension lines with arrows -->
+      <line x1="-35" y1="-35" x2="35" y2="-35" stroke="#27ae60" stroke-width="1"/>
+      <path d="M -35 -32 L -35 -38 M 35 -32 L 35 -38" stroke="#27ae60" stroke-width="1" fill="none"/>
+      <text x="0" y="-28" class="code" text-anchor="middle" fill="#27ae60" font-size="10" font-weight="bold">70±0.5 mm</text>
+
+      <line x1="40" y1="-25" x2="40" y2="25" stroke="#27ae60" stroke-width="1"/>
+      <path d="M 37 -25 L 43 -25 M 37 25 L 43 25" stroke="#27ae60" stroke-width="1" fill="none"/>
+      <text x="50" y="5" class="code" fill="#27ae60" font-size="10" font-weight="bold">50±0.3</text>
+
+      <!-- Title block indicator -->
+      <rect x="-35" y="35" width="70" height="20" fill="none" stroke="#27ae60" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="0" y="48" class="code" text-anchor="middle" fill="#27ae60" font-size="8">Cajet&iacute;n</text>
+    </g>
+
+    <!-- Characteristics -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="710" y="280">✓ Medidas exactas</text>
+      <text x="710" y="300">✓ Tolerancias</text>
+      <text x="710" y="320">✓ Instrumental (regla, comp&aacute;s)</text>
+      <text x="710" y="340">✓ V&aacute;lido para fabricar</text>
+    </g>
+  </g>
+
+  <!-- Bottom: Progression explanation -->
+  <g>
+    <rect x="30" y="420" width="940" height="260" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="450" class="title" font-size="13">El viaje del dibujo t&eacute;cnico</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="480"><b>Fase 1: BOCETO</b></text>
+      <text x="80" y="500">Es la idea inicial. Lo haces r&aacute;pido, sin herramientas, solo para capturar lo que imaginas.</text>
+      <text x="80" y="520">Ejemplo: dibujas un taburete en una servilleta.</text>
+
+      <text x="60" y="555"><b>Fase 2: CROQUIS</b></text>
+      <text x="80" y="575">Le das forma real al boceto. Ahora respetas las proporciones y a&ntilde;ades medidas aproximadas.</text>
+      <text x="80" y="595">Lo haces en papel milimetrado y puede llevar m&aacute;s tiempo, pero sigue siendo r&aacute;pido.</text>
+
+      <text x="60" y="630"><b>Fase 3: PLANO</b></text>
+      <text x="80" y="650">Es el documento oficial, exacto, con todas las medidas y tolerancias.</text>
+      <text x="80" y="670">Necesita regla, comp&aacute;s, o programas CAD. Con &eacute;l pueden fabricar lo que diseñaste, en cualquier taller del mundo.</text>
+    </g>
+  </g>
+
+</svg>

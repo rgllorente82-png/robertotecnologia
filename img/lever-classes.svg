@@ -1,0 +1,198 @@
+<svg viewBox="0 0 1000 750" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="750" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Las tres clases de palancas</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Se&g&uacute;n d&oacute;nde est&eacute; el fulcro: palancas de 1.ª, 2.ª y 3.ª clase</text>
+
+  <!-- CLASS 1: FULCRUM IN THE MIDDLE (Fulcro en el centro) -->
+  <g>
+    <!-- Header -->
+    <text x="170" y="95" class="title" font-size="13">1.ª Clase: Fulcro en medio</text>
+    <text x="170" y="113" class="label" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="bold">Carga - Fulcro - Esfuerzo</text>
+
+    <!-- Lever diagram -->
+    <g transform="translate(170, 140)">
+      <!-- Lever bar -->
+      <rect x="-80" y="-5" width="160" height="10" fill="#3498db" stroke="#2c3e50" stroke-width="2" rx="2"/>
+
+      <!-- Fulcrum (triangle) -->
+      <polygon points="0,-10 5,8 -5,8" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+
+      <!-- Load (left weight) -->
+      <circle cx="-60" cy="15" r="12" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+      <text x="-60" y="18" class="label" font-size="11" text-anchor="middle" fill="white" font-weight="bold">CARGA</text>
+      <text x="-60" y="35" class="label" font-size="9" text-anchor="middle" fill="#e74c3c">1000 N</text>
+
+      <!-- Effort (right weight) -->
+      <circle cx="60" cy="15" r="12" fill="#27ae60" stroke="#2c3e50" stroke-width="2"/>
+      <text x="60" y="18" class="label" font-size="11" text-anchor="middle" fill="white" font-weight="bold">ESFUERZO</text>
+      <text x="60" y="35" class="label" font-size="9" text-anchor="middle" fill="#27ae60">500 N</text>
+
+      <!-- Distance labels -->
+      <line x1="-60" y1="-20" x2="0" y2="-20" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="-30" y="-25" class="code" text-anchor="middle" font-size="9" fill="#666">60 cm</text>
+
+      <line x1="0" y1="-20" x2="60" y2="-20" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="30" y="-25" class="code" text-anchor="middle" font-size="9" fill="#666">30 cm</text>
+    </g>
+
+    <!-- Example -->
+    <text x="170" y="240" class="label" font-size="11" font-weight="bold">Ejemplo: Palanca para sacar clavo</text>
+    <text x="170" y="258" class="label" font-size="9" text-anchor="middle">La idea: el fulcro multiplica tu fuerza</text>
+
+    <!-- Pros and cons -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50">
+      <text x="70" y="285"><b>✓ Ventaja:</b> Multiplica fuerza</text>
+      <text x="70" y="302"><b>✗ Desventaja:</b> Mov. pequeño</text>
+    </g>
+  </g>
+
+  <!-- CLASS 2: LOAD IN THE MIDDLE (Carga en el centro) -->
+  <g>
+    <!-- Header -->
+    <text x="500" y="95" class="title" font-size="13">2.ª Clase: Carga en medio</text>
+    <text x="500" y="113" class="label" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="bold">Fulcro - Carga - Esfuerzo</text>
+
+    <!-- Lever diagram -->
+    <g transform="translate(500, 140)">
+      <!-- Lever bar -->
+      <rect x="-80" y="-5" width="160" height="10" fill="#3498db" stroke="#2c3e50" stroke-width="2" rx="2"/>
+
+      <!-- Fulcrum (triangle) -->
+      <polygon points="-80,-10 -75,8 -85,8" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+
+      <!-- Load (middle weight) -->
+      <circle cx="-20" cy="15" r="12" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+      <text x="-20" y="18" class="label" font-size="11" text-anchor="middle" fill="white" font-weight="bold">CARGA</text>
+      <text x="-20" y="35" class="label" font-size="9" text-anchor="middle" fill="#e74c3c">1000 N</text>
+
+      <!-- Effort (right weight) -->
+      <circle cx="60" cy="15" r="12" fill="#27ae60" stroke="#2c3e50" stroke-width="2"/>
+      <text x="60" y="18" class="label" font-size="11" text-anchor="middle" fill="white" font-weight="bold">ESFUERZO</text>
+      <text x="60" y="35" class="label" font-size="9" text-anchor="middle" fill="#27ae60">250 N</text>
+
+      <!-- Distance labels -->
+      <line x1="-80" y1="-20" x2="-20" y2="-20" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="-50" y="-25" class="code" text-anchor="middle" font-size="9" fill="#666">60 cm</text>
+
+      <line x1="-20" y1="-20" x2="60" y2="-20" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="20" y="-25" class="code" text-anchor="middle" font-size="9" fill="#666">80 cm</text>
+    </g>
+
+    <!-- Example -->
+    <text x="500" y="240" class="label" font-size="11" font-weight="bold">Ejemplo: Carretilla, nutracascador</text>
+    <text x="500" y="258" class="label" font-size="9" text-anchor="middle">La carga va en medio, el esfuerzo en el extremo</text>
+
+    <!-- Pros and cons -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50">
+      <text x="400" y="285"><b>✓ Ventaja:</b> M&aacute;xima ventaja mec&aacute;nica</text>
+      <text x="400" y="302"><b>✗ Desventaja:</b> La carga se mueve poco</text>
+    </g>
+  </g>
+
+  <!-- CLASS 3: EFFORT IN THE MIDDLE (Esfuerzo en el centro) -->
+  <g>
+    <!-- Header -->
+    <text x="830" y="95" class="title" font-size="13">3.ª Clase: Esfuerzo en medio</text>
+    <text x="830" y="113" class="label" font-size="10" fill="#e74c3c" text-anchor="middle" font-weight="bold">Fulcro - Esfuerzo - Carga</text>
+
+    <!-- Lever diagram -->
+    <g transform="translate(830, 140)">
+      <!-- Lever bar -->
+      <rect x="-80" y="-5" width="160" height="10" fill="#3498db" stroke="#2c3e50" stroke-width="2" rx="2"/>
+
+      <!-- Fulcrum (triangle) -->
+      <polygon points="-80,-10 -75,8 -85,8" fill="#f39c12" stroke="#2c3e50" stroke-width="2"/>
+
+      <!-- Effort (middle weight) -->
+      <circle cx="-10" cy="15" r="12" fill="#27ae60" stroke="#2c3e50" stroke-width="2"/>
+      <text x="-10" y="18" class="label" font-size="11" text-anchor="middle" fill="white" font-weight="bold">ESFUERZO</text>
+      <text x="-10" y="35" class="label" font-size="9" text-anchor="middle" fill="#27ae60">500 N</text>
+
+      <!-- Load (right weight) -->
+      <circle cx="60" cy="15" r="12" fill="#e74c3c" stroke="#2c3e50" stroke-width="2"/>
+      <text x="60" y="18" class="label" font-size="11" text-anchor="middle" fill="white" font-weight="bold">CARGA</text>
+      <text x="60" y="35" class="label" font-size="9" text-anchor="middle" fill="#e74c3c">250 N</text>
+
+      <!-- Distance labels -->
+      <line x1="-80" y1="-20" x2="-10" y2="-20" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="-45" y="-25" class="code" text-anchor="middle" font-size="9" fill="#666">70 cm</text>
+
+      <line x1="-10" y1="-20" x2="60" y2="-20" stroke="#999" stroke-width="1" stroke-dasharray="3,2"/>
+      <text x="25" y="-25" class="code" text-anchor="middle" font-size="9" fill="#666">70 cm</text>
+    </g>
+
+    <!-- Example -->
+    <text x="830" y="240" class="label" font-size="11" font-weight="bold">Ejemplo: Pinzas, antebrazo</text>
+    <text x="830" y="258" class="label" font-size="9" text-anchor="middle">T&uacute; haces fuerza en medio para mover la carga</text>
+
+    <!-- Pros and cons -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50">
+      <text x="730" y="285"><b>✓ Ventaja:</b> Gran movimiento de carga</text>
+      <text x="730" y="302"><b>✗ Desventaja:</b> Necesitas MÁS fuerza</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM COMPARISON TABLE -->
+  <g>
+    <rect x="30" y="360" width="940" height="370" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="390" class="title" font-size="13">Comparaci&oacute;n de las tres clases</text>
+
+    <!-- Comparison table -->
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <!-- Header row -->
+      <rect x="50" y="410" width="880" height="25" fill="#f0f0f0" stroke="#ccc" stroke-width="1"/>
+      <text x="70" y="430" font-weight="bold">Clase</text>
+      <text x="200" y="430" font-weight="bold">Orden de posiciones</text>
+      <text x="420" y="430" font-weight="bold">Ejemplo</text>
+      <text x="620" y="430" font-weight="bold">Ventaja / Desventaja</text>
+
+      <!-- Row 1: Class 1 -->
+      <rect x="50" y="435" width="880" height="50" fill="white" stroke="#ddd" stroke-width="1"/>
+      <text x="70" y="453" fill="#e74c3c" font-weight="bold">1.ª</text>
+      <text x="200" y="453" fill="#15212e">Carga - Fulcro - Esfuerzo</text>
+      <text x="420" y="453">Palanca para sacar clavo</text>
+      <text x="620" y="453" font-weight="bold">Equilibrio</text>
+      <text x="620" y="470" font-size="9">Fuerza normal, mov. pequeño</text>
+
+      <!-- Row 2: Class 2 -->
+      <rect x="50" y="485" width="880" height="50" fill="white" stroke="#ddd" stroke-width="1"/>
+      <text x="70" y="503" fill="#e74c3c" font-weight="bold">2.ª</text>
+      <text x="200" y="503" fill="#15212e">Fulcro - Carga - Esfuerzo</text>
+      <text x="420" y="503">Carretilla, nueces</text>
+      <text x="620" y="503" font-weight="bold">M&aacute;s ventaja</text>
+      <text x="620" y="520" font-size="9">Mejor para levantar cosas</text>
+
+      <!-- Row 3: Class 3 -->
+      <rect x="50" y="535" width="880" height="50" fill="white" stroke="#ddd" stroke-width="1"/>
+      <text x="70" y="553" fill="#e74c3c" font-weight="bold">3.ª</text>
+      <text x="200" y="553" fill="#15212e">Fulcro - Esfuerzo - Carga</text>
+      <text x="420" y="553">Pinzas, antebrazo, caña pesca</text>
+      <text x="620" y="553" font-weight="bold">Menos ventaja</text>
+      <text x="620" y="570" font-size="9">Mejor para velocidad/alcance</text>
+    </g>
+
+    <!-- Key insight -->
+    <rect x="50" y="595" width="880" height="120" fill="#f0fef0" stroke="#27ae60" stroke-width="1.5" rx="3"/>
+    <text x="500" y="620" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#188038">Lo importante: La ventaja mec&aacute;nica de la palanca</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="70" y="645"><b>Ventaja Mec&aacute;nica (VM) = Distancia del fulcro a la carga ÷ Distancia del fulcro al esfuerzo</b></text>
+
+      <text x="70" y="670">• Si la distancia de la carga es MAYOR, conseguimos m&aacute;s ventaja (2.ª clase es la mejor)</text>
+      <text x="70" y="690">• Si la distancia del esfuerzo es MAYOR, perdemos ventaja pero ganamos velocidad/alcance (3.ª clase)</text>
+    </g>
+  </g>
+
+</svg>
