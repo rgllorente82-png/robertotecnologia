@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .legend { font-family: Arial, sans-serif; font-size: 11px; }
+    </style>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">El transistor como interruptor</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">C&oacute;mo una se&ntilde;al peque&ntilde;a en la base controla una corriente grande en el colector</text>
+
+  <!-- LEFT: NO CURRENT (BASE = 0) -->
+  <g>
+    <text x="220" y="95" class="title" font-size="13">Base = 0 V (SIN se&ntilde;al)</text>
+
+    <!-- Transistor symbol -->
+    <circle cx="220" cy="160" r="35" fill="#e8f4f8" stroke="#3498db" stroke-width="2"/>
+    <text x="220" y="168" class="label" font-size="16" text-anchor="middle">🚫</text>
+
+    <!-- Connections -->
+    <g stroke="#2c3e50" stroke-width="1.5">
+      <!-- Colector (top) -->
+      <line x1="220" y1="125" x2="220" y2="100"/>
+      <text x="220" y="90" class="label" font-size="10" text-anchor="middle">+12 V (colector)</text>
+
+      <!-- Emisor (bottom) -->
+      <line x1="220" y1="195" x2="220" y2="230"/>
+      <text x="220" y="250" class="label" font-size="10" text-anchor="middle">GND (emisor)</text>
+
+      <!-- Base (left) -->
+      <line x1="185" y1="160" x2="150" y2="160"/>
+      <circle cx="145" cy="160" r="4" fill="#e74c3c"/>
+      <text x="140" y="145" class="label" font-size="10" text-anchor="middle">Base</text>
+      <text x="140" y="180" class="label" font-size="10" text-anchor="middle" fill="#e74c3c">0 V</text>
+    </g>
+
+    <!-- Result box -->
+    <rect x="80" y="290" width="280" height="80" fill="#fef8e8" stroke="#f39c12" stroke-width="1.5" rx="3"/>
+    <text x="220" y="315" class="legend" font-size="11" text-anchor="middle" font-weight="bold">RESULTADO: Transistor BLOQUEADO</text>
+    <text x="220" y="335" class="legend" font-size="10" text-anchor="middle">• No hay corriente de base</text>
+    <text x="220" y="350" class="legend" font-size="10" text-anchor="middle">• La corriente entre colector y emisor es 0</text>
+    <text x="220" y="365" class="legend" font-size="10" text-anchor="middle">• Comportamiento: como un interruptor ABIERTO</text>
+  </g>
+
+  <!-- RIGHT: WITH CURRENT (BASE = 5V) -->
+  <g>
+    <text x="780" y="95" class="title" font-size="13">Base = 5 V (con se&ntilde;al)</text>
+
+    <!-- Transistor symbol -->
+    <circle cx="780" cy="160" r="35" fill="#e8f8e8" stroke="#27ae60" stroke-width="2"/>
+    <text x="780" y="168" class="label" font-size="16" text-anchor="middle">✓</text>
+
+    <!-- Connections -->
+    <g stroke="#2c3e50" stroke-width="1.5">
+      <!-- Colector (top) with arrow -->
+      <line x1="780" y1="125" x2="780" y2="100"/>
+      <text x="780" y="90" class="label" font-size="10" text-anchor="middle">+12 V (colector)</text>
+      <path d="M 770 140 L 790 140" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowred)"/>
+      <text x="820" y="145" class="label" font-size="10" fill="#e74c3c" font-weight="bold">I ≈ 500 mA</text>
+
+      <!-- Emisor (bottom) -->
+      <line x1="780" y1="195" x2="780" y2="230"/>
+      <text x="780" y="250" class="label" font-size="10" text-anchor="middle">GND (emisor)</text>
+
+      <!-- Base (left) with arrow -->
+      <line x1="745" y1="160" x2="710" y2="160"/>
+      <path d="M 700 155 L 705 160 L 700 165" stroke="#27ae60" stroke-width="2" fill="none"/>
+      <circle cx="710" cy="160" r="4" fill="#27ae60"/>
+      <text x="710" y="145" class="label" font-size="10" text-anchor="middle">Base</text>
+      <text x="710" y="180" class="label" font-size="10" text-anchor="middle" fill="#27ae60">5 V</text>
+    </g>
+
+    <!-- Result box -->
+    <rect x="640" y="290" width="280" height="80" fill="#f0fef0" stroke="#27ae60" stroke-width="1.5" rx="3"/>
+    <text x="780" y="315" class="legend" font-size="11" text-anchor="middle" font-weight="bold">RESULTADO: Transistor CONDUCIENDO</text>
+    <text x="780" y="335" class="legend" font-size="10" text-anchor="middle">• Hay corriente pequeña en base (~10 mA)</text>
+    <text x="780" y="350" class="legend" font-size="10" text-anchor="middle">• La corriente colector-emisor es GRANDE (~500 mA)</text>
+    <text x="780" y="365" class="legend" font-size="10" text-anchor="middle">• Comportamiento: como un interruptor CERRADO</text>
+  </g>
+
+  <!-- BOTTOM: Key concept and applications -->
+  <g>
+    <rect x="30" y="420" width="940" height="260" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="450" class="title" font-size="13">La magia del transistor como interruptor</text>
+
+    <g font-family="Arial" font-size="10.5" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="480"><b>1. Amplificación de corriente</b></text>
+      <text x="80" y="498">Una corriente peque&ntilde;a en la base (~10 mA) controla una corriente enorme en el colector (~500 mA).</text>
+      <text x="80" y="515">Es decir: <b>amplificador de corriente</b> · ganancia = Ic / Ib ≈ 50.</text>
+
+      <text x="60" y="545"><b>2. Interruptor inteligente</b></text>
+      <text x="80" y="563">La base es como el dedo que pulsa el interruptor, pero en electr&oacute;nico.</text>
+      <text x="80" y="580">Con 5 V en la base: interruptor CERRADO → fluye corriente colector-emisor.</text>
+      <text x="80" y="597">Con 0 V en la base: interruptor ABIERTO → NO fluye corriente.</text>
+
+      <text x="500" y="480"><b>3. Velocidad y control</b></text>
+      <text x="520" y="498">Encendemos y apagamos el transistor miles de veces por segundo.</text>
+      <text x="520" y="515">Eso permite PWM (modulaci&oacute;n de ancho de pulso) para controlar la velocidad de un motor.</text>
+
+      <text x="500" y="545"><b>Ejemplo real: Encender un LED desde Arduino</b></text>
+      <text x="520" y="563">• Arduino: pin 5 V (3 mA m&aacute;ximo)</text>
+      <text x="520" y="580">• Transistor base: + esa corriente de 3 mA</text>
+      <text x="520" y="597">• Colector: 12 V a un LED de 200 mA (25 W si fuera incandescente)</text>
+      <text x="520" y="614">• Arduino controla el LED sin quebrarse gracias al transistor</text>
+    </g>
+  </g>
+
+</svg>

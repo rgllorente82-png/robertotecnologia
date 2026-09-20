@@ -1,0 +1,152 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .box-label { font-family: Arial, sans-serif; font-size: 11px; font-weight: 500; text-anchor: middle; }
+    </style>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Lazo abierto vs Lazo cerrado</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Control sin realimentaci&oacute;n vs control con sensor y retroalimentaci&oacute;n</text>
+
+  <!-- LEFT: OPEN LOOP -->
+  <g>
+    <text x="220" y="90" class="title" font-size="13">LAZO ABIERTO</text>
+    <text x="220" y="110" class="label" font-size="10" text-anchor="middle">(Sin sensor, sin realimentaci&oacute;n)</text>
+
+    <!-- Flow -->
+    <!-- Entrada -->
+    <rect x="70" y="150" width="80" height="50" fill="#e8f4f8" stroke="#3498db" stroke-width="1.5" rx="3"/>
+    <text x="110" y="175" class="box-label">ORDEN</text>
+    <text x="110" y="190" class="label" font-size="9" text-anchor="middle">"30 segundos"</text>
+
+    <!-- Arrow -->
+    <path d="M 150 175 L 190 175" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+    <!-- Actuador -->
+    <rect x="190" y="150" width="80" height="50" fill="#fbbc04" stroke="#d68910" stroke-width="1.5" rx="3"/>
+    <text x="230" y="175" class="box-label">ACTUADOR</text>
+    <text x="230" y="190" class="label" font-size="9" text-anchor="middle">Bomba de riego</text>
+
+    <!-- Arrow -->
+    <path d="M 270 175 L 310 175" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+    <!-- Output -->
+    <rect x="310" y="150" width="80" height="50" fill="#f8e8e8" stroke="#e74c3c" stroke-width="1.5" rx="3"/>
+    <text x="350" y="175" class="box-label">RESULTADO</text>
+    <text x="350" y="190" class="label" font-size="9" text-anchor="middle">Agua en el huerto</text>
+
+    <!-- Problem annotation -->
+    <g>
+      <circle cx="220" cy="250" r="80" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="220" y="215" class="label" font-size="10" text-anchor="middle" fill="#e74c3c" font-weight="bold">Problema:</text>
+      <text x="220" y="235" class="label" font-size="9" text-anchor="middle" fill="#c0392b">Si hace calor, el suelo se</text>
+      <text x="220" y="250" class="label" font-size="9" text-anchor="middle" fill="#c0392b">seca en 10 minutos pero</text>
+      <text x="220" y="265" class="label" font-size="9" text-anchor="middle" fill="#c0392b">la bomba bombea 30 seg</text>
+      <text x="220" y="280" class="label" font-size="9" text-anchor="middle" fill="#c0392b">= agua derrochada</text>
+    </g>
+
+    <!-- Examples -->
+    <g>
+      <text x="50" y="340" class="label" font-size="11" font-weight="bold">Ejemplos:</text>
+      <text x="60" y="360" class="label" font-size="10">• Horno: temperatura fija 200°C, calienta sin medir</text>
+      <text x="60" y="378" class="label" font-size="10">• Ducha: abres el grifo, agua sale 30 seg aunque cambies el tiempo</text>
+      <text x="60" y="396" class="label" font-size="10">• Cronómetro: pulsa botón START, regador funciona 5 min fijo</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: CLOSED LOOP -->
+  <g>
+    <text x="780" y="90" class="title" font-size="13">LAZO CERRADO</text>
+    <text x="780" y="110" class="label" font-size="10" text-anchor="middle">(Con sensor y realimentaci&oacute;n)</text>
+
+    <!-- Orden -->
+    <rect x="630" y="150" width="80" height="50" fill="#e8f4f8" stroke="#3498db" stroke-width="1.5" rx="3"/>
+    <text x="670" y="175" class="box-label">ORDEN</text>
+    <text x="670" y="190" class="label" font-size="9" text-anchor="middle">40% humedad</text>
+
+    <!-- Arrow down -->
+    <path d="M 670 200 L 670 235" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+    <!-- Comparador -->
+    <rect x="625" y="235" width="90" height="50" fill="#f8e8f8" stroke="#9b59b6" stroke-width="1.5" rx="3"/>
+    <text x="670" y="260" class="box-label">COMPARADOR</text>
+    <text x="670" y="273" class="label" font-size="8" text-anchor="middle">¿Real vs objetivo?</text>
+
+    <!-- Arrow right -->
+    <path d="M 715 260 L 755 260" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+    <!-- Actuador -->
+    <rect x="755" y="235" width="90" height="50" fill="#fbbc04" stroke="#d68910" stroke-width="1.5" rx="3"/>
+    <text x="800" y="260" class="box-label">ACTUADOR</text>
+    <text x="800" y="273" class="label" font-size="8" text-anchor="middle">Bomba de riego</text>
+
+    <!-- Arrow down -->
+    <path d="M 800 285 L 800 320" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+
+    <!-- Resultado -->
+    <rect x="755" y="320" width="90" height="50" fill="#f8e8e8" stroke="#e74c3c" stroke-width="1.5" rx="3"/>
+    <text x="800" y="345" class="box-label">RESULTADO</text>
+    <text x="800" y="358" class="label" font-size="8" text-anchor="middle">Agua en huerto</text>
+
+    <!-- Arrow left (feedback) -->
+    <path d="M 755 345 Q 680 345 680 260" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowgreen)" stroke-dasharray="5,3"/>
+    <text x="710" y="330" class="label" font-size="9" fill="#27ae60" font-weight="bold">Sensor</text>
+    <text x="710" y="345" class="label" font-size="8" fill="#27ae60">medida actual</text>
+
+    <!-- Success annotation -->
+    <g>
+      <circle cx="780" cy="250" r="65" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,3"/>
+      <text x="780" y="220" class="label" font-size="10" text-anchor="middle" fill="#27ae60" font-weight="bold">Solución:</text>
+      <text x="780" y="240" class="label" font-size="9" text-anchor="middle" fill="#188038">Sensor ve 35%: bombea</text>
+      <text x="780" y="255" class="label" font-size="9" text-anchor="middle" fill="#188038">Sensor ve 42%: detiene</text>
+      <text x="780" y="270" class="label" font-size="9" text-anchor="middle" fill="#188038">Se adapta al momento</text>
+    </g>
+
+    <!-- Examples -->
+    <g>
+      <text x="610" y="340" class="label" font-size="11" font-weight="bold">Ejemplos:</text>
+      <text x="620" y="360" class="label" font-size="10">• Horno: mide T, si &lt;200 ° calienta más</text>
+      <text x="620" y="378" class="label" font-size="10">• Ducha: termostato mide T, ajusta el grifo</text>
+      <text x="620" y="396" class="label" font-size="10">• Riego: sensor mide humedad, regula agua</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM: Key differences -->
+  <g>
+    <rect x="30" y="470" width="940" height="210" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="500" class="title" font-size="13">Diferencias clave</text>
+
+    <!-- Comparison table-like -->
+    <g font-family="Arial" font-size="10.5" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="530"><b>LAZO ABIERTO</b></text>
+      <text x="80" y="550">✗ Orden → Actuador directo, sin medir resultado</text>
+      <text x="80" y="567">✗ No se adapta a cambios del entorno</text>
+      <text x="80" y="584">✗ Si algo falla, no lo detecta: solo sigue órdenes</text>
+      <text x="80" y="601">✓ Más simple, barato, menos energía</text>
+
+      <text x="520" y="530"><b>LAZO CERRADO</b></text>
+      <text x="540" y="550">✓ Sensor → Comparador → Actuador (si falta algo)</text>
+      <text x="540" y="567">✓ Se adapta en tiempo real a cambios</text>
+      <text x="540" y="584">✓ Si se desvía del objetivo, corrige automáticamente</text>
+      <text x="540" y="601">✗ Más complejo, caro, más energía (el sensor funciona siempre)</text>
+
+      <text x="60" y="635" class="label" font-size="11" font-weight="bold" fill="#3498db">La realimentación es la clave:</text>
+      <text x="80" y="655" class="label" font-size="10">El sensor mide qué pasó, el comparador decide si hay que cambiar, el actuador obedece el nuevo comando.</text>
+      <text x="80" y="670" class="label" font-size="10">Eso se llama <b>control de realimentación</b> o <b>control de lazo cerrado</b>: el resultado realimenta al sistema.</text>
+    </g>
+  </g>
+
+</svg>
