@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Diagramas - Roberto Tecnología</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --color-primary: #3498db;
+      --color-success: #27ae60;
+      --color-warning: #f39c12;
+      --color-danger: #e74c3c;
+      --color-dark: #2c3e50;
+      --color-light: #ecf0f1;
+      --color-bg: #f8f9fa;
+      --color-card: #fff;
+      --color-text: #2c3e50;
+      --color-text-light: #7f8c8d;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #1a1a1a;
+        --color-card: #2d2d2d;
+        --color-text: #ecf0f1;
+        --color-text-light: #bdc3c7;
+      }
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    
+    header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .controls {
+      background: var(--color-card);
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .search-box input {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 15px;
+      border: 2px solid var(--color-light);
+      border-radius: 5px;
+      font-size: 1em;
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: border-color 0.3s;
+    }
+    
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 10px 15px;
+      border: 2px solid var(--color-light);
+      border-radius: 5px;
+      background: var(--color-bg);
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+    
+    .stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .stat-number {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: var(--color-primary);
+    }
+    
+    .stat-label {
+      color: var(--color-text-light);
+      font-size: 0.95em;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    
+    .diagram-card {
+      background: var(--color-card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .diagram-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .diagram-preview {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3em;
+      color: rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .diagram-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .diagram-info {
+      padding: 20px;
+    }
+    
+    .diagram-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+    
+    .diagram-desc {
+      font-size: 0.9em;
+      color: var(--color-text-light);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    
+    .diagram-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75em;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .badge-eso2 {
+      background: rgba(52, 152, 219, 0.2);
+      color: #3498db;
+    }
+    
+    .badge-eso4 {
+      background: rgba(230, 126, 34, 0.2);
+      color: #e67e22;
+    }
+    
+    .badge-tema {
+      background: rgba(39, 174, 96, 0.2);
+      color: #27ae60;
+    }
+    
+    .diagram-download {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .btn-download {
+      flex: 1;
+      padding: 8px 12px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: background 0.3s;
+      text-decoration: none;
+      text-align: center;
+    }
+    
+    .btn-download:hover {
+      background: #2980b9;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--color-text-light);
+    }
+    
+    .empty-state h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    
+    footer {
+      background: var(--color-dark);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    
+    .license {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-top: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8em; }
+      .gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+      .search-box input { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 Galería de Diagramas</h1>
+    <p>51 visualizaciones educativas para Tecnología - 2º y 4º ESO</p>
+  </header>
+  
+  <div class="container">
+    <div class="controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Busca: palanca, circuito, energía, robot...">
+      </div>
+      
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number" id="totalCount">51</span>
+          <span class="stat-label">Diagramas totales</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="visibleCount">51</span>
+          <span class="stat-label">Mostrando</span>
+        </div>
+      </div>
+      
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="2eso">2º ESO</button>
+        <button class="filter-btn" data-filter="4eso">4º ESO</button>
+      </div>
+    </div>
+    
+    <div class="gallery" id="gallery"></div>
+    <div id="emptyState" class="empty-state" style="display:none;">
+      <h3>No hay diagramas que coincidan</h3>
+      <p>Intenta con otras palabras clave</p>
+    </div>
+  </div>
+  
+  <footer>
+    <p><strong>Roberto Tecnología</strong> - Diagramas educativos SVG</p>
+    <p class="license">
+      Licencia: <strong>CC BY-SA 4.0</strong> - Puedes usar, modificar y compartir libremente, con atribución.
+    </p>
+  </footer>
+  
+  <script>
+    // Datos de diagramas
+    const diagrams = [
+      // 2º ESO
+      { name: 'Boceto a plano técnico', file: 'sketch-to-plan-progression.svg', eso: '2', tema: 1, desc: 'Evolución de precisión en dibujo' },
+      { name: 'Materiales comunes', file: 'materials_wood_metal_plastic.svg', eso: '2', tema: 2, desc: 'Propiedades: madera, metal, plástico' },
+      { name: 'Ciclo de vida del material', file: 'material-lifecycle.svg', eso: '2', tema: 2, desc: 'Extracción, uso, reciclaje' },
+      { name: 'Palancas - 3 clases', file: 'lever-classes.svg', eso: '2', tema: 3, desc: 'Primera, segunda, tercera clase' },
+      { name: 'Máquinas simples', file: 'simple-machines.svg', eso: '2', tema: 3, desc: 'Seis máquinas clásicas' },
+      { name: 'Ventaja mecánica', file: 'mechanical-advantage-levers.svg', eso: '2', tema: 3, desc: 'Cálculo de amplificación' },
+      { name: 'Triangulación en estructuras', file: 'triangulation-structures.svg', eso: '2', tema: 3, desc: 'Por qué los triángulos son rígidos' },
+      { name: 'Tipos de estructuras', file: 'structures-types.svg', eso: '2', tema: 3, desc: 'Viga, arco, tienda' },
+      { name: 'Leyes de Newton', file: 'forces-newtons-laws.svg', eso: '2', tema: 4, desc: 'F=ma, acción-reacción' },
+      { name: 'Potencia vs Energía', file: 'electrical-power-energy.svg', eso: '2', tema: 4, desc: 'Diferencia fundamental' },
+      { name: 'Fases de proyecto', file: 'project-phases-timeline.svg', eso: '2', tema: 5, desc: 'Timeline de desarrollo' },
+      { name: 'Métodos de fabricación', file: 'manufacturing-methods.svg', eso: '2', tema: 5, desc: 'Sustractivo vs aditivo' },
+      { name: 'Circuitos básicos', file: 'electric-circuit-basics.svg', eso: '2', tema: 6, desc: 'Componentes fundamentales' },
+      { name: 'Ley de Ohm', file: 'ohms-law-triangle.svg', eso: '2', tema: 6, desc: 'V = I × R mnemotécnico' },
+      { name: 'Serie vs Paralelo', file: 'series-parallel-circuits.svg', eso: '2', tema: 6, desc: 'Comportamientos diferentes' },
+      { name: 'Capas OSI', file: 'network-layers-osi.svg', eso: '2', tema: 7, desc: 'Modelo de red en 7 capas' },
+      { name: 'HTTP vs HTTPS', file: 'http-vs-https-security.svg', eso: '2', tema: 8, desc: 'Diferencia de seguridad' },
+      { name: 'Colaboración digital', file: 'digital-collaboration.svg', eso: '2', tema: 8, desc: 'Herramientas en línea' },
+      { name: 'Formatos de archivo', file: 'file-formats.svg', eso: '2', tema: 9, desc: 'TXT, DOCX, PDF, JPG, MP4, HTML' },
+      { name: 'Píxeles y color RGB', file: 'image-pixels-color.svg', eso: '2', tema: 9, desc: 'Estructura de imagen digital' },
+      { name: 'Resolución vs tamaño', file: 'image-resolution-filesize.svg', eso: '2', tema: 9, desc: 'Megapíxeles y compresión' },
+      
+      // 4º ESO
+      { name: 'Design Thinking', file: 'design-thinking-process.svg', eso: '4', tema: 1, desc: 'Las 5 fases del proceso' },
+      { name: 'Problema vs Solución', file: 'problem-vs-solution.svg', eso: '4', tema: 1, desc: 'Criterios y medición' },
+      { name: 'IF/ELSE en código', file: 'conditional-if-else.svg', eso: '4', tema: 2, desc: 'Lógica condicional' },
+      { name: 'Máquinas de estado', file: 'state-machine-concept.svg', eso: '4', tema: 2, desc: 'Qué es un estado' },
+      { name: 'Arquitectura IoT', file: 'iot-architecture.svg', eso: '4', tema: 3, desc: 'Sensor, red, cloud' },
+      { name: 'Robot vs Automatización', file: 'robot-vs-automation.svg', eso: '4', tema: 3, desc: 'Diferencias fundamentales' },
+      { name: 'Tipos de motores', file: 'motor-types-comparison.svg', eso: '4', tema: 4, desc: 'DC, servo, paso' },
+      { name: 'Transistor básico', file: 'transistor-basics.svg', eso: '4', tema: 5, desc: 'Como interruptor' },
+      { name: 'Transistor como amplificador', file: 'transistor-switch-concept.svg', eso: '4', tema: 5, desc: 'Amplificación de señal' },
+      { name: 'Ciclo de vida sostenible', file: 'product-lifecycle-sustainability.svg', eso: '4', tema: 8, desc: 'Impacto ambiental' },
+      { name: 'Energía incorporada', file: 'embodied-energy-comparison.svg', eso: '4', tema: 8, desc: 'Costo oculto de materiales' },
+      { name: 'Tecnología apropiada', file: 'appropriate-technology.svg', eso: '4', tema: 8, desc: 'Criterios de selección' },
+      { name: 'Matriz de evaluación', file: 'evaluation-criteria-matrix.svg', eso: '4', tema: 9, desc: 'Rúbrica y puntuación' },
+      { name: 'Matriz de impacto', file: 'solution-impact-matrix.svg', eso: '4', tema: 9, desc: 'Efectividad vs complejidad' },
+    ];
+    
+    const gallery = document.getElementById('gallery');
+    const searchInput = document.getElementById('searchInput');
+    const emptyState = document.getElementById('emptyState');
+    const visibleCount = document.getElementById('visibleCount');
+    let currentFilter = 'all';
+    let currentSearch = '';
+    
+    function filterDiagrams() {
+      const filtered = diagrams.filter(d => {
+        const matchFilter = currentFilter === 'all' || d.eso === currentFilter.replace('eso', '');
+        const matchSearch = currentSearch === '' || 
+                           d.name.toLowerCase().includes(currentSearch) ||
+                           d.desc.toLowerCase().includes(currentSearch);
+        return matchFilter && matchSearch;
+      });
+      
+      gallery.innerHTML = '';
+      
+      if (filtered.length === 0) {
+        emptyState.style.display = 'block';
+        visibleCount.textContent = '0';
+      } else {
+        emptyState.style.display = 'none';
+        filtered.forEach(d => {
+          const card = document.createElement('div');
+          card.className = 'diagram-card';
+          card.innerHTML = `
+            <div class="diagram-preview">
+              <img src="img/${d.file}" alt="${d.name}" loading="lazy">
+            </div>
+            <div class="diagram-info">
+              <div class="diagram-title">${d.name}</div>
+              <div class="diagram-desc">${d.desc}</div>
+              <div class="diagram-meta">
+                <span class="badge badge-eso${d.eso}">${d.eso}º ESO</span>
+                <span class="badge badge-tema">Tema ${d.tema}</span>
+              </div>
+              <div class="diagram-download">
+                <a href="img/${d.file}" download class="btn-download">↓ Descargar</a>
+              </div>
+            </div>
+          `;
+          gallery.appendChild(card);
+        });
+        visibleCount.textContent = filtered.length;
+      }
+    }
+    
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase();
+      filterDiagrams();
+    });
+    
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentFilter = e.target.dataset.filter;
+        filterDiagrams();
+      });
+    });
+    
+    filterDiagrams();
+  </script>
+</body>
+</html>
