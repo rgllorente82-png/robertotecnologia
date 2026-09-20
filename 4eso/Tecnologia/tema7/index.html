@@ -6047,25 +6047,40 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
     if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
   });
 
-  var figs=document.querySelectorAll('figure.foto img[src$=".svg"]');
-  Array.prototype.forEach.call(figs, function(o){
-    o.addEventListener('click', function(){ abrir(o); });
-    o.setAttribute('role','button');
-    o.setAttribute('tabindex','0');
-    o.addEventListener('keydown', function(e){
-      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abrir(o); }
-    });
-    var fig=o.closest('figure');
-    if(fig && !fig.querySelector('.rtz-pista')){
-      var p=document.createElement('div');
-      p.className='rtz-pista';
-      p.textContent='Toca el diagrama para ampliarlo';
-      var cap=fig.querySelector('figcaption');
-      if(cap) cap.parentNode.insertBefore(p, cap); else fig.appendChild(p);
-    }
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.svg(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o)) abrir(o);
   });
+  function marcar(){
+    var figs=document.querySelectorAll('img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
 })();
 </script>
+
 
 </body>
 </html>
