@@ -4478,5 +4478,104 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img[src$=".svg"]{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que el diagrama se lee: su tamaño de diseño, nunca menos de 900 px
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return Math.max(w, 900);
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  var figs=document.querySelectorAll('figure.foto img[src$=".svg"]');
+  Array.prototype.forEach.call(figs, function(o){
+    o.addEventListener('click', function(){ abrir(o); });
+    o.setAttribute('role','button');
+    o.setAttribute('tabindex','0');
+    o.addEventListener('keydown', function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); abrir(o); }
+    });
+    var fig=o.closest('figure');
+    if(fig && !fig.querySelector('.rtz-pista')){
+      var p=document.createElement('div');
+      p.className='rtz-pista';
+      p.textContent='Toca el diagrama para ampliarlo';
+      var cap=fig.querySelector('figcaption');
+      if(cap) cap.parentNode.insertBefore(p, cap); else fig.appendChild(p);
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
