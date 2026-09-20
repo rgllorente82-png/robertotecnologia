@@ -3398,5 +3398,69 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
 
 
 
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>
