@@ -21,6 +21,7 @@
   --f-display:'Cinzel',Georgia,serif; --f-cond:'Oswald',Impact,sans-serif;
   --f-serif:'Spectral',Georgia,serif;
 }
+[hidden]{display:none!important}
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--papel);font:16.5px/1.62 var(--f-serif);
@@ -852,14 +853,16 @@ function pintarOpciones(){
       // región ya asentada y sin nada que desarrollar: aún queda mirar lo que
       // hacen aquí. Ninguna tirada se va de vacío.
       if(!hay){
+        const propia = dA.id===j.id;
         const b3=document.createElement('button');
         b3.className='primario'; b3.style.marginTop='8px'; b3.style.width='100%';
-        b3.textContent='Aprender de ellos · +'+PREMIO_RUTA;
+        b3.textContent=(propia?'Enseñar lo que sabes · +':'Aprender de ellos · +')+PREMIO_RUTA;
         b3.disabled=E.suelta || !disponibles().length;
         b3.addEventListener('click',()=>preguntaSuelta('En '+r.nombre,
-          'Aquí ya vive gente. Mirar cómo se hacen las cosas también es aprender.',
+          propia ? 'Tu gente vive aquí. Lo que ya sabéis hacer, se enseña.'
+                 : 'Aquí ya vive gente. Mirar cómo se hacen las cosas también es aprender.',
           ()=>{ j.dinero+=PREMIO_RUTA;
-                log(`<b>${j.nombre}</b> aprende algo de paso por ${r.nombre}: +${PREMIO_RUTA}.`);
+                log(`<b>${j.nombre}</b> ${propia?'enseña lo que sabe en':'aprende algo de paso por'} ${r.nombre}: +${PREMIO_RUTA}.`);
                 return `Te llevas ${PREMIO_RUTA}.`; }));
         cont.appendChild(b3);
       }
