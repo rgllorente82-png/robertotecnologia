@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 1 &middot; El proceso tecnol&oacute;gico">
+<meta property="og:description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones y evaluaci&oacute;n del proyecto, todo alrededor de un soporte de m&oacute;vil de cart&oacute;n que se construye en clase, con escenas interactivas y test.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 1 &middot; El proceso tecnol&oacute;gico &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--tinta-sobre:#202124;--verde-texto:#188038;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--tinta-sobre:#202124;--verde-texto:#81c995;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -220,6 +233,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -322,7 +341,23 @@ footer .wrap{padding-block:18px 26px}
 .rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
 .rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
 @media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}</style>
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -2309,7 +2344,7 @@ footer .wrap{padding-block:18px 26px}
         piezas. Para algo m&aacute;s complicado no basta: hacen falta <b>vistas</b>, <b>escalas</b>,
         reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. Eso es justo lo que trabajasteis en el
         <b>tema 2</b>, que disteis antes que este.
-      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema3/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 3 &middot; Materiales de uso técnico &rarr;</a></p></div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema2/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 2 &middot; Representación gráfica de un proyecto &rarr;</a></p></div>
     </section>
   </div>
 
@@ -2397,8 +2432,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -2411,7 +2455,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});

@@ -297,11 +297,6 @@ footer .wrap{padding-block:18px 26px}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
@@ -332,6 +327,11 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
@@ -1839,7 +1839,7 @@ footer .wrap{padding-block:18px 26px}
         <span class="n-tag">Tema terminado</span>
         Sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
         eso que has elegido <b>se sostenga</b>: las estructuras.
-      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema4/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 4 &middot; Estructuras &rarr;</a></p></div>
+      </div>
   
     
       <p style="margin-top:18px">Y ahora el mismo tema, pero corrigi&eacute;ndose solo. Diez preguntas,
@@ -2008,7 +2008,7 @@ footer .wrap{padding-block:18px 26px}
           El instituto quiere <b>treinta</b> para el vest&iacute;bulo. Con vuestra tabla delante:
           &iquest;de qu&eacute; material los har&iacute;ais? No vale «el que queda mejor». Hay que decirlo
           con <b>dos n&uacute;meros de la tabla</b> y una raz&oacute;n.
-        </div>
+        <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema4/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 4 &middot; Estructuras &rarr;</a></p></div>
 
         <h4>C&oacute;mo se eval&uacute;a</h4>
         <ul>

@@ -173,16 +173,16 @@ header .eyebrow{color:var(--goo-azul)}
      empujaba la página entera 80 px de lado, y con ella todo lo demás.
      Que parta por donde haga falta antes que sacar la página del ancho. */
   .cc-cita code{overflow-wrap:anywhere}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 </style>
 <script type="application/ld+json">
 {

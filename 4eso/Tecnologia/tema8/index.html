@@ -317,11 +317,6 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
@@ -339,6 +334,11 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
