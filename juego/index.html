@@ -55,7 +55,9 @@ h1 em{font-style:normal;color:var(--laton-claro)}
 .linea .rev.act{background:var(--laton-claro);height:19px;bottom:14px}
 .linea .pista.hecha{background:linear-gradient(90deg,var(--laton-osc),var(--laton-claro));opacity:.9;right:auto}
 .linea .tramo-n{position:absolute;bottom:2px;transform:translateX(-50%);
-  font:500 10px/1 var(--f-cond);letter-spacing:.1em;color:var(--tinta2)}
+  font:500 10px/1 var(--f-cond);letter-spacing:.1em;color:var(--tinta2);
+  background:none;border:0;padding:2px 6px;cursor:pointer;text-transform:none}
+.linea .tramo-n:hover{color:var(--laton-claro);background:none}
 .linea .tramo-n.act{color:var(--laton-claro);font-weight:600;font-size:12px}
 
 .linea .hito-p{position:absolute;bottom:11px;width:11px;height:11px;border-radius:50%;
@@ -385,16 +387,9 @@ body.aula #voz-sel{font-size:13px;max-width:240px}
   .mapa{height:100%}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
-.saltar{position:absolute;left:-9999px;top:0;z-index:99;
-  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
-  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
-.saltar:focus{left:0}
 </style>
 </head>
 <body>
-<!-- saltar la cabecera: WCAG 2.4.1 -->
-<a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="marco" id="marco">
 <header>
   <div class="barra">
@@ -416,7 +411,7 @@ body.aula #voz-sel{font-size:13px;max-width:240px}
   </div>
 </header>
 
-<main id="contenido" tabindex="-1">
+<main>
 <div class="tablon">
   <div class="col">
     <div class="caja caja-mapa">
@@ -723,11 +718,18 @@ function pintarLinea(){
   abiertas.forEach((e,i)=>{
     const act = e.n===n;
     h+=`<div class="rev${act?' act':''}" style="left:${(i*ancho).toFixed(2)}%" title="${e.hito}"></div>`;
-    h+=`<div class="tramo-n${act?' act':''}" style="left:${(i*ancho+ancho/2).toFixed(2)}%"
-          title="${e.hito}">${e.n}</div>`;
+    h+=`<button class="tramo-n${act?' act':''}" style="left:${(i*ancho+ancho/2).toFixed(2)}%"
+          data-ep="${e.n}" title="${e.hito} — vuelve a verlo y a escucharlo">${e.n}</button>`;
   });
   h+=`<div class="ahora" style="left:${Math.min(x,98).toFixed(2)}%">${anioTexto(ult.anio)}</div>`;
   c.innerHTML=h;
+  // cada tramo de la línea es un botón: devuelve su cartel, con su voz
+  c.querySelectorAll('.tramo-n').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const ep=EPOCAS.find(e=>e.n===+b.dataset.ep);
+      if(ep) cartelEpoca(ep);
+    });
+  });
 }
 function pintarEscena(){
   const ep=epocaActual(); const es=ESCENAS[ep.n];
@@ -1120,8 +1122,10 @@ function hablar(txt){
   try{
     speechSynthesis.cancel();
     const u=new SpeechSynthesisUtterance(txt);
-    const v=vozElegida();
-    if(v){ u.voice=v; u.lang=v.lang; } else { u.lang='es-ES'; }
+    u.lang='es-ES';
+    // ⛔ si la voz elegida no vale, se habla igual con la de por defecto: antes
+    // una asignación fallida dejaba el juego mudo y sin decir por qué
+    try{ const v=vozElegida(); if(v){ u.voice=v; u.lang=v.lang||'es-ES'; } }catch(e){}
     u.rate=.94; u.pitch=1.02;
     speechSynthesis.speak(u);
   }catch(e){}
@@ -1141,6 +1145,12 @@ function pintarVoces(){
   sel.hidden=false;
 }
 function callar(){ try{ if('speechSynthesis' in window) speechSynthesis.cancel(); }catch(e){} }
+// lo que se lee en voz alta: el hito, lo que cambia y lo que ya se puede hacer
+function locucion(ep){
+  const nuevas=disponibles().filter(t=>t.ep===ep.n).map(t=>t.n);
+  return ep.hito + '. ' + ep.txt
+       + (nuevas.length? ' Desde ahora se puede desarrollar: ' + nuevas.join(', ') + '.' : '');
+}
 function cartelEpoca(ep){
   const d=document.getElementById('dlg-epoca');
   const c=document.getElementById('cartel-cuerpo');
@@ -1153,12 +1163,19 @@ function cartelEpoca(ep){
     + (esc? `<svg class="escena-c" viewBox="0 0 500 420" aria-hidden="true">${esc.svg}</svg>` : '')
     + `<p class="txt">${ep.txt}</p>`
     + (nuevas.length? `<p class="nuevas">Desde ahora se puede desarrollar: <b>${nuevas.map(t=>t.n).join('</b>, <b>')}</b>.</p>` : '');
+  const fila=document.createElement('div');
+  fila.className='fila'; fila.style.cssText='margin-top:18px;justify-content:center';
+  // en clase el primer pase se pierde entre el ruido: se repite las veces que haga falta
+  const rep=document.createElement('button');
+  rep.id='repetir-voz'; rep.textContent='Escuchar otra vez';
+  rep.addEventListener('click',()=>{ VOZ_ON=true; pintarVoz(); hablar(locucion(ep)); });
   const b=document.createElement('button');
-  b.className='primario'; b.style.marginTop='18px'; b.textContent='Seguir';
+  b.className='primario'; b.textContent='Seguir';
   b.addEventListener('click',()=>{ callar(); d.close(); });
-  c.appendChild(b);
+  fila.appendChild(rep); fila.appendChild(b);
+  c.appendChild(fila);
   d.showModal();
-  hablar(ep.hito + '. ' + ep.txt);
+  hablar(locucion(ep));
 }
 
 /* ---------- repaso: una pregunta de algo que YA salió en la partida ----------
