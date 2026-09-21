@@ -56,8 +56,10 @@ main{padding-block:26px 70px}
 .bloque{margin-bottom:34px}
 .rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+/* casi todos los rotulos son un numero de dos cifras, pero alguno es una
+   palabra corta -- «LEY» -- y con 26 px justos se le corta la ultima letra. */
 .rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
-  display:inline-grid;place-items:center;font-weight:500}
+  padding:0 5px;flex:none;display:inline-grid;place-items:center;font-weight:500}
 .rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
 .bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
 .bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}

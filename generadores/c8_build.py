@@ -69,7 +69,9 @@ USA_AVATAR = [False]
 # la sesion 7 es de 3.072 x 4.080 y a todo lo ancho se comia la pantalla entera.
 EXTRA_CSS = u"""
 /* ---- fotos verticales de la U8 de 4.o ---- */
-.foto.alta img{max-height:560px;width:auto;margin:0 auto}
+/* una foto vertical se limita en alto, pero sin tope de ancho se sale de la
+   caja en un movil de 390: con 540 de alto pide 419 de ancho sobre 348. */
+.foto.alta img{max-height:560px;width:auto;max-width:100%;margin:0 auto}
 """
 
 

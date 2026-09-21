@@ -55,7 +55,9 @@ EXTRA_CSS = u"""
 .ctrl input[type=range]{flex:1;min-width:110px;accent-color:var(--goo-azul)}
 .ctrl input[type=checkbox]{accent-color:var(--goo-azul);width:16px;height:16px;margin:0}
 .ctrl b{font-family:var(--f-m);font-size:12.5px;color:var(--ink);min-width:66px;text-align:right}
-.foto.alta img{max-height:520px;width:auto;margin:0 auto}
+/* una foto vertical se limita en alto, pero sin tope de ancho se sale de la
+   caja en un movil de 390: con 540 de alto pide 419 de ancho sobre 348. */
+.foto.alta img{max-height:520px;width:auto;max-width:100%;margin:0 auto}
 .cuenta{font-family:var(--f-m);font-size:14px;background:var(--surface-2);border-radius:2px;
   padding:10px 12px;margin:10px 0;line-height:1.8}
 .cuenta b{color:var(--goo-azul)}

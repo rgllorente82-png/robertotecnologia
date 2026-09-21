@@ -87,7 +87,9 @@ EXTRA_CSS = u"""
 .cuenta{font-family:var(--f-m);font-size:14px;background:var(--surface-2);border-radius:2px;
   padding:10px 12px;margin:10px 0;line-height:1.85}
 .cuenta b{color:var(--goo-azul)}
-.foto.alta img{max-height:540px;width:auto;margin:0 auto}
+/* una foto vertical se limita en alto, pero sin tope de ancho se sale de la
+   caja en un movil de 390: con 540 de alto pide 419 de ancho sobre 348. */
+.foto.alta img{max-height:540px;width:auto;max-width:100%;margin:0 auto}
 .tabla-datos{overflow-x:auto;margin:14px 0}
 .tabla-datos table{border-collapse:collapse;width:100%;font-family:var(--f-m);font-size:13px}
 .tabla-datos th,.tabla-datos td{padding:7px 9px;border-bottom:1px solid var(--line);text-align:right}

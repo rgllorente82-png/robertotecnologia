@@ -417,9 +417,13 @@ COMPROBADOR = u'''
 
       <style>
       .o2-esc{font-size:13px;line-height:1.55;color:var(--ink-soft);margin:6px 0 0}
-      .o2-mandos{display:grid;gap:9px 20px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+      .o2-mandos{display:grid;gap:9px 20px;grid-template-columns:repeat(auto-fit,minmax(min(290px,100%),1fr));
         margin:14px 0 4px}
-      .o2-m{display:flex;align-items:center;gap:9px;font-family:var(--f-m);font-size:12.5px;color:var(--ink)}
+      /* en un movil de 390 la etiqueta y su mando no caben en una linea: que
+   bajen en vez de empujar la pagina entera a lo ancho. */
+.o2-m{display:flex;align-items:center;flex-wrap:wrap;gap:9px;font-family:var(--f-m);
+  font-size:12.5px;color:var(--ink);min-width:0}
+.o2-m>*{min-width:0;max-width:100%}
       .o2-m > label:first-child{flex:0 0 150px}
       .o2-m input[type="range"]{flex:1;min-width:80px}
       .o2-m input[type="color"]{width:46px;height:26px;padding:0;border:1.5px solid var(--line);

@@ -79,7 +79,7 @@ main{padding-block:26px 70px}
 .rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
 .rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
-  display:inline-grid;place-items:center;font-weight:500}
+  padding:0 5px;flex:none;display:inline-grid;place-items:center;font-weight:500}
 .rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
 .bloque:nth-of-type(4n+2) .rotulo .num,.bloque:nth-of-type(4n+2) .rotulo::after{background:var(--goo-rojo)}
 .bloque:nth-of-type(4n+3) .rotulo .num,.bloque:nth-of-type(4n+3) .rotulo::after{background:var(--goo-verde)}
@@ -307,7 +307,9 @@ footer .wrap{padding-block:18px 26px}
 .ctrl input[type=range]{flex:1;min-width:110px;accent-color:var(--goo-azul)}
 .ctrl input[type=checkbox]{accent-color:var(--goo-azul);width:16px;height:16px;margin:0}
 .ctrl b{font-family:var(--f-m);font-size:12.5px;color:var(--ink);min-width:66px;text-align:right}
-.foto.alta img{max-height:520px;width:auto;margin:0 auto}
+/* una foto vertical se limita en alto, pero sin tope de ancho se sale de la
+   caja en un movil de 390: con 540 de alto pide 419 de ancho sobre 348. */
+.foto.alta img{max-height:520px;width:auto;max-width:100%;margin:0 auto}
 .cuenta{font-family:var(--f-m);font-size:14px;background:var(--surface-2);border-radius:2px;
   padding:10px 12px;margin:10px 0;line-height:1.8}
 .cuenta b{color:var(--goo-azul)}

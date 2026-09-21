@@ -544,6 +544,9 @@
   .rotulo .num{
     border-radius:999px; min-width:26px; height:26px; display:inline-grid; place-items:center;
     background:var(--accent); color:#fff; font-weight:500;
+    /* casi todos son un numero de dos cifras, pero alguno es una palabra corta
+       -- «LEY» -- y con 26 px justos y flex-shrink se le corta la ultima letra. */
+    padding:0 6px; flex:none;
   }
 
   /* cabecera limpia y tipografía más aireada */
