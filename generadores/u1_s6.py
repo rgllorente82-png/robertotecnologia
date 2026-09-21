@@ -61,6 +61,17 @@ S6 = u'''
       <h3>Y cuando alguno dice &laquo;no&raquo;</h3>
       <p>Que salga un <i>no</i> no es un suspenso: es informaci&oacute;n, y es exactamente para lo que
          sirve este paso. Hay <b>tres</b> salidas honradas, y una que no existe:</p>
+
+      <figure class="foto">
+        <img src="../../../img/u1-revisar.jpg" width="1200" height="800" loading="lazy"
+             alt="Un adolescente revisa con las manos un montaje rojo con cables y una placa, sentado a una mesa">
+        <figcaption>No es un soporte de m&oacute;vil, pero es <b>exactamente lo que toca hoy</b>: tener
+          delante lo que has construido y meterle mano. Fijaos en que no est&aacute; ense&ntilde;&aacute;ndolo
+          ni present&aacute;ndolo &mdash; est&aacute; <b>comprobando</b>. Volver atr&aacute;s a arreglar algo
+          que no cumple no es haberlo hecho mal: es el paso 7 funcionando.
+          <br><br>Foto de <b>Vanessa Loring</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
       <ol>
         <li><b>Corregir la pieza.</b> En el ejemplo: cortar otra costilla con la ranura un pelo m&aacute;s
               estrecha y volver a cronometrar.</li>
