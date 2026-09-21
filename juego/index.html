@@ -95,9 +95,18 @@ main{flex:1;min-height:0;padding:12px 18px 10px}
    no se notaba porque su envoltorio trae un [hidden]{display:none!important} */
 #mesa[hidden]{display:none}
 #jugadores{overflow:auto;min-height:0;flex:1}
-.caja-caida{flex:0 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
-.caja-log{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
-.caja-log .log{flex:1;height:auto}
+.caja-caida{flex:1 1 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+/* la casilla donde has caído es lo que hay que leer: se queda con el sitio.
+   El registro va plegado y se abre a mano cuando hace falta mirar atrás. */
+.caja-log{flex:0 0 auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.caja-log.abierta{flex:0 1 auto}
+.caja-log:not(.abierta) .log{display:none}
+.caja-log.abierta .log{flex:1;height:auto;min-height:90px}
+.plegar{background:none;border:0;padding:0;margin:0;color:var(--laton);cursor:pointer;
+  font:500 10.5px/1 var(--f-cond);letter-spacing:.28em;text-transform:uppercase;
+  display:flex;align-items:center;gap:8px;width:100%}
+.plegar:hover{background:none;color:var(--laton-claro)}
+.plegar .chev{font-size:15px;line-height:0}
 #opciones{overflow:auto;min-height:0;flex:1}
 /* ---------- época ---------- */
 .epoca{display:flex;gap:14px;align-items:center}
@@ -148,8 +157,9 @@ main{flex:1;min-height:0;padding:12px 18px 10px}
 .ficha-m{stroke:var(--papel-3);stroke-width:2}
 .resplandor{filter:blur(9px);transition:r .6s ease,opacity .6s ease}
 .chapa{fill:#140e08;stroke:var(--laton-claro);stroke-width:2;animation:enciende .6s ease both}
-.simb,.simb *{fill:none;stroke:var(--laton-claro);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;
-  vector-effect:non-scaling-stroke;
+.simb *{fill:none;stroke:var(--laton-claro);stroke-width:1.9;stroke-linejoin:round;stroke-linecap:round;
+  vector-effect:non-scaling-stroke;opacity:1}
+.simb{fill:none;stroke:var(--laton-claro);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;
   /* ⛔ nada de la animación 'apar': lleva un transform y el transform del CSS
      PISA el atributo transform del SVG — los símbolos se iban todos al 0,0 */
   opacity:1;animation:enciende .6s ease both}
@@ -359,8 +369,9 @@ footer p{margin:2px 0}
       <h2 id="tit-casilla">Dónde has caído</h2>
       <div id="opciones"><p class="meta">Empieza la partida para jugar.</p></div>
     </div>
-    <div class="caja caja-log">
-      <h2>Lo que va pasando</h2>
+    <div class="caja caja-log" id="caja-log">
+      <h2><button id="log-toggle" class="plegar" aria-expanded="false"
+            aria-controls="log">Lo que va pasando <span class="chev">&plus;</span></button></h2>
       <div class="log" id="log"><p class="meta">&mdash;</p></div>
     </div>
   </div>
@@ -851,7 +862,7 @@ function pintarOpciones(){
       c.className='carta'+(puede?'':' no');
       c.dataset.anio = t.anio>0? t.anio : '';
       const dib=DIB[t.id];
-      c.innerHTML=`<div class="anio">${anioTexto(t.anio)}${desdeAqui?'':' &middot; en tu '+nomReg(vistas[t.id])}</div>
+      c.innerHTML=`<div class="anio">${anioTexto(t.anio)}${desdeAqui?'':' &middot; en lo tuyo: '+nomReg(vistas[t.id])}</div>
         <div class="carta-t">${dib? `<svg class="dib-mini" viewBox="${DIB_VB}" aria-hidden="true">
             <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
                stroke-linejoin="round">${dib.d}</g></svg>`:''}
@@ -1072,6 +1083,12 @@ function preguntar(t, precio, d0){
 /* ---------- arranque ---------- */
 document.body.classList.add('preparando');
 pintarSelector(); pintarRango(); pintarLinea();
+document.getElementById('log-toggle').addEventListener('click',()=>{
+  const c=document.getElementById('caja-log');
+  const abierta=c.classList.toggle('abierta');
+  document.getElementById('log-toggle').setAttribute('aria-expanded', abierta?'true':'false');
+  c.querySelector('.chev').innerHTML = abierta? '&minus;' : '&plus;';
+});
 document.getElementById('empezar').addEventListener('click', empezar);
 document.getElementById('dado').addEventListener('click', tirar);
 </script>
