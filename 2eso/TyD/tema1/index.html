@@ -8,19 +8,6 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
-<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
-<meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Tema 1 &middot; El proceso tecnol&oacute;gico">
-<meta property="og:description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones y evaluaci&oacute;n del proyecto, todo alrededor de un soporte de m&oacute;vil de cart&oacute;n que se construye en clase, con escenas interactivas y test.">
-<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
-<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema1.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tema 1 &middot; El proceso tecnol&oacute;gico &middot; Materiales de Tecnolog&iacute;a">
-<meta name="twitter:card" content="summary_large_image">
-<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -40,7 +27,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +35,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -136,17 +123,11 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:var(--amar-texto)}
+.reto-piensa .n-tag{color:#9a7326}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
 .resp.revela table{margin:0}
-/* tablas de datos dentro de los bloques que se copian */
-.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
-.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
-.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
-@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 .secuencia li.oculto{color:transparent;background:var(--surface-2);border-radius:2px;user-select:none}
 .secuencia li.oculto *{visibility:hidden}
 .secuencia li{transition:color .25s ease,background .25s ease;padding:2px 4px}
@@ -194,6 +175,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .copiar > :first-child{margin-top:6px}
 .copiar > :last-child{margin-bottom:0}
 .copiar h4{font-size:15px;margin:10px 0 4px}
+/* tablas de datos dentro de los bloques que se copian */
+.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
+.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 .entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
 .entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
@@ -233,12 +220,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
-/* la palabra que dice cual es cual: el color solo no vale, ni para quien
-   no distingue rojo y verde ni para quien no ve la pantalla */
-.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
-  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
-.ta-op.bien .ta-marca{color:var(--verde-texto)}
-.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -294,40 +275,54 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
 .cc-aviso h2{font-size:17px;margin:0 0 8px}
 .cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px;
+  /* la cita es una tirada sin espacios: en un movil empujaba la pagina 80 px
+     de lado, y con ella todo lo demas. Que parta antes que sacar la pagina. */
+  overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
-
-  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
-     empujaba la página entera 80 px de lado, y con ella todo lo demás.
-     Que parta por donde haga falta antes que sacar la página del ancho. */
-  .cc-cita code{overflow-wrap:anywhere}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
-/* tablas anchas en el movil: se desplazan ellas, no la pagina */
-@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
-/* ---- al imprimir, que salgan todas las sesiones ---- */
-@media print{
-  #nav{display:none}
-  [id^="ses-"][hidden]{display:block !important}
-  [id^="ses-"]{break-before:page}
-  [id^="ses-"]:first-of-type{break-before:auto}
-  .escena-barra .seg,.video-play{display:none}
-  .escena{break-inside:avoid}
+/* visor de imagenes: lo pone afina_visor.py */
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
 }
-</style>
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}/* ayuda de palabras: lo pone afina_visor.py */
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -720,7 +715,6 @@ footer .wrap{padding-block:18px 26px}
       </div>
   
     </section>
-
   </div>
 
   <div id="ses-2" hidden>
@@ -917,6 +911,18 @@ footer .wrap{padding-block:18px 26px}
             que de verdad os importa, o ten&iacute;ais una preferencia que no hab&iacute;ais puesto por escrito.
             <b>Las dos cosas merecen descubrirse ahora</b> y no cuando est&eacute; construido.
           </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-grupo-plan.jpg" width="1200" height="800" loading="lazy"
+             alt="Cinco personas sentadas en el suelo alrededor de una hoja grande, cada una con un rotulador,
+                  dibujando a la vez sobre el mismo papel">
+        <figcaption>Las cuatro reglas, en marcha: <b>una hoja sola y cinco rotuladores encima</b>. Nadie
+          espera turno y nadie est&aacute; juzgando todav&iacute;a &mdash;eso viene despu&eacute;s, con la matriz&mdash;.
+          Fijaos en que dibujan: una idea dibujada se entiende a la primera y le da pie a otro, que es
+          justo lo que busca la tercera regla.
+          <br><br>Foto de <b>Alena Darmel</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
   </div>
       </div>
 
@@ -944,7 +950,6 @@ footer .wrap{padding-block:18px 26px}
       </div>
   
     </section>
-
   </div>
 
   <div id="ses-3" hidden>
@@ -1009,6 +1014,18 @@ footer .wrap{padding-block:18px 26px}
         <p><b>Acotar:</b> escribir sobre el dibujo las medidas que hacen falta para fabricarlo, en
            <b>mil&iacute;metros</b>, y cada una <b>una sola vez</b>.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-trazar-carton.jpg" width="1200" height="800" loading="lazy"
+             alt="Manos trazando a l&aacute;piz sobre una plancha de cart&oacute;n, con otras piezas ya recortadas al lado,
+                  un cutter, una regla met&aacute;lica y una base de corte">
+        <figcaption>Esto es un <b>croquis trabajando</b>: las medidas no est&aacute;n en la hoja, est&aacute;n
+          ya sobre el cart&oacute;n. Fijaos en lo que hay en la mesa &mdash;regla, cutter y base de corte&mdash; y en
+          las piezas del fondo, <b>que salieron de un dibujo anterior</b>. Nadie corta a ojo: se traza primero,
+          y se traza con medidas.
+          <br><br>Foto de <b>Roxanne Minnish</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
       <div class="nota">
         <span class="n-tag">Esto ya lo trabajaste en el tema 2</span>
         Aqu&iacute; es un recordatorio de tres l&iacute;neas, no materia nueva: las
@@ -1643,6 +1660,18 @@ footer .wrap{padding-block:18px 26px}
             tarea se corta, o <b>simplificar el dise&ntilde;o</b>. Las dos son respuestas v&aacute;lidas;
             mentirle a la hoja no.
           </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-grupo-mesa.jpg" width="1200" height="800" loading="lazy"
+             alt="Cinco j&oacute;venes de pie alrededor de una mesa con hojas extendidas, se&ntilde;alando y
+                  discutiendo el trabajo">
+        <figcaption>Un plan se discute <b>de pie y sobre el papel</b>, no en la cabeza de uno. Aqu&iacute; est&aacute;n
+          en lo que m&aacute;s cuesta: repartir. Mientras nadie diga en voz alta <b>qui&eacute;n</b> hace cada tarea y
+          <b>en cu&aacute;ntos minutos</b>, el reparto no existe &mdash; y el d&iacute;a del taller lo acaba haciendo
+          todo el mismo.
+          <br><br>Foto de <b>Monstera Production</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
         </div>
       </div>
     </section>
@@ -2265,10 +2294,9 @@ footer .wrap{padding-block:18px 26px}
   <h3>C&oacute;mo citar</h3>
   <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 1 &middot; El proceso tecnol&oacute;gico</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
-  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia. Y la
-     <b>fotograf&iacute;a del soporte terminado</b>, que tambi&eacute;n lo es.</p>
-  <p><b>No cubre las dem&aacute;s fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su
-     propia licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
+  <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
+  <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
+     licencia, indicada bajo cada una. Algunas son de <b>dominio p&uacute;blico</b>; las dem&aacute;s
      est&aacute;n bajo licencias Creative Commons compatibles con esta, y se reproducen citando
      autor&iacute;a y licencia como exigen. Tampoco cubre las tipograf&iacute;as, de Google Fonts con su
      propia licencia.</p>
@@ -2308,7 +2336,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            + '?autoplay=1&rel=0&modestbranding=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2337,17 +2365,8 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          var vieja = L.querySelector('.ta-marca');
-          if(vieja) vieja.remove();
-          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
-          function marca(t){
-            var m = document.createElement('span');
-            m.className = 'ta-marca';
-            m.textContent = t;
-            L.appendChild(m);
-          }
-          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
-          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -2360,10 +2379,7 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){
-        L.classList.remove('bien','mal');
-        var m = L.querySelector('.ta-marca'); if(m) m.remove();
-      });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -2382,35 +2398,7 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
-<!-- Visor de diagramas · 20-sep-2026 -->
-<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
-     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
-     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
-     natural sobre la pantalla y se pueden recorrer con el dedo. -->
-<style>
-.rtz-pista{display:none}
-@media (max-width:760px){
-  figure.foto img{cursor:zoom-in}
-  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
-    color:var(--muted,#667);text-transform:uppercase}
-  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
-     tape la última línea del contenido */
-  body{padding-bottom:64px}
-}
-.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
-  display:none;flex-direction:column}
-.rtz-capa.abierta{display:flex}
-.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
-.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
-  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
-  display:flex;align-items:flex-start;justify-content:flex-start}
-.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
-@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
-</style>
+
 <div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
   <div class="rtz-barra">
     <span class="rtz-tit"></span>
@@ -2495,30 +2483,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   if(window.MutationObserver){
     new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
   }
-})();
-</script>
-
-
-
-
-<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
-<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
-     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
-     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
-     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
-     desde SU tamaño propio, así que la jerarquía no se aplana. -->
-<style>
-.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
-.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
-  opacity:.65;margin-right:2px}
-.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
-  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
-.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
-.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
-.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
-@media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
-</style>
+})();</script>
 <script>
 (function(){
   var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
@@ -2561,8 +2526,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
   else montar();
-})();
-</script>
-
+})();</script>
 </body>
 </html>

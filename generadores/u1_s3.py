@@ -61,6 +61,18 @@ S3 = u'''
         <p><b>Acotar:</b> escribir sobre el dibujo las medidas que hacen falta para fabricarlo, en
            <b>mil&iacute;metros</b>, y cada una <b>una sola vez</b>.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-trazar-carton.jpg" width="1200" height="800" loading="lazy"
+             alt="Manos trazando a l&aacute;piz sobre una plancha de cart&oacute;n, con otras piezas ya recortadas al lado,
+                  un cutter, una regla met&aacute;lica y una base de corte">
+        <figcaption>Esto es un <b>croquis trabajando</b>: las medidas no est&aacute;n en la hoja, est&aacute;n
+          ya sobre el cart&oacute;n. Fijaos en lo que hay en la mesa &mdash;regla, cutter y base de corte&mdash; y en
+          las piezas del fondo, <b>que salieron de un dibujo anterior</b>. Nadie corta a ojo: se traza primero,
+          y se traza con medidas.
+          <br><br>Foto de <b>Roxanne Minnish</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
       <div class="nota">
         <span class="n-tag">Esto ya lo trabajaste en el tema 2</span>
         Aqu&iacute; es un recordatorio de tres l&iacute;neas, no materia nueva: las

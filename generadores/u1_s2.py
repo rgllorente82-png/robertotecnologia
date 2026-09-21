@@ -195,6 +195,18 @@ S2 = u'''    <section class="bloque">
             que de verdad os importa, o ten&iacute;ais una preferencia que no hab&iacute;ais puesto por escrito.
             <b>Las dos cosas merecen descubrirse ahora</b> y no cuando est&eacute; construido.
           </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-grupo-plan.jpg" width="1200" height="800" loading="lazy"
+             alt="Cinco personas sentadas en el suelo alrededor de una hoja grande, cada una con un rotulador,
+                  dibujando a la vez sobre el mismo papel">
+        <figcaption>Las cuatro reglas, en marcha: <b>una hoja sola y cinco rotuladores encima</b>. Nadie
+          espera turno y nadie est&aacute; juzgando todav&iacute;a &mdash;eso viene despu&eacute;s, con la matriz&mdash;.
+          Fijaos en que dibujan: una idea dibujada se entiende a la primera y le da pie a otro, que es
+          justo lo que busca la tercera regla.
+          <br><br>Foto de <b>Alena Darmel</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
   </div>
       </div>
 

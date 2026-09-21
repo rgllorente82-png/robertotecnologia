@@ -329,6 +329,9 @@ footer .wrap{padding-block:18px 26px}
 .tabla-mat th{background:var(--surface);font-weight:600}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -1945,7 +1948,7 @@ footer .wrap{padding-block:18px 26px}
            encajan cruzadas, una por una ranura de abajo y la otra por una de arriba. La misma
            uni&oacute;n del soporte de m&oacute;vil del tema 1.</p>
 
-        <h4>El dibujo, una sola vez</h4>
+        <h3 class="h-menor">El dibujo, una sola vez</h3>
         <ol class="pasos">
           <li>Dibujad <b>una</b> silueta de &aacute;rbol: <b>120 mm</b> de alto, <b>90 mm</b> de ancho
               en la base y la copa cortada plana, de <b>14 mm</b>.</li>

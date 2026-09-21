@@ -290,6 +290,18 @@ S4 = u'''
             tarea se corta, o <b>simplificar el dise&ntilde;o</b>. Las dos son respuestas v&aacute;lidas;
             mentirle a la hoja no.
           </div>
+
+      <figure class="foto">
+        <img src="../../../img/u1-grupo-mesa.jpg" width="1200" height="800" loading="lazy"
+             alt="Cinco j&oacute;venes de pie alrededor de una mesa con hojas extendidas, se&ntilde;alando y
+                  discutiendo el trabajo">
+        <figcaption>Un plan se discute <b>de pie y sobre el papel</b>, no en la cabeza de uno. Aqu&iacute; est&aacute;n
+          en lo que m&aacute;s cuesta: repartir. Mientras nadie diga en voz alta <b>qui&eacute;n</b> hace cada tarea y
+          <b>en cu&aacute;ntos minutos</b>, el reparto no existe &mdash; y el d&iacute;a del taller lo acaba haciendo
+          todo el mismo.
+          <br><br>Foto de <b>Monstera Production</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
         </div>
       </div>
     </section>
