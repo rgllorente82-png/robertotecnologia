@@ -655,7 +655,7 @@ function empezar(){
   E={
     jug: Array.from({length:n},(_,i)=>({
       id:i, nombre:(NOMBRES[i]||"").trim() || ("Grupo "+(i+1)), color:COLORES[i%COLORES.length],
-      pos:0, dinero:DATOS.reglas_recursos.dinero_inicial, tec:[], region:regs[i%regs.length]
+      pos:0, dinero:DATOS.reglas_recursos.dinero_inicial, tec:[], copias:{}, region:regs[i%regs.length]
     })),
     turno:0, destapadas:0, tirado:false, difusion:[],
     desc:{},        // regiones DESCUBIERTAS: al empezar solo África
@@ -928,9 +928,16 @@ function ultimaDeRegion(id){
   }));
   return mejor;
 }
-// la víspera vale 1 punto y cada revolución uno más: lo antiguo cuenta, pero
-// llegar lejos cuenta más, y para llegar lejos hay que encadenar prerrequisitos
-function puntos(j){ return j.tec.reduce((s,id)=>s+TEC[id].ep,0); }
+/* La víspera vale 1 punto y cada revolución uno más: lo antiguo cuenta, pero
+   llegar lejos cuenta más, y para llegar lejos hay que encadenar prerrequisitos.
+   ⭐ Y quien lo desarrolla el PRIMERO se lleva el hito entero; quien lo copia, la
+   mitad. Sin esto, copiar costaba la mitad de dinero y puntuaba igual: el 84% de
+   las adquisiciones eran copias y los ocho grupos acababan empatados. */
+function valeCarta(j, id){
+  const ep=TEC[id].ep;
+  return (j.copias && j.copias[id]) ? Math.ceil(ep/2) : ep;
+}
+function puntos(j){ return j.tec.reduce((s,id)=>s+valeCarta(j,id),0); }
 function pintarJugadores(){
   const c=document.getElementById('jugadores'); c.innerHTML='';
   c.classList.toggle('dos-col', E.jug.length>4);
@@ -1041,7 +1048,8 @@ function pintarOpciones(){
         <div>${t.reg.map(x=>`<span class="tag" style="background:${REG[x].color}">${nomReg(x)}</span>`).join('')}</div>
         <p class="dato">${t.dato}</p>
         <div class="meta" style="margin-top:6px">
-          ${d0? `Ya la tiene ${d0.nombre}: copiarla cuesta ${precio}` : `Precio: ${precio}`}
+          ${d0? `Ya la tiene ${d0.nombre}: copiarla cuesta ${precio} y vale <b>${Math.ceil(t.ep/2)}</b> de los ${t.ep} puntos`
+               : `Precio: ${precio} &middot; vale <b>${t.ep}</b> punto${t.ep>1?'s':''} por ser el primero`}
           ${falta.length? ` · <b style="color:var(--rojo)">te falta antes: ${falta.map(x=>TEC[x].n).join(', ')}</b>`:''}
           ${(!falta.length && j.dinero<precio)? ' · <b style="color:var(--rojo)">no te llega el dinero</b>':''}
         </div>`;
@@ -1357,6 +1365,7 @@ function preguntaSuelta(rotulo, texto, alAcertar, sinRobo){
     cerrar.addEventListener('click',()=>{ dlg.close(); pintarTodo(); });
     c.appendChild(cerrar);
   }
+  const yaIntentaron={};
   function responder(i, quien, esRobo){
     const j0=E.jug[E.turno];
     quien = quien || j0;
@@ -1369,7 +1378,15 @@ function preguntaSuelta(rotulo, texto, alAcertar, sinRobo){
                  : `<b>Correcto.</b> ${alAcertar(quien)}`, 'ok');
       return;
     }
-    const ladron = (esRobo||sinRobo)? null : E.jug[(E.turno+1)%E.jug.length];
+    yaIntentaron[quien.id]=true;
+    const quedan = cajas.filter(b=>!b.classList.contains('mal')).length;
+    let ladron=null;
+    if(!sinRobo && quedan>1){
+      for(let k=1;k<E.jug.length;k++){
+        const x=E.jug[(quien.id+k)%E.jug.length];
+        if(!yaIntentaron[x.id]){ ladron=x; break; }
+      }
+    }
     if(!ladron || ladron.id===quien.id){
       cajas.forEach((b,k)=>{ if(k===PS.ok) b.classList.add('bien'); });
       fin(`<b>No era esa.</b> ${PS.op[PS.ok]}. Esta vez nadie se lo lleva.`, 'ko');
@@ -1443,15 +1460,18 @@ function preguntar(t, precio, d0){
     if(x.dinero<precio) return false;
     return (t.req||[]).every(r=>x.tec.includes(r) || yaEstabaInventado(r));
   }
-  function siguienteQuePueda(desde){
+  const yaLoIntentaron={};
+  function losQuePueden(desde){
+    const out=[];
     for(let k=1;k<E.jug.length;k++){
       const x=E.jug[(desde+k)%E.jug.length];
-      if(puedeCon(x)) return x;
+      if(puedeCon(x) && !yaLoIntentaron[x.id]) out.push(x);
     }
-    return null;
+    return out;
   }
   function entrega(quien, robada){
     quien.dinero-=precio; quien.tec.push(t.id);
+    if(d0) quien.copias[t.id]=true;   // copiada: vale la mitad al contar
     if(d0){ d0.dinero+=precio;
       // una línea por pareja de regiones, no una por copia: si no, el mapa
       // acaba siendo una maraña que no dice nada
@@ -1483,27 +1503,37 @@ function preguntar(t, precio, d0){
       return;
     }
     log(`<b>${quien.nombre}</b> falla la pregunta de ${t.n}.`);
-    const ladron = esRobo? null : siguienteQuePueda(j.id);
-    if(!ladron){
+    yaLoIntentaron[quien.id]=true;
+    // la cadena sigue mientras quede alguien que pueda Y quede alguna respuesta
+    // sin descartar: con tres opciones, eso son tres grupos como mucho
+    const quedan = cajas.filter(b=>!b.classList.contains('mal')).length;
+    const cand = quedan>1 ? losQuePueden(quien.id) : [];
+    if(!cand.length){
       cajas.forEach((b,k)=>{ if(k===P.ok) b.classList.add('bien'); });
       cierra(`<b>No era esa.</b> ${P.op[P.ok]}.`
              + (esRobo? ' Se queda sin desarrollar.' : ' No pagas nada, pero esta vez te quedas sin ella.'), 'ko');
       return;
     }
-    // hay quien puede robarla: no se enseña la respuesta todavía
+    /* Se ofrece a TODOS los que pueden, no al de al lado: el profesor pulsa al
+       grupo que levante la mano, que es como pasa en clase. La respuesta buena
+       sigue sin enseñarse. */
     const res=document.createElement('div');
     res.className='resul ko';
-    res.innerHTML=`<b>No era esa.</b> Puede robártela <b>${ladron.nombre}</b>, que sí tiene con qué.`;
+    res.innerHTML=`<b>No era esa.</b> Puede robárse${cand.length>1?'la cualquiera de estos':'la'}. ¿Quién la quiere?`;
     c.appendChild(res);
-    const b2=document.createElement('button');
-    b2.className='primario'; b2.style.marginTop='12px';
-    b2.textContent='Que lo intente '+ladron.nombre;
-    b2.addEventListener('click',()=>{
-      b2.remove(); res.innerHTML=`Le toca a <b>${ladron.nombre}</b>: queda una respuesta menos.`;
-      cajas.forEach((b,k)=>{ if(!b.classList.contains('mal')){ b.disabled=false;
-        b.onclick=()=>responder(k, ladron, true); } });
+    const fila=document.createElement('div');
+    fila.className='fila'; fila.style.marginTop='12px';
+    cand.forEach(x=>{
+      const b2=document.createElement('button');
+      b2.className='primario'; b2.textContent=x.nombre;
+      b2.addEventListener('click',()=>{
+        fila.remove(); res.innerHTML=`Le toca a <b>${x.nombre}</b>.`;
+        cajas.forEach((b,k)=>{ if(!b.classList.contains('mal')){ b.disabled=false;
+          b.onclick=()=>responder(k, x, true); } });
+      });
+      fila.appendChild(b2);
     });
-    c.appendChild(b2);
+    c.appendChild(fila);
   }
   dlg.showModal();
 }
