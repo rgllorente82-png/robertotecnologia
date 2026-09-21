@@ -4,10 +4,15 @@
 No basta con que la licencia sea libre: hay que mirar la foto, porque el
 titulo miente mas de lo que parece. Estas tres estan vistas una a una.
 """
-import io, json, os, re, urllib.parse, urllib.request
+import io, json, os, re, urllib.error, urllib.parse, urllib.request
 
 UA = {'User-Agent': 'robertotecnologia/1.0 (material docente; rgllorente82@gmail.com)'}
-DESTINO = 'C:/Users/javie/AppData/Local/Temp/rt-clone/img'
+
+# La primera version apuntaba a una carpeta temporal de la maquina donde se
+# escribio el sitio, que ya no existe en ninguna parte: el script no podia
+# correr en ningun sitio. El destino sale ahora del propio repositorio.
+AQUI = os.path.dirname(os.path.abspath(__file__))
+DESTINO = os.path.join(os.path.dirname(AQUI), 'img')
 
 FOTOS = [
     ('u4-acueducto', u'Acueducto de Segovia Detalle.JPG'),
@@ -38,8 +43,13 @@ if not os.path.isdir(DESTINO):
 
 creditos = {}
 for nombre, titulo in FOTOS:
-    d = api(titles='File:' + titulo, prop='imageinfo',
-            iiprop='url|extmetadata', iiurlwidth='900')
+    try:
+        d = api(titles='File:' + titulo, prop='imageinfo',
+                iiprop='url|extmetadata', iiurlwidth='900')
+    except (urllib.error.URLError, OSError) as e:
+        print(u'Desde aqui no se llega a commons.wikimedia.org: %s' % e)
+        print(u'Hay que correrlo desde una red que llegue. No se ha bajado nada.')
+        raise SystemExit(2)
     ii = list(d['query']['pages'].values())[0]['imageinfo'][0]
     m = ii['extmetadata']
     ruta = os.path.join(DESTINO, nombre + '.jpg')
@@ -52,6 +62,6 @@ for nombre, titulo in FOTOS:
     print(u'%-16s %7d B  %-14s %s' % (nombre, n, creditos[nombre]['licencia'],
                                       creditos[nombre]['autor']))
 
-io.open('creditos_u4.json', 'w', encoding='utf-8').write(
+io.open(os.path.join(AQUI, 'creditos_u4.json'), 'w', encoding='utf-8').write(
     json.dumps(creditos, ensure_ascii=False, indent=1))
-print('creditos guardados en creditos_u4.json')
+print('creditos guardados en generadores/creditos_u4.json')

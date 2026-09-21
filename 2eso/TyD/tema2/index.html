@@ -21,11 +21,42 @@
   .cc-sello .cc-autor{display:none}
 }
 @media print{.cc-sello{position:static;background:none;color:#000;box-shadow:none}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
-<title>Del boceto al plano</title>
+<title>Tema 2 &middot; Representaci&oacute;n gr&aacute;fica de un proyecto</title>
+<meta name="description" content="Tema 2 de 2.&ordm; de ESO: dibujo t&eacute;cnico y art&iacute;stico, boceto, croquis y plano, las tres vistas del sistema europeo, tipos de l&iacute;nea, acotaci&oacute;n y el cajet&iacute;n con sus medidas.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema2/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 2 &middot; Representaci&oacute;n gr&aacute;fica de un proyecto">
+<meta property="og:description" content="Tema 2 de 2.&ordm; de ESO: dibujo t&eacute;cnico y art&iacute;stico, boceto, croquis y plano, las tres vistas del sistema europeo, tipos de l&iacute;nea, acotaci&oacute;n y el cajet&iacute;n con sus medidas.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema2/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 2 &middot; Representaci&oacute;n gr&aacute;fica de un proyecto &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -151,7 +182,7 @@
     transition:background .18s,color .18s,border-color .18s;
   }
   nav.sesiones button:hover{border-color:var(--accent);color:var(--ink)}
-  nav.sesiones button[aria-selected="true"]{
+  nav.sesiones button[aria-pressed="true"]{
     background:var(--ink);
     color:var(--paper);
     border-color:var(--ink);
@@ -283,7 +314,7 @@
 
   /* una cara, un color, el mismo que tendrá su vista */
   :root{--c-alzado:#cde2f3;--c-planta:#d4e8cf;--c-perfil:#f2e0bf;
-        --c-alzado-bd:#2b6f9c;--c-planta-bd:#3f7a45;--c-perfil-bd:#9a7326}
+        --c-alzado-bd:#2b6f9c;--c-planta-bd:#3f7a45;--c-perfil-bd:var(--amar-texto)}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
         --c-alzado:#1b384b;--c-planta:#243d28;--c-perfil:#43331d;
         --c-alzado-bd:#6fb6dd;--c-planta-bd:#7dba82;--c-perfil-bd:#cba85e}}
@@ -320,6 +351,9 @@
   .cota{fill:none;stroke:var(--pencil);stroke-width:.9}
   .cifra{fill:var(--pencil);font-family:"IBM Plex Mono",monospace;font-size:11px}
   .rotulo-svg{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em}
+  .papel{fill:var(--surface-2);stroke:var(--line);stroke-width:1.4}
+  .marco{fill:none;stroke:currentColor;stroke-width:1.6}
+  .caja{fill:var(--accent-soft);stroke:currentColor;stroke-width:2.2;stroke-linejoin:round}
   .sombra{fill:none;stroke:currentColor;stroke-width:1;opacity:.5;stroke-linecap:round}
   .mancha{fill:var(--accent);opacity:.08}
 
@@ -499,7 +533,7 @@
   .btn{padding:10px 22px; transition:background .2s ease}
   
   .btn.primary{background:var(--accent); border-color:var(--accent); color:#fff}
-  nav.sesiones button[aria-selected="true"], .seg button[aria-pressed="true"]{
+  nav.sesiones button[aria-pressed="true"], .seg button[aria-pressed="true"]{
     background:var(--accent-soft); color:var(--accent); border-color:transparent; font-weight:500;
   }
 
@@ -552,7 +586,7 @@
     background:var(--surface); color:var(--ink-soft);
     border:1.5px solid var(--line); border-radius:2px; font-weight:400;
   }
-  nav.sesiones button[aria-selected="true"]{
+  nav.sesiones button[aria-pressed="true"]{
     background:var(--ink); color:var(--surface); border-color:var(--ink); font-weight:500;
   }
   .seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
@@ -576,12 +610,12 @@
   
 
   /* ---- los cuatro colores de Google, planos ---- */
-  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853}
+  :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853}
   @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995}}
+    --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995}}
 
   /* pestaña activa en azul Google */
-  nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+  nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
   .seg button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
   .btn.primary{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 
@@ -607,6 +641,49 @@
   .chip{border-color:var(--goo-azul);color:var(--goo-azul)}
   .chip.sab{border-color:var(--line);color:var(--ink-soft)}
 
+/* ---- test que se corrige solo: el mismo molde que el resto de las unidades ---- */
+.ta{border:2px solid var(--goo-azul);border-radius:2px;padding:18px 18px 14px;margin:20px 0;
+  background:var(--surface);position:relative}
+.ta::before{content:"AUTOEVALUACIÓN";position:absolute;top:-11px;left:14px;background:var(--goo-azul);
+  color:#fff;font-family:var(--f-m);font-size:10.5px;letter-spacing:.11em;padding:3px 8px;border-radius:2px}
+.ta h4{margin:8px 0 14px;font-size:16px}
+.ta-p{border-top:1px solid var(--line-soft);padding:14px 0 4px}
+.ta-p:first-of-type{border-top:0}
+.ta-p > p{margin:0 0 9px;font-weight:500}
+.ta-op{display:block;padding:7px 10px;margin:0 0 5px;border:1.5px solid var(--line);border-radius:2px;
+  cursor:pointer;font-size:15px;line-height:1.45;transition:border-color .12s}
+.ta-op:hover{border-color:var(--goo-azul)}
+.ta-op input{margin-right:9px}
+.ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
+.ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
+.ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
+  background:var(--surface-2);font-size:14.5px;line-height:1.55}
+.ta.corregido .ta-por{display:block}
+.ta-pie{display:flex;align-items:center;gap:14px;margin-top:16px;flex-wrap:wrap}
+.ta-pie button{font-family:var(--f-m);font-size:13px;border:1.5px solid var(--goo-azul);
+  background:var(--goo-azul);color:#fff;border-radius:2px;padding:9px 16px;cursor:pointer}
+.ta-pie button.otra{background:var(--surface);color:var(--goo-azul)}
+.ta-nota{font-family:var(--f-m);font-size:15px;color:var(--ink)}
+.ta-aviso{font-size:12.5px;color:var(--ink-soft);margin:10px 0 0}
+@media print{.ta{break-inside:avoid}.ta-por{display:block}}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
 </style>
 
 <script type="application/ld+json">
@@ -628,6 +705,8 @@
 </script>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap top-inner">
     <div>
@@ -635,7 +714,7 @@
       <h1 class="tema">Representación gráfica de un proyecto</h1>
     </div>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema">
-      <button type="button" data-ses="1" aria-selected="true">S1 · ¿Por qué dibujamos?</button>
+      <button type="button" data-ses="1" aria-pressed="true">S1 · ¿Por qué dibujamos?</button>
       <button type="button" data-ses="2">S2 · Boceto, croquis y plano</button>
       <button type="button" data-ses="3">S3 · Las tres vistas</button>
       <button type="button" data-ses="4">S4 · Tipos de líneas</button>
@@ -645,7 +724,7 @@
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <!-- ============ SESIÓN 1 ============ -->
   <div id="ses-1">
@@ -694,7 +773,7 @@
               </tbody>
             </table>
           </div>
-          <h4>Saberes básicos implicados, literales</h4>
+          <h3 class="h-menor">Saberes básicos implicados, literales</h3>
           <ul>
             <li><strong>B.1</strong> · Habilidades básicas de comunicación interpersonal: vocabulario técnico apropiado y pautas de conducta propias del entorno virtual (etiqueta digital).</li>
             <li><strong>B.2</strong> · Aplicaciones CAD en dos y tres dimensiones para la representación de esquemas, circuitos, planos y objetos básicos.</li>
@@ -794,7 +873,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie" data-pie>Pulsa <b>Siguiente</b> para empezar.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true">Pulsa <b>Siguiente</b> para empezar.</div>
       </div>
     </section>
 
@@ -886,7 +965,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie"><b>Dibujo técnico:</b> aquí no hay interpretación posible. Los muros miden lo que dicen las cotas, las puertas abren hacia donde marca el arco y con este plano el albañil levanta la casa. Está dibujado <b>a escala 1:50</b>: cada centímetro del papel son 50 cm reales.</div>
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true"><b>Dibujo técnico:</b> aquí no hay interpretación posible. Los muros miden lo que dicen las cotas, las puertas abren hacia donde marca el arco y con este plano el albañil levanta la casa. Está dibujado <b>a escala 1:50</b>: cada centímetro del papel son 50 cm reales.</div>
       </div>
 
       <div class="aviso">
@@ -1091,7 +1170,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie" data-pie><b>Artístico:</b> reconoces la taza al instante, pero no puedes fabricarla: no sabes cuánto mide ni de qué grosor es la pared.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true"><b>Artístico:</b> reconoces la taza al instante, pero no puedes fabricarla: no sabes cuánto mide ni de qué grosor es la pared.</div>
       </div>
 
       <div class="aviso">
@@ -1271,6 +1350,14 @@
         </table>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/sketch-to-plan-progression.svg" width="1000" height="700" loading="lazy"
+             alt="Evoluci&oacute;n del dibujo desde boceto r&aacute;pido a croquis acotado y plano t&eacute;cnico con cajet&iacute;n">
+        <figcaption><strong>Cómo evoluciona un dibujo:</strong> desde la idea rápida (boceto) hasta el documento oficial (plano)
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <h4>Dos reglas que te van a puntuar</h4>
       <ul>
         <li><strong>En el boceto no se borra.</strong> Si una línea sale mal, se hace otra al lado. Borrar frena el pensamiento, y el boceto sirve justo para eso.</li>
@@ -1300,7 +1387,7 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 300" id="svg-fases" role="img" aria-label="La misma pieza en L dibujada como boceto a mano alzada, como croquis acotado y como plano a escala con cajetín"></svg>
         </div>
-        <div class="pie" data-pie><b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true"><b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.</div>
       </div>
     </section>
 
@@ -1440,6 +1527,14 @@
         <li>El que dé <strong>más información</strong> de un vistazo.</li>
         <li>El que deje <strong>menos aristas ocultas</strong> (líneas de trazos).</li>
       </ul>
+
+      <figure class="foto">
+        <img src="../../../img/orthogonal_projection_views.svg" width="1000" height="700" loading="lazy"
+             alt="Sistema de proyección ortogonal: tres vistas (alzado, planta, perfil) de una pieza con dimensiones">
+        <figcaption>Las <b>tres vistas</b> en el sistema europeo: cada vista se dibuja en su posición relativa,
+          vinculadas por líneas de alineación. La correspondencia entre ellas (anchos, alturas, profundidades)
+          garantiza que la pieza se puede reconstruir exactamente desde el plano.</figcaption>
+      </figure>
     </section>
 
     <!-- animación -->
@@ -1466,7 +1561,7 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 360" id="svg-vistas" role="img" aria-label="Una pieza en perspectiva y la obtención de su alzado, planta y perfil en sistema europeo"></svg>
         </div>
-        <div class="pie" data-pie>La pieza, en perspectiva. Pulsa <b>Siguiente</b> para ir sacando las vistas.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true">La pieza, en perspectiva. Pulsa <b>Siguiente</b> para ir sacando las vistas.</div>
       </div>
 
       <div class="nota">
@@ -1665,7 +1760,7 @@
             </g>
           </svg>
         </div>
-        <div class="pie" data-pie>Las cinco líneas a la vez, como en un plano de verdad. Pulsa una para aislarla.</div>
+        <div class="pie" data-pie role="status" aria-live="polite" aria-atomic="true">Las cinco líneas a la vez, como en un plano de verdad. Pulsa una para aislarla.</div>
       </div>
     </section>
 
@@ -1767,7 +1862,7 @@
     </section>
 
     <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 15 min</div>
+      <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 10 min</div>
 
       <h3>Por qu&eacute; existen las normas</h3>
       <p>Si cada uno dibujara a su manera, un plano solo lo entender&iacute;a quien lo hizo. Por eso hay normas internacionales &mdash;las <b>ISO</b>, que en Espa&ntilde;a publica <b>UNE</b>&mdash; que fijan c&oacute;mo se dibuja. No son man&iacute;as: son lo que permite que una pieza dise&ntilde;ada en Ja&eacute;n se fabrique en Alemania sin una sola llamada de tel&eacute;fono.</p>
@@ -1809,11 +1904,43 @@
       </ol>
 
       <h3>El cajet&iacute;n</h3>
-      <p>Es el recuadro de la esquina inferior derecha. Lleva el <b>t&iacute;tulo</b> de la pieza, el <b>autor</b>, la <b>fecha</b>, la <b>escala</b> y el <b>n&uacute;mero de plano</b>. Sin cajet&iacute;n, un plano no est&aacute; terminado.</p>
+      <p>Es el recuadro donde el plano dice qui&eacute;n es. Va <b>siempre en la esquina inferior
+         derecha</b>, pegado al marco, y mide <b>180 &times; 30 mm</b> tanto si la l&aacute;mina
+         est&aacute; en vertical como en apaisado. Sin cajet&iacute;n, un plano no est&aacute; terminado.</p>
+
+      <p>Pero antes del cajet&iacute;n hay que dibujar el <b>marco</b>, y el marco no es el borde del
+         papel: se dejan <b>20 mm en el lado izquierdo</b> y <b>10 mm</b> en los otros tres. Los 20 son
+         por donde se archiva &mdash; las grapas, los agujeros de la carpeta &mdash;, y por eso ese lado
+         lleva el doble. Un dibujo que llega hasta el borde se pierde en cuanto alguien lo guarda.</p>
+
+      <p>De ah&iacute; salen dos marcos distintos con el mismo A4, y conviene saberlo antes de empezar
+         a medir:</p>
+      <ul>
+        <li><b>A4 vertical</b> (210 &times; 297): el marco mide <b>180 &times; 277 mm</b>, as&iacute; que
+            el cajet&iacute;n ocupa <b>justo todo su ancho</b>.</li>
+        <li><b>A4 apaisado</b> (297 &times; 210): el marco mide <b>267 &times; 190 mm</b>, y el
+            cajet&iacute;n, que sigue midiendo 180, deja <b>87 mm de marco libre</b> a su izquierda.</li>
+      </ul>
+
+      <p>Dentro van <b>cinco datos</b>, y se reparten con tres l&iacute;neas finas: una horizontal a los
+         <b>15 mm</b> y dos verticales, a los <b>110</b> y a los <b>145</b>.</p>
+      <ol>
+        <li><b>T&iacute;tulo de la pieza</b> &mdash; arriba a la izquierda, en la casilla grande.</li>
+        <li><b>Escala</b> &mdash; tal cual: 1:1, 1:2, 2:1.</li>
+        <li><b>N.&ordm; de plano</b> &mdash; 1/1 si es el &uacute;nico; 1/3, 2/3, 3/3 si son varios.</li>
+        <li><b>Autor y grupo</b> &mdash; abajo a la izquierda.</li>
+        <li><b>Fecha</b> &mdash; abajo a la derecha.</li>
+      </ol>
+
+      <p>Y el orden con la regla, que ahorra media l&aacute;mina de disgustos: <b>primero el marco</b>,
+         despu&eacute;s el cajet&iacute;n midiendo <b>desde la esquina de dentro</b> &mdash; 180 hacia la
+         izquierda y 30 hacia arriba &mdash;, y <b>lo &uacute;ltimo el dibujo</b>, con lo que quede. Al
+         rev&eacute;s no cabe: quien dibuja primero la pieza descubre que el cajet&iacute;n se le monta
+         encima del perfil.</p>
     </section>
 
     <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> M&iacute;ralo en movimiento &middot; 10 min</div>
+      <div class="rotulo"><span class="num">02</span> M&iacute;ralo en movimiento &middot; 15 min</div>
       <p>Tres cosas que se entienden mejor vi&eacute;ndolas que ley&eacute;ndolas: c&oacute;mo encaja la serie A, qu&eacute; hace de verdad la escala y de qu&eacute; partes se compone una cota.</p>
 
       <div class="escena" id="esc-norma">
@@ -1828,7 +1955,26 @@
         <div class="lienzo">
           <svg viewBox="0 0 640 360" id="svg-norma" role="img" aria-label="Formatos de la serie A, efecto de la escala y partes de una cota"></svg>
         </div>
-        <div class="pie" data-pie-norma>Cada formato es la mitad del anterior, doblado por el lado largo.</div>
+        <div class="pie" data-pie-norma role="status" aria-live="polite" aria-atomic="true">Cada formato es la mitad del anterior, doblado por el lado largo.</div>
+      </div>
+
+      <p style="margin-top:18px">Y el cajet&iacute;n, que es lo que m&aacute;s puntos cuesta y lo que
+         menos se explica. Aqu&iacute; est&aacute; con todas sus medidas: las de la pantalla son las que
+         hay que llevar al papel con la regla.</p>
+
+      <div class="escena" id="esc-cajetin">
+        <div class="escena-barra">
+          <span class="escena-titulo">El cajet&iacute;n, con sus medidas</span>
+          <div class="seg" id="seg-cajetin">
+            <button type="button" data-vista="vertical" aria-pressed="true">A4 vertical</button>
+            <button type="button" data-vista="apaisado">A4 apaisado</button>
+            <button type="button" data-vista="dentro">Por dentro</button>
+          </div>
+        </div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 360" id="svg-cajetin" role="img" aria-label="El A4 en vertical y en apaisado con sus m&aacute;rgenes, y el cajet&iacute;n de 180 por 30 mm con sus cinco casillas acotadas"></svg>
+        </div>
+        <div class="pie" data-pie-cajetin role="status" aria-live="polite" aria-atomic="true">El marco no es el borde del papel: 20 mm por la izquierda, que es por donde se archiva, y 10 mm por los otros tres lados.</div>
       </div>
     </section>
 
@@ -1845,7 +1991,7 @@
           <ol class="pasos">
             <li>Coge las tres vistas que dibujaste en la sesi&oacute;n 3 y p&aacute;salas a limpio en un <b>A4</b>, a <b>escala 1:1</b>.</li>
             <li><b>Acota</b> las tres vistas repartiendo las medidas: el ancho en el alzado, la profundidad en la planta, las alturas en el perfil. Ninguna medida repetida.</li>
-            <li>Dibuja el <b>cajet&iacute;n</b> en la esquina inferior derecha con t&iacute;tulo, tu nombre, la fecha, la escala y el n&uacute;mero de plano.</li>
+            <li>Dibuja el <b>marco</b> &mdash;20 mm por la izquierda, 10 por los otros tres&mdash; y el <b>cajet&iacute;n de 180 &times; 30 mm</b> en la esquina inferior derecha, con sus cinco casillas: t&iacute;tulo, escala, n.&ordm; de plano, tu nombre con el grupo y la fecha.</li>
             <li>Comprueba las cinco reglas de acotaci&oacute;n una por una antes de entregar.</li>
           </ol>
           <h4>C&oacute;mo se eval&uacute;a</h4>
@@ -1942,7 +2088,7 @@
           <span>Individual &middot; 30 min</span>
         </div>
         <div class="ficha-cuerpo">
-          <h4>Qu&eacute; hay que entregar</h4>
+          <h3 class="h-menor">Qu&eacute; hay que entregar</h3>
           <p>Una l&aacute;mina A4 con el plano completo del soporte, lista para que alguien lo fabrique sin
              preguntarte nada.</p>
           <ol class="pasos">
@@ -1955,7 +2101,7 @@
                 eje donde haga falta.</li>
             <li><b>Acota</b> repartiendo: anchos en el alzado, profundidad en la planta, alturas en el perfil.
                 Ninguna medida dos veces.</li>
-            <li><b>Cajet&iacute;n</b> en la esquina inferior derecha: t&iacute;tulo, tu nombre, fecha, escala y n.&ordm; de plano.</li>
+            <li><b>Marco</b> (20 mm a la izquierda, 10 en los otros tres lados) y <b>cajet&iacute;n de 180 &times; 30 mm</b> en la esquina inferior derecha, con las cinco casillas.</li>
           </ol>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
@@ -1977,29 +2123,99 @@
 
     <section class="bloque">
       <div class="rotulo"><span class="num">03</span> Test del tema &middot; 10 min</div>
-      <p>Diez preguntas de todo el tema. Contesta primero en el cuaderno y despu&eacute;s despliega cada una.</p>
-      <ol>
-        <li>&iquest;Cu&aacute;l es la diferencia esencial entre dibujo art&iacute;stico y dibujo t&eacute;cnico?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El art&iacute;stico <b>admite interpretaciones</b> distintas y ah&iacute; est&aacute; su valor; el t&eacute;cnico admite <b>una sola</b>, porque su fin es que se pueda fabricar.</p></div></details></li>
-        <li>Ordena de menos a m&aacute;s definido: plano, boceto, croquis.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Boceto</b> (a mano, sin medidas) &rarr; <b>croquis</b> (a mano, con medidas) &rarr; <b>plano</b> (con instrumentos, normalizado y a escala).</p></div></details></li>
-        <li>En sistema europeo, &iquest;d&oacute;nde va la planta respecto al alzado?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>Debajo.</b> Y el perfil izquierdo va a la derecha, porque cada vista se coloca en el lado contrario a aquel desde el que se mira.</p></div></details></li>
-        <li>&iquest;Qu&eacute; comparten el alzado y el perfil?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Las <b>alturas</b>. El alzado y la planta comparten anchos, y la planta y el perfil, la profundidad.</p></div></details></li>
-        <li>&iquest;Qu&eacute; representa una l&iacute;nea discontinua a trazos?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Una <b>arista oculta</b>: existe en la pieza pero no se ve desde ese punto de vista.</p></div></details></li>
-        <li>Doblando un A2 por la mitad, &iquest;qu&eacute; formato sale?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Un <b>A3</b>. Cada formato de la serie A es la mitad del anterior.</p></div></details></li>
-        <li>Dibujas a escala 1:20 una pieza de 300 mm. &iquest;Cu&aacute;nto mide en el papel?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>15 mm.</b> Pero en la cota escribes <b>300</b>: la cifra siempre da la medida real.</p></div></details></li>
-        <li>Nombra las tres partes de una cota.
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>L&iacute;neas auxiliares</b>, <b>l&iacute;nea de cota</b> con sus flechas y <b>cifra de cota</b>, en mil&iacute;metros y sin unidad escrita.</p></div></details></li>
-        <li>&iquest;Por qu&eacute; no se repite una medida en dos vistas?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque si una de las dos tiene una errata, <b>el taller no sabe cu&aacute;l es la buena</b>. Cada medida, una sola vez.</p></div></details></li>
-        <li>&iquest;Qu&eacute; lleva el cajet&iacute;n y d&oacute;nde va?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>En la <b>esquina inferior derecha</b>, con t&iacute;tulo, autor, fecha, escala y n&uacute;mero de plano. Sin &eacute;l, el plano no est&aacute; terminado.</p></div></details></li>
-      </ol>
+      <p>Diez preguntas de todo el tema. Cont&eacute;stalas <b>primero en el cuaderno</b> y luego
+         m&aacute;rcalas aqu&iacute; y pulsa <i>Corregir</i>. Cada una explica por qu&eacute;
+         &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota.</p>
+      <div class="ta" id="test-u2">
+        <h4>Lo que tiene que haber quedado del tema</h4>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u2-p1">
+          <p id="test-u2-p1">1. La diferencia esencial entre el dibujo art&iacute;stico y el dibujo t&eacute;cnico es que&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u2-0" value="0">el t&eacute;cnico se hace con instrumentos y el art&iacute;stico a mano</label>
+          <label class="ta-op"><input type="radio" name="u2-0" value="1">el t&eacute;cnico se hace en color y el art&iacute;stico en blanco y negro</label>
+          <label class="ta-op"><input type="radio" name="u2-0" value="2">el art&iacute;stico admite interpretaciones distintas y el t&eacute;cnico admite una sola</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> En <i>Las Meninas</i> la ambig&uuml;edad es parte del valor; en un plano es un defecto, porque su fin es que alguien lo <b>fabrique</b>. Un t&eacute;cnico tambi&eacute;n se dibuja a mano &mdash;el croquis&mdash; y eso no lo hace art&iacute;stico.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u2-p2">
+          <p id="test-u2-p2">2. Ordenados de menos a m&aacute;s definido, los tres dibujos de una idea van&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u2-1" value="0">croquis &rarr; boceto &rarr; plano</label>
+          <label class="ta-op"><input type="radio" name="u2-1" value="1">boceto &rarr; croquis &rarr; plano</label>
+          <label class="ta-op"><input type="radio" name="u2-1" value="2">plano &rarr; boceto &rarr; croquis</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> <b>Boceto</b>: a mano y sin medidas, para pensar. <b>Croquis</b>: a mano y con medidas, para decidir. <b>Plano</b>: con instrumentos, normalizado y a escala, para construir. Lo que sube en cada paso no es la limpieza: es la <b>informaci&oacute;n</b>.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u2-p3">
+          <p id="test-u2-p3">3. En el sistema europeo, la planta se dibuja&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u2-2" value="0">debajo del alzado</label>
+          <label class="ta-op"><input type="radio" name="u2-2" value="1">encima del alzado</label>
+          <label class="ta-op"><input type="radio" name="u2-2" value="2">a la izquierda del alzado</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Cada vista se coloca en el <b>lado contrario</b> a aquel desde el que se mira, porque el plano de proyecci&oacute;n est&aacute; detr&aacute;s de la pieza. Por eso la planta &mdash;que se mira desde arriba&mdash; va debajo, y el perfil izquierdo va a la derecha. En el sistema americano es justo al rev&eacute;s.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u2-p4">
+          <p id="test-u2-p4">4. &iquest;Qu&eacute; comparten el alzado y el perfil?</p>
+          <label class="ta-op"><input type="radio" name="u2-3" value="0">los anchos</label>
+          <label class="ta-op"><input type="radio" name="u2-3" value="1">las alturas</label>
+          <label class="ta-op"><input type="radio" name="u2-3" value="2">la profundidad</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es la regla de la <b>correspondencia</b>: alzado y planta comparten anchos, alzado y perfil comparten alturas, y planta y perfil comparten profundidad. Si en tu l&aacute;mina eso no se cumple, hay un error en alguna vista aunque las tres parezcan bien dibujadas.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u2-p5">
+          <p id="test-u2-p5">5. Una l&iacute;nea discontinua de trazos representa&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u2-4" value="0">una arista oculta: existe, pero no se ve desde ah&iacute;</label>
+          <label class="ta-op"><input type="radio" name="u2-4" value="1">el eje de un agujero</label>
+          <label class="ta-op"><input type="radio" name="u2-4" value="2">una l&iacute;nea de cota</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El <b>eje</b> es trazo y punto, no trazos sueltos. Y cuando dos l&iacute;neas caen en el mismo sitio manda la de arriba de esta lista: arista visible (continua gruesa), arista oculta (trazos) y eje. El fallo t&iacute;pico es dibujar con l&iacute;nea continua un agujero que desde ah&iacute; no se ve.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u2-p6">
+          <p id="test-u2-p6">6. Doblas un A2 por la mitad. &iquest;Qu&eacute; formato te queda?</p>
+          <label class="ta-op"><input type="radio" name="u2-5" value="0">un A1</label>
+          <label class="ta-op"><input type="radio" name="u2-5" value="1">un A4</label>
+          <label class="ta-op"><input type="radio" name="u2-5" value="2">un A3</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La serie A arranca en el A0 &mdash;un metro cuadrado&mdash; y cada formato es la mitad del anterior, doblado por el lado largo, as&iacute; que el n&uacute;mero <b>sube</b> al partir: A2 &rarr; A3. Y como todos tienen la misma proporci&oacute;n, al reducir de uno a otro no se deforma nada.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u2-p7">
+          <p id="test-u2-p7">7. Dibujas a escala <b>1:20</b> una pieza de 300 mm. &iquest;Cu&aacute;nto mide en el papel y qu&eacute; escribes en la cota?</p>
+          <label class="ta-op"><input type="radio" name="u2-6" value="0">mide 15 mm, y en la cota escribes 300</label>
+          <label class="ta-op"><input type="radio" name="u2-6" value="1">mide 15 mm, y en la cota escribes 15</label>
+          <label class="ta-op"><input type="radio" name="u2-6" value="2">mide 6.000 mm, y en la cota escribes 6.000</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> 300 / 20 = <b>15 mm</b> de dibujo. Pero la escala <b>no cambia nunca la cifra de cota</b>: la cota dice la medida real, siempre, porque quien fabrica la pieza necesita el n&uacute;mero de la pieza, no el del papel. Multiplicar en vez de dividir es el otro error cl&aacute;sico: 1:20 es una <b>reducci&oacute;n</b>.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u2-p8">
+          <p id="test-u2-p8">8. Una cota tiene tres partes. &iquest;Cu&aacute;les?</p>
+          <label class="ta-op"><input type="radio" name="u2-7" value="0">eje, l&iacute;nea de referencia y flecha</label>
+          <label class="ta-op"><input type="radio" name="u2-7" value="1">marco, cajet&iacute;n y escala</label>
+          <label class="ta-op"><input type="radio" name="u2-7" value="2">l&iacute;neas auxiliares, l&iacute;nea de cota con sus flechas y cifra de cota</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Y la cifra va en <b>mil&iacute;metros y sin escribir la unidad</b>: en un plano, 80 son 80 mm. Poner &laquo;80 mm&raquo; no es m&aacute;s claro, es salirse de la norma.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u2-p9">
+          <p id="test-u2-p9">9. &iquest;Por qu&eacute; una misma medida no se repite en dos vistas?</p>
+          <label class="ta-op"><input type="radio" name="u2-8" value="0">porque si una de las dos tiene una errata, el taller no sabe cu&aacute;l es la buena</label>
+          <label class="ta-op"><input type="radio" name="u2-8" value="1">porque el plano quedar&iacute;a demasiado cargado</label>
+          <label class="ta-op"><input type="radio" name="u2-8" value="2">porque cada vista tiene que llevar el mismo n&uacute;mero de cotas</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Que quede recargado es un inconveniente; esto es un <b>riesgo</b>. Con la medida escrita una sola vez, si hay un error hay una &uacute;nica verdad que corregir. Las cotas se reparten entre las tres vistas: cada una donde mejor se entienda.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u2-p10">
+          <p id="test-u2-p10">10. El cajet&iacute;n&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u2-9" value="0">va centrado en la parte de abajo y mide lo que haga falta</label>
+          <label class="ta-op"><input type="radio" name="u2-9" value="1">va en la esquina inferior derecha, pegado al marco, y mide 180 &times; 30 mm</label>
+          <label class="ta-op"><input type="radio" name="u2-9" value="2">va en la esquina superior izquierda, donde se empieza a leer</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Y mide lo mismo con la l&aacute;mina en vertical que en apaisado. Antes del cajet&iacute;n va el <b>marco</b>, que no es el borde del papel: 20 mm en el lado izquierdo &mdash;para archivar&mdash; y 10 en los otros tres. Sin cajet&iacute;n, un plano no est&aacute; terminado: no dice qui&eacute;n es.</div>
+        </div>
+
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.</p>
+      </div>
     </section>
 
     <section class="bloque">
@@ -2011,13 +2227,12 @@
          cualquier taller del mundo. Eso es el dibujo t&eacute;cnico.</p>
       <div class="nota">
         <span class="n-tag">Siguiente tema</span>
-        Ya sabes explicar lo que quieres construir. En el pr&oacute;ximo tema toca decidir <b>de qu&eacute; material</b>
-        lo construyes, y por qu&eacute; unos valen y otros no.
-      </div>
+        Ya sabes explicar lo que quieres construir. En el pr&oacute;ximo tema toca <b>llevar un proyecto entero</b>:
+        del encargo al objeto montado, pasando por el croquis acotado que acabas de aprender a hacer.
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema1/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 1 &middot; El proceso tecnol&oacute;gico &rarr;</a></p></div>
     </section>
   </div>
 
-  </div>
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
@@ -2086,7 +2301,7 @@
   nav.addEventListener('click', function(e){
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
-    nav.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-selected', x===b ? 'true':'false'); });
+    nav.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
     for(var i=1;i<=6;i++){
       var p = document.getElementById('ses-'+i);
       if(p) p.hidden = (String(i) !== b.dataset.ses);
@@ -2222,10 +2437,12 @@
       + cifra(X1+36, (Y0+YS)/2 + 4, '30', 'start')
       + '<path class="cota" d="M' + X0 + ' ' + (Y0-22) + ' L' + XS + ' ' + (Y0-22) + ' M' + X0 + ' ' + (Y0-28) + ' L' + X0 + ' ' + (Y0-16) + ' M' + XS + ' ' + (Y0-28) + ' L' + XS + ' ' + (Y0-16) + '"></path>'
       + cifra((X0+XS)/2, Y0-30, '30')
-      + '<path class="fina" d="M' + cajX + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + (cajY+cajH) + ' L' + cajX + ' ' + (cajY+cajH) + ' Z M' + cajX + ' ' + (cajY+26) + ' L' + (cajX+cajW) + ' ' + (cajY+26) + ' M' + (cajX+124) + ' ' + (cajY+26) + ' L' + (cajX+124) + ' ' + (cajY+cajH) + '"></path>'
+      + '<path class="fina" d="M' + cajX + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + cajY + ' L' + (cajX+cajW) + ' ' + (cajY+cajH) + ' L' + cajX + ' ' + (cajY+cajH) + ' Z M' + cajX + ' ' + (cajY+26) + ' L' + (cajX+cajW) + ' ' + (cajY+26) + ' M' + (cajX+127) + ' ' + cajY + ' L' + (cajX+127) + ' ' + (cajY+cajH) + ' M' + (cajX+168) + ' ' + cajY + ' L' + (cajX+168) + ' ' + (cajY+26) + '"></path>'
       + '<text x="' + (cajX+10) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:11px;fill:var(--ink)">SOPORTE EN L</text>'
-      + '<text x="' + (cajX+10) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">2.º ESO</text>'
-      + '<text x="' + (cajX+134) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">ESC. 1:2</text>'
+      + '<text x="' + (cajX+134) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:9.5px">1:2</text>'
+      + '<text x="' + (cajX+175) + '" y="' + (cajY+17) + '" class="rotulo-svg" style="font-size:9.5px">1/1</text>'
+      + '<text x="' + (cajX+10) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">LUCÍA G. · 2.º B</text>'
+      + '<text x="' + (cajX+134) + '" y="' + (cajY+44) + '" class="rotulo-svg" style="font-size:9.5px">14/10/2026</text>'
       + texto(320, 290, 'PLANO · CON INSTRUMENTOS · A ESCALA · CON CAJETÍN')
       + '</g>';
 
@@ -2236,7 +2453,7 @@
     var textos2 = {
       boceto: '<b>Boceto:</b> trazo suelto, sin regla y sin una sola medida. En treinta segundos ya se entiende la forma de la pieza… y poco más.',
       croquis: '<b>Croquis:</b> el mismo dibujo a mano alzada, pero ya con las <b>cotas reales</b> (80, 50, 30) y el material anotado. Fíjate: el dibujo está deformado, las medidas no.',
-      plano: '<b>Plano:</b> trazado con instrumentos, a escala, dentro de su marco y con el <b>cajetín</b> que identifica la pieza, el curso y la escala. Este es el que va al taller.'
+      plano: '<b>Plano:</b> trazado con instrumentos, a escala, dentro de su marco y con el <b>cajetín</b>, que dice los cinco datos: pieza, escala, n.º de plano, autor y fecha. Este es el que va al taller.'
     };
     function faseActiva(nombre){
       svgF.querySelectorAll('[data-fase]').forEach(function(g){
@@ -2375,6 +2592,187 @@
     });
 
     pintaNorma('formatos');
+  }
+
+  /* ---- escena S5: el cajetin, con sus medidas ---- */
+  var svgC = document.getElementById('svg-cajetin');
+  if(svgC){
+    var segC = document.getElementById('seg-cajetin');
+    var pieC = document.querySelector('[data-pie-cajetin]');
+
+    /* Todo esta en milimetros de verdad. El dibujo solo multiplica por k, asi
+       que cada cifra que sale en pantalla es la que hay que medir con la regla
+       en el papel. Si maniana cambia una medida, se cambia aqui y el dibujo,
+       las cotas y el pie cambian solos. */
+    var MARG = {archivo:20, resto:10};                 /* margenes del A4 */
+    var CAJ  = {an:180, al:30, fila:15, v1:110, v2:145};
+    var HOJAS = {
+      vertical: {an:210, al:297, n:'A4 VERTICAL'},
+      apaisado: {an:297, al:210, n:'A4 APAISADO'}
+    };
+
+    function tC(x, y, t, cls, tam, anc){
+      return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + (anc || 'middle') +
+             '" class="' + (cls || 'rotulo-svg') + '"' +
+             (tam ? ' style="font-size:' + tam + 'px"' : '') + '>' + t + '</text>';
+    }
+
+    /* cota horizontal con sus dos flechas y la cifra encima */
+    function cotaH(x1, x2, y, cifra, arriba){
+      var d = 'M' + x1.toFixed(1) + ' ' + y.toFixed(1) + ' L' + x2.toFixed(1) + ' ' + y.toFixed(1);
+      var m = '<path class="cota" d="' + d + '"></path>';
+      if(Math.abs(x2 - x1) > 24){
+        m += '<path class="flecha-cabeza" d="M' + x1.toFixed(1) + ' ' + y.toFixed(1) +
+             ' L' + (x1+9).toFixed(1) + ' ' + (y-3.2).toFixed(1) + ' L' + (x1+9).toFixed(1) + ' ' + (y+3.2).toFixed(1) + ' Z"></path>';
+        m += '<path class="flecha-cabeza" d="M' + x2.toFixed(1) + ' ' + y.toFixed(1) +
+             ' L' + (x2-9).toFixed(1) + ' ' + (y-3.2).toFixed(1) + ' L' + (x2-9).toFixed(1) + ' ' + (y+3.2).toFixed(1) + ' Z"></path>';
+      } else {
+        m += '<path class="cota" d="M' + x1.toFixed(1) + ' ' + (y-4).toFixed(1) + ' L' + x1.toFixed(1) + ' ' + (y+4).toFixed(1) +
+             ' M' + x2.toFixed(1) + ' ' + (y-4).toFixed(1) + ' L' + x2.toFixed(1) + ' ' + (y+4).toFixed(1) + '"></path>';
+      }
+      return m + tC((x1+x2)/2, arriba === false ? y + 13 : y - 6, cifra, 'cifra');
+    }
+
+    /* cota vertical: la cifra se lee desde la derecha, girada 90 grados */
+    function cotaV(y1, y2, x, cifra){
+      var d = 'M' + x.toFixed(1) + ' ' + y1.toFixed(1) + ' L' + x.toFixed(1) + ' ' + y2.toFixed(1);
+      var m = '<path class="cota" d="' + d + '"></path>';
+      if(Math.abs(y2 - y1) > 24){
+        m += '<path class="flecha-cabeza" d="M' + x.toFixed(1) + ' ' + y1.toFixed(1) +
+             ' L' + (x-3.2).toFixed(1) + ' ' + (y1+9).toFixed(1) + ' L' + (x+3.2).toFixed(1) + ' ' + (y1+9).toFixed(1) + ' Z"></path>';
+        m += '<path class="flecha-cabeza" d="M' + x.toFixed(1) + ' ' + y2.toFixed(1) +
+             ' L' + (x-3.2).toFixed(1) + ' ' + (y2-9).toFixed(1) + ' L' + (x+3.2).toFixed(1) + ' ' + (y2-9).toFixed(1) + ' Z"></path>';
+      } else {
+        m += '<path class="cota" d="M' + (x-4).toFixed(1) + ' ' + y1.toFixed(1) + ' L' + (x+4).toFixed(1) + ' ' + y1.toFixed(1) +
+             ' M' + (x-4).toFixed(1) + ' ' + y2.toFixed(1) + ' L' + (x+4).toFixed(1) + ' ' + y2.toFixed(1) + '"></path>';
+      }
+      var ym = (y1+y2)/2;
+      return m + '<text x="' + (x-6).toFixed(1) + '" y="' + ym.toFixed(1) + '" text-anchor="middle" class="cifra"' +
+             ' transform="rotate(-90 ' + (x-6).toFixed(1) + ' ' + ym.toFixed(1) + ')">' + cifra + '</text>';
+    }
+
+    /* la hoja entera: papel, marco y cajetin, con las medidas puestas */
+    function vistaHoja(cual){
+      var H = HOJAS[cual];
+      var k = Math.min(250 / H.al, 300 / H.an);     /* mm -> unidades del lienzo */
+      var w = H.an * k, h = H.al * k;
+      var x0 = (640 - w) / 2 + 14, y0 = (360 - h) / 2 - 4;
+      var mm = function(v){ return v * k; };
+      var m = '';
+
+      /* 1. el papel */
+      m += '<rect class="papel draw" pathLength="1" x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) +
+           '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '"></rect>';
+
+      /* 2. el marco: 20 mm por el lado de archivar, 10 por los otros tres */
+      var mx = x0 + mm(MARG.archivo), my = y0 + mm(MARG.resto);
+      var mw = mm(H.an - MARG.archivo - MARG.resto), mh = mm(H.al - 2 * MARG.resto);
+      m += '<rect class="marco draw" pathLength="1" x="' + mx.toFixed(1) + '" y="' + my.toFixed(1) +
+           '" width="' + mw.toFixed(1) + '" height="' + mh.toFixed(1) + '"></rect>';
+
+      /* 3. el cajetin, pegado a la esquina inferior derecha del MARCO */
+      var cx = mx + mw - mm(CAJ.an), cy = my + mh - mm(CAJ.al);
+      m += '<rect class="caja draw" pathLength="1" x="' + cx.toFixed(1) + '" y="' + cy.toFixed(1) +
+           '" width="' + mm(CAJ.an).toFixed(1) + '" height="' + mm(CAJ.al).toFixed(1) + '"></rect>';
+      m += '<path class="fina" d="M' + cx.toFixed(1) + ' ' + (cy + mm(CAJ.fila)).toFixed(1) +
+           ' L' + (cx + mm(CAJ.an)).toFixed(1) + ' ' + (cy + mm(CAJ.fila)).toFixed(1) +
+           ' M' + (cx + mm(CAJ.v1)).toFixed(1) + ' ' + cy.toFixed(1) +
+           ' L' + (cx + mm(CAJ.v1)).toFixed(1) + ' ' + (cy + mm(CAJ.al)).toFixed(1) + '"></path>';
+
+      /* 4. las medidas */
+      m += cotaH(x0, x0 + w, y0 + h + 26, H.an, false);
+      m += cotaV(y0, y0 + h, x0 - 24, H.al);
+      m += cotaH(x0, mx, y0 - 14, MARG.archivo);
+      m += cotaH(x0 + w - mm(MARG.resto), x0 + w, y0 - 14, MARG.resto);
+      m += cotaH(cx, cx + mm(CAJ.an), cy - 10, CAJ.an);
+      m += cotaV(cy, cy + mm(CAJ.al), cx + mm(CAJ.an) + 22, CAJ.al);
+
+      /* 5. lo que hay que entender de cada orientacion */
+      m += tC(x0 + w / 2, y0 - 30, H.n, 'rotulo-svg', 12);
+      var sobra = (H.an - MARG.archivo - MARG.resto) - CAJ.an;
+      if(sobra > 0.5){
+        m += '<path class="ref" d="M' + mx.toFixed(1) + ' ' + (cy + mm(CAJ.al) / 2).toFixed(1) +
+             ' L' + cx.toFixed(1) + ' ' + (cy + mm(CAJ.al) / 2).toFixed(1) + '"></path>';
+        m += tC((mx + cx) / 2, cy + mm(CAJ.al) / 2 - 8, sobra + ' mm', 'cifra', 10);
+        m += tC((mx + cx) / 2, cy + mm(CAJ.al) + 16, 'DE MARCO LIBRE', 'rotulo-svg', 8.5);
+      } else {
+        m += tC(cx + mm(CAJ.an) / 2, cy + mm(CAJ.al) + 18, 'OCUPA TODO EL ANCHO DEL MARCO', 'rotulo-svg', 8.5);
+      }
+      m += tC(48, 44, 'MARCO', 'rotulo-svg', 10, 'start');
+      m += tC(48, 60, (H.an - MARG.archivo - MARG.resto) + ' &times; ' + (H.al - 2 * MARG.resto) + ' mm',
+              'cifra', 10, 'start');
+      m += tC(48, 84, 'CAJET&Iacute;N', 'rotulo-svg', 10, 'start');
+      m += tC(48, 100, CAJ.an + ' &times; ' + CAJ.al + ' mm', 'cifra', 10, 'start');
+      return m;
+    }
+
+    /* el cajetin a tamanio grande, con sus cinco casillas y sus reparticiones */
+    function vistaDentro(){
+      var k = 2.45;
+      var w = CAJ.an * k, h = CAJ.al * k;
+      var x0 = (640 - w) / 2, y0 = 148;
+      var mm = function(v){ return v * k; };
+      var m = '';
+
+      m += '<rect class="caja draw" pathLength="1" x="' + x0.toFixed(1) + '" y="' + y0.toFixed(1) +
+           '" width="' + w.toFixed(1) + '" height="' + h.toFixed(1) + '"></rect>';
+      var yF = y0 + mm(CAJ.fila), xA = x0 + mm(CAJ.v1), xB = x0 + mm(CAJ.v2);
+      m += '<path class="fina draw" pathLength="1" d="M' + x0.toFixed(1) + ' ' + yF.toFixed(1) +
+           ' L' + (x0 + w).toFixed(1) + ' ' + yF.toFixed(1) + '"></path>';
+      m += '<path class="fina draw" pathLength="1" d="M' + xA.toFixed(1) + ' ' + y0.toFixed(1) +
+           ' L' + xA.toFixed(1) + ' ' + (y0 + h).toFixed(1) + '"></path>';
+      m += '<path class="fina draw" pathLength="1" d="M' + xB.toFixed(1) + ' ' + y0.toFixed(1) +
+           ' L' + xB.toFixed(1) + ' ' + yF.toFixed(1) + '"></path>';
+
+      /* las cinco casillas: rotulo pequenio arriba, ejemplo dentro */
+      function casilla(x1, x2, y1, y2, rot, ej, tam){
+        var s = tC(x1 + 7, y1 + 13, rot, 'rotulo-svg', 8, 'start');
+        return s + tC(x1 + 7, y2 - 9, ej, 'rotulo-svg', tam || 12, 'start');
+      }
+      m += casilla(x0, xA, y0, yF, '1 &middot; T&Iacute;TULO DE LA PIEZA', 'SOPORTE DE M&Oacute;VIL', 14);
+      m += casilla(xA, xB, y0, yF, '2 &middot; ESCALA', '1:1');
+      m += casilla(xB, x0 + w, y0, yF, '3 &middot; N.&ordm; PLANO', '1/1');
+      m += casilla(x0, xA, yF, y0 + h, '4 &middot; AUTOR Y GRUPO', 'LUC&Iacute;A G. &middot; 2.&ordm; B');
+      m += casilla(xA, x0 + w, yF, y0 + h, '5 &middot; FECHA', '14 / 10 / 2026');
+
+      /* las medidas de dentro */
+      m += cotaH(x0, x0 + w, y0 + h + 44, CAJ.an, false);
+      m += cotaH(x0, xA, y0 - 16, CAJ.v1);
+      m += cotaH(xA, xB, y0 - 16, CAJ.v2 - CAJ.v1);
+      m += cotaH(xB, x0 + w, y0 - 16, CAJ.an - CAJ.v2);
+      m += cotaV(y0, yF, x0 - 20, CAJ.fila);
+      m += cotaV(yF, y0 + h, x0 - 20, CAJ.al - CAJ.fila);
+      m += tC(320, 84, 'EL CAJET&Iacute;N POR DENTRO', 'rotulo-svg', 12);
+      m += tC(320, 104, 'MEDIDAS EN MIL&Iacute;METROS, A TAMA&Ntilde;O REAL NO CABE EN LA PANTALLA', 'rotulo-svg', 8.5);
+      m += tC(320, 322, 'TODAS LAS L&Iacute;NEAS DE DENTRO SON FINAS; EL RECUADRO DE FUERA, GRUESO', 'rotulo-svg', 9.5);
+      return m;
+    }
+
+    var VISTAS_C = {
+      vertical: {f: function(){ return vistaHoja('vertical'); },
+                 pie: 'El marco no es el borde del papel: <b>20 mm</b> por la izquierda, que es por donde se archiva, y <b>10 mm</b> por los otros tres lados. En vertical el marco mide 180 &times; 277 mm, as&iacute; que el cajet&iacute;n, que mide <b>180</b>, ocupa justo todo su ancho.'},
+      apaisado: {f: function(){ return vistaHoja('apaisado'); },
+                 pie: 'La misma hoja girada. Los m&aacute;rgenes no cambian y el cajet&iacute;n tampoco: sigue midiendo <b>180 &times; 30</b> y sigue pegado a la esquina inferior derecha. Lo que cambia es que ahora le sobran <b>87 mm</b> de marco a su izquierda.'},
+      dentro:   {f: vistaDentro,
+                 pie: 'Una l&iacute;nea horizontal a los 15 mm y dos verticales, a los 110 y a los 145. Con eso salen las <b>cinco casillas</b> que pide la lista: t&iacute;tulo, escala, n.&ordm; de plano, autor y fecha.'}
+    };
+
+    function pintaCaj(nombre){
+      var v = VISTAS_C[nombre] || VISTAS_C.vertical;
+      svgC.innerHTML = v.f();
+      if(pieC) pieC.innerHTML = v.pie;
+      var trazos = Array.prototype.slice.call(svgC.querySelectorAll('.draw'));
+      trazos.forEach(function(n){ n.classList.remove('on'); });
+      trazos.forEach(function(n, i){ setTimeout(function(){ n.classList.add('on'); }, 70*i); });
+    }
+
+    segC.addEventListener('click', function(e){
+      var b = e.target.closest('button[data-vista]'); if(!b) return;
+      segC.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', x===b ? 'true':'false'); });
+      pintaCaj(b.dataset.vista);
+    });
+
+    pintaCaj('vertical');
   }
 
   /* ---- escena S3: de la pieza a las tres vistas ---- */
@@ -2607,8 +3005,61 @@
 })();
 </script>
 
+<script>
+/* test que se corrige solo: el mismo codigo que el resto de las unidades */
+(function(){
+  document.querySelectorAll('.ta').forEach(function(T){
+    var corregir = T.querySelector('[data-a="corregir"]');
+    var otra = T.querySelector('[data-a="otra"]');
+    var nota = T.querySelector('.ta-nota');
+    if(!corregir || !otra || !nota) return;   /* no es un test de este molde */
+
+    corregir.addEventListener('click', function(){
+      var bien = 0, total = 0, sinContestar = 0;
+      T.querySelectorAll('.ta-p').forEach(function(P){
+        total++;
+        var ok = +P.dataset.ok;
+        var marcada = P.querySelector('input:checked');
+        if(!marcada) sinContestar++;
+        P.querySelectorAll('.ta-op').forEach(function(L, i){
+          L.classList.remove('bien', 'mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
+        });
+        if(marcada && +marcada.value === ok) bien++;
+      });
+      T.classList.add('corregido');
+      nota.textContent = bien + ' de ' + total
+        + (sinContestar ? '  (' + sinContestar + ' sin contestar)' : '');
+      otra.hidden = false;
+    });
+
+    otra.addEventListener('click', function(){
+      T.classList.remove('corregido');
+      T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
+      nota.textContent = '';
+      otra.hidden = true;
+      T.scrollIntoView({block:'start', behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
 <a class="cc-sello" property="dct:license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="license noopener"
-   title="Este material se publica bajo licencia Creative Commons Reconocimiento 4.0. Puedes usarlo y adaptarlo citando la autoría.">
+   title="Este material se publica bajo licencia Creative Commons Reconocimiento-CompartirIgual 4.0. Puedes usarlo y adaptarlo citando la autoría y publicando tus versiones con esta misma licencia.">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm0 2.2c5.4 0 9.8 4.4 9.8 9.8s-4.4 9.8-9.8 9.8S2.2 17.4 2.2 12 6.6 2.2 12 2.2zM9.1 7.4c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2zm7.7 0c-2.3 0-3.9 1.7-3.9 4.6 0 3 1.5 4.6 4 4.6 1.6 0 2.8-.7 3.5-2.1l-1.7-.9c-.4.9-.9 1.3-1.7 1.3-1.1 0-1.7-.8-1.7-2.9s.6-2.9 1.6-2.9c.8 0 1.3.4 1.6 1.3l1.8-.8c-.7-1.5-1.9-2.2-3.5-2.2z"/></svg>
   <span><b>CC BY-SA 4.0</b> <span class="cc-autor">· Roberto P. García Llorente</span></span>
 </a>
@@ -2624,5 +3075,187 @@
   }).observe(document.body, {childList:true, subtree:true});
 })();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

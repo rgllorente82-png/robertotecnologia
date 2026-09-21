@@ -85,27 +85,36 @@ Siete competencias específicas, quince criterios de evaluación.
 > Lo que manda para el alumno es el número de la web; el de la tabla sirve para
 > localizar los criterios y saberes que le tocan.
 
-Deducido invirtiendo la tabla anterior. Los **títulos son una hipótesis** a
-partir de los saberes que le corresponden: hay que contrastarlos con el índice
-del libro antes de darlos por buenos.
+Deducido invirtiendo la tabla anterior. Los títulos eran una hipótesis a partir
+de los saberes; los de las unidades ya escritas son los que llevan las páginas.
 
-| U | Título probable | Criterios | Estado |
-|---|-----------------|-----------|--------|
-| U1 | El proceso tecnológico | 1.1 · 1.2 · 1.3 · 2.1 | pendiente |
-| U2 | **Representación gráfica de un proyecto** | 2.1 · 4.1 | **publicada, 6 sesiones** |
-| U3 | Materiales, tecnología y sociedad | 1.2 · 2.2 · 7.1 · 7.2 | pendiente |
-| U4 | Materiales de uso técnico | 1.2 · 2.2 | pendiente |
-| U5 | Materiales de uso técnico (II) | 1.2 · 2.2 | pendiente |
-| U6 | Estructuras | 3.1 | pendiente |
-| U7 | Mecanismos | 3.1 | pendiente |
-| U8 | Electricidad y electrónica | 3.1 | pendiente |
-| U9 | El ordenador y sus componentes | 6.1 | pendiente |
-| U10 | Internet, datos y seguridad | 6.1 · 6.2 · 6.3 | pendiente |
-| U11 | Herramientas digitales y difusión | 2.1 · 4.1 · 6.1 · 6.2 · 6.3 | pendiente |
-| U12 | Programación y robótica | 5.1 · 5.2 · 5.3 | pendiente |
+**2.º está publicado entero**: los once temas de la web, con seis sesiones cada
+uno salvo el tema 0, y su lectura de aula en PDF.
+
+| U del libro | Tema de la web | Título | Criterios | Estado |
+|---|---|---|---|---|
+| U1 | tema1 | El proceso tecnológico | 1.1 · 1.2 · 1.3 · 2.1 | **6 de 6 sesiones** |
+| U2 | tema2 | Representación gráfica de un proyecto | 2.1 · 4.1 | **6 de 6 sesiones** |
+| U3 · U4 · U5 | tema3 | Materiales de uso técnico | 1.2 · 2.2 · 7.1 · 7.2 | **6 de 6 sesiones** |
+| U6 | tema4 | Estructuras | 3.1 | **6 de 6 sesiones** |
+| U7 | tema5 | Mecanismos | 3.1 | **6 de 6 sesiones** |
+| U8 | tema6 | Electricidad y electrónica | 3.1 | **6 de 6 sesiones** |
+| U9 | tema7 | El ordenador y sus componentes | 6.1 | **6 de 6 sesiones** |
+| U10 | tema8 | Internet, datos y seguridad | 6.1 · 6.2 · 6.3 | **6 de 6 sesiones** |
+| U11 | tema9 | Herramientas digitales y difusión | 2.1 · 4.1 · 6.1 · 6.2 · 6.3 | **6 de 6 sesiones** |
+| U12 | tema10 | Programación y robótica | 5.1 · 5.2 · 5.3 | **6 de 6 sesiones** |
 
 Además está publicado un **Tema 0 · ¿Qué es la tecnología?**, sesión única
 introductoria, que no corresponde a ninguna unidad del libro.
+
+> El número que manda para el alumno es el de la web. Esta columna doble está
+> para localizar los criterios y saberes que le tocan a cada tema, porque la web
+> junta U3, U4 y U5 en un solo tema de materiales.
+>
+> Y no hay que escribir a mano en qué va cada unidad: `ordena_indice.py` cuenta
+> los botones de sesión de cada página y pone al día el índice del curso y la
+> portada. Esta tabla se quedó dos veces diciendo «pendiente» de unidades ya
+> publicadas; si vuelve a pasar, la que tiene razón es la web.
 
 ---
 
@@ -147,19 +156,22 @@ automatizarlo y evaluar lo que le cuesta al planeta.
 **Nueve unidades**, no diez como estimé antes. Con ~90 sesiones útiles salen
 **8 sesiones por unidad** más la lectura: el curso más holgado de los tres.
 
-Títulos: hipótesis a partir de los saberes, pendientes de contrastar con el índice.
+**4.º está publicado entero**: las nueve unidades, con ocho sesiones cada una y
+su lectura de aula en PDF. Los títulos son los que llevan las páginas.
 
-| U | Título probable | Criterios |
-|---|-----------------|-----------|
-| U1 | El proyecto tecnológico: detectar, idear, planificar | 1.1 · 1.2 · 1.3 · 3.1 · 3.2 · 5.1 |
-| U2 | Diseño y fabricación: del material al producto | 2.1 · 2.2 · 3.1 · 3.2 · 5.1 |
-| U3 | Materiales y ciclo de vida | 2.1 · 2.2 · 6.1 · 6.2 |
-| U4 | Mecanismos y sistemas de control | 4.1 |
-| U5 | Electrónica y neumática | 4.1 |
-| U6 | Programación, IoT e inteligencia artificial | 4.2 · 5.1 |
-| U7 | Robótica y automatismos | 4.1 |
-| U8 | Sostenibilidad y accesibilidad | 6.1 · 6.2 · 6.3 |
-| U9 | Tecnología y sociedad: proyectos de servicio | 2.1 · 6.1 · 6.2 · 6.3 |
+| U | Tema de la web | Título | Criterios | Estado |
+|---|---|---|---|---|
+| U1 | tema1 | El proyecto tecnológico: detectar, idear, planificar | 1.1 · 1.2 · 1.3 · 3.1 · 3.2 · 5.1 | **8 de 8 sesiones** |
+| U2 | tema2 | Diseño y fabricación: del material al producto | 2.1 · 2.2 · 3.1 · 3.2 · 5.1 | **8 de 8 sesiones** |
+| U3 | tema3 | Materiales y ciclo de vida | 2.1 · 2.2 · 6.1 · 6.2 | **8 de 8 sesiones** |
+| U4 | tema4 | Mecanismos y sistemas de control | 4.1 | **8 de 8 sesiones** |
+| U5 | tema5 | Electrónica y neumática | 4.1 | **8 de 8 sesiones** |
+| U6 | tema6 | Programación, IoT e inteligencia artificial | 4.2 · 5.1 | **8 de 8 sesiones** |
+| U7 | tema7 | Robótica y automatismos | 4.1 | **8 de 8 sesiones** |
+| U8 | tema8 | Sostenibilidad y accesibilidad | 6.1 · 6.2 · 6.3 | **8 de 8 sesiones** |
+| U9 | tema9 | Tecnología y sociedad: proyectos de servicio | 2.1 · 6.1 · 6.2 · 6.3 | **8 de 8 sesiones** |
+
+Aquí el número de la web y el del libro coinciden.
 
 Está publicado un **Tema 0 · Tecnología, técnica y sociedad**, sesión única
 introductoria, fuera del libro.
@@ -222,9 +234,9 @@ obliga a que los temas se encadenen, no a que se sumen.
 
 | | Tema | Qué pregunta responde | Qué deja abierto |
 |---|---|---|---|
-| T0 | ¿Qué es la tecnología? | ¿De qué va esta asignatura? | ¿Y cómo se hace, en concreto? |
-| U1 | El proceso tecnológico | ¿Cuál es el método? | Ya sé qué quiero. ¿Cómo se lo explico a otro? |
-| **U2** | **Representación gráfica** | Comunicar el diseño sin ambigüedad | Sé qué construir y cómo decirlo. ¿De qué lo hago? |
+| T0 | ¿Qué es la tecnología? | ¿De qué va esta asignatura? | ¿Y cómo se dice, en concreto, lo que uno quiere construir? |
+| **U2** | **Representación gráfica** | Cómo se representa una pieza sin ambigüedad | Ya sé dibujarlo. ¿Y quién decide qué construir, y en qué orden? |
+| U1 | El proceso tecnológico | ¿Cuál es el método, de la necesidad al objeto montado? | Tengo el método y sé dibujarlo. ¿De qué lo hago? |
 | U3-U5 | Materiales y su impacto | ¿Qué material, y a qué coste ambiental? | Ya tengo material. ¿Cómo hago que se sostenga? |
 | U6 | Estructuras | Que aguante sin romperse | ¿Y si además tiene que moverse? |
 | U7 | Mecanismos | Transmitir y transformar movimiento | El músculo no basta. ¿De dónde saco energía? |
@@ -233,6 +245,24 @@ obliga a que los temas se encadenen, no a que se sumen.
 | U10 | Internet, datos y seguridad | La red, y sus riesgos | ¿Cómo produzco y difundo con esto? |
 | U11 | Herramientas digitales | Comunicar en digital | Cierra el círculo abierto en U2 |
 | U12 | Programación y robótica | Automatizar lo construido | Necesita todo lo anterior: es la cima |
+
+> ⭐ **U2 se da ANTES que U1** (decisión del autor, 20-sep-2026). Los números de
+> la web no cambian —siguen siendo tema 1 y tema 2—, cambia el orden en que se
+> dan. Tres razones, las tres medidas sobre el material ya publicado:
+>
+> 1. **Estaban enseñando lo mismo dos veces.** La sesión 3 del tema 1 («Tres
+>    dibujos que no son el mismo dibujo») y la sesión 2 del tema 2 («Boceto,
+>    croquis y plano») definen los mismos tres conceptos con las mismas palabras.
+> 2. **El tema 1 ya daba por sabido el 2.** Su sesión 5 exige tener «el croquis
+>    acotado y la hoja de proceso a la vista»: se estaba acotando antes de haber
+>    aprendido a acotar.
+> 3. **El tema 2 se motiva solo.** Abre con «¿Por qué dibujamos?» y con el reto
+>    de dibujar un estuche en 30 segundos; no necesita al tema 1 por delante.
+>
+> Esto tensa la regla de no introducir un concepto antes del problema que lo
+> necesita. Se sostiene porque el problema lo crea el propio tema 2 en su primera
+> sesión, y porque el proyecto del tema 1 se convierte en lo que debe ser: el
+> sitio donde se aplica todo, no donde se explica el dibujo por segunda vez.
 
 **Observación sobre el orden del libro.** La cadena funciona: cada unidad deja
 una pregunta que abre la siguiente. Solo hay un detalle que conviene explotar en

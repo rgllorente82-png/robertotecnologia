@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 10 &middot; Programaci&oacute;n y rob&oacute;tica">
+<meta property="og:description" content="Tema 10 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: algoritmos, bucles, condicionales y micro:bit.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema10.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 10 &middot; Programaci&oacute;n y rob&oacute;tica &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -287,18 +306,49 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 10</div>
     <h1>Programaci&oacute;n y rob&oacute;tica</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Dec&iacute;rselo a una m&aacute;quina</button><button type="button" data-ses="2">S2 &middot; Repetir y decidir</button><button type="button" data-ses="3">S3 &middot; La placa: micro:bit</button><button type="button" data-ses="4">S4 &middot; Sensores y entradas</button><button type="button" data-ses="5">S5 &middot; El robot</button><button type="button" data-ses="6">S6 &middot; Proyecto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Dec&iacute;rselo a una m&aacute;quina</button><button type="button" data-ses="2">S2 &middot; Repetir y decidir</button><button type="button" data-ses="3">S3 &middot; La placa: micro:bit</button><button type="button" data-ses="4">S4 &middot; Sensores y entradas</button><button type="button" data-ses="5">S5 &middot; El robot</button><button type="button" data-ses="6">S6 &middot; Proyecto y test</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -314,7 +364,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-u10">
         <div class="narrador-fig" id="narr-u10-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va este tema</h4>
+          <h3 class="h-menor">De qu&eacute; va este tema</h3>
           <span class="narrador-quien">Programar no es aprender un idioma raro: es decir las cosas sin dejar huecos</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -474,7 +524,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
           </div>
         </div>
-        <div class="pie" id="pie-r1"></div>
+        <div class="pie" id="pie-r1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -757,7 +807,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Bucle</b> (o iteraci&oacute;n): instrucci&oacute;n que hace que un trozo de programa se
            <b>repita</b>. Repetir cuatro veces &laquo;avanza&raquo; ocupa una l&iacute;nea en vez de
            cuatro.</p>
@@ -794,7 +844,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
           </div>
         </div>
-        <div class="pie" id="pie-r2"></div>
+        <div class="pie" id="pie-r2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1088,7 +1138,7 @@ footer .wrap{padding-block:18px 26px}
       <p>La micro:bit es una placa del tama&ntilde;o de media tarjeta de cr&eacute;dito. Lo interesante es
          que todo lo que tiene <b>se ve</b>:</p>
       <div class="copiar">
-        <h4>Qu&eacute; lleva una micro:bit</h4>
+        <h3 class="h-menor">Qu&eacute; lleva una micro:bit</h3>
         <ul>
           <li><b>25 LED</b> en cuadr&iacute;cula de 5 &times; 5: la salida m&aacute;s visible.</li>
           <li><b>Dos botones</b>, A y B: las entradas m&aacute;s sencillas.</li>
@@ -1132,7 +1182,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
           </div>
         </div>
-        <div class="pie" id="pie-mb"></div>
+        <div class="pie" id="pie-mb" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1249,7 +1299,9 @@ footer .wrap{padding-block:18px 26px}
               var on = luz[y*5+x];
               m += '<rect x="' + (112 + x*20) + '" y="' + (44 + y*20) + '" width="13" height="13" rx="2" '
                  + 'fill="' + (on ? '#ff3b30' : '#3a3a3a') + '" stroke="' + (on ? '#ff8a80' : '#4a4a4a')
-                 + '" stroke-width="1" style="cursor:pointer" data-luz="' + (y*5+x) + '"></rect>';
+                 + '" stroke-width="1" style="cursor:pointer" data-luz="' + (y*5+x) + '"'
+                 + ' tabindex="0" role="button" aria-pressed="' + (on ? 'true' : 'false') + '"'
+                 + ' aria-label="LED fila ' + y + ' columna ' + x + '"></rect>';
             }
           }
           /* los dos botones */
@@ -1282,6 +1334,15 @@ footer .wrap{padding-block:18px 26px}
         svg.addEventListener('click', function(e){
           var r = e.target.closest('[data-luz]');
           if(!r || modo !== 0) return;
+          var i = +r.dataset.luz;
+          luz[i] = luz[i] ? 0 : 1;
+          marca(0);
+        });
+        svg.addEventListener('keydown', function(e){
+          var r = e.target.closest('[role="button"]');
+          if(!r || modo !== 0) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
           var i = +r.dataset.luz;
           luz[i] = luz[i] ? 0 : 1;
           marca(0);
@@ -1350,6 +1411,13 @@ footer .wrap{padding-block:18px 26px}
            la placa de verdad lo hace <b>pasar desfilando</b> de derecha a izquierda. Eso tambi&eacute;n
            es una decisi&oacute;n de dise&ntilde;o de alguien: con 25 luces, o desfila o no se puede.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/programming_robotics_concepts.svg" width="1000" height="600" loading="lazy"
+             alt="Conceptos de programación: sensores, bloques de programación (bucles, condicionales, variables), algoritmos y estructura de un programa">
+        <figcaption>Los conceptos clave de programación y robótica: sensores que entienden el mundo, bloques que lo controlan (bucles, condicionales, variables),
+          y la estructura básica de un programa en micro:bit con inicialización y bucle infinito.</figcaption>
+      </figure>
 
     </section>
     <section class="bloque">
@@ -1457,7 +1525,7 @@ footer .wrap{padding-block:18px 26px}
       <p>La pieza que falta lleva inventada mucho tiempo y la tienes encima de la cabeza cada vez que
          vas por la calle de noche.</p>
       <figure class="foto">
-        <img src="../../../img/u10-farola-celula.jpg" loading="lazy"
+        <img src="../../../img/u10-farola-celula.jpg" width="832" height="579" loading="lazy"
              alt="Farola de vapor de sodio vista desde abajo, con una peque&ntilde;a c&uacute;pula azul
                   encima de la carcasa">
         <figcaption>Ese <b>bulto azul</b> de encima de la farola es todo el invento: una
@@ -1470,7 +1538,7 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
       <div class="copiar">
-        <h4>Definici&oacute;n</h4>
+        <h3 class="h-menor">Definici&oacute;n</h3>
         <p><b>Sensor</b>: componente que convierte una magnitud f&iacute;sica (luz, temperatura, sonido,
            movimiento&hellip;) en una <b>se&ntilde;al el&eacute;ctrica</b> que el programa puede leer
            <b>como un n&uacute;mero</b>.</p>
@@ -1483,7 +1551,7 @@ footer .wrap{padding-block:18px 26px}
          entender: <b>cuanta m&aacute;s luz le da, mejor conduce</b>. Ni siquiera hace falta saber
          electr&oacute;nica para verlo: es una resistencia que cambia de valor con la luz.</p>
       <figure class="foto">
-        <img src="../../../img/u7-ldr.jpg" loading="lazy"
+        <img src="../../../img/u7-ldr.jpg" width="1280" height="853" loading="lazy"
              alt="Primer plano de una LDR: c&aacute;psula redonda con una pista naranja en zigzag bajo
                   un cristal y dos patillas">
         <figcaption>Una <b>LDR</b> de cerca. La pista naranja en zigzag es el sensor. F&iacute;jate en
@@ -1509,6 +1577,15 @@ footer .wrap{padding-block:18px 26px}
         <p><b>Umbral</b>: el n&uacute;mero con el que se compara. Es una <b>decisi&oacute;n tuya</b>, no un
            dato del sensor, y es lo que de verdad hay que ajustar en un automatismo.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/conditional-if-else.svg" width="1000" height="700" loading="lazy"
+             alt="Diagrama de flujo de condicionales: si condici&oacute;n entonces acci&oacute;n">
+        <figcaption><b>Estructura de un condicional: SI ... ENTONCES ... SI NO ...</b> El programa compara dos valores (condici&oacute;n), obtiene S&iacute; o NO, y ejecuta uno de dos caminos. En el ejemplo: si temperatura &lt; 20, encender calefacci&oacute;n; si no, apagarla. La indentaci&oacute;n (los espacios al inicio de la l&iacute;nea) marca qu&eacute; c&oacute;digo va dentro de cada rama. Un programa sin condicionales no podr&iacute;a adaptarse al mundo: siempre har&iacute;a lo mismo.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Pru&eacute;balo. Aqu&iacute; la placa est&aacute; ejecutando su bucle <b>para siempre</b> diez veces por
          segundo: lee el sensor, compara con el umbral y enciende o apaga. La rama verde de la
          derecha es la que se est&aacute; ejecutando <b>en este instante</b>.</p>
@@ -1535,7 +1612,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
           </div>
         </div>
-        <div class="pie" id="pie-sx"></div>
+        <div class="pie" id="pie-sx" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1608,10 +1685,10 @@ footer .wrap{padding-block:18px 26px}
         function tembleque(){ return Math.round((Math.random()*2 - 1) * 12); }
 
         var MANDOS = [
-          '<div class="sx-fila"><label>Luz que le da</label>'
+          '<div class="sx-fila"><label for="sx-luz">Luz que le da</label>'
           + '<input type="range" id="sx-luz" min="0" max="255" step="1" value="128">'
           + '<span class="val" id="sx-luz-v">128</span></div>'
-          + '<div class="sx-fila"><label>Umbral: enciende por debajo de</label>'
+          + '<div class="sx-fila"><label for="sx-umbral">Umbral: enciende por debajo de</label>'
           + '<input type="number" id="sx-umbral" min="0" max="255" step="1" value="50"></div>'
           + '<label class="sx-chk"><input type="checkbox" id="sx-tiembla"> el sensor tiembla '
           + '(como el de verdad)</label>'
@@ -1619,18 +1696,18 @@ footer .wrap{padding-block:18px 26px}
           + '<input type="number" id="sx-apagar" min="0" max="255" step="1" value="80" '
           + 'style="width:58px;margin-left:4px"></label>',
 
-          '<div class="sx-fila"><label>Temperatura</label>'
+          '<div class="sx-fila"><label for="sx-temp">Temperatura</label>'
           + '<input type="range" id="sx-temp" min="-5" max="45" step="1" value="20">'
           + '<span class="val" id="sx-temp-v">20 &deg;C</span></div>'
-          + '<div class="sx-fila"><label>Aviso de fr&iacute;o por debajo de</label>'
+          + '<div class="sx-fila"><label for="sx-frio">Aviso de fr&iacute;o por debajo de</label>'
           + '<input type="number" id="sx-frio" min="-5" max="45" step="1" value="10"></div>'
-          + '<div class="sx-fila"><label>Aviso de calor por encima de</label>'
+          + '<div class="sx-fila"><label for="sx-calor">Aviso de calor por encima de</label>'
           + '<input type="number" id="sx-calor" min="-5" max="45" step="1" value="28"></div>',
 
-          '<div class="sx-fila"><label>Ruido que hay</label>'
+          '<div class="sx-fila"><label for="sx-son">Ruido que hay</label>'
           + '<input type="range" id="sx-son" min="0" max="255" step="1" value="60">'
           + '<span class="val" id="sx-son-v">60</span></div>'
-          + '<div class="sx-fila"><label>Avisa por encima de</label>'
+          + '<div class="sx-fila"><label for="sx-uruido">Avisa por encima de</label>'
           + '<input type="number" id="sx-uruido" min="0" max="255" step="1" value="150"></div>'
         ];
 
@@ -1926,7 +2003,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Los mismos bloques de la actividad, montados paso a paso en MakeCode.
           El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de seguimiento.
-          Si la red del centro bloquea YouTube,
+          Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=2xwc5lwDzJg" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2000,7 +2078,7 @@ footer .wrap{padding-block:18px 26px}
          comparando <b>la de ahora con la de antes</b> ya se sabe por d&oacute;nde sube la luz. Eso es
          justo lo que hizo el primero de todos.</p>
       <figure class="foto">
-        <img src="../../../img/u10-tortuga-walter.jpg" loading="lazy"
+        <img src="../../../img/u10-tortuga-walter.jpg" width="800" height="530" loading="lazy"
              alt="R&eacute;plica de la tortuga rob&oacute;tica de Grey Walter: una c&uacute;pula de
                   pl&aacute;stico transparente sobre un mecanismo con ruedas, encima de la mesa de un
                   taller, con un m&aacute;stil negro saliendo por arriba">
@@ -2060,7 +2138,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="rb-est" id="est-rb"></p>
         </div>
-        <div class="pie" id="pie-rb"></div>
+        <div class="pie" id="pie-rb" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2417,7 +2495,8 @@ footer .wrap{padding-block:18px 26px}
         <p class="video-nota">Im&aacute;genes de archivo de la tortuga de Grey Walter movi&eacute;ndose sola,
           setenta y cinco a&ntilde;os antes que tu robot. Est&aacute; en ingl&eacute;s, pero lo que hay que mirar no
           se cuenta: se ve. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies
-          de seguimiento. Si la red del centro bloquea YouTube,
+          de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=wQE82derooc" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2468,7 +2547,7 @@ footer .wrap{padding-block:18px 26px}
          nadie la riega. La puerta del aula que se queda abierta con la calefacci&oacute;n puesta. Todo
          eso son automatismos que faltan.</p>
       <div class="copiar">
-        <h4>Lo que tiene que tener tu montaje, sin excepci&oacute;n</h4>
+        <h3 class="h-menor">Lo que tiene que tener tu montaje, sin excepci&oacute;n</h3>
         <ol>
           <li>Una <b>entrada</b>: un sensor que mida algo del mundo. No vale un bot&oacute;n, porque
               entonces vuelve a depender de que alguien se acuerde.</li>
@@ -2529,17 +2608,17 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 460 250" id="svg-dj" role="img"
                aria-label="Gr&aacute;fica de la luz a lo largo de un d&iacute;a y las horas que est&aacute; encendida la farola con cada estrategia"></svg>
           <div class="dj-mandos">
-            <div class="dj-fila"><label>Enciende por debajo de</label>
+            <div class="dj-fila"><label for="dj-umbral">Enciende por debajo de</label>
               <input type="range" id="dj-umbral" min="5" max="200" step="1" value="60">
               <span class="dj-val" id="dj-umbral-v">60</span></div>
-            <div class="dj-fila"><label>Potencia de la bombilla</label>
+            <div class="dj-fila"><label for="dj-w">Potencia de la bombilla</label>
               <input type="number" id="dj-w" min="1" max="500" step="1" value="9"> W
-              <label class="corto">Precio del kWh</label>
+              <label class="corto" for="dj-eur">Precio del kWh</label>
               <input type="number" id="dj-eur" min="0.01" max="2" step="0.01" value="0.15"> &euro;</div>
           </div>
           <div class="dj-tabla" id="tabla-dj"></div>
         </div>
-        <div class="pie" id="pie-dj"></div>
+        <div class="pie" id="pie-dj" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2669,8 +2748,8 @@ footer .wrap{padding-block:18px 26px}
           m += '<text x="' + X0 + '" y="243" class="dj-t">azul = la farola est&aacute; encendida</text>';
           svg.innerHTML = m;
 
-          var f = '<table><tr><th>Estrategia</th><th>Horas al d&iacute;a</th><th>Wh al d&iacute;a</th>'
-                + '<th>&euro; al a&ntilde;o</th><th>A oscuras sin luz</th></tr>';
+          var f = '<table><tr><th scope="col">Estrategia</th><th scope="col">Horas al d&iacute;a</th><th scope="col">Wh al d&iacute;a</th>'
+                + '<th scope="col">&euro; al a&ntilde;o</th><th scope="col">A oscuras sin luz</th></tr>';
           for(i = 0; i < 3; i++){
             var osc = r[i].aoscuras;
             f += '<tr><td>' + NOMBRE[i] + '</td>'
@@ -2759,7 +2838,7 @@ footer .wrap{padding-block:18px 26px}
           </ol>
           <h4>R&uacute;brica</h4>
           <table class="rubrica">
-            <tr><th>Qu&eacute; se mira</th><th>Bien (todo)</th><th>Regular (la mitad)</th><th>Mal (cero)</th><th>Puntos</th></tr>
+            <tr><th scope="col">Qu&eacute; se mira</th><th scope="col">Bien (todo)</th><th scope="col">Regular (la mitad)</th><th scope="col">Mal (cero)</th><th scope="col">Puntos</th></tr>
             <tr><td>El problema es real y est&aacute; bien contado</td>
                 <td>Una frase clara, y se entiende a qui&eacute;n le pasa</td>
                 <td>Se entiende pero es un invento de clase</td>
@@ -2809,80 +2888,80 @@ footer .wrap{padding-block:18px 26px}
          d&oacute;nde andas antes del examen.</p>
       <div class="ta" id="test-u10">
         <h4>Lo que tiene que haber quedado del tema</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Un algoritmo tiene que ser ordenado, finito y&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u10-0" value="0">corto, cuantas menos instrucciones mejor</label>
-          <label class="ta-op"><input type="radio" name="u10-0" value="1">sin ambig&uuml;edad: cada instrucci&oacute;n significa una sola cosa</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p1">
+          <p id="test-u10-p1">1. Un algoritmo tiene que ser ordenado, finito y&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u10-0" value="0">sin ambig&uuml;edad: cada instrucci&oacute;n significa una sola cosa</label>
+          <label class="ta-op"><input type="radio" name="u10-0" value="1">corto, cuantas menos instrucciones mejor</label>
           <label class="ta-op"><input type="radio" name="u10-0" value="2">escrito en ingl&eacute;s, que es el idioma de las m&aacute;quinas</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las tres condiciones son <b>ordenado</b>, <b>finito</b> y <b>sin ambig&uuml;edad</b>. Que sea corto est&aacute; bien, pero no es una condici&oacute;n; y el idioma da igual: un algoritmo se puede escribir en espa&ntilde;ol y en la libreta.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. El robot de la cuadr&iacute;cula choca contra una pared que se ve&iacute;a perfectamente. &iquest;Por qu&eacute;?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p2">
+          <p id="test-u10-p2">2. El robot de la cuadr&iacute;cula choca contra una pared que se ve&iacute;a perfectamente. &iquest;Por qu&eacute;?</p>
           <label class="ta-op"><input type="radio" name="u10-1" value="0">porque el programa ten&iacute;a un fallo de sintaxis</label>
           <label class="ta-op"><input type="radio" name="u10-1" value="1">porque la instrucci&oacute;n dec&iacute;a &laquo;avanza&raquo; y la m&aacute;quina obedece</label>
           <label class="ta-op"><input type="radio" name="u10-1" value="2">porque le faltaba un sensor de choque</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La m&aacute;quina no mira, no interpreta y no corrige: hace lo que pone. Ver la pared es trabajo tuyo <b>al escribir el programa</b>. Un sensor de choque ayudar&iacute;a, pero solo si el programa tuviera un condicional que lo mirase.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>3. Un bucle <i>repetir 4 veces</i>, &iquest;hace que la m&aacute;quina trabaje menos?</p>
-          <label class="ta-op"><input type="radio" name="u10-2" value="0">no: ejecuta las mismas instrucciones, lo que ahorra es escritura</label>
-          <label class="ta-op"><input type="radio" name="u10-2" value="1">s&iacute;: agrupa las cuatro en una sola operaci&oacute;n</label>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p3">
+          <p id="test-u10-p3">3. Un bucle <i>repetir 4 veces</i>, &iquest;hace que la m&aacute;quina trabaje menos?</p>
+          <label class="ta-op"><input type="radio" name="u10-2" value="0">s&iacute;: agrupa las cuatro en una sola operaci&oacute;n</label>
+          <label class="ta-op"><input type="radio" name="u10-2" value="1">no: ejecuta las mismas instrucciones, lo que ahorra es escritura</label>
           <label class="ta-op"><input type="radio" name="u10-2" value="2">s&iacute;, porque la memoria ocupa cuatro veces menos</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al ejecutarse, las cuatro repeticiones siguen ah&iacute;, una detr&aacute;s de otra. El bucle ahorra <b>escritura</b>, y sobre todo permite escribir un programa que depende de un n&uacute;mero que <b>todav&iacute;a no conoces</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Cu&aacute;ndo se queda colgado un bucle <i>mientras</i>?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u10-p4">
+          <p id="test-u10-p4">4. &iquest;Cu&aacute;ndo se queda colgado un bucle <i>mientras</i>?</p>
           <label class="ta-op"><input type="radio" name="u10-3" value="0">cuando se repite m&aacute;s de mil veces</label>
-          <label class="ta-op"><input type="radio" name="u10-3" value="1">cuando dentro de &eacute;l no pasa nada que pueda cambiar la condici&oacute;n de salida</label>
-          <label class="ta-op"><input type="radio" name="u10-3" value="2">cuando la condici&oacute;n es falsa desde el principio</label>
+          <label class="ta-op"><input type="radio" name="u10-3" value="1">cuando la condici&oacute;n es falsa desde el principio</label>
+          <label class="ta-op"><input type="radio" name="u10-3" value="2">cuando dentro de &eacute;l no pasa nada que pueda cambiar la condici&oacute;n de salida</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Si la condici&oacute;n es falsa desde el principio, el bucle no se ejecuta ni una vez: eso no cuelga nada. Lo que cuelga es <b>repetir algo que nunca cambia la condici&oacute;n</b>, como girar en una esquina con paredes en las cuatro direcciones.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. &iquest;Para qu&eacute; sirve una variable?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u10-p5">
+          <p id="test-u10-p5">5. &iquest;Para qu&eacute; sirve una variable?</p>
           <label class="ta-op"><input type="radio" name="u10-4" value="0">para hacer el programa m&aacute;s corto</label>
-          <label class="ta-op"><input type="radio" name="u10-4" value="1">para que el programa recuerde un dato de una vez para otra</label>
-          <label class="ta-op"><input type="radio" name="u10-4" value="2">para guardar el programa cuando se apaga la placa</label>
+          <label class="ta-op"><input type="radio" name="u10-4" value="1">para guardar el programa cuando se apaga la placa</label>
+          <label class="ta-op"><input type="radio" name="u10-4" value="2">para que el programa recuerde un dato de una vez para otra</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es un caj&oacute;n con nombre donde se guarda un dato <b>mientras el programa corre</b>. Sin la variable <i>cuenta</i>, la placa no sabr&iacute;a por qu&eacute; n&uacute;mero iba. Y ojo: al apagar la placa, lo que hay en una variable <b>se pierde</b>.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>6. <i>Al iniciar</i> y <i>para siempre</i>, &iquest;en qu&eacute; se diferencian?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p6">
+          <p id="test-u10-p6">6. <i>Al iniciar</i> y <i>para siempre</i>, &iquest;en qu&eacute; se diferencian?</p>
           <label class="ta-op"><input type="radio" name="u10-5" value="0"><i>al iniciar</i> se ejecuta una vez y <i>para siempre</i> se repite sin parar</label>
           <label class="ta-op"><input type="radio" name="u10-5" value="1"><i>al iniciar</i> es para los sensores y <i>para siempre</i> para los botones</label>
           <label class="ta-op"><input type="radio" name="u10-5" value="2"><i>para siempre</i> solo funciona si la placa est&aacute; enchufada al ordenador</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> <i>Para siempre</i> es un <b>bucle infinito</b>, y aqu&iacute; no es un error: una m&aacute;quina que vigila algo tiene que estar mirando siempre. <i>Al iniciar</i> es donde se preparan las cosas que se hacen una sola vez.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Qu&eacute; le entrega un sensor al programa?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u10-p7">
+          <p id="test-u10-p7">7. &iquest;Qu&eacute; le entrega un sensor al programa?</p>
           <label class="ta-op"><input type="radio" name="u10-6" value="0">una orden de lo que hay que hacer</label>
-          <label class="ta-op"><input type="radio" name="u10-6" value="1">un n&uacute;mero, y nada m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="u10-6" value="2">una imagen de lo que est&aacute; pasando</label>
+          <label class="ta-op"><input type="radio" name="u10-6" value="1">una imagen de lo que est&aacute; pasando</label>
+          <label class="ta-op"><input type="radio" name="u10-6" value="2">un n&uacute;mero, y nada m&aacute;s</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un sensor <b>no ve, no sabe y no entiende</b>: convierte una magnitud f&iacute;sica en un n&uacute;mero. Lo que ese n&uacute;mero significa lo decide el programa al <b>compararlo</b> con un umbral.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>8. Tu farola autom&aacute;tica parpadea sin parar al anochecer, y el programa no tiene errores. &iquest;Qu&eacute; est&aacute; pasando?</p>
-          <label class="ta-op"><input type="radio" name="u10-7" value="0">la lectura tiembla alrededor del umbral y lo cruza una y otra vez</label>
-          <label class="ta-op"><input type="radio" name="u10-7" value="1">el bucle <i>para siempre</i> va demasiado r&aacute;pido</label>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p8">
+          <p id="test-u10-p8">8. Tu farola autom&aacute;tica parpadea sin parar al anochecer, y el programa no tiene errores. &iquest;Qu&eacute; est&aacute; pasando?</p>
+          <label class="ta-op"><input type="radio" name="u10-7" value="0">el bucle <i>para siempre</i> va demasiado r&aacute;pido</label>
+          <label class="ta-op"><input type="radio" name="u10-7" value="1">la lectura tiembla alrededor del umbral y lo cruza una y otra vez</label>
           <label class="ta-op"><input type="radio" name="u10-7" value="2">la bombilla est&aacute; fundida</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Ning&uacute;n sensor da un n&uacute;mero limpio. Si el valor ronda el umbral, unas veces cae por encima y otras por debajo. Se arregla con <b>dos umbrales</b>, uno para encender y otro m&aacute;s alto para apagar: <b>hist&eacute;resis</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Un robot con <b>un solo</b> sensor de luz, &iquest;puede ir hacia la l&aacute;mpara?</p>
-          <label class="ta-op"><input type="radio" name="u10-8" value="0">s&iacute;, si el sensor es lo bastante bueno</label>
-          <label class="ta-op"><input type="radio" name="u10-8" value="1">no, mientras no consiga dos medidas que comparar</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p9">
+          <p id="test-u10-p9">9. Un robot con <b>un solo</b> sensor de luz, &iquest;puede ir hacia la l&aacute;mpara?</p>
+          <label class="ta-op"><input type="radio" name="u10-8" value="0">no, mientras no consiga dos medidas que comparar</label>
+          <label class="ta-op"><input type="radio" name="u10-8" value="1">s&iacute;, si el sensor es lo bastante bueno</label>
           <label class="ta-op"><input type="radio" name="u10-8" value="2">no, hace falta obligatoriamente una c&aacute;mara</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Una medida sola dice <b>cu&aacute;nta</b> luz hay, no <b>por d&oacute;nde</b>. Las dos medidas pueden ser dos sensores a la vez (lo que hicimos nosotros) o el mismo sensor en dos posiciones distintas, movi&eacute;ndolo (lo que hizo Grey Walter en 1948).</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. &iquest;Qu&eacute; es un sistema de <b>lazo cerrado</b>?</p>
-          <label class="ta-op"><input type="radio" name="u10-9" value="0">uno que se apaga solo al terminar</label>
-          <label class="ta-op"><input type="radio" name="u10-9" value="1">uno en el que el resultado de actuar vuelve a entrar por los sensores y cambia la decisi&oacute;n siguiente</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p10">
+          <p id="test-u10-p10">10. &iquest;Qu&eacute; es un sistema de <b>lazo cerrado</b>?</p>
+          <label class="ta-op"><input type="radio" name="u10-9" value="0">uno en el que el resultado de actuar vuelve a entrar por los sensores y cambia la decisi&oacute;n siguiente</label>
+          <label class="ta-op"><input type="radio" name="u10-9" value="1">uno que se apaga solo al terminar</label>
           <label class="ta-op"><input type="radio" name="u10-9" value="2">uno que funciona sin cables</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un microondas a tres minutos es de <b>lazo abierto</b>: no prueba la comida. Un horno con term&oacute;metro que enciende y apaga la resistencia es de <b>lazo cerrado</b>, y tu robot buscando la l&aacute;mpara tambi&eacute;n: al girar cambia lo que va a medir.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2981,7 +3060,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -3001,7 +3080,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3030,8 +3109,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -3044,7 +3132,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -3063,5 +3154,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

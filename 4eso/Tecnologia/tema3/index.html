@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema3/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 3 &middot; Materiales y ciclo de vida">
+<meta property="og:description" content="Tema 3 de Tecnolog&iacute;a de 4.&ordm; de ESO: an&aacute;lisis de ciclo de vida, energ&iacute;a incorporada de los materiales, matriz de decisi&oacute;n con criterios en conflicto y dise&ntilde;o para la reparaci&oacute;n.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema3/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 3 &middot; Materiales y ciclo de vida &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -310,18 +329,49 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 3</div>
     <h1>Materiales y ciclo de vida</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El ciclo de vida</button><button type="button" data-ses="2">S2 &middot; Energ&iacute;a incorporada</button><button type="button" data-ses="3">S3 &middot; Elegir con conflicto</button><button type="button" data-ses="4">S4 &middot; Dise&ntilde;ar para reparar</button><button type="button" data-ses="5">S5 &middot; Del residuo a la materia</button><button type="button" data-ses="6">S6 &middot; De megajulios a CO&#8322;</button><button type="button" data-ses="7">S7 &middot; Econom&iacute;a circular</button><button type="button" data-ses="8">S8 &middot; La memoria de impacto</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; El ciclo de vida</button><button type="button" data-ses="2">S2 &middot; Energ&iacute;a incorporada</button><button type="button" data-ses="3">S3 &middot; Elegir con conflicto</button><button type="button" data-ses="4">S4 &middot; Dise&ntilde;ar para reparar</button><button type="button" data-ses="5">S5 &middot; Del residuo a la materia</button><button type="button" data-ses="6">S6 &middot; De megajulios a CO&#8322;</button><button type="button" data-ses="7">S7 &middot; Econom&iacute;a circular</button><button type="button" data-ses="8">S8 &middot; La memoria de impacto</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -337,7 +387,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c3">
         <div class="narrador-fig" id="narr-c3-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va este tema</h4>
+          <h3 class="h-menor">De qu&eacute; va este tema</h3>
           <span class="narrador-quien">Elegir por lo que aguanta ya lo sabes. Ahora, adem&aacute;s, responde de lo que cuesta</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -488,6 +538,15 @@ footer .wrap{padding-block:18px 26px}
            vida</b> (ACV). Est&aacute; normalizado en las <b>ISO 14040 y 14044</b>, que son las que
            dicen c&oacute;mo hay que hacerlo para que dos estudios distintos se puedan comparar.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/material-lifecycle.svg" width="1000" height="500" loading="lazy"
+             alt="Ciclo de vida del material: Extracción, Procesamiento, Fabricación, Distribución, Uso, y opción de Reciclaje o Vertedero">
+        <figcaption>El <b>ciclo de vida del material</b>: desde la extracción del mineral en la mina (40% de la energía total) hasta el uso y el final del producto. Cada fase consume energía y genera residuos. La economía circular busca que el material vuelva a entrar (reciclaje) en lugar de acabar en vertedero, recuperando la energía ya invertida.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Del ACV hay que quedarse con dos ideas, y son las dos que la gente se salta.</p>
 
       <h3>Primera: no se comparan objetos, se comparan <i>servicios</i></h3>
@@ -585,7 +644,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Barra con el reparto de la energ&iacute;a del aparato entre fabricar, transportar, usar y tirar, y gr&aacute;fica del a&ntilde;o en que usarlo pasa a pesar m&aacute;s que fabricarlo"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m1"></div>
-        <div class="pie" id="pie-m1"></div>
+        <div class="pie" id="pie-m1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -890,7 +949,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c3-portacontenedores.jpg" alt="Buque portacontenedores Maersk Hanoi atracado, siendo cargado por seis gr&uacute;as p&oacute;rtico" loading="lazy">
+        <img src="../../../img/c3-portacontenedores.jpg" width="1280" height="959" alt="Buque portacontenedores Maersk Hanoi atracado, siendo cargado por seis gr&uacute;as p&oacute;rtico" loading="lazy">
         <figcaption>El <b>Maersk Hanoi</b> cargando en el puerto de Koper. Mover un kilo 19.000 km en un barco as&iacute; cuesta unos <b>3 MJ</b>: menos que fabricar un tornillo. Mover ese mismo kilo la misma distancia en avi&oacute;n cuesta <b>158 MJ</b>. No es el kil&oacute;metro lo que sale caro: es el medio.
           <span class="credito">Petar Milošević &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:MAERSK_HANOI_Container_Ship_(Port_Koper_SIKOP,_2023).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -907,7 +966,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Repasa las etapas y las normas ISO 14040 y 14044 con un ejemplo hecho. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=y3_KltoL5l8" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -915,7 +975,7 @@ footer .wrap{padding-block:18px 26px}
 
 
       <figure class="foto">
-        <img src="../../../img/c3-agbogbloshie.jpg" alt="Personas de pie entre humo espeso sobre un vertedero, con hogueras y carretillas, en Agbogbloshie (Acra, Ghana)" loading="lazy">
+        <img src="../../../img/c3-agbogbloshie.jpg" width="1280" height="740" alt="Personas de pie entre humo espeso sobre un vertedero, con hogueras y carretillas, en Agbogbloshie (Acra, Ghana)" loading="lazy">
         <figcaption>Agbogbloshie, en Acra (Ghana), en 2019. Est&aacute;n <b>quemando el pl&aacute;stico de los cables</b> para quedarse con el cobre de dentro, que vale unos 60 MJ por kilo y se paga. La quinta etapa del ciclo de vida existe siempre, aunque no salga en el cat&aacute;logo: la diferencia est&aacute; en <b>d&oacute;nde</b> pasa y en <b>qui&eacute;n</b> respira el humo. El asentamiento fue desalojado y demolido por las autoridades de Acra en julio de 2021.
           <span class="credito">Muntaka Chasant &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Agbogbloshie,_Ghana_2019.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1046,7 +1106,7 @@ footer .wrap{padding-block:18px 26px}
          justamente lo que cuesta.</p>
 
       <figure class="foto">
-        <img src="../../../img/c3-bauxita.jpg" alt="Antigua cantera de bauxita en Otranto: paredes de roca roja intensa sobre un lago de agua verde" loading="lazy">
+        <img src="../../../img/c3-bauxita.jpg" width="1280" height="854" alt="Antigua cantera de bauxita en Otranto: paredes de roca roja intensa sobre un lago de agua verde" loading="lazy">
         <figcaption>Cantera de <b>bauxita</b> abandonada en Otranto (Italia). Ese rojo es el mineral del que sale todo el aluminio del mundo. De cada cuatro kilos de bauxita sale aproximadamente <b>un kilo de aluminio</b>; el resto se queda por el camino, y una parte se queda en forma de <b>lodo rojo</b>, que es el residuo grande de esta industria.
           <span class="credito">Benjamin Smith &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Otranto_-_Cava_di_bauxite_-_1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1094,13 +1154,20 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c3-electrolisis.jpg" alt="Dos operarios con casco y pantalla facial, de pie sobre la fila de cubas de una f&aacute;brica de aluminio" loading="lazy">
+        <img src="../../../img/c3-electrolisis.jpg" width="1280" height="854" alt="Dos operarios con casco y pantalla facial, de pie sobre la fila de cubas de una f&aacute;brica de aluminio" loading="lazy">
         <figcaption>Nave de cubas de la f&aacute;brica de aluminio de Bratsk (Rusia). Los dos operarios est&aacute;n de pie sobre la <b>fila de cubas de electr&oacute;lisis</b>; abajo se ven los cierres numerados de cada una. Una nave como esta trabaja d&iacute;a y noche sin parar nunca: si la corriente se corta unas horas, el ba&ntilde;o se solidifica y la cuba se pierde. Por eso las fundiciones de aluminio se ponen pegadas a centrales hidroel&eacute;ctricas.
           <span class="credito">UC Rusal Photo Gallery &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Bratsk_Aluminium_Smelter_(34948024336).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
 
+      <figure class="foto">
+        <img src="../../../img/embodied-energy-comparison.svg" width="1000" height="700" loading="lazy"
+             alt="Energ&iacute;a incorporada de materiales: madera 2,5 MJ, acero 32 MJ, aluminio 186 MJ">
+        <figcaption><b>La &quot;mochila energ&eacute;tica&quot; de cada material</b>. Un kilo de madera lleva incorporados 2,5 MJ; el acero, 32 MJ; el aluminio, 186 MJ. <b>No es lo mismo que fundir</b> (eso cuesta 1 MJ en el horno): es toda la energ&iacute;a del proceso: mina, refiner&iacute;a, transporte, electr&oacute;lisis en el caso del aluminio. Esta energ&iacute;a ya est&aacute; gastada el d&iacute;a que compras el material.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
 
       <div class="video" id="vid-c3-hall" data-vid="tJePkigCQ_U">
         <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Proceso Hall-H&eacute;roult / Electr&oacute;lisis de la al&uacute;mina para obtener aluminio">
@@ -1111,7 +1178,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La reacci&oacute;n y el montaje de la cuba, paso a paso. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=tJePkigCQ_U" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1170,7 +1238,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Regla a escala con la energ&iacute;a de producir el metal y la mucho menor de volver a fundirlo, y recta de la energ&iacute;a de la mezcla seg&uacute;n el porcentaje de reciclado"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m2"></div>
-        <div class="pie" id="pie-m2"></div>
+        <div class="pie" id="pie-m2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1438,7 +1506,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c3-chatarra.jpg" alt="Contenedor lleno de cubos prensados de chatarra de aluminio, brillantes al sol" loading="lazy">
+        <img src="../../../img/c3-chatarra.jpg" width="1280" height="1045" alt="Contenedor lleno de cubos prensados de chatarra de aluminio, brillantes al sol" loading="lazy">
         <figcaption>Chatarra de aluminio prensada en cubos, esperando el horno. Cada uno de esos cubos lleva dentro los megajulios de electr&oacute;lisis que alguien pag&oacute; hace a&ntilde;os. Tirar aluminio a la basura no es tirar metal: es <b>tirar la electricidad</b> que cost&oacute; separarlo del ox&iacute;geno.
           <span class="credito">Lokilech &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:DillingenAluminiumSchrott.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1450,7 +1518,7 @@ footer .wrap{padding-block:18px 26px}
         <table>
           <caption class="eyebrow">Energ&iacute;a incorporada de los materiales de taller</caption>
           <thead>
-            <tr><th>Material</th><th>Virgen (MJ/kg)</th><th>Reciclado (MJ/kg)</th><th>Ahorro</th></tr>
+            <tr><th scope="col">Material</th><th scope="col">Virgen (MJ/kg)</th><th scope="col">Reciclado (MJ/kg)</th><th scope="col">Ahorro</th></tr>
           </thead>
           <tbody>
             <tr><td>Aluminio</td><td>186</td><td>8,3</td><td>95 %</td></tr>
@@ -1683,7 +1751,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Espesor calculado de la tapa en cada material y clasificaci&oacute;n de los materiales seg&uacute;n los pesos elegidos"></svg>
         </div>
         <div class="m3-tabla" id="tabla-m3"></div>
-        <div class="pie" id="pie-m3"></div>
+        <div class="pie" id="pie-m3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1868,11 +1936,11 @@ footer .wrap{padding-block:18px 26px}
           svg.innerHTML = s;
 
           /* --- la tabla, con todo a la vista --- */
-          var h = '<table><caption>Los seis criterios: tres salen de una cuenta y tres son criterio nuestro</caption><thead><tr><th>Material</th><th>E (GPa)</th><th>t (mm)</th>';
+          var h = '<table><caption>Los seis criterios: tres salen de una cuenta y tres son criterio nuestro</caption><thead><tr><th scope="col">Material</th><th scope="col">E (GPa)</th><th scope="col">t (mm)</th>';
           CRIT.forEach(function(c){
-            h += '<th>' + c.nom + (c.cal ? '' : ' *') + '</th>';
+            h += '<th scope="col">' + c.nom + (c.cal ? '' : ' *') + '</th>';
           });
-          h += '<th>Nota</th></tr></thead><tbody>';
+          h += '<th scope="col">Nota</th></tr></thead><tbody>';
           F.slice().sort(function(a,b){
             if(a.fuera && !b.fuera) return 1;
             if(!a.fuera && b.fuera) return -1;
@@ -1999,7 +2067,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto alta">
-        <img src="../../../img/c3-monobloc.jpg" alt="Silla blanca de pl&aacute;stico de una sola pieza, en un jard&iacute;n" loading="lazy">
+        <img src="../../../img/c3-monobloc.jpg" width="1280" height="1648" alt="Silla blanca de pl&aacute;stico de una sola pieza, en un jard&iacute;n" loading="lazy">
         <figcaption>La silla <i>monobloc</i>: la m&aacute;s fabricada de la historia. Una sola pieza, un solo material (polipropileno), un solo molde y unos <b>cincuenta segundos</b> por silla. Gan&oacute; la matriz por goleada en precio y en fabricaci&oacute;n. Y perdi&oacute; en todo lo dem&aacute;s: cuando se parte una pata, no hay pata que cambiar &mdash;la pata <b>es</b> la silla&mdash;. En el centro del asiento se ve la marca de la inyecci&oacute;n. Esa marca es la sesi&oacute;n que viene.
           <span class="credito">Seniju &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:White_Monobloc_chair.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2184,7 +2252,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Lo contrario tambi&eacute;n se dise&ntilde;a a prop&oacute;sito:</p>
 
       <figure class="foto">
-        <img src="../../../img/c3-pentalobular.jpg" alt="Tres puntas de destornillador pentalobular (P2, P5, P6) vistas al microscopio sobre una regla" loading="lazy">
+        <img src="../../../img/c3-pentalobular.jpg" width="1280" height="728" alt="Tres puntas de destornillador pentalobular (P2, P5, P6) vistas al microscopio sobre una regla" loading="lazy">
         <figcaption>Puntas de destornillador <b>pentalobular</b>, vistas al microscopio. Ese perfil de cinco l&oacute;bulos no aprieta mejor que una estrella normal ni aguanta m&aacute;s par: lo que hace es que <b>tu destornillador no entre</b>. Es una uni&oacute;n desmontable que se ha dise&ntilde;ado para que la desmonte solo quien tenga la punta. El nuevo reglamento europeo de bater&iacute;as prohibe expresamente los tornillos propietarios en los aparatos con bater&iacute;a incorporada.
           <span class="credito">Ddrazir &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Puntas_de_destornilladores_pentalobulares_P2_P5_P6.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2231,7 +2299,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Tiempo de desmontaje union por union, comparaci&oacute;n entre lo que cuesta repararlo y lo que cuesta uno nuevo, e &iacute;ndice de reparabilidad"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m4"></div>
-        <div class="pie" id="pie-m4"></div>
+        <div class="pie" id="pie-m4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2340,7 +2408,7 @@ footer .wrap{padding-block:18px 26px}
                  + '" height="' + H + '" fill="none" stroke="var(--surface)" stroke-width="1"/>';
               if(x2 - x1 > 54){
                 s += '<text x="' + ((x1+x2)/2).toFixed(1) + '" y="' + (Y + H/2 + 4)
-                   + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:#fff">'
+                   + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:var(--tinta-sobre)">'
                    + rot + '</text>';
               }
             }
@@ -2429,7 +2497,7 @@ footer .wrap{padding-block:18px 26px}
               s += '<rect x="' + xi.toFixed(1) + '" y="' + Y4 + '" width="' + w.toFixed(1)
                  + '" height="' + H4 + '" fill="' + t[2] + '"/>';
               if(w > 92) s += '<text x="' + (xi + w/2).toFixed(1) + '" y="' + (Y4 + 18)
-                 + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:#fff">'
+                 + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:var(--tinta-sobre)">'
                  + t[0] + '</text>';
             }
             xi += w;
@@ -2606,7 +2674,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto alta">
-        <img src="../../../img/c3-repair-cafe.jpg" alt="Varias personas alrededor de mesas de taller arreglando un aspirador rojo, una l&aacute;mpara y peque&ntilde;os aparatos" loading="lazy">
+        <img src="../../../img/c3-repair-cafe.jpg" width="1280" height="1552" alt="Varias personas alrededor de mesas de taller arreglando un aspirador rojo, una l&aacute;mpara y peque&ntilde;os aparatos" loading="lazy">
         <figcaption>Un <i>repair caf&eacute;</i>: gente que trae lo que se le ha roto y lo arregla con ayuda de quien sabe. En la mesa hay lo de siempre &mdash;destornilladores, alicates, un pol&iacute;metro&mdash; y con eso se salvan la mayor&iacute;a de las aver&iacute;as, porque la mayor&iacute;a de las aver&iacute;as son tontas. El primero se mont&oacute; en &Aacute;msterdam en 2009; hoy hay miles en todo el mundo. No hacen falta talleres especiales: hace falta que el aparato <b>se pueda abrir</b>.
           <span class="credito">Ilvy Njiokiktjien &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Repair_Cafe_by_Ilvy_Njiokiktjien.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2670,90 +2738,90 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Test y cierre &middot; 15 min</div>
       <div class="ta" id="test-c3">
         <h4>Lo que tiene que haber quedado de las cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Un estudio dice que una bolsa de algod&oacute;n hay que usarla 7.100 veces para empatar con una de pl&aacute;stico. Lo primero que hay que preguntar es&hellip;</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c3-p1">
+          <p id="test-c3-p1">1. Un estudio dice que una bolsa de algod&oacute;n hay que usarla 7.100 veces para empatar con una de pl&aacute;stico. Lo primero que hay que preguntar es&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3-0" value="0">si el estudio lo pag&oacute; la industria del pl&aacute;stico</label>
-          <label class="ta-op"><input type="radio" name="c3-0" value="1">cu&aacute;les eran la unidad funcional y los l&iacute;mites del sistema</label>
-          <label class="ta-op"><input type="radio" name="c3-0" value="2">cu&aacute;ntos materiales de bolsa se compararon</label>
+          <label class="ta-op"><input type="radio" name="c3-0" value="1">cu&aacute;ntos materiales de bolsa se compararon</label>
+          <label class="ta-op"><input type="radio" name="c3-0" value="2">cu&aacute;les eran la unidad funcional y los l&iacute;mites del sistema</label>
           <label class="ta-op"><input type="radio" name="c3-0" value="3">si el algod&oacute;n era ecol&oacute;gico o convencional</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las cuatro preguntas son razonables, pero solo una decide si el n&uacute;mero significa algo: <b>qu&eacute; tarea se compar&oacute; y d&oacute;nde empezaba y acababa la cuenta</b>. En este caso el estudio es dan&eacute;s y da por hecho que la bolsa acaba incinerada, as&iacute; que no cuenta lo que pasa si acaba en el mar.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>2. En el riego autom&aacute;tico, la bomba tira 3,5 W tres minutos al d&iacute;a y la placa 0,3 W las 24 horas. Al cabo de un a&ntilde;o&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c3-p2">
+          <p id="test-c3-p2">2. En el riego autom&aacute;tico, la bomba tira 3,5 W tres minutos al d&iacute;a y la placa 0,3 W las 24 horas. Al cabo de un a&ntilde;o&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3-1" value="0">ha gastado mucho m&aacute;s la bomba, que es el actuador</label>
-          <label class="ta-op"><input type="radio" name="c3-1" value="1">han gastado aproximadamente lo mismo</label>
-          <label class="ta-op"><input type="radio" name="c3-1" value="2">ha gastado unas cuarenta veces m&aacute;s la placa en reposo</label>
+          <label class="ta-op"><input type="radio" name="c3-1" value="1">ha gastado unas cuarenta veces m&aacute;s la placa en reposo</label>
+          <label class="ta-op"><input type="radio" name="c3-1" value="2">han gastado aproximadamente lo mismo</label>
           <label class="ta-op"><input type="radio" name="c3-1" value="3">no se puede saber sin conocer la tensi&oacute;n de alimentaci&oacute;n</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Bomba: 3,5 &times; 0,05 = 0,175 Wh/d&iacute;a. Placa: 0,3 &times; 24 = 7,2 Wh/d&iacute;a. La placa gasta <b>41 veces m&aacute;s</b>. Lo que decide el consumo de un aparato no suele ser la potencia del actuador, sino <b>cu&aacute;ntas horas al d&iacute;a hay algo encendido</b>.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>3. Mover un kilo 19.000 km en barco cuesta unos 3 MJ. &iquest;Y en avi&oacute;n?</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c3-p3">
+          <p id="test-c3-p3">3. Mover un kilo 19.000 km en barco cuesta unos 3 MJ. &iquest;Y en avi&oacute;n?</p>
           <label class="ta-op"><input type="radio" name="c3-2" value="0">pr&aacute;cticamente lo mismo: la distancia es la misma</label>
           <label class="ta-op"><input type="radio" name="c3-2" value="1">alrededor del doble</label>
-          <label class="ta-op"><input type="radio" name="c3-2" value="2">alrededor de cincuenta veces m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="c3-2" value="3">menos, porque el avi&oacute;n tarda mucho menos tiempo</label>
+          <label class="ta-op"><input type="radio" name="c3-2" value="2">menos, porque el avi&oacute;n tarda mucho menos tiempo</label>
+          <label class="ta-op"><input type="radio" name="c3-2" value="3">alrededor de cincuenta veces m&aacute;s</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El barco gasta 0,16 MJ por tonelada y kil&oacute;metro; el avi&oacute;n, 8,3. Son <b>52 veces m&aacute;s</b>: unos 158 MJ por kilo en ese viaje. Lo que encarece el transporte no son los kil&oacute;metros, es el <b>medio</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. Fundir un kilo de aluminio cuesta 0,97 MJ y producirlo cuesta 186. La diferencia est&aacute; sobre todo en&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c3-p4">
+          <p id="test-c3-p4">4. Fundir un kilo de aluminio cuesta 0,97 MJ y producirlo cuesta 186. La diferencia est&aacute; sobre todo en&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3-3" value="0">el transporte de la bauxita desde Guinea o Australia</label>
           <label class="ta-op"><input type="radio" name="c3-3" value="1">la electr&oacute;lisis que separa el aluminio del ox&iacute;geno</label>
           <label class="ta-op"><input type="radio" name="c3-3" value="2">el laminado y el mecanizado de las chapas</label>
           <label class="ta-op"><input type="radio" name="c3-3" value="3">la temperatura, porque hay que llegar a 950 &deg;C en vez de a 660</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En la naturaleza no hay aluminio, hay <b>&oacute;xido</b> de aluminio. Romper esa uni&oacute;n cuesta unos <b>14 kWh de electricidad por kilo</b> en la cuba de Hall-H&eacute;roult, que en energ&iacute;a primaria son m&aacute;s de 100 MJ: la mitad larga de los 186. La temperatura, por s&iacute; sola, es calderilla.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Reciclar aluminio ahorra el 95 % y reciclar acero, el 60 %. Un kilo de cada uno&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c3-4" value="0">ahorra m&aacute;s el acero en megajulios, porque se recicla mucho m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="c3-4" value="1">ahorra 178 MJ el aluminio y 15 MJ el acero</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c3-p5">
+          <p id="test-c3-p5">5. Reciclar aluminio ahorra el 95 % y reciclar acero, el 60 %. Un kilo de cada uno&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c3-4" value="0">ahorra 178 MJ el aluminio y 15 MJ el acero</label>
+          <label class="ta-op"><input type="radio" name="c3-4" value="1">ahorra m&aacute;s el acero en megajulios, porque se recicla mucho m&aacute;s</label>
           <label class="ta-op"><input type="radio" name="c3-4" value="2">ahorra lo mismo: el porcentaje ya lo dice todo</label>
           <label class="ta-op"><input type="radio" name="c3-4" value="3">no se puede comparar, porque tienen densidades distintas</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 186 &minus; 8,3 = <b>178 MJ</b> el aluminio; 25 &minus; 10 = <b>15 MJ</b> el acero. El porcentaje dice c&oacute;mo de bueno es el negocio <b>relativo</b>; los megajulios dicen cu&aacute;nto se ahorra <b>de verdad</b>. Hay que mirar los dos.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>6. Para que se hunda lo mismo que 4 mm de contrachapado, la tapa de acero necesita 1,35 mm. Comparadas as&iacute;&hellip;</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c3-p6">
+          <p id="test-c3-p6">6. Para que se hunda lo mismo que 4 mm de contrachapado, la tapa de acero necesita 1,35 mm. Comparadas as&iacute;&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3-5" value="0">la de acero pesa menos, porque es mucho m&aacute;s fina</label>
           <label class="ta-op"><input type="radio" name="c3-5" value="1">pesan pr&aacute;cticamente lo mismo</label>
-          <label class="ta-op"><input type="radio" name="c3-5" value="2">la de acero pesa unas cuatro veces y media m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="c3-5" value="3">depende del precio del acero ese mes</label>
+          <label class="ta-op"><input type="radio" name="c3-5" value="2">depende del precio del acero ese mes</label>
+          <label class="ta-op"><input type="radio" name="c3-5" value="3">la de acero pesa unas cuatro veces y media m&aacute;s</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 72 g la de madera y 317 g la de acero. El acero recorta el espesor a un tercio, pero su densidad es <b>trece veces</b> la de la madera. A igualdad de rigidez en flexi&oacute;n, la madera es dif&iacute;cil de batir, y esa es la raz&oacute;n de que medio taller de tecnolog&iacute;a sea de contrachapado.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>7. En una matriz de decisi&oacute;n, &iquest;cu&aacute;l es la diferencia entre un requisito eliminatorio y un criterio con peso 5?</p>
-          <label class="ta-op"><input type="radio" name="c3-6" value="0">ninguna en la pr&aacute;ctica: peso 5 es lo m&aacute;ximo y ya decide</label>
-          <label class="ta-op"><input type="radio" name="c3-6" value="1">el eliminatorio se aplica al final, cuando ya hay ganador</label>
-          <label class="ta-op"><input type="radio" name="c3-6" value="2">el criterio con peso 5 se puede compensar con los dem&aacute;s y el requisito no</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c3-p7">
+          <p id="test-c3-p7">7. En una matriz de decisi&oacute;n, &iquest;cu&aacute;l es la diferencia entre un requisito eliminatorio y un criterio con peso 5?</p>
+          <label class="ta-op"><input type="radio" name="c3-6" value="0">el criterio con peso 5 se puede compensar con los dem&aacute;s y el requisito no</label>
+          <label class="ta-op"><input type="radio" name="c3-6" value="1">ninguna en la pr&aacute;ctica: peso 5 es lo m&aacute;ximo y ya decide</label>
+          <label class="ta-op"><input type="radio" name="c3-6" value="2">el eliminatorio se aplica al final, cuando ya hay ganador</label>
           <label class="ta-op"><input type="radio" name="c3-6" value="3">el requisito solo vale para criterios que se puedan medir</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con peso 5 todav&iacute;a se compensa: un material que aguante fatal el agua puede ganar si arrasa en lo dem&aacute;s. Un requisito <b>no se negocia</b>: si la pieza se moja y el material no aguanta mojado, ese material est&aacute; fuera, saque lo que saque. Y se aplica <b>antes</b> de puntuar, no despu&eacute;s.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. En el taller, la cuenta que decide si algo se repara es&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c3-7" value="0">el precio de la pieza de repuesto frente al precio del aparato</label>
-          <label class="ta-op"><input type="radio" name="c3-7" value="1">tiempo &times; tarifa + pieza + riesgo, comparado con el 60 % de uno nuevo</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c3-p8">
+          <p id="test-c3-p8">8. En el taller, la cuenta que decide si algo se repara es&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c3-7" value="0">tiempo &times; tarifa + pieza + riesgo, comparado con el 60 % de uno nuevo</label>
+          <label class="ta-op"><input type="radio" name="c3-7" value="1">el precio de la pieza de repuesto frente al precio del aparato</label>
           <label class="ta-op"><input type="radio" name="c3-7" value="2">los a&ntilde;os que lleve el aparato en el mercado</label>
           <label class="ta-op"><input type="radio" name="c3-7" value="3">si el aparato tiene todav&iacute;a garant&iacute;a</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Y dentro de esa cuenta manda <b>el tiempo</b>: a 45 &euro;/h, cada minuto de desmontaje son 0,75 &euro;. Por eso el dise&ntilde;ador que elige pegamento en vez de tornillos no est&aacute; eligiendo un adhesivo: est&aacute; decidiendo que dentro de tres a&ntilde;os ese aparato se tire.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. El c&aacute;rtel Phoebus, en 1924, fij&oacute; la duraci&oacute;n de las bombillas en 1.000 horas. Lo importante del caso es que&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c3-p9">
+          <p id="test-c3-p9">9. El c&aacute;rtel Phoebus, en 1924, fij&oacute; la duraci&oacute;n de las bombillas en 1.000 horas. Lo importante del caso es que&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3-8" value="0">demuestra que todo lo que se rompe est&aacute; saboteado a prop&oacute;sito</label>
           <label class="ta-op"><input type="radio" name="c3-8" value="1">fue la primera vez que la duraci&oacute;n de un producto se puso por escrito como objetivo de dise&ntilde;o, con multas por pasarse</label>
           <label class="ta-op"><input type="radio" name="c3-8" value="2">las bombillas de entonces eran peores que las de ahora</label>
           <label class="ta-op"><input type="radio" name="c3-8" value="3">era ilegal y por eso se disolvi&oacute; en 1939</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> La primera opci&oacute;n es una exageraci&oacute;n que conviene no repetir: la mayor&iacute;a de las aver&iacute;as no est&aacute;n planeadas. Lo que Phoebus demuestra, con documentos y con tablas de multas en francos suizos, es que <b>la duraci&oacute;n es un par&aacute;metro de dise&ntilde;o</b> al que alguien le pone un valor, igual que al peso o al precio.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Que &laquo;todo lo que se rompe est&aacute; saboteado&raquo; es una exageraci&oacute;n que conviene no repetir: la mayor&iacute;a de las aver&iacute;as no est&aacute;n planeadas. Lo que Phoebus demuestra, con documentos y con tablas de multas en francos suizos, es que <b>la duraci&oacute;n es un par&aacute;metro de dise&ntilde;o</b> al que alguien le pone un valor, igual que al peso o al precio.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Desde el 18 de febrero de 2027, el Reglamento (UE) 2023/1542 obliga a que&hellip;</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c3-p10">
+          <p id="test-c3-p10">10. Desde el 18 de febrero de 2027, el Reglamento (UE) 2023/1542 obliga a que&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3-9" value="0">todos los aparatos lleven &iacute;ndice de reparabilidad en la etiqueta</label>
-          <label class="ta-op"><input type="radio" name="c3-9" value="1">las bater&iacute;as de los aparatos port&aacute;tiles sean extra&iacute;bles y sustituibles por el usuario con herramientas normales</label>
-          <label class="ta-op"><input type="radio" name="c3-9" value="2">los fabricantes reparen gratis durante siete a&ntilde;os</label>
+          <label class="ta-op"><input type="radio" name="c3-9" value="1">los fabricantes reparen gratis durante siete a&ntilde;os</label>
+          <label class="ta-op"><input type="radio" name="c3-9" value="2">las bater&iacute;as de los aparatos port&aacute;tiles sean extra&iacute;bles y sustituibles por el usuario con herramientas normales</label>
           <label class="ta-op"><input type="radio" name="c3-9" value="3">se prohiba vender aparatos con las carcasas pegadas</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el reglamento de bater&iacute;as: bater&iacute;a extra&iacute;ble y sustituible por el usuario final, sin herramientas especiales, sin tornillos propietarios y sin adhesivos que pidan calor o disolvente, con repuestos disponibles siete a&ntilde;os. El &iacute;ndice en la etiqueta es franc&eacute;s, no europeo; y el derecho a reparar europeo (Directiva 2024/1799) obliga a reparar, no gratis.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2953,7 +3021,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Cascada con lo que queda de un kilo despu&eacute;s de cada etapa del reciclado, y curva de lo que sigue en el mismo uso despu&eacute;s de varias vueltas"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m5"></div>
-        <div class="pie" id="pie-m5"></div>
+        <div class="pie" id="pie-m5" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3196,7 +3264,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c3-balas-latas.jpg" alt="Balas de latas de aluminio prensadas apiladas contra una pared, con latas sueltas desparramadas por el suelo de hormig&oacute;n en primer plano" loading="lazy">
+        <img src="../../../img/c3-balas-latas.jpg" width="1280" height="852" alt="Balas de latas de aluminio prensadas apiladas contra una pared, con latas sueltas desparramadas por el suelo de hormig&oacute;n en primer plano" loading="lazy">
         <figcaption>Balas de latas prensadas en una planta de clasificaci&oacute;n, esperando el horno. F&iacute;jate en <b>dos cosas</b>. Una: todas las latas llevan su <b>pintura</b>, y eso hay que quemarlo antes de fundir &mdash;es la tercera etapa de la cadena&mdash;. Dos: en el suelo hay latas ca&iacute;das de las balas. Esas se barren y se recuperan casi todas; la p&eacute;rdida gorda <b>no se ve en ninguna foto</b>, porque pasa dentro del horno.
           <span class="credito">Greenville, NC &middot; Public domain &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Greenville_Public_Works,_ECVC_Recycling_Sorting_facility_-_14.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3210,14 +3278,14 @@ footer .wrap{padding-block:18px 26px}
 
       <div class="galeria-ri">
       <figure class="foto">
-        <img src="../../../img/c3-vidrio-verde.jpg" alt="Mont&oacute;n de trozos de vidrio verde y &aacute;mbar sobre una mesa clara, con una moneda de un euro al lado para dar la escala" loading="lazy">
+        <img src="../../../img/c3-vidrio-verde.jpg" width="960" height="720" alt="Mont&oacute;n de trozos de vidrio verde y &aacute;mbar sobre una mesa clara, con una moneda de un euro al lado para dar la escala" loading="lazy">
         <figcaption><b>Casco verde, clasificado por color.</b> Vuelve a ser botella verde: <b>ciclo cerrado</b>, y se puede repetir. La moneda de un euro est&aacute; puesta para que se vea el tama&ntilde;o del trozo.
           <span class="credito">Alter Fritz &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Glas_aus_Aufbereitungsanlage_gr%C3%BCn_-_glass_cullet_green_(Alter_Fritz).JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
       <figure class="foto">
-        <img src="../../../img/c3-vidrio-mezcla.jpg" alt="Mont&oacute;n de trozos de vidrio de colores mezclados &mdash;verde, &aacute;mbar, incoloro y uno azul&mdash; sobre la misma mesa, con la misma moneda de un euro" loading="lazy">
+        <img src="../../../img/c3-vidrio-mezcla.jpg" width="960" height="720" alt="Mont&oacute;n de trozos de vidrio de colores mezclados &mdash;verde, &aacute;mbar, incoloro y uno azul&mdash; sobre la misma mesa, con la misma moneda de un euro" loading="lazy">
         <figcaption><b>Casco mezclado</b>, con verde, &aacute;mbar, incoloro y hasta un trozo azul. Con esto ya no se hace vidrio incoloro: el color no se quita fundiendo. Acaba en botella oscura, en lana de vidrio o en &aacute;rido. <b>Ciclo abierto.</b>
           <span class="credito">Alter Fritz &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Glas_aus_Aufbereitungsanlage_bunt_-_glass_cullet_various_(Alter_Fritz).JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3235,7 +3303,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Las cintas, el im&aacute;n, las corrientes de Foucault y los separadores &oacute;pticos de la segunda etapa, funcionando. <b>Ojo con qui&eacute;n lo firma</b>: Ecoembes es el sistema que gestiona esos envases, o sea que tiene inter&eacute;s en que la planta salga bien en el v&iacute;deo. Para <b>ver la m&aacute;quina</b> vale; para las <b>cifras</b>, usa la escena y di de d&oacute;nde sale cada una. Eso es exactamente lo que aprendiste a preguntar en la sesi&oacute;n 1. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=_EA6VL1Zj0s" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -3427,7 +3496,7 @@ footer .wrap{padding-block:18px 26px}
          en cemento va por otro lado: cambiar la receta, o capturar el CO&#8322; a la salida.</p>
 
       <figure class="foto">
-        <img src="../../../img/c3-horno-cemento.jpg" alt="Horno rotatorio de una cementera: un cilindro met&aacute;lico enorme e inclinado, sobre rodillos, con un coche aparcado debajo que da la escala, y la torre de ciclones al fondo" loading="lazy">
+        <img src="../../../img/c3-horno-cemento.jpg" width="1024" height="768" alt="Horno rotatorio de una cementera: un cilindro met&aacute;lico enorme e inclinado, sobre rodillos, con un coche aparcado debajo que da la escala, y la torre de ciclones al fondo" loading="lazy">
         <figcaption>El <b>horno rotatorio</b> de una cementera, en Gora&#380;d&#380;e (Polonia). Es el tubo inclinado que cruza la foto: gira despacio sobre esos rodillos mientras la mezcla baja por dentro hasta unos <b>1.450 &deg;C</b>. El coche aparcado debajo da la escala. Dentro de ese tubo pasan las dos cosas a la vez: se quema combustible <b>y</b> la caliza suelta su CO&#8322; sin que nadie la queme. La torre alta del fondo son los ciclones, que precalientan la mezcla con los gases que salen.
           <span class="credito">Jb957 &middot; CC0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Cement_kiln_in_Gorazdze_Cement_plant.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3522,7 +3591,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Megajulios por kilo y kilos de CO&#8322; equivalente por kilo de seis materiales, y desglose del material elegido"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m6"></div>
-        <div class="pie" id="pie-m6"></div>
+        <div class="pie" id="pie-m6" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3786,7 +3855,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c3-presa.jpg" alt="Presa de escollera de K&aacute;rahnj&uacute;kar: un muro inmenso de roca oscura con la carretera de coronaci&oacute;n encima, monta&ntilde;as nevadas al fondo y una caseta peque&ntilde;a al pie que da la escala" loading="lazy">
+        <img src="../../../img/c3-presa.jpg" width="1280" height="960" alt="Presa de escollera de K&aacute;rahnj&uacute;kar: un muro inmenso de roca oscura con la carretera de coronaci&oacute;n encima, monta&ntilde;as nevadas al fondo y una caseta peque&ntilde;a al pie que da la escala" loading="lazy">
         <figcaption>La presa de <b>K&aacute;rahnj&uacute;kar</b>, en Islandia: <b>193 metros</b> de roca, con la carretera de coronaci&oacute;n encima y una caseta al pie para que se vea el tama&ntilde;o. Se construy&oacute; para una central de <b>690 MW</b> que alimenta, al otro lado de la isla, la f&aacute;brica de aluminio de Rey&eth;arfj&ouml;r&eth;ur, en marcha desde 2007. Es la cara amable de la cuenta de hoy: ese es el enchufe que baja el aluminio a 4,3 kg de CO&#8322; por kilo. Y es tambi&eacute;n el aviso: un megajulio limpio en CO&#8322; <b>no es un megajulio gratis</b>. Detr&aacute;s de ese muro hay un embalse que ocupa lo que antes era tierra, y eso <b>no cabe en ninguna casilla de kilos de CO&#8322;</b>. Es el mismo l&iacute;o de la bolsa de algod&oacute;n de la sesi&oacute;n 1: <b>la respuesta depende de qu&eacute; le hayas preguntado</b>.
           <span class="credito">Christoph Hess &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Karahnjukar-dam.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4049,7 +4118,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Linea del tiempo de veinte a&ntilde;os con las fabricaciones, reparaciones y reciclados de cada estrategia, y megajulios totales de cada una"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m7"></div>
-        <div class="pie" id="pie-m7"></div>
+        <div class="pie" id="pie-m7" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -4293,7 +4362,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto alta">
-        <img src="../../../img/c3-cajas.jpg" alt="Suelo de un pabell&oacute;n cubierto por decenas de cajas amarillas llenas de botellas de vidrio vac&iacute;as, todas del mismo modelo, alineadas hasta el fondo" loading="lazy">
+        <img src="../../../img/c3-cajas.jpg" width="960" height="1280" alt="Suelo de un pabell&oacute;n cubierto por decenas de cajas amarillas llenas de botellas de vidrio vac&iacute;as, todas del mismo modelo, alineadas hasta el fondo" loading="lazy">
         <figcaption>El <b>bucle m&aacute;s corto que existe a escala industrial</b>: botellas de vidrio retornables, todas del mismo modelo, esperando a volver a la planta. No se funden: se <b>lavan y se vuelven a llenar</b>. F&iacute;jate en que son todas <b>id&eacute;nticas</b>, y en que muchas est&aacute;n rayadas de haber pasado ya por la cinta unas cuantas veces. Las dos cosas van juntas: el bucle corto solo funciona si el envase est&aacute; <b>normalizado</b>, porque si cada marca lleva su botella no hay manera de devolverlas. Alemania tiene dep&oacute;sito obligatorio en los envases de bebida desde <b>2003</b>.
           <span class="credito">JkoLd19d &middot; CC0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Crates_of_empty_Club_Mate_bottles_at_31c3.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4310,7 +4379,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La versi&oacute;n oficial, en tres minutos y en espa&ntilde;ol. Mientras lo ves, haz lo que llevas dos sesiones aprendiendo: <b>cuenta cu&aacute;ntas veces dice &laquo;reciclar&raquo; y cu&aacute;ntas dice &laquo;reparar&raquo; o &laquo;prevenir&raquo;</b>, y comp&aacute;ralo con el orden del art&iacute;culo 4 que acabas de copiar. Un v&iacute;deo institucional tambi&eacute;n es alguien contando algo con un inter&eacute;s. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=aB2mK5QKyvY" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -4559,7 +4629,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Reparto de los megajulios del proyecto entre sus piezas, la electr&oacute;nica y el uso, y an&aacute;lisis de sensibilidad con el recorrido que provoca cada dato incierto"></svg>
         </div>
         <div class="m1-tabla" id="tabla-m8"></div>
-        <div class="pie" id="pie-m8"></div>
+        <div class="pie" id="pie-m8" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4927,7 +4997,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto alta">
-        <img src="../../../img/c3-etiqueta.jpg" alt="Etiqueta energ&eacute;tica europea de una lavadora: escala de la A a la G en colores, la clase en un recuadro negro, el consumo en kWh por 100 ciclos, y pictogramas de carga, duraci&oacute;n, agua, centrifugado y ruido, con un c&oacute;digo QR arriba a la derecha" loading="lazy">
+        <img src="../../../img/c3-etiqueta.jpg" width="960" height="1907" alt="Etiqueta energ&eacute;tica europea de una lavadora: escala de la A a la G en colores, la clase en un recuadro negro, el consumo en kWh por 100 ciclos, y pictogramas de carga, duraci&oacute;n, agua, centrifugado y ruido, con un c&oacute;digo QR arriba a la derecha" loading="lazy">
         <figcaption>Una <b>memoria de impacto de una p&aacute;gina</b>, y es obligatoria. F&iacute;jate en lo que lleva y en el orden en que lo lleva. Primero, la <b>unidad funcional</b>: no dice &laquo;consume poco&raquo;, dice <b>kWh por cada 100 ciclos</b>, o sea la tarea, con su cantidad &mdash;exactamente lo de la sesi&oacute;n 1&mdash;. Despu&eacute;s, el dato medido con una norma que es la misma para todos, sin la cual las letras no significar&iacute;an nada. Y arriba a la derecha, un <b>c&oacute;digo QR</b>: la ficha completa de cada modelo est&aacute; en un registro europeo p&uacute;blico, el <b>EPREL</b>, donde cualquiera puede ir a buscarla. La escala volvi&oacute; a ir de la <b>A a la G</b> en <b>2021</b>, porque con las A, A+, A++ y A+++ casi todo era A y la etiqueta hab&iacute;a dejado de distinguir nada. Hasta una buena escala se gasta.
           <span class="credito">European Commission &middot; Attribution &middot;
             <a href="https://commons.wikimedia.org/wiki/File:EU_washing_machines_label.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4995,106 +5065,106 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Test y cierre &middot; 15 min</div>
       <div class="ta" id="test-c3b">
         <h4>Toda la unidad, de la primera sesi&oacute;n a la octava</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Un estudio dice que una bolsa de tela hay que usarla 7.100 veces para empatar con una de pl&aacute;stico. Lo primero que hay que preguntar es&hellip;</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c3b-p1">
+          <p id="test-c3b-p1">1. Un estudio dice que una bolsa de tela hay que usarla 7.100 veces para empatar con una de pl&aacute;stico. Lo primero que hay que preguntar es&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3b-0" value="0">si lo pag&oacute; la industria del pl&aacute;stico</label>
-          <label class="ta-op"><input type="radio" name="c3b-0" value="1">cu&aacute;les eran la unidad funcional y los l&iacute;mites del sistema</label>
-          <label class="ta-op"><input type="radio" name="c3b-0" value="2">cu&aacute;ntos materiales se compararon</label>
+          <label class="ta-op"><input type="radio" name="c3b-0" value="1">cu&aacute;ntos materiales se compararon</label>
+          <label class="ta-op"><input type="radio" name="c3b-0" value="2">cu&aacute;les eran la unidad funcional y los l&iacute;mites del sistema</label>
           <label class="ta-op"><input type="radio" name="c3b-0" value="3">si el algod&oacute;n era ecol&oacute;gico</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la pregunta de la sesi&oacute;n 1 y la que abre toda la unidad: <b>qu&eacute; tarea se compar&oacute;</b> y <b>d&oacute;nde empezaba y acababa la cuenta</b>. El estudio es dan&eacute;s y da por hecho que la bolsa acaba incinerada, as&iacute; que no cuenta lo que pasa si acaba en el mar.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. Fundir un kilo de aluminio cuesta 0,97 MJ y producirlo cuesta 186. &iquest;D&oacute;nde est&aacute; la diferencia?</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c3b-p2">
+          <p id="test-c3b-p2">2. Fundir un kilo de aluminio cuesta 0,97 MJ y producirlo cuesta 186. &iquest;D&oacute;nde est&aacute; la diferencia?</p>
           <label class="ta-op"><input type="radio" name="c3b-1" value="0">en el transporte de la bauxita desde Guinea o Australia</label>
-          <label class="ta-op"><input type="radio" name="c3b-1" value="1">en la electr&oacute;lisis que separa el aluminio del ox&iacute;geno</label>
-          <label class="ta-op"><input type="radio" name="c3b-1" value="2">en el laminado de las chapas</label>
-          <label class="ta-op"><input type="radio" name="c3b-1" value="3">en llegar a 950 &deg;C en vez de a 660</label>
+          <label class="ta-op"><input type="radio" name="c3b-1" value="1">en el laminado de las chapas</label>
+          <label class="ta-op"><input type="radio" name="c3b-1" value="2">en llegar a 950 &deg;C en vez de a 660</label>
+          <label class="ta-op"><input type="radio" name="c3b-1" value="3">en la electr&oacute;lisis que separa el aluminio del ox&iacute;geno</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En la naturaleza no hay aluminio, hay <b>&oacute;xido</b> de aluminio. Romper esa uni&oacute;n cuesta unos <b>14,1 kWh por kilo</b> en la cuba de Hall-H&eacute;roult, que en energ&iacute;a primaria son m&aacute;s de 100 MJ.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>3. Para que se hunda lo mismo que 4 mm de contrachapado, la tapa de acero necesita 1,35 mm. Comparadas as&iacute;&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c3b-2" value="0">la de acero pesa menos, porque es mucho m&aacute;s fina</label>
-          <label class="ta-op"><input type="radio" name="c3b-2" value="1">pesan pr&aacute;cticamente lo mismo</label>
-          <label class="ta-op"><input type="radio" name="c3b-2" value="2">la de acero pesa unas cuatro veces y media m&aacute;s</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c3b-p3">
+          <p id="test-c3b-p3">3. Para que se hunda lo mismo que 4 mm de contrachapado, la tapa de acero necesita 1,35 mm. Comparadas as&iacute;&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c3b-2" value="0">la de acero pesa unas cuatro veces y media m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c3b-2" value="1">la de acero pesa menos, porque es mucho m&aacute;s fina</label>
+          <label class="ta-op"><input type="radio" name="c3b-2" value="2">pesan pr&aacute;cticamente lo mismo</label>
           <label class="ta-op"><input type="radio" name="c3b-2" value="3">no se pueden comparar, porque son materiales distintos</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 72 g la de madera y 317 g la de acero. La rigidez de una placa va con <b>E &middot; t&sup3;</b>, as&iacute; que al acero le basta un tercio de espesor&hellip; pero su densidad es <b>trece veces</b> la de la madera.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>4. &iquest;Cu&aacute;l es la diferencia entre un requisito eliminatorio y un criterio con peso 5?</p>
-          <label class="ta-op"><input type="radio" name="c3b-3" value="0">ninguna en la pr&aacute;ctica: peso 5 es el m&aacute;ximo</label>
-          <label class="ta-op"><input type="radio" name="c3b-3" value="1">el eliminatorio se aplica al final, cuando ya hay ganador</label>
-          <label class="ta-op"><input type="radio" name="c3b-3" value="2">el criterio con peso 5 se puede compensar con los dem&aacute;s y el requisito no</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c3b-p4">
+          <p id="test-c3b-p4">4. &iquest;Cu&aacute;l es la diferencia entre un requisito eliminatorio y un criterio con peso 5?</p>
+          <label class="ta-op"><input type="radio" name="c3b-3" value="0">el criterio con peso 5 se puede compensar con los dem&aacute;s y el requisito no</label>
+          <label class="ta-op"><input type="radio" name="c3b-3" value="1">ninguna en la pr&aacute;ctica: peso 5 es el m&aacute;ximo</label>
+          <label class="ta-op"><input type="radio" name="c3b-3" value="2">el eliminatorio se aplica al final, cuando ya hay ganador</label>
           <label class="ta-op"><input type="radio" name="c3b-3" value="3">el requisito solo vale si se puede medir</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con peso 5 todav&iacute;a se compensa: un material que aguante fatal el agua puede ganar si arrasa en lo dem&aacute;s. Un requisito <b>no se negocia</b>, y se aplica <b>antes</b> de puntuar.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Una lata pone &laquo;reciclable al 100 % e infinitas veces&raquo;. Eso&hellip;</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c3b-p5">
+          <p id="test-c3b-p5">5. Una lata pone &laquo;reciclable al 100 % e infinitas veces&raquo;. Eso&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3b-4" value="0">es falso: ning&uacute;n material aguanta infinitas vueltas</label>
-          <label class="ta-op"><input type="radio" name="c3b-4" value="1">es cierto del material, pero no dice cu&aacute;nto se recicla de verdad</label>
-          <label class="ta-op"><input type="radio" name="c3b-4" value="2">significa que el 100 % de las latas se recicla</label>
+          <label class="ta-op"><input type="radio" name="c3b-4" value="1">significa que el 100 % de las latas se recicla</label>
+          <label class="ta-op"><input type="radio" name="c3b-4" value="2">es cierto del material, pero no dice cu&aacute;nto se recicla de verdad</label>
           <label class="ta-op"><input type="radio" name="c3b-4" value="3">solo vale si la lata se lava antes de tirarla</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> <b>Reciclable</b> es una propiedad del <b>material</b> y es verdad: el aluminio no se degrada al fundirlo. <b>Reciclado</b> es un resultado del <b>sistema</b>, que es una cadena de cuatro etapas cuyos rendimientos <b>se multiplican</b>. Con 0,70, 0,95, 0,92 y 0,95 vuelven 581 g de cada kilo.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>6. Una cadena de reciclado tiene cuatro etapas al 80 %. &iquest;Qu&eacute; rendimiento tiene la cadena?</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c3b-p6">
+          <p id="test-c3b-p6">6. Una cadena de reciclado tiene cuatro etapas al 80 %. &iquest;Qu&eacute; rendimiento tiene la cadena?</p>
           <label class="ta-op"><input type="radio" name="c3b-5" value="0">el 80 %: todas las etapas son iguales</label>
           <label class="ta-op"><input type="radio" name="c3b-5" value="1">el 320 %, que es la suma</label>
-          <label class="ta-op"><input type="radio" name="c3b-5" value="2">el 41 %, porque los rendimientos se multiplican</label>
-          <label class="ta-op"><input type="radio" name="c3b-5" value="3">depende del material, no se puede saber</label>
+          <label class="ta-op"><input type="radio" name="c3b-5" value="2">depende del material, no se puede saber</label>
+          <label class="ta-op"><input type="radio" name="c3b-5" value="3">el 41 %, porque los rendimientos se multiplican</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 0,80 &times; 0,80 &times; 0,80 &times; 0,80 = <b>0,41</b>. Los rendimientos <b>se multiplican</b>, no se promedian. Y de ah&iacute; sale una consecuencia pr&aacute;ctica: como es un producto, arreglar la etapa m&aacute;s floja es lo que m&aacute;s sube el total.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Una botella de PET que acaba convertida en forro polar es un ejemplo de&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c3b-p7">
+          <p id="test-c3b-p7">7. Una botella de PET que acaba convertida en forro polar es un ejemplo de&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3b-6" value="0">ciclo cerrado, porque el material se aprovecha</label>
           <label class="ta-op"><input type="radio" name="c3b-6" value="1">ciclo abierto: sirve para otra cosa de menos exigencia y de ah&iacute; ya no vuelve</label>
           <label class="ta-op"><input type="radio" name="c3b-6" value="2">prevenci&oacute;n, que es el primer escal&oacute;n de la jerarqu&iacute;a</label>
           <label class="ta-op"><input type="radio" name="c3b-6" value="3">reutilizaci&oacute;n, porque el objeto sigue existiendo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Ciclo abierto, o reciclado a la baja. Ahorra energ&iacute;a y evita un vertedero, pero <b>se puede hacer una vez</b>: del forro polar no sale otra botella. El cerrado &mdash;botella verde a botella verde, lata a lata&mdash; se puede repetir, y exige recoger <b>separado</b>.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>8. La misma tapa de aluminio, con los mismos 186 MJ/kg, hecha en Islandia o con carb&oacute;n. Su CO&#8322;&hellip;</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c3b-p8">
+          <p id="test-c3b-p8">8. La misma tapa de aluminio, con los mismos 186 MJ/kg, hecha en Islandia o con carb&oacute;n. Su CO&#8322;&hellip;</p>
           <label class="ta-op"><input type="radio" name="c3b-7" value="0">es el mismo: los megajulios son los mismos</label>
           <label class="ta-op"><input type="radio" name="c3b-7" value="1">cambia poco, alrededor de un 10 %</label>
-          <label class="ta-op"><input type="radio" name="c3b-7" value="2">va de unos 4,3 a unos 18,1 kg por kilo, m&aacute;s de cuatro veces</label>
-          <label class="ta-op"><input type="radio" name="c3b-7" value="3">no se puede saber sin conocer el espesor</label>
+          <label class="ta-op"><input type="radio" name="c3b-7" value="2">no se puede saber sin conocer el espesor</label>
+          <label class="ta-op"><input type="radio" name="c3b-7" value="3">va de unos 4,3 a unos 18,1 kg por kilo, m&aacute;s de cuatro veces</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La cuba gasta 14,1 kWh por kilo. Con 0,020 kg de CO&#8322; por kWh salen 0,28; con 1,000, salen 14,10. M&aacute;s los 4,00 que no vienen de la electricidad. <b>Un megajulio no tiene un CO&#8322;</b>: depende de con qu&eacute; se hizo esa energ&iacute;a.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. El hormig&oacute;n tiene solo 1,1 MJ/kg y aun as&iacute; el cemento es un emisor enorme. &iquest;Por qu&eacute;?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c3b-p9">
+          <p id="test-c3b-p9">9. El hormig&oacute;n tiene solo 1,1 MJ/kg y aun as&iacute; el cemento es un emisor enorme. &iquest;Por qu&eacute;?</p>
           <label class="ta-op"><input type="radio" name="c3b-8" value="0">porque se fabrica much&iacute;simo, y por nada m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="c3b-8" value="1">porque alrededor de la mitad de su CO&#8322; sale de la reacci&oacute;n de la caliza, no de quemar combustible</label>
-          <label class="ta-op"><input type="radio" name="c3b-8" value="2">porque la tabla de la sesi&oacute;n 2 est&aacute; mal</label>
+          <label class="ta-op"><input type="radio" name="c3b-8" value="1">porque la tabla de la sesi&oacute;n 2 est&aacute; mal</label>
+          <label class="ta-op"><input type="radio" name="c3b-8" value="2">porque alrededor de la mitad de su CO&#8322; sale de la reacci&oacute;n de la caliza, no de quemar combustible</label>
           <label class="ta-op"><input type="radio" name="c3b-8" value="3">porque el transporte del hormig&oacute;n es muy caro en energ&iacute;a</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> CaCO&#8323; &rarr; CaO + CO&#8322;: de 100 g de caliza salen 56 de cal y <b>44 de CO&#8322;</b>, sin quemar nada. Con un cl&iacute;nker al 65 % de cal son 0,51 kg de CO&#8322; por kilo. Por eso el cemento <b>no se arregla con electricidad limpia</b>. (Que se fabrique much&iacute;simo tambi&eacute;n es verdad, pero no explica el 1,1 MJ/kg.)</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>10. Un aparato A cuesta 100 MJ, dura 2 a&ntilde;os y se recicla (el siguiente cuesta un 25 % menos). Un aparato B cuesta 100 MJ, dura 10 y no se recicla. Para diez a&ntilde;os de servicio&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c3b-9" value="0">gana A: reciclar siempre ahorra</label>
-          <label class="ta-op"><input type="radio" name="c3b-9" value="1">empatan: los dos cuestan 100 MJ de fabricar</label>
-          <label class="ta-op"><input type="radio" name="c3b-9" value="2">gana B con 100 MJ frente a los 400 de A</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c3b-p10">
+          <p id="test-c3b-p10">10. Un aparato A cuesta 100 MJ, dura 2 a&ntilde;os y se recicla (el siguiente cuesta un 25 % menos). Un aparato B cuesta 100 MJ, dura 10 y no se recicla. Para diez a&ntilde;os de servicio&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c3b-9" value="0">gana B con 100 MJ frente a los 400 de A</label>
+          <label class="ta-op"><input type="radio" name="c3b-9" value="1">gana A: reciclar siempre ahorra</label>
+          <label class="ta-op"><input type="radio" name="c3b-9" value="2">empatan: los dos cuestan 100 MJ de fabricar</label>
           <label class="ta-op"><input type="radio" name="c3b-9" value="3">gana A, pero por poco</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> A hay que fabricarlo <b>cinco veces</b>: 100 + 4 &times; 75 = <b>400 MJ</b>. B, una: <b>100</b>. Reciclar ahorra de verdad, pero <b>llega tarde</b>; durar act&uacute;a antes de que el gasto se haga. Por eso reciclar es el <b>tercer</b> escal&oacute;n de la jerarqu&iacute;a del art&iacute;culo 4, no el primero.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>11. &iquest;Qu&eacute; es el efecto rebote?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c3b-p11">
+          <p id="test-c3b-p11">11. &iquest;Qu&eacute; es el efecto rebote?</p>
           <label class="ta-op"><input type="radio" name="c3b-10" value="0">que el material reciclado vuelve al mismo producto</label>
           <label class="ta-op"><input type="radio" name="c3b-10" value="1">que una mejora ahorra por unidad, el uso se abarata y se usa m&aacute;s</label>
           <label class="ta-op"><input type="radio" name="c3b-10" value="2">que los rendimientos de la cadena se multiplican</label>
           <label class="ta-op"><input type="radio" name="c3b-10" value="3">que un requisito elimina en vez de puntuar</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El LED gasta unas ocho veces menos que la bombilla&hellip; y hemos llenado las casas de tiras de LED donde antes no hab&iacute;a luz. No es que nadie lo haga mal: es que ahorrar por unidad no es ahorrar en total. Hay que escribirlo en la memoria, porque obliga a medir <b>despu&eacute;s</b>.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>12. Hac&eacute;is el an&aacute;lisis de sensibilidad del riego y sale que la mochila de la electr&oacute;nica mueve 36 MJ/a&ntilde;o y el material de la tapa, 2,1. &iquest;Qu&eacute; se escribe en la memoria?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c3b-p12">
+          <p id="test-c3b-p12">12. Hac&eacute;is el an&aacute;lisis de sensibilidad del riego y sale que la mochila de la electr&oacute;nica mueve 36 MJ/a&ntilde;o y el material de la tapa, 2,1. &iquest;Qu&eacute; se escribe en la memoria?</p>
           <label class="ta-op"><input type="radio" name="c3b-11" value="0">que la elecci&oacute;n de material fue una p&eacute;rdida de tiempo</label>
-          <label class="ta-op"><input type="radio" name="c3b-11" value="1">nada: el dato de la electr&oacute;nica no es fiable y mejor no citarlo</label>
-          <label class="ta-op"><input type="radio" name="c3b-11" value="2">que el dato que falta por medir es la electr&oacute;nica, y que la conclusi&oacute;n sobre el material se sostiene porque mueve poco</label>
+          <label class="ta-op"><input type="radio" name="c3b-11" value="1">que el dato que falta por medir es la electr&oacute;nica, y que la conclusi&oacute;n sobre el material se sostiene porque mueve poco</label>
+          <label class="ta-op"><input type="radio" name="c3b-11" value="2">nada: el dato de la electr&oacute;nica no es fiable y mejor no citarlo</label>
           <label class="ta-op"><input type="radio" name="c3b-11" value="3">la media de los dos, para no exagerar</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Justo para eso sirve la sensibilidad: dice <b>qu&eacute; trabajo falta</b>. Falta medir la electr&oacute;nica, no discutir otra vez el material. Y callarse el dato malo es lo contrario de lo que hay que hacer: un hueco declarado es informaci&oacute;n, un hueco rellenado con un n&uacute;mero inventado es ruido.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -5123,7 +5193,7 @@ footer .wrap{padding-block:18px 26px}
         algo</b>: mover un tope, abrir una v&aacute;lvula, encender una bomba cuando la tierra
         est&eacute; seca. Eso es el <b>tema 4</b>, mecanismos y sistemas de control, y ah&iacute; el
         proyecto deja de ser un objeto y empieza a ser una m&aacute;quina.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema4/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 4 &middot; Mecanismos y sistemas de control &rarr;</a></p></div>
 
     </section>
 
@@ -5178,7 +5248,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -5198,7 +5268,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -5227,8 +5297,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -5241,7 +5320,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -5260,5 +5342,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

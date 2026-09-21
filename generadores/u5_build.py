@@ -486,9 +486,12 @@ ESC_POLEAS = u'''
           /* el bloque movil y la carga */
           if(d.abajo.length){
             var x0 = d.abajo[0] - 26, x1 = d.abajo[d.abajo.length-1] + 26;
-            /* Si el cabo muerto se ata al bloque, el bloque tiene que llegar hasta
-               ese punto: si no, la cuerda se queda colgando en el aire.          */
-            if(d.ata === 'bloque') x0 = Math.min(x0, d.atax - 9);
+            /* Si la cuerda se ata AQUI, la barra tiene que llegar hasta el nudo.
+               En el montaje de tres, el nudo cae en 315 porque ese es el borde
+               por donde la cuerda sube a la polea fija de 330, y la barra
+               empezaba en 334: la cuerda se quedaba colgando en el aire
+               diecinueve pixeles a la izquierda del bloque. */
+            if(d.ata === 'bloque') x0 = Math.min(x0, d.atax - 8);
             m += '<rect x="' + x0 + '" y="' + (yb+Rr) + '" width="' + (x1-x0) + '" height="10" rx="2" '
                + 'fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="2"></rect>';
             m += '<path d="M' + d.carga + ' ' + (yb+Rr+10) + ' V' + (yb+Rr+26) + '" '
@@ -498,7 +501,9 @@ ESC_POLEAS = u'''
                + 'stroke-width="2.6"></path>';
           }
           var yc = yb + Rr + 26;
-          m += '<rect x="' + (d.carga-30) + '" y="' + yc + '" width="60" height="52" rx="3" '
+          /* 64 de ancho y no 84: con 84 la caja llegaba hasta el tramo libre de la
+             cuerda, que sale por la tangente de la ultima polea y no se puede mover. */
+          m += '<rect x="' + (d.carga-32) + '" y="' + yc + '" width="64" height="52" rx="3" '
              + 'fill="#a5783f" stroke="#7a5528" stroke-width="2"></rect>';
           m += '<text x="' + d.carga + '" y="' + (yc+31) + '" text-anchor="middle" class="rotulo-svg" '
              + 'style="fill:#fff;font-size:12.5px">80 kg</text>';

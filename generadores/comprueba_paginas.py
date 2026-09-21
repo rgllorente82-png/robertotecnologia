@@ -15,8 +15,14 @@ Asi que despues de generar, se pasa esto:
 
     python comprueba_paginas.py
 
+Mira ademas las entidades HTML que se han quedado sin su & por una
+sustitucion mal hecha, que se publican como texto, y que los apartados de
+«Como se evalua» de cada ficha sumen 10
+puntos, que es de lo primero que comprueba quien va a calificar con ellos.
+
 Devuelve 1 si encuentra algo, para poder encadenarlo con la generacion.
 """
+import html
 import io
 import os
 import re
@@ -40,22 +46,69 @@ ROTULOS = [
 
 
 def paginas():
-    for base in CARPETAS:
-        if not os.path.isdir(base):
-            continue
-        for nombre in sorted(os.listdir(base)):
-            ruta = os.path.join(base, nombre, 'index.html')
-            if os.path.exists(ruta):
-                yield ruta
-        suelta = os.path.join(base, 'index.html')
-        if os.path.exists(suelta):
-            yield suelta
+    """Todas las paginas del sitio, no una lista escrita a mano.
+
+    Antes miraba dos carpetas y se dejaba fuera cuatro paginas: la portada, las
+    dos entradas de curso y el 404. Justo la portada es donde un rotulo roto
+    aguanto publicado sin que nadie lo viera, asi que la lista a mano era
+    precisamente el problema.
+    """
+    for base, carpetas, ficheros in os.walk(RAIZ):
+        carpetas[:] = [c for c in carpetas if c not in ('.git', 'generadores')]
+        for nombre in sorted(ficheros):
+            if nombre.endswith('.html'):
+                yield os.path.join(base, nombre)
+
+
+# Una entidad a medias —«niacute;n» en vez de «n&iacute;n»— no es un byte roto ni
+# UTF-8 invalido, asi que pasaba por delante de todo lo de aqui y se publicaba
+# tal cual: en el tema 1 de 2.o se leia «cajetcajetiniacute;n» dentro de una
+# frase. Salen de una sustitucion mal hecha, y una de ellas la hice yo con sed,
+# donde el & del reemplazo significa «todo lo encontrado».
+ENTIDADES = ('aacute', 'eacute', 'iacute', 'oacute', 'uacute', 'ntilde', 'uuml',
+             'ccedil', 'iquest', 'iexcl', 'laquo', 'raquo', 'middot', 'mdash',
+             'ndash', 'hellip', 'deg', 'nbsp', 'times', 'sup2', 'sup3')
+SUELTA = re.compile(r'(?<!&)(' + '|'.join(ENTIDADES) + r');')
+
+
+def entidades_rotas(texto):
+    u"""Trozos de entidad que se han quedado sin su &, fuera del JavaScript."""
+    limpio = re.sub(r'(?s)<script\b.*?</script>', ' ', texto)
+    return [limpio[max(0, m.start() - 35):m.end() + 12]
+            for m in SUELTA.finditer(limpio)]
+
+
+def rubricas(texto):
+    u"""Lo que suma cada apartado de «Como se evalua», que tiene que dar 10.
+
+    Cuidado con la forma de escribirlo: los apartados no siempre ponen
+    «(3 puntos)» a secas, tambien «(4 puntos, uno por caso)». Una primera
+    version solo cogia la forma corta y daba por rota una rubrica que estaba
+    perfecta, que es la mejor manera de que se deje de leer el aviso.
+    """
+    fuera = []
+    for bloque in re.findall(
+            r'(?s)<h4>C&oacute;mo se eval&uacute;a</h4>(.*?)(?=<h4|</div>)', texto):
+        plano = html.unescape(re.sub(r'<[^>]+>', ' ', bloque))
+        puntos = [float(x.replace(u',', u'.'))
+                  for x in re.findall(r'\(([\d,]+)\s*puntos?[^)]*\)', plano)]
+        if puntos and abs(sum(puntos) - 10) > 0.01:
+            fuera.append((sum(puntos), puntos))
+    return fuera
 
 
 def revisa(ruta):
     """Lista de pegas de una pagina. Vacia si esta bien."""
     b = io.open(ruta, 'rb').read()
     pegas = []
+
+    for trozo in entidades_rotas(b.decode('utf-8', 'replace')):
+        pegas.append(u'una entidad HTML se ha quedado sin su &: %s'
+                     % ascii(re.sub(r'\s+', ' ', trozo)))
+
+    for suma, puntos in rubricas(b.decode('utf-8', 'replace')):
+        pegas.append(u'una rubrica de «Como se evalua» suma %g y no 10: %s'
+                     % (suma, u' + '.join(u'%g' % x for x in puntos)))
 
     if b'\x00' in b:
         i = b.index(b'\x00')
@@ -111,7 +164,8 @@ def main():
     if malas:
         print(u'\n%d paginas de %d con algo que mirar' % (malas, total))
         return 1
-    print(u'%d paginas miradas, ninguna con NUL ni caracteres rotos' % total)
+    print(u'%d paginas miradas, ninguna con NUL ni caracteres rotos,'
+          u' y las rubricas de «Como se evalua» suman 10' % total)
     return 0
 
 

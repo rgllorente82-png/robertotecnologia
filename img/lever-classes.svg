@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750" role="img"
+     aria-label="Las tres clases de palancas según dónde esté el fulcro">
+<style>
+  .f{font-family:Inter,'Helvetica Neue',Arial,sans-serif}
+  .tit{font-size:24px;font-weight:700;fill:#1f2933}
+  .sub{font-size:15px;fill:#66707a}
+  .cls{font-size:17px;font-weight:700;fill:#1f2933}
+  .ord{font-size:13px;fill:#66707a;letter-spacing:.04em}
+  .val{font-size:14px;font-weight:700}
+  .car{fill:#c0392b}
+  .esf{fill:#1e8449}
+  .dim{font-size:12.5px;fill:#8a949e}
+  .ej{font-size:13.5px;fill:#1f2933}
+  .pro{font-size:12.5px;fill:#1e8449}
+  .con{font-size:12.5px;fill:#c0392b}
+  .barra{fill:#2f7bd6}
+  .ful{fill:#e8a33d}
+  .reg{font-size:14px;fill:#1f2933}
+  .regb{font-size:14px;font-weight:700;fill:#1f2933}
+  .cab{font-size:13px;font-weight:700;fill:#48525c}
+  .cel{font-size:13px;fill:#1f2933}
+</style>
+<rect width="1000" height="750" fill="#f7f9fb"/>
+<text class="f tit" x="500" y="42" text-anchor="middle">Las tres clases de palancas</text>
+<text class="f sub" x="500" y="66" text-anchor="middle">Lo que cambia es dónde está el fulcro. Y con él, qué ganas y qué pierdes.</text>
+
+<!-- ================= 1.ª CLASE ================= -->
+<g transform="translate(20,100)">
+  <text class="f cls" x="150" y="0" text-anchor="middle">1.ª clase · fulcro en medio</text>
+  <text class="f ord" x="150" y="22" text-anchor="middle">carga — FULCRO — esfuerzo</text>
+  <!-- barra y fulcro -->
+  <rect class="barra" x="30" y="74" width="240" height="11" rx="3"/>
+  <polygon class="ful" points="150,86 136,108 164,108"/>
+  <!-- carga (izquierda, brazo corto) -->
+  <circle class="car" cx="90" cy="60" r="15" opacity=".92"/>
+  <text class="f val car" x="90" y="42" text-anchor="middle">1000 N</text>
+  <text class="f dim" x="90" y="128" text-anchor="middle">carga</text>
+  <!-- esfuerzo (derecha, brazo largo) -->
+  <circle class="esf" cx="270" cy="60" r="15" opacity=".92"/>
+  <text class="f val esf" x="270" y="42" text-anchor="middle">500 N</text>
+  <text class="f dim" x="270" y="128" text-anchor="middle">esfuerzo</text>
+  <!-- cotas, POR DEBAJO de las etiquetas -->
+  <line x1="90" y1="146" x2="150" y2="146" stroke="#b6c0ca" stroke-width="1"/>
+  <line x1="150" y1="146" x2="270" y2="146" stroke="#b6c0ca" stroke-width="1"/>
+  <text class="f dim" x="120" y="163" text-anchor="middle">30 cm</text>
+  <text class="f dim" x="210" y="163" text-anchor="middle">60 cm</text>
+  <text class="f ej" x="150" y="196" text-anchor="middle">Sacar un clavo con el martillo</text>
+  <text class="f pro" x="150" y="217" text-anchor="middle">Multiplica la fuerza: 500 N mueven 1000 N</text>
+  <text class="f con" x="150" y="236" text-anchor="middle">A cambio, el recorrido es más corto</text>
+</g>
+
+<!-- ================= 2.ª CLASE ================= -->
+<g transform="translate(355,100)">
+  <text class="f cls" x="150" y="0" text-anchor="middle">2.ª clase · carga en medio</text>
+  <text class="f ord" x="150" y="22" text-anchor="middle">FULCRO — carga — esfuerzo</text>
+  <rect class="barra" x="30" y="74" width="240" height="11" rx="3"/>
+  <polygon class="ful" points="42,86 28,108 56,108"/>
+  <circle class="car" cx="90" cy="60" r="15" opacity=".92"/>
+  <text class="f val car" x="90" y="42" text-anchor="middle">1000 N</text>
+  <text class="f dim" x="90" y="128" text-anchor="middle">carga</text>
+  <circle class="esf" cx="262" cy="60" r="15" opacity=".92"/>
+  <text class="f val esf" x="262" y="42" text-anchor="middle">250 N</text>
+  <text class="f dim" x="262" y="128" text-anchor="middle">esfuerzo</text>
+  <line x1="42" y1="146" x2="90" y2="146" stroke="#b6c0ca" stroke-width="1"/>
+  <line x1="42" y1="160" x2="262" y2="160" stroke="#b6c0ca" stroke-width="1"/>
+  <text class="f dim" x="66" y="143" text-anchor="middle">20 cm</text>
+  <text class="f dim" x="152" y="177" text-anchor="middle">80 cm</text>
+  <text class="f ej" x="150" y="196" text-anchor="middle">La carretilla, el cascanueces</text>
+  <text class="f pro" x="150" y="217" text-anchor="middle">La que más multiplica: 250 N mueven 1000 N</text>
+  <text class="f con" x="150" y="236" text-anchor="middle">La carga se mueve muy poco</text>
+</g>
+
+<!-- ================= 3.ª CLASE ================= -->
+<g transform="translate(690,100)">
+  <text class="f cls" x="150" y="0" text-anchor="middle">3.ª clase · esfuerzo en medio</text>
+  <text class="f ord" x="150" y="22" text-anchor="middle">FULCRO — esfuerzo — carga</text>
+  <rect class="barra" x="30" y="74" width="240" height="11" rx="3"/>
+  <polygon class="ful" points="42,86 28,108 56,108"/>
+  <circle class="esf" cx="129" cy="60" r="15" opacity=".92"/>
+  <text class="f val esf" x="129" y="42" text-anchor="middle">500 N</text>
+  <text class="f dim" x="129" y="128" text-anchor="middle">esfuerzo</text>
+  <circle class="car" cx="217" cy="60" r="15" opacity=".92"/>
+  <text class="f val car" x="217" y="42" text-anchor="middle">250 N</text>
+  <text class="f dim" x="217" y="128" text-anchor="middle">carga</text>
+  <line x1="42" y1="146" x2="129" y2="146" stroke="#b6c0ca" stroke-width="1"/>
+  <line x1="42" y1="160" x2="262" y2="160" stroke="#b6c0ca" stroke-width="1"/>
+  <text class="f dim" x="86" y="143" text-anchor="middle">35 cm</text>
+  <text class="f dim" x="152" y="177" text-anchor="middle">70 cm</text>
+  <text class="f ej" x="150" y="196" text-anchor="middle">Las pinzas, y tu antebrazo</text>
+  <text class="f pro" x="150" y="217" text-anchor="middle">La carga recorre mucho, y deprisa</text>
+  <text class="f con" x="150" y="236" text-anchor="middle">Hay que hacer MÁS fuerza que la carga</text>
+</g>
+
+<!-- ================= TABLA ================= -->
+<g transform="translate(60,400)">
+  <rect x="0" y="0" width="880" height="150" fill="#ffffff" stroke="#dfe5ea" rx="3"/>
+  <line x1="0" y1="34" x2="880" y2="34" stroke="#dfe5ea"/>
+  <line x1="0" y1="72" x2="880" y2="72" stroke="#eef2f5"/>
+  <line x1="0" y1="110" x2="880" y2="110" stroke="#eef2f5"/>
+  <text class="f cab" x="20" y="23">Clase</text>
+  <text class="f cab" x="110" y="23">Orden en la barra</text>
+  <text class="f cab" x="350" y="23">Ejemplo</text>
+  <text class="f cab" x="560" y="23">Ventaja mecánica</text>
+  <text class="f cab" x="740" y="23">Qué ganas</text>
+
+  <text class="f cel car" x="20" y="58">1.ª</text>
+  <text class="f cel" x="110" y="58">carga — fulcro — esfuerzo</text>
+  <text class="f cel" x="350" y="58">Martillo sacando un clavo</text>
+  <text class="f cel" x="560" y="58">60 / 30 = 2</text>
+  <text class="f cel" x="740" y="58">Fuerza</text>
+
+  <text class="f cel car" x="20" y="96">2.ª</text>
+  <text class="f cel" x="110" y="96">fulcro — carga — esfuerzo</text>
+  <text class="f cel" x="350" y="96">Carretilla, cascanueces</text>
+  <text class="f cel" x="560" y="96">80 / 20 = 4</text>
+  <text class="f cel" x="740" y="96">Mucha fuerza</text>
+
+  <text class="f cel car" x="20" y="134">3.ª</text>
+  <text class="f cel" x="110" y="134">fulcro — esfuerzo — carga</text>
+  <text class="f cel" x="350" y="134">Pinzas, antebrazo</text>
+  <text class="f cel" x="560" y="134">35 / 70 = 0,5</text>
+  <text class="f cel" x="740" y="134">Velocidad y alcance</text>
+</g>
+
+<!-- ================= LA REGLA ================= -->
+<g transform="translate(60,580)">
+  <rect x="0" y="0" width="880" height="130" fill="#f0f8f3" stroke="#bfe0cd" rx="3"/>
+  <text class="f regb" x="24" y="30">La regla, y no hay más:</text>
+  <text class="f reg" x="24" y="56">Ventaja mecánica = brazo del ESFUERZO ÷ brazo de la CARGA.</text>
+  <text class="f reg" x="24" y="80">Si el brazo del esfuerzo es mayor, ganas fuerza y pierdes recorrido. Si es menor, al revés.</text>
+  <text class="f reg" x="24" y="104">Una palanca nunca regala nada: cambia fuerza por distancia. El trabajo que sale es el que entra.</text>
+</g>
+</svg>

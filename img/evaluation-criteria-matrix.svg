@@ -1,0 +1,121 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      :root { --color-bg: #f8f9fa; --color-text: #2c3e50; --color-accent: #3498db; }
+      @media (prefers-color-scheme: dark) {
+        :root { --color-bg: #1a1a1a; --color-text: #ecf0f1; --color-accent: #5dade2; }
+      }
+      .bg { fill: var(--color-bg); }
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: var(--color-text); text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 13px; fill: var(--color-text); text-anchor: middle; opacity: 0.8; }
+      .header { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 11px; fill: var(--color-text); }
+      .score { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #fff; text-anchor: middle; }
+      .line { stroke: var(--color-text); stroke-width: 1.5; fill: none; opacity: 0.3; }
+      .cell-rect { stroke: var(--color-text); stroke-width: 1.5; opacity: 0.2; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="700" class="bg"/>
+  <text x="500" y="35" class="title">Matriz de Evaluación: Criterios y Puntuación</text>
+  <text x="500" y="55" class="subtitle">Cómo medir si una solución realmente funciona</text>
+
+  <!-- LEFT SIDE: RUBRIC EXAMPLE -->
+  <g id="rubric">
+    <text x="50" y="90" class="label" font-weight="bold" fill="var(--color-accent)">Proyecto: Sistema de riego automático</text>
+    
+    <!-- Criterion 1: Funciona -->
+    <g>
+      <rect x="30" y="110" width="380" height="120" fill="none" class="cell-rect"/>
+      <text x="40" y="130" class="label" font-weight="bold">Criterio 1: ¿Funciona?</text>
+      <text x="40" y="148" class="label">No funciona: 0 ptos</text>
+      <text x="40" y="163" class="label">Funciona a medias: 2 ptos</text>
+      <text x="40" y="178" class="label">Funciona siempre: 4 ptos</text>
+      <text x="200" y="195" class="score" fill="#e74c3c" font-size="14">Tu nota: 3 ptos</text>
+    </g>
+
+    <!-- Criterion 2: Economía -->
+    <g>
+      <rect x="30" y="235" width="380" height="120" fill="none" class="cell-rect"/>
+      <text x="40" y="255" class="label" font-weight="bold">Criterio 2: Económico y sostenible</text>
+      <text x="40" y="273" class="label">Caro o derrochador: 0 ptos</text>
+      <text x="40" y="288" class="label">Coste moderado: 2 ptos</text>
+      <text x="40" y="303" class="label">Rentable y ahorrativo: 4 ptos</text>
+      <text x="200" y="320" class="score" fill="#f39c12" font-size="14">Tu nota: 2 ptos</text>
+    </g>
+
+    <!-- Criterion 3: Mantenimiento -->
+    <g>
+      <rect x="30" y="360" width="380" height="120" fill="none" class="cell-rect"/>
+      <text x="40" y="380" class="label" font-weight="bold">Criterio 3: Fácil de mantener</text>
+      <text x="40" y="398" class="label">Imposible de arreglar: 0 ptos</text>
+      <text x="40" y="413" class="label">Mantenimiento complejo: 2 ptos</text>
+      <text x="40" y="428" class="label">Un niño puede repararlo: 4 ptos</text>
+      <text x="200" y="445" class="score" fill="#27ae60" font-size="14">Tu nota: 4 ptos</text>
+    </g>
+
+    <!-- TOTAL -->
+    <g>
+      <rect x="30" y="485" width="380" height="80" fill="#ecf0f1" stroke="var(--color-text)" stroke-width="2"/>
+      <text x="220" y="510" class="label" font-weight="bold" font-size="14">PUNTUACIÓN TOTAL</text>
+      <text x="220" y="540" class="score" font-size="18" fill="#2c3e50">3 + 2 + 4 = 9 puntos de 12</text>
+      <text x="220" y="560" class="label" font-size="12">Calificación: 75% (BIEN)</text>
+    </g>
+  </g>
+
+  <!-- RIGHT SIDE: WHY THIS MATTERS -->
+  <g id="why">
+    <text x="550" y="90" class="label" font-weight="bold" fill="var(--color-accent)">¿Por qué una rúbrica?</text>
+    
+    <!-- Point 1 -->
+    <g>
+      <circle cx="560" cy="125" r="8" fill="#3498db"/>
+      <text x="580" y="130" class="label">Sin criterios, cada profesor puntúa diferente</text>
+    </g>
+
+    <!-- Point 2 -->
+    <g>
+      <circle cx="560" cy="160" r="8" fill="#3498db"/>
+      <text x="580" y="165" class="label">Sabes EXACTAMENTE qué te van a valorar</text>
+    </g>
+
+    <!-- Point 3 -->
+    <g>
+      <circle cx="560" cy="195" r="8" fill="#3498db"/>
+      <text x="580" y="200" class="label">Puedes mejorar enfocando en lo que importa</text>
+    </g>
+
+    <!-- Point 4 -->
+    <g>
+      <circle cx="560" cy="230" r="8" fill="#3498db"/>
+      <text x="580" y="235" class="label">Los números son justos: 3 ptos son 3 ptos siempre</text>
+    </g>
+
+    <!-- COMPARISON -->
+    <g>
+      <rect x="520" y="270" width="440" height="210" fill="#fff3cd" stroke="#f39c12" stroke-width="2" rx="5"/>
+      
+      <text x="540" y="295" class="label" font-weight="bold" font-size="13">El mismo proyecto en DIFERENTES evaluaciones:</text>
+      
+      <g>
+        <text x="540" y="320" class="label" font-weight="bold" fill="#e74c3c">Sin rúbrica:</text>
+        <text x="540" y="337" class="label" font-size="12">"Profesor A: Notable (8/10)"</text>
+        <text x="540" y="352" class="label" font-size="12">"Profesor B: Bien (6/10)"</text>
+        <text x="540" y="367" class="label" font-size="12">"Profesor C: Sobresaliente (9/10)"</text>
+        <text x="540" y="382" class="label" font-size="12" fill="#999">⚠ ¿Qué pasó? ¿Cambió el proyecto?"</text>
+      </g>
+
+      <g>
+        <text x="540" y="410" class="label" font-weight="bold" fill="#27ae60">Con rúbrica:</text>
+        <text x="540" y="427" class="label" font-size="12">"Profesor A: 9/12 (igual criterio)"</text>
+        <text x="540" y="442" class="label" font-size="12">"Profesor B: 9/12 (igual criterio)"</text>
+        <text x="540" y="457" class="label" font-size="12">"Profesor C: 9/12 (igual criterio)"</text>
+        <text x="540" y="472" class="label" font-size="12" fill="#27ae60">✓ Justo, predecible, transparente"</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- BOTTOM: KEY INSIGHT -->
+  <rect x="30" y="630" width="940" height="50" fill="#e8f8f5" stroke="#16a085" stroke-width="2" rx="5"/>
+  <text x="500" y="655" class="label" font-weight="bold" text-anchor="middle" fill="#16a085" font-size="13">La rúbrica no es castigo: es transparencia. Sabes antes de empezar exactamente qué va a pasar.</text>
+</svg>

@@ -343,6 +343,18 @@ with sync_playwright() as p:
     for ses in (1, 2, 3, 4, 5, 6):
         pag.click('#nav button[data-ses="%d"]' % ses)
         pag.wait_for_timeout(200)
+    # Hay que ESPERAR a que carguen. Las fotos van con loading=lazy y las
+    # sesiones ocultas no las piden hasta verse, asi que medir el ancho nada
+    # mas cambiar de sesion daba 0x0 y un fallo inventado: la foto estaba
+    # perfecta y el que llegaba antes era el verificador.
+    pag.evaluate('() => Promise.all([...document.images].map(i => {'
+                 "  i.loading = 'eager';"
+                 '  return i.complete ? null : new Promise(r => {'
+                 "    i.addEventListener('load', r, {once:true});"
+                 "    i.addEventListener('error', r, {once:true});"
+                 '  });'
+                 '}))')
+    pag.wait_for_timeout(400)
     imgs = pag.eval_on_selector_all(
         'img', 'l => l.map(i => [i.getAttribute("src"), i.naturalWidth, i.naturalHeight])')
     for src, w, h in imgs:

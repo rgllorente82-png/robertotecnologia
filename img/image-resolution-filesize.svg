@@ -1,0 +1,121 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Una imagen pesa lo que pesa</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Resolución, píxeles y tamaño de archivo</text>
+
+  <!-- THREE EXAMPLES SIDE BY SIDE -->
+  <!-- LOW RESOLUTION -->
+  <g>
+    <rect x="30" y="90" width="280" height="280" fill="#fff5e6" stroke="#f39c12" stroke-width="2" rx="4"/>
+    
+    <text x="170" y="120" class="title" font-size="12">BAJA RESOLUCIÓN</text>
+
+    <!-- Pixels grid -->
+    <g transform="translate(170, 160)">
+      <!-- 10x10 grid -->
+      <rect x="-50" y="-50" width="100" height="100" fill="none" stroke="#f39c12" stroke-width="1"/>
+      <rect x="-50" y="-50" width="10" height="10" fill="#e74c3c"/>
+      <rect x="-40" y="-50" width="10" height="10" fill="#e74c3c"/>
+      <rect x="-30" y="-40" width="10" height="10" fill="#3498db"/>
+      <rect x="-20" y="-30" width="10" height="10" fill="#3498db"/>
+      <text x="0" y="70" class="label" font-size="10" text-anchor="middle" font-weight="bold">100 × 100 px</text>
+    </g>
+
+    <!-- Specs -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="middle">
+      <text x="170" y="270">Píxeles: 10.000</text>
+      <text x="170" y="290">Bytes: ~10 KB</text>
+      <text x="170" y="310">Uso: icono, favicon</text>
+      <text x="170" y="328">o thumbnail</text>
+    </g>
+  </g>
+
+  <!-- MEDIUM RESOLUTION -->
+  <g>
+    <rect x="360" y="90" width="280" height="280" fill="#f0fef0" stroke="#27ae60" stroke-width="2" rx="4"/>
+    
+    <text x="500" y="120" class="title" font-size="12">RESOLUCIÓN MEDIA</text>
+
+    <!-- Pixels grid -->
+    <g transform="translate(500, 160)">
+      <!-- 20x20 grid -->
+      <rect x="-60" y="-60" width="120" height="120" fill="none" stroke="#27ae60" stroke-width="1"/>
+      <g fill="#27ae60" opacity="0.3">
+        <rect x="-60" y="-60" width="30" height="30" fill="#e74c3c" opacity="1"/>
+        <rect x="-30" y="-30" width="30" height="30" fill="#3498db" opacity="1"/>
+        <rect x="0" y="0" width="30" height="30" fill="#27ae60" opacity="1"/>
+        <rect x="30" y="30" width="30" height="30" fill="#f39c12" opacity="1"/>
+      </g>
+      <text x="0" y="90" class="label" font-size="10" text-anchor="middle" font-weight="bold">800 × 600 px</text>
+    </g>
+
+    <!-- Specs -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="middle">
+      <text x="500" y="270">Píxeles: 480.000</text>
+      <text x="500" y="290">Bytes: ~200 KB</text>
+      <text x="500" y="310">Uso: web, redes</text>
+      <text x="500" y="328">sociales, email</text>
+    </g>
+  </g>
+
+  <!-- HIGH RESOLUTION -->
+  <g>
+    <rect x="690" y="90" width="280" height="280" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="4"/>
+    
+    <text x="830" y="120" class="title" font-size="12">ALTA RESOLUCIÓN</text>
+
+    <!-- Pixels grid -->
+    <g transform="translate(830, 160)">
+      <!-- 30x30 grid -->
+      <rect x="-75" y="-75" width="150" height="150" fill="none" stroke="#3498db" stroke-width="0.5"/>
+      <g fill="#3498db" opacity="0.2">
+        <rect x="-75" y="-75" width="37.5" height="37.5" fill="#e74c3c" opacity="1"/>
+        <rect x="-37.5" y="-37.5" width="37.5" height="37.5" fill="#3498db" opacity="1"/>
+        <rect x="0" y="0" width="37.5" height="37.5" fill="#27ae60" opacity="1"/>
+        <rect x="37.5" y="37.5" width="37.5" height="37.5" fill="#f39c12" opacity="1"/>
+      </g>
+      <text x="0" y="110" class="label" font-size="10" text-anchor="middle" font-weight="bold">4000 × 3000 px</text>
+    </g>
+
+    <!-- Specs -->
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="middle">
+      <text x="830" y="270">Píxeles: 12.000.000</text>
+      <text x="830" y="290">Bytes: ~10 MB</text>
+      <text x="830" y="310">Uso: fotografía,</text>
+      <text x="830" y="328">imprenta, cine</text>
+    </g>
+  </g>
+
+  <!-- RELATIONSHIP TABLE -->
+  <g>
+    <rect x="30" y="410" width="940" height="280" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="440" class="title" font-size="13">Cómo se calcula el tamaño</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="470"><b>Fórmula básica:</b></text>
+      <text x="80" y="490" class="code" font-size="11">Tamaño (bytes) = Ancho × Alto × Profundidad de color</text>
+
+      <text x="60" y="525"><b>Ejemplo: foto 4000 × 3000 píxeles con 24 bits de color (RGB)</b></text>
+      <text x="80" y="545">4000 × 3000 × 3 (bytes) = 36.000.000 bytes = 36 MB</text>
+      <text x="80" y="565">(3 bytes = 1 rojo + 1 verde + 1 azul)</text>
+
+      <text x="60" y="600"><b>La compresión reduce el tamaño:</b></text>
+      <text x="80" y="620">JPG: reduce el archivo a ~10% del original (pierde detalles)</text>
+      <text x="80" y="640">PNG: reduce a ~20% (sin pérdida)</text>
+      <text x="80" y="660">WebP: reduce a ~5% (mejor que JPG sin pérdida perceptible)</text>
+    </g>
+  </g>
+
+</svg>

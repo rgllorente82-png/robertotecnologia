@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema8/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 8 &middot; Sostenibilidad y accesibilidad">
+<meta property="og:description" content="Tema 8 de Tecnolog&iacute;a de 4.&ordm; de ESO: huella de carbono con factores citados, dise&ntilde;o universal con la norma delante, obsolescencia programada frente a l&iacute;mite t&eacute;cnico, el presupuesto de energ&iacute;a de un proyecto con Arduino y, en la segunda mitad, el impacto del proyecto del curso medido de verdad: inventario del residuo, cuenta completa con punto de equilibrio, redise&ntilde;o con requisitos y defensa de las cifras.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema8/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema8.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 8 &middot; Sostenibilidad y accesibilidad &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -290,18 +309,47 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 8</div>
     <h1>Sostenibilidad y accesibilidad</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Medir antes de opinar</button><button type="button" data-ses="2">S2 &middot; Dise&ntilde;o universal</button><button type="button" data-ses="3">S3 &middot; Obsolescencia</button><button type="button" data-ses="4">S4 &middot; Energ&iacute;a en tu proyecto</button><button type="button" data-ses="5">S5 &middot; El residuo que dejas</button><button type="button" data-ses="6">S6 &middot; La cuenta completa</button><button type="button" data-ses="7">S7 &middot; Redise&ntilde;ar con lo medido</button><button type="button" data-ses="8">S8 &middot; Defender el impacto</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Medir antes de opinar</button><button type="button" data-ses="2">S2 &middot; Dise&ntilde;o universal</button><button type="button" data-ses="3">S3 &middot; Obsolescencia</button><button type="button" data-ses="4">S4 &middot; Energ&iacute;a en tu proyecto</button><button type="button" data-ses="5">S5 &middot; El residuo que dejas</button><button type="button" data-ses="6">S6 &middot; La cuenta completa</button><button type="button" data-ses="7">S7 &middot; Redise&ntilde;ar con lo medido</button><button type="button" data-ses="8">S8 &middot; Defender el impacto</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -325,7 +373,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c8">
         <div class="narrador-fig" id="narr-c8-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Tu aparato funciona. &iquest;Funciona para todo el mundo, y a qu&eacute; coste para los dem&aacute;s?</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -490,16 +538,27 @@ footer .wrap{padding-block:18px 26px}
         <p>Un ejemplo con n&uacute;meros de verdad. Apple publica la huella de cada modelo que vende.
            La del <b>iPhone 17 de 256 GB son 55 kg</b> de CO&#8322;e, y los reparte as&iacute;:
            <b>76 % fabricarlo</b>, <b>18 % la electricidad de cargarlo</b> durante los tres
-           a&ntilde;os que suponen de vida, <b>4 % traerlo</b> y <b>1 % deshacerse de &eacute;l</b>.</p>
+           a&ntilde;os que suponen de vida, <b>4 % traerlo</b> y <b>1 % deshacerse de &eacute;l</b>.
+           Si los sumas te dan 99 y no 100: van redondeados a la unidad, como los publica el
+           fabricante. Eso no es un descuido, es lo normal en estas cuentas, y conviene acostumbrarse
+           a verlo sin pensar que falta un trozo por ah&iacute;.</p>
         <p>El mismo modelo <b>con 512 GB son 61 kg</b>. Seis kilos m&aacute;s de CO&#8322; por
            tener m&aacute;s memoria, sin usarlo ni un minuto m&aacute;s.</p>
         <p>F&iacute;jate en lo que dice ese 76 %: <b>fabricarlo pesa cuatro veces m&aacute;s que
            usarlo</b>. Gu&aacute;rdalo, porque en la sesi&oacute;n 3 lo vamos a necesitar entero.</p>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/product-lifecycle-sustainability.svg" width="1000" height="700" loading="lazy"
+             alt="Ciclo de vida de un producto: materias primas 10%, fabricaci&oacute;n 15%, transporte 5%, uso 70%, fin de vida">
+        <figcaption><b>Donde est&aacute; el impacto ambiental real</b>. El ciclo de vida de cualquier producto pasa por cinco fases. La m&aacute;s importante no es la fabricaci&oacute;n, sino el <b>uso: all&iacute; ocurre el 70 % del impacto</b>. Por eso un product durable que consuma poco en uso es m&aacute;s sostenible que uno que se fabrique con eficiencia pero sea derrochador.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <h3>Medir no es obvio: hay que ir a buscarlo</h3>
       <figure class="foto">
-        <img src="../../../img/c8-mauna-loa.jpg" alt="Vista a&eacute;rea del observatorio de Mauna Loa: unos pocos edificios blancos y una torre alta en medio de un campo de lava pelado, con pistas de tierra alrededor" loading="lazy">
+        <img src="../../../img/c8-mauna-loa.jpg" width="666" height="295" alt="Vista a&eacute;rea del observatorio de Mauna Loa: unos pocos edificios blancos y una torre alta en medio de un campo de lava pelado, con pistas de tierra alrededor" loading="lazy">
         <figcaption>El <b>observatorio de Mauna Loa</b>, en Haw&aacute;i, a unos <b>3.400 metros</b> de altura y en mitad del Pac&iacute;fico. En <b>1958</b> Charles David Keeling se puso a medir aqu&iacute; el CO&#8322; del aire, y eligi&oacute; este sitio <b>justo porque no hay nada</b>: ni ciudad, ni tr&aacute;fico, ni bosque cerca que se lo estropeara. Antes de esa serie de medidas, si el CO&#8322; sub&iacute;a o no era una <b>opini&oacute;n</b>. Despu&eacute;s, dej&oacute; de serlo. Medir cuesta: hay que decidir qu&eacute; se mide, d&oacute;nde y durante cu&aacute;nto tiempo, y sostenerlo a&ntilde;os.
           <span class="credito">National Oceanic and Atmospheric Administration &middot; dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Mauna_Loa_Observatory_from_air.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -536,7 +595,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o1-tabla" id="tabla-o1"></div>
           <p class="o1-est" id="est-o1"></p>
         </div>
-        <div class="pie" id="pie-o1"></div>
+        <div class="pie" id="pie-o1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -574,7 +633,7 @@ footer .wrap{padding-block:18px 26px}
         border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
       .o1-lin .uni{font-family:var(--f-m);font-size:11.5px;color:var(--ink-soft);flex:0 0 118px}
       .o1-lin .val{font-family:var(--f-m);font-size:13px;color:var(--goo-azul);flex:0 0 100px;text-align:right}
-      .o1-lin.luz .val{color:#9a7326}
+      .o1-lin.luz .val{color:var(--amar-texto)}
       @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .o1-lin.luz .val{color:var(--goo-amarillo)}}
       .o1-est{font-family:var(--f-m);font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:14px 0 0}
       .o1-est b{color:var(--ink)}
@@ -829,8 +888,13 @@ footer .wrap{padding-block:18px 26px}
           + 'el mismo modelo de 512 GB son 61 kg. '
           + 'Las <b>luces del aula</b> son ocho tubos de 36 W: cu&eacute;ntalos en la tuya y cambia '
           + 'el n&uacute;mero. '
-          + 'Un factor de emisi&oacute;n es una <b>media</b>, no una medida: dos fuentes serias pueden '
-          + 'diferir un 20 %. Eso no cambia el orden de magnitud, que es de lo que va la sesi&oacute;n.';
+          + 'Un factor de emisi&oacute;n es una <b>media</b>, no una medida, y dos fuentes serias pueden '
+          + 'estar muy lejos la una de la otra cuando no miden lo mismo: para la red espa&ntilde;ola de '
+          + 'estos a&ntilde;os ver&aacute;s <b>146 g por kWh</b> si te dan lo que sale de generarla, y '
+          + 'cerca de <b>260</b> si te dan el mix con el que se vende, donde la parte certificada como '
+          + 'renovable ya se ha ido a otras facturas. Ninguno de los dos enga&ntilde;a; lo que enga&ntilde;a '
+          + 'es no decir cu&aacute;l usas. Aqu&iacute; se usa el primero, y aun as&iacute; el orden de '
+          + 'magnitud no se mueve, que es de lo que va la sesi&oacute;n.';
         baraja();
         pinta();
       })();
@@ -889,13 +953,22 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Un repaso corto al concepto y a c&oacute;mo se calcula, por si quieres o&iacute;rlo contado de otra manera antes de la pr&aacute;ctica. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=3mJog1DXZ3s" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
 
     </section>
+
+    <figure class="foto">
+      <img src="../../../img/embodied-energy-comparison.svg" width="1000" height="700" loading="lazy" alt="Comparaci&oacute;n de energ&iacute;a incorporada: aluminio, acero, plástico, papel, madera - producción, transporte, reciclaje">
+      <figcaption><b>Energ&iacute;a incorporada en materiales.</b> La electricidad que enciendes ahora tiene un costo claro: el kWh multiplicado por la potencia. Pero cada cosa que fabricas ya trae consigo horas de energía anterior: la que cost&oacute; extraer, refinar, transportar y transformar. El aluminio cuesta quince veces m&aacute;s que el acero en esa energ&iacute;a fantasma. Eso no quiere decir que no se use: solo que el coste est&aacute; repartido y no sale de tu factura.
+        <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+      </figcaption>
+    </figure>
+
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
       <div class="ficha">
@@ -929,7 +1002,7 @@ footer .wrap{padding-block:18px 26px}
             <li>El resultado y su <b>orden de magnitud</b> (&iquest;cent&eacute;simas de kilo?
                 &iquest;kilos? &iquest;decenas de kilos?).</li>
           </ul>
-          <p>Y una frase final: <b>&laquo;de estas tres, la que de verdad pesa es...&raquo;</b>,
+          <p>Y una frase final: <b>&laquo;de estas tres, la que de verdad pesa es&hellip;&raquo;</b>,
              justificada dividiendo, no restando.</p>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
@@ -1030,7 +1103,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Que la soluci&oacute;n haya que pensarla desde el principio, y no pegarla al final, tiene
          nombre desde 1997.</p>
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Accesibilidad</b>: que una persona concreta pueda usar una cosa concreta. Se arregla
            con una adaptaci&oacute;n: una rampa, una versi&oacute;n en braille, un int&eacute;rprete.</p>
         <p><b>Dise&ntilde;o universal</b> (o <i>dise&ntilde;o para todos</i>): dise&ntilde;ar desde el
@@ -1065,7 +1138,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>El argumento que convence: el corte de acera</h3>
       <figure class="foto">
-        <img src="../../../img/c8-rebaje-acera.jpg" alt="Primer plano de un rebaje de acera: la piedra del bordillo baja en un plano inclinado hasta enrasar con el asfalto de la calzada" loading="lazy">
+        <img src="../../../img/c8-rebaje-acera.jpg" width="1280" height="853" alt="Primer plano de un rebaje de acera: la piedra del bordillo baja en un plano inclinado hasta enrasar con el asfalto de la calzada" loading="lazy">
         <figcaption>Un <b>rebaje de acera</b>. Se empezaron a exigir para las sillas de ruedas, y hoy los usan a diario los carritos de beb&eacute;, las maletas con ruedas, los repartidores con la carretilla, las bicis y cualquiera que arrastre algo. <b>Ninguno de esos era el motivo</b>, y todos salieron ganando. Esto tiene nombre &mdash;<i>el efecto del corte de acera</i>&mdash; y es el argumento m&aacute;s &uacute;til que hay en esta sesi&oacute;n: lo que hace falta para una minor&iacute;a acaba siendo mejor para todos. F&iacute;jate en el detalle que aqu&iacute; falta y la norma espa&ntilde;ola s&iacute; exige: el <b>pavimento t&aacute;ctil</b>, esas baldosas con relieve que avisan con el pie de que ah&iacute; empieza la calzada.
           <span class="credito">Nick-philly &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Curb_cut_for_wheelchair_ramp_(DSC_3500).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1146,7 +1219,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o2-lista" id="lista-o2"></div>
           <p class="o2-cuenta" id="cuenta-o2"></p>
         </div>
-        <div class="pie" id="pie-o2"></div>
+        <div class="pie" id="pie-o2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1574,7 +1647,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Dos minutos para fijar la diferencia entre adaptar y dise&ntilde;ar desde el principio. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=M_Abq9pave8" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1714,7 +1788,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Las tres preguntas que lo separan todo</h4>
+        <h3 class="h-menor">Las tres preguntas que lo separan todo</h3>
         <ol>
           <li><b>&iquest;Exist&iacute;a una alternativa que durase m&aacute;s, al mismo coste?</b>
               Si <b>no</b>, es un <b>l&iacute;mite t&eacute;cnico</b>: no hay a quien culpar.</li>
@@ -1754,7 +1828,7 @@ footer .wrap{padding-block:18px 26px}
            desde hace cien a&ntilde;os.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c8-bombilla-centenaria.jpg" alt="Bombilla antigua colgando de un cable, encendida con una luz naranja tenue; dentro se ve el filamento de carb&oacute;n formando dos lazos" loading="lazy">
+        <img src="../../../img/c8-bombilla-centenaria.jpg" width="1024" height="1536" alt="Bombilla antigua colgando de un cable, encendida con una luz naranja tenue; dentro se ve el filamento de carb&oacute;n formando dos lazos" loading="lazy">
         <figcaption>La <b>bombilla centenaria</b> de Livermore, California, en el parque de bomberos. Lleva encendida desde <b>1901</b>. Se usa siempre para demostrar que las bombillas podr&iacute;an durar, y conviene mirarla m&aacute;s despacio, porque dice algo m&aacute;s interesante: es de <b>filamento de carb&oacute;n</b>, soplada a mano, y hoy funciona a unos <b>4 vatios</b>. Da much&iacute;sima menos luz que una bombilla corriente. <b>Esa es la clave de la sesi&oacute;n:</b> durar y alumbrar tiran en sentidos contrarios. Un filamento m&aacute;s fr&iacute;o dura m&aacute;s y alumbra menos. As&iacute; que el c&aacute;rtel Phoebus no elegi&oacute; entre lo bueno y lo malo: eligi&oacute; un punto de ese equilibrio <b>y no lo cont&oacute;</b>. Lo grave no fue elegir. Fue ocultarlo, y multar al que eligiera distinto.
           <span class="credito">LPS.1 &middot; CC0 (dominio p&uacute;blico) &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Livermore_Centennial_Light_Bulb.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1808,7 +1882,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o3-tabla" id="tabla-o3"></div>
           <p class="o3-lee" id="lee-o3"></p>
         </div>
-        <div class="pie" id="pie-o3"></div>
+        <div class="pie" id="pie-o3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2145,7 +2219,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">De una serie universitaria sobre el marco legal. Es m&aacute;s seco que los otros, pero es de los pocos sitios donde esto se cuenta con la norma delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=nO2RWjrKfMc" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2270,7 +2345,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La cuenta entera, que son dos l&iacute;neas</h4>
+        <h3 class="h-menor">La cuenta entera, que son dos l&iacute;neas</h3>
         <p>La capacidad de una pila se da en <b>miliamperios hora</b> (mAh): cu&aacute;ntos
            miliamperios puede dar durante cu&aacute;ntas horas. Una pila de 2.500 mAh da 1 mA durante
            2.500 horas, o 2.500 mA durante una hora, o cualquier combinaci&oacute;n que multiplique
@@ -2341,7 +2416,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o4-tabla" id="tabla-o4"></div>
           <p class="o4-lee" id="lee-o4"></p>
         </div>
-        <div class="pie" id="pie-o4"></div>
+        <div class="pie" id="pie-o4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2496,7 +2571,7 @@ footer .wrap{padding-block:18px 26px}
                + '" height="26" fill="' + COL[i % COL.length] + '" opacity=".85"></rect>';
             if(an > 62){
               m += '<text x="' + (x + an/2).toFixed(1) + '" y="39" text-anchor="middle"'
-                 + ' font-family="var(--f-m)" font-size="10.5" fill="#fff">'
+                 + ' font-family="var(--f-m)" font-size="10.5" fill="var(--tinta-sobre)">'
                  + Math.round(100*p.i/C.media) + ' %</text>';
             }
             x += an;
@@ -2729,7 +2804,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>Y ahora m&iacute;delo, que es de lo que iba la sesi&oacute;n</h3>
       <figure class="foto">
-        <img src="../../../img/c8-multimetro.jpg" alt="Dos puntas de mult&iacute;metro, una roja y otra negra, clavadas en una placa de pruebas a los dos lados de una resistencia, con un LED rojo al lado y una placa Arduino asomando por la izquierda" loading="lazy">
+        <img src="../../../img/c8-multimetro.jpg" width="1280" height="960" alt="Dos puntas de mult&iacute;metro, una roja y otra negra, clavadas en una placa de pruebas a los dos lados de una resistencia, con un LED rojo al lado y una placa Arduino asomando por la izquierda" loading="lazy">
         <figcaption>Un mult&iacute;metro midiendo en una placa de pruebas. <b>Fijaos bien en c&oacute;mo est&aacute;n puestas las puntas:</b> una a cada lado de la resistencia, <b>en paralelo</b> con ella. As&iacute; se mide <b>tensi&oacute;n</b>. Para medir <b>corriente</b> hay que hacer algo distinto y que da m&aacute;s respeto: <b>abrir el circuito</b> y meter el mult&iacute;metro dentro, <b>en serie</b>, de modo que toda la corriente pase por &eacute;l. &#9888; Si pones el mult&iacute;metro en la escala de corriente y lo conectas en paralelo, <b>cortocircuitas la pila</b>: lo normal es que se funda el fusible del aparato, y si no lo tiene, algo peor.
           <span class="credito">Zeroping &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Multimeter_probes_on_breadboard.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2774,7 +2849,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La medida hecha delante de la c&aacute;mara, con el mult&iacute;metro en serie. Mirad las cifras que le salen y comparadlas con las de la escena. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=kd3nZ7HmoxY" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2842,80 +2918,80 @@ footer .wrap{padding-block:18px 26px}
       </ol>
       <div class="ta" id="test-c8">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="0">
-          <p>1. &iquest;Cu&aacute;l es la cuenta de una huella de carbono?</p>
-          <label class="ta-op"><input type="radio" name="c8-0" value="0">Cantidad &times; factor de emisi&oacute;n.</label>
-          <label class="ta-op"><input type="radio" name="c8-0" value="1">Consumo &times; precio de la electricidad.</label>
-          <label class="ta-op"><input type="radio" name="c8-0" value="2">Peso del producto &times; a&ntilde;os que dura.</label>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8-p1">
+          <p id="test-c8-p1">1. &iquest;Cu&aacute;l es la cuenta de una huella de carbono?</p>
+          <label class="ta-op"><input type="radio" name="c8-0" value="0">Consumo &times; precio de la electricidad.</label>
+          <label class="ta-op"><input type="radio" name="c8-0" value="1">Peso del producto &times; a&ntilde;os que dura.</label>
+          <label class="ta-op"><input type="radio" name="c8-0" value="2">Cantidad &times; factor de emisi&oacute;n.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Toda la sesi&oacute;n 1 es esa multiplicaci&oacute;n. Lo dif&iacute;cil no es multiplicar: es conseguir un factor de fiar y declarar d&oacute;nde empieza y acaba la cuenta.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. Una acci&oacute;n emite 0,05 kg de CO&#8322;e y otra 55 kg. &iquest;Qu&eacute; conclusi&oacute;n es la correcta?</p>
-          <label class="ta-op"><input type="radio" name="c8-1" value="0">Hay que reducir las dos por igual, porque todo suma.</label>
-          <label class="ta-op"><input type="radio" name="c8-1" value="1">Se llevan tres &oacute;rdenes de magnitud: afinar la peque&ntilde;a no cambia nada, y mientras la miras no miras la grande.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8-p2">
+          <p id="test-c8-p2">2. Una acci&oacute;n emite 0,05 kg de CO&#8322;e y otra 55 kg. &iquest;Qu&eacute; conclusi&oacute;n es la correcta?</p>
+          <label class="ta-op"><input type="radio" name="c8-1" value="0">Se llevan tres &oacute;rdenes de magnitud: afinar la peque&ntilde;a no cambia nada, y mientras la miras no miras la grande.</label>
+          <label class="ta-op"><input type="radio" name="c8-1" value="1">Hay que reducir las dos por igual, porque todo suma.</label>
           <label class="ta-op"><input type="radio" name="c8-1" value="2">La diferencia es de 54,95 kg, as&iacute; que hay que restar esa cantidad.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con huellas se <b>divide, no se resta</b>: una es unas mil veces la otra. Podr&iacute;as desenchufar el cargador mil a&ntilde;os sin llegar a compensar un filete.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Al cambiar la red de Espa&ntilde;a a la media mundial, la barra del filete de ternera no se mueve. &iquest;Por qu&eacute;?</p>
-          <label class="ta-op"><input type="radio" name="c8-2" value="0">Porque la ternera no gasta electricidad en ning&uacute;n momento de su producci&oacute;n.</label>
-          <label class="ta-op"><input type="radio" name="c8-2" value="1">Porque su factor no pasa por un enchufe: est&aacute; en kg de CO&#8322;e por kilo de alimento, no en kWh.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8-p3">
+          <p id="test-c8-p3">3. Al cambiar la red de Espa&ntilde;a a la media mundial, la barra del filete de ternera no se mueve. &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="c8-2" value="0">Porque su factor no pasa por un enchufe: est&aacute; en kg de CO&#8322;e por kilo de alimento, no en kWh.</label>
+          <label class="ta-op"><input type="radio" name="c8-2" value="1">Porque la ternera no gasta electricidad en ning&uacute;n momento de su producci&oacute;n.</label>
           <label class="ta-op"><input type="radio" name="c8-2" value="2">Porque es un error de la escena.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Solo se multiplican por la intensidad de la red los factores que est&aacute;n en kWh. Por mucho que la red llegara a cero, la ternera y fabricar el m&oacute;vil seguir&iacute;an igual.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;En qu&eacute; se diferencia el dise&ntilde;o universal de la accesibilidad?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8-p4">
+          <p id="test-c8-p4">4. &iquest;En qu&eacute; se diferencia el dise&ntilde;o universal de la accesibilidad?</p>
           <label class="ta-op"><input type="radio" name="c8-3" value="0">En nada: son dos nombres para lo mismo.</label>
-          <label class="ta-op"><input type="radio" name="c8-3" value="1">En que el dise&ntilde;o universal parte de que no haga falta ninguna adaptaci&oacute;n, y por eso se decide al principio y no al final.</label>
-          <label class="ta-op"><input type="radio" name="c8-3" value="2">En que el dise&ntilde;o universal solo se aplica a p&aacute;ginas web.</label>
+          <label class="ta-op"><input type="radio" name="c8-3" value="1">En que el dise&ntilde;o universal solo se aplica a p&aacute;ginas web.</label>
+          <label class="ta-op"><input type="radio" name="c8-3" value="2">En que el dise&ntilde;o universal parte de que no haga falta ninguna adaptaci&oacute;n, y por eso se decide al principio y no al final.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La diferencia es <b>cu&aacute;ndo</b>. Una adaptaci&oacute;n llega tarde por definici&oacute;n: cuando el escal&oacute;n ya est&aacute; hecho, la rampa no cabe.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Un escal&oacute;n de 18 cm con una rampa al 8 %. &iquest;Cu&aacute;nta longitud horizontal ocupa la rampa?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8-p5">
+          <p id="test-c8-p5">5. Un escal&oacute;n de 18 cm con una rampa al 8 %. &iquest;Cu&aacute;nta longitud horizontal ocupa la rampa?</p>
           <label class="ta-op"><input type="radio" name="c8-4" value="0">1,44 m</label>
           <label class="ta-op"><input type="radio" name="c8-4" value="1">2,25 m</label>
           <label class="ta-op"><input type="radio" name="c8-4" value="2">0,80 m</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Longitud = desnivel / pendiente = 0,18 / 0,08 = <b>2,25 m</b>. Y con el metro y medio libre que la norma pide en cada punta, son 5,25 m de suelo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. La norma pide que un pulsador tenga 12 cm&sup2; como m&iacute;nimo. En un bot&oacute;n redondo, &iquest;qu&eacute; di&aacute;metro es ese?</p>
-          <label class="ta-op"><input type="radio" name="c8-5" value="0">Unos 12 mm</label>
-          <label class="ta-op"><input type="radio" name="c8-5" value="1">Unos 39 mm</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8-p6">
+          <p id="test-c8-p6">6. La norma pide que un pulsador tenga 12 cm&sup2; como m&iacute;nimo. En un bot&oacute;n redondo, &iquest;qu&eacute; di&aacute;metro es ese?</p>
+          <label class="ta-op"><input type="radio" name="c8-5" value="0">Unos 39 mm</label>
+          <label class="ta-op"><input type="radio" name="c8-5" value="1">Unos 12 mm</label>
           <label class="ta-op"><input type="radio" name="c8-5" value="2">Unos 60 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> De &pi;r&sup2; = 12 cm&sup2; sale r = &radic;(12/&pi;) = 1,95 cm, o sea un di&aacute;metro de <b>3,9 cm</b>. Es el tama&ntilde;o que hace falta para poder accionarlo con el pu&ntilde;o o con el codo, que es lo que exige el art&iacute;culo.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>7. Dos colores muy distintos pueden tener mal contraste. &iquest;Por qu&eacute;?</p>
-          <label class="ta-op"><input type="radio" name="c8-6" value="0">Porque el contraste mide diferencia de <b>luminancia</b>, no de color, y el ojo pesa el verde diez veces m&aacute;s que el azul.</label>
-          <label class="ta-op"><input type="radio" name="c8-6" value="1">Porque la f&oacute;rmula de la WCAG solo funciona con grises.</label>
-          <label class="ta-op"><input type="radio" name="c8-6" value="2">Porque el contraste depende de la pantalla y no se puede calcular.</label>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8-p7">
+          <p id="test-c8-p7">7. Dos colores muy distintos pueden tener mal contraste. &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="c8-6" value="0">Porque la f&oacute;rmula de la WCAG solo funciona con grises.</label>
+          <label class="ta-op"><input type="radio" name="c8-6" value="1">Porque el contraste depende de la pantalla y no se puede calcular.</label>
+          <label class="ta-op"><input type="radio" name="c8-6" value="2">Porque el contraste mide diferencia de <b>luminancia</b>, no de color, y el ojo pesa el verde diez veces m&aacute;s que el azul.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La luminancia relativa es 0,2126&middot;R + 0,7152&middot;G + 0,0722&middot;B. Un azul y un verde pueden brillar casi igual para el ojo, y entonces el texto no se despega del fondo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. El c&aacute;rtel Phoebus limit&oacute; las bombillas a 1.000 horas. &iquest;Qu&eacute; fue exactamente lo reprochable?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8-p8">
+          <p id="test-c8-p8">8. El c&aacute;rtel Phoebus limit&oacute; las bombillas a 1.000 horas. &iquest;Qu&eacute; fue exactamente lo reprochable?</p>
           <label class="ta-op"><input type="radio" name="c8-7" value="0">Elegir un punto de equilibrio entre duraci&oacute;n y luz, que es una decisi&oacute;n t&eacute;cnica normal.</label>
           <label class="ta-op"><input type="radio" name="c8-7" value="1">Pactar ese l&iacute;mite entre todos, ocultarlo y multar al fabricante que hiciera bombillas m&aacute;s duraderas.</label>
           <label class="ta-op"><input type="radio" name="c8-7" value="2">Fabricar bombillas de filamento de carb&oacute;n.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Durar y alumbrar tiran en sentidos contrarios, as&iacute; que elegir el punto es leg&iacute;timo. Lo que no lo es: pactarlo, no contarlo y penalizar al que eligiera otro. Hay actas, laboratorio de control y tablas de multas.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. &iquest;Por qu&eacute; multaron a Apple en Italia y en Francia por frenar los iPhone con la bater&iacute;a vieja?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8-p9">
+          <p id="test-c8-p9">9. &iquest;Por qu&eacute; multaron a Apple en Italia y en Francia por frenar los iPhone con la bater&iacute;a vieja?</p>
           <label class="ta-op"><input type="radio" name="c8-8" value="0">Por frenarlos, que no tiene ninguna justificaci&oacute;n t&eacute;cnica.</label>
           <label class="ta-op"><input type="radio" name="c8-8" value="1">Por no dec&iacute;rselo a los usuarios ni ofrecerles la soluci&oacute;n de cambiar la bater&iacute;a: enga&ntilde;o por omisi&oacute;n.</label>
           <label class="ta-op"><input type="radio" name="c8-8" value="2">Por vender bater&iacute;as que duraban menos de 800 ciclos.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Frenar el procesador ten&iacute;a una raz&oacute;n real: una bater&iacute;a vieja tiene m&aacute;s resistencia interna y el m&oacute;vil se apagaba de golpe en los picos de corriente. La sanci&oacute;n francesa habla literalmente de omisi&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Un Arduino Uno en modo de bajo consumo apenas mejora la autonom&iacute;a. &iquest;Por qu&eacute;?</p>
-          <label class="ta-op"><input type="radio" name="c8-9" value="0">Porque el ATmega328P no tiene modos de bajo consumo.</label>
-          <label class="ta-op"><input type="radio" name="c8-9" value="1">Porque el chip s&iacute; se duerme, pero el regulador, el chip de USB y el LED de encendido de la placa siguen comiendo.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8-p10">
+          <p id="test-c8-p10">10. Un Arduino Uno en modo de bajo consumo apenas mejora la autonom&iacute;a. &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="c8-9" value="0">Porque el chip s&iacute; se duerme, pero el regulador, el chip de USB y el LED de encendido de la placa siguen comiendo.</label>
+          <label class="ta-op"><input type="radio" name="c8-9" value="1">Porque el ATmega328P no tiene modos de bajo consumo.</label>
           <label class="ta-op"><input type="radio" name="c8-9" value="2">Porque <code>delay()</code> ya es un modo de bajo consumo.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El ATmega328P en <i>power-down</i> se queda en 0,1 &micro;A seg&uacute;n su hoja de caracter&iacute;sticas. Lo que no se duerme es la placa. Por eso, si el aparato tiene que vivir de pilas, la placa de desarrollo no puede ser la versi&oacute;n final.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -3361,7 +3437,7 @@ footer .wrap{padding-block:18px 26px}
       </script>
 
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Inventario de residuo</b>: la lista de todo lo que vuestro proyecto deja fuera del
            aparato, con <b>su masa</b> y <b>su fracci&oacute;n</b>, una l&iacute;nea por cosa. Ni
            adjetivos ni promesas: masa y destino.</p>
@@ -3481,7 +3557,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o5-tabla" id="tabla-o5"></div>
           <p class="o5-lee" id="lee-o5"></p>
         </div>
-        <div class="pie" id="pie-o5"></div>
+        <div class="pie" id="pie-o5" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3795,7 +3871,7 @@ footer .wrap{padding-block:18px 26px}
         </ul>
       </div>
       <figure class="foto">
-        <img src="../../../img/c8-raee-pilas.jpg" alt="Rinc&oacute;n de un punto de recogida: un mont&oacute;n de cables enrollados, cargadores, regletas y peque&ntilde;os electrodom&eacute;sticos amontonados sobre una chapa met&aacute;lica, con dos carteles encima, uno de pilas peque&ntilde;as y otro de residuo el&eacute;ctrico" loading="lazy">
+        <img src="../../../img/c8-raee-pilas.jpg" width="1280" height="853" alt="Rinc&oacute;n de un punto de recogida: un mont&oacute;n de cables enrollados, cargadores, regletas y peque&ntilde;os electrodom&eacute;sticos amontonados sobre una chapa met&aacute;lica, con dos carteles encima, uno de pilas peque&ntilde;as y otro de residuo el&eacute;ctrico" loading="lazy">
         <figcaption>Un punto de recogida de un supermercado sueco. Fijaos en los <b>dos carteles</b>, que son dos fracciones distintas y no una: arriba a la izquierda, <i>sm&aring;batterier</i>, pilas peque&ntilde;as; a la derecha, <i>elavfall</i>, residuo el&eacute;ctrico, con su lista de <b>s&iacute;</b> y de <b>no</b>. Y mirad qu&eacute; hay debajo: sobre todo <b>cables</b> y <b>cargadores</b>. Eso es exactamente lo que vais a tener vosotros al final, y es lo que m&aacute;s se tira a la papelera por parecer poca cosa. Un cable no es basura: es cobre con una funda.
           <span class="credito">Frankie Fouganthin &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Elektronikavfall.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3823,7 +3899,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Para ver qu&eacute; pasa despu&eacute;s del contenedor. &#9888; <b>Ojo con qui&eacute;n lo firma</b>: Asegre es la asociaci&oacute;n de las empresas que gestionan esos residuos, o sea que tiene inter&eacute;s en que el proceso salga bien en el v&iacute;deo. Para <b>ver la m&aacute;quina</b> vale; para las <b>cifras</b>, usad la escena y decid de d&oacute;nde sale cada una. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=oD9QDlNhNeA" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -3959,7 +4036,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La cuenta completa, y no tiene m&aacute;s</h4>
+        <h3 class="h-menor">La cuenta completa, y no tiene m&aacute;s</h3>
         <p style="font-family:var(--f-m);font-size:15px">
            lo que cuesta el aparato = <b>fabricarlo + lo que come cada a&ntilde;o &times;
            a&ntilde;os</b></p>
@@ -4068,7 +4145,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o6-tabla" id="tabla-o6"></div>
           <p class="o6-lee" id="lee-o6"></p>
         </div>
-        <div class="pie" id="pie-o6"></div>
+        <div class="pie" id="pie-o6" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4469,7 +4546,7 @@ footer .wrap{padding-block:18px 26px}
            inventa un ahorro.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c8-fotovoltaica.jpg" alt="Dos paneles solares fotovoltaicos azules instalados sobre el tejado de tejas &aacute;rabes de una casa, con m&aacute;s tejados y el pueblo al fondo" loading="lazy">
+        <img src="../../../img/c8-fotovoltaica.jpg" width="1280" height="863" alt="Dos paneles solares fotovoltaicos azules instalados sobre el tejado de tejas &aacute;rabes de una casa, con m&aacute;s tejados y el pueblo al fondo" loading="lazy">
         <figcaption>Dos paneles fotovoltaicos en un tejado. Son <b>el ejemplo cl&aacute;sico</b> de la cuenta de hoy, porque con ellos la pregunta se hizo famosa: fabricar un panel gasta energ&iacute;a, as&iacute; que <b>&iquest;cu&aacute;nto tarda en devolver la que cost&oacute; hacerlo?</b> Durante a&ntilde;os se dijo que nunca, y hoy los estudios de ciclo de vida dan <b>uno o dos a&ntilde;os</b> en el sur de Europa, frente a los veinticinco o treinta que el fabricante garantiza. &#9888; Esa cifra es un <b>orden de magnitud</b> tomado de la bibliograf&iacute;a, no una medida nuestra, y depende mucho de d&oacute;nde se fabric&oacute; el panel y de d&oacute;nde se instala: es la sesi&oacute;n 6 de la unidad 3 otra vez. Lo que hay que quedarse no es el n&uacute;mero: es que <b>la pregunta existe</b> y que se contesta dividiendo.
           <span class="credito">Marta Victoria &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Rooftop_solar_photovoltaic_installation.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4485,7 +4562,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La misma cuenta de hoy, hecha en <b>euros</b> en vez de en kilos de CO&#8322;: inversi&oacute;n dividida entre ahorro al a&ntilde;o. F&iacute;jate en dos cosas. Una: es la <b>misma divisi&oacute;n</b> y da <b>otro n&uacute;mero</b>, porque la unidad es otra. Dos: quien lo cuenta <b>vende asesor&iacute;a energ&eacute;tica</b>, as&iacute; que interesa mirar qu&eacute; mete y qu&eacute; deja fuera de su cuenta. Es el l&iacute;mite de la sesi&oacute;n 1, aplicado a un v&iacute;deo de YouTube. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=Cg_9mGWrsKA" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -4629,7 +4707,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Los requisitos se escriben antes</h4>
+        <h3 class="h-menor">Los requisitos se escriben antes</h3>
         <p><b>Requisito</b>: algo que el aparato tiene que seguir haciendo <b>pase lo que pase</b>.
            Se escribe antes de tocar nada, en una frase que se pueda comprobar con un
            s&iacute; o un no.</p>
@@ -4703,7 +4781,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o7-tabla" id="tabla-o7"></div>
           <p class="o7-lee" id="lee-o7"></p>
         </div>
-        <div class="pie" id="pie-o7"></div>
+        <div class="pie" id="pie-o7" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -5142,7 +5220,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>El cambio que no cuesta nada y que nadie hace</h3>
       <figure class="foto alta">
-        <img src="../../../img/c8-boton-peatonal.jpg" alt="Primer plano del pulsador de un paso de peatones australiano: un disco azul con una flecha en relieve apuntando hacia el cruce y, debajo, un bot&oacute;n redondo grande de metal, todo montado en un poste" loading="lazy">
+        <img src="../../../img/c8-boton-peatonal.jpg" width="1280" height="1700" alt="Primer plano del pulsador de un paso de peatones australiano: un disco azul con una flecha en relieve apuntando hacia el cruce y, debajo, un bot&oacute;n redondo grande de metal, todo montado en un poste" loading="lazy">
         <figcaption>El pulsador de un paso de peatones en Australia. Es un cat&aacute;logo de la sesi&oacute;n 2 en un solo objeto, y merece mirarlo despacio. <b>La flecha va en relieve</b>: se lee con la vista y tambi&eacute;n con el dedo, y adem&aacute;s te dice <b>hacia d&oacute;nde</b> cruzas, que es informaci&oacute;n que un bot&oacute;n a secas no da. El bot&oacute;n es <b>grande y redondo</b>, de los que se accionan con el pu&ntilde;o o con el codo. Y lo que no se ve en una foto: estos aparatos <b>vibran</b> cuando toca cruzar y hacen un <b>tic</b> que se acelera. Cuatro canales &mdash;vista, tacto, o&iacute;do y vibraci&oacute;n&mdash; para una sola informaci&oacute;n. Nada de eso cuesta CO&#8322;: cuesta <b>haberlo pensado antes</b>.
           <span class="credito">James Cridland &middot; CC0 (dominio p&uacute;blico) &middot;
             <a href="https://commons.wikimedia.org/wiki/File:An_Australian_pedestrian_crossing_button.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5183,7 +5261,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Una dise&ntilde;adora industrial contando por qu&eacute; el ecodise&ntilde;o no es poner materiales reciclados ni pintarlo de verde, sino decidir en el momento en que a&uacute;n se puede decidir. Es la misma idea de la rampa de la sesi&oacute;n 2, contada desde el otro lado. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=4VReody58_0" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -5315,7 +5394,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>Una cifra defendible lleva cinco cosas</h4>
+        <h3 class="h-menor">Una cifra defendible lleva cinco cosas</h3>
         <ol>
           <li>El <b>n&uacute;mero</b> y su <b>unidad</b>.</li>
           <li>El <b>l&iacute;mite</b>: qu&eacute; entra en la cuenta y qu&eacute; no (sesi&oacute;n 1).</li>
@@ -5389,7 +5468,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="o8-tabla" id="tabla-o8"></div>
           <p class="o8-lee" id="lee-o8"></p>
         </div>
-        <div class="pie" id="pie-o8"></div>
+        <div class="pie" id="pie-o8" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -5739,7 +5818,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>Esto no es una costumbre de instituto</h3>
       <figure class="foto">
-        <img src="../../../img/c8-poster.jpg" alt="Sala de un congreso llena de paneles con p&oacute;steres cient&iacute;ficos en caballetes, con gente de pie delante de ellos leyendo, preguntando y conversando en grupos peque&ntilde;os" loading="lazy">
+        <img src="../../../img/c8-poster.jpg" width="1280" height="720" alt="Sala de un congreso llena de paneles con p&oacute;steres cient&iacute;ficos en caballetes, con gente de pie delante de ellos leyendo, preguntando y conversando en grupos peque&ntilde;os" loading="lazy">
         <figcaption>Una <b>sesi&oacute;n de p&oacute;steres</b> de un congreso cient&iacute;fico. Cada persona de la foto est&aacute; haciendo exactamente lo de hoy: se ha puesto <b>al lado de su n&uacute;mero</b> para que cualquiera venga a discut&iacute;rselo. No es un escaparate, es lo contrario: el formato existe <b>para que te lleven la contraria en la cara</b>, y por eso los p&oacute;steres llevan las barras de error, el tama&ntilde;o de la muestra y el m&eacute;todo, que es lo primero que va a mirar quien se acerque. Un cient&iacute;fico que contestara &laquo;lo pone en internet&raquo; durar&iacute;a unos diez segundos.
           <span class="credito">David Eppstein &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:GD09_Poster_Session.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5786,7 +5865,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Qu&eacute; es una afirmaci&oacute;n ambiental que no se puede comprobar, contado con ejemplos de producto. Es el reto de hoy visto desde el otro lado: no c&oacute;mo se defiende un n&uacute;mero, sino c&oacute;mo se detecta a quien no puede defender el suyo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=v1w23sxy5Ro" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -5865,108 +5945,108 @@ footer .wrap{padding-block:18px 26px}
       </ol>
       <div class="ta" id="test-c8b">
         <h4>Toda la unidad, de la primera sesi&oacute;n a la octava</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Te dan un n&uacute;mero de huella de carbono sin nada m&aacute;s. &iquest;Qu&eacute; es lo primero que hay que preguntar?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8b-p1">
+          <p id="test-c8b-p1">1. Te dan un n&uacute;mero de huella de carbono sin nada m&aacute;s. &iquest;Qu&eacute; es lo primero que hay que preguntar?</p>
           <label class="ta-op"><input type="radio" name="c8b-0" value="0">Qui&eacute;n lo ha calculado.</label>
           <label class="ta-op"><input type="radio" name="c8b-0" value="1">D&oacute;nde empieza y d&oacute;nde acaba la cuenta: el l&iacute;mite declarado.</label>
           <label class="ta-op"><input type="radio" name="c8b-0" value="2">Si est&aacute; en kilos o en toneladas.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un n&uacute;mero sin l&iacute;mite declarado <b>no se puede comparar con ning&uacute;n otro</b>, y casi todas las discusiones sobre esto son dos personas comparando dos cuentas con l&iacute;mites distintos. Es la sesi&oacute;n 1, y vuelve en la 6 con la plancha entera o solo la pieza.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Por qu&eacute; una rampa no se puede a&ntilde;adir al final?</p>
-          <label class="ta-op"><input type="radio" name="c8b-1" value="0">Porque queda fea y nadie la usa.</label>
-          <label class="ta-op"><input type="radio" name="c8b-1" value="1">Porque la longitud sale de dividir el desnivel entre la pendiente, y para cuando el escal&oacute;n existe ya no hay metros de pasillo donde ponerla.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8b-p2">
+          <p id="test-c8b-p2">2. &iquest;Por qu&eacute; una rampa no se puede a&ntilde;adir al final?</p>
+          <label class="ta-op"><input type="radio" name="c8b-1" value="0">Porque la longitud sale de dividir el desnivel entre la pendiente, y para cuando el escal&oacute;n existe ya no hay metros de pasillo donde ponerla.</label>
+          <label class="ta-op"><input type="radio" name="c8b-1" value="1">Porque queda fea y nadie la usa.</label>
           <label class="ta-op"><input type="radio" name="c8b-1" value="2">Porque la norma prohíbe a&ntilde;adir rampas a un edificio terminado.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 18 cm al 8 % son 2,25 m de rampa, m&aacute;s 1,50 m libres en cada punta: <b>5,25 m</b>. La diferencia entre accesibilidad y dise&ntilde;o universal no es de intenci&oacute;n, es de <b>cu&aacute;ndo</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Un port&aacute;til guardado y apagado diez a&ntilde;os tiene la bater&iacute;a inservible. &iquest;Qu&eacute; demuestra eso?</p>
-          <label class="ta-op"><input type="radio" name="c8b-2" value="0">Que la obsolescencia programada afecta hasta a los aparatos apagados.</label>
-          <label class="ta-op"><input type="radio" name="c8b-2" value="1">Que hay un l&iacute;mite t&eacute;cnico de verdad, y que no todo lo que se estropea es un fraude.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8b-p3">
+          <p id="test-c8b-p3">3. Un port&aacute;til guardado y apagado diez a&ntilde;os tiene la bater&iacute;a inservible. &iquest;Qu&eacute; demuestra eso?</p>
+          <label class="ta-op"><input type="radio" name="c8b-2" value="0">Que hay un l&iacute;mite t&eacute;cnico de verdad, y que no todo lo que se estropea es un fraude.</label>
+          <label class="ta-op"><input type="radio" name="c8b-2" value="1">Que la obsolescencia programada afecta hasta a los aparatos apagados.</label>
           <label class="ta-op"><input type="radio" name="c8b-2" value="2">Que el fabricante puso un temporizador dentro.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Nadie ha hecho nada: es <b>qu&iacute;mica</b>. Lo que s&iacute; es una decisi&oacute;n de alguien es que la bater&iacute;a vaya <b>pegada</b> en vez de puesta con un clip. Las tres preguntas de la sesi&oacute;n 3 sirven para separar una cosa de la otra.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. Un montaje come 45 mA despierto y est&aacute; despierto 200 ms de cada minuto. Durmiendo se queda en 0,05 mA. &iquest;Corriente media?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8b-p4">
+          <p id="test-c8b-p4">4. Un montaje come 45 mA despierto y est&aacute; despierto 200 ms de cada minuto. Durmiendo se queda en 0,05 mA. &iquest;Corriente media?</p>
           <label class="ta-op"><input type="radio" name="c8b-3" value="0">22,5 mA, la mitad.</label>
-          <label class="ta-op"><input type="radio" name="c8b-3" value="1">0,20 mA.</label>
-          <label class="ta-op"><input type="radio" name="c8b-3" value="2">45 mA: dormir no cambia el consumo.</label>
+          <label class="ta-op"><input type="radio" name="c8b-3" value="1">45 mA: dormir no cambia el consumo.</label>
+          <label class="ta-op"><input type="radio" name="c8b-3" value="2">0,20 mA.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 45 &times; (0,2/60) + 0,05 &times; el resto = 0,15 + 0,05 = <b>0,20 mA</b>. La media va <b>pesada por el tiempo</b>. Y ojo: eso solo pasa si la placa se duerme de verdad, cosa que un Arduino Uno no hace.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. De una plancha de 1.220 &times; 610 sac&aacute;is piezas por valor de 60 g y no se toca el 70 % de la plancha. &iquest;Qu&eacute; es ese 70 %?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8b-p5">
+          <p id="test-c8b-p5">5. De una plancha de 1.220 &times; 610 sac&aacute;is piezas por valor de 60 g y no se toca el 70 % de la plancha. &iquest;Qu&eacute; es ese 70 %?</p>
           <label class="ta-op"><input type="radio" name="c8b-4" value="0">Recorte: residuo, no hay nada que hacer.</label>
           <label class="ta-op"><input type="radio" name="c8b-4" value="1">Sobrante: es residuo o es material seg&uacute;n si alguien lo guarda.</label>
           <label class="ta-op"><input type="radio" name="c8b-4" value="2">No es nada, porque no lo hab&eacute;is comprado vosotros.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> <b>Recorte</b> son los trozos que quedan entre las piezas y no sirven para nada; <b>sobrante</b> es la parte que ni se ha tocado, o sea <b>una plancha m&aacute;s peque&ntilde;a</b>. Que sea una cosa o la otra no depende del material: depende de lo que hag&aacute;is los diez minutos siguientes a cortar.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>6. &iquest;Por qu&eacute; el contrachapado no va al contenedor azul?</p>
-          <label class="ta-op"><input type="radio" name="c8b-5" value="0">Porque el azul solo admite papel y cart&oacute;n, y el contrachapado lleva cola y barniz que estropean la pasta.</label>
-          <label class="ta-op"><input type="radio" name="c8b-5" value="1">Porque la madera se composta y va al marr&oacute;n.</label>
-          <label class="ta-op"><input type="radio" name="c8b-5" value="2">Porque va al amarillo, con los envases.</label>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8b-p6">
+          <p id="test-c8b-p6">6. &iquest;Por qu&eacute; el contrachapado no va al contenedor azul?</p>
+          <label class="ta-op"><input type="radio" name="c8b-5" value="0">Porque la madera se composta y va al marr&oacute;n.</label>
+          <label class="ta-op"><input type="radio" name="c8b-5" value="1">Porque va al amarillo, con los envases.</label>
+          <label class="ta-op"><input type="radio" name="c8b-5" value="2">Porque el azul solo admite papel y cart&oacute;n, y el contrachapado lleva cola y barniz que estropean la pasta.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el error m&aacute;s frecuente del taller y se comete de buena fe: la madera &laquo;es como el papel&raquo;. Va a resto o a punto limpio. Las reglas de fracciones se miran, no se deducen.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Pes&aacute;is el residuo entero del proyecto. &iquest;Qu&eacute; os dice esa masa sobre cu&aacute;l hace m&aacute;s da&ntilde;o?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8b-p7">
+          <p id="test-c8b-p7">7. Pes&aacute;is el residuo entero del proyecto. &iquest;Qu&eacute; os dice esa masa sobre cu&aacute;l hace m&aacute;s da&ntilde;o?</p>
           <label class="ta-op"><input type="radio" name="c8b-6" value="0">Que el mont&oacute;n m&aacute;s pesado es el que m&aacute;s da&ntilde;o hace.</label>
           <label class="ta-op"><input type="radio" name="c8b-6" value="1">Nada por s&iacute; sola: la balanza mide masa, y hay que a&ntilde;adir a qu&eacute; fracci&oacute;n va cada cosa y qu&eacute; lleva dentro.</label>
           <label class="ta-op"><input type="radio" name="c8b-6" value="2">Que todo el da&ntilde;o est&aacute; en el RAEE, porque es lo &uacute;nico peligroso.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Una balanza <b>no ordena por da&ntilde;o</b>. El RAEE lleva cobre, esta&ntilde;o, algo de oro y a veces litio, y por eso el <b>Real Decreto 110/2015</b> lo saca de la basura com&uacute;n pese lo que pese. Y dentro del RAEE hay una pieza de 25 g &mdash;la placa&mdash; que en la sesi&oacute;n 6 resulta ser casi toda la huella.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>8. Fabricar vuestro aparato cuesta entre 2 y 20 kg de CO&#8322;e y ahorra 12 kg al a&ntilde;o. Va a durar cinco a&ntilde;os. &iquest;Compensa?</p>
-          <label class="ta-op"><input type="radio" name="c8b-7" value="0">S&iacute;, y sin matices: hasta por el extremo malo de la banda se cruza antes del segundo a&ntilde;o.</label>
-          <label class="ta-op"><input type="radio" name="c8b-7" value="1">No se puede saber, porque la electr&oacute;nica no tiene dato.</label>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8b-p8">
+          <p id="test-c8b-p8">8. Fabricar vuestro aparato cuesta entre 2 y 20 kg de CO&#8322;e y ahorra 12 kg al a&ntilde;o. Va a durar cinco a&ntilde;os. &iquest;Compensa?</p>
+          <label class="ta-op"><input type="radio" name="c8b-7" value="0">No se puede saber, porque la electr&oacute;nica no tiene dato.</label>
+          <label class="ta-op"><input type="radio" name="c8b-7" value="1">S&iacute;, y sin matices: hasta por el extremo malo de la banda se cruza antes del segundo a&ntilde;o.</label>
           <label class="ta-op"><input type="radio" name="c8b-7" value="2">Solo si dura m&aacute;s de diez a&ntilde;os.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 20 / 12 = 1,7 a&ntilde;os por lo alto y 2/12 = dos meses por lo bajo: los <b>dos extremos</b> caen dentro de los cinco a&ntilde;os. Cuando la banda entera est&aacute; del mismo lado de la decisi&oacute;n, la banda <b>deja de importar</b>.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>9. No existe el dato de la huella de vuestra placa. &iquest;Qu&eacute; se hace con &eacute;l?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8b-p9">
+          <p id="test-c8b-p9">9. No existe el dato de la huella de vuestra placa. &iquest;Qu&eacute; se hace con &eacute;l?</p>
           <label class="ta-op"><input type="radio" name="c8b-8" value="0">Se pone un valor razonable, que para eso es una estimaci&oacute;n.</label>
           <label class="ta-op"><input type="radio" name="c8b-8" value="1">Se deja fuera de la cuenta y se dice que no se ha contado.</label>
           <label class="ta-op"><input type="radio" name="c8b-8" value="2">Se mete como una banda entre dos extremos defendibles y la banda se arrastra hasta el resultado.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Inventarlo es mentir aunque el n&uacute;mero sea razonable, porque <b>un n&uacute;mero sin etiqueta se lee como medido</b>; dejarlo fuera es mentir por abajo. Y el <b>ancho de la franja es un resultado</b>: si te come la decisi&oacute;n, ya sabes qu&eacute; hay que ir a medir.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Vuestro riego no compensa en CO&#8322; frente a regar a mano. &iquest;Qu&eacute; se escribe en la memoria?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c8b-p10">
+          <p id="test-c8b-p10">10. Vuestro riego no compensa en CO&#8322; frente a regar a mano. &iquest;Qu&eacute; se escribe en la memoria?</p>
           <label class="ta-op"><input type="radio" name="c8b-9" value="0">Nada: se cuenta el ahorro de agua, que ese s&iacute; sale bien.</label>
-          <label class="ta-op"><input type="radio" name="c8b-9" value="1">Que en CO&#8322; no compensa, y en otra columna lo que s&iacute; aporta, con una manera concreta de comprobarlo.</label>
-          <label class="ta-op"><input type="radio" name="c8b-9" value="2">Que compensa, porque a la larga todo aparato eficiente compensa.</label>
+          <label class="ta-op"><input type="radio" name="c8b-9" value="1">Que compensa, porque a la larga todo aparato eficiente compensa.</label>
+          <label class="ta-op"><input type="radio" name="c8b-9" value="2">Que en CO&#8322; no compensa, y en otra columna lo que s&iacute; aporta, con una manera concreta de comprobarlo.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un n&uacute;mero es un indicador, no un veredicto. Lo que hace el riego &mdash;que la planta siga viva nueve d&iacute;as sin nadie&mdash; <b>tambi&eacute;n se declara</b>, con su propia medida. Lo que no vale es contar el indicador cuando sale bien y callarlo cuando sale mal.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>11. &iquest;Por qu&eacute; el impacto de un redise&ntilde;o se mide en kg de CO&#8322;e <b>por a&ntilde;o de servicio</b> y no en total?</p>
-          <label class="ta-op"><input type="radio" name="c8b-10" value="0">Porque el total sale un n&uacute;mero demasiado grande.</label>
-          <label class="ta-op"><input type="radio" name="c8b-10" value="1">Porque en total durar m&aacute;s parecer&iacute;a peor, y es al rev&eacute;s: la fabricaci&oacute;n se paga una vez y se reparte entre los a&ntilde;os.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8b-p11">
+          <p id="test-c8b-p11">11. &iquest;Por qu&eacute; el impacto de un redise&ntilde;o se mide en kg de CO&#8322;e <b>por a&ntilde;o de servicio</b> y no en total?</p>
+          <label class="ta-op"><input type="radio" name="c8b-10" value="0">Porque en total durar m&aacute;s parecer&iacute;a peor, y es al rev&eacute;s: la fabricaci&oacute;n se paga una vez y se reparte entre los a&ntilde;os.</label>
+          <label class="ta-op"><input type="radio" name="c8b-10" value="1">Porque el total sale un n&uacute;mero demasiado grande.</label>
           <label class="ta-op"><input type="radio" name="c8b-10" value="2">Porque es lo que exige la Orden TMA/851/2021.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la misma idea de la bater&iacute;a de la sesi&oacute;n 3: con el doble de a&ntilde;os, la mitad de huella al a&ntilde;o. Si midieras el total, alargar la vida de un aparato saldr&iacute;a penalizado.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>12. &laquo;Quitamos el LED que est&aacute; siempre encendido.&raquo; Baja el consumo. &iquest;Es un buen redise&ntilde;o?</p>
-          <label class="ta-op"><input type="radio" name="c8b-11" value="0">S&iacute;: baja el n&uacute;mero y no cuesta dinero.</label>
-          <label class="ta-op"><input type="radio" name="c8b-11" value="1">Depende de si deja el aviso con un solo canal, porque eso rompe un requisito que se escribi&oacute; antes.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8b-p12">
+          <p id="test-c8b-p12">12. &laquo;Quitamos el LED que est&aacute; siempre encendido.&raquo; Baja el consumo. &iquest;Es un buen redise&ntilde;o?</p>
+          <label class="ta-op"><input type="radio" name="c8b-11" value="0">Depende de si deja el aviso con un solo canal, porque eso rompe un requisito que se escribi&oacute; antes.</label>
+          <label class="ta-op"><input type="radio" name="c8b-11" value="1">S&iacute;: baja el n&uacute;mero y no cuesta dinero.</label>
           <label class="ta-op"><input type="radio" name="c8b-11" value="2">No, porque un LED consume muy poco y no vale la pena.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Los requisitos se escriben <b>antes</b> de proponer cambios: si no, bajar el n&uacute;mero es trivial, porque <b>el aparato que menos emite es el que no existe</b>. Con un zumbador al lado, el mismo cambio pasa a ser bueno.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>13. Alguien te dice &laquo;eso no dura cinco a&ntilde;os&raquo;. &iquest;C&oacute;mo se contesta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c8b-p13">
+          <p id="test-c8b-p13">13. Alguien te dice &laquo;eso no dura cinco a&ntilde;os&raquo;. &iquest;C&oacute;mo se contesta?</p>
           <label class="ta-op"><input type="radio" name="c8b-12" value="0">Explicando otra vez por qu&eacute; va a durar cinco a&ntilde;os.</label>
           <label class="ta-op"><input type="radio" name="c8b-12" value="1">Pidi&eacute;ndole un n&uacute;mero, meti&eacute;ndolo en la cuenta delante de &eacute;l y diciendo si tu conclusi&oacute;n aguanta, salga como salga.</label>
           <label class="ta-op"><input type="radio" name="c8b-12" value="2">Diciendo que es una estimaci&oacute;n y pasando al siguiente punto.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No se discute: <b>se recalcula</b>. Si la conclusi&oacute;n sobrevive, la acabas de reforzar con la objeci&oacute;n del otro; si no sobrevive, te has ahorrado defender en p&uacute;blico algo que no se sosten&iacute;a.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>14. &iquest;Qu&eacute; tiene de bueno decir &laquo;entre 3,8 y 22 kg&raquo; en vez de &laquo;6,2 kg&raquo;?</p>
-          <label class="ta-op"><input type="radio" name="c8b-13" value="0">Nada: es menos preciso y queda peor.</label>
-          <label class="ta-op"><input type="radio" name="c8b-13" value="1">Que dice d&oacute;nde es fr&aacute;gil la cifra, y por eso no se la puede tirar nadie por ah&iacute;.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c8b-p14">
+          <p id="test-c8b-p14">14. &iquest;Qu&eacute; tiene de bueno decir &laquo;entre 3,8 y 22 kg&raquo; en vez de &laquo;6,2 kg&raquo;?</p>
+          <label class="ta-op"><input type="radio" name="c8b-13" value="0">Que dice d&oacute;nde es fr&aacute;gil la cifra, y por eso no se la puede tirar nadie por ah&iacute;.</label>
+          <label class="ta-op"><input type="radio" name="c8b-13" value="1">Nada: es menos preciso y queda peor.</label>
           <label class="ta-op"><input type="radio" name="c8b-13" value="2">Que as&iacute; siempre aciertas, porque el valor bueno cae dentro.</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> Una cifra defendible <b>no es una cifra segura</b>: cuatro de sus cinco partes &mdash;l&iacute;mite, etiqueta, rango y de qu&eacute; depende&mdash; son formas de reconocer lo que no sabes. La tercera opci&oacute;n es trampa: un rango tan ancho que siempre acierta tampoco sirve para decidir.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Una cifra defendible <b>no es una cifra segura</b>: cuatro de sus cinco partes &mdash;l&iacute;mite, etiqueta, rango y de qu&eacute; depende&mdash; son formas de reconocer lo que no sabes. Y ojo con la respuesta de &laquo;as&iacute; siempre aciertas&raquo;, que es trampa: un rango tan ancho que no puede fallar tampoco sirve para decidir nada.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -5982,7 +6062,7 @@ footer .wrap{padding-block:18px 26px}
         vuestro aparato no se queda en el taller. Se lo va a quedar <b>alguien</b> &mdash;el
         conserje, el aula de al lado, un vecino del barrio&mdash;, y a partir de ese d&iacute;a los
         n&uacute;meros que hab&eacute;is defendido esta semana dejan de ser un ejercicio.</p>
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema9/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 9 &middot; Tecnolog&iacute;a y sociedad: proyectos de servicio &rarr;</a></p></div>
 
     </section>
 
@@ -6023,7 +6103,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -6043,7 +6123,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -6072,8 +6152,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -6086,7 +6175,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -6105,5 +6197,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

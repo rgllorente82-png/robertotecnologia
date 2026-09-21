@@ -1,0 +1,82 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .layer-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .layer-label { font-family: Arial, sans-serif; font-size: 12px; }
+      .layer-color { fill-opacity: 0.9; stroke: #2c3e50; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="layer-title" font-size="18">Modelo OSI - 7 Capas de Red</text>
+
+  <!-- Layer 7: Application -->
+  <rect x="100" y="70" width="300" height="60" class="layer-color" fill="#e74c3c"/>
+  <text x="250" y="90" text-anchor="middle" class="layer-title" fill="white">Capa 7: Aplicación</text>
+  <text x="250" y="110" text-anchor="middle" class="layer-label" fill="white">HTTP, HTTPS, FTP, SMTP, DNS</text>
+
+  <!-- Layer 6: Presentation -->
+  <rect x="100" y="140" width="300" height="60" class="layer-color" fill="#e67e22"/>
+  <text x="250" y="160" text-anchor="middle" class="layer-title" fill="white">Capa 6: Presentación</text>
+  <text x="250" y="180" text-anchor="middle" class="layer-label" fill="white">Encriptación, Compresión</text>
+
+  <!-- Layer 5: Session -->
+  <rect x="100" y="210" width="300" height="60" class="layer-color" fill="#f39c12"/>
+  <text x="250" y="230" text-anchor="middle" class="layer-title" fill="white">Capa 5: Sesión</text>
+  <text x="250" y="250" text-anchor="middle" class="layer-label" fill="white">Gestión de conexiones</text>
+
+  <!-- Layer 4: Transport -->
+  <rect x="100" y="280" width="300" height="60" class="layer-color" fill="#27ae60"/>
+  <text x="250" y="300" text-anchor="middle" class="layer-title" fill="white">Capa 4: Transporte</text>
+  <text x="250" y="320" text-anchor="middle" class="layer-label" fill="white">TCP, UDP</text>
+
+  <!-- Layer 3: Network -->
+  <rect x="100" y="350" width="300" height="60" class="layer-color" fill="#3498db"/>
+  <text x="250" y="370" text-anchor="middle" class="layer-title" fill="white">Capa 3: Red</text>
+  <text x="250" y="390" text-anchor="middle" class="layer-label" fill="white">IP, Enrutamiento</text>
+
+  <!-- Layer 2: Data Link -->
+  <rect x="100" y="420" width="300" height="60" class="layer-color" fill="#9b59b6"/>
+  <text x="250" y="440" text-anchor="middle" class="layer-title" fill="white">Capa 2: Enlace de Datos</text>
+  <text x="250" y="460" text-anchor="middle" class="layer-label" fill="white">Ethernet, WiFi, MAC</text>
+
+  <!-- Layer 1: Physical -->
+  <rect x="100" y="490" width="300" height="60" class="layer-color" fill="#34495e"/>
+  <text x="250" y="510" text-anchor="middle" class="layer-title" fill="white">Capa 1: Física</text>
+  <text x="250" y="530" text-anchor="middle" class="layer-label" fill="white">Cables, Señales, Hardware</text>
+
+  <!-- Right side: Example data -->
+  <text x="500" y="90" class="layer-title" font-size="13">Ejemplos por capa:</text>
+
+  <g font-family="Arial" font-size="11" fill="#2c3e50">
+    <text x="480" y="115">Capa 7: Navegador web,</text>
+    <text x="480" y="128">aplicación de correo</text>
+
+    <text x="480" y="158">Capa 6: Certificado SSL,</text>
+    <text x="480" y="171">formato JPEG</text>
+
+    <text x="480" y="198">Capa 5: Inicio/cierre</text>
+    <text x="480" y="211">de sesión</text>
+
+    <text x="480" y="238">Capa 4: Puerto 80 (HTTP),</text>
+    <text x="480" y="251">Puerto 443 (HTTPS)</text>
+
+    <text x="480" y="278">Capa 3: IP 192.168.1.1,</text>
+    <text x="480" y="291">Enrutador</text>
+
+    <text x="480" y="318">Capa 2: Dirección MAC,</text>
+    <text x="480" y="331">Switch de red</text>
+
+    <text x="480" y="358">Capa 1: Cable Ethernet,</text>
+    <text x="480" y="371">Fibra óptica, Pulsos</text>
+  </g>
+
+  <!-- Bottom note -->
+  <rect x="50" y="560" width="700" height="35" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="3"/>
+  <text x="400" y="582" text-anchor="middle" class="layer-label" font-size="11">
+    Mnemotecnia: A - P - S - T - R - D - F (All People Seem To Need Data Fast)
+  </text>
+</svg>

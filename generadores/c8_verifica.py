@@ -168,6 +168,19 @@ PLACAS = [(45.0, 34.0), (19.0, 17.0), (12.0, 0.05)]           # (activa, dormida
 PIEZAS = {'o4-led': (15.0, 15.0), 'o4-sensor': (25.0, 0.0), 'o4-dht': (1.5, 0.06),
           'o4-ultra': (15.0, 2.0), 'o4-servo': (250.0, 6.0), 'o4-wifi': (70.0, 0.02)}
 PILAS = [(500, 9), (2500, 6), (2600, 3.7), (10000, 5)]        # (mAh, V)
+# La bomba no esta en PIEZAS y no es un olvido, ni aqui ni en la escena: las
+# piezas de arriba se leen en cada despertar, asi que les vale la fraccion de
+# despierto de la placa. La bomba riega dos veces al dia y treinta segundos,
+# asi que va con su ciclo propio: (mA, segundos por riego, riegos al dia).
+BOMBA = (200.0, 30.0, 2)
+BOMBA_ID = 'o4-bomba'
+
+
+def i_bomba(encendida):
+    if not encendida:
+        return 0.0
+    ma, seg, veces = BOMBA
+    return ma * (seg * veces) / 86400.0
 
 
 def periodo(v):
@@ -445,7 +458,7 @@ def barrido8(v, vida, reutiliza=False):
     return dict(celdas=celdas, vivos=vivos, total=len(celdas))
 
 
-def s4(placa, pila, per, despierto_ms, duerme, encendidas):
+def s4(placa, pila, per, despierto_ms, duerme, encendidas, bomba=True):
     act, dor = PLACAS[placa]
     d = min(despierto_ms / 1000.0 / per, 1.0)
     i_on, i_off = act, (dor if duerme else act)
@@ -453,9 +466,11 @@ def s4(placa, pila, per, despierto_ms, duerme, encendidas):
         on, off = PIEZAS[k]
         i_on += on
         i_off += off if duerme else on
-    media = i_on * d + i_off * (1 - d)
+    ib = i_bomba(bomba)
+    media = i_on * d + i_off * (1 - d) + ib
     mah = PILAS[pila][0]
-    return dict(d=d, i_on=i_on, i_off=i_off, media=media, horas=mah / media)
+    return dict(d=d, i_on=i_on, i_off=i_off, i_bomba=ib, media=media,
+                horas=mah / media)
 
 
 # ==========================================================================
@@ -771,50 +786,68 @@ with sync_playwright() as p:
     check(len(pag.eval_on_selector('#svg-o4', 'e => e.innerHTML')) > 1200,
           'la escena pinta el reparto de corriente y el eje de autonomia')
 
-    def estado_o4(placa, pila, vper, despierto, duerme, piezas):
+    def estado_o4(placa, pila, vper, despierto, duerme, piezas, bomba=True):
         pag.click('#seg-o4 button[data-pl="%d"]' % placa)
         pag.click('#pila-o4 button[data-b="%d"]' % pila)
         pon(pag, 'o4-periodo', vper)
         pon(pag, 'o4-despierto', despierto)
-        for k in PIEZAS:
-            quiero = k in piezas
+        # la bomba entra aqui y no en PIEZAS, igual que en la escena. Antes no
+        # se tocaba: se quedaba marcada por defecto, la pantalla la contaba y
+        # el modelo no. Con corrientes de 85 mA la diferencia cabia dentro del
+        # 1 % de tolerancia y no se veia; con el chip pelado durmiendo, donde
+        # la cuenta entera son 0,1 mA, era el doble.
+        for k in list(PIEZAS) + [BOMBA_ID]:
+            quiero = (k in piezas) if k != BOMBA_ID else bomba
             if pag.is_checked('#' + k) != quiero:
                 pag.click('#' + k)
         if pag.is_checked('#o4-duerme') != duerme:
             pag.click('#o4-duerme')
         pag.wait_for_timeout(250)
-        return s4(placa, pila, periodo(vper), despierto, duerme, piezas)
+        return s4(placa, pila, periodo(vper), despierto, duerme, piezas, bomba)
 
     casos = [
-        (0, 0, 0, 300, False, ['o4-led', 'o4-sensor']),          # el del reto: 9 V, sin dormir
-        (0, 1, 0, 300, False, ['o4-led', 'o4-sensor']),          # 4 pilas AA
-        (0, 1, 24, 300, True, ['o4-led', 'o4-sensor']),          # durmiendo... en un Uno
-        (2, 1, 24, 300, True, ['o4-sensor']),                    # el chip pelado, sin LED
-        (2, 1, 30, 100, True, ['o4-sensor', 'o4-wifi']),         # con wifi
-        (1, 2, 12, 1000, True, ['o4-ultra', 'o4-servo']),        # Nano con servo
-        (2, 1, 30, 200, True, ['o4-dht']),                       # el aviso de ventilacion
+        (0, 0, 0, 300, False, ['o4-led', 'o4-sensor'], True),    # el del reto: 9 V, sin dormir
+        (0, 1, 0, 300, False, ['o4-led', 'o4-sensor'], True),    # 4 pilas AA
+        (0, 1, 24, 300, True, ['o4-led', 'o4-sensor'], True),    # durmiendo... en un Uno
+        (2, 1, 24, 300, True, ['o4-sensor'], True),              # el chip pelado, sin LED
+        (2, 1, 30, 100, True, ['o4-sensor', 'o4-wifi'], True),   # con wifi
+        (1, 2, 12, 1000, True, ['o4-ultra', 'o4-servo'], True),  # Nano con servo
+        (2, 1, 30, 200, True, ['o4-dht'], True),                 # el aviso de ventilacion
+        # el mismo montaje con la bomba y sin ella: es donde se ve que manda
+        # lo que esta encendido siempre y no lo que pide mucho un rato
+        (2, 1, 24, 300, True, ['o4-sensor'], False),
+        (2, 3, 30, 100, True, ['o4-sensor'], True),
     ]
-    for placa, pila, vper, desp, duerme, piezas in casos:
-        T = estado_o4(placa, pila, vper, desp, duerme, piezas)
+    for placa, pila, vper, desp, duerme, piezas, bomba in casos:
+        T = estado_o4(placa, pila, vper, desp, duerme, piezas, bomba)
         F = filas(pag, '#tabla-o4')
         dicho = numeros(busca(F, 'corriente media'))[0]
         check(abs(dicho - T['media']) < max(0.002, T['media'] * 0.01),
               'placa %d, pila %d, %s: %s mA en pantalla, %.4f calculado'
               % (placa, pila, 'durmiendo' if duerme else 'con delay()', dicho, T['media']))
         auto = busca(F, 'autonom')
-        # la autonomia se escribe en horas, dias o anos: se compara en horas
+        # La autonomia se escribe en minutos, horas, dias o anos, y se compara
+        # en horas. La tolerancia sale de lo que la pantalla PUEDE decir: en
+        # anos con un decimal, un paso son 876 horas, asi que exigir el 2 % era
+        # pedirle una precision que no cabe en el rotulo. Se admite medio paso
+        # del ultimo digito escrito, o el 2 %, lo que sea mayor.
         n = numeros(auto)[-1]
-        h = n * (24 if 'día' in auto or 'dias' in auto or 'as' in auto.split()[-1] else 1)
-        if 'año' in auto:
-            h = n * 24 * 365
+        if u'año' in auto:
+            factor = 24 * 365.0
         elif 'min' in auto:
-            h = n / 60.0
-        elif ' h' in auto:
-            h = n
+            factor = 1 / 60.0
+        elif u'día' in auto or 'dias' in auto:
+            factor = 24.0
         else:
-            h = n * 24
-        check(abs(h - T['horas']) < max(0.2, T['horas'] * 0.02),
-              'y aguanta %s, que son %.1f h frente a las %.1f calculadas' % (auto, h, T['horas']))
+            factor = 1.0
+        h = n * factor
+        cifra = re.findall(r'\d+(?:[.,]\d+)?', auto)[-1]
+        decimales = len(cifra.split(',')[-1]) if ',' in cifra else (
+            len(cifra.split('.')[-1]) if '.' in cifra else 0)
+        paso = 0.5 * (10 ** -decimales) * factor
+        check(abs(h - T['horas']) < max(0.2, paso, T['horas'] * 0.02),
+              'y aguanta %s, que son %.1f h frente a las %.1f calculadas'
+              % (auto, h, T['horas']))
 
     # la leccion de la sesion: dormir un Uno apenas sirve; dormir el chip pelado, si
     a = estado_o4(0, 1, 24, 300, False, ['o4-sensor'])
@@ -850,13 +883,19 @@ with sync_playwright() as p:
           'y el factor de mejora que anuncia es el calculado (x%.1f)'
           % (opciones[mejor]['horas'] / base['horas']))
 
-    # el reparto de la barra tiene que sumar el 100 %
-    estado_o4(0, 0, 0, 300, False, ['o4-led', 'o4-sensor'])
-    anchos = pag.eval_on_selector_all(
-        '#svg-o4 rect', "rs => rs.filter(r => r.getAttribute('y') === '22')"
-                        "        .map(r => +r.getAttribute('width'))")
-    check(len(anchos) == 3 and abs(sum(anchos) - 688) < 3,
-          'los tres trozos de la barra apilada suman el ancho entero (%d de 688)' % sum(anchos))
+    # el reparto de la barra tiene que sumar el 100 %, y llevar un trozo por
+    # cosa encendida: la placa, cada pieza marcada y, si riega, la bomba
+    for piezas, bomba in ((['o4-led', 'o4-sensor'], False),
+                          (['o4-led', 'o4-sensor'], True),
+                          (['o4-sensor'], True)):
+        estado_o4(0, 0, 0, 300, False, piezas, bomba)
+        anchos = pag.eval_on_selector_all(
+            '#svg-o4 rect', "rs => rs.filter(r => r.getAttribute('y') === '22')"
+                            "        .map(r => +r.getAttribute('width'))")
+        trozos = 1 + len(piezas) + (1 if bomba else 0)
+        check(len(anchos) == trozos and abs(sum(anchos) - 688) < 3,
+              'la barra apilada lleva %d trozos y suman el ancho entero '
+              '(%d trozos, %d de 688)' % (trozos, len(anchos), sum(anchos)))
 
     # ---------------------------------------------------------------- S5
     print('== Sesion 5 * el inventario del residuo')

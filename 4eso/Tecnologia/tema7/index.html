@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema7/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 7 &middot; Rob&oacute;tica y automatismos">
+<meta property="og:description" content="Tema 7 de Tecnolog&iacute;a de 4.&ordm; de ESO: qu&eacute; es un robot y qu&eacute; no, motores de corriente continua, servo y paso a paso, grados de libertad y cinem&aacute;tica de un brazo, y la m&aacute;quina de estados como herramienta para programar un automatismo.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema7/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema7.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 7 &middot; Rob&oacute;tica y automatismos &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -287,18 +306,49 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 7</div>
     <h1>Rob&oacute;tica y automatismos</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Qu&eacute; es un robot</button><button type="button" data-ses="2">S2 &middot; El motor no sabe d&oacute;nde est&aacute;</button><button type="button" data-ses="3">S3 &middot; Grados de libertad y el brazo</button><button type="button" data-ses="4">S4 &middot; M&aacute;quina de estados</button><button type="button" data-ses="5">S5 &middot; De d&oacute;nde sale la corriente</button><button type="button" data-ses="6">S6 &middot; Que sepa volver a casa</button><button type="button" data-ses="7">S7 &middot; Seguridad y caso peor</button><button type="button" data-ses="8">S8 &middot; El robot entero</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Qu&eacute; es un robot</button><button type="button" data-ses="2">S2 &middot; El motor no sabe d&oacute;nde est&aacute;</button><button type="button" data-ses="3">S3 &middot; Grados de libertad y el brazo</button><button type="button" data-ses="4">S4 &middot; M&aacute;quina de estados</button><button type="button" data-ses="5">S5 &middot; De d&oacute;nde sale la corriente</button><button type="button" data-ses="6">S6 &middot; Que sepa volver a casa</button><button type="button" data-ses="7">S7 &middot; Seguridad y caso peor</button><button type="button" data-ses="8">S8 &middot; El robot entero</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -321,7 +371,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c7">
         <div class="narrador-fig" id="narr-c7-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Ya tienes una m&aacute;quina que se corrige sola. &iquest;Qu&eacute; le falta para moverse por el mundo y hacer algo &uacute;til sin que nadie la vigile?</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -537,7 +587,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <div class="r1-tabla" id="tabla-r1"></div>
         </div>
-        <div class="pie" id="pie-r1"></div>
+        <div class="pie" id="pie-r1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -881,10 +931,18 @@ footer .wrap{padding-block:18px 26px}
            robusto e irregular.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-roomba-recorrido.jpg" alt="Sal&oacute;n a oscuras fotografiado con exposici&oacute;n larga: el robot aspirador ha dejado un rastro de l&iacute;neas amarillas rectas que se cruzan por todo el suelo, con algunos bucles cerrados" loading="lazy">
+        <img src="../../../img/c7-roomba-recorrido.jpg" width="1024" height="682" alt="Sal&oacute;n a oscuras fotografiado con exposici&oacute;n larga: el robot aspirador ha dejado un rastro de l&iacute;neas amarillas rectas que se cruzan por todo el suelo, con algunos bucles cerrados" loading="lazy">
         <figcaption>Esto no es un dibujo: es una <b>fotograf&iacute;a con el obturador abierto varias horas</b>. La l&iacute;nea amarilla es la luz del propio robot aspirador, y lo que se ve es <b>su recorrido entero</b> de una noche. F&iacute;jate: <b>rectas largas que se cortan al llegar a un mueble</b> y salen con otro &aacute;ngulo. Eso es exactamente el cerebro de &laquo;sensor de choque&raquo; de la escena de arriba, y es el que llevaban los primeros modelos, de 2002. Los bucles son la vuelta en espiral que da cuando detecta mucha suciedad en un sitio.
           <span class="credito">Chris Bartle &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Roomba_time-lapse.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <figure class="foto">
+        <img src="../../../img/robot-vs-automation.svg" width="1000" height="600" loading="lazy"
+             alt="Comparaci&oacute;n entre un automatismo (lavavajillas) y un robot (aspiradora): el automatismo ejecuta sin enterarse, el robot percibe el entorno">
+        <figcaption>La frontera: <b>un robot percibe el entorno y decide basándose en ello</b>. Un automatismo ejecuta su programa pase lo que pase. El lavavajillas no es un robot, aunque sea automático; la Roomba sí, aunque sea más simple.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
         </figcaption>
       </figure>
 
@@ -916,7 +974,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">El aparato por dentro: d&oacute;nde est&aacute;n los sensores de choque, los de desnivel y los motores. Vedlo con las tres preguntas del recuadro delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=cwf-cURBUkI" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1030,7 +1089,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Lo que sale en todas las clases es esto, y es razonable: se cronometra una vez cu&aacute;nto
          tarda en recorrer medio metro &mdash;pongamos 2,3 segundos&mdash; y se escribe.</p>
       <div class="copiar">
-        <h4>El primer intento</h4>
+        <h3 class="h-menor">El primer intento</h3>
         <pre style="font-family:var(--f-m);font-size:13px;line-height:1.55;margin:6px 0;white-space:pre-wrap">digitalWrite(motor, HIGH);
 delay(2300);
 digitalWrite(motor, LOW);</pre>
@@ -1064,8 +1123,8 @@ digitalWrite(motor, LOW);</pre>
         <h4>Qu&eacute; te promete cada motor</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>motor</th><th>t&uacute; le dices</th><th>&iquest;sabe d&oacute;nde est&aacute;?</th>
-            <th>vueltas</th></tr>
+            <th scope="col">motor</th><th scope="col">t&uacute; le dices</th><th scope="col">&iquest;sabe d&oacute;nde est&aacute;?</th>
+            <th scope="col">vueltas</th></tr>
           <tr><td><b>Corriente continua</b></td><td>enciende / apaga</td>
               <td><b>no</b>, ni puede</td><td>sin fin</td></tr>
           <tr><td><b>Servo</b></td><td>un <b>&aacute;ngulo</b></td>
@@ -1145,7 +1204,7 @@ digitalWrite(motor, LOW);</pre>
           </div>
           <div class="r2-tabla" id="tabla-r2"></div>
         </div>
-        <div class="pie" id="pie-r2"></div>
+        <div class="pie" id="pie-r2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1414,7 +1473,15 @@ digitalWrite(motor, LOW);</pre>
            escena la moqueta le hace lo mismo que al paso a paso.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-rotor-paso-a-paso.jpg" alt="Rotor cil&iacute;ndrico de un motor paso a paso, fuera del motor, con su eje y con todo el contorno cubierto de ranuras finas y paralelas al eje, y barniz verde entre ellas" loading="lazy">
+        <img src="../../../img/motor-types-comparison.svg" width="1000" height="700" loading="lazy"
+             alt="Comparaci&oacute;n de tres tipos de motores: DC (r&aacute;pido, barato, no sabe d&oacute;nde est&aacute;), servo (posici&oacute;n exacta, 0-180 grados), stepper (preciso paso a paso)">
+        <figcaption>Los tres motores en este tema: <b>velocidad vs precisión vs coste</b>. Motor DC por tiempo no sabe dónde está. Paso a paso es preciso pero lento y caro. Servo motor llega a una posición exacta pero en rango limitado. La escena de arriba se comporta como si tuviera los tres.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
+      <figure class="foto">
+        <img src="../../../img/c7-rotor-paso-a-paso.jpg" width="1280" height="941" alt="Rotor cil&iacute;ndrico de un motor paso a paso, fuera del motor, con su eje y con todo el contorno cubierto de ranuras finas y paralelas al eje, y barniz verde entre ellas" loading="lazy">
         <figcaption>El <b>rotor</b> de un motor paso a paso, sacado de su carcasa. Lo que hace que un paso valga siempre lo mismo no es la electr&oacute;nica: son esas <b>ranuras</b> que le recorren todo el contorno. El rotor se queda quieto en las posiciones en las que sus dientes quedan enfrentados con los del estator, y no en las de en medio. En el tipo m&aacute;s com&uacute;n, el de <b>1,8&deg; por paso</b>, hay <b>50 dientes</b> y el rotor se monta en dos mitades <b>desplazadas medio diente</b> una respecto de la otra: 50 &times; 4 = 200 posiciones por vuelta. El paso angular est&aacute; <b>mecanizado en el metal</b>, y por eso es tan repetible.
           <span class="credito">Dolly1010 &middot; CC BY 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Stepper_motor_rotor.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1447,7 +1514,8 @@ digitalWrite(motor, LOW);</pre>
           </span>
         </button>
         <p class="video-nota">C&oacute;mo se mueve por dentro y c&oacute;mo se elige uno. Es la pieza de la foto de arriba, en marcha. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=e4VCK1N8JvM" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1577,7 +1645,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Grados de libertad</h4>
+        <h3 class="h-menor">Grados de libertad</h3>
         <p><b>Grado de libertad</b> (GdL): cada movimiento <b>independiente</b> que puede hacer un
            mecanismo. Un servo que gira = 1. Un carro que sube y baja = 1. Dos servos encadenados = 2.</p>
         <p>La regla, que es toda la sesi&oacute;n en una l&iacute;nea:</p>
@@ -1595,7 +1663,7 @@ digitalWrite(motor, LOW);</pre>
         </ul>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-scara.jpg" alt="Robot SCARA de laboratorio dentro de su jaula: una columna negra vertical, un primer brazo amarillo horizontal rotulado ARM-BASE, un segundo brazo blanco tambi&eacute;n horizontal y, colgando de su punta, un eje vertical con una pinza sobre una bandeja de piezas" loading="lazy">
+        <img src="../../../img/c7-scara.jpg" width="1280" height="877" alt="Robot SCARA de laboratorio dentro de su jaula: una columna negra vertical, un primer brazo amarillo horizontal rotulado ARM-BASE, un segundo brazo blanco tambi&eacute;n horizontal y, colgando de su punta, un eje vertical con una pinza sobre una bandeja de piezas" loading="lazy">
         <figcaption>Un robot <b>SCARA</b>, contando sus grados de libertad uno a uno: <b>1</b> el brazo amarillo, que gira sobre la columna negra; <b>2</b> el brazo blanco, que gira sobre la punta del amarillo; <b>3</b> el eje que sube y baja; <b>4</b> el giro de la pinza. Cuatro, y ni uno m&aacute;s: para coger una pieza de una bandeja y ponerla en otra no hace falta inclinarla, as&iacute; que sobran dos de los seis. F&iacute;jate en que los dos primeros giran <b>en el mismo plano horizontal</b>: eso es, exactamente, el brazo de dos eslabones de la escena de abajo, visto desde arriba.
           <span class="credito">Hirata Robotics GmbH &middot; CC BY-SA 3.0 de &middot;
             <a href="https://commons.wikimedia.org/wiki/File:SCARA_mit_Stocker.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1685,7 +1753,7 @@ digitalWrite(motor, LOW);</pre>
           </div>
           <div class="r3-lee" id="lee-r3"></div>
         </div>
-        <div class="pie" id="pie-r3"></div>
+        <div class="pie" id="pie-r3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2062,7 +2130,8 @@ digitalWrite(motor, LOW);</pre>
           </span>
         </button>
         <p class="video-nota">El mismo brazo de la escena, con las dos cuentas hechas a mano en la pizarra. La parte de la inversa es de nivel Bachillerato: sirve para ver de d&oacute;nde salen los dos codos. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=9zSRNXRuX0g" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2163,7 +2232,7 @@ digitalWrite(motor, LOW);</pre>
          en una l&iacute;nea: <b>si alguien pasa la tarjeta, la barrera sube, espera un poco y
          baja</b>.</p>
       <div class="copiar">
-        <h4>El primer programa, que sale solo</h4>
+        <h3 class="h-menor">El primer programa, que sale solo</h3>
         <pre style="font-family:var(--f-m);font-size:13px;line-height:1.55;margin:6px 0;white-space:pre-wrap">void loop() {
   if (tarjetaValida()) {
     subirBarrera();
@@ -2239,6 +2308,14 @@ digitalWrite(motor, LOW);</pre>
         <p>Las casillas que dejes en blanco son, exactamente, <b>por donde se va a romper</b> el
            automatismo el d&iacute;a que lo pongas en el pasillo.</p>
       </div>
+      <figure class="foto">
+        <img src="../../../img/state-machine-concept.svg" width="1000" height="700" loading="lazy"
+             alt="Concepto de m&aacute;quina de estados: semáforo con tres estados (rojo, amarillo, verde) y transiciones entre ellos; ejemplo de Roomba con estados (espera, explorando, obstáculo, cargando)">
+        <figcaption><b>Máquina de estados</b>: cada círculo es un estado, las flechas son transiciones, y cada transición tiene una condición (cuándo sucede). El semáforo es determinista (siempre pasa el mismo tiempo). La Roomba tiene transiciones basadas en sensores: si choca, gira; si batería baja, va a cargarse.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Abajo tienes la m&aacute;quina montada y <b>funcionando</b>. Pulsa los eventos y mira tres
          cosas a la vez: el diagrama, la l&iacute;nea de c&oacute;digo que te toca y la tabla de
          casillas, que se va encendiendo. El reto es <b>encenderlas las veinte</b>.</p>
@@ -2279,7 +2356,7 @@ digitalWrite(motor, LOW);</pre>
           </div>
           <div class="r4-tabla" id="tabla-r4"></div>
         </div>
-        <div class="pie" id="pie-r4"></div>
+        <div class="pie" id="pie-r4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2490,7 +2567,7 @@ digitalWrite(motor, LOW);</pre>
                  + (act ? 'var(--goo-azul)' : 'var(--line)') + '" stroke-width="2"/>');
             s.push('<text x="' + NODO[k][0] + '" y="' + (NODO[k][1] + 4)
                  + '" text-anchor="middle" style="font-family:var(--f-m);font-size:9.5px;fill:'
-                 + (act ? '#fff' : 'var(--ink)') + '">' + P.est[k] + '</text>');
+                 + (act ? 'var(--tinta-sobre)' : 'var(--ink)') + '">' + P.est[k] + '</text>');
           }
           /* El actuador, dibujado con el angulo que llevan los eventos contados.
              Se dibuja como lo que es -- un mastil con un brazo que gira sobre
@@ -2590,11 +2667,11 @@ digitalWrite(motor, LOW);</pre>
               + 'hay casos, hay l&iacute;neas.</p>';
             return;
           }
-          var h = '<table><tr><th>estado \\ evento</th>';
-          EV_CORTO.forEach(function(e){ h += '<th>' + e + '</th>'; });
+          var h = '<table><tr><th scope="col">estado \\ evento</th>';
+          EV_CORTO.forEach(function(e){ h += '<th scope="col">' + e + '</th>'; });
           h += '</tr>';
           for(var s = 0; s < 4; s++){
-            h += '<tr><th>' + P.est[s] + '</th>';
+            h += '<tr><th scope="row">' + P.est[s] + '</th>';
             for(var e = 0; e < 5; e++)
               h += '<td class="' + (M.cob[s + '-' + e] ? 'on' : '') + '">'
                  + (M.cob[s + '-' + e] ? '&#10003;' : '&middot;') + '</td>';
@@ -2681,7 +2758,7 @@ digitalWrite(motor, LOW);</pre>
               <code>case</code> por estado, y dentro de cada <code>case</code> las transiciones que
               salen de &eacute;l. <b>Nunca</b> un <code>case</code> sin su <code>break;</code>.</li>
           <li>Para esperar: al entrar en el estado se guarda <code>t0 = millis();</code> y en cada
-              vuelta se comprueba <code>if (millis() - t0 &gt; ESPERA) ...</code></li>
+              vuelta se comprueba <code>if (millis() - t0 &gt; ESPERA) &hellip;</code></li>
         </ul>
         <p>Mira las dos versiones de c&oacute;digo de la escena, una al lado de la otra. La de estados
            es m&aacute;s larga; tambi&eacute;n es la &uacute;nica que se puede leer dentro de un mes y
@@ -2693,7 +2770,7 @@ digitalWrite(motor, LOW);</pre>
            otra manera, los eventos tambi&eacute;n, y las <b>flechas son las mismas</b>.</p>
         <table style="width:100%;border-collapse:collapse;font-size:14px;margin-top:8px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th></th><th>Barrera</th><th>Riego</th><th>Contenedor</th></tr>
+            <th scope="col"></th><th scope="col">Barrera</th><th scope="col">Riego</th><th scope="col">Contenedor</th></tr>
           <tr><td>reposo</td><td>cerrada</td><td>en espera</td><td>vigilando</td></tr>
           <tr><td>actuando</td><td>subiendo</td><td>regando</td><td>avisando</td></tr>
           <tr><td>manteniendo</td><td>abierta</td><td>dejando calar</td><td>aviso puesto</td></tr>
@@ -2704,7 +2781,7 @@ digitalWrite(motor, LOW);</pre>
            montes el tuyo, empieza por ah&iacute; y luego a&ntilde;ade lo que le falte.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-programador-lavadora.jpg" alt="Programador electromec&aacute;nico de lavadora desmontado: el mando blanco arriba, una pila de discos de pl&aacute;stico traslúcido en el centro y, a los dos lados, hileras de contactos met&aacute;licos de los que salen decenas de cables de colores" loading="lazy">
+        <img src="../../../img/c7-programador-lavadora.jpg" width="1200" height="1600" alt="Programador electromec&aacute;nico de lavadora desmontado: el mando blanco arriba, una pila de discos de pl&aacute;stico traslúcido en el centro y, a los dos lados, hileras de contactos met&aacute;licos de los que salen decenas de cables de colores" loading="lazy">
         <figcaption>Una m&aacute;quina de estados hecha de <b>metal</b>: el programador de una lavadora antigua (Candy). Esa pila de discos del centro son <b>levas</b>, y cada una tiene recortado su propio perfil; al girar, sus salientes abren y cierran los contactos de los lados, que son los que dan corriente al motor, a la resistencia y a la bomba. <b>El programa es la forma de las levas</b>, y el estado es, literalmente, el &aacute;ngulo en el que est&aacute;. Un motorcito lo hace avanzar poco a poco, y de ah&iacute; el &laquo;clac&raquo; cada pocos segundos. F&iacute;jate en lo que <b>no</b> puede hacer: volver atr&aacute;s, saltarse una fase o reaccionar a algo. Solo <b>avanza</b>. Es el lavavajillas de la sesi&oacute;n 1, abierto por dentro.
           <span class="credito">Lac 16 &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Machine_laver_programmateur.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2741,7 +2818,8 @@ digitalWrite(motor, LOW);</pre>
           </span>
         </button>
         <p class="video-nota">Un automatismo real con <code>millis()</code> y transiciones por tiempo, sin un solo <code>delay()</code>. Es el paso siguiente al c&oacute;digo de la escena. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=IrBwtuUwqbM" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2813,80 +2891,80 @@ digitalWrite(motor, LOW);</pre>
       </ol>
       <div class="ta" id="test-c7">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. &iquest;Cu&aacute;l es la pregunta que mejor separa un robot de una m&aacute;quina automática cualquiera?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7-p1">
+          <p id="test-c7-p1">1. &iquest;Cu&aacute;l es la pregunta que mejor separa un robot de una m&aacute;quina automática cualquiera?</p>
           <label class="ta-op"><input type="radio" name="c7-0" value="0">&iquest;Tiene motores y un programa dentro?</label>
-          <label class="ta-op"><input type="radio" name="c7-0" value="1">Si cambias el mundo a su alrededor, &iquest;cambia lo que hace?</label>
-          <label class="ta-op"><input type="radio" name="c7-0" value="2">&iquest;Se parece a una persona o a un animal?</label>
+          <label class="ta-op"><input type="radio" name="c7-0" value="1">&iquest;Se parece a una persona o a un animal?</label>
+          <label class="ta-op"><input type="radio" name="c7-0" value="2">Si cambias el mundo a su alrededor, &iquest;cambia lo que hace?</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un lavavajillas tiene motores, programa y hasta sensores, pero sus sensores se miran a s&iacute; mismos y su programa dura lo mismo con dos platos que con veinte. Un robot <b>percibe el entorno</b>, decide a partir de eso y act&uacute;a sobre &eacute;l.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. En la escena de la sesi&oacute;n 1, al mover los muebles el programa grabado baja del 77 % al 47 % y choca 124 veces. &iquest;Qu&eacute; le falta?</p>
-          <label class="ta-op"><input type="radio" name="c7-1" value="0">M&aacute;s pasos: con m&aacute;s tiempo acabar&iacute;a el aula.</label>
-          <label class="ta-op"><input type="radio" name="c7-1" value="1">Percibir el entorno: gasta los pasos contra una mesa igual que si limpiara, porque no distingue una cosa de otra.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p2">
+          <p id="test-c7-p2">2. En la escena de la sesi&oacute;n 1, al mover los muebles el programa grabado baja del 77 % al 47 % y choca 124 veces. &iquest;Qu&eacute; le falta?</p>
+          <label class="ta-op"><input type="radio" name="c7-1" value="0">Percibir el entorno: gasta los pasos contra una mesa igual que si limpiara, porque no distingue una cosa de otra.</label>
+          <label class="ta-op"><input type="radio" name="c7-1" value="1">M&aacute;s pasos: con m&aacute;s tiempo acabar&iacute;a el aula.</label>
           <label class="ta-op"><input type="radio" name="c7-1" value="2">Un motor m&aacute;s potente para apartar los muebles.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No es cuesti&oacute;n de tiempo ni de fuerza. El programa grabado <b>no lee nada</b>: repite la lista que se grab&oacute; el d&iacute;a que se grab&oacute;, y los 124 choques los da sin enterarse de ninguno.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. &iquest;Por qu&eacute; <code>digitalWrite(motor, HIGH); delay(2300);</code> no sirve para avanzar medio metro?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p3">
+          <p id="test-c7-p3">3. &iquest;Por qu&eacute; <code>digitalWrite(motor, HIGH); delay(2300);</code> no sirve para avanzar medio metro?</p>
           <label class="ta-op"><input type="radio" name="c7-2" value="0">Porque 2300 milisegundos son muy pocos.</label>
           <label class="ta-op"><input type="radio" name="c7-2" value="1">Porque mide tiempo, y tiempo y distancia solo son lo mismo si la velocidad no cambia &mdash; y cambia con la pila, con el suelo y con el rozamiento.</label>
           <label class="ta-op"><input type="radio" name="c7-2" value="2">Porque <code>delay()</code> no funciona con motores.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El programa no ha cambiado entre una prueba y otra: lo que cambia es la velocidad. Con la pila a media carga, el mismo programa se queda en 38 cm.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>4. Un motor paso a paso de 200 pasos por vuelta mueve una rueda de 65 mm de di&aacute;metro. &iquest;Cu&aacute;nto avanza en un paso?</p>
-          <label class="ta-op"><input type="radio" name="c7-3" value="0">&pi;&middot;65/200 = 1,021 mm</label>
-          <label class="ta-op"><input type="radio" name="c7-3" value="1">65/200 = 0,325 mm</label>
-          <label class="ta-op"><input type="radio" name="c7-3" value="2">360/200 = 1,8 mm</label>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7-p4">
+          <p id="test-c7-p4">4. Un motor paso a paso de 200 pasos por vuelta mueve una rueda de 65 mm de di&aacute;metro. &iquest;Cu&aacute;nto avanza en un paso?</p>
+          <label class="ta-op"><input type="radio" name="c7-3" value="0">65/200 = 0,325 mm</label>
+          <label class="ta-op"><input type="radio" name="c7-3" value="1">360/200 = 1,8 mm</label>
+          <label class="ta-op"><input type="radio" name="c7-3" value="2">&pi;&middot;65/200 = 1,021 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que avanza es el <b>per&iacute;metro</b> repartido entre los pasos: &pi;&middot;65 = 204,2 mm entre 200 pasos. El 1,8 no son mil&iacute;metros: son los <b>grados</b> que gira el eje en cada paso.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Los cinco intentos de un robot dan 472, 471, 473, 472 y 473 mm, y hab&iacute;as pedido 500. &iquest;C&oacute;mo se llama eso y c&oacute;mo se arregla?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p5">
+          <p id="test-c7-p5">5. Los cinco intentos de un robot dan 472, 471, 473, 472 y 473 mm, y hab&iacute;as pedido 500. &iquest;C&oacute;mo se llama eso y c&oacute;mo se arregla?</p>
           <label class="ta-op"><input type="radio" name="c7-4" value="0">Es falta de precisi&oacute;n, y se arregla haciendo m&aacute;s intentos y tomando la media.</label>
           <label class="ta-op"><input type="radio" name="c7-4" value="1">Es preciso pero inexacto: hay un error sistem&aacute;tico, y solo se arregla buscando la causa (el di&aacute;metro de la rueda, el deslizamiento).</label>
           <label class="ta-op"><input type="radio" name="c7-4" value="2">Es normal en cualquier motor y no tiene arreglo.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Los cinco caen en 2 mm: <b>precisi&oacute;n</b> excelente. Pero los cinco se quedan cortos hacia el mismo lado: eso es un <b>error sistem&aacute;tico</b>, y repetir la medida no lo quita, porque est&aacute; en todas las medidas.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. &iquest;Cu&aacute;ntos grados de libertad hacen falta para dejar una pieza en un punto del espacio <b>con</b> una inclinaci&oacute;n determinada?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7-p6">
+          <p id="test-c7-p6">6. &iquest;Cu&aacute;ntos grados de libertad hacen falta para dejar una pieza en un punto del espacio <b>con</b> una inclinaci&oacute;n determinada?</p>
           <label class="ta-op"><input type="radio" name="c7-5" value="0">Tres: x, y, z.</label>
           <label class="ta-op"><input type="radio" name="c7-5" value="1">Seis: tres de posici&oacute;n y tres de orientaci&oacute;n.</label>
           <label class="ta-op"><input type="radio" name="c7-5" value="2">Los que tenga el robot; no hay un n&uacute;mero.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Tres n&uacute;meros dicen d&oacute;nde, y otros tres dicen c&oacute;mo est&aacute; puesta. De ah&iacute; los <b>seis ejes</b> de los brazos industriales. Un SCARA lleva cuatro porque para dejar piezas en una bandeja no hace falta inclinarlas.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. En el brazo de dos eslabones, &iquest;por qu&eacute; la segunda parte de la f&oacute;rmula lleva cos(&theta;&#8321;+&theta;&#8322;) y no cos&nbsp;&theta;&#8322;?</p>
-          <label class="ta-op"><input type="radio" name="c7-6" value="0">Por un convenio de los cat&aacute;logos de robots.</label>
-          <label class="ta-op"><input type="radio" name="c7-6" value="1">Porque &theta;&#8322; se mide respecto al primer eslab&oacute;n, no respecto al eje x: para saber c&oacute;mo est&aacute; el segundo eslab&oacute;n hay que sumar los dos.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p7">
+          <p id="test-c7-p7">7. En el brazo de dos eslabones, &iquest;por qu&eacute; la segunda parte de la f&oacute;rmula lleva cos(&theta;&#8321;+&theta;&#8322;) y no cos&nbsp;&theta;&#8322;?</p>
+          <label class="ta-op"><input type="radio" name="c7-6" value="0">Porque &theta;&#8322; se mide respecto al primer eslab&oacute;n, no respecto al eje x: para saber c&oacute;mo est&aacute; el segundo eslab&oacute;n hay que sumar los dos.</label>
+          <label class="ta-op"><input type="radio" name="c7-6" value="1">Por un convenio de los cat&aacute;logos de robots.</label>
           <label class="ta-op"><input type="radio" name="c7-6" value="2">Porque as&iacute; el resultado sale en grados y no en radianes.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el fallo cl&aacute;sico, y lo peor es que con &theta;&#8321; = 0 la f&oacute;rmula mala <b>tambi&eacute;n acierta</b>: solo se cae cuando mueves el hombro.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. Pones un objetivo dentro del espacio de trabajo del brazo de dos eslabones. &iquest;Cu&aacute;ntos juegos de &aacute;ngulos lo alcanzan?</p>
-          <label class="ta-op"><input type="radio" name="c7-7" value="0">Uno, siempre.</label>
-          <label class="ta-op"><input type="radio" name="c7-7" value="1">Dos, uno con el codo hacia cada lado.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p8">
+          <p id="test-c7-p8">8. Pones un objetivo dentro del espacio de trabajo del brazo de dos eslabones. &iquest;Cu&aacute;ntos juegos de &aacute;ngulos lo alcanzan?</p>
+          <label class="ta-op"><input type="radio" name="c7-7" value="0">Dos, uno con el codo hacia cada lado.</label>
+          <label class="ta-op"><input type="radio" name="c7-7" value="1">Uno, siempre.</label>
           <label class="ta-op"><input type="radio" name="c7-7" value="2">Ninguno.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Por eso la cinem&aacute;tica <b>inversa</b> es la dif&iacute;cil: no da una respuesta, da dos, y alguien tiene que elegir mirando con cu&aacute;l no choca el codo. Fuera del espacio de trabajo no hay ninguna.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. &iquest;Qu&eacute; es lo que hace de verdad <code>delay(3000)</code> dentro de un automatismo?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7-p9">
+          <p id="test-c7-p9">9. &iquest;Qu&eacute; es lo que hace de verdad <code>delay(3000)</code> dentro de un automatismo?</p>
           <label class="ta-op"><input type="radio" name="c7-8" value="0">Guardar los eventos que lleguen para atenderlos en cuanto acabe.</label>
-          <label class="ta-op"><input type="radio" name="c7-8" value="1">Dejar al programa tres segundos sin mirar nada: lo que llegue mientras tanto se pierde y no queda registrado en ning&uacute;n sitio.</label>
-          <label class="ta-op"><input type="radio" name="c7-8" value="2">Bajar el consumo de la placa durante tres segundos.</label>
+          <label class="ta-op"><input type="radio" name="c7-8" value="1">Bajar el consumo de la placa durante tres segundos.</label>
+          <label class="ta-op"><input type="radio" name="c7-8" value="2">Dejar al programa tres segundos sin mirar nada: lo que llegue mientras tanto se pierde y no queda registrado en ning&uacute;n sitio.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No es una pausa: es un rato fuera del mundo. Y lo m&aacute;s probable que llegue mientras no miras es justo el evento de seguridad. Por eso el tiempo se cuenta con <code>millis()</code>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Un automatismo con 4 estados y 5 eventos. &iquest;Cu&aacute;ntas casillas tiene su tabla de transiciones y cu&aacute;ntas hay que contestar?</p>
-          <label class="ta-op"><input type="radio" name="c7-9" value="0">9 casillas, una por estado y por evento.</label>
-          <label class="ta-op"><input type="radio" name="c7-9" value="1">20 casillas, y hay que contestarlas todas, aunque muchas sean &laquo;no hacer nada&raquo;.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7-p10">
+          <p id="test-c7-p10">10. Un automatismo con 4 estados y 5 eventos. &iquest;Cu&aacute;ntas casillas tiene su tabla de transiciones y cu&aacute;ntas hay que contestar?</p>
+          <label class="ta-op"><input type="radio" name="c7-9" value="0">20 casillas, y hay que contestarlas todas, aunque muchas sean &laquo;no hacer nada&raquo;.</label>
+          <label class="ta-op"><input type="radio" name="c7-9" value="1">9 casillas, una por estado y por evento.</label>
           <label class="ta-op"><input type="radio" name="c7-9" value="2">Solo las que se usan: las dem&aacute;s sobran.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 4 &times; 5 = <b>20</b>. Las que dejes en blanco son exactamente por donde se va a romper el automatismo, porque son los casos que no te has planteado. Contestar &laquo;no hace nada&raquo; <b>es</b> contestar.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2930,7 +3008,7 @@ digitalWrite(motor, LOW);</pre>
          m&aacute;quina cambia de estado, el actuador se mueve. Perfecto.</p>
       <p>Y entonces lo montas en la mesa del taller.</p>
       <div class="copiar">
-        <h4>Lo que pasa, y pasa en casi todos los grupos</h4>
+        <h3 class="h-menor">Lo que pasa, y pasa en casi todos los grupos</h3>
         <ol>
           <li>Enchufas. El LED de la placa se enciende. Bien.</li>
           <li>Mojas la sonda, la secas, y la lectura cambia. Muy bien.</li>
@@ -3009,7 +3087,7 @@ digitalWrite(motor, LOW);</pre>
         <h4>Las tres zonas de una placa Arduino UNO</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>le llegan&hellip;</th><th>y entonces&hellip;</th></tr>
+            <th scope="col">le llegan&hellip;</th><th scope="col">y entonces&hellip;</th></tr>
           <tr><td><b>4,5 V o m&aacute;s</b></td>
               <td>funciona, y el fabricante lo <b>garantiza</b> a 16 MHz</td></tr>
           <tr><td><b>entre 2,7 y 4,5 V</b></td>
@@ -3079,7 +3157,7 @@ digitalWrite(motor, LOW);</pre>
           </div>
           <div class="r5-tabla" id="tabla-r5"></div>
         </div>
-        <div class="pie" id="pie-r5"></div>
+        <div class="pie" id="pie-r5" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3508,7 +3586,7 @@ digitalWrite(motor, LOW);</pre>
            se notan. Para <b>se&ntilde;ales</b> da igual; para <b>potencia</b>, no.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-protoboard-contactos.jpg" alt="Protoboard blanca con la tapa trasera quitada, ense&ntilde;ando las tiras met&aacute;licas alojadas en sus canales; una de las tiras est&aacute; fuera, al lado, y se le ven los cinco pares de pinzas de chapa" loading="lazy">
+        <img src="../../../img/c7-protoboard-contactos.jpg" width="1280" height="960" alt="Protoboard blanca con la tapa trasera quitada, ense&ntilde;ando las tiras met&aacute;licas alojadas en sus canales; una de las tiras est&aacute; fuera, al lado, y se le ven los cinco pares de pinzas de chapa" loading="lazy">
         <figcaption>Una <b>protoboard por dentro</b>, con la tapa quitada. <b>Es la misma foto</b> que miraste en la unidad 5, y entonces serv&iacute;a para entender que la placa ya une cosas por dentro. Hoy sirve para lo contrario. Cada fila de cinco agujeros es una de esas tiras met&aacute;licas, y la que est&aacute; suelta a la derecha ense&ntilde;a lo que hay de verdad dentro de cada agujero: <b>una pinza de chapa doblada</b> que aprieta el cable. Eso es lo que hace que montar sea tan r&aacute;pido&hellip; y lo que mete resistencia en el camino. Para una se&ntilde;al no importa; para los dos amperios del arranque de una bomba, s&iacute;. F&iacute;jate tambi&eacute;n en las <b>dos tiras largas de los bordes</b>: esas son los carriles de alimentaci&oacute;n, y por ah&iacute; es por donde pasa toda la corriente del montaje.
           <span class="credito">Zeroping &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Metal_contacts_within_a_breadboard.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3572,8 +3650,8 @@ digitalWrite(motor, LOW);</pre>
         </button>
         <p class="video-nota">Las maneras de dar de comer a la placa y lo que aguanta cada una. Es la columna izquierda de la escena de arriba, con las piezas en la mano. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=pbJGJvgaS2c" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=pbJGJvgaS2c" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -3708,7 +3786,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Referenciado</h4>
+        <h3 class="h-menor">Referenciado</h3>
         <p><b>Referenciar</b> (en ingl&eacute;s, <i>homing</i>) es lo que hace una m&aacute;quina
            nada m&aacute;s encenderse: moverse despacio hasta un punto que reconoce y poner ah&iacute;
            su cero. A partir de ese momento, y solo a partir de ese momento, sus cuentas significan
@@ -3785,7 +3863,7 @@ digitalWrite(motor, LOW);</pre>
           </div>
           <div class="r6-tabla" id="tabla-r6"></div>
         </div>
-        <div class="pie" id="pie-r6"></div>
+        <div class="pie" id="pie-r6" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4180,7 +4258,7 @@ digitalWrite(motor, LOW);</pre>
            <b>estado inicial conocido y comprobado</b>, en vez de uno supuesto.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-final-carrera.jpg" alt="Detalle del eje X de una impresora 3D Prusa i3: dos varillas gu&iacute;a, una varilla roscada, piezas impresas amarillas y, en el centro, un microrruptor negro con su palanca met&aacute;lica y dos terminales de conexi&oacute;n transparentes" loading="lazy">
+        <img src="../../../img/c7-final-carrera.jpg" width="1280" height="960" alt="Detalle del eje X de una impresora 3D Prusa i3: dos varillas gu&iacute;a, una varilla roscada, piezas impresas amarillas y, en el centro, un microrruptor negro con su palanca met&aacute;lica y dos terminales de conexi&oacute;n transparentes" loading="lazy">
         <figcaption>El <b>final de carrera</b> del eje X de una impresora 3D, que es exactamente la pieza de la escena de arriba. Esa cajita negra del centro es un <b>microrruptor</b>: el fleje met&aacute;lico que le sale es la palanca, y el carro la empuja al llegar. Cuesta menos de un euro y es <b>todo lo que la m&aacute;quina sabe</b> de d&oacute;nde est&aacute;: la impresora cuenta pasos desde aqu&iacute;. F&iacute;jate en que est&aacute; atornillado a una pieza fija, no al carro, y en que los dos cables salen hacia el lado que no se mueve: eso es el plano de montaje de la sesi&oacute;n 5, hecho.
           <span class="credito">John Abella &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Prusa_i3_Printer_-_X_and_Z_Endstops_(8965235398).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4196,8 +4274,8 @@ digitalWrite(motor, LOW);</pre>
         </button>
         <p class="video-nota">El referenciado en una m&aacute;quina de control num&eacute;rico, que es lo mismo que va a hacer vuestro robot pero con tres ejes y un cabezal que corta. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=6HPv_NHF9nk" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=6HPv_NHF9nk" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -4329,7 +4407,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Caso peor</h4>
+        <h3 class="h-menor">Caso peor</h3>
         <p>Cuando se dise&ntilde;a algo que va a quedarse funcionando solo, no se calcula con lo
            normal: se calcula con el <b>caso peor</b>. No &laquo;cu&aacute;nta corriente pide la
            bomba&raquo;, sino <b>cu&aacute;nta pide si se atasca</b>. No &laquo;cu&aacute;nto tarda
@@ -4378,7 +4456,7 @@ digitalWrite(motor, LOW);</pre>
            al comprar la pieza</b></p>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>pieza</th><th>sin &oacute;rdenes se queda&hellip;</th><th>y eso es&hellip;</th></tr>
+            <th scope="col">pieza</th><th scope="col">sin &oacute;rdenes se queda&hellip;</th><th scope="col">y eso es&hellip;</th></tr>
           <tr><td><b>Servo</b></td><td>suelto: el brazo cae por su peso</td>
               <td>malo si hay algo debajo</td></tr>
           <tr><td><b>V&aacute;lvula con muelle</b></td><td>cerrada, sola</td>
@@ -4463,7 +4541,7 @@ digitalWrite(motor, LOW);</pre>
             <div id="mat-r7"></div>
           </div>
         </div>
-        <div class="pie" id="pie-r7"></div>
+        <div class="pie" id="pie-r7" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4761,11 +4839,11 @@ digitalWrite(motor, LOW);</pre>
         var TAPA = [[1, 0, 0], [0, 0, 1], [0, 1, 0], [0, 1, 0]];
 
         function matriz(){
-          var h = '<table><tr><th>protecci&oacute;n \\ fallo</th>';
-          FALLOS.forEach(function(f){ h += '<th>' + f + '</th>'; });
+          var h = '<table><tr><th scope="col">protecci&oacute;n \\ fallo</th>';
+          FALLOS.forEach(function(f){ h += '<th scope="col">' + f + '</th>'; });
           h += '</tr>';
           for(var i = 0; i < 4; i++){
-            h += '<tr><th>' + PROTS[i] + '</th>';
+            h += '<tr><th scope="row">' + PROTS[i] + '</th>';
             for(var j = 0; j < 3; j++){
               var cls = TAPA[i][j] ? (v.p[i] ? 'tapa' : 'falta') : '';
               var txt = TAPA[i][j] ? (v.p[i] ? '&#10003;' : '&#10007;') : '&middot;';
@@ -4993,7 +5071,7 @@ digitalWrite(motor, LOW);</pre>
            230 V de la pared, s&iacute;.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-celda-vallada.jpg" alt="Vista desde arriba de un taller met&aacute;lico: una m&aacute;quina de soldar rodeada por un bastidor amarillo con cortinas rojas translúcidas a los lados, franjas amarillas y negras en los postes, y un peque&ntilde;o cuadro de mandos con botones colgado por fuera del bastidor" loading="lazy">
+        <img src="../../../img/c7-celda-vallada.jpg" width="1280" height="834" alt="Vista desde arriba de un taller met&aacute;lico: una m&aacute;quina de soldar rodeada por un bastidor amarillo con cortinas rojas translúcidas a los lados, franjas amarillas y negras en los postes, y un peque&ntilde;o cuadro de mandos con botones colgado por fuera del bastidor" loading="lazy">
         <figcaption>Una <b>celda de soldadura vallada</b>. Cuenta lo que se ve: la m&aacute;quina est&aacute; dentro de un bastidor <b>amarillo</b>, con las patas rayadas en amarillo y negro para que se vean; a los lados hay <b>cortinas rojas</b>, que filtran la luz del arco; y el <b>cuadro de mandos</b> con los botones est&aacute; colgado <b>por fuera</b>. Eso &uacute;ltimo no es comodidad: es el escal&oacute;n 2 de la lista, y significa que para ponerla en marcha hay que estar <b>fuera</b>. Ni un sensor a la vista &mdash; y no hace falta.
           <span class="credito">WireCrafters &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Robotic_Welding_Cell.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5009,8 +5087,8 @@ digitalWrite(motor, LOW);</pre>
         </button>
         <p class="video-nota">C&oacute;mo se protege una celda con robots de verdad. Va sobre una norma industrial (ISO 10218) que se sale de 4.&ordm;; lo que interesa aqu&iacute; es el <b>orden</b> de las medidas, que es el mismo que el del recuadro. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=AtNxx-jaIt4" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=AtNxx-jaIt4" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -5043,8 +5121,8 @@ digitalWrite(motor, LOW);</pre>
              pon&eacute;is vosotros, y tienen que ser de vuestra m&aacute;quina de verdad.</p>
           <table style="width:100%;border-collapse:collapse;font-size:14px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>qu&eacute; falla</th><th>qu&eacute; hace la m&aacute;quina hoy</th>
-              <th>qu&eacute; deber&iacute;a hacer</th><th>qu&eacute; lo tapa</th></tr>
+              <th scope="col">qu&eacute; falla</th><th scope="col">qu&eacute; hace la m&aacute;quina hoy</th>
+              <th scope="col">qu&eacute; deber&iacute;a hacer</th><th scope="col">qu&eacute; lo tapa</th></tr>
           </table>
           <p>La columna del medio se rellena <b>con el montaje delante</b>, no de memoria. Y la
              cuarta tiene que decir <b>qu&eacute; pieza o qu&eacute; l&iacute;nea</b>, no
@@ -5144,7 +5222,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La ficha t&eacute;cnica de vuestro robot</h4>
+        <h3 class="h-menor">La ficha t&eacute;cnica de vuestro robot</h3>
         <p>Una p&aacute;gina. Es lo que acompa&ntilde;a a cualquier m&aacute;quina de verdad y lo que
            va a ver quien os eval&uacute;e antes de que abr&aacute;is la boca. Seis apartados:</p>
         <ol>
@@ -5187,7 +5265,7 @@ digitalWrite(motor, LOW);</pre>
                aria-label="Curva de humedad de la maceta durante veinticuatro horas, con las maniobras de riego y los cuatro sucesos del d&iacute;a marcados"></svg>
           <div class="r8-tabla" id="tabla-r8"></div>
         </div>
-        <div class="pie" id="pie-r8"></div>
+        <div class="pie" id="pie-r8" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -5580,7 +5658,7 @@ digitalWrite(motor, LOW);</pre>
            sesi&oacute;n 6.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c7-shakey.jpg" alt="Shakey, dentro de una vitrina de museo: una plataforma con ruedas de la que sale una columna vertical con una c&aacute;mara y otro sensor cil&iacute;ndrico en lo alto, mazos de cable negro por el cuerpo, y varios alambres finos que sobresalen alrededor de la base" loading="lazy">
+        <img src="../../../img/c7-shakey.jpg" width="1280" height="1920" alt="Shakey, dentro de una vitrina de museo: una plataforma con ruedas de la que sale una columna vertical con una c&aacute;mara y otro sensor cil&iacute;ndrico en lo alto, mazos de cable negro por el cuerpo, y varios alambres finos que sobresalen alrededor de la base" loading="lazy">
         <figcaption><b>Shakey</b> (SRI, 1966-1972), el primer robot m&oacute;vil que decid&iacute;a por su cuenta c&oacute;mo moverse, expuesto en el Computer History Museum. Recorre la foto de arriba abajo con las tres preguntas de la sesi&oacute;n 1: arriba, lo que <b>percibe</b> &mdash;la c&aacute;mara de televisi&oacute;n y el tel&eacute;metro de la torre&mdash;; alrededor de la base, esos <b>alambres finos</b> que asoman son los bigotes de contacto, el mismo sensor de choque que manejabas en la escena de la sesi&oacute;n 1; abajo, lo que <b>mueve</b>, dos ruedas motrices. Lo que <b>decide</b> no est&aacute; en la foto: el ordenador ocupaba una sala y se comunicaba con &eacute;l por radio.
           <span class="credito">The wub &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:SRI_Shakey_robot,_1969,_Computer_History_Museum.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5596,8 +5674,8 @@ digitalWrite(motor, LOW);</pre>
         </button>
         <p class="video-nota">La pel&iacute;cula original del SRI, la del robot de la foto. <b>Est&aacute; en ingl&eacute;s y no lleva subt&iacute;tulos</b>, pero se entiende mirando: se ve al robot percibir, decidir y actuar &mdash;y equivocarse&mdash; en 1972. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=GmU7SimFkpU" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=GmU7SimFkpU" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -5664,80 +5742,80 @@ digitalWrite(motor, LOW);</pre>
       </ol>
       <div class="ta" id="test-c7b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. El mismo programa funciona en Tinkercad y en la mesa reinicia la placa cada vez que arranca la bomba. &iquest;Qu&eacute; est&aacute; pasando?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p1">
+          <p id="test-c7b-p1">1. El mismo programa funciona en Tinkercad y en la mesa reinicia la placa cada vez que arranca la bomba. &iquest;Qu&eacute; est&aacute; pasando?</p>
           <label class="ta-op"><input type="radio" name="c7b-0" value="0">El programa tiene un fallo que el simulador no detecta.</label>
           <label class="ta-op"><input type="radio" name="c7b-0" value="1">La corriente de arranque del motor, pasando por la resistencia de la pila, los cables y los contactos, deja a la placa por debajo de su umbral y salta el brown-out.</label>
           <label class="ta-op"><input type="radio" name="c7b-0" value="2">La bomba est&aacute; averiada y hace un cortocircuito.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En un esquema los cables no tienen resistencia; en tu mesa s&iacute;. Un motor <b>parado</b> pide much&iacute;sima m&aacute;s corriente que girando, y la ca&iacute;da <b>R&middot;I</b> se la come todo el montaje, incluida la placa. Por debajo de 2,7 V la UNO se reinicia <b>a prop&oacute;sito</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Por qu&eacute; a veces lo peor es que le lleguen 3,8 V a la placa, y no 2,5?</p>
-          <label class="ta-op"><input type="radio" name="c7b-1" value="0">Porque 3,8 V hacen m&aacute;s da&ntilde;o al chip que 2,5.</label>
-          <label class="ta-op"><input type="radio" name="c7b-1" value="1">Porque con 2,5 V se reinicia y se nota; con 3,8 V funciona pero fuera de lo que el fabricante garantiza a 16 MHz, as&iacute; que va hasta el d&iacute;a que no va.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p2">
+          <p id="test-c7b-p2">2. &iquest;Por qu&eacute; a veces lo peor es que le lleguen 3,8 V a la placa, y no 2,5?</p>
+          <label class="ta-op"><input type="radio" name="c7b-1" value="0">Porque con 2,5 V se reinicia y se nota; con 3,8 V funciona pero fuera de lo que el fabricante garantiza a 16 MHz, as&iacute; que va hasta el d&iacute;a que no va.</label>
+          <label class="ta-op"><input type="radio" name="c7b-1" value="1">Porque 3,8 V hacen m&aacute;s da&ntilde;o al chip que 2,5.</label>
           <label class="ta-op"><input type="radio" name="c7b-1" value="2">Porque por debajo de 4,5 V el programa se borra de la memoria.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un fallo que se ve se arregla. La <b>zona gris</b> entre 2,7 y 4,5 V es peor porque aprueba en clase y suspende el d&iacute;a de la exposici&oacute;n, con las pilas un poco m&aacute;s gastadas y sin que hayas tocado nada.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Montas el actuador con su propia fuente y no unes nada m&aacute;s. No se mueve y no hay nada roto. &iquest;Qu&eacute; falta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p3">
+          <p id="test-c7b-p3">3. Montas el actuador con su propia fuente y no unes nada m&aacute;s. No se mueve y no hay nada roto. &iquest;Qu&eacute; falta?</p>
           <label class="ta-op"><input type="radio" name="c7b-2" value="0">Un condensador en la alimentaci&oacute;n.</label>
           <label class="ta-op"><input type="radio" name="c7b-2" value="1">Unir los negativos de las dos fuentes: la masa com&uacute;n.</label>
           <label class="ta-op"><input type="radio" name="c7b-2" value="2">Subir la tensi&oacute;n de la fuente del actuador.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cuando la placa &laquo;manda 5 V&raquo; quiere decir 5 V <b>respecto a su cero</b>. Si el actuador tiene otro cero, esa orden no significa nada para &eacute;l. Una tensi&oacute;n siempre es una <b>diferencia</b>, y hay que decir respecto a qu&eacute;.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Para qu&eacute; sirve referenciar una m&aacute;quina al encenderla?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7b-p4">
+          <p id="test-c7b-p4">4. &iquest;Para qu&eacute; sirve referenciar una m&aacute;quina al encenderla?</p>
           <label class="ta-op"><input type="radio" name="c7b-3" value="0">Para calentar los motores antes de usarlos.</label>
-          <label class="ta-op"><input type="radio" name="c7b-3" value="1">Para convertir una cuenta relativa (pasos, pulsos, &aacute;ngulos) en una posici&oacute;n absoluta, yendo a mirar un punto conocido en vez de suponerlo.</label>
-          <label class="ta-op"><input type="radio" name="c7b-3" value="2">Para comprobar que la bater&iacute;a est&aacute; cargada.</label>
+          <label class="ta-op"><input type="radio" name="c7b-3" value="1">Para comprobar que la bater&iacute;a est&aacute; cargada.</label>
+          <label class="ta-op"><input type="radio" name="c7b-3" value="2">Para convertir una cuenta relativa (pasos, pulsos, &aacute;ngulos) en una posici&oacute;n absoluta, yendo a mirar un punto conocido en vez de suponerlo.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un motor no sabe d&oacute;nde est&aacute;: sus cuentas dicen <b>cu&aacute;nto se ha movido</b> desde que empezaste a contar. Sin punto de partida conocido no significan nada, y el punto de partida hay que ir a buscarlo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Un carro se aproxima a 250 mm/s y el programa mira el final de carrera cada 20 ms. &iquest;Cu&aacute;nto se pasa, solo por eso?</p>
-          <label class="ta-op"><input type="radio" name="c7b-4" value="0">0,08 mm</label>
-          <label class="ta-op"><input type="radio" name="c7b-4" value="1">5 mm</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p5">
+          <p id="test-c7b-p5">5. Un carro se aproxima a 250 mm/s y el programa mira el final de carrera cada 20 ms. &iquest;Cu&aacute;nto se pasa, solo por eso?</p>
+          <label class="ta-op"><input type="radio" name="c7b-4" value="0">5 mm</label>
+          <label class="ta-op"><input type="radio" name="c7b-4" value="1">0,08 mm</label>
           <label class="ta-op"><input type="radio" name="c7b-4" value="2">20 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 250 mm/s &middot; 0,020 s = <b>5 mm</b>, y a eso hay que sumarle lo que recorra frenando. Por eso la aproximaci&oacute;n final se hace <b>despacio</b>: la incertidumbre es velocidad por tiempo de lazo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. &iquest;Por qu&eacute; se referencia en dos pasadas, una r&aacute;pida y otra lenta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c7b-p6">
+          <p id="test-c7b-p6">6. &iquest;Por qu&eacute; se referencia en dos pasadas, una r&aacute;pida y otra lenta?</p>
           <label class="ta-op"><input type="radio" name="c7b-5" value="0">Por si la primera falla.</label>
           <label class="ta-op"><input type="radio" name="c7b-5" value="1">Porque llegar pronto pide ir deprisa y medir bien pide ir despacio: la primera solo llega y la segunda, corta y lenta, es la que pone el cero.</label>
           <label class="ta-op"><input type="radio" name="c7b-5" value="2">Porque el interruptor necesita dos pulsaciones para activarse.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Sale la repetibilidad de ir despacio en casi el tiempo de ir deprisa. Es lo que hace tu impresora 3D cada vez que la enciendes.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Un final de carrera <b>normalmente cerrado</b> y otro <b>normalmente abierto</b>: se rompe el cable de los dos. &iquest;Qu&eacute; pasa?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7b-p7">
+          <p id="test-c7b-p7">7. Un final de carrera <b>normalmente cerrado</b> y otro <b>normalmente abierto</b>: se rompe el cable de los dos. &iquest;Qu&eacute; pasa?</p>
           <label class="ta-op"><input type="radio" name="c7b-6" value="0">Los dos dejan de funcionar igual.</label>
-          <label class="ta-op"><input type="radio" name="c7b-6" value="1">El normalmente cerrado parece pulsado y la m&aacute;quina se para; el normalmente abierto parece que no ha llegado nunca y la m&aacute;quina sigue empujando.</label>
-          <label class="ta-op"><input type="radio" name="c7b-6" value="2">El normalmente abierto avisa del corte y el cerrado no.</label>
+          <label class="ta-op"><input type="radio" name="c7b-6" value="1">El normalmente abierto avisa del corte y el cerrado no.</label>
+          <label class="ta-op"><input type="radio" name="c7b-6" value="2">El normalmente cerrado parece pulsado y la m&aacute;quina se para; el normalmente abierto parece que no ha llegado nunca y la m&aacute;quina sigue empujando.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al elegir c&oacute;mo se conecta un sensor se est&aacute; eligiendo <b>qu&eacute; pasa cuando se rompe</b>. Por eso en cuanto algo importa se monta normalmente cerrado.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. El mecanismo se atasca y el programa espera un fin de carrera que no va a llegar. &iquest;Qu&eacute; le pasa al motor y qu&eacute; lo evita?</p>
-          <label class="ta-op"><input type="radio" name="c7b-7" value="0">Se para solo al notar la resistencia; no hace falta nada.</label>
-          <label class="ta-op"><input type="radio" name="c7b-7" value="1">Se queda con el rotor frenado disipando varios vatios dentro de su carcasa hasta que el barniz del bobinado se pasa. Lo evita un tope de tiempo de maniobra.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p8">
+          <p id="test-c7b-p8">8. El mecanismo se atasca y el programa espera un fin de carrera que no va a llegar. &iquest;Qu&eacute; le pasa al motor y qu&eacute; lo evita?</p>
+          <label class="ta-op"><input type="radio" name="c7b-7" value="0">Se queda con el rotor frenado disipando varios vatios dentro de su carcasa hasta que el barniz del bobinado se pasa. Lo evita un tope de tiempo de maniobra.</label>
+          <label class="ta-op"><input type="radio" name="c7b-7" value="1">Se para solo al notar la resistencia; no hace falta nada.</label>
           <label class="ta-op"><input type="radio" name="c7b-7" value="2">Pide menos corriente, porque no se mueve.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Parado es cuando <b>m&aacute;s</b> corriente pide. Con 7,5 W dentro pasa de 120 &deg;C en menos de siete minutos. La protecci&oacute;n es una l&iacute;nea: si a los 6 s la maniobra de 4 s no ha acabado, parar y avisar.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Tu brazo va a 600 mm/s, el sensor de presencia est&aacute; a 20 mm y el tiempo de reacci&oacute;n es de 48 ms. &iquest;Sirve?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c7b-p9">
+          <p id="test-c7b-p9">9. Tu brazo va a 600 mm/s, el sensor de presencia est&aacute; a 20 mm y el tiempo de reacci&oacute;n es de 48 ms. &iquest;Sirve?</p>
           <label class="ta-op"><input type="radio" name="c7b-8" value="0">S&iacute;: para eso est&aacute; el sensor.</label>
-          <label class="ta-op"><input type="radio" name="c7b-8" value="1">No: recorre 28,8 mm antes de pararse y solo hay 20. Toca la mano y despu&eacute;s para.</label>
-          <label class="ta-op"><input type="radio" name="c7b-8" value="2">Solo si el sensor es de infrarrojos.</label>
+          <label class="ta-op"><input type="radio" name="c7b-8" value="1">Solo si el sensor es de infrarrojos.</label>
+          <label class="ta-op"><input type="radio" name="c7b-8" value="2">No: recorre 28,8 mm antes de pararse y solo hay 20. Toca la mano y despu&eacute;s para.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 600 &middot; 0,048 = <b>28,8 mm</b>. Un sensor de seguridad no vale por estar puesto: vale si el hueco es mayor que la distancia. Y por encima de &eacute;l, en la lista de medidas, est&aacute; la <b>guarda f&iacute;sica</b>, que no tiene tiempo de reacci&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Se va la luz a mitad de maniobra. &iquest;Cu&aacute;l es la frase que resume el problema?</p>
-          <label class="ta-op"><input type="radio" name="c7b-9" value="0">El programa se borra y hay que volver a cargarlo.</label>
-          <label class="ta-op"><input type="radio" name="c7b-9" value="1">El estado vive en la RAM y la RAM se va con la luz; el mecanismo vive en el mundo y se queda donde estaba.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c7b-p10">
+          <p id="test-c7b-p10">10. Se va la luz a mitad de maniobra. &iquest;Cu&aacute;l es la frase que resume el problema?</p>
+          <label class="ta-op"><input type="radio" name="c7b-9" value="0">El estado vive en la RAM y la RAM se va con la luz; el mecanismo vive en el mundo y se queda donde estaba.</label>
+          <label class="ta-op"><input type="radio" name="c7b-9" value="1">El programa se borra y hay que volver a cargarlo.</label>
           <label class="ta-op"><input type="radio" name="c7b-9" value="2">El motor pierde la calibraci&oacute;n de f&aacute;brica.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al volver, el programa arranca en su primer estado y el mecanismo sigue a mitad de camino. El desfase se paga en la punta del brazo con la cuenta de la sesi&oacute;n 3 (L &middot; &epsilon;), y se arregla <b>referenciando al arrancar</b>.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -5755,7 +5833,7 @@ digitalWrite(motor, LOW);</pre>
         alimentarlo y tirarlo? Eso es la <b>unidad 8</b>. Y la segunda, que es la que de verdad
         cierra el curso: &iquest;<b>a qui&eacute;n le sirve</b> lo que has construido, y le sirve
         a todo el mundo por igual? Esa es la <b>unidad 9</b>.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema8/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 8 &middot; Sostenibilidad y accesibilidad &rarr;</a></p></div>
 
     </section>
 
@@ -5796,7 +5874,7 @@ digitalWrite(motor, LOW);</pre>
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -5816,7 +5894,7 @@ digitalWrite(motor, LOW);</pre>
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -5845,8 +5923,17 @@ digitalWrite(motor, LOW);</pre>
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -5859,7 +5946,10 @@ digitalWrite(motor, LOW);</pre>
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -5878,5 +5968,187 @@ digitalWrite(motor, LOW);</pre>
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

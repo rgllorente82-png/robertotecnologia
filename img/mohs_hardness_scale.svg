@@ -1,0 +1,93 @@
+<svg viewBox="0 0 640 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .scale-label { font-size: 12px; font-weight: bold; }
+      .material-name { font-size: 13px; font-weight: bold; }
+      .description { font-size: 10px; }
+    </style>
+  </defs>
+
+  <text x="320" y="30" style="font-size: 20px; font-weight: bold; text-anchor: middle;">Escala de Dureza de Mohs</text>
+  <text x="320" y="50" style="font-size: 12px; text-anchor: middle; fill: #666;">Comparación de dureza relativa de minerales</text>
+
+  <!-- Scale items -->
+  <g id="scale-1">
+    <rect x="40" y="70" width="560" height="35" fill="#F0F0F0" stroke="#DDD" stroke-width="1"/>
+    <rect x="40" y="70" width="560" height="35" fill="#F0E68C" opacity="0.3"/>
+    <text x="70" y="97" class="scale-label">1 - Talco</text>
+    <text x="250" y="97" class="description">Muy blando, se raya con la uña</text>
+    <rect x="520" y="75" width="40" height="25" fill="#E8E8D0" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-2">
+    <rect x="40" y="105" width="560" height="35" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+    <text x="70" y="132" class="scale-label">2 - Yeso</text>
+    <text x="250" y="132" class="description">Se raya con la uña con esfuerzo</text>
+    <rect x="520" y="110" width="40" height="25" fill="#D3D3D3" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-3">
+    <rect x="40" y="140" width="560" height="35" fill="#F0F0F0" stroke="#DDD" stroke-width="1"/>
+    <rect x="40" y="140" width="560" height="35" fill="#FFA07A" opacity="0.2"/>
+    <text x="70" y="167" class="scale-label">3 - Calcita</text>
+    <text x="250" y="167" class="description">Se raya con un cuchillo fácilmente</text>
+    <rect x="520" y="145" width="40" height="25" fill="#B8A0A0" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-4">
+    <rect x="40" y="175" width="560" height="35" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+    <text x="70" y="202" class="scale-label">4 - Fluorita</text>
+    <text x="250" y="202" class="description">Se raya con dificultad con un cuchillo</text>
+    <rect x="520" y="180" width="40" height="25" fill="#87CEEB" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-5">
+    <rect x="40" y="210" width="560" height="35" fill="#F0F0F0" stroke="#DDD" stroke-width="1"/>
+    <rect x="40" y="210" width="560" height="35" fill="#98FB98" opacity="0.3"/>
+    <text x="70" y="237" class="scale-label">5 - Apatito</text>
+    <text x="250" y="237" class="description">Se raya con un cuchillo de acero</text>
+    <rect x="520" y="215" width="40" height="25" fill="#90EE90" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-6">
+    <rect x="40" y="245" width="560" height="35" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+    <text x="70" y="272" class="scale-label">6 - Feldespato</text>
+    <text x="250" y="272" class="description">Se raya débilmente con una lima</text>
+    <rect x="520" y="250" width="40" height="25" fill="#DAA520" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-7">
+    <rect x="40" y="280" width="560" height="35" fill="#F0F0F0" stroke="#DDD" stroke-width="1"/>
+    <rect x="40" y="280" width="560" height="35" fill="#FFA500" opacity="0.2"/>
+    <text x="70" y="307" class="scale-label">7 - Cuarzo</text>
+    <text x="250" y="307" class="description">No se raya con una lima normal</text>
+    <rect x="520" y="285" width="40" height="25" fill="#A0522D" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-8">
+    <rect x="40" y="315" width="560" height="35" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+    <text x="70" y="342" class="scale-label">8 - Topacio</text>
+    <text x="250" y="342" class="description">Solo se raya con diamante</text>
+    <rect x="520" y="320" width="40" height="25" fill="#FFD700" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-9">
+    <rect x="40" y="350" width="560" height="35" fill="#F0F0F0" stroke="#DDD" stroke-width="1"/>
+    <rect x="40" y="350" width="560" height="35" fill="#FF6347" opacity="0.15"/>
+    <text x="70" y="377" class="scale-label">9 - Corindón</text>
+    <text x="250" y="377" class="description">Muy pocas sustancias pueden rayarlo</text>
+    <rect x="520" y="355" width="40" height="25" fill="#DC143C" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <g id="scale-10">
+    <rect x="40" y="385" width="560" height="35" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+    <rect x="40" y="385" width="560" height="35" fill="#E0E0E0" opacity="0.5"/>
+    <text x="70" y="412" class="scale-label">10 - Diamante</text>
+    <text x="250" y="412" class="description">La sustancia más dura conocida</text>
+    <rect x="520" y="390" width="40" height="25" fill="#C0C0C0" stroke="#999" stroke-width="1" rx="2"/>
+  </g>
+
+  <!-- Legend -->
+  <text x="40" y="450" style="font-size: 11px; fill: #666;">Para comprobar la dureza de un material desconocido, intenta rayarlo con</text>
+  <text x="40" y="465" style="font-size: 11px; fill: #666;">materiales de la escala hasta encontrar cuál es el primero que lo raya fácilmente.</text>
+</svg>

@@ -1,0 +1,115 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      :root { --color-bg: #f8f9fa; --color-text: #2c3e50; --color-accent: #e74c3c; }
+      @media (prefers-color-scheme: dark) {
+        :root { --color-bg: #1a1a1a; --color-text: #ecf0f1; --color-accent: #ec7063; }
+      }
+      .bg { fill: var(--color-bg); }
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: var(--color-text); text-anchor: middle; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 13px; fill: var(--color-text); text-anchor: middle; opacity: 0.8; }
+      .label { font-family: Arial, sans-serif; font-size: 11px; fill: var(--color-text); }
+      .axis-label { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: var(--color-text); }
+      .grid { stroke: var(--color-text); stroke-width: 1; opacity: 0.15; }
+      .zone-bg { opacity: 0.1; }
+      .solution-dot { r: 8; stroke: var(--color-text); stroke-width: 2; cursor: pointer; }
+      .legend-dot { r: 6; }
+    </style>
+  </defs>
+
+  <rect width="1000" height="700" class="bg"/>
+  <text x="500" y="35" class="title">Matriz de Impacto: Efectividad vs Complejidad</text>
+  <text x="500" y="55" class="subtitle">Comparar soluciones antes de elegir cuál implementar</text>
+
+  <!-- BACKGROUND ZONES -->
+  <!-- Good: High effectiveness, Low complexity (top-left) -->
+  <rect x="80" y="80" width="350" height="350" class="zone-bg" fill="#d5f4e6"/>
+  <text x="255" y="120" class="label" font-weight="bold" fill="#16a085" font-size="12">IDEAL: Hazlo ya</text>
+
+  <!-- Risky: High effectiveness, High complexity (top-right) -->
+  <rect x="480" y="80" width="350" height="350" class="zone-bg" fill="#fadbd8"/>
+  <text x="655" y="120" class="label" font-weight="bold" fill="#e74c3c" font-size="12">RIESGOSO: Planifica bien</text>
+
+  <!-- Not worth it: Low effectiveness, Low complexity (bottom-left) -->
+  <rect x="80" y="480" width="350" height="170" class="zone-bg" fill="#fef5e7"/>
+  <text x="255" y="510" class="label" font-weight="bold" fill="#f39c12" font-size="12">TRIVIAL: Probablemente no</text>
+
+  <!-- Not worth it: Low effectiveness, High complexity (bottom-right) -->
+  <rect x="480" y="480" width="350" height="170" class="zone-bg" fill="#f4ecf7"/>
+  <text x="655" y="510" class="label" font-weight="bold" fill="#8e44ad" font-size="12">DESCARTA: No hagas esto</text>
+
+  <!-- AXES -->
+  <!-- X axis (Complejidad) -->
+  <line x1="80" y1="430" x2="830" y2="430" stroke="var(--color-text)" stroke-width="2"/>
+  <line x1="830" y1="430" x2="820" y2="425" stroke="var(--color-text)" stroke-width="2"/>
+  <line x1="830" y1="430" x2="820" y2="435" stroke="var(--color-text)" stroke-width="2"/>
+  <text x="870" y="435" class="axis-label">Complejidad</text>
+
+  <!-- Y axis (Efectividad) -->
+  <line x1="80" y1="430" x2="80" y2="80" stroke="var(--color-text)" stroke-width="2"/>
+  <line x1="80" y1="80" x2="75" y2="90" stroke="var(--color-text)" stroke-width="2"/>
+  <line x1="80" y1="80" x2="85" y2="90" stroke="var(--color-text)" stroke-width="2"/>
+  <text x="30" y="70" class="axis-label">Efectividad</text>
+
+  <!-- GRID -->
+  <line x1="80" y1="255" x2="830" y2="255" class="grid"/>
+  <line x1="80" y1="167" x2="830" y2="167" class="grid"/>
+  <line x1="255" y1="430" x2="255" y2="80" class="grid"/>
+  <line x1="430" y1="430" x2="430" y2="80" class="grid"/>
+  <line x1="605" y1="430" x2="605" y2="80" class="grid"/>
+
+  <!-- SOLUTIONS PLOTTED -->
+  <!-- Solution 1: Riego automatizado (HIGH effectiveness, LOW complexity) -->
+  <circle cx="200" cy="150" class="solution-dot" fill="#27ae60"/>
+  <text x="200" y="200" class="label" text-anchor="middle" font-weight="bold">1. Riego automático</text>
+  <text x="200" y="215" class="label" text-anchor="middle" font-size="10">+ Plantas vivas siempre</text>
+  <text x="200" y="227" class="label" text-anchor="middle" font-size="10">+ Código sencillo</text>
+
+  <!-- Solution 2: Sistema de IA (HIGH effectiveness, HIGH complexity) -->
+  <circle cx="650" cy="120" class="solution-dot" fill="#f39c12"/>
+  <text x="650" y="170" class="label" text-anchor="middle" font-weight="bold">2. Riego con IA</text>
+  <text x="650" y="185" class="label" text-anchor="middle" font-size="10">+ Aprende del clima</text>
+  <text x="650" y="197" class="label" text-anchor="middle" font-size="10">- ¿Dónde entrenar?</text>
+
+  <!-- Solution 3: Recordatorio en papel (LOW effectiveness, LOW complexity) -->
+  <circle cx="180" cy="380" class="solution-dot" fill="#95a5a6"/>
+  <text x="180" y="430" class="label" text-anchor="middle" font-weight="bold">3. Post-it en calendario</text>
+  <text x="180" y="445" class="label" text-anchor="middle" font-size="10">- Alguien se olvida siempre</text>
+
+  <!-- Solution 4: Sistema manual híbrido (MEDIUM effectiveness, MEDIUM complexity) -->
+  <circle cx="420" cy="270" class="solution-dot" fill="#3498db"/>
+  <text x="420" y="320" class="label" text-anchor="middle" font-weight="bold">4. Alarma en móvil</text>
+  <text x="420" y="335" class="label" text-anchor="middle" font-size="10">o Recordatorio confiable</text>
+
+  <!-- Solution 5: Complicated system (LOW effectiveness, HIGH complexity) -->
+  <circle cx="700" cy="380" class="solution-dot" fill="#c0392b"/>
+  <text x="700" y="430" class="label" text-anchor="middle" font-weight="bold">5. Sistema IoT ultracomplejo</text>
+  <text x="700" y="445" class="label" text-anchor="middle" font-size="10">- Demasiado para el problema</text>
+
+  <!-- AXIS LABELS - CORNERS -->
+  <text x="120" y="480" class="label" font-size="10">Fácil +</text>
+  <text x="750" y="480" class="label" font-size="10">+ Difícil</text>
+  <text x="30" y="100" class="label" font-size="10">Alto</text>
+  <text x="30" y="450" class="label" font-size="10">Bajo</text>
+
+  <!-- LEGEND / INSIGHT -->
+  <g id="insight">
+    <rect x="30" y="550" width="940" height="130" fill="none" stroke="var(--color-accent)" stroke-width="2" rx="5"/>
+    <text x="50" y="575" class="label" font-weight="bold" fill="var(--color-accent)" font-size="13">Cómo leer esta matriz:</text>
+    
+    <g>
+      <circle cx="50" cy="605" class="legend-dot" fill="#27ae60"/>
+      <text x="70" y="610" class="label"><tspan font-weight="bold">VERDE (Solución 1):</tspan> Hazlo. Funciona muy bien y es fácil.</text>
+    </g>
+
+    <g>
+      <circle cx="50" cy="630" class="legend-dot" fill="#f39c12"/>
+      <text x="70" y="635" class="label"><tspan font-weight="bold">NARANJA (Solución 2):</tspan> Promete mucho pero necesita inversión (tiempo/dinero).</text>
+    </g>
+
+    <g>
+      <circle cx="50" cy="655" class="legend-dot" fill="#c0392b"/>
+      <text x="70" y="660" class="label"><tspan font-weight="bold">ROJO (Solución 5):</tspan> Descarta. Cuesta mucho y resuelve poco.</text>
+    </g>
+  </g>
+</svg>

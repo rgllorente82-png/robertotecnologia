@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" width="980" height="560">
+<style>
+ text{font:13px "DejaVu Sans",sans-serif;fill:#202124}
+ .ti{font-size:15px;font-weight:700}
+ .t{font-size:12px;fill:#5f6368}
+ .t2{font-size:12px;fill:#1a73e8}
+ .p{fill:#f6e6cd;stroke:#a5783f;stroke-width:2}
+ .r{fill:#fff;stroke:#a5783f;stroke-width:1.6}
+ .pz{stroke:#a5783f;stroke-width:8;stroke-linecap:round}
+ .pz2{stroke:#c9973f;stroke-width:8;stroke-linecap:round}
+ .mov{stroke:#3c4043;stroke-width:14;stroke-linecap:round;opacity:.55}
+ .suelo{stroke:#9aa0a6;stroke-width:2.5}
+ .plom{stroke:#1a73e8;stroke-width:1.2;stroke-dasharray:4 4}
+ .cg{fill:#1a73e8}
+ .ap{fill:#188038}
+ .cota{stroke:#5f6368;stroke-width:1}
+</style><rect width="100%" height="100%" fill="#fff"/>
+<text x="24" y="30" class="ti">A &#183; RESPALDO  80 &#215; 140</text>
+<rect x="24.0" y="44.0" width="192.0" height="336.0" rx="3" class="p"/><rect x="36.0" y="339.1" width="168.0" height="9.9" class="r"/>
+<text x="260" y="30" class="ti">B &#183; BASE  80 &#215; 90</text>
+<path d="M260.0 44.0 L260.0 135.1 L272.0 135.1 L272.0 144.9 L260.0 144.9 L260.0 260.0 L326.0 260.0 L326.0 188.0 L386.0 188.0 L386.0 260.0 L452.0 260.0 L452.0 144.9 L440.0 144.9 L440.0 135.1 L452.0 135.1 L452.0 44.0 Z" class="p"/>
+<text x="500" y="30" class="ti">EL CONJUNTO, DE LADO</text>
+<path d="M500.0 470.0 H956.0" class="suelo"/><path d="M634.7 470.0 L721.6 145.4" class="pz"/><path d="M552.1 407.4 L758.9 470.0" class="pz2"/><path d="M639.9 434.1 L739.3 63.2" class="mov"/><circle cx="689.6" cy="248.7" r="5" class="cg"/><path d="M689.6 248.7 V470.0" class="plom"/><circle cx="634.7" cy="470.0" r="4" class="ap"/><circle cx="758.9" cy="470.0" r="4" class="ap"/><text x="699.6" y="242.7" class="t">centro de gravedad del m&#243;vil</text><text x="570.7" y="486.0" class="t2">apoya aqu&#237;</text><text x="748.9" y="486.0" class="t2">y aqu&#237;</text><text x="512.1" y="397.4" class="t2">tope: no resbala</text>
+<text x="500" y="500" class="t">A se echa 15&#176; hacia atr&#225;s &#183; B sube 16.8&#176; &#183; se cruzan a 58.2&#176;</text>
+<text x="500" y="518" class="t">ranura de A: 70 mm de ancho y 4.1 mm de hueco (el cart&#243;n mide 3.5, porque B lo cruza de sesgo)</text>
+<text x="500" y="536" class="t">el peso del m&#243;vil cae entre los dos apoyos: no se tumba</text>
+</svg>

@@ -1,0 +1,149 @@
+<svg viewBox="0 0 1000 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { stroke: #3498db; stroke-width: 2.5; fill: none; marker-end: url(#arrowright); }
+    </style>
+    <marker id="arrowright" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="550" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">CAD (Computer-Aided Design): Del Dibujo a la Realidad</text>
+
+  <!-- Step 1: Sketch/Ideas -->
+  <g>
+    <rect x="30" y="80" width="140" height="120" class="box" fill="#e74c3c"/>
+    <text x="100" y="115" class="title" fill="white" font-size="12">1. IDEA</text>
+    <text x="100" y="135" class="label" fill="white" font-size="10">Sketch en papel</text>
+    <text x="100" y="150" class="label" fill="white" font-size="10">o mental</text>
+
+    <text x="100" y="220" class="label" font-size="9" font-weight="bold">¿Qué queremos</text>
+    <text x="100" y="233" class="label" font-size="9" font-weight="bold">hacer?</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <path d="M175,140 L210,140" class="arrow"/>
+
+  <!-- Step 2: 2D Drawing -->
+  <g>
+    <rect x="210" y="80" width="140" height="120" class="box" fill="#f39c12"/>
+    <text x="280" y="115" class="title" fill="white" font-size="12">2. DIBUJO 2D</text>
+    <text x="280" y="135" class="label" fill="white" font-size="10">Vistas en planta,</text>
+    <text x="280" y="150" class="label" fill="white" font-size="10">alzado, perfil</text>
+
+    <text x="280" y="220" class="label" font-size="9" font-weight="bold">Dimensiones,</text>
+    <text x="280" y="233" class="label" font-size="9" font-weight="bold">tolerancias, materiales</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <path d="M355,140 L390,140" class="arrow"/>
+
+  <!-- Step 3: 3D Model -->
+  <g>
+    <rect x="390" y="80" width="140" height="120" class="box" fill="#3498db"/>
+    <text x="460" y="115" class="title" fill="white" font-size="12">3. MODELO 3D</text>
+    <text x="460" y="135" class="label" fill="white" font-size="10">Sólido paramétrico</text>
+    <text x="460" y="150" class="label" fill="white" font-size="10">CAD 3D</text>
+
+    <text x="460" y="220" class="label" font-size="9" font-weight="bold">Visualizar desde</text>
+    <text x="460" y="233" class="label" font-size="9" font-weight="bold">todos los ángulos</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <path d="M535,140 L570,140" class="arrow"/>
+
+  <!-- Step 4: Simulation/Analysis -->
+  <g>
+    <rect x="570" y="80" width="140" height="120" class="box" fill="#27ae60"/>
+    <text x="640" y="115" class="title" fill="white" font-size="12">4. SIMULAR</text>
+    <text x="640" y="135" class="label" fill="white" font-size="10">FEA, Fuerzas,</text>
+    <text x="640" y="150" class="label" fill="white" font-size="10">Movimiento</text>
+
+    <text x="640" y="220" class="label" font-size="9" font-weight="bold">¿Aguanta?</text>
+    <text x="640" y="233" class="label" font-size="9" font-weight="bold">¿Se mueve bien?</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <path d="M715,140 L750,140" class="arrow"/>
+
+  <!-- Step 5: CAM/Manufacturing -->
+  <g>
+    <rect x="750" y="80" width="140" height="120" class="box" fill="#9b59b6"/>
+    <text x="820" y="115" class="title" fill="white" font-size="12">5. CAM</text>
+    <text x="820" y="135" class="label" fill="white" font-size="10">G-code para CNC</text>
+    <text x="820" y="150" class="label" fill="white" font-size="10">o 3D Printer</text>
+
+    <text x="820" y="220" class="label" font-size="9" font-weight="bold">Traducir a</text>
+    <text x="820" y="233" class="label" font-size="9" font-weight="bold">instrucciones máquina</text>
+  </g>
+
+  <!-- Bottom: CAD Software Examples -->
+  <rect x="30" y="280" width="940" height="240" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
+
+  <text x="50" y="305" class="title" font-size="12" text-anchor="start" font-weight="bold">Software CAD más común:</text>
+
+  <!-- Column 1: Professional -->
+  <g>
+    <text x="60" y="335" class="label" font-size="10" text-anchor="start" font-weight="bold" fill="#666">Profesional (Industria):</text>
+
+    <rect x="60" y="350" width="240" height="150" fill="white" stroke="#999" stroke-width="1" rx="3"/>
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="75" y="370">• <b>AutoCAD:</b> El estándar industrial</text>
+      <text x="75" y="387">  Planos técnicos, 2D, 3D</text>
+
+      <text x="75" y="407">• <b>SolidWorks:</b> Modelado 3D + simulación</text>
+      <text x="75" y="424">  Muy usado en ingeniería</text>
+
+      <text x="75" y="444">• <b>Fusion 360:</b> Cloud-based, 3D + CAM</text>
+      <text x="75" y="461">  Integrado con 3D Print</text>
+
+      <text x="75" y="481">• <b>FreeCAD:</b> Open source, gratis</text>
+      <text x="75" y="498">  Buena alternativa educativa</text>
+    </g>
+  </g>
+
+  <!-- Column 2: Educational/Accessible -->
+  <g>
+    <text x="370" y="335" class="label" font-size="10" text-anchor="start" font-weight="bold" fill="#666">Accesible (Educación):</text>
+
+    <rect x="370" y="350" width="240" height="150" fill="white" stroke="#999" stroke-width="1" rx="3"/>
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="385" y="370">• <b>Tinkercad:</b> Web, muy fácil</text>
+      <text x="385" y="387">  Aprende lo básico rápido</text>
+
+      <text x="385" y="407">• <b>Blender:</b> 3D completo (artístico)</text>
+      <text x="385" y="424">  Modelado, renderizado, animación</text>
+
+      <text x="385" y="444">• <b>SketchUp:</b> Arquitectura e interiores</text>
+      <text x="385" y="461">  Interfaz intuitiva</text>
+
+      <text x="385" y="481">• <b>Onshape:</b> Cloud-based professional</text>
+      <text x="385" y="498">  Versión gratuita con límites</text>
+    </g>
+  </g>
+
+  <!-- Column 3: Why CAD matters -->
+  <g>
+    <text x="680" y="335" class="label" font-size="10" text-anchor="start" font-weight="bold" fill="#666">Ventajas del CAD:</text>
+
+    <rect x="680" y="350" width="290" height="150" fill="white" stroke="#999" stroke-width="1" rx="3"/>
+    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
+      <text x="695" y="370">✓ Visualizar antes de fabricar</text>
+      <text x="695" y="385">✓ Modificaciones rápidas</text>
+      <text x="695" y="400">✓ Precisión: errores = 0</text>
+      <text x="695" y="415">✓ Exportar a fabricación (CNC,</text>
+      <text x="695" y="428">  3D Print, Láser)</text>
+      <text x="695" y="443">✓ Simular funcionamiento antes</text>
+      <text x="695" y="458">✓ Documentación perfecta</text>
+      <text x="695" y="473">✓ Reutilizar/modificar diseños</text>
+      <text x="695" y="488">✓ Colaboración remota</text>
+    </g>
+  </g>
+</svg>

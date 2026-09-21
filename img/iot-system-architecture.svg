@@ -1,0 +1,133 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .mono { font-family: 'Courier New', monospace; font-size: 10px; }
+    </style>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Arquitectura IoT: de sensores a decisiones</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Cómo un sensor en el huerto se conecta con reglas en la nube</text>
+
+  <!-- LEFT: Physical Layer (SENSORS) -->
+  <g>
+    <rect x="30" y="90" width="270" height="180" fill="#fff8e8" stroke="#f39c12" stroke-width="2" rx="5"/>
+    <text x="165" y="115" class="title" font-size="12">Capa 1: Sensores</text>
+    <text x="165" y="135" class="label" font-size="10" text-anchor="middle" font-weight="bold">(El huerto)</text>
+
+    <!-- Sensor icons -->
+    <circle cx="100" cy="160" r="20" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/>
+    <text x="100" y="167" class="label" font-size="14" text-anchor="middle" fill="#fff">💧</text>
+    <text x="100" y="190" class="label" font-size="9" text-anchor="middle">Sensor humedad</text>
+
+    <circle cx="165" cy="160" r="20" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/>
+    <text x="165" y="167" class="label" font-size="14" text-anchor="middle" fill="#fff">🌡️</text>
+    <text x="165" y="190" class="label" font-size="9" text-anchor="middle">Temperatura</text>
+
+    <circle cx="230" cy="160" r="20" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/>
+    <text x="230" y="167" class="label" font-size="14" text-anchor="middle" fill="#fff">☀️</text>
+    <text x="230" y="190" class="label" font-size="9" text-anchor="middle">Luminosidad</text>
+  </g>
+
+  <!-- MIDDLE: Processing Layer (MICROCONTROLLER) -->
+  <g>
+    <rect x="370" y="90" width="260" height="180" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="5"/>
+    <text x="500" y="115" class="title" font-size="12">Capa 2: Procesamiento</text>
+    <text x="500" y="135" class="label" font-size="10" text-anchor="middle" font-weight="bold">(Arduino local)</text>
+
+    <!-- Controller box -->
+    <rect x="390" y="150" width="220" height="100" fill="#4285f4" stroke="#1a73e8" stroke-width="1.5" rx="3"/>
+    <text x="500" y="170" class="label" font-size="11" text-anchor="middle" fill="#fff" font-weight="bold">Microcontrolador</text>
+    <text x="500" y="190" class="label" font-size="9" text-anchor="middle" fill="#fff">• Lee sensores</text>
+    <text x="500" y="203" class="label" font-size="9" text-anchor="middle" fill="#fff">• Ejecuta lógica local</text>
+    <text x="500" y="216" class="label" font-size="9" text-anchor="middle" fill="#fff">• Controla actuadores</text>
+    <text x="500" y="229" class="label" font-size="9" text-anchor="middle" fill="#fff">• Envía datos</text>
+  </g>
+
+  <!-- RIGHT: Cloud Layer (BACKEND) -->
+  <g>
+    <rect x="700" y="90" width="270" height="180" fill="#e8f8e8" stroke="#27ae60" stroke-width="2" rx="5"/>
+    <text x="835" y="115" class="title" font-size="12">Capa 3: Inteligencia</text>
+    <text x="835" y="135" class="label" font-size="10" text-anchor="middle" font-weight="bold">(La nube o servidor)</text>
+
+    <!-- Cloud storage -->
+    <path d="M 760 160 Q 750 155 760 150 Q 790 140 810 145 Q 840 140 850 155 Q 860 160 850 170 Q 820 175 790 170 Q 760 175 760 160 Z" fill="#27ae60" stroke="#229954" stroke-width="1.5"/>
+    <text x="805" y="162" class="label" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">Base datos</text>
+
+    <!-- Rules/ML -->
+    <path d="M 760 195 Q 750 190 760 185 Q 790 175 810 180 Q 840 175 850 190 Q 860 195 850 205 Q 820 210 790 205 Q 760 210 760 195 Z" fill="#27ae60" stroke="#229954" stroke-width="1.5"/>
+    <text x="805" y="197" class="label" font-size="9" text-anchor="middle" fill="#fff" font-weight="bold">Reglas / ML</text>
+
+    <!-- Analysis -->
+    <text x="835" y="240" class="label" font-size="9" text-anchor="middle" font-weight="bold">Analiza datos</text>
+    <text x="835" y="253" class="label" font-size="9" text-anchor="middle">• Aprende patrones</text>
+    <text x="835" y="266" class="label" font-size="9" text-anchor="middle">• Envía comandos</text>
+  </g>
+
+  <!-- ARROWS -->
+  <!-- Sensors to Controller -->
+  <path d="M 300 180 L 370 180" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="335" y="175" class="label" font-size="9" fill="#3498db" font-weight="bold">datos</text>
+
+  <!-- Controller to Cloud -->
+  <path d="M 630 180 L 700 180" stroke="#3498db" stroke-width="3" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="665" y="175" class="label" font-size="9" fill="#3498db" font-weight="bold">wifi</text>
+
+  <!-- Cloud back to Controller -->
+  <path d="M 700 200 Q 665 220 630 200" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)" stroke-dasharray="5,3"/>
+  <text x="665" y="225" class="label" font-size="9" fill="#3498db" font-weight="bold">comandos</text>
+
+  <!-- BOTTOM: Complete flow -->
+  <g>
+    <rect x="30" y="300" width="940" height="380" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="330" class="title" font-size="13">Ejemplo real: riego automático en el huerto</text>
+
+    <!-- Timeline -->
+    <g>
+      <text x="60" y="365" class="label" font-size="11" font-weight="bold">1. Medida (9:00 AM)</text>
+      <text x="60" y="382" class="label" font-size="10">Sensor de humedad: 35%. Está seco.</text>
+
+      <text x="60" y="410" class="label" font-size="11" font-weight="bold">2. Arduino decide (local, sin internet)</text>
+      <text x="60" y="427" class="label" font-size="10">Si humedad &lt; 40%: activa la bomba. Espera.</text>
+
+      <text x="60" y="455" class="label" font-size="11" font-weight="bold">3. Envía a la nube (cuando hay conexión)</text>
+      <text x="60" y="472" class="label" font-size="10">Datos: humedad=35%, bomba=ON, temperatura=22°C</text>
+
+      <text x="60" y="500" class="label" font-size="11" font-weight="bold">4. La nube analiza (histórico + ML)</text>
+      <text x="60" y="517" class="label" font-size="10">• Registra: 35% es normal a las 9 AM en junio</text>
+      <text x="60" y="532" class="label" font-size="10">• Detecta: después de riego, sube a 75% en 20 min</text>
+      <text x="60" y="547" class="label" font-size="10">• Aprende: próximas veces, regará solo 15 minutos</text>
+
+      <text x="60" y="575" class="label" font-size="11" font-weight="bold">5. Envía comando (si lo necesita)</text>
+      <text x="60" y="592" class="label" font-size="10">Si predicción = lluvia próximas 2 horas: NO riego automático hoy</text>
+    </g>
+
+    <!-- Key insight box -->
+    <rect x="520" y="355" width="420" height="240" fill="#f0f8ff" stroke="#3498db" stroke-width="1.5" rx="3"/>
+    <text x="730" y="375" class="label" font-size="10" text-anchor="middle" font-weight="bold" fill="#1a73e8">¿Por qué es IoT?</text>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="540" y="400"><b>1. Conectado</b></text>
+      <text x="550" y="418">Se conecta a internet para compartir datos</text>
+      <text x="550" y="433">y recibir ordenes. Si no: es solo automatismo.</text>
+
+      <text x="540" y="460"><b>2. Inteligente</b></text>
+      <text x="550" y="478">Aprende con el tiempo: las reglas no son</text>
+      <text x="550" y="493">fijas, mejoran. Eso es inteligencia.</text>
+
+      <text x="540" y="520"><b>3. Local y remoto</b></text>
+      <text x="550" y="538">El Arduino funciona sin internet. La nube</text>
+      <text x="550" y="553">añade análisis. Juntos crean IoT.</text>
+    </g>
+  </g>
+
+</svg>

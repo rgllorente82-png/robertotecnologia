@@ -1,0 +1,117 @@
+<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="700" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Tensión, intensidad y resistencia</text>
+  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">La ley de Ohm: el empuje, el caudal y el estorbo</text>
+
+  <!-- THREE CONCEPTS -->
+  <!-- TENSION -->
+  <g>
+    <rect x="30" y="90" width="280" height="200" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="4"/>
+    
+    <text x="170" y="120" class="title" font-size="13">TENSIÓN (V)</text>
+    <text x="170" y="138" class="label" font-size="10" fill="#3498db" text-anchor="middle" font-weight="bold">Voltios · Empuje</text>
+
+    <!-- Analogy: water pressure -->
+    <text x="170" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analogía: presión</text>
+    <g transform="translate(170, 190)">
+      <rect x="-30" y="-15" width="60" height="30" fill="none" stroke="#3498db" stroke-width="2" rx="3"/>
+      <circle cx="-35" cy="0" r="6" fill="#3498db"/>
+      <circle cx="35" cy="0" r="6" fill="#3498db"/>
+      <text x="0" y="50" class="label" font-size="9" text-anchor="middle">Diferencia de</text>
+      <text x="0" y="65" class="label" font-size="9" text-anchor="middle">potencial</text>
+    </g>
+
+    <!-- Example -->
+    <text x="170" y="260" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ejemplo: batería AA = 1.5V</text>
+  </g>
+
+  <!-- INTENSITY -->
+  <g>
+    <rect x="360" y="90" width="280" height="200" fill="#f0fef0" stroke="#27ae60" stroke-width="2" rx="4"/>
+    
+    <text x="500" y="120" class="title" font-size="13">INTENSIDAD (I)</text>
+    <text x="500" y="138" class="label" font-size="10" fill="#27ae60" text-anchor="middle" font-weight="bold">Amperios · Caudal</text>
+
+    <!-- Analogy: water flow -->
+    <text x="500" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analogía: flujo de agua</text>
+    <g transform="translate(500, 190)">
+      <path d="M -30 -10 Q 0 0 30 -10" stroke="#27ae60" stroke-width="2" fill="none"/>
+      <path d="M -30 10 Q 0 0 30 10" stroke="#27ae60" stroke-width="2" fill="none"/>
+      <text x="0" y="50" class="label" font-size="9" text-anchor="middle">Cantidad de carga</text>
+      <text x="0" y="65" class="label" font-size="9" text-anchor="middle">que fluye</text>
+    </g>
+
+    <!-- Example -->
+    <text x="500" y="260" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ejemplo: LED típico = 20mA</text>
+  </g>
+
+  <!-- RESISTANCE -->
+  <g>
+    <rect x="690" y="90" width="280" height="200" fill="#fef8e8" stroke="#f39c12" stroke-width="2" rx="4"/>
+    
+    <text x="830" y="120" class="title" font-size="13">RESISTENCIA (R)</text>
+    <text x="830" y="138" class="label" font-size="10" fill="#f39c12" text-anchor="middle" font-weight="bold">Ohmios · Estorbo</text>
+
+    <!-- Analogy: pipe diameter -->
+    <text x="830" y="165" class="label" font-size="11" text-anchor="middle" font-weight="bold">Analogía: tubo estrecho</text>
+    <g transform="translate(830, 190)">
+      <rect x="-20" y="-8" width="40" height="16" fill="none" stroke="#f39c12" stroke-width="2" rx="2"/>
+      <circle cx="-25" cy="0" r="6" fill="#f39c12"/>
+      <circle cx="25" cy="0" r="6" fill="#f39c12"/>
+      <text x="0" y="50" class="label" font-size="9" text-anchor="middle">Frena el paso</text>
+      <text x="0" y="65" class="label" font-size="9" text-anchor="middle">de corriente</text>
+    </g>
+
+    <!-- Example -->
+    <text x="830" y="260" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ejemplo: resistencia = 10 Ω</text>
+  </g>
+
+  <!-- OHM'S LAW -->
+  <g>
+    <rect x="30" y="320" width="940" height="360" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
+
+    <text x="500" y="350" class="title" font-size="13">La ley de Ohm: V = I × R</text>
+    <text x="500" y="370" class="label" font-size="10" fill="#666" text-anchor="middle">Tensión = Intensidad × Resistencia</text>
+
+    <!-- The triangle -->
+    <g transform="translate(500, 420)">
+      <polygon points="0,-50 50,35 -50,35" fill="none" stroke="#2c3e50" stroke-width="2"/>
+      <text x="0" y="-30" class="code" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold">V</text>
+      <text x="-40" y="35" class="code" text-anchor="middle" fill="#27ae60" font-size="14" font-weight="bold">I</text>
+      <text x="40" y="35" class="code" text-anchor="middle" fill="#f39c12" font-size="14" font-weight="bold">R</text>
+      <!-- Instructions -->
+      <text x="0" y="80" class="label" font-size="9" text-anchor="middle">Tapa lo que buscas, multiplica los otros</text>
+    </g>
+
+    <!-- Examples -->
+    <g font-family="Arial" font-size="10" fill="#2c3e50">
+      <text x="60" y="530"><b>Ejemplo 1: Encontrar V</b></text>
+      <text x="80" y="548">Tienes: I = 2A (amperios), R = 10Ω (ohmios)</text>
+      <text x="80" y="566">V = I × R = 2 × 10 = 20V (voltios)</text>
+
+      <text x="60" y="600"><b>Ejemplo 2: Encontrar I</b></text>
+      <text x="80" y="618">Tienes: V = 12V, R = 4Ω</text>
+      <text x="80" y="636">I = V ÷ R = 12 ÷ 4 = 3A</text>
+
+      <text x="500" y="530"><b>Ejemplo 3: Encontrar R</b></text>
+      <text x="520" y="548">Tienes: V = 5V, I = 0.1A</text>
+      <text x="520" y="566">R = V ÷ I = 5 ÷ 0.1 = 50Ω</text>
+
+      <!-- Key insight -->
+      <rect x="50" y="660" width="900" height="40" fill="#f0f0f0" stroke="#ccc" stroke-width="1" rx="2"/>
+      <text x="500" y="680" text-anchor="middle" font-weight="bold" fill="#2c3e50">Lo importante: si subes tensión Y baja resistencia, la intensidad se dispara (¡cuidado con los cortocircuitos!)</text>
+    </g>
+  </g>
+
+</svg>

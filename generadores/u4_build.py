@@ -241,8 +241,9 @@ S1 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Una estructura que aguanta no hace nada: est&aacute; quieta. Lo siguiente es
-        conseguir que <b>algo se mueva</b>, y eso son los mecanismos.
+        Cada pieza sufre ya un esfuerzo con nombre. Lo siguiente es que <b>no todas las estructuras
+        reparten igual</b>: hay familias &mdash;masiva, abovedada, entramada, triangulada, colgante&mdash;
+        y cada una lleva la fuerza al suelo de una manera distinta.
       </div>
   '''))
 

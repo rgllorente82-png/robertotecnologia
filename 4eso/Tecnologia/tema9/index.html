@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema9/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 9 &middot; Tecnolog&iacute;a y sociedad: proyectos de servicio">
+<meta property="og:description" content="Tema 9 de Tecnolog&iacute;a de 4.&ordm; de ESO: qui&eacute;n decide qu&eacute; tecnolog&iacute;a se fabrica y cu&aacute;l no, qu&eacute; es la tecnolog&iacute;a apropiada, c&oacute;mo se defiende un proyecto, cu&aacute;ndo devuelve lo que cost&oacute; hacerlo, c&oacute;mo se sacan requisitos de una persona concreta, qu&eacute; cuesta mantenerlo cinco a&ntilde;os, c&oacute;mo se documenta con licencia libre y c&oacute;mo se entrega con una prueba de aceptaci&oacute;n.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema9/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema9.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 9 &middot; Tecnolog&iacute;a y sociedad: proyectos de servicio &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -287,18 +306,49 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 9</div>
     <h1>Tecnolog&iacute;a y sociedad: proyectos de servicio</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Qui&eacute;n decide qu&eacute; se fabrica</button><button type="button" data-ses="2">S2 &middot; Tecnolog&iacute;a apropiada</button><button type="button" data-ses="3">S3 &middot; Presentar y defender</button><button type="button" data-ses="4">S4 &middot; Lo que queda</button><button type="button" data-ses="5">S5 &middot; Para qui&eacute;n, exactamente</button><button type="button" data-ses="6">S6 &middot; Lo que cuesta mantenerlo</button><button type="button" data-ses="7">S7 &middot; Que otro lo pueda continuar</button><button type="button" data-ses="8">S8 &middot; Entregarlo de verdad</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Qui&eacute;n decide qu&eacute; se fabrica</button><button type="button" data-ses="2">S2 &middot; Tecnolog&iacute;a apropiada</button><button type="button" data-ses="3">S3 &middot; Presentar y defender</button><button type="button" data-ses="4">S4 &middot; Lo que queda</button><button type="button" data-ses="5">S5 &middot; Para qui&eacute;n, exactamente</button><button type="button" data-ses="6">S6 &middot; Lo que cuesta mantenerlo</button><button type="button" data-ses="7">S7 &middot; Que otro lo pueda continuar</button><button type="button" data-ses="8">S8 &middot; Entregarlo de verdad</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -318,7 +368,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c9">
         <div class="narrador-fig" id="narr-c9-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Tu aparato funciona y casi no contamina. &iquest;A qui&eacute;n le sirve de verdad, y qui&eacute;n decidi&oacute; que ese era el problema que hab&iacute;a que resolver?</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -514,7 +564,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q1-lee" id="q1-lee"></p>
         </div>
-        <div class="pie" id="q1-pie"></div>
+        <div class="pie" id="q1-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -694,7 +744,9 @@ footer .wrap{padding-block:18px 26px}
             s.push('<text x="' + (x.ben >= 0 ? 396 : 396) + '" y="' + (yy + 17)
                  + '" class="q1-val" text-anchor="start">' + meur(x.ben) + '</text>');
             s.push('<rect x="0" y="' + yy + '" width="470" height="' + alto
-                 + '" fill="transparent" style="cursor:pointer" data-i="' + x.i + '"></rect>');
+                 + '" fill="transparent" style="cursor:pointer" data-i="' + x.i + '"'
+                 + ' tabindex="0" role="button" aria-label="' + x.c.n + '"'
+                 + ' aria-pressed="' + (x.i === sel ? 'true' : 'false') + '"></rect>');
           });
           svg.innerHTML = s.join('');
 
@@ -746,6 +798,14 @@ footer .wrap{padding-block:18px 26px}
           sel = +t.dataset.i;
           pinta();
         });
+        svg.addEventListener('keydown', function(e){
+          var t = e.target.closest('[role="button"]');
+          if(!t) return;
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          e.preventDefault();
+          sel = +t.dataset.i;
+          pinta();
+        });
         ord.addEventListener('click', function(e){
           var b = e.target.closest('button[data-o]');
           if(!b) return;
@@ -793,7 +853,7 @@ footer .wrap{padding-block:18px 26px}
            mala intenci&oacute;n.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c9-mosquitera.jpg" alt="Ni&ntilde;os durmiendo bajo una mosquitera tratada con insecticida, colgada sobre la cama" loading="lazy">
+        <img src="../../../img/c9-mosquitera.jpg" width="1280" height="720" alt="Ni&ntilde;os durmiendo bajo una mosquitera tratada con insecticida, colgada sobre la cama" loading="lazy">
         <figcaption>Una <b>mosquitera tratada con insecticida</b>. No lleva electr&oacute;nica, no lleva programa y no hay nada que inventar: existe desde hace d&eacute;cadas, cuesta unos pocos euros y evita casos de paludismo mientras dura. Que haya tardado tanto en llegar a donde hace falta <b>no es un problema t&eacute;cnico</b>: en la cuenta de arriba, quien la necesita no pod&iacute;a pagarla, as&iacute; que hizo falta que el dinero lo pusiera otro.
           <span class="credito">HarunaSylvester &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Averting_malaria_by_sleeping_under_an_insecticide_treated_net.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -827,7 +887,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Un corto de un centro de investigaci&oacute;n sobre las enfermedades que casi no salen en la cuenta de arriba. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=EydFlOUooN4" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1027,7 +1088,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q2-lee" id="q2-lee"></p>
         </div>
-        <div class="pie" id="q2-pie"></div>
+        <div class="pie" id="q2-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1398,7 +1459,7 @@ footer .wrap{padding-block:18px 26px}
       <p>La PlayPump no fall&oacute; por falta de dinero ni por mala fe. Fall&oacute; por otra cosa,
          y esa cosa tiene nombre desde 1973.</p>
       <div class="copiar">
-        <h4>Tecnolog&iacute;a apropiada</h4>
+        <h3 class="h-menor">Tecnolog&iacute;a apropiada</h3>
         <p>Es la que <b>encaja con el sitio donde va a vivir</b>: con la energ&iacute;a que hay
            all&iacute;, con los materiales que se consiguen all&iacute;, con las manos que la van a
            manejar y con el dinero que hay para arreglarla.</p>
@@ -1411,6 +1472,15 @@ footer .wrap{padding-block:18px 26px}
            alguien que sabe, un Arduino <b>s&iacute;</b> es tecnolog&iacute;a apropiada. En un huerto
            a tres kil&oacute;metros, puede que no.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/appropriate-technology.svg" width="1000" height="700" loading="lazy"
+             alt="Tecnolog&iacute;a apropiada vs inadecuada: ejemplo de riego autom&aacute;tico con IA versus sensor de humedad y electrov&aacute;lvula">
+        <figcaption><b>Tecnolog&iacute;a apropriada vs inadecuada</b>. Un robot inteligente con IA para riego es demasiado para la tarea, cuesta miles de euros, se rompe sin remedio y falla de completo si se daña. Un simple sensor de humedad m&aacute;s una electrov&aacute;lvula es <b>la soluci&oacute;n justa</b>: cuesta decenas de euros, dura a&ntilde;os, y si falla se cambia en minutos.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <div class="copiar">
         <h4>Las cinco preguntas del sitio</h4>
         <p>Antes de dar por bueno un dise&ntilde;o, se le hacen estas cinco. Si alguna no tiene
@@ -1433,7 +1503,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>Un aparato que aprueba las cinco</h3>
       <figure class="foto">
-        <img src="../../../img/c9-olla-barro.jpg" alt="Vendedoras de verdura en un mercado de Ouahigouya, con una vasija de barro dentro de un barre&ntilde;o met&aacute;lico en primer plano" loading="lazy">
+        <img src="../../../img/c9-olla-barro.jpg" width="1280" height="1707" alt="Vendedoras de verdura en un mercado de Ouahigouya, con una vasija de barro dentro de un barre&ntilde;o met&aacute;lico en primer plano" loading="lazy">
         <figcaption>Un mercado en <b>Ouahigouya (Burkina Faso)</b>. Delante, esa vasija de barro metida en un barre&ntilde;o es un <b>frigor&iacute;fico</b>: una olla dentro de otra con arena mojada en medio. El agua se evapora, y para evaporarse tiene que robar calor de dentro. No lleva motor, ni corriente, ni pieza que se rompa. <b>Mohammed Bah Abba</b> lo volvi&oacute; a poner en circulaci&oacute;n en el norte de Nigeria en los a&ntilde;os noventa: hizo las primeras <b>5.000 unidades</b>, gan&oacute; el Premio Rolex a la Iniciativa en <b>2001</b> con sus 75.000 d&oacute;lares y los gast&oacute; en repartirlas. Cuando se rompe una, se arregla con barro. Solo funciona donde el aire est&aacute; seco: <b>tambi&eacute;n esto depende del sitio</b>.
           <span class="credito">Peter Rinker &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Gem%C3%BCseverk%C3%A4uferinnen_mit_Tonkrugk%C3%BChler,_Female_vegetable_sellers_with_clay_pot_cooler,_vendeuses_des_l%C3%A9gumes_avec_un_canari_frigo,_Ouahigouya,_Burkina_Faso.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1494,7 +1564,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La misma idea de la olla de barro, llevada a un producto que se vende. Sirve para discutir si sigue siendo tecnolog&iacute;a apropiada cuando se convierte en un negocio. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=wDyCMVmY-Vk" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1597,7 +1668,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
       <p>Casi todos los guiones salen parecidos, y se parecen a este:</p>
       <figure class="foto">
-        <img src="../../../img/c9-defensa.jpg" alt="Un alumno con uniforme de pie detr&aacute;s de una maqueta muy elaborada con monta&ntilde;as, aerogeneradores, un r&iacute;o y camiones, y un panel con textos detr&aacute;s" loading="lazy">
+        <img src="../../../img/c9-defensa.jpg" width="1280" height="960" alt="Un alumno con uniforme de pie detr&aacute;s de una maqueta muy elaborada con monta&ntilde;as, aerogeneradores, un r&iacute;o y camiones, y un panel con textos detr&aacute;s" loading="lazy">
         <figcaption>Una feria de ciencia en la <b>escuela de Niv&iacute;n (Per&uacute;)</b>, en 2018. M&iacute;rala un momento antes de seguir: la maqueta es <b>impresionante</b>, y ha costado much&iacute;simas horas. Ahora la pregunta inc&oacute;moda, que no va contra &eacute;l sino contra todos nosotros: si tuviera seis minutos, &iquest;de qu&eacute; crees que hablar&iacute;a m&aacute;s, de la maqueta o de a qui&eacute;n le sirve? &iquest;Y t&uacute;?
           <span class="credito">Escuela de Niv&iacute;n &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Niv%C3%ADn._Alumno_presenta_una_maqueta_de_granja_sostenible.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1638,7 +1709,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="q3-tabla" id="q3-tabla"></div>
           <p class="q3-lee" id="q3-lee"></p>
         </div>
-        <div class="pie" id="q3-pie"></div>
+        <div class="pie" id="q3-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1663,7 +1734,10 @@ footer .wrap{padding-block:18px 26px}
       .q3-lee .grande{font-size:17px;color:var(--goo-azul);font-weight:500}
       .q3-lee .malo{color:var(--goo-rojo)}
       .q3-rot{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
-      .q3-num{fill:#fff;font-family:var(--f-m);font-size:10.5px;font-weight:500}
+      /* el mismo numero cae sobre barras de colores distintos, y una de ellas
+         es gris: con halo se lee encima de cualquiera de las dos */
+      .q3-num{fill:var(--tinta-sobre);font-family:var(--f-m);font-size:10.5px;font-weight:500;
+        paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}
       .q3-etq{fill:var(--ink);font-family:var(--f-m);font-size:11.5px;font-weight:500}
       </style>
 
@@ -1735,18 +1809,21 @@ footer .wrap{padding-block:18px 26px}
 
         /* ---- el armazon de la tabla, una sola vez ---- */
         function monta(){
-          var t = ['<table><tr><th>#</th><th>Indicador</th><th>Criterio</th><th>Peso</th>'
-                 + '<th>Segundos</th><th>Nivel que ense\u00f1o</th><th>Nivel que da el tiempo</th>'
-                 + '<th>Puntos</th></tr>'];
+          var t = ['<table><tr><th scope="col">#</th><th scope="col">Indicador</th><th scope="col">Criterio</th><th scope="col">Peso</th>'
+                 + '<th scope="col">Segundos</th><th scope="col">Nivel que ense\u00f1o</th><th scope="col">Nivel que da el tiempo</th>'
+                 + '<th scope="col">Puntos</th></tr>'];
           FILAS.forEach(function(F, j){
             t.push('<tr data-f="' + j + '">'
               + '<td class="n">' + (j + 1) + '</td>'
               + '<td class="ind">' + F.n + '<small>' + F.d + '</small></td>'
               + '<td class="n">' + F.cr + '</td>'
               + '<td class="n">' + coma(F.peso, 1) + '</td>'
+              /* en una tabla, el mando se nombra por su fila: si no, se oyen
+                 siete casillas y siete desplegables sin saber de que son */
               + '<td class="n"><input type="number" min="0" max="360" step="5" value="' + seg[j]
-              + '" data-s="' + j + '"></td>'
-              + '<td class="n"><select data-v="' + j + '">'
+              + '" aria-label="Segundos para ' + F.n + '" data-s="' + j + '"></td>'
+              + '<td class="n"><select data-v="' + j + '" aria-label="Nivel que ense&ntilde;as en '
+              + F.n + '">'
               + [0, 1, 2, 3].map(function(k){
                   return '<option value="' + k + '"' + (k === niv[j] ? ' selected' : '') + '>'
                        + k + '</option>';
@@ -1931,7 +2008,7 @@ footer .wrap{padding-block:18px 26px}
       </script>
 
       <div class="copiar">
-        <h4>Lo que acaba de pasar</h4>
+        <h3 class="h-menor">Lo que acaba de pasar</h3>
         <p>El gui&oacute;n de siempre saca <b>4,17</b>. El reparto por peso saca <b>9,67</b>. No ha
            cambiado el proyecto, ni el aparato, ni el tiempo: ha cambiado <b>d&oacute;nde se gastan
            los segundos</b>. Son <b>cinco puntos y medio</b> de diferencia por decidir mal en
@@ -2008,6 +2085,21 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
     </section>
+
+    <figure class="foto">
+      <img src="../../../img/evaluation-criteria-matrix.svg" width="1000" height="700" loading="lazy" alt="Matriz de evaluación de rúbrica: criterios de puntuación para proyecto de riego automático">
+      <figcaption><b>Matriz de evaluación.</b> Una rúbrica hace tres cosas: (1) sabes antes de empezar exactamente qué se va a valorar, (2) todos los profesores puntúan igual porque usan los mismos criterios, (3) tú puedes mejorar sabiendo precisamente dónde están los puntos. La rúbrica no es castigo, es transparencia.
+        <span class="credito">Elaboración propia &middot; CC BY-SA 4.0</span>
+      </figcaption>
+    </figure>
+
+    <figure class="foto">
+      <img src="../../../img/solution-impact-matrix.svg" width="1000" height="700" loading="lazy" alt="Matriz de impacto: efectividad vs complejidad de soluciones tecnológicas">
+      <figcaption><b>Matriz de impacto.</b> Antes de comprometerte con una solución, gráfica dos preguntas: ¿realmente resuelve el problema? (efectividad), ¿cuánto trabajo cuesta implementarla? (complejidad). La zona verde es donde quieres estar: alta efectividad, baja complejidad. La zona roja es la trampa: parece fácil pero no funciona.
+        <span class="credito">Elaboración propia &middot; CC BY-SA 4.0</span>
+      </figcaption>
+    </figure>
+
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
       <div class="ficha">
@@ -2114,7 +2206,7 @@ footer .wrap{padding-block:18px 26px}
 
       <p>La cuenta es esta, y no tiene m&aacute;s misterio:</p>
       <div class="copiar">
-        <h4>Cu&aacute;ndo devuelve lo que cost&oacute;</h4>
+        <h3 class="h-menor">Cu&aacute;ndo devuelve lo que cost&oacute;</h3>
         <p>Un aparato empieza su vida <b>en n&uacute;meros rojos</b>: lo que cost&oacute; hacerlo ya
            est&aacute; gastado el primer d&iacute;a. A partir de ah&iacute;, cada a&ntilde;o descuenta
            lo que ahorra.</p>
@@ -2178,7 +2270,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q4-lee" id="q4-lee"></p>
         </div>
-        <div class="pie" id="q4-pie"></div>
+        <div class="pie" id="q4-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2513,7 +2605,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Un v&iacute;deo universitario, m&aacute;s seco que los otros, sobre c&oacute;mo se hace de verdad la cuenta que aqu&iacute; hemos dejado a medias. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=sC1HmzxOjoQ" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2543,7 +2636,7 @@ footer .wrap{padding-block:18px 26px}
            cada una.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c9-repair-cafe.jpg" alt="Vista desde arriba de un local con mesas largas donde varias personas reparan una l&aacute;mpara y un aspirador con destornilladores y un polímetro" loading="lazy">
+        <img src="../../../img/c9-repair-cafe.jpg" width="1280" height="1552" alt="Vista desde arriba de un local con mesas largas donde varias personas reparan una l&aacute;mpara y un aspirador con destornilladores y un polímetro" loading="lazy">
         <figcaption>Un <b>repair caf&eacute;</b>: gente que se junta un s&aacute;bado con sus herramientas para arreglar lo que se ha estropeado, en vez de tirarlo. F&iacute;jate en la mesa: destornilladores, alicates, un polímetro y una regleta. Es <b>exactamente</b> lo que ten&eacute;is en el taller. Un aparato que se puede abrir y arreglar dura m&aacute;s, y eso cambia el resultado de la cuenta de arriba <b>m&aacute;s que cualquier mejora del dise&ntilde;o</b>: duplicar la vida es duplicar el ahorro sin fabricar nada nuevo.
           <span class="credito">Ilvy Njiokiktjien &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Repair_Cafe_by_Ilvy_Njiokiktjien.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2628,71 +2721,71 @@ footer .wrap{padding-block:18px 26px}
       </ol>
       <div class="ta" id="test-c9">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Entre 1975 y 1999 salieron 1.393 medicamentos nuevos. &iquest;Cu&aacute;ntos eran para enfermedades tropicales y tuberculosis?</p>
-          <label class="ta-op"><input type="radio" name="c9-0" value="0">Unos 300, alrededor de la quinta parte.</label>
-          <label class="ta-op"><input type="radio" name="c9-0" value="1">16.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9-p1">
+          <p id="test-c9-p1">1. Entre 1975 y 1999 salieron 1.393 medicamentos nuevos. &iquest;Cu&aacute;ntos eran para enfermedades tropicales y tuberculosis?</p>
+          <label class="ta-op"><input type="radio" name="c9-0" value="0">16.</label>
+          <label class="ta-op"><input type="radio" name="c9-0" value="1">Unos 300, alrededor de la quinta parte.</label>
           <label class="ta-op"><input type="radio" name="c9-0" value="2">Ninguno.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 16 de 1.393, el 1,1 %, seg&uacute;n Trouiller y otros en <i>The Lancet</i> (2002). No hay ninguna ley que lo impida: sale de una divisi&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Qu&eacute; es la <b>demanda solvente</b>?</p>
-          <label class="ta-op"><input type="radio" name="c9-1" value="0">La cantidad de gente que sufre un problema.</label>
-          <label class="ta-op"><input type="radio" name="c9-1" value="1">La gente que sufre un problema <b>y puede pagar</b> por quit&aacute;rselo.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9-p2">
+          <p id="test-c9-p2">2. &iquest;Qu&eacute; es la <b>demanda solvente</b>?</p>
+          <label class="ta-op"><input type="radio" name="c9-1" value="0">La gente que sufre un problema <b>y puede pagar</b> por quit&aacute;rselo.</label>
+          <label class="ta-op"><input type="radio" name="c9-1" value="1">La cantidad de gente que sufre un problema.</label>
           <label class="ta-op"><input type="radio" name="c9-1" value="2">El dinero que el Estado dedica a un problema.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un mercado no cuenta personas: cuenta euros. Cien millones de personas sin un euro no son un mercado; dos millones que pueden pagar, s&iacute;.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. La cuenta que decide si algo se fabrica compara el precio m&iacute;nimo con&hellip;</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c9-p3">
+          <p id="test-c9-p3">3. La cuenta que decide si algo se fabrica compara el precio m&iacute;nimo con&hellip;</p>
           <label class="ta-op"><input type="radio" name="c9-2" value="0">lo que cuesta fabricar cada unidad</label>
-          <label class="ta-op"><input type="radio" name="c9-2" value="1">lo que puede pagar quien sufre el problema</label>
-          <label class="ta-op"><input type="radio" name="c9-2" value="2">lo que cobra la competencia</label>
+          <label class="ta-op"><input type="radio" name="c9-2" value="1">lo que cobra la competencia</label>
+          <label class="ta-op"><input type="radio" name="c9-2" value="2">lo que puede pagar quien sufre el problema</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Precio m&iacute;nimo = coste de desarrollo &divide; (personas que lo comprar&aacute;n &times; a&ntilde;os de venta). Si no cabe en lo que puede pagar quien lo sufre, no se fabrica, y nadie ha tenido que decidirlo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. Un medidor de CO<sub>2</sub> de aula existe y cuesta unos 120 &euro;. &iquest;Cu&aacute;l es la raz&oacute;n principal de que no haya uno en cada clase?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c9-p4">
+          <p id="test-c9-p4">4. Un medidor de CO<sub>2</sub> de aula existe y cuesta unos 120 &euro;. &iquest;Cu&aacute;l es la raz&oacute;n principal de que no haya uno en cada clase?</p>
           <label class="ta-op"><input type="radio" name="c9-3" value="0">Que la tecnolog&iacute;a todav&iacute;a no est&aacute; madura.</label>
-          <label class="ta-op"><input type="radio" name="c9-3" value="1">Que quien sufre el problema no es quien compra ni quien decide.</label>
-          <label class="ta-op"><input type="radio" name="c9-3" value="2">Que consumen demasiada electricidad.</label>
+          <label class="ta-op"><input type="radio" name="c9-3" value="1">Que consumen demasiada electricidad.</label>
+          <label class="ta-op"><input type="radio" name="c9-3" value="2">Que quien sufre el problema no es quien compra ni quien decide.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El alumno que aguanta el aula cargada no compra nada y no est&aacute; en la mesa donde se decide. Cuando el que elige, el que paga y el que sufre son tres personas distintas, lo que se compra es peor.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. La PlayPump promet&iacute;a dar agua a 2.500 personas y sub&iacute;a 1.400 litros por hora. Con 10 litros por persona y d&iacute;a, &iquest;cu&aacute;ntas horas de giro hacen falta al d&iacute;a?</p>
-          <label class="ta-op"><input type="radio" name="c9-4" value="0">Unas 2 horas.</label>
-          <label class="ta-op"><input type="radio" name="c9-4" value="1">Unas 18 horas.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9-p5">
+          <p id="test-c9-p5">5. La PlayPump promet&iacute;a dar agua a 2.500 personas y sub&iacute;a 1.400 litros por hora. Con 10 litros por persona y d&iacute;a, &iquest;cu&aacute;ntas horas de giro hacen falta al d&iacute;a?</p>
+          <label class="ta-op"><input type="radio" name="c9-4" value="0">Unas 18 horas.</label>
+          <label class="ta-op"><input type="radio" name="c9-4" value="1">Unas 2 horas.</label>
           <label class="ta-op"><input type="radio" name="c9-4" value="2">Unas 6 horas.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 2.500 &times; 10 = 25.000 litros al d&iacute;a; 25.000 &divide; 1.400 = 17,9 horas. Con el caudal medido de verdad sub&iacute;a a 27, y un d&iacute;a tiene 24.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. &iquest;Qu&eacute; quiere decir que una tecnolog&iacute;a sea <b>apropiada</b>?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c9-p6">
+          <p id="test-c9-p6">6. &iquest;Qu&eacute; quiere decir que una tecnolog&iacute;a sea <b>apropiada</b>?</p>
           <label class="ta-op"><input type="radio" name="c9-5" value="0">Que es lo m&aacute;s sencilla posible, sin electr&oacute;nica.</label>
           <label class="ta-op"><input type="radio" name="c9-5" value="1">Que encaja con la energ&iacute;a, los materiales, las manos y el dinero del sitio donde va a vivir.</label>
           <label class="ta-op"><input type="radio" name="c9-5" value="2">Que ha pasado los controles de calidad.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Apropiada no es una categor&iacute;a del aparato, es una <b>relaci&oacute;n</b> entre el aparato y el sitio. Un Arduino es apropiado en vuestro taller y puede no serlo en un huerto sin enchufe.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. En el riego autom&aacute;tico a pilas, &iquest;qu&eacute; se lleva casi toda la energ&iacute;a?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c9-p7">
+          <p id="test-c9-p7">7. En el riego autom&aacute;tico a pilas, &iquest;qu&eacute; se lleva casi toda la energ&iacute;a?</p>
           <label class="ta-op"><input type="radio" name="c9-6" value="0">La bomba, que mueve agua.</label>
           <label class="ta-op"><input type="radio" name="c9-6" value="1">La placa, que est&aacute; despierta las 24 horas sin hacer nada.</label>
           <label class="ta-op"><input type="radio" name="c9-6" value="2">El sensor de humedad.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La bomba trabaja 40 segundos al d&iacute;a: cent&eacute;simas de vatio hora. La placa gasta 45 mA durante 24 horas: 5,4 Wh. En un aparato que espera casi siempre, el consumo de esperar <b>es</b> el consumo.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>8. En la r&uacute;brica de la defensa, &iquest;cu&aacute;nto vale &laquo;c&oacute;mo lo montamos, paso a paso&raquo;?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c9-p8">
+          <p id="test-c9-p8">8. En la r&uacute;brica de la defensa, &iquest;cu&aacute;nto vale &laquo;c&oacute;mo lo montamos, paso a paso&raquo;?</p>
           <label class="ta-op"><input type="radio" name="c9-7" value="0">Es lo que m&aacute;s vale: 3 puntos.</label>
           <label class="ta-op"><input type="radio" name="c9-7" value="1">Vale 1 punto.</label>
           <label class="ta-op"><input type="radio" name="c9-7" value="2">Vale 0.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cero, y por eso el gui&oacute;n de siempre saca 4,17 mientras el reparto por peso saca 9,67 con el mismo proyecto y los mismos seis minutos. Montarlo se eval&uacute;a, pero en otra unidad y con la memoria escrita.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Os preguntan un dato que no hab&eacute;is medido. &iquest;Qu&eacute; es lo mejor que pod&eacute;is hacer?</p>
-          <label class="ta-op"><input type="radio" name="c9-8" value="0">Dar una cifra aproximada para no quedarse callado.</label>
-          <label class="ta-op"><input type="radio" name="c9-8" value="1">Decir &laquo;no lo hemos medido&raquo; y explicar c&oacute;mo lo averiguar&iacute;ais.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9-p9">
+          <p id="test-c9-p9">9. Os preguntan un dato que no hab&eacute;is medido. &iquest;Qu&eacute; es lo mejor que pod&eacute;is hacer?</p>
+          <label class="ta-op"><input type="radio" name="c9-8" value="0">Decir &laquo;no lo hemos medido&raquo; y explicar c&oacute;mo lo averiguar&iacute;ais.</label>
+          <label class="ta-op"><input type="radio" name="c9-8" value="1">Dar una cifra aproximada para no quedarse callado.</label>
           <label class="ta-op"><input type="radio" name="c9-8" value="2">Cambiar de tema y seguir con lo siguiente.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Esas cuatro palabras suman: distinguen lo medido de lo supuesto. Un n&uacute;mero inventado lo quita todo, porque la siguiente pregunta siempre es de d&oacute;nde sale.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Un aparato tarda 40 a&ntilde;os en devolver lo que cost&oacute; y se rompe a los 4. &iquest;Qu&eacute; significa eso?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c9-p10">
+          <p id="test-c9-p10">10. Un aparato tarda 40 a&ntilde;os en devolver lo que cost&oacute; y se rompe a los 4. &iquest;Qu&eacute; significa eso?</p>
           <label class="ta-op"><input type="radio" name="c9-9" value="0">Que hay que esperar m&aacute;s tiempo.</label>
           <label class="ta-op"><input type="radio" name="c9-9" value="1">Que no lo devuelve nunca: se rompe mucho antes de llegar al cero.</label>
           <label class="ta-op"><input type="radio" name="c9-9" value="2">Que la cuenta est&aacute; mal hecha.</label>
@@ -2701,7 +2794,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2776,7 +2869,7 @@ footer .wrap{padding-block:18px 26px}
       <p>La diferencia entre las frases de la profesora y las vuestras no es que ella sepa m&aacute;s
          de tecnolog&iacute;a. Es que las suyas <b>se pueden comprobar</b> y las vuestras no.</p>
       <div class="copiar">
-        <h4>Un requisito es una frase que se puede comprobar</h4>
+        <h3 class="h-menor">Un requisito es una frase que se puede comprobar</h3>
         <p>Para que una frase sea un requisito le tienen que caber tres cosas:</p>
         <ol>
           <li>un <b>n&uacute;mero con su unidad</b>, o una <b>prueba</b> que se pueda hacer delante
@@ -2819,7 +2912,7 @@ footer .wrap{padding-block:18px 26px}
          amable y te dice que s&iacute;. As&iacute; que no se preguntan opiniones: se preguntan
          <b>hechos del pasado</b>.</p>
       <figure class="foto">
-        <img src="../../../img/c9-entrevista.jpg" alt="Dos personas frente a un port&aacute;til: una teclea y la otra, con una hoja de notas escritas a mano, observa y se&ntilde;ala la pantalla" loading="lazy">
+        <img src="../../../img/c9-entrevista.jpg" width="1280" height="857" alt="Dos personas frente a un port&aacute;til: una teclea y la otra, con una hoja de notas escritas a mano, observa y se&ntilde;ala la pantalla" loading="lazy">
         <figcaption>Una <b>prueba con la persona que lo va a usar</b>. Lo que se est&aacute; probando aqu&iacute; es una p&aacute;gina web y no un riego, pero la t&eacute;cnica es la misma y el detalle importante est&aacute; a la izquierda: <b>ese papel</b>. El que mira no est&aacute; ense&ntilde;ando nada ni explicando c&oacute;mo funciona &mdash;eso lo estropear&iacute;a&mdash;: est&aacute; <b>apuntando lo que hace el otro</b> mientras lo hace. De la entrevista hay que salir con el papel lleno, no con una impresi&oacute;n general.
           <span class="credito">Samuel Mann &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Project_User_Experience_Testing_(9719939867).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2899,7 +2992,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q5-lee" id="q5-lee"></p>
         </div>
-        <div class="pie" id="q5-pie"></div>
+        <div class="pie" id="q5-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3423,7 +3516,7 @@ footer .wrap{padding-block:18px 26px}
       <p>En la sesi&oacute;n 4 dijimos que el aparato cost&oacute; 25 &euro; de material. Esa cifra
          es verdad y es la menos importante de todas.</p>
       <div class="copiar">
-        <h4>El precio no es el coste</h4>
+        <h3 class="h-menor">El precio no es el coste</h3>
         <p>El <b>precio</b> es lo que pagas el primer d&iacute;a. El <b>coste</b> es lo que te va a
            costar tenerlo, y se cuenta a un plazo:</p>
         <p style="font-family:var(--f-m);font-size:14px">coste a 5 a&ntilde;os = material inicial
@@ -3507,7 +3600,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q6-lee" id="q6-lee"></p>
         </div>
-        <div class="pie" id="q6-pie"></div>
+        <div class="pie" id="q6-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3819,7 +3912,7 @@ footer .wrap{padding-block:18px 26px}
         <ul>
           <li><b>Tal y como est&aacute;</b> &mdash;pilas, dos clavos, dos litros de dep&oacute;sito y
               vosotros cuid&aacute;ndolo&mdash; hay que ir <b>72 veces</b>, son <b>22 horas</b> de
-              alguien... y aun as&iacute; el aparato <b>se para para siempre el d&iacute;a 273</b>,
+              alguien&hellip; y aun as&iacute; el aparato <b>se para del todo el d&iacute;a 273</b>,
               tres d&iacute;as despu&eacute;s de que dej&eacute;is de pasaros por all&iacute;.
               Funcion&oacute; el <b>7 %</b> de los cinco a&ntilde;os.</li>
           <li><b>Con enchufe, sonda capacitiva, dep&oacute;sito grande y el conserje</b>: <b>5
@@ -3861,7 +3954,7 @@ footer .wrap{padding-block:18px 26px}
            nada.</p>
       </div>
       <figure class="foto" style="max-width:440px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c9-bomba-averiada.jpg" alt="Dos hombres reparan una bomba de mano de pozo en la calle de un pueblo; la tapa est&aacute; abierta, hay dos llaves y un tornillo en el suelo y sale agua por el ca&ntilde;o" loading="lazy">
+        <img src="../../../img/c9-bomba-averiada.jpg" width="1280" height="2276" alt="Dos hombres reparan una bomba de mano de pozo en la calle de un pueblo; la tapa est&aacute; abierta, hay dos llaves y un tornillo en el suelo y sale agua por el ca&ntilde;o" loading="lazy">
         <figcaption>Reparando una <b>bomba de mano</b> de pozo. M&iacute;rala con calma, porque est&aacute; todo: la tapa abierta, <b>dos llaves fijas y un tornillo en el suelo</b>, gente del sitio con las manos dentro y agua saliendo por el ca&ntilde;o. En la sesi&oacute;n 2 dijimos que la bomba de mano de toda la vida le ganaba a la PlayPump. No le ganaba bombeando m&aacute;s: le ganaba <b>porque esto se puede hacer</b>, con piezas normales, llaves normales y alguien de all&iacute; que sabe. Esta escena no sale en ninguna foto de inauguraci&oacute;n, y es la que decide si el aparato sigue vivo dentro de cinco a&ntilde;os.
           <span class="credito">Tsumoses &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Repair_handpump.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3991,7 +4084,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="reto-piensa">
         <span class="n-tag">Falta una, y no se le ocurre a casi nadie</span>
         <p>Supongamos que consiguen contestarlas todas. Lo arreglan, lo mejoran, lo dejan
-           precioso... y lo quieren <b>publicar</b>, o ense&ntilde;arlo en una feria, o d&aacute;rselo
+           precioso&hellip; y lo quieren <b>publicar</b>, o ense&ntilde;arlo en una feria, o d&aacute;rselo
            a otro centro.</p>
         <p>La pregunta que falta es esta: <b>&iquest;pueden?</b> &iquest;Qui&eacute;n les ha dado
            permiso? Escribid vuestra respuesta antes de seguir. Casi todo el mundo contesta
@@ -4043,7 +4136,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q7-lee" id="q7-lee"></p>
         </div>
-        <div class="pie" id="q7-pie"></div>
+        <div class="pie" id="q7-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4082,7 +4175,7 @@ footer .wrap{padding-block:18px 26px}
       .q7-lee .malo{color:var(--goo-rojo)}
       .q7-rot{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
       .q7-etq{fill:var(--ink);font-family:var(--f-m);font-size:11.5px;font-weight:500}
-      .q7-num{fill:#fff;font-family:var(--f-m);font-size:10.5px;font-weight:500}
+      .q7-num{fill:var(--tinta-sobre);font-family:var(--f-m);font-size:10.5px;font-weight:500}
       </style>
 
       <script>
@@ -4459,7 +4552,7 @@ footer .wrap{padding-block:18px 26px}
       </script>
 
       <div class="copiar">
-        <h4>Lo que acaba de pasar</h4>
+        <h3 class="h-menor">Lo que acaba de pasar</h3>
         <p>Sin nada escrito, al siguiente grupo le cuesta <b>10 horas y 10 minutos</b> volver al
            punto donde vosotros lo dejasteis. Tiene <b>ocho sesiones</b>, o sea 6 horas y 40 minutos,
            para hacer la unidad entera. <b>No le cabe</b>: as&iacute; que no lo contin&uacute;a, lo
@@ -4498,7 +4591,7 @@ footer .wrap{padding-block:18px 26px}
            vez.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c9-esquema-1917.jpg" alt="Esquema el&eacute;ctrico a l&iacute;nea del receptor de radio SCR-54, con la antena, la toma de tierra, las bobinas con sus tomas numeradas, los condensadores variables, el detector y la clavija de los auriculares" loading="lazy">
+        <img src="../../../img/c9-esquema-1917.jpg" width="725" height="570" alt="Esquema el&eacute;ctrico a l&iacute;nea del receptor de radio SCR-54, con la antena, la toma de tierra, las bobinas con sus tomas numeradas, los condensadores variables, el detector y la clavija de los auriculares" loading="lazy">
         <figcaption>El esquema del <b>receptor de radio SCR-54</b>, que el ej&eacute;rcito de Estados Unidos us&oacute; en la Primera Guerra Mundial. Tiene m&aacute;s de <b>cien a&ntilde;os</b> y con &eacute;l todav&iacute;a se puede montar el aparato, porque no dice <i>&laquo;el cable rojo va por encima&raquo;</i>: dice qu&eacute; hace cada pieza &mdash;antena, tierra, inductancia primaria, condensador variable, detector, clavija del tel&eacute;fono&mdash; y c&oacute;mo se conectan entre s&iacute;. F&iacute;jate en los n&uacute;meros de las bobinas: ah&iacute; est&aacute;n hasta las tomas, que es la informaci&oacute;n que en vuestro proyecto equivale al umbral 430. <b>Eso</b> es lo que hay que dejar en la caja.
           <span class="credito">Signal Corps, U.S. Army &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:SCR-54_schematic.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4590,7 +4683,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Las mismas letras que acabamos de ver, contadas por gente que se dedica a esto. Sirve para repasar antes de elegir la vuestra. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=8Ec4Pgs8ClA" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -4720,7 +4814,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Lo que hizo el grupo 2 tiene nombre, y se usa igual en una obra, en un hospital y en un
          programa de ordenador.</p>
       <div class="copiar">
-        <h4>La prueba de aceptaci&oacute;n</h4>
+        <h3 class="h-menor">La prueba de aceptaci&oacute;n</h3>
         <p>Es la prueba que decide si lo entregado <b>se acepta o no se acepta</b>. Lleva cinco
            cosas, y si le falta una no sirve:</p>
         <ol>
@@ -4795,7 +4889,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="q8-lee" id="q8-lee"></p>
         </div>
-        <div class="pie" id="q8-pie"></div>
+        <div class="pie" id="q8-pie" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -5097,7 +5191,7 @@ footer .wrap{padding-block:18px 26px}
            con una medida.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c9-inspeccion.jpg" alt="Una mujer con bata blanca mira por un microscopio de laboratorio una pieza colocada bajo el objetivo, en una sala llena de puestos iguales" loading="lazy">
+        <img src="../../../img/c9-inspeccion.jpg" width="1280" height="847" alt="Una mujer con bata blanca mira por un microscopio de laboratorio una pieza colocada bajo el objetivo, en una sala llena de puestos iguales" loading="lazy">
         <figcaption><b>Control de calidad</b> en una f&aacute;brica de circuitos integrados, hacia los a&ntilde;os setenta. Su trabajo no es fabricar: es <b>poder decir que no</b>. Y para que eso signifique algo tiene que haber escrito <b>de antemano</b> qu&eacute; se mira y a partir de qu&eacute; se rechaza; si no, lo que hay es una opini&oacute;n con microscopio. F&iacute;jate adem&aacute;s en algo que suele pasar desapercibido: quien comprueba <b>no es quien lo ha hecho</b>. En vuestra entrega, ese alguien distinto es el destinatario, y por eso la prueba se hace delante de &eacute;l.
           <span class="credito">Intel Free Press &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Quality_Inspection.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5212,71 +5306,71 @@ footer .wrap{padding-block:18px 26px}
       </ol>
       <div class="ta" id="test-c9b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Entre 1975 y 1999, de 1.393 medicamentos nuevos solo 16 fueron para enfermedades tropicales. &iquest;Qu&eacute; lo decidi&oacute;?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c9b-p1">
+          <p id="test-c9b-p1">1. Entre 1975 y 1999, de 1.393 medicamentos nuevos solo 16 fueron para enfermedades tropicales. &iquest;Qu&eacute; lo decidi&oacute;?</p>
           <label class="ta-op"><input type="radio" name="c9b-0" value="0">Una decisi&oacute;n pol&iacute;tica tomada en una reuni&oacute;n.</label>
-          <label class="ta-op"><input type="radio" name="c9b-0" value="1">Una divisi&oacute;n: el precio m&iacute;nimo no cab&iacute;a en lo que puede pagar quien lo sufre.</label>
-          <label class="ta-op"><input type="radio" name="c9b-0" value="2">Que a&uacute;n no se sab&iacute;a c&oacute;mo fabricarlos.</label>
+          <label class="ta-op"><input type="radio" name="c9b-0" value="1">Que a&uacute;n no se sab&iacute;a c&oacute;mo fabricarlos.</label>
+          <label class="ta-op"><input type="radio" name="c9b-0" value="2">Una divisi&oacute;n: el precio m&iacute;nimo no cab&iacute;a en lo que puede pagar quien lo sufre.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Precio m&iacute;nimo = coste de desarrollo &divide; (personas que lo comprar&aacute;n &times; a&ntilde;os de venta). Si no cabe, no se fabrica, y no hace falta que nadie lo decida.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Qu&eacute; quiere decir que una tecnolog&iacute;a sea <b>apropiada</b>?</p>
-          <label class="ta-op"><input type="radio" name="c9b-1" value="0">Que es lo m&aacute;s sencilla posible.</label>
-          <label class="ta-op"><input type="radio" name="c9b-1" value="1">Que encaja con la energ&iacute;a, los materiales, las manos y el dinero del sitio donde va a vivir.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9b-p2">
+          <p id="test-c9b-p2">2. &iquest;Qu&eacute; quiere decir que una tecnolog&iacute;a sea <b>apropiada</b>?</p>
+          <label class="ta-op"><input type="radio" name="c9b-1" value="0">Que encaja con la energ&iacute;a, los materiales, las manos y el dinero del sitio donde va a vivir.</label>
+          <label class="ta-op"><input type="radio" name="c9b-1" value="1">Que es lo m&aacute;s sencilla posible.</label>
           <label class="ta-op"><input type="radio" name="c9b-1" value="2">Que ha pasado los controles de calidad.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es una <b>relaci&oacute;n</b> entre el aparato y el sitio, no una categor&iacute;a del aparato. La PlayPump fall&oacute; por eso, no por falta de dinero.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>3. En la r&uacute;brica de la defensa, &iquest;cu&aacute;nto vale &laquo;c&oacute;mo lo montamos, paso a paso&raquo;?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c9b-p3">
+          <p id="test-c9b-p3">3. En la r&uacute;brica de la defensa, &iquest;cu&aacute;nto vale &laquo;c&oacute;mo lo montamos, paso a paso&raquo;?</p>
           <label class="ta-op"><input type="radio" name="c9b-2" value="0">Es lo que m&aacute;s vale.</label>
           <label class="ta-op"><input type="radio" name="c9b-2" value="1">Vale 1 punto.</label>
           <label class="ta-op"><input type="radio" name="c9b-2" value="2">Vale 0.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cero: 6,5 de los 10 puntos son de lo que el aparato hace por alguien. Por eso el mismo proyecto saca 4,17 con un gui&oacute;n y 9,67 con otro.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &laquo;Nuestro riego es para el instituto, para ahorrar agua.&raquo; &iquest;Qu&eacute; le falta a esa frase?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c9b-p4">
+          <p id="test-c9b-p4">4. &laquo;Nuestro riego es para el instituto, para ahorrar agua.&raquo; &iquest;Qu&eacute; le falta a esa frase?</p>
           <label class="ta-op"><input type="radio" name="c9b-3" value="0">Nada: dice para qui&eacute;n es y para qu&eacute; sirve.</label>
-          <label class="ta-op"><input type="radio" name="c9b-3" value="1">Una persona concreta dentro, y un n&uacute;mero que se pueda comprobar.</label>
-          <label class="ta-op"><input type="radio" name="c9b-3" value="2">Decir cu&aacute;nto ha costado el material.</label>
+          <label class="ta-op"><input type="radio" name="c9b-3" value="1">Decir cu&aacute;nto ha costado el material.</label>
+          <label class="ta-op"><input type="radio" name="c9b-3" value="2">Una persona concreta dentro, y un n&uacute;mero que se pueda comprobar.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El instituto no riega, no se olvida y no se va de vacaciones. Sin alguien con nombre no hay requisitos, y sin requisitos no hay manera de saber si sirve.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>5. &iquest;Cu&aacute;l de estas tres frases es un <b>requisito</b>?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c9b-p5">
+          <p id="test-c9b-p5">5. &iquest;Cu&aacute;l de estas tres frases es un <b>requisito</b>?</p>
           <label class="ta-op"><input type="radio" name="c9b-4" value="0">&laquo;Que sea fiable.&raquo;</label>
-          <label class="ta-op"><input type="radio" name="c9b-4" value="1">&laquo;Que quede bonito.&raquo;</label>
-          <label class="ta-op"><input type="radio" name="c9b-4" value="2">&laquo;Que aguante 43 d&iacute;as sin que vaya nadie.&raquo;</label>
+          <label class="ta-op"><input type="radio" name="c9b-4" value="1">&laquo;Que aguante 43 d&iacute;as sin que vaya nadie.&raquo;</label>
+          <label class="ta-op"><input type="radio" name="c9b-4" value="2">&laquo;Que quede bonito.&raquo;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lleva n&uacute;mero, unidad y una manera de comprobarlo: el 15 de septiembre se mira la planta. Las otras dos son deseos: no hay forma de saber si se cumplen.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. El mismo riego cumple con la vecina (15 d&iacute;as) y suspende en el huerto (43 d&iacute;as). &iquest;Por qu&eacute;?</p>
-          <label class="ta-op"><input type="radio" name="c9b-5" value="0">Porque el aparato del huerto est&aacute; peor montado.</label>
-          <label class="ta-op"><input type="radio" name="c9b-5" value="1">Porque el bancal pide 6 L al d&iacute;a y 43 d&iacute;as son 258 litros, que no caben en ning&uacute;n dep&oacute;sito que puedan poner.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9b-p6">
+          <p id="test-c9b-p6">6. El mismo riego cumple con la vecina (15 d&iacute;as) y suspende en el huerto (43 d&iacute;as). &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="c9b-5" value="0">Porque el bancal pide 6 L al d&iacute;a y 43 d&iacute;as son 258 litros, que no caben en ning&uacute;n dep&oacute;sito que puedan poner.</label>
+          <label class="ta-op"><input type="radio" name="c9b-5" value="1">Porque el aparato del huerto est&aacute; peor montado.</label>
           <label class="ta-op"><input type="radio" name="c9b-5" value="2">Porque en el huerto hace m&aacute;s calor y las pilas duran menos.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el mismo aparato. Lo que cambia es el requisito, y lo pone la persona. Cuando el mando no da para tanto, lo que hay que cambiar es el <b>dise&ntilde;o</b>: una toma de agua y un enchufe.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Se come uno de los dos clavos de la sonda de humedad y el otro no. &iquest;Por qu&eacute;?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c9b-p7">
+          <p id="test-c9b-p7">7. Se come uno de los dos clavos de la sonda de humedad y el otro no. &iquest;Por qu&eacute;?</p>
           <label class="ta-op"><input type="radio" name="c9b-6" value="0">Porque el clavo era de peor calidad.</label>
           <label class="ta-op"><input type="radio" name="c9b-6" value="1">Por <b>electr&oacute;lisis</b>: pasar corriente continua por tierra mojada disuelve el electrodo positivo.</label>
           <label class="ta-op"><input type="radio" name="c9b-6" value="2">Porque le da el sol a ese lado.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Le pasa a cualquier sonda de dos clavos alimentada todo el rato. Se arregla aliment&aacute;ndola solo al medir, o con una sonda capacitiva.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. &iquest;Cu&aacute;l de estas decisiones sube m&aacute;s la disponibilidad del riego a cinco a&ntilde;os?</p>
-          <label class="ta-op"><input type="radio" name="c9b-7" value="0">Que quien lo cuida vaya m&aacute;s deprisa cuando se entera.</label>
-          <label class="ta-op"><input type="radio" name="c9b-7" value="1">Enchufarlo, poner un dep&oacute;sito grande y una sonda que dure.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9b-p8">
+          <p id="test-c9b-p8">8. &iquest;Cu&aacute;l de estas decisiones sube m&aacute;s la disponibilidad del riego a cinco a&ntilde;os?</p>
+          <label class="ta-op"><input type="radio" name="c9b-7" value="0">Enchufarlo, poner un dep&oacute;sito grande y una sonda que dure.</label>
+          <label class="ta-op"><input type="radio" name="c9b-7" value="1">Que quien lo cuida vaya m&aacute;s deprisa cuando se entera.</label>
           <label class="ta-op"><input type="radio" name="c9b-7" value="2">Comprar dos recambios de cada pieza.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las tres primeras son de <b>dise&ntilde;o</b>, y llevan el aparato del 7 % al 98 % del tiempo funcionando. El mantenimiento no se decide manteniendo, se decide dise&ntilde;ando.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Dej&aacute;is el proyecto sin poner ninguna licencia. &iquest;Qu&eacute; pasa?</p>
-          <label class="ta-op"><input type="radio" name="c9b-8" value="0">Que al no decir nada, cualquiera puede hacer con &eacute;l lo que quiera.</label>
-          <label class="ta-op"><input type="radio" name="c9b-8" value="1">Que tiene <b>todos los derechos reservados</b>: nadie puede publicarlo ni continuarlo legalmente.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c9b-p9">
+          <p id="test-c9b-p9">9. Dej&aacute;is el proyecto sin poner ninguna licencia. &iquest;Qu&eacute; pasa?</p>
+          <label class="ta-op"><input type="radio" name="c9b-8" value="0">Que tiene <b>todos los derechos reservados</b>: nadie puede publicarlo ni continuarlo legalmente.</label>
+          <label class="ta-op"><input type="radio" name="c9b-8" value="1">Que al no decir nada, cualquiera puede hacer con &eacute;l lo que quiera.</label>
           <label class="ta-op"><input type="radio" name="c9b-8" value="2">Que hay que registrarlo antes de que tenga derechos.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Los derechos de autor nacen solos al crear la obra, sin registrar nada. Para el derecho, <b>callarse es decir que no</b>. Poner la licencia es dar permiso por escrito.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Prometes 100 mL, la banda es de 80 a 120 y una medida cae dentro el 73 % de las veces. Si exiges <b>tres de tres</b>, &iquest;cu&aacute;ntas veces apruebas?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c9b-p10">
+          <p id="test-c9b-p10">10. Prometes 100 mL, la banda es de 80 a 120 y una medida cae dentro el 73 % de las veces. Si exiges <b>tres de tres</b>, &iquest;cu&aacute;ntas veces apruebas?</p>
           <label class="ta-op"><input type="radio" name="c9b-9" value="0">El 73 %, igual que una sola medida.</label>
           <label class="ta-op"><input type="radio" name="c9b-9" value="1">El 39 %: 0,73 &times; 0,73 &times; 0,73.</label>
           <label class="ta-op"><input type="radio" name="c9b-9" value="2">M&aacute;s del 73 %, porque tienes tres oportunidades.</label>
@@ -5285,7 +5379,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -5339,7 +5433,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -5359,7 +5453,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -5388,8 +5482,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -5402,7 +5505,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -5421,5 +5527,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

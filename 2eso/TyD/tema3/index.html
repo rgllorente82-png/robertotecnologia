@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 3 &middot; Materiales de uso t&eacute;cnico">
+<meta property="og:description" content="Tema 3 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: propiedades de los materiales, c&oacute;mo se eligen y qu&eacute; impacto ambiental tienen.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema3/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 3 &middot; Materiales de uso t&eacute;cnico &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -273,18 +292,57 @@ h4{font-size:15.5px;margin:16px 0 4px}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
+/* El proyecto de ampliacion no pertenece a ninguna sesion: no gasta minutos
+   del minutado, y por eso va aqui abajo y no dentro de un panel. */
+.demos{max-width:820px;margin:26px auto 0;padding:0 20px}
+.demos-cab{border-top:3px solid var(--goo-azul);padding-top:18px;margin-bottom:6px}
+.demos-cab h2{margin:6px 0 8px;font-size:22px;letter-spacing:-.01em}
+.demos-cab p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6}
+.eyebrow-d{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--goo-azul)}
+.tabla-mat{width:100%;border-collapse:collapse;font-size:14px;margin:10px 0 4px}
+.tabla-mat th,.tabla-mat td{border:1px solid var(--line);padding:7px 9px;text-align:left}
+.tabla-mat th{background:var(--surface);font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 3</div>
     <h1>Materiales de uso t&eacute;cnico</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4">S4 &middot; Metales</button><button type="button" data-ses="5">S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6">S6 &middot; Impacto y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; &iquest;Por qu&eacute; de eso?</button><button type="button" data-ses="2">S2 &middot; Medir propiedades</button><button type="button" data-ses="3">S3 &middot; La madera</button><button type="button" data-ses="4">S4 &middot; Metales</button><button type="button" data-ses="5">S5 &middot; Pl&aacute;sticos</button><button type="button" data-ses="6">S6 &middot; Impacto y test</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -329,7 +387,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 260" id="svg-bici" role="img"
                aria-label="Comparaci&oacute;n de un cuadro de bicicleta en acero, aluminio y fibra de carbono"></svg>
         </div>
-        <div class="pie" id="pie-bici"></div>
+        <div class="pie" id="pie-bici" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -341,14 +399,14 @@ footer .wrap{padding-block:18px 26px}
 
         var M = {
           acero: {nom:'Acero', col:'#7a8590', peso:2.2, precio:120, vida:5, repara:5, co2:2.5,
-            txt:'Pesa el doble que el carbono, pero <b>se puede soldar en cualquier taller</b> y aguanta '
+            txt:'Pesa dos veces y media lo que el carbono, pero <b>se puede soldar en cualquier taller</b> y aguanta '
               + 'd&eacute;cadas. Si se dobla, avisa antes de romper. Es el material de las bicis que duran toda la vida.'},
           alu:  {nom:'Aluminio', col:'#b9c2cc', peso:1.4, precio:250, vida:3, repara:2, co2:4,
             txt:'El equilibrio de casi todas las bicis de tienda: ligero, no se oxida y sale a un precio '
               + 'razonable. A cambio <b>se fatiga</b>: tras muchos a&ntilde;os de uso puede fallar sin aviso, y '
               + 'soldarlo bien es dif&iacute;cil.'},
           carbono:{nom:'Fibra de carbono', col:'#2f3a45', peso:0.9, precio:900, vida:2, repara:1, co2:7,
-            txt:'La mitad de peso que el acero y muy r&iacute;gido: por eso lo usan los profesionales. Pero '
+            txt:'Menos de la mitad de peso que el acero y muy r&iacute;gido: por eso lo usan los profesionales. Pero '
               + '<b>no avisa</b> &mdash;rompe de golpe&mdash;, un golpe tonto lo inutiliza y reciclarlo hoy '
               + 'es pr&aacute;cticamente imposible.'}
         };
@@ -451,6 +509,21 @@ footer .wrap{padding-block:18px 26px}
           <li><b>Conductividad</b>: deja pasar el calor o la electricidad. Lo contrario es <b>aislante</b>.</li>
         </ul>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/material-properties.svg" width="1000" height="700" loading="lazy"
+             alt="Propiedades mecánicas, térmicas, eléctricas y otras de los materiales">
+        <figcaption>Las <b>propiedades de los materiales</b> se dividen en varias categorías: mecánicas (resistencia, dureza, elasticidad), térmicas (conductividad, punto de fusión), eléctricas (conductividad, semiconductores, aislantes) y otras (densidad, corrosión, trabajabilidad, sostenibilidad). Cada propiedad tiene límites, y el ingeniero elige el material cuyas propiedades se ajustan a lo que necesita, buscando el equilibrio entre prestaciones y coste.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
+      <figure class="foto">
+        <img src="../../../img/materials_wood_metal_plastic.svg" width="960" height="400" loading="lazy"
+             alt="Comparación de tres materiales técnicos comunes: madera, metal y plástico, con sus propiedades y aplicaciones">
+        <figcaption>Los tres materiales técnicos más comunes: cada uno tiene propiedades distintas que lo hacen
+          adecuado para usos diferentes. No hay un «mejor»; hay el <b>adecuado para lo que quieres</b>.</figcaption>
+      </figure>
 
       <div class="entender">
         <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
@@ -569,7 +642,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 240" id="svg-mohs" role="img"
                aria-label="Ensayo de rayado entre materiales seg&uacute;n la escala de Mohs"></svg>
         </div>
-        <div class="pie" id="pie-mohs"></div>
+        <div class="pie" id="pie-mohs" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -596,7 +669,13 @@ footer .wrap{padding-block:18px 26px}
           MAT.forEach(function(x, i){
             var px = X + i*W;
             var sel = (raya === i) ? 'var(--goo-azul)' : ((rayado === i) ? 'var(--goo-rojo)' : 'var(--line)');
-            m += '<g class="mat" data-i="' + i + '" style="cursor:pointer">';
+            /* Cada material es tambien parada del tabulador: se elige con
+               Intro o con espacio, igual que pulsandolo.                    */
+            var papel = (raya === i) ? ', con el que rayas'
+                      : ((rayado === i) ? ', al que rayas' : '');
+            m += '<g class="mat" data-i="' + i + '" style="cursor:pointer"'
+               + ' tabindex="0" role="button" aria-label="' + x.n
+               + ', dureza ' + String(x.d).replace('.', ',') + papel + '">';
             m += '<rect x="' + px + '" y="60" width="66" height="58" rx="4" fill="' + x.c +
                  '" stroke="' + sel + '" stroke-width="' + ((raya===i||rayado===i) ? 3.5 : 1.5) + '"></rect>';
             /* si esta siendo rayado y pierde, se le dibuja el arana~zo */
@@ -640,13 +719,27 @@ footer .wrap{padding-block:18px 26px}
           }
         }
 
-        svg.addEventListener('click', function(e){
-          var g = e.target.closest('.mat'); if(!g) return;
+        function elige(g){
           var i = +g.dataset.i;
           if(raya === null) raya = i;
           else if(rayado === null) rayado = i;
           else { raya = i; rayado = null; }
           pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve al mismo material para seguir con el tabulador.        */
+          var nuevo = svg.querySelector('.mat[data-i="' + i + '"]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('.mat');
+          if(g) elige(g);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var g = e.target.closest ? e.target.closest('.mat') : null;
+          if(!g) return;
+          e.preventDefault();
+          elige(g);
         });
         seg.addEventListener('click', function(){ raya = null; rayado = null; pinta(); });
         pinta();
@@ -672,6 +765,13 @@ footer .wrap{padding-block:18px 26px}
            n&uacute;meros proporcionales. La de Mohs sobrevive porque sigue siendo la &uacute;nica que funciona
            sin enchufe.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/mohs_hardness_scale.svg" width="640" height="500" loading="lazy"
+             alt="Escala de Mohs: 10 minerales ordenados por dureza creciente desde el talco hasta el diamante">
+        <figcaption>La <b>escala de Mohs</b> de 1 a 10: una ordenación que sigue un principio simple:
+          si A raya a B, A es más duro. Sin aparatos, sin opiniones. Solo física.</figcaption>
+      </figure>
 
       <h3>Los otros ensayos</h3>
       <div class="copiar">
@@ -807,7 +907,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 230" id="svg-veta" role="img"
                aria-label="Una tabla se parte con facilidad a favor de la veta y resiste en contra; el contrachapado cruza las capas"></svg>
         </div>
-        <div class="pie" id="pie-veta"></div>
+        <div class="pie" id="pie-veta" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1020,6 +1120,13 @@ footer .wrap{padding-block:18px 26px}
     <div class="ses-head">
       <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
       <h2>Los metales: hay que sacarlos de una piedra</h2>
+      <figure class="foto">
+        <img src="../../../img/mohs_hardness_scale.svg" width="960" height="600" loading="lazy"
+             alt="Escala de Mohs de dureza de 10 minerales, del talco (1) al diamante (10)">
+        <figcaption>Escala de Mohs de dureza: comparación de 10 minerales desde el talco (más blando) hasta el diamante (más duro). Esta escala se utiliza para medir y clasificar la dureza de los materiales.
+          <span class="credito">Generado por Claude · CC BY-SA 4.0 · Escala mineral</span>
+        </figcaption>
+      </figure>
       <p>Una piedra no se parece a una espada. Entender ese salto explica el precio de los metales, su huella y por qu&eacute; se reciclan tanto.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
@@ -1070,7 +1177,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 250" id="svg-metal" role="img"
                aria-label="Energ&iacute;a necesaria para producir un kilo de metal desde el mineral frente a reciclarlo"></svg>
         </div>
-        <div class="pie" id="pie-metal"></div>
+        <div class="pie" id="pie-metal" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1080,19 +1187,22 @@ footer .wrap{padding-block:18px 26px}
         var seg = document.getElementById('seg-metal');
         if(!svg) return;
 
-        /* kWh por kg, valores redondeados de fuentes industriales */
+        /* kWh por kg. Son las mismas cifras que maneja 4.o tema 3 en MJ/kg
+           (acero 25 y 10, cobre 60 y 17, aluminio 186), divididas por 3,6.
+           Antes no coincidian: 2.o daba para el acero el doble y para el
+           cobre reciclado un tercio de lo que dice 4.o. */
         var MET = {
-          aluminio:{n:'Aluminio', mineral:'Bauxita', virgen:45, reciclado:2.3, col:'#b9c2cc',
+          aluminio:{n:'Aluminio', mineral:'Bauxita', virgen:52, reciclado:2.6, col:'#b9c2cc',
             txt:'Sacar aluminio de la bauxita exige <b>electrolisis</b>: pasar corriente a lo bruto durante '
               + 'horas. Por eso las f&aacute;bricas de aluminio se ponen al lado de centrales el&eacute;ctricas. '
               + 'Reciclarlo solo pide fundirlo, y eso es <b>el 5&nbsp;% de la energ&iacute;a</b>. Una lata reciclada '
-              + 'ahorra veinte veces lo que cuesta hacerla nueva.'},
-          acero:{n:'Acero', mineral:'Hematita', virgen:14, reciclado:5.5, col:'#7a8590',
+              + 'gasta veinte veces menos energ&iacute;a que una hecha de mineral.'},
+          acero:{n:'Acero', mineral:'Hematita', virgen:7, reciclado:2.8, col:'#7a8590',
             txt:'El hierro se saca del mineral en un <b>alto horno</b>, quem&aacute;ndolo con carb&oacute;n a 1.500&nbsp;&deg;C. '
               + 'Reciclarlo cuesta menos de la mitad, y adem&aacute;s es el material m&aacute;s reciclado del mundo: es '
               + '<b>magn&eacute;tico</b>, as&iacute; que separarlo de la basura es trivial.'},
-          cobre:{n:'Cobre', mineral:'Calcopirita', virgen:16, reciclado:1.5, col:'#c98a4b',
-            txt:'Reciclar cobre cuesta <b>menos del 10&nbsp;%</b> que extraerlo. Y eso explica un problema '
+          cobre:{n:'Cobre', mineral:'Calcopirita', virgen:17, reciclado:4.7, col:'#c98a4b',
+            txt:'Reciclar cobre cuesta <b>poco m&aacute;s de la cuarta parte</b> que extraerlo. Y eso explica un problema '
               + 'muy real: el robo de cable. No se roba por el cable, se roba porque el cobre recuperado '
               + 'vale casi lo mismo que el nuevo.'}
         };
@@ -1100,7 +1210,7 @@ footer .wrap{padding-block:18px 26px}
 
         function pinta(){
           var d = MET[sel], m = '';
-          var X = 168, W = 372, MAX = 46;
+          var X = 168, W = 372, MAX = 55;
 
           function fila(y, etq, val, col, sub){
             var w = W * val / MAX;
@@ -1250,6 +1360,13 @@ footer .wrap{padding-block:18px 26px}
       <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
       <h2>Los pl&aacute;sticos: hubo que inventarlos</h2>
       <p>No estaban en ninguna parte esperando a que alguien los encontrara. Y se inventaron, ir&oacute;nicamente, para dejar de matar elefantes.</p>
+      <figure class="foto">
+        <img src="../../../img/materials_wood_metal_plastic.svg" width="960" height="400" loading="lazy"
+             alt="Comparación visual de madera, metal y plástico con sus propiedades características">
+        <figcaption>Comparación de tres materiales técnicos fundamentales: madera (material natural), metal (elemento puro) y plástico (material sintético), con sus propiedades y características principales.
+          <span class="credito">Generado por Claude · CC BY-SA 4.0 · Comparativa de materiales</span>
+        </figcaption>
+      </figure>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
     </div>
@@ -1298,7 +1415,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 230" id="svg-plast" role="img"
                aria-label="Al calentarlo, un termopl&aacute;stico se ablanda y se puede remoldear; un termoestable se quema"></svg>
         </div>
-        <div class="pie" id="pie-plast"></div>
+        <div class="pie" id="pie-plast" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1520,7 +1637,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 240" id="svg-ciclo" role="img"
                aria-label="Ciclo de vida lineal frente a circular de una botella"></svg>
         </div>
-        <div class="pie" id="pie-ciclo"></div>
+        <div class="pie" id="pie-ciclo" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1545,7 +1662,11 @@ footer .wrap{padding-block:18px 26px}
             var x = X + i*W;
             var act = (sel === i);
             var col = act ? 'var(--goo-azul)' : 'var(--line)';
-            m += '<g class="fase" data-i="'+i+'" style="cursor:pointer">';
+            /* Cada fase es tambien parada del tabulador: se abre y se cierra
+               con Intro o con espacio, igual que pulsandola.                */
+            m += '<g class="fase" data-i="'+i+'" style="cursor:pointer"'
+               + ' tabindex="0" role="button" aria-expanded="'+(act?'true':'false')
+               + '" aria-label="'+f.n+'">';
             m += '<rect x="'+x+'" y="'+Y+'" width="96" height="46" rx="3" fill="'+(act?'var(--accent-soft)':'var(--surface)')
                + '" stroke="'+col+'" stroke-width="'+(act?3:1.5)+'"></rect>';
             m += '<text x="'+(x+48)+'" y="'+(Y+28)+'" text-anchor="middle" class="rotulo-svg" '
@@ -1580,9 +1701,25 @@ footer .wrap{padding-block:18px 26px}
             pie.innerHTML = 'El modelo <b>circular</b>: lo que se tira vuelve a entrar como materia prima. '
               + 'No es reciclar por gusto: es que <b>extraer sale car&iacute;simo</b>, como viste con el aluminio.';
         }
+        function abre(g){
+          var i = +g.dataset.i;
+          sel = (sel === i) ? -1 : i;
+          pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve a la misma fase para seguir con el tabulador.          */
+          var nuevo = svg.querySelector('.fase[data-i="' + i + '"]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
         svg.addEventListener('click', function(e){
-          var g = e.target.closest('.fase'); if(!g) return;
-          sel = (sel === +g.dataset.i) ? -1 : +g.dataset.i; pinta();
+          var g = e.target.closest('.fase');
+          if(g) abre(g);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var g = e.target.closest ? e.target.closest('.fase') : null;
+          if(!g) return;
+          e.preventDefault();
+          abre(g);
         });
         seg.addEventListener('click', function(e){
           var b = e.target.closest('button[data-c]'); if(!b) return;
@@ -1599,7 +1736,7 @@ footer .wrap{padding-block:18px 26px}
            materia prima hasta que se convierte en residuo o vuelve a ser materia prima.</p>
         <p><b>Modelo lineal</b>: extraer, fabricar, usar, tirar. <b>Modelo circular</b>: lo que se tira
            vuelve a entrar como materia prima.</p>
-        <p><b>Huella de carbono</b>: cantidad de CO&#8322; que se emite a lo largo de todo ese ciclo.</p>
+        <p><b>Huella de carbono</b>: los gases de efecto invernadero que se sueltan a lo largo de todo ese ciclo. No solo CO&#8322;: tambi&eacute;n metano y otros, que calientan m&aacute;s por kilo, as&iacute; que se convierten a la cantidad de CO&#8322; que har&iacute;a el mismo da&ntilde;o. Por eso ver&aacute;s escrito <b>CO&#8322;eq</b>, de &laquo;equivalente&raquo;.</p>
       </div>
 
       <h3>Las tres erres, en el orden correcto</h3>
@@ -1683,11 +1820,197 @@ footer .wrap{padding-block:18px 26px}
         <span class="n-tag">Tema terminado</span>
         Sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
         eso que has elegido <b>se sostenga</b>: las estructuras.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema4/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 4 &middot; Estructuras &rarr;</a></p></div>
   
+    
+      <p style="margin-top:18px">Y ahora el mismo tema, pero corrigi&eacute;ndose solo. Diez preguntas,
+         una respuesta buena en cada una, y todas explican por qu&eacute; &mdash;tambi&eacute;n las que
+         aciertes&mdash;. No cuenta para nota: es para saber por d&oacute;nde andas antes del examen.</p>
+
+      <div class="ta" id="test-u3">
+        <h4>Lo que tiene que haber quedado del tema</h4>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u3-p1">
+          <p id="test-u3-p1">1. Elegir un material es&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-0" value="0">buscar el que m&aacute;s aguante de todos</label>
+          <label class="ta-op"><input type="radio" name="u3-0" value="1">comparar propiedades con lo que t&uacute; necesitas</label>
+          <label class="ta-op"><input type="radio" name="u3-0" value="2">usar el que se haya usado siempre para eso</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El mejor material no existe. El carbono es el m&aacute;s ligero y el peor de reparar; el acero, el m&aacute;s pesado y el que m&aacute;s dura. Ninguno gana en todo, as&iacute; que la pregunta no es cu&aacute;l es mejor sino <b>para qu&eacute;</b>.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u3-p2">
+          <p id="test-u3-p2">2. La madera de balsa se corta con la u&ntilde;a. En la clasificaci&oacute;n de maderas es&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-1" value="0">dura, aunque no lo parezca</label>
+          <label class="ta-op"><input type="radio" name="u3-1" value="1">blanda, porque es blanda</label>
+          <label class="ta-op"><input type="radio" name="u3-1" value="2">ni una cosa ni otra: est&aacute; aparte</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La clasificaci&oacute;n es <b>bot&aacute;nica</b>, no de dureza real: duras son las de hoja caduca y blandas las de hoja perenne. La balsa es de hoja caduca, as&iacute; que es dura. Es la trampa favorita de esta parte del tema.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u3-p3">
+          <p id="test-u3-p3">3. La le&ntilde;a se raja siempre a lo largo porque&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-2" value="0">el hacha se clava mejor en esa direcci&oacute;n</label>
+          <label class="ta-op"><input type="radio" name="u3-2" value="1">la madera est&aacute; seca y se agrieta por donde sea</label>
+          <label class="ta-op"><input type="radio" name="u3-2" value="2">sus fibras van paralelas al tronco y se separan f&aacute;cil entre ellas</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Por dentro es un manojo de pajitas pegadas: fuerte a lo largo, f&aacute;cil de separar a lo ancho. Esa dependencia de la direcci&oacute;n se llama <b>anisotrop&iacute;a</b>, y el acero no la tiene.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u3-p4">
+          <p id="test-u3-p4">4. El contrachapado se invent&oacute; para&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-3" value="0">abaratar la madera usando restos</label>
+          <label class="ta-op"><input type="radio" name="u3-3" value="1">imitar el aspecto del roble a precio de aglomerado</label>
+          <label class="ta-op"><input type="radio" name="u3-3" value="2">quitarle a la madera su punto d&eacute;bil, cruzando las capas</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Cada derivado arregla un defecto concreto: el contrachapado, la anisotrop&iacute;a y el alabeo, cruzando la veta 90&deg;. Aprovechar restos es el <b>aglomerado</b> y el aspecto del roble es la <b>chapa</b>. No son sucedáneos baratos: son soluciones t&eacute;cnicas.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u3-p5">
+          <p id="test-u3-p5">5. En la escala de Mohs el diamante es un 10 y el corind&oacute;n un 9. Eso significa que el diamante&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-4" value="0">raya al corind&oacute;n, y nada m&aacute;s: es una escala de orden</label>
+          <label class="ta-op"><input type="radio" name="u3-4" value="1">es un 11 % m&aacute;s duro</label>
+          <label class="ta-op"><input type="radio" name="u3-4" value="2">es exactamente un punto m&aacute;s duro</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Mohs es <b>ordinal</b>: dice qui&eacute;n va delante de qui&eacute;n, no cu&aacute;nto. El diamante es unas cuatro veces m&aacute;s duro que el corind&oacute;n. Por eso la industria usa Brinell, Rockwell o Vickers, que s&iacute; dan n&uacute;meros proporcionales.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u3-p6">
+          <p id="test-u3-p6">6. &iquest;Qu&eacute; convierte una prueba en un <b>ensayo</b>?</p>
+          <label class="ta-op"><input type="radio" name="u3-5" value="0">que la haga alguien con experiencia</label>
+          <label class="ta-op"><input type="radio" name="u3-5" value="1">que est&eacute; normalizada: la repita quien la repita, sale lo mismo</label>
+          <label class="ta-op"><input type="radio" name="u3-5" value="2">que se haga con una m&aacute;quina y no a mano</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Ah&iacute; est&aacute; la sesi&oacute;n 2 entera. &laquo;Se nota&raquo; no es medir: mientras la respuesta dependa de qui&eacute;n la da, seguimos en las opiniones. Y la escala de Mohs funciona sin un solo aparato.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u3-p7">
+          <p id="test-u3-p7">7. Producir un kilo de aluminio cuesta unos 45 kWh y reciclarlo, unos 2. La consecuencia m&aacute;s importante es que&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-6" value="0">reciclarlo sale a cuenta aunque a nadie le importe el planeta</label>
+          <label class="ta-op"><input type="radio" name="u3-6" value="1">el aluminio es un material barato</label>
+          <label class="ta-op"><input type="radio" name="u3-6" value="2">conviene usar acero en su lugar</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Esas barras no son un dato de ecolog&iacute;a: son de econom&iacute;a. Un material con esa diferencia tiene el reciclaje <b>garantizado</b>, porque el que recicla gana dinero. Ah&iacute; est&aacute; la explicaci&oacute;n de que las latas vuelvan y otras cosas no.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u3-p8">
+          <p id="test-u3-p8">8. Un plástico que se ablanda al calentarlo y se puede volver a moldear&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u3-7" value="0">es un termoestable, y por eso se recicla</label>
+          <label class="ta-op"><input type="radio" name="u3-7" value="1">es un termopl&aacute;stico: sus cadenas est&aacute;n sueltas</label>
+          <label class="ta-op"><input type="radio" name="u3-7" value="2">es un pol&iacute;mero natural</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Todo depende de c&oacute;mo est&eacute;n las cadenas entre s&iacute;. Sueltas &rarr; se ablandan y se remoldean muchas veces, y por eso se reciclan: PET, PE, PP, PVC, PS. Unidas por enlaces &rarr; termoestables, que con calor <b>se queman sin ablandarse</b>.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u3-p9">
+          <p id="test-u3-p9">9. Las tres erres, en el orden que importa:</p>
+          <label class="ta-op"><input type="radio" name="u3-8" value="0">reducir, reutilizar, reciclar</label>
+          <label class="ta-op"><input type="radio" name="u3-8" value="1">reciclar, reutilizar, reducir</label>
+          <label class="ta-op"><input type="radio" name="u3-8" value="2">da igual el orden, las tres ayudan</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Reducir es la &uacute;nica que ahorra el 100 %, porque lo que no se fabrica no gasta nada. Reciclar es la <b>&uacute;ltima</b>: sigue gastando energ&iacute;a y transporte. Y casi siempre se cuenta al rev&eacute;s.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u3-p10">
+          <p id="test-u3-p10">10. En 1924, los grandes fabricantes de bombillas acordaron por escrito limitar su duraci&oacute;n a 1.000 horas cuando ya sab&iacute;an hacerlas de 2.500. Eso tiene nombre:</p>
+          <label class="ta-op"><input type="radio" name="u3-9" value="0">ciclo de vida</label>
+          <label class="ta-op"><input type="radio" name="u3-9" value="1">modelo lineal</label>
+          <label class="ta-op"><input type="radio" name="u3-9" value="2">obsolescencia programada</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El c&aacute;rtel Phoebus, y multaba al que se pasara. Para comparar: en un parque de bomberos de California hay una bombilla encendida desde <b>1901</b>. No es un milagro: es que se fabric&oacute; antes del acuerdo.</div>
+        </div>
+
+        <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.</p>
+      </div>
+
     </section>
 
   </div>
+
+
+  <section class="demos" id="ampliacion">
+    <div class="demos-cab">
+      <span class="eyebrow-d">Proyecto de ampliaci&oacute;n</span>
+      <h2>El &aacute;rbol de dos piezas</h2>
+      <p>No es una actividad de sesi&oacute;n y no gasta minutos de ninguna: es un proyecto corto
+         &mdash;una hora larga&mdash; para la &uacute;ltima clase antes de las vacaciones. Sale un
+         adorno, pero lo que se hace de verdad es un <b>ensayo comparativo</b>: el mismo objeto,
+         cortado en tres materiales distintos, y una tabla de n&uacute;meros para decidir cu&aacute;l
+         habr&iacute;a que usar. Que es el problema del tema entero.</p>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-cab">
+        <span>Proyecto &middot; El mismo &aacute;rbol, tres materiales</span>
+        <span class="chips"><span class="chip">1.2</span><span class="chip">2.2</span><span class="chip sab">A.3</span></span>
+        <span>Grupos de cuatro &middot; 60 min</span>
+      </div>
+      <div class="ficha-cuerpo">
+        <p>Un &aacute;rbol que se sostiene de pie <b>sin pegamento</b>: dos siluetas iguales que se
+           encajan cruzadas, una por una ranura de abajo y la otra por una de arriba. La misma
+           uni&oacute;n del soporte de m&oacute;vil del tema 1.</p>
+
+        <h4>El dibujo, una sola vez</h4>
+        <ol class="pasos">
+          <li>Dibujad <b>una</b> silueta de &aacute;rbol: <b>120 mm</b> de alto, <b>90 mm</b> de ancho
+              en la base y la copa cortada plana, de <b>14 mm</b>.</li>
+          <li>Por el eje, una <b>ranura de 60 mm</b>: en una pieza desde el pie hacia arriba, y en la
+              otra desde la copa hacia abajo. <b>60 mm por 2 son 120 mm</b>, que es justo el alto,
+              as&iacute; que al encajarlas los dos pies llegan a la mesa a la vez.</li>
+          <li>El ancho de la ranura <b>no se puede dibujar todav&iacute;a</b>. Lee el recuadro de abajo.</li>
+        </ol>
+
+        <div class="aviso">
+          <span class="n-tag">Aqu&iacute; est&aacute; el tema</span>
+          La ranura mide <b>exactamente el grueso del material</b>. Y el grueso cambia: cart&oacute;n
+          ondulado 3 mm, cart&oacute;n pluma 5 mm, chapa fina 3 mm. O sea que <b>el mismo dibujo da
+          tres piezas distintas</b>. Un plano sin material escrito al lado no est&aacute; terminado.
+        </div>
+
+        <h4>Cortar: dos piezas de cada material, seis en total</h4>
+        <p>Cronometrad lo que tarda una pieza en cada material y anotadlo. Ojo a la copa: de los
+           14 mm, la ranura se lleva el grueso, y con cart&oacute;n pluma quedan
+           <b>(14 &minus; 5) / 2 = 4,5 mm</b> a cada lado. Es la parte m&aacute;s fr&aacute;gil del
+           &aacute;rbol, y es donde se va a ver la diferencia entre los tres materiales.</p>
+
+        <h4>La tabla, que es el trabajo de verdad</h4>
+        <table class="tabla-mat">
+          <thead>
+            <tr><th scope="col">Qu&eacute; se mide</th><th scope="col">Cart&oacute;n ondulado</th>
+                <th scope="col">Cart&oacute;n pluma</th><th scope="col">Chapa fina</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Grueso medido, en mm</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Tiempo de corte de una pieza</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">&iquest;Se desgarr&oacute; la copa? &iquest;D&oacute;nde?</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Peso del &aacute;rbol montado, en gramos</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">&iquest;Se queda de pie solo?</th><td></td><td></td><td></td></tr>
+            <tr><th scope="row">Qu&eacute; se ve en el canto</th><td></td><td></td><td></td></tr>
+          </tbody>
+        </table>
+
+        <div class="nota">
+          <span class="n-tag">La pregunta que hay que contestar</span>
+          El instituto quiere <b>treinta</b> para el vest&iacute;bulo. Con vuestra tabla delante:
+          &iquest;de qu&eacute; material los har&iacute;ais? No vale «el que queda mejor». Hay que decirlo
+          con <b>dos n&uacute;meros de la tabla</b> y una raz&oacute;n.
+        </div>
+
+        <h4>C&oacute;mo se eval&uacute;a</h4>
+        <ul>
+          <li>El dibujo est&aacute; acotado y la ranura lleva escrito de qu&eacute; grueso es <b>(2 puntos)</b>.</li>
+          <li>Los tres &aacute;rboles se montan y se sostienen de pie solos <b>(2 puntos)</b>.</li>
+          <li>La tabla est&aacute; completa, con los tiempos cronometrados y los pesos en gramos <b>(3 puntos)</b>.</li>
+          <li>La decisi&oacute;n de los treinta est&aacute; razonada con dos n&uacute;meros de la tabla <b>(2 puntos)</b>.</li>
+          <li>El canto de cada material est&aacute; descrito y dibujado <b>(1 punto)</b>.</li>
+        </ul>
+
+        <div class="entender">
+          <span class="e-tag">Solo para entenderlo</span>
+          <p>Esto que acab&aacute;is de hacer tiene nombre en la industria: <b>matriz de selecci&oacute;n de
+             materiales</b>. Se ponen los candidatos en columnas, las propiedades que importan en filas,
+             y se decide con la tabla y no con la intuici&oacute;n. Cambian los materiales y cambian las
+             filas &mdash;en un coche estar&iacute;a el peso, en un envase el precio&mdash;, pero el
+             m&eacute;todo es exactamente este.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <div class="lectura">
@@ -1738,7 +2061,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -1758,7 +2081,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1787,8 +2110,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -1801,7 +2133,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -1820,5 +2155,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

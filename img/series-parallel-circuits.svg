@@ -1,0 +1,152 @@
+<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .circuit-line { stroke: #2c3e50; stroke-width: 2; fill: none; }
+      .wire { stroke: #333; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="600" y="35" class="title" font-size="18">Circuitos en Serie vs Paralelo</text>
+
+  <!-- LEFT: SERIES CIRCUIT -->
+  <g>
+    <text x="300" y="80" class="title" font-size="13" font-weight="bold">SERIE: Las bombillas en fila</text>
+
+    <!-- Battery -->
+    <g>
+      <rect x="120" y="130" width="20" height="40" fill="white" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="123" y1="130" x2="123" y2="115" stroke="#e74c3c" stroke-width="2"/>
+      <line x1="137" y1="130" x2="137" y2="115" stroke="#333" stroke-width="1"/>
+    </g>
+
+    <!-- Wire circuit -->
+    <line x1="140" y1="150" x2="180" y2="150" class="wire"/>
+
+    <!-- LED 1 -->
+    <circle cx="200" cy="150" r="15" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="200" cy="150" r="10" fill="#ffff00" opacity="0.4"/>
+    <text x="200" y="185" class="label" font-size="9" font-weight="bold">LED 1</text>
+    <text x="200" y="198" class="label" font-size="8" fill="#27ae60">Brillante</text>
+
+    <!-- Wire -->
+    <line x1="215" y1="150" x2="250" y2="150" class="wire"/>
+
+    <!-- LED 2 -->
+    <circle cx="270" cy="150" r="15" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="270" cy="150" r="10" fill="#ffff00" opacity="0.2"/>
+    <text x="270" y="185" class="label" font-size="9" font-weight="bold">LED 2</text>
+    <text x="270" y="198" class="label" font-size="8" fill="#f39c12">Más tenue</text>
+
+    <!-- Wire -->
+    <line x1="285" y1="150" x2="320" y2="150" class="wire"/>
+
+    <!-- LED 3 -->
+    <circle cx="340" cy="150" r="15" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="340" cy="150" r="10" fill="#ffff00" opacity="0.1"/>
+    <text x="340" y="185" class="label" font-size="9" font-weight="bold">LED 3</text>
+    <text x="340" y="198" class="label" font-size="8" fill="#e74c3c">Muy débil</text>
+
+    <!-- Wire back -->
+    <line x1="355" y1="150" x2="400" y2="150" class="wire"/>
+    <line x1="400" y1="150" x2="400" y2="100" class="wire"/>
+    <line x1="400" y1="100" x2="130" y2="100" class="wire"/>
+    <line x1="130" y1="100" x2="130" y2="130" class="wire"/>
+
+    <!-- Characteristics -->
+    <rect x="80" y="250" width="440" height="220" fill="#ffe8e8" stroke="#e74c3c" stroke-width="1" rx="3"/>
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="100" y="275" font-weight="bold" fill="#e74c3c">Circuito EN SERIE:</text>
+
+      <text x="100" y="300">✗ Si una bombilla se quema, se apagan TODAS</text>
+      <text x="100" y="318">  (el circuito se abre)</text>
+
+      <text x="100" y="345">✗ El voltaje se divide entre bombillas</text>
+      <text x="100" y="363">  9V batería ÷ 3 bombillas = 3V cada una</text>
+
+      <text x="100" y="390">✗ Cada bombilla brilla menos a medida que</text>
+      <text x="100" y="408">  añades más en serie</text>
+
+      <text x="100" y="435">✓ Uso: Luces navideñas de serie</text>
+      <text x="100" y="453">  (aunque modernas usan paralelo)</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: PARALLEL CIRCUIT -->
+  <g>
+    <text x="900" y="80" class="title" font-size="13" font-weight="bold">PARALELO: Las bombillas en ramas</text>
+
+    <!-- Battery -->
+    <g>
+      <rect x="720" y="130" width="20" height="40" fill="white" stroke="#2c3e50" stroke-width="2"/>
+      <line x1="723" y1="130" x2="723" y2="115" stroke="#e74c3c" stroke-width="2"/>
+      <line x1="737" y1="130" x2="737" y2="115" stroke="#333" stroke-width="1"/>
+    </g>
+
+    <!-- Top wire -->
+    <line x1="740" y1="130" x2="780" y2="130" class="wire"/>
+
+    <!-- Branch point -->
+    <circle cx="800" cy="130" r="3" fill="#333"/>
+
+    <!-- Branch 1: LED 1 -->
+    <line x1="800" y1="130" x2="800" y2="110" class="wire"/>
+    <circle cx="820" cy="110" r="15" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="820" cy="110" r="10" fill="#ffff00" opacity="0.5"/>
+    <text x="820" y="145" class="label" font-size="9" font-weight="bold">LED 1</text>
+    <text x="820" y="158" class="label" font-size="8" fill="#27ae60">Brillante</text>
+    <line x1="835" y1="110" x2="900" y2="110" class="wire"/>
+    <line x1="900" y1="110" x2="900" y2="150" class="wire"/>
+    <circle cx="900" cy="150" r="3" fill="#333"/>
+
+    <!-- Branch 2: LED 2 -->
+    <line x1="800" y1="130" x2="800" y2="150" class="wire"/>
+    <circle cx="820" cy="150" r="15" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="820" cy="150" r="10" fill="#ffff00" opacity="0.5"/>
+    <text x="820" y="185" class="label" font-size="9" font-weight="bold">LED 2</text>
+    <text x="820" y="198" class="label" font-size="8" fill="#27ae60">Brillante</text>
+    <line x1="835" y1="150" x2="900" y2="150" class="wire"/>
+
+    <!-- Branch 3: LED 3 -->
+    <line x1="800" y1="130" x2="800" y2="190" class="wire"/>
+    <circle cx="820" cy="190" r="15" fill="none" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="820" cy="190" r="10" fill="#ffff00" opacity="0.5"/>
+    <text x="820" y="225" class="label" font-size="9" font-weight="bold">LED 3</text>
+    <text x="820" y="238" class="label" font-size="8" fill="#27ae60">Brillante</text>
+    <line x1="835" y1="190" x2="900" y2="190" class="wire"/>
+    <line x1="900" y1="190" x2="900" y2="150" class="wire"/>
+
+    <!-- Wire back -->
+    <line x1="900" y1="150" x2="950" y2="150" class="wire"/>
+    <line x1="950" y1="150" x2="950" y2="100" class="wire"/>
+    <line x1="950" y1="100" x2="730" y2="100" class="wire"/>
+    <line x1="730" y1="100" x2="730" y2="130" class="wire"/>
+
+    <!-- Characteristics -->
+    <rect x="680" y="250" width="440" height="220" fill="#d4edda" stroke="#27ae60" stroke-width="1" rx="3"/>
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="700" y="275" font-weight="bold" fill="#27ae60">Circuito EN PARALELO:</text>
+
+      <text x="700" y="300">✓ Si una bombilla se quema, las otras</text>
+      <text x="700" y="318">  siguen funcionando</text>
+
+      <text x="700" y="345">✓ Cada bombilla recibe el VOLTAJE COMPLETO</text>
+      <text x="700" y="363">  9V batería para cada una</text>
+
+      <text x="700" y="390">✓ Todas brillan igual,</text>
+      <text x="700" y="408">  sin importar cuántas haya</text>
+
+      <text x="700" y="435">✓ Uso: Enchufes en casa, iluminación</text>
+      <text x="700" y="453">  (es seguro y conveniente)</text>
+    </g>
+  </g>
+
+  <!-- COMPARISON at bottom center -->
+  <rect x="250" y="490" width="700" height="0" fill="white"/>
+</svg>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Esta p&aacute;gina no est&aacute; &middot; Materiales de Tecnolog&iacute;a</title>
+<meta name="description" content="La direcci&oacute;n que has abierto no existe en Materiales de Tecnolog&iacute;a. Desde aqu&iacute; se vuelve a la portada y a los dos cursos.">
+<meta name="robots" content="noindex">
+<meta name="author" content="Roberto P. Garc&iacute;a Llorente">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+:root{--paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
+  --line:#dadce0;--accent:#1a73e8;--accent-soft:#e8f0fe;--grid:rgba(26,115,232,.07);
+  --shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+  --shadow-2:0 1px 3px 0 rgba(60,64,67,.3),0 4px 8px 3px rgba(60,64,67,.15)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#202124;--surface:#292a2d;
+  --surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;--line:#5f6368;--accent:#8ab4f8;
+  --accent-soft:#1f3347;--grid:rgba(138,180,248,.09);
+  --shadow:0 1px 2px 0 rgba(0,0,0,.6),0 1px 3px 1px rgba(0,0,0,.35);
+  --shadow-2:0 1px 3px 0 rgba(0,0,0,.6),0 4px 8px 3px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;
+  --ink-soft:#9aa0a6;--line:#5f6368;--accent:#8ab4f8;--accent-soft:#1f3347;--grid:rgba(138,180,248,.09);
+  --shadow:0 1px 2px 0 rgba(0,0,0,.6),0 1px 3px 1px rgba(0,0,0,.35);
+  --shadow-2:0 1px 3px 0 rgba(0,0,0,.6),0 4px 8px 3px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:16px/1.6 "Roboto",-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.01em}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{background:var(--surface);box-shadow:var(--shadow);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px}
+header .wrap{padding-block:34px 30px}
+.ruta{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;margin-bottom:12px}
+.ruta a{color:var(--accent);text-decoration:none;padding:3px 10px;border-radius:999px;transition:background .15s}
+.ruta a:hover{background:var(--accent-soft)}
+.ruta span{color:var(--ink-soft);margin:0 4px}
+.ruta strong{color:var(--ink-soft);font-weight:400}
+.eyebrow{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--accent)}
+h1{font-family:"Roboto",sans-serif;font-weight:700;font-size:clamp(26px,5vw,38px);margin:8px 0 10px;
+  line-height:1.15;letter-spacing:-.015em}
+header p{margin:0;color:var(--ink-soft);max-width:62ch}
+main{padding-block:32px 64px}
+h2{font-family:"Roboto",sans-serif;font-weight:500;font-size:22px;margin:28px 0 4px;letter-spacing:-.01em}
+.sub{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px}
+.temas{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.tema{display:block;background:var(--surface);border:none;border-radius:16px;padding:20px;
+  text-decoration:none;color:inherit;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s}
+a.tema:hover{box-shadow:var(--shadow-2);transform:translateY(-2px)}
+.tema .n{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--accent);background:var(--accent-soft);
+  padding:3px 10px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.tema h3{font-family:"Roboto",sans-serif;font-weight:500;font-size:18px;margin:0 0 6px;line-height:1.3}
+.tema p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+.tema.pendiente{opacity:.6;box-shadow:none;border:1px dashed var(--line)}
+.tema.pendiente .n{color:var(--ink-soft);background:var(--surface-2)}
+footer{color:var(--ink-soft);font-size:13.5px;border-top:1px solid var(--line)}
+footer .wrap{padding-block:20px 30px}
+
+:root{--g-azul:#1a73e8;--g-rojo:#ea4335;--g-amarillo:#fbbc04;--g-verde:#34a853;
+  --g-morado:#7b2ff2;--g-rosa:#ff3d77;--g-turquesa:#00acc1}
+header{background:linear-gradient(135deg,var(--g-azul),var(--g-morado));background-image:
+  linear-gradient(135deg,var(--g-azul),var(--g-morado))}
+header .eyebrow{color:rgba(255,255,255,.85)}
+header h1{color:#fff}
+header p{color:rgba(255,255,255,.9)}
+.ruta a{color:#fff;background:rgba(255,255,255,.18)}
+.ruta a:hover{background:rgba(255,255,255,.3)}
+.ruta span,.ruta strong{color:rgba(255,255,255,.75)}
+/* cada tarjeta, su color */
+.tema{overflow:hidden;position:relative;border-radius:20px}
+a.tema::before{content:"";position:absolute;inset:0 0 auto 0;height:7px;background:var(--g-azul)}
+a.tema:nth-child(4n+2)::before{background:var(--g-rojo)}
+a.tema:nth-child(4n+3)::before{background:var(--g-verde)}
+a.tema:nth-child(4n+4)::before{background:var(--g-amarillo)}
+a.tema{padding-top:24px}
+a.tema:nth-child(4n+2) .n{color:var(--g-rojo);background:#fce8e6}
+a.tema:nth-child(4n+3) .n{color:var(--g-verde);background:#e6f4ea}
+a.tema:nth-child(4n+4) .n{color:var(--amar-texto);background:#fef7e0}
+
+.ico{width:40px;height:40px;display:block;margin-bottom:12px;color:var(--g-azul)}
+a.tema:nth-child(4n+2) .ico{color:var(--g-rojo)}
+a.tema:nth-child(4n+3) .ico{color:var(--g-verde)}
+a.tema:nth-child(4n+4) .ico{color:#b98b1e}
+.tema.pendiente .ico{color:var(--ink-soft);opacity:.6}
+.prog{margin-top:14px}
+.prog-barra{height:7px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.prog-barra i{display:block;height:100%;border-radius:999px;background:var(--g-azul)}
+.prog-txt{font-family:"Roboto Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+  color:var(--ink-soft);margin-top:6px;display:block}
+.hero-arte{margin-top:18px;opacity:.9}
+.hero-arte svg{width:100%;max-width:420px;height:auto;display:block}
+
+/* ---- sello de licencia, fijo en pantalla ---- */
+.cc-sello{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;
+  background:rgba(32,33,36,.86);color:#fff;text-decoration:none;
+  font:500 12px/1.2 "Roboto",-apple-system,"Segoe UI",Arial,sans-serif;letter-spacing:.02em;
+  transition:transform .18s ease,background .18s ease}
+.cc-sello:hover{background:rgba(18,32,46,1)}
+.cc-sello svg{width:17px;height:17px;flex:none;fill:currentColor}
+.cc-sello b{font-weight:700}
+.cc-sello .cc-autor{opacity:.75;font-weight:400}
+@media (max-width:560px){
+  .cc-sello{right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:7px 11px;font-size:11px}
+  .cc-sello .cc-autor{display:none}
+}
+@media print{.cc-sello{position:static;background:none;color:#000;box-shadow:none}}
+
+:root{--shadow:none;--shadow-2:none}
+header{background:var(--surface)!important;background-image:
+  linear-gradient(var(--grid) 1px,transparent 1px),
+  linear-gradient(90deg,var(--grid) 1px,transparent 1px)!important;
+  background-size:24px 24px!important;border-bottom:2px solid var(--ink);box-shadow:none}
+header h1{color:var(--ink)}
+header p{color:var(--ink-soft)}
+header .eyebrow{color:var(--accent)}
+.ruta a{color:var(--accent);background:transparent;padding:0;border-bottom:1px solid transparent}
+.ruta a:hover{background:transparent;border-bottom-color:var(--accent)}
+.ruta span,.ruta strong{color:var(--ink-soft)}
+.tema{border:1.5px solid var(--line);border-radius:2px;box-shadow:none;padding-top:20px}
+a.tema:hover{box-shadow:none;transform:none;border-color:var(--ink)}
+a.tema::before{display:none}
+.tema .n{border-radius:2px;background:transparent;border:1px solid var(--line);color:var(--ink-soft)}
+a.tema .n{color:var(--accent);border-color:var(--accent)}
+.tema.pendiente{border-style:dashed}
+.prog-barra{border-radius:0;background:var(--surface-2);border:1px solid var(--line)}
+.prog-barra i{border-radius:0;background:var(--accent)}
+.ico{color:var(--accent)}
+a.tema:nth-child(4n+2) .ico,a.tema:nth-child(4n+3) .ico,a.tema:nth-child(4n+4) .ico{color:var(--accent)}
+.cc-sello{border-radius:2px;background:var(--ink);box-shadow:none;backdrop-filter:none}
+.cc-sello:hover{transform:none;background:var(--ink)}
+
+:root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995}}
+a.tema{border-top:5px solid var(--goo-azul)}
+a.tema:nth-child(4n+2){border-top-color:var(--goo-rojo)}
+a.tema:nth-child(4n+3){border-top-color:var(--goo-verde)}
+a.tema:nth-child(4n+4){border-top-color:var(--goo-amarillo)}
+a.tema .n,a.tema .ico{color:var(--goo-azul);border-color:var(--goo-azul)}
+a.tema:nth-child(4n+2) .n,a.tema:nth-child(4n+2) .ico{color:var(--goo-rojo);border-color:var(--goo-rojo)}
+a.tema:nth-child(4n+3) .n,a.tema:nth-child(4n+3) .ico{color:var(--goo-verde);border-color:var(--goo-verde)}
+a.tema:nth-child(4n+4) .n,a.tema:nth-child(4n+4) .ico{color:var(--amar-texto);border-color:var(--goo-amarillo)}
+.prog-barra i{background:var(--goo-verde)}
+header .eyebrow{color:var(--goo-azul)}
+/* la retícula de la cabecera, en azul Google */
+:root{--grid:rgba(66,133,244,.10)}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+</style>
+<style>
+  .perdida{max-width:640px;margin:0 auto;padding:64px 20px 80px;text-align:left}
+  .perdida .cod{font-family:"Roboto Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent)}
+  .perdida h1{font-size:clamp(26px,5vw,36px);margin:10px 0 14px}
+  .perdida p{color:var(--ink-soft);margin:0 0 22px}
+  .perdida .salidas{display:flex;flex-wrap:wrap;gap:12px}
+  .perdida a.salida{display:inline-block;background:var(--surface);box-shadow:var(--shadow);
+    border-radius:999px;padding:11px 20px;text-decoration:none;color:var(--ink);font-size:15px}
+  .perdida a.salida:hover{box-shadow:var(--shadow-2)}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+</style>
+</head>
+<body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<main id="contenido" tabindex="-1" class="perdida">
+  <div class="cod">Error 404</div>
+  <h1>Esta p&aacute;gina no est&aacute;</h1>
+  <p>La direcci&oacute;n que has abierto no existe, o exist&iacute;a y ha cambiado de sitio.
+     No es culpa tuya: el enlace que te ha tra&iacute;do hasta aqu&iacute; apunta a un sitio vac&iacute;o.</p>
+  <div class="salidas">
+    <a class="salida" href="/robertotecnologia/">Portada</a>
+    <a class="salida" href="/robertotecnologia/2eso/TyD/">2.&ordm; de ESO</a>
+    <a class="salida" href="/robertotecnologia/4eso/Tecnologia/">4.&ordm; de ESO</a>
+  </div>
+</main>
+</body>
+</html>

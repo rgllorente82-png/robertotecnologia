@@ -1,0 +1,146 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .mono { font-family: 'Courier New', monospace; font-size: 11px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Formatos de Archivo: Cómo se guarda la información</text>
+
+  <!-- Plain Text -->
+  <g>
+    <rect x="40" y="70" width="200" height="180" class="box" fill="#e74c3c"/>
+    <text x="140" y="100" class="title" fill="white" font-size="14">.TXT</text>
+    <text x="140" y="120" class="label" fill="white">Texto plano</text>
+
+    <rect x="50" y="130" width="180" height="80" fill="white" rx="3"/>
+    <text x="60" y="150" class="mono" fill="#2c3e50">Hola mundo</text>
+    <text x="60" y="170" class="mono" fill="#2c3e50">123 caracteres</text>
+    <text x="60" y="190" class="mono" fill="#2c3e50">Sin formato</text>
+
+    <text x="140" y="230" class="label" fill="white" font-size="10">Tamaño: pequeño</text>
+    <text x="140" y="245" class="label" fill="white" font-size="10">Rápido de guardar</text>
+  </g>
+
+  <!-- Formatted Text (DOCX) -->
+  <g>
+    <rect x="280" y="70" width="200" height="180" class="box" fill="#3498db"/>
+    <text x="380" y="100" class="title" fill="white" font-size="14">.DOCX</text>
+    <text x="380" y="120" class="label" fill="white">Documento formateado</text>
+
+    <rect x="290" y="130" width="180" height="80" fill="white" rx="3"/>
+    <text x="300" y="145" class="mono" fill="#2c3e50" font-weight="bold">Hola mundo</text>
+    <text x="300" y="160" class="label" fill="#3498db">Título, negrita, color</text>
+    <text x="300" y="175" class="label" fill="#666">+ Metadatos</text>
+    <text x="300" y="190" class="label" fill="#666">+ Estilos</text>
+
+    <text x="380" y="230" class="label" fill="white" font-size="10">Tamaño: mediano</text>
+    <text x="380" y="245" class="label" fill="white" font-size="10">Con formato y metadatos</text>
+  </g>
+
+  <!-- PDF -->
+  <g>
+    <rect x="520" y="70" width="200" height="180" class="box" fill="#27ae60"/>
+    <text x="620" y="100" class="title" fill="white" font-size="14">.PDF</text>
+    <text x="620" y="120" class="label" fill="white">Documento fijo</text>
+
+    <rect x="530" y="130" width="180" height="80" fill="white" rx="3"/>
+    <text x="540" y="145" class="label" fill="#666" font-weight="bold">Hola mundo</text>
+    <text x="540" y="160" class="label" fill="#666">Tipografía embebida</text>
+    <text x="540" y="175" class="label" fill="#666">Posición fija</text>
+    <text x="540" y="190" class="label" fill="#666">Se ve igual en cualquier PC</text>
+
+    <text x="620" y="230" class="label" fill="white" font-size="10">Tamaño: grande</text>
+    <text x="620" y="245" class="label" fill="white" font-size="10">Inmodificable</text>
+  </g>
+
+  <!-- Images -->
+  <g>
+    <rect x="760" y="70" width="200" height="180" class="box" fill="#f39c12"/>
+    <text x="860" y="100" class="title" fill="white" font-size="14">.JPG/.PNG</text>
+    <text x="860" y="120" class="label" fill="white">Imagen</text>
+
+    <rect x="770" y="130" width="180" height="80" fill="white" rx="3"/>
+    <g transform="translate(770, 130)">
+      <rect x="5" y="5" width="15" height="15" fill="#e74c3c"/>
+      <rect x="22" y="5" width="15" height="15" fill="#f39c12"/>
+      <rect x="39" y="5" width="15" height="15" fill="#3498db"/>
+
+      <rect x="5" y="22" width="15" height="15" fill="#27ae60"/>
+      <rect x="22" y="22" width="15" height="15" fill="#9b59b6"/>
+      <rect x="39" y="22" width="15" height="15" fill="#1abc9c"/>
+
+      <rect x="5" y="39" width="15" height="15" fill="#95a5a6"/>
+      <rect x="22" y="39" width="15" height="15" fill="#2c3e50"/>
+      <rect x="39" y="39" width="15" height="15" fill="#ecf0f1"/>
+    </g>
+
+    <text x="860" y="230" class="label" fill="white" font-size="10">Tamaño: variable</text>
+    <text x="860" y="245" class="label" fill="white" font-size="10">Grilla de píxeles</text>
+  </g>
+
+  <!-- Bottom comparison table -->
+  <g>
+    <text x="50" y="310" class="title" font-size="13" text-anchor="start" font-weight="bold">Comparación:</text>
+
+    <rect x="40" y="330" width="920" height="240" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
+
+    <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
+      <text x="60" y="355" font-weight="bold">Formato</text>
+      <text x="200" y="355" font-weight="bold">Contenido</text>
+      <text x="450" y="355" font-weight="bold">Ventajas</text>
+      <text x="750" y="355" font-weight="bold">Desventajas</text>
+
+      <line x1="40" y1="365" x2="960" y2="365" stroke="#3498db" stroke-width="1"/>
+
+      <!-- Plain Text -->
+      <text x="60" y="390">.TXT</text>
+      <text x="200" y="390">Solo caracteres</text>
+      <text x="450" y="390">Ligero, universal</text>
+      <text x="750" y="390">Sin formato</text>
+
+      <!-- DOCX -->
+      <text x="60" y="415">.DOCX</text>
+      <text x="200" y="415">Texto + formato</text>
+      <text x="450" y="415">Flexible, editable</text>
+      <text x="750" y="415">Pesado, incompatible</text>
+
+      <!-- PDF -->
+      <text x="60" y="440">.PDF</text>
+      <text x="200" y="440">Documento fijo</text>
+      <text x="450" y="440">Se ve igual siempre</text>
+      <text x="750" y="440">Difícil de editar</text>
+
+      <!-- Images -->
+      <text x="60" y="465">.JPG/.PNG</text>
+      <text x="200" y="465">Grilla de píxeles</text>
+      <text x="450" y="465">Visual, comprimido</text>
+      <text x="750" y="465">Pérdida de calidad</text>
+
+      <!-- Video -->
+      <text x="60" y="490">.MP4/.MOV</text>
+      <text x="200" y="490">Fotogramas + audio</text>
+      <text x="450" y="490">Multimedia</text>
+      <text x="750" y="490">Muy pesado</text>
+
+      <!-- Web -->
+      <text x="60" y="515">.HTML</text>
+      <text x="200" y="515">Texto + código</text>
+      <text x="450" y="515">Interactivo</text>
+      <text x="750" y="515">Necesita navegador</text>
+
+      <!-- Audio -->
+      <text x="60" y="540">.MP3/.WAV</text>
+      <text x="200" y="540">Ondas sonoras</text>
+      <text x="450" y="540">Portable, comprimido</text>
+      <text x="750" y="540">Información perdida</text>
+    </g>
+  </g>
+</svg>

@@ -296,8 +296,20 @@ with sync_playwright() as p:
             check(len(img.get_attribute('alt') or '') > 60,
                   'la foto %s describe en el alt lo que se ve' % src)
         fichero = os.path.join(RAIZ, 'img', src)
-        check(os.path.exists(fichero) and os.path.getsize(fichero) > 20000,
-              'el fichero %s esta bajado y no viene vacio' % src)
+        # No se mide en bytes: una foto bien comprimida puede pesar 15 KB y
+        # estar perfecta. Lo que se comprueba es que sea una imagen de verdad
+        # y con tamanio de foto, no un fichero a medio bajar.
+        cabecera = open(fichero, 'rb').read(2) if os.path.exists(fichero) else b''
+        check(cabecera == b'\xff\xd8', 'el fichero %s esta bajado y es un JPEG' % src)
+        # y lo que la pagina declara que mide es lo que mide de verdad: si
+        # alguien reduce una foto y no vuelve a pasar afina_fotos.py, el hueco
+        # que reserva el navegador deja de cuadrar y esto lo dice
+        if img:
+            dicho = (img.get_attribute('width'), img.get_attribute('height'))
+            real = img.evaluate('e => [e.naturalWidth, e.naturalHeight]')
+            check(dicho == (str(real[0]), str(real[1])) and real[0] >= 200,
+                  'y %s declara el tamanio que tiene: dice %sx%s, mide %dx%d'
+                  % (src, dicho[0], dicho[1], real[0], real[1]))
     check(len(pag.query_selector_all('.video[data-vid]')) == 5, 'hay cinco videos, sin cargar')
     check(len(pag.query_selector_all('.video iframe')) == 0,
           'ningun iframe de YouTube se carga sin pulsarlo')
@@ -940,7 +952,13 @@ with sync_playwright() as p:
     pag.wait_for_timeout(120)
 
     print('== La lectura')
-    check(pag.query_selector('.lectura a.pdf') is not None,
+    # La lectura se ofrece de dos maneras y las dos valen: la tarjeta del final
+    # de la pagina (.lectura a.pdf) o un enlace dentro del cuerpo de la sesion
+    # que la usa. Desde que la plantilla dejo de ponerla dos veces, siete de las
+    # nueve unidades de 4.o la llevan solo en el cuerpo, asi que exigir la
+    # tarjeta era exigir una forma, no la lectura. Lo que se comprueba es que
+    # haya un enlace al PDF y que el PDF este donde dice.
+    check(pag.query_selector('a[href$="lectura-tema1.pdf"]') is not None,
           'la pagina enlaza la lectura de aula en PDF')
     check(os.path.exists(os.path.join(RAIZ, '4eso', 'Tecnologia', 'tema1', 'lectura-tema1.pdf')),
           'y el PDF esta donde dice el enlace')

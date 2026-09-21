@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Diagramas - Roberto Tecnología</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --color-primary: #3498db;
+      --color-success: #27ae60;
+      --color-warning: #f39c12;
+      --color-danger: #e74c3c;
+      --color-dark: #2c3e50;
+      --color-light: #ecf0f1;
+      --color-bg: #f8f9fa;
+      --color-card: #fff;
+      --color-text: #2c3e50;
+      --color-text-light: #7f8c8d;
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #1a1a1a;
+        --color-card: #2d2d2d;
+        --color-text: #ecf0f1;
+        --color-text-light: #bdc3c7;
+      }
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-success) 100%);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    
+    header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .controls {
+      background: var(--color-card);
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .search-box input {
+      flex: 1;
+      min-width: 250px;
+      padding: 12px 15px;
+      border: 2px solid var(--color-light);
+      border-radius: 5px;
+      font-size: 1em;
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: border-color 0.3s;
+    }
+    
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+      padding: 10px 15px;
+      border: 2px solid var(--color-light);
+      border-radius: 5px;
+      background: var(--color-bg);
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+    
+    .stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+    
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .stat-number {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: var(--color-primary);
+    }
+    
+    .stat-label {
+      color: var(--color-text-light);
+      font-size: 0.95em;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin-bottom: 50px;
+    }
+    
+    .diagram-card {
+      background: var(--color-card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .diagram-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .diagram-preview {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3em;
+      color: rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .diagram-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .diagram-info {
+      padding: 20px;
+    }
+    
+    .diagram-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+    
+    .diagram-desc {
+      font-size: 0.9em;
+      color: var(--color-text-light);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    
+    .diagram-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75em;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    
+    .badge-eso2 {
+      background: rgba(52, 152, 219, 0.2);
+      color: #3498db;
+    }
+    
+    .badge-eso4 {
+      background: rgba(230, 126, 34, 0.2);
+      color: #e67e22;
+    }
+    
+    .badge-tema {
+      background: rgba(39, 174, 96, 0.2);
+      color: #27ae60;
+    }
+    
+    .diagram-download {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .btn-download {
+      flex: 1;
+      padding: 8px 12px;
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+      font-weight: 500;
+      transition: background 0.3s;
+      text-decoration: none;
+      text-align: center;
+    }
+    
+    .btn-download:hover {
+      background: #2980b9;
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--color-text-light);
+    }
+    
+    .empty-state h3 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    
+    footer {
+      background: var(--color-dark);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 60px;
+    }
+    
+    .license {
+      font-size: 0.9em;
+      opacity: 0.9;
+      margin-top: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.8em; }
+      .gallery { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+      .search-box input { min-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎨 Galería de Diagramas</h1>
+    <p>51 visualizaciones educativas para Tecnología - 2º y 4º ESO</p>
+  </header>
+  
+  <div class="container">
+    <div class="controls">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Busca: palanca, circuito, energía, robot...">
+      </div>
+      
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-number" id="totalCount">51</span>
+          <span class="stat-label">Diagramas totales</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" id="visibleCount">51</span>
+          <span class="stat-label">Mostrando</span>
+        </div>
+      </div>
+      
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="2eso">2º ESO</button>
+        <button class="filter-btn" data-filter="4eso">4º ESO</button>
+      </div>
+    </div>
+    
+    <div class="gallery" id="gallery"></div>
+    <div id="emptyState" class="empty-state" style="display:none;">
+      <h3>No hay diagramas que coincidan</h3>
+      <p>Intenta con otras palabras clave</p>
+    </div>
+  </div>
+  
+  <footer>
+    <p><strong>Roberto Tecnología</strong> - Diagramas educativos SVG</p>
+    <p class="license">
+      Licencia: <strong>CC BY-SA 4.0</strong> - Puedes usar, modificar y compartir libremente, con atribución.
+    </p>
+  </footer>
+  
+  <script>
+    // Datos de diagramas
+    const diagrams = [
+      // 2º ESO
+      { name: 'Boceto a plano técnico', file: 'sketch-to-plan-progression.svg', eso: '2', tema: 1, desc: 'Evolución de precisión en dibujo' },
+      { name: 'Materiales comunes', file: 'materials_wood_metal_plastic.svg', eso: '2', tema: 2, desc: 'Propiedades: madera, metal, plástico' },
+      { name: 'Ciclo de vida del material', file: 'material-lifecycle.svg', eso: '2', tema: 2, desc: 'Extracción, uso, reciclaje' },
+      { name: 'Palancas - 3 clases', file: 'lever-classes.svg', eso: '2', tema: 3, desc: 'Primera, segunda, tercera clase' },
+      { name: 'Máquinas simples', file: 'simple-machines.svg', eso: '2', tema: 3, desc: 'Seis máquinas clásicas' },
+      { name: 'Ventaja mecánica', file: 'mechanical-advantage-levers.svg', eso: '2', tema: 3, desc: 'Cálculo de amplificación' },
+      { name: 'Triangulación en estructuras', file: 'triangulation-structures.svg', eso: '2', tema: 3, desc: 'Por qué los triángulos son rígidos' },
+      { name: 'Tipos de estructuras', file: 'structures-types.svg', eso: '2', tema: 3, desc: 'Viga, arco, tienda' },
+      { name: 'Leyes de Newton', file: 'forces-newtons-laws.svg', eso: '2', tema: 4, desc: 'F=ma, acción-reacción' },
+      { name: 'Potencia vs Energía', file: 'electrical-power-energy.svg', eso: '2', tema: 4, desc: 'Diferencia fundamental' },
+      { name: 'Fases de proyecto', file: 'project-phases-timeline.svg', eso: '2', tema: 5, desc: 'Timeline de desarrollo' },
+      { name: 'Métodos de fabricación', file: 'manufacturing-methods.svg', eso: '2', tema: 5, desc: 'Sustractivo vs aditivo' },
+      { name: 'Circuitos básicos', file: 'electric-circuit-basics.svg', eso: '2', tema: 6, desc: 'Componentes fundamentales' },
+      { name: 'Ley de Ohm', file: 'ohms-law-triangle.svg', eso: '2', tema: 6, desc: 'V = I × R mnemotécnico' },
+      { name: 'Serie vs Paralelo', file: 'series-parallel-circuits.svg', eso: '2', tema: 6, desc: 'Comportamientos diferentes' },
+      { name: 'Capas OSI', file: 'network-layers-osi.svg', eso: '2', tema: 7, desc: 'Modelo de red en 7 capas' },
+      { name: 'HTTP vs HTTPS', file: 'http-vs-https-security.svg', eso: '2', tema: 8, desc: 'Diferencia de seguridad' },
+      { name: 'Colaboración digital', file: 'digital-collaboration.svg', eso: '2', tema: 8, desc: 'Herramientas en línea' },
+      { name: 'Formatos de archivo', file: 'file-formats.svg', eso: '2', tema: 9, desc: 'TXT, DOCX, PDF, JPG, MP4, HTML' },
+      { name: 'Píxeles y color RGB', file: 'image-pixels-color.svg', eso: '2', tema: 9, desc: 'Estructura de imagen digital' },
+      { name: 'Resolución vs tamaño', file: 'image-resolution-filesize.svg', eso: '2', tema: 9, desc: 'Megapíxeles y compresión' },
+      
+      // 4º ESO
+      { name: 'Design Thinking', file: 'design-thinking-process.svg', eso: '4', tema: 1, desc: 'Las 5 fases del proceso' },
+      { name: 'Problema vs Solución', file: 'problem-vs-solution.svg', eso: '4', tema: 1, desc: 'Criterios y medición' },
+      { name: 'IF/ELSE en código', file: 'conditional-if-else.svg', eso: '4', tema: 2, desc: 'Lógica condicional' },
+      { name: 'Máquinas de estado', file: 'state-machine-concept.svg', eso: '4', tema: 2, desc: 'Qué es un estado' },
+      { name: 'Arquitectura IoT', file: 'iot-architecture.svg', eso: '4', tema: 3, desc: 'Sensor, red, cloud' },
+      { name: 'Robot vs Automatización', file: 'robot-vs-automation.svg', eso: '4', tema: 3, desc: 'Diferencias fundamentales' },
+      { name: 'Tipos de motores', file: 'motor-types-comparison.svg', eso: '4', tema: 4, desc: 'DC, servo, paso' },
+      { name: 'Transistor básico', file: 'transistor-basics.svg', eso: '4', tema: 5, desc: 'Como interruptor' },
+      { name: 'Transistor como amplificador', file: 'transistor-switch-concept.svg', eso: '4', tema: 5, desc: 'Amplificación de señal' },
+      { name: 'Ciclo de vida sostenible', file: 'product-lifecycle-sustainability.svg', eso: '4', tema: 8, desc: 'Impacto ambiental' },
+      { name: 'Energía incorporada', file: 'embodied-energy-comparison.svg', eso: '4', tema: 8, desc: 'Costo oculto de materiales' },
+      { name: 'Tecnología apropiada', file: 'appropriate-technology.svg', eso: '4', tema: 8, desc: 'Criterios de selección' },
+      { name: 'Matriz de evaluación', file: 'evaluation-criteria-matrix.svg', eso: '4', tema: 9, desc: 'Rúbrica y puntuación' },
+      { name: 'Matriz de impacto', file: 'solution-impact-matrix.svg', eso: '4', tema: 9, desc: 'Efectividad vs complejidad' },
+    ];
+    
+    const gallery = document.getElementById('gallery');
+    const searchInput = document.getElementById('searchInput');
+    const emptyState = document.getElementById('emptyState');
+    const visibleCount = document.getElementById('visibleCount');
+    let currentFilter = 'all';
+    let currentSearch = '';
+    
+    function filterDiagrams() {
+      const filtered = diagrams.filter(d => {
+        const matchFilter = currentFilter === 'all' || d.eso === currentFilter.replace('eso', '');
+        const matchSearch = currentSearch === '' || 
+                           d.name.toLowerCase().includes(currentSearch) ||
+                           d.desc.toLowerCase().includes(currentSearch);
+        return matchFilter && matchSearch;
+      });
+      
+      gallery.innerHTML = '';
+      
+      if (filtered.length === 0) {
+        emptyState.style.display = 'block';
+        visibleCount.textContent = '0';
+      } else {
+        emptyState.style.display = 'none';
+        filtered.forEach(d => {
+          const card = document.createElement('div');
+          card.className = 'diagram-card';
+          card.innerHTML = `
+            <div class="diagram-preview">
+              <img src="img/${d.file}" alt="${d.name}" loading="lazy">
+            </div>
+            <div class="diagram-info">
+              <div class="diagram-title">${d.name}</div>
+              <div class="diagram-desc">${d.desc}</div>
+              <div class="diagram-meta">
+                <span class="badge badge-eso${d.eso}">${d.eso}º ESO</span>
+                <span class="badge badge-tema">Tema ${d.tema}</span>
+              </div>
+              <div class="diagram-download">
+                <a href="img/${d.file}" download class="btn-download">↓ Descargar</a>
+              </div>
+            </div>
+          `;
+          gallery.appendChild(card);
+        });
+        visibleCount.textContent = filtered.length;
+      }
+    }
+    
+    searchInput.addEventListener('input', (e) => {
+      currentSearch = e.target.value.toLowerCase();
+      filterDiagrams();
+    });
+    
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentFilter = e.target.dataset.filter;
+        filterDiagrams();
+      });
+    });
+    
+    filterDiagrams();
+  </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+</body>
+</html>

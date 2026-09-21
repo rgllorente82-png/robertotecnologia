@@ -1,0 +1,105 @@
+<svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { stroke: #3498db; stroke-width: 2; fill: none; marker-end: url(#arrowright); }
+    </style>
+    <marker id="arrowright" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="500" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="500" y="35" class="title" font-size="18">Sistema Operativo: Repartidor de Recursos</text>
+
+  <!-- CPU sharing (Time slicing) -->
+  <g>
+    <text x="50" y="90" class="title" font-size="12" text-anchor="start" font-weight="bold">CPU Time Sharing: Turno rápido</text>
+
+    <!-- CPU -->
+    <rect x="50" y="110" width="100" height="60" class="box" fill="#3498db"/>
+    <text x="100" y="145" class="title" fill="white" font-size="13">CPU</text>
+
+    <!-- Process 1 -->
+    <rect x="180" y="100" width="80" height="25" class="box" fill="#e74c3c"/>
+    <text x="220" y="118" class="label" fill="white" font-size="10">Navegador</text>
+
+    <!-- Process 2 -->
+    <rect x="180" y="130" width="80" height="25" class="box" fill="#27ae60"/>
+    <text x="220" y="148" class="label" fill="white" font-size="10">Editor</text>
+
+    <!-- Process 3 -->
+    <rect x="180" y="160" width="80" height="25" class="box" fill="#f39c12"/>
+    <text x="220" y="178" class="label" fill="white" font-size="10">Música</text>
+
+    <!-- Arrows showing rotation -->
+    <path d="M150,115 L180,112" class="arrow"/>
+    <path d="M150,140 L180,142" class="arrow"/>
+    <path d="M150,165 L180,172" class="arrow"/>
+
+    <text x="50" y="210" class="label" font-size="10" text-anchor="start">El SO cambia de programa cada milisegundo.</text>
+    <text x="50" y="227" class="label" font-size="10" text-anchor="start">Parece que funcionan todos a la vez, pero se turnan.</text>
+  </g>
+
+  <!-- Memory allocation -->
+  <g>
+    <text x="520" y="90" class="title" font-size="12" text-anchor="start" font-weight="bold">Memoria: Aislamiento seguro</text>
+
+    <!-- RAM representation -->
+    <rect x="520" y="110" width="40" height="160" class="box" fill="#ecf0f1"/>
+
+    <!-- Browser memory -->
+    <rect x="520" y="110" width="40" height="35" fill="#e74c3c"/>
+    <text x="550" y="138" class="label" font-size="9" text-anchor="start">Browser: 500MB</text>
+
+    <!-- Editor memory -->
+    <rect x="520" y="145" width="40" height="35" fill="#27ae60"/>
+    <text x="550" y="173" class="label" font-size="9" text-anchor="start">Editor: 200MB</text>
+
+    <!-- Music memory -->
+    <rect x="520" y="180" width="40" height="35" fill="#f39c12"/>
+    <text x="550" y="208" class="label" font-size="9" text-anchor="start">Música: 100MB</text>
+
+    <!-- OS boundary -->
+    <line x1="520" y1="215" x2="560" y2="215" stroke="#2c3e50" stroke-width="2" stroke-dasharray="5,5"/>
+
+    <!-- OS memory -->
+    <rect x="520" y="215" width="40" height="30" fill="#3498db"/>
+    <text x="550" y="240" class="label" font-size="9" text-anchor="start">SO: 1.2GB</text>
+
+    <text x="520" y="280" class="label" font-size="10" text-anchor="start" font-weight="bold">Cada programa está</text>
+    <text x="520" y="297" class="label" font-size="10" text-anchor="start">en su propia zona.</text>
+    <text x="520" y="314" class="label" font-size="10" text-anchor="start">El SO protege que no</text>
+    <text x="520" y="331" class="label" font-size="10" text-anchor="start">se pisen entre ellos.</text>
+  </g>
+
+  <!-- File system -->
+  <g>
+    <text x="50" y="370" class="title" font-size="12" text-anchor="start" font-weight="bold">Archivos y Carpetas: Orden y control</text>
+
+    <rect x="50" y="390" width="450" height="80" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
+
+    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+      <text x="70" y="410" font-family="Courier" font-weight="bold">/home/usuario/</text>
+      <text x="90" y="430">📁 Documentos/</text>
+      <text x="110" y="447">  📄 tarea.docx</text>
+      <text x="110" y="462" font-size="9" fill="#666">  Permisos: lectura+escritura (usuario)</text>
+
+      <text x="90" y="447">📁 Fotos/</text>
+      <text x="110" y="462" font-size="9" fill="#666">  Permisos: lectura (todos)</text>
+
+      <text x="250" y="430">📁 Música/</text>
+      <text x="250" y="447">📁 Videos/</text>
+    </g>
+
+    <text x="520" y="410" class="label" font-size="10" text-anchor="start" font-weight="bold">El SO:</text>
+    <text x="520" y="430" class="label" font-size="10" text-anchor="start">✓ Organiza archivos en carpetas</text>
+    <text x="520" y="447" class="label" font-size="10" text-anchor="start">✓ Controla quién puede leer/escribir</text>
+    <text x="520" y="464" class="label" font-size="10" text-anchor="start">✓ Protege que no se borren accidentalmente</text>
+  </g>
+</svg>

@@ -1,0 +1,125 @@
+<svg viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .machine-title { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; }
+      .force-arrow { stroke: #e74c3c; stroke-width: 2.5; fill: none; marker-end: url(#arrowred); }
+      .result-arrow { stroke: #27ae60; stroke-width: 2.5; fill: none; marker-end: url(#arrowgreen); }
+      .member { stroke: #3498db; stroke-width: 2.5; }
+      .fulcrum { stroke: #2c3e50; stroke-width: 2; }
+    </style>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f8f9fa"/>
+
+  <!-- Main Title -->
+  <text x="600" y="25" class="machine-title" font-size="16">Las 6 Máquinas Simples</text>
+
+  <!-- 1. PALANCA (Lever) -->
+  <g>
+    <text x="100" y="60" class="machine-title">1. Palanca</text>
+    <!-- Fulcrum -->
+    <polygon points="100,130 85,150 115,150" class="fulcrum" fill="#34495e"/>
+    <!-- Lever -->
+    <line x1="40" y1="130" x2="160" y2="130" class="member" stroke-width="4"/>
+    <!-- Force in -->
+    <path d="M40,100 L40,120" class="force-arrow"/>
+    <!-- Force out -->
+    <path d="M160,145 L160,170" class="result-arrow"/>
+    <text x="30" y="95" class="machine-title" font-size="11">Entrada</text>
+    <text x="150" y="185" class="machine-title" font-size="11">Salida</text>
+  </g>
+
+  <!-- 2. RUEDA Y EJE (Wheel and Axle) -->
+  <g>
+    <circle cx="300" cy="130" r="40" class="member" stroke-width="3" fill="none"/>
+    <circle cx="300" cy="130" r="12" class="member" stroke-width="2" fill="#3498db"/>
+    <text x="300" y="60" class="machine-title">2. Rueda y Eje</text>
+    <!-- Force arrows -->
+    <path d="M340,130 L370,130" class="force-arrow"/>
+    <path d="M260,130 L230,130" class="result-arrow"/>
+    <text x="385" y="135" class="machine-title" font-size="11">Entrada</text>
+    <text x="195" y="135" class="machine-title" font-size="11">Salida</text>
+  </g>
+
+  <!-- 3. POLEA (Pulley) -->
+  <g>
+    <circle cx="500" cy="130" r="30" class="member" stroke-width="3" fill="none"/>
+    <circle cx="500" cy="130" r="5" class="member" stroke-width="1" fill="#3498db"/>
+    <text x="500" y="60" class="machine-title">3. Polea</text>
+    <!-- Rope -->
+    <line x1="485" y1="100" x2="485" y2="50" stroke="#8b7355" stroke-width="2"/>
+    <line x1="515" y1="160" x2="515" y2="210" stroke="#8b7355" stroke-width="2"/>
+    <!-- Forces -->
+    <path d="M485,45 L485,35" class="force-arrow"/>
+    <path d="M515,215 L515,240" class="result-arrow"/>
+    <text x="460" y="32" class="machine-title" font-size="11">Entrada</text>
+    <text x="530" y="250" class="machine-title" font-size="11">Salida</text>
+  </g>
+
+  <!-- 4. PLANO INCLINADO (Inclined Plane) -->
+  <g>
+    <text x="700" y="60" class="machine-title">4. Plano Inclinado</text>
+    <!-- Plane -->
+    <polygon points="620,170 800,100 800,170" fill="none" stroke="#3498db" stroke-width="3"/>
+    <!-- Object -->
+    <rect x="770" y="120" width="20" height="20" fill="#3498db" stroke="#2c3e50" stroke-width="1"/>
+    <!-- Forces -->
+    <path d="M770,100 L770,80" class="force-arrow"/>
+    <path d="M805,130 L830,150" class="result-arrow"/>
+    <text x="755" y="75" class="machine-title" font-size="11">Entrada</text>
+    <text x="835" y="155" class="machine-title" font-size="11">Salida</text>
+  </g>
+
+  <!-- 5. CUÑA (Wedge) -->
+  <g>
+    <text x="900" y="60" class="machine-title">5. Cuña</text>
+    <!-- Wedge -->
+    <polygon points="870,170 920,100 920,170" fill="none" stroke="#3498db" stroke-width="3"/>
+    <!-- Force -->
+    <path d="M895,80 L895,60" class="force-arrow"/>
+    <!-- Separation -->
+    <path d="M870,175 L860,195" class="result-arrow"/>
+    <path d="M920,175 L930,195" class="result-arrow"/>
+    <text x="895" y="55" class="machine-title" font-size="11">Entrada</text>
+    <text x="880" y="210" class="machine-title" font-size="11">Salida</text>
+  </g>
+
+  <!-- 6. TORNILLO (Screw) -->
+  <g>
+    <text x="1100" y="60" class="machine-title">6. Tornillo</text>
+    <!-- Screw representation -->
+    <circle cx="1100" cy="130" r="25" fill="none" stroke="#3498db" stroke-width="2"/>
+    <path d="M1075,130 Q1100,110 1125,130" stroke="#3498db" stroke-width="2" fill="none"/>
+    <line x1="1100" y1="105" x2="1100" y2="155" stroke="#3498db" stroke-width="2"/>
+    <!-- Rotation arrow -->
+    <path d="M1070,130 Q1060,115 1070,100" fill="none" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arrowred)"/>
+    <!-- Force out -->
+    <path d="M1125,130 L1150,130" class="result-arrow"/>
+    <text x="1050" y="90" class="machine-title" font-size="11">Giro</text>
+    <text x="1155" y="135" class="machine-title" font-size="11">Empuje</text>
+  </g>
+
+  <!-- Bottom info -->
+  <rect x="30" y="250" width="1140" height="220" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="4"/>
+
+  <text x="50" y="275" class="machine-title" font-size="13">Ventaja Mecánica: Las máquinas simples transforman fuerza y distancia para hacer el trabajo más fácil</text>
+
+  <text x="50" y="305" class="machine-title" font-size="12" text-anchor="start">
+    <tspan x="50" dy="0" font-weight="normal">• Palanca: Multiplica la fuerza usando un punto de apoyo</tspan>
+    <tspan x="50" dy="20" font-weight="normal">• Rueda y Eje: Reduce la fricción y multiplica la fuerza rotacional</tspan>
+    <tspan x="50" dy="20" font-weight="normal">• Polea: Cambia la dirección de la fuerza (móvil multiplica fuerza)</tspan>
+  </text>
+
+  <text x="50" y="365" class="machine-title" font-size="12" text-anchor="start">
+    <tspan x="50" dy="0" font-weight="normal">• Plano Inclinado: Reduce la fuerza necesaria distribuyéndola en mayor distancia</tspan>
+    <tspan x="50" dy="20" font-weight="normal">• Cuña: Convierte empuje vertical en fuerzas separadoras horizontales</tspan>
+    <tspan x="50" dy="20" font-weight="normal">• Tornillo: Convierte movimiento rotacional en movimiento lineal amplificando la fuerza</tspan>
+  </text>
+</svg>

@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema6/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial">
+<meta property="og:description" content="Tema 6 de Tecnolog&iacute;a de 4.&ordm; de ESO: del bloque al c&oacute;digo de Arduino, entradas analógicas y el conversor A/D, qu&eacute; es de verdad el IoT y c&oacute;mo aprende un clasificador con ejemplos.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema6/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema6.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -287,18 +306,49 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 6</div>
     <h1>Programaci&oacute;n, IoT e inteligencia artificial</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; De bloques a c&oacute;digo</button><button type="button" data-ses="2">S2 &middot; Entradas analógicas</button><button type="button" data-ses="3">S3 &middot; IoT, sin misticismo</button><button type="button" data-ses="4">S4 &middot; IA, sin humo</button><button type="button" data-ses="5">S5 &middot; Decidir con memoria</button><button type="button" data-ses="6">S6 &middot; Montar el aviso de verdad</button><button type="button" data-ses="7">S7 &middot; Entrenar con vuestros datos</button><button type="button" data-ses="8">S8 &middot; El sistema completo</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; De bloques a c&oacute;digo</button><button type="button" data-ses="2">S2 &middot; Entradas analógicas</button><button type="button" data-ses="3">S3 &middot; IoT, sin misticismo</button><button type="button" data-ses="4">S4 &middot; IA, sin humo</button><button type="button" data-ses="5">S5 &middot; Decidir con memoria</button><button type="button" data-ses="6">S6 &middot; Montar el aviso de verdad</button><button type="button" data-ses="7">S7 &middot; Entrenar con vuestros datos</button><button type="button" data-ses="8">S8 &middot; El sistema completo</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -319,7 +369,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c6">
         <div class="narrador-fig" id="narr-c6-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Una placa puede decidir sola. &iquest;Y si adem&aacute;s pudiera avisarte desde lejos, o aprender de lo que ve?</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -443,7 +493,7 @@ footer .wrap{padding-block:18px 26px}
       <p>La placa de este curso es un <b>Arduino</b>. No es m&aacute;s lista que la micro:bit: es m&aacute;s
          desnuda, y eso es justo lo que nos interesa.</p>
       <figure class="foto">
-        <img src="../../../img/c6-arduino-uno.jpg" alt="Placa Arduino Uno vista desde arriba, con el microcontrolador ATmega328P en el centro y las dos hileras de conectores" loading="lazy">
+        <img src="../../../img/c6-arduino-uno.jpg" width="1280" height="853" alt="Placa Arduino Uno vista desde arriba, con el microcontrolador ATmega328P en el centro y las dos hileras de conectores" loading="lazy">
         <figcaption>Un <b>Arduino Uno</b>. El chip negro alargado del centro es el microcontrolador, un <b>ATmega328P</b>: ah&iacute; dentro est&aacute; tu programa y ah&iacute; dentro se ejecuta. Abajo a la derecha, rotulado <b>ANALOG IN</b>, est&aacute; el conector que usaremos en la sesi&oacute;n siguiente; arriba, los pines digitales. El cristal marcado <b>16.000</b> es el reloj: 16 millones de pasos por segundo.
           <span class="credito">Suyash Dwivedi &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Arduino_Uno_R3_development_board_(1).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -523,7 +573,7 @@ void loop() {
           </div>
           <p class="c1-est" id="est-c1"></p>
         </div>
-        <div class="pie" id="pie-c1"></div>
+        <div class="pie" id="pie-c1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -674,7 +724,7 @@ void loop() {
             var rot = g === 0 ? 'al iniciar' : 'para siempre';
             m += '<rect x="' + X + '" y="' + y + '" width="' + AN + '" height="' + AL
                + '" rx="4" fill="' + col + '"></rect>'
-               + '<text x="' + (X + 11) + '" y="' + (y + 17.5) + '" class="c1h" fill="#fff">'
+               + '<text x="' + (X + 11) + '" y="' + (y + 17.5) + '" class="c1h" fill="var(--tinta-sobre)">'
                + rot + '</text>';
             y += AL + HUE;
             PASOS.forEach(function(s, k){
@@ -825,7 +875,7 @@ void loop() {
         <h4>Los tipos que vas a usar</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>tipo</th><th>bytes</th><th>qu&eacute; guarda</th></tr>
+            <th scope="col">tipo</th><th scope="col">bytes</th><th scope="col">qu&eacute; guarda</th></tr>
           <tr><td><code>bool</code></td><td>1</td><td>solo <code>true</code> o <code>false</code></td></tr>
           <tr><td><code>char</code></td><td>1</td><td>de &minus;128 a 127, o una letra</td></tr>
           <tr><td><code>int</code></td><td>2</td><td>de &minus;32.768 a 32.767, <b>sin decimales</b></td></tr>
@@ -872,7 +922,8 @@ void loop() {
           </span>
         </button>
         <p class="video-nota">Doce minutos con el entorno de Arduino delante, por si quieres ver escribir el sketch de cero antes de la pr&aacute;ctica. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=7uV4Jh30Oho" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1003,7 +1054,7 @@ void loop() {
          de lo que es: <b>conversor analógico-digital</b>, o <b>A/D</b>. En Arduino se usa con una
          sola instrucci&oacute;n:</p>
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>Se&ntilde;al analógica</b>: la que puede tomar <b>cualquier</b> valor dentro de un
            margen. La tensi&oacute;n que da un sensor es analógica: entre 0 y 5 V hay infinitos
            valores.</p>
@@ -1066,7 +1117,7 @@ void loop() {
           </div>
           <p class="c2-lee" id="lee-c2"></p>
         </div>
-        <div class="pie" id="pie-c2"></div>
+        <div class="pie" id="pie-c2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1206,7 +1257,11 @@ void loop() {
           var px = function(v){ return X0 + (v - vA) / (vB - vA) * AN; };
           var py = function(k){ return Y0 + AL - (k - k0 + 0.5) / vent * AL; };
 
-          var m = '<style>.c2t{font:10.5px var(--f-m);fill:var(--ink-soft)}'
+          /* estos rotulos caen sobre las franjas de color de la escena, asi que
+             llevan halo del color del papel: se leen dentro y fuera, y en los
+             dos temas, sin depender de con que franja coincidan */
+          var m = '<style>.c2t{font:10.5px var(--f-m);fill:var(--ink-soft);'
+                + 'paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}'
                 + '.c2n{font:500 11px var(--f-m);fill:var(--goo-azul)}</style>';
           /* la franja del numero actual, que es lo que hay que ver */
           m += '<rect x="' + px(r.baja).toFixed(1) + '" y="' + Y0 + '" width="'
@@ -1384,7 +1439,7 @@ void loop() {
          aparecen d&iacute;gitos <b>tachados</b>. No es un adorno. Son cifras que la divisi&oacute;n ha
          calculado y que <b>el sensor no puede sostener</b>.</p>
       <figure class="foto">
-        <img src="../../../img/c6-potenciometro.jpg" alt="Potenci&oacute;metro de eje met&aacute;lico con sus tres patillas, visto de cerca" loading="lazy">
+        <img src="../../../img/c6-potenciometro.jpg" width="888" height="1040" alt="Potenci&oacute;metro de eje met&aacute;lico con sus tres patillas, visto de cerca" loading="lazy">
         <figcaption>Un <b>potenci&oacute;metro</b>: una resistencia con un cursor que se mueve con el eje. Es lo que vais a usar en Tinkercad como sensor de mentira, porque hace lo mismo que cualquier sensor de verdad: <b>poner en el pin una tensi&oacute;n que var&iacute;a poco a poco</b>. Al girarlo despacio ver&eacute;is que la lectura no sube de uno en uno de forma continua: <b>salta</b>. Eso son los escalones.
           <span class="credito">Iainf &middot; CC BY 2.5 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Potentiometer.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1432,7 +1487,8 @@ void loop() {
           </span>
         </button>
         <p class="video-nota">El montaje exacto de la pr&aacute;ctica, hecho en Tinkercad, por si quer&eacute;is verlo antes de montarlo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=ddOaXUWQxbI" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1543,13 +1599,23 @@ void loop() {
          inteligentes&mdash; son nombres para esas dos cosas.</p>
 
     </section>
+
+    <section class="bloque">
+      <figure class="foto">
+        <img src="../../../img/iot-architecture.svg" width="1000" height="400" loading="lazy"
+             alt="Arquitectura IoT: Sensores y dispositivos inteligentes env&iacute;an datos a trav&eacute;s de gateway a la nube para an&aacute;lisis, que devuelven decisiones a los actuadores">
+        <figcaption>La <b>arquitectura IoT</b> (Internet de las Cosas): sensores y dispositivos miden el mundo real y transmiten datos a trav&eacute;s de protocolos inal&aacute;mbricos (WiFi, Bluetooth, LTE, LoRaWAN) hasta un gateway que centraliza la comunicaci&oacute;n. Desde la nube se analizan los datos, y la aplicaci&oacute;n decide qu&eacute; hacer y env&iacute;a &oacute;rdenes de vuelta a los actuadores. El termostato inteligente de tu casa es exactamente esto: detecta temperatura, la env&iacute;a a internet, tu tel&eacute;fono compara con lo que deseas, y activa la calefacci&oacute;n.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+    </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <p>Que esto no es nuevo lo demuestra la primera c&aacute;mara que se puso en la red, y lo que se
          ve&iacute;a en ella era tan importante como esto:</p>
       <figure class="foto" style="max-width:284px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c6-cafetera-trojan.png" alt="Ventana de ordenador titulada xcoffee con la imagen en blanco y negro de una jarra de caf&eacute; medio llena sobre su placa" loading="lazy" style="image-rendering:pixelated">
+        <img src="../../../img/c6-cafetera-trojan.png" width="142" height="159" alt="Ventana de ordenador titulada xcoffee con la imagen en blanco y negro de una jarra de caf&eacute; medio llena sobre su placa" loading="lazy" style="image-rendering:pixelated">
         <figcaption>Esto es la imagen entera: <b>142 &times; 159 puntos en blanco y negro</b>, ampliada aqu&iacute; para que se vea. En <b>1991</b>, en el laboratorio de inform&aacute;tica de la Universidad de Cambridge, Quentin Stafford-Fraser y Paul Jardetzky apuntaron una c&aacute;mara a la cafetera del pasillo y escribieron un programa, <b>XCoffee</b>, para verla desde el despacho y no bajar en balde. En <b>noviembre de 1993</b> Daniel Gordon y Martyn Johnson la sacaron a la web, y se hizo famosa en el mundo entero. Se apag&oacute; el <b>22 de agosto de 2001</b>. Un aparato que manda un dato y otro que lo mira: <b>eso</b> es lo que hoy se llama IoT.
           <span class="credito">Quentin Stafford-Fraser &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Trojan_Room_coffee_pot_xcoffee.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1557,7 +1623,7 @@ void loop() {
       </figure>
 
       <div class="copiar">
-        <h4>Definiciones</h4>
+        <h3 class="h-menor">Definiciones</h3>
         <p><b>IoT</b> (<i>internet de las cosas</i>): aparatos que no son ordenadores &mdash;una
            placa, un contador de la luz, una b&aacute;scula&mdash; que <b>mandan</b> lo que miden a
            otro sitio de la red y a veces <b>reciben</b> &oacute;rdenes desde all&iacute;.</p>
@@ -1574,6 +1640,15 @@ void loop() {
         <p>Todo lo dem&aacute;s que viaja es <b>sobre</b>: sirve para que el mensaje llegue y se
            entienda, no para medir nada.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/iot-system-architecture.svg" width="1000" height="700" loading="lazy"
+             alt="Arquitectura IoT: capa de sensores, capa de procesamiento local con Arduino, capa de nube e inteligencia">
+        <figcaption><b>De los sensores a las decisiones</b>. En el huerto hay sensores que miden humedad, temperatura y luz. Un Arduino local los lee y toma decisiones simples (si humedad &lt; 40%, riega). <b>Sin internet, funciona igual: es automatismo</b>. Pero si se conecta a la nube, puede aprender. La nube ve el histórico, detecta patrones (a las 9 AM siempre hace más calor), y optimiza: "próxima vez, riega solo 15 minutos". Eso es IoT: <b>local + inteligencia remota</b>.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Aqu&iacute; tienes el mensaje de verdad, escrito en los tres formatos que se usan.
          Cambia el identificador, el valor y cada cu&aacute;nto se manda, y mira lo que ocupa cada uno
          y lo que eso supone en un curso entero.</p>
@@ -1630,7 +1705,7 @@ void loop() {
                aria-label="Camino del dato desde la placa hasta el m&oacute;vil, con lo que ve cada salto"></svg>
           <p class="c3-lee" id="lee-c3"></p>
         </div>
-        <div class="pie" id="pie-c3"></div>
+        <div class="pie" id="pie-c3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1953,7 +2028,8 @@ void loop() {
           </span>
         </button>
         <p class="video-nota">Una introducci&oacute;n al protocolo, con el br&oacute;ker y los temas. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=RpjSwriOi9U" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2052,7 +2128,7 @@ void loop() {
         <b>Escribid el <code>si</code>.</b> Cinco minutos.
       </div>
       <p>Lo que pasa en esos cinco minutos es siempre lo mismo. Alguien propone el peso: el
-         pl&aacute;stico pesa menos... salvo un brik lleno. Alguien propone el ultrasonidos: mide la
+         pl&aacute;stico pesa menos&hellip; salvo un brik lleno. Alguien propone el ultrasonidos: mide la
          distancia, no el material. Alguien propone el color: no hay sensor de color, y el papel de
          revista es de todos los colores.</p>
       <p>Probad con otro. La sonda del <b>riego</b> da una lectura alta cuando la tierra est&aacute;
@@ -2073,10 +2149,10 @@ void loop() {
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Programar y entrenar: qui&eacute;n pone qu&eacute;</h4>
+        <h3 class="h-menor">Programar y entrenar: qui&eacute;n pone qu&eacute;</h3>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th></th><th>Programar</th><th>Entrenar</th></tr>
+            <th scope="col"></th><th scope="col">Programar</th><th scope="col">Entrenar</th></tr>
           <tr><td>t&uacute; pones</td><td>la <b>regla</b></td><td>los <b>ejemplos</b>, ya clasificados</td></tr>
           <tr><td>el programa pone</td><td>aplicarla</td><td>los <b>n&uacute;meros</b> de la regla</td></tr>
           <tr><td>si falla</td><td>lees la regla y la arreglas</td>
@@ -2153,7 +2229,7 @@ void loop() {
           </div>
           <p class="c4-lee" id="lee-c4"></p>
         </div>
-        <div class="pie" id="pie-c4"></div>
+        <div class="pie" id="pie-c4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2535,7 +2611,7 @@ void loop() {
            sesenta y tantos a&ntilde;os.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c6-perceptron.jpg" alt="Fotograf&iacute;a en blanco y negro de 1960: una m&aacute;quina grande con dos focos apuntando a un soporte, un hombre coloc&aacute;ndole una l&aacute;mina, y al fondo armarios llenos de circuitos" loading="lazy">
+        <img src="../../../img/c6-perceptron.jpg" width="1280" height="1002" alt="Fotograf&iacute;a en blanco y negro de 1960: una m&aacute;quina grande con dos focos apuntando a un soporte, un hombre coloc&aacute;ndole una l&aacute;mina, y al fondo armarios llenos de circuitos" loading="lazy">
         <figcaption>El <b>Mark I Perceptron</b>, montado en 1959 en el Cornell Aeronautical Laboratory a partir de la idea que Frank Rosenblatt public&oacute; en <b>1958</b>, con dinero de la Marina de los Estados Unidos. Los dos focos iluminan la l&aacute;mina que se le ense&ntilde;a; detr&aacute;s hay una rejilla de <b>400 fotoc&eacute;lulas</b> de 20&times;20 que son sus caracter&iacute;sticas. Y los pesos &mdash;lo que en la escena son w&#8321; y w&#8322;&mdash; eran <b>potenci&oacute;metros de verdad, movidos por motorcitos</b> durante el entrenamiento: aprender era, literalmente, girar tornillos. Los armarios del fondo est&aacute;n llenos de ellos.
           <span class="credito">National Museum of the U.S. Navy &middot; dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:330-PSA-80-60_(USN_710739)_(20897323365).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2608,7 +2684,8 @@ void loop() {
           </span>
         </button>
         <p class="video-nota">Casos reales de modelos que aprendieron lo que hab&iacute;a en sus ejemplos, con las consecuencias que tuvo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=fP_f-aNZFLo" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2648,7 +2725,7 @@ void loop() {
             <li>Cu&aacute;l de los dos fallos es m&aacute;s caro, y <b>por qu&eacute;</b>.</li>
             <li>Qui&eacute;n tendr&iacute;a que <b>etiquetar</b> los ejemplos si quisierais entrenar algo
                 de verdad, cu&aacute;ntos har&iacute;an falta y <b>cu&aacute;nto tiempo</b> llevar&iacute;a.
-                <i>Calculadlo: a diez segundos por ejemplo, 500 ejemplos son...</i></li>
+                <i>Calculadlo: a diez segundos por ejemplo, 500 ejemplos son&hellip;</i></li>
           </ul>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
@@ -2679,80 +2756,80 @@ void loop() {
       </ol>
       <div class="ta" id="test-c6">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. &iquest;Qu&eacute; hace <code>loop()</code> en un sketch de Arduino?</p>
-          <label class="ta-op"><input type="radio" name="c6-0" value="0">Se ejecuta una vez, al encender la placa.</label>
-          <label class="ta-op"><input type="radio" name="c6-0" value="1">Se repite sin parar mientras la placa tenga corriente.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6-p1">
+          <p id="test-c6-p1">1. &iquest;Qu&eacute; hace <code>loop()</code> en un sketch de Arduino?</p>
+          <label class="ta-op"><input type="radio" name="c6-0" value="0">Se repite sin parar mientras la placa tenga corriente.</label>
+          <label class="ta-op"><input type="radio" name="c6-0" value="1">Se ejecuta una vez, al encender la placa.</label>
           <label class="ta-op"><input type="radio" name="c6-0" value="2">Repite el n&uacute;mero de veces que se le diga entre par&eacute;ntesis.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> <code>loop()</code> es &laquo;para siempre&raquo;: cuando llega al final vuelve a empezar. El que se ejecuta una sola vez es <code>setup()</code>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. Un programa guarda en un <code>int</code> el resultado de <code>0 + 0,5</code> y lo repite cuarenta veces. &iquest;Cu&aacute;nto vale al final?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6-p2">
+          <p id="test-c6-p2">2. Un programa guarda en un <code>int</code> el resultado de <code>0 + 0,5</code> y lo repite cuarenta veces. &iquest;Cu&aacute;nto vale al final?</p>
           <label class="ta-op"><input type="radio" name="c6-1" value="0">20</label>
-          <label class="ta-op"><input type="radio" name="c6-1" value="1">0</label>
-          <label class="ta-op"><input type="radio" name="c6-1" value="2">0,5</label>
+          <label class="ta-op"><input type="radio" name="c6-1" value="1">0,5</label>
+          <label class="ta-op"><input type="radio" name="c6-1" value="2">0</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un <code>int</code> <b>no admite decimales</b>: cada suma da 0,5 y al guardarla se trunca a 0. Nunca llega a 1, y el programa no avisa de nada.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. &iquest;Por qu&eacute; hay que declarar el tipo de una variable en Arduino y en bloques no hac&iacute;a falta?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6-p3">
+          <p id="test-c6-p3">3. &iquest;Por qu&eacute; hay que declarar el tipo de una variable en Arduino y en bloques no hac&iacute;a falta?</p>
           <label class="ta-op"><input type="radio" name="c6-2" value="0">Porque el lenguaje C++ es m&aacute;s antiguo y lo arrastra.</label>
-          <label class="ta-op"><input type="radio" name="c6-2" value="1">Porque la placa reserva la memoria antes de arrancar y necesita saber cu&aacute;ntos bytes ocupa cada cosa.</label>
-          <label class="ta-op"><input type="radio" name="c6-2" value="2">Porque as&iacute; el programa se ejecuta m&aacute;s r&aacute;pido.</label>
+          <label class="ta-op"><input type="radio" name="c6-2" value="1">Porque as&iacute; el programa se ejecuta m&aacute;s r&aacute;pido.</label>
+          <label class="ta-op"><input type="radio" name="c6-2" value="2">Porque la placa reserva la memoria antes de arrancar y necesita saber cu&aacute;ntos bytes ocupa cada cosa.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un Arduino Uno tiene 2.048 bytes y no tiene sistema operativo que busque hueco sobre la marcha: el sitio se reserva antes, y para eso hay que saber cu&aacute;nto.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. <code>analogRead()</code> en un Arduino Uno devuelve&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p4">
+          <p id="test-c6-p4">4. <code>analogRead()</code> en un Arduino Uno devuelve&hellip;</p>
           <label class="ta-op"><input type="radio" name="c6-3" value="0">la tensi&oacute;n del pin en voltios, con decimales</label>
           <label class="ta-op"><input type="radio" name="c6-3" value="1">un n&uacute;mero entero de 0 a 1023</label>
           <label class="ta-op"><input type="radio" name="c6-3" value="2">un 0 o un 1, seg&uacute;n un umbral</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El conversor es de 10 bits: 2<sup>10</sup> = 1.024 valores, numerados de 0 a 1023. Pasar eso a voltios o a grados es trabajo de tu programa.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>5. Con una referencia de 5 V y un conversor de 10 bits, &iquest;cu&aacute;nto vale un escal&oacute;n?</p>
-          <label class="ta-op"><input type="radio" name="c6-4" value="0">5 V / 1.024 = 4,88 mV</label>
-          <label class="ta-op"><input type="radio" name="c6-4" value="1">5 V / 10 = 0,5 V</label>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p5">
+          <p id="test-c6-p5">5. Con una referencia de 5 V y un conversor de 10 bits, &iquest;cu&aacute;nto vale un escal&oacute;n?</p>
+          <label class="ta-op"><input type="radio" name="c6-4" value="0">5 V / 10 = 0,5 V</label>
+          <label class="ta-op"><input type="radio" name="c6-4" value="1">5 V / 1.024 = 4,88 mV</label>
           <label class="ta-op"><input type="radio" name="c6-4" value="2">5 V / 100 = 50 mV</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Hay 1.024 escalones repartidos entre 0 y la referencia. Dos tensiones que se diferencien en menos de 4,88 mV dan <b>el mismo n&uacute;mero</b>.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Un TMP36 da 10 mV por grado y el conversor tiene escalones de 4,88 mV. Tu programa escribe <code>21.37</code>. &iquest;Qu&eacute; pasa?</p>
-          <label class="ta-op"><input type="radio" name="c6-5" value="0">Nada: el sensor es preciso hasta la cent&eacute;sima.</label>
-          <label class="ta-op"><input type="radio" name="c6-5" value="1">Que el escal&oacute;n vale 0,49 &deg;C, as&iacute; que los &uacute;ltimos d&iacute;gitos los ha puesto la divisi&oacute;n, no la medida.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6-p6">
+          <p id="test-c6-p6">6. Un TMP36 da 10 mV por grado y el conversor tiene escalones de 4,88 mV. Tu programa escribe <code>21.37</code>. &iquest;Qu&eacute; pasa?</p>
+          <label class="ta-op"><input type="radio" name="c6-5" value="0">Que el escal&oacute;n vale 0,49 &deg;C, as&iacute; que los &uacute;ltimos d&iacute;gitos los ha puesto la divisi&oacute;n, no la medida.</label>
+          <label class="ta-op"><input type="radio" name="c6-5" value="1">Nada: el sensor es preciso hasta la cent&eacute;sima.</label>
           <label class="ta-op"><input type="radio" name="c6-5" value="2">Que hay que cambiar el sensor porque est&aacute; estropeado.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 4,88 mV entre 10 mV/&deg;C son 0,49 &deg;C por escal&oacute;n: el term&oacute;metro no distingue medio grado. Lo honrado es escribir 21,4 &deg;C.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Qu&eacute; cuatro cosas lleva dentro el mensaje de un aparato conectado?</p>
-          <label class="ta-op"><input type="radio" name="c6-6" value="0">La contrase&ntilde;a, el wifi, la IP y el modelo de la placa.</label>
-          <label class="ta-op"><input type="radio" name="c6-6" value="1">Qui&eacute;n lo manda, qu&eacute; mide, cu&aacute;ndo y a d&oacute;nde va.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6-p7">
+          <p id="test-c6-p7">7. &iquest;Qu&eacute; cuatro cosas lleva dentro el mensaje de un aparato conectado?</p>
+          <label class="ta-op"><input type="radio" name="c6-6" value="0">Qui&eacute;n lo manda, qu&eacute; mide, cu&aacute;ndo y a d&oacute;nde va.</label>
+          <label class="ta-op"><input type="radio" name="c6-6" value="1">La contrase&ntilde;a, el wifi, la IP y el modelo de la placa.</label>
           <label class="ta-op"><input type="radio" name="c6-6" value="2">El programa, el sensor, el actuador y el usuario.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Identificador, magnitud con su valor y su unidad, marca de tiempo y destino con su protocolo. Todo lo dem&aacute;s que viaja es sobre.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. El mensaje va cifrado. &iquest;Qu&eacute; sigue viendo el router por el que pasa?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6-p8">
+          <p id="test-c6-p8">8. El mensaje va cifrado. &iquest;Qu&eacute; sigue viendo el router por el que pasa?</p>
           <label class="ta-op"><input type="radio" name="c6-7" value="0">Nada en absoluto: el cifrado lo tapa todo.</label>
           <label class="ta-op"><input type="radio" name="c6-7" value="1">Con qui&eacute;n habla la placa, cu&aacute;nto ocupa el mensaje y cada cu&aacute;nto lo manda.</label>
           <label class="ta-op"><input type="radio" name="c6-7" value="2">Solo el valor num&eacute;rico, pero no de qu&eacute; sensor viene.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Son los <b>metadatos</b>. Con una medida cada poco tiempo desde un aula se sabe a qu&eacute; hora se abre el centro y qu&eacute; d&iacute;as no va nadie, sin leer un solo dato.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. &iquest;En qu&eacute; se diferencia entrenar un modelo de programar una regla?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6-p9">
+          <p id="test-c6-p9">9. &iquest;En qu&eacute; se diferencia entrenar un modelo de programar una regla?</p>
           <label class="ta-op"><input type="radio" name="c6-8" value="0">En que al entrenar la m&aacute;quina razona por su cuenta.</label>
-          <label class="ta-op"><input type="radio" name="c6-8" value="1">En que al programar t&uacute; pones la regla y al entrenar pones los ejemplos, y el programa busca los n&uacute;meros de la regla.</label>
-          <label class="ta-op"><input type="radio" name="c6-8" value="2">En que entrenar solo sirve para im&aacute;genes.</label>
+          <label class="ta-op"><input type="radio" name="c6-8" value="1">En que entrenar solo sirve para im&aacute;genes.</label>
+          <label class="ta-op"><input type="radio" name="c6-8" value="2">En que al programar t&uacute; pones la regla y al entrenar pones los ejemplos, y el programa busca los n&uacute;meros de la regla.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Entrenar es una b&uacute;squeda: t&uacute; eliges qu&eacute; forma tiene la regla y das ejemplos etiquetados; el programa ajusta los pesos corrigiendo cada vez que falla.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Un modelo acierta el 96 % de los ejemplos con los que se entren&oacute; y el 61 % de los que no hab&iacute;a visto. &iquest;Qu&eacute; ha pasado?</p>
-          <label class="ta-op"><input type="radio" name="c6-9" value="0">Que necesita m&aacute;s pasadas de entrenamiento.</label>
-          <label class="ta-op"><input type="radio" name="c6-9" value="1">Que ha aprendido los ejemplos que le disteis, y esos ejemplos no representaban el problema entero.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6-p10">
+          <p id="test-c6-p10">10. Un modelo acierta el 96 % de los ejemplos con los que se entren&oacute; y el 61 % de los que no hab&iacute;a visto. &iquest;Qu&eacute; ha pasado?</p>
+          <label class="ta-op"><input type="radio" name="c6-9" value="0">Que ha aprendido los ejemplos que le disteis, y esos ejemplos no representaban el problema entero.</label>
+          <label class="ta-op"><input type="radio" name="c6-9" value="1">Que necesita m&aacute;s pasadas de entrenamiento.</label>
           <label class="ta-op"><input type="radio" name="c6-9" value="2">Que el conjunto de prueba est&aacute; mal etiquetado.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la se&ntilde;al t&iacute;pica de un conjunto de ejemplos <b>sesgado</b>: el modelo funciona donde le ense&ntilde;aste y falla fuera, y aun as&iacute; contesta con la misma seguridad.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2820,7 +2897,7 @@ void loop() {
       <p>Para que el programa se acuerde hay que <b>guardar</b> las medidas. Y guardar, en una placa
          como esta, es ocupar un sitio que se puede contar.</p>
       <figure class="foto">
-        <img src="../../../img/c6-atmega328-die.jpg" alt="Fotograf&iacute;a al microscopio del interior de un chip ATmega328: un cuadrado de circuitos con hilos dorados soldados alrededor" loading="lazy">
+        <img src="../../../img/c6-atmega328-die.jpg" width="1760" height="1924" alt="Fotograf&iacute;a al microscopio del interior de un chip ATmega328: un cuadrado de circuitos con hilos dorados soldados alrededor" loading="lazy">
         <figcaption>Esto es el <b>ATmega328</b> por dentro: el chip que lleva el Arduino Uno, abierto y fotografiado al microscopio a 20 aumentos. Es <b>la misma foto</b> que miraste en la unidad 5, cuando segu&iacute;as un hilo hasta la patilla <code>A0</code>; hoy toca mirar otra cosa. El cuadrado entero mide unos <b>3 mil&iacute;metros de lado</b>; los hilos que salen por los bordes son los que van a las patillas. F&iacute;jate en que hay dos clases de paisaje: las zonas que parecen <b>papel cuadriculado</b>, con el mismo dibujo repetido miles de veces, son <b>memoria</b> (una celda copiada una y otra vez); las zonas revueltas son l&oacute;gica. Ah&iacute; dentro conviven tres memorias: <b>32 kB de Flash</b> para tu programa, <b>1 kB de EEPROM</b> que sobrevive al apagado y <b>2 kB de SRAM</b> para las variables. El hist&oacute;rico de esta sesi&oacute;n va en esos 2 kB, y por eso se cuenta cada byte.
           <span class="credito">Markus Kammerstetter &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Atmel_atmega328_mz_20x.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2828,7 +2905,7 @@ void loop() {
       </figure>
 
       <div class="copiar">
-        <h4>El hist&oacute;rico, y el truco para que no crezca</h4>
+        <h3 class="h-menor">El hist&oacute;rico, y el truco para que no crezca</h3>
         <p>Un <b>hist&oacute;rico</b> son las <b>N &uacute;ltimas</b> medidas guardadas. No todas: las
            N &uacute;ltimas, porque las de hace dos horas ya no dicen nada y la memoria no da.</p>
         <p>Para que ocupe siempre lo mismo se escribe <b>encima de la m&aacute;s vieja</b> dando la
@@ -2850,7 +2927,7 @@ void guarda(int x) {
         <h4>Lo que cabe de verdad en 2.048 bytes</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>guardando cada medida en&hellip;</th><th>bytes por medida</th><th>caben</th></tr>
+            <th scope="col">guardando cada medida en&hellip;</th><th scope="col">bytes por medida</th><th scope="col">caben</th></tr>
           <tr><td><code>byte</code> (0 a 255, hay que dividir la lectura entre 4)</td><td>1</td><td>2.048</td></tr>
           <tr><td><code>int</code> (la lectura entera, 0 a 1023)</td><td>2</td><td>1.024</td></tr>
           <tr><td><code>long</code></td><td>4</td><td>512</td></tr>
@@ -2918,7 +2995,7 @@ void guarda(int x) {
           </div>
           <p class="mem-lee" id="lee-mem"></p>
         </div>
-        <div class="pie" id="pie-mem"></div>
+        <div class="pie" id="pie-mem" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3315,7 +3392,7 @@ void guarda(int x) {
         <h4>Las cuatro maneras de decidir, y lo que cuesta cada una</h4>
         <table style="width:100%;border-collapse:collapse;font-size:14px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>regla</th><th>qu&eacute; quita</th><th>qu&eacute; cuesta</th></tr>
+            <th scope="col">regla</th><th scope="col">qu&eacute; quita</th><th scope="col">qu&eacute; cuesta</th></tr>
           <tr><td><b>el &uacute;ltimo valor</b></td><td>nada</td><td>2 bytes. Se cree cualquier pico.</td></tr>
           <tr><td><b>media de N</b></td><td>el ruido peque&ntilde;o</td>
               <td>2N bytes y un <b>retraso de N/2 medidas</b>. Al pico no lo quita: lo
@@ -3381,7 +3458,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </span>
         </button>
         <p class="video-nota">La media m&oacute;vil escrita en Arduino, con el osciloscopio delante para ver la se&ntilde;al antes y despu&eacute;s. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=Pl79Ni3NUsY" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -3414,7 +3492,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
              tabla anotando lo que dice la escena:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>regla</th><th>arranques de m&aacute;s</th><th>tarda de media</th><th>bytes</th></tr>
+              <th scope="col">regla</th><th scope="col">arranques de m&aacute;s</th><th scope="col">tarda de media</th><th scope="col">bytes</th></tr>
             <tr><td>el &uacute;ltimo valor</td><td></td><td></td><td></td></tr>
             <tr><td>media de 5</td><td></td><td></td><td></td></tr>
             <tr><td>media de 20</td><td></td><td></td><td></td></tr>
@@ -3491,10 +3569,10 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <p>Las tres respuestas que valen son estas, y conviene saberlas <b>con su precio</b>, porque
          esto va en la memoria del proyecto:</p>
       <div class="copiar">
-        <h4>Tres maneras de sacar el dato, con su pega</h4>
+        <h3 class="h-menor">Tres maneras de sacar el dato, con su pega</h3>
         <table style="width:100%;border-collapse:collapse;font-size:14.5px">
           <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-            <th>c&oacute;mo</th><th>cuesta</th><th>la pega</th></tr>
+            <th scope="col">c&oacute;mo</th><th scope="col">cuesta</th><th scope="col">la pega</th></tr>
           <tr><td>Por el <b>cable USB</b> a un ordenador del aula, que lee el puerto serie y lo
                   sube &eacute;l</td><td><b>0 &euro;</b></td>
               <td>hace falta un ordenador encendido al lado, todo el rato</td></tr>
@@ -3530,7 +3608,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
 
       <p>Antes de nada, mira lo que hay que a&ntilde;adirle al Uno. Es esto, y es diminuto:</p>
       <figure class="foto">
-        <img src="../../../img/c6-esp8266-dht11.jpg" alt="M&oacute;dulo ESP-01 azul montado encima de una placa peque&ntilde;a que lleva un sensor DHT11, tambi&eacute;n azul, con su rejilla de agujeros" loading="lazy">
+        <img src="../../../img/c6-esp8266-dht11.jpg" width="1280" height="1104" alt="M&oacute;dulo ESP-01 azul montado encima de una placa peque&ntilde;a que lleva un sensor DHT11, tambi&eacute;n azul, con su rejilla de agujeros" loading="lazy">
         <figcaption>Arriba, un <b>ESP-01</b>: un m&oacute;dulo con el chip <b>ESP8266</b> dentro de esa latita met&aacute;lica, y con la <b>antena de wifi dibujada en el propio circuito impreso</b> &mdash;el zigzag dorado de la derecha&mdash;. No hay m&aacute;s antena que esa pista de cobre. Debajo, en azul claro y con su rejilla, un <b>DHT11</b>, que es el sensor de temperatura y humedad del proyecto de ventilaci&oacute;n. El conjunto entero mide unos <b>2,5 cm</b> y cuesta unos pocos euros. Ojo con una cosa que no se ve en la foto: el ESP-01 funciona a <b>3,3 V</b>, y un Arduino Uno saca <b>5 V</b> por sus patillas; conectarlos directamente estropea el m&oacute;dulo.
           <span class="credito">Nowforever &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:ESP8266_with_DHT11.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3616,7 +3694,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </div>
           <p class="avi-lee" id="lee-avi"></p>
         </div>
-        <div class="pie" id="pie-avi"></div>
+        <div class="pie" id="pie-avi" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4096,7 +4174,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </span>
         </button>
         <p class="video-nota">El m&oacute;dulo de la foto, mandando datos de verdad a un servidor. Sirve para ver el montaje y los comandos antes de intentarlo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=asVv6VZId_o" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -4122,8 +4201,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
              marcado, anotad esta tabla:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>pol&iacute;tica</th><th>mensajes que llegan</th><th>al d&iacute;a</th>
-              <th>incidencias que no se supieron</th><th>&iquest;se descubre el silencio?</th></tr>
+              <th scope="col">pol&iacute;tica</th><th scope="col">mensajes que llegan</th><th scope="col">al d&iacute;a</th>
+              <th scope="col">incidencias que no se supieron</th><th scope="col">&iquest;se descubre el silencio?</th></tr>
             <tr><td>peri&oacute;dico cada 5 min</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>peri&oacute;dico cada 1 h</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>por evento</td><td></td><td></td><td></td><td></td></tr>
@@ -4221,7 +4300,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Cuatro cosas, y en este orden</h4>
+        <h3 class="h-menor">Cuatro cosas, y en este orden</h3>
         <ol>
           <li><b>Recoger.</b> Medidas de verdad, con su hora, de tu sensor. No valen las de internet:
               tu sensor no lee como el suyo.</li>
@@ -4282,7 +4361,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </div>
           <p class="dat-lee" id="lee-dat"></p>
         </div>
-        <div class="pie" id="pie-dat"></div>
+        <div class="pie" id="pie-dat" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4461,7 +4540,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
         function py(v){ return Y0 + AL - (v + 300) / 600 * AL; }
 
         function pinta(R, w){
-          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft)}'
+          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft);paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}'
                 + '.date{font:10.5px var(--f-m);fill:var(--ink)}</style>';
           m += '<rect x="' + X0 + '" y="' + Y0 + '" width="' + AN + '" height="' + AL
              + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
@@ -4543,7 +4622,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           var qy = function(v){
             return CY0 + CAL - (Math.max(40, Math.min(100, v)) - 40) / 60 * CAL;
           };
-          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft)}</style>';
+          var m = '<style>.datt{font:10px var(--f-m);fill:var(--ink-soft);paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}</style>';
           m += '<rect x="' + CX0 + '" y="' + CY0 + '" width="' + CAN + '" height="' + CAL
              + '" fill="var(--surface)" stroke="var(--line)" stroke-width="1.2"></rect>';
           [50, 75, 100].forEach(function(v){
@@ -4698,7 +4777,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
          falta?</b> La curva de abajo de la escena lo dice para estos datos. Y para tener una idea de
          lo que significa &laquo;muchos&raquo;, mira esta foto:</p>
       <figure class="foto">
-        <img src="../../../img/c6-computers-harvard.jpg" alt="Fotograf&iacute;a antigua en blanco y negro: seis mujeres sentadas a dos mesas llenas de papeles y placas fotogr&aacute;ficas, en una sala con estanter&iacute;as de libros y cajas" loading="lazy">
+        <img src="../../../img/c6-computers-harvard.jpg" width="800" height="651" alt="Fotograf&iacute;a antigua en blanco y negro: seis mujeres sentadas a dos mesas llenas de papeles y placas fotogr&aacute;ficas, en una sala con estanter&iacute;as de libros y cajas" loading="lazy">
         <figcaption>Observatorio de la Universidad de Harvard, hacia <b>1890</b>. Estas mujeres &mdash;de pie, <b>Williamina Fleming</b>; entre las sentadas est&aacute; muy probablemente <b>Annie Jump Cannon</b>&mdash; se dedicaban a mirar placas fotogr&aacute;ficas del cielo con lupa y <b>escribir a mano, estrella por estrella</b>, a qu&eacute; tipo pertenec&iacute;a cada una. Su cargo se llamaba literalmente <i>computer</i>, computadora: la persona que hace las cuentas. De ese trabajo sali&oacute; el <b>Cat&aacute;logo Henry Draper</b>, publicado entre 1918 y 1924, con <b>225.300 estrellas clasificadas</b>. Todo conjunto de ejemplos etiquetados del mundo, incluidos los que entrenan la IA de la que se habla hoy, empieza con gente haciendo esto.
           <span class="credito">Harvard University Archives &middot; dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Observatory_data_analysis_by_women_computers,_circa_1890.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4743,7 +4822,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
           </span>
         </button>
         <p class="video-nota">El mismo problema visto desde el lado del modelo: aprenderse los ejemplos en vez de aprender el problema. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=MR0YTI5OB9I" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -4774,8 +4854,8 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
              combinaciones:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th></th><th>en sus ejemplos</th><th>en los de prueba</th><th>modelo tonto</th>
-              <th>umbral a mano</th></tr>
+              <th scope="col"></th><th scope="col">en sus ejemplos</th><th scope="col">en los de prueba</th><th scope="col">modelo tonto</th>
+              <th scope="col">umbral a mano</th></tr>
             <tr><td>al azar, solo la lectura</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>al azar, lectura + tendencia</td><td></td><td></td><td></td><td></td></tr>
             <tr><td>por jornada, solo la lectura</td><td></td><td></td><td></td><td></td></tr>
@@ -4872,7 +4952,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 22 min</div>
 
       <div class="copiar">
-        <h4>El programa como m&aacute;quina de estados</h4>
+        <h3 class="h-menor">El programa como m&aacute;quina de estados</h3>
         <p>Una <b>m&aacute;quina de estados</b> es un programa escrito as&iacute;: en cada momento
            est&aacute; en <b>uno</b> de unos pocos estados con nombre, en cada estado hace una cosa
            distinta, y se pasa de uno a otro solo por las <b>transiciones</b> que t&uacute; hayas
@@ -4949,7 +5029,7 @@ void loop() {
           </div>
           <p class="sis-lee" id="lee-sis"></p>
         </div>
-        <div class="pie" id="pie-sis"></div>
+        <div class="pie" id="pie-sis" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -5402,7 +5482,7 @@ void loop() {
         </ol>
       </div>
       <figure class="foto">
-        <img src="../../../img/c6-seta-emergencia.jpg" alt="Cuadro de mandos gris con una seta roja de emergencia sobre un rect&aacute;ngulo amarillo, dos pulsadores blancos rotulados JOG, un piloto rojo y un interruptor ON/OFF" loading="lazy">
+        <img src="../../../img/c6-seta-emergencia.jpg" width="1280" height="807" alt="Cuadro de mandos gris con una seta roja de emergencia sobre un rect&aacute;ngulo amarillo, dos pulsadores blancos rotulados JOG, un piloto rojo y un interruptor ON/OFF" loading="lazy">
         <figcaption>El modo seguro de toda la vida, en su versi&oacute;n de hierro: la <b>seta de emergencia</b> de un cuadro de mandos de taller. F&iacute;jate en dos detalles que son exactamente las decisiones de arriba. Primero, el <b>color y el fondo amarillo</b> est&aacute;n normalizados para que se encuentre sin pensar. Y segundo, las <b>flechas circulares</b> dibujadas encima: para soltarla hay que <b>girarla</b>, no basta con volver a pulsar. Salir del paro tiene que costar, y tiene que hacerlo una persona. Tu <code>case SEGURO</code> hace lo mismo con software.
           <span class="credito">Cjp24 &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Emergency_stop_button.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5464,7 +5544,8 @@ void loop() {
           </span>
         </button>
         <p class="video-nota">La m&aacute;quina de estados escrita de cero en Arduino, con el <code>switch</code> delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=z3geTtX4Fvo" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -5493,8 +5574,8 @@ void loop() {
              anotad qu&eacute; fila de la ficha se mueve:</p>
           <table style="width:100%;border-collapse:collapse;font-size:14.5px;margin:8px 0">
             <tr style="text-align:left;border-bottom:1.5px solid var(--line)">
-              <th>aver&iacute;a</th><th>sin protecci&oacute;n</th><th>con protecci&oacute;n</th>
-              <th>qu&eacute; fila lo delata</th></tr>
+              <th scope="col">aver&iacute;a</th><th scope="col">sin protecci&oacute;n</th><th scope="col">con protecci&oacute;n</th>
+              <th scope="col">qu&eacute; fila lo delata</th></tr>
             <tr><td>la sonda se sale</td><td></td><td></td><td></td></tr>
             <tr><td>se cae la red</td><td></td><td></td><td></td></tr>
             <tr><td>se va la luz</td><td></td><td></td><td></td></tr>
@@ -5545,85 +5626,85 @@ void loop() {
       </ol>
       <div class="ta" id="test-c6b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. La bomba de vuestro riego arranc&oacute; de madrugada con la tierra mojada. &iquest;Cu&aacute;l es la causa m&aacute;s probable?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6b-p1">
+          <p id="test-c6b-p1">1. La bomba de vuestro riego arranc&oacute; de madrugada con la tierra mojada. &iquest;Cu&aacute;l es la causa m&aacute;s probable?</p>
           <label class="ta-op"><input type="radio" name="c6b-0" value="0">El umbral estaba demasiado bajo y hay que subirlo.</label>
-          <label class="ta-op"><input type="radio" name="c6b-0" value="1">Una medida suelta dio un valor falso y el programa, que decide con una sola medida, se la crey&oacute;.</label>
-          <label class="ta-op"><input type="radio" name="c6b-0" value="2">El conversor A/D se estrope&oacute;.</label>
+          <label class="ta-op"><input type="radio" name="c6b-0" value="1">El conversor A/D se estrope&oacute;.</label>
+          <label class="ta-op"><input type="radio" name="c6b-0" value="2">Una medida suelta dio un valor falso y el programa, que decide con una sola medida, se la crey&oacute;.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Basta con que alguien roce la sonda para que una lectura no corresponda a nada. Si el programa decide con el valor de ese instante, act&uacute;a. Subir el umbral no lo arregla: lo sube tambi&eacute;n para los casos de verdad.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Qu&eacute; hace la l&iacute;nea <code>pos = (pos + 1) % N;</code> de un buffer circular?</p>
-          <label class="ta-op"><input type="radio" name="c6b-1" value="0">Calcula la media de las N medidas.</label>
-          <label class="ta-op"><input type="radio" name="c6b-1" value="1">Hace que el &iacute;ndice vuelva a 0 al llegar al final, para escribir encima de la medida m&aacute;s vieja.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6b-p2">
+          <p id="test-c6b-p2">2. &iquest;Qu&eacute; hace la l&iacute;nea <code>pos = (pos + 1) % N;</code> de un buffer circular?</p>
+          <label class="ta-op"><input type="radio" name="c6b-1" value="0">Hace que el &iacute;ndice vuelva a 0 al llegar al final, para escribir encima de la medida m&aacute;s vieja.</label>
+          <label class="ta-op"><input type="radio" name="c6b-1" value="1">Calcula la media de las N medidas.</label>
           <label class="ta-op"><input type="radio" name="c6b-1" value="2">Divide la lectura entre N para que quepa en un byte.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el resto de la divisi&oacute;n: cuando <code>pos</code> llega a N, <code>N % N</code> vale 0. Sin esa l&iacute;nea el programa escribe fuera del array, encima de otras variables, y en Arduino eso no da error.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Tu sensor da de vez en cuando un pico enorme de un solo instante. &iquest;Media o mediana?</p>
-          <label class="ta-op"><input type="radio" name="c6b-2" value="0">Media, que es m&aacute;s f&aacute;cil de programar.</label>
-          <label class="ta-op"><input type="radio" name="c6b-2" value="1">Mediana: el pico se va a un extremo de la lista ordenada y no entra en la cuenta.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6b-p3">
+          <p id="test-c6b-p3">3. Tu sensor da de vez en cuando un pico enorme de un solo instante. &iquest;Media o mediana?</p>
+          <label class="ta-op"><input type="radio" name="c6b-2" value="0">Mediana: el pico se va a un extremo de la lista ordenada y no entra en la cuenta.</label>
+          <label class="ta-op"><input type="radio" name="c6b-2" value="1">Media, que es m&aacute;s f&aacute;cil de programar.</label>
           <label class="ta-op"><input type="radio" name="c6b-2" value="2">Da igual, las dos hacen lo mismo con los mismos bytes.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La media <b>reparte</b> el pico entre las N medidas, o sea que lo estira: contamina N decisiones en vez de una. La mediana lo <b>tira</b>. Ocupan los mismos bytes, pero no sirven para lo mismo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Qu&eacute; se paga siempre por decidir con la media de N medidas, haya picos o no?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p4">
+          <p id="test-c6b-p4">4. &iquest;Qu&eacute; se paga siempre por decidir con la media de N medidas, haya picos o no?</p>
           <label class="ta-op"><input type="radio" name="c6b-3" value="0">Nada, alisar es gratis.</label>
           <label class="ta-op"><input type="radio" name="c6b-3" value="1">2N bytes de memoria y un retraso de unas N/2 medidas en enterarse.</label>
           <label class="ta-op"><input type="radio" name="c6b-3" value="2">Que el conversor pierde resoluci&oacute;n.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La memoria se cuenta (2N bytes de los 2.048 de un Uno) y el retraso tambi&eacute;n: con medidas cada dos minutos, una media de 20 tarda unos 20 minutos en enterarse de un cambio.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. <code>int suma = 0;</code> y luego se suman 40 lecturas de hasta 1023. &iquest;Qu&eacute; pasa?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6b-p5">
+          <p id="test-c6b-p5">5. <code>int suma = 0;</code> y luego se suman 40 lecturas de hasta 1023. &iquest;Qu&eacute; pasa?</p>
           <label class="ta-op"><input type="radio" name="c6b-4" value="0">Nada: 40.920 cabe de sobra.</label>
-          <label class="ta-op"><input type="radio" name="c6b-4" value="1">Se desborda, porque un <code>int</code> llega a 32.767, y la media sale mal sin que el programa avise.</label>
-          <label class="ta-op"><input type="radio" name="c6b-4" value="2">El compilador da un error y no deja subir el sketch.</label>
+          <label class="ta-op"><input type="radio" name="c6b-4" value="1">El compilador da un error y no deja subir el sketch.</label>
+          <label class="ta-op"><input type="radio" name="c6b-4" value="2">Se desborda, porque un <code>int</code> llega a 32.767, y la media sale mal sin que el programa avise.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el mismo desbordamiento de la sesi&oacute;n 1, ahora escondido en el acumulador de la media. Se arregla con <code>long suma = 0;</code>, que son 2 bytes m&aacute;s una sola vez.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Vuestro Arduino Uno tiene que mandar el dato fuera del aula. &iquest;Qu&eacute; hace falta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p6">
+          <p id="test-c6b-p6">6. Vuestro Arduino Uno tiene que mandar el dato fuera del aula. &iquest;Qu&eacute; hace falta?</p>
           <label class="ta-op"><input type="radio" name="c6b-5" value="0">Nada, el Uno lleva wifi.</label>
           <label class="ta-op"><input type="radio" name="c6b-5" value="1">Un ordenador que lea el puerto serie, o un m&oacute;dulo ESP-01 (~2 &euro;), o cambiar la placa por un ESP32.</label>
           <label class="ta-op"><input type="radio" name="c6b-5" value="2">Activar el wifi por software en el <code>setup()</code>.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El Uno no tiene wifi ni Ethernet. Las tres soluciones tienen precio y pega, y eso va en la memoria del proyecto: el m&oacute;dulo ESP-01, adem&aacute;s, funciona a 3,3 V y el Uno saca 5 V.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Para qu&eacute; sirve un <b>latido</b> si el aparato ya avisa cuando pasa algo?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p7">
+          <p id="test-c6b-p7">7. &iquest;Para qu&eacute; sirve un <b>latido</b> si el aparato ya avisa cuando pasa algo?</p>
           <label class="ta-op"><input type="radio" name="c6b-6" value="0">Para que la gr&aacute;fica quede m&aacute;s bonita.</label>
           <label class="ta-op"><input type="radio" name="c6b-6" value="1">Porque un aparato estropeado y uno tranquilo se ven igual: los dos callan. El latido hace que el silencio se pueda detectar.</label>
           <label class="ta-op"><input type="radio" name="c6b-6" value="2">Para sincronizar la hora de la placa con el servidor.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con avisos solo por evento, dejar de mandar no se distingue de que todo vaya bien. El latido pone el silencio del lado de las aver&iacute;as. Es lo que hace el <i>Keep Alive</i> de MQTT.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. Se cae la red nueve horas y el aparato guarda en memoria lo que no puede mandar. &iquest;Basta?</p>
-          <label class="ta-op"><input type="radio" name="c6b-7" value="0">S&iacute;: si se guarda, no se pierde nada.</label>
-          <label class="ta-op"><input type="radio" name="c6b-7" value="1">No: hace falta adem&aacute;s <b>reintentar</b> al volver la red, y aun as&iacute; la cola tiene tope.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6b-p8">
+          <p id="test-c6b-p8">8. Se cae la red nueve horas y el aparato guarda en memoria lo que no puede mandar. &iquest;Basta?</p>
+          <label class="ta-op"><input type="radio" name="c6b-7" value="0">No: hace falta adem&aacute;s <b>reintentar</b> al volver la red, y aun as&iacute; la cola tiene tope.</label>
+          <label class="ta-op"><input type="radio" name="c6b-7" value="1">S&iacute;: si se guarda, no se pierde nada.</label>
           <label class="ta-op"><input type="radio" name="c6b-7" value="2">No: hay que mandarlo todo dos veces por si acaso.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Guardar sin reintentar es perder despacio: el aviso puede quedarse dentro d&iacute;as. Y con 1.200 bytes y mensajes de 24 caben 50: lo que llegue despu&eacute;s se pierde igual.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Entrenas con 40 medidas y pruebas con otras 40 <b>elegidas al azar de las mismas jornadas</b>. Sale un 93 %. &iquest;Qu&eacute; mide ese n&uacute;mero?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6b-p9">
+          <p id="test-c6b-p9">9. Entrenas con 40 medidas y pruebas con otras 40 <b>elegidas al azar de las mismas jornadas</b>. Sale un 93 %. &iquest;Qu&eacute; mide ese n&uacute;mero?</p>
           <label class="ta-op"><input type="radio" name="c6b-8" value="0">C&oacute;mo le ir&aacute; en cualquier maceta.</label>
-          <label class="ta-op"><input type="radio" name="c6b-8" value="1">C&oacute;mo le va en esas mismas jornadas y con ese mismo sensor, que no es la pregunta que importa.</label>
-          <label class="ta-op"><input type="radio" name="c6b-8" value="2">Que el modelo est&aacute; bien entrenado y ya se puede usar.</label>
+          <label class="ta-op"><input type="radio" name="c6b-8" value="1">Que el modelo est&aacute; bien entrenado y ya se puede usar.</label>
+          <label class="ta-op"><input type="radio" name="c6b-8" value="2">C&oacute;mo le va en esas mismas jornadas y con ese mismo sensor, que no es la pregunta que importa.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es una <b>fuga</b>: el conjunto de prueba comparte d&iacute;a, sitio y sensor con el de entrenamiento. Dejando fuera una jornada entera, el mismo modelo con los mismos ejemplos baja al 73 %.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. &iquest;Con qu&eacute; dos cosas hay que comparar siempre un modelo entrenado?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c6b-p10">
+          <p id="test-c6b-p10">10. &iquest;Con qu&eacute; dos cosas hay que comparar siempre un modelo entrenado?</p>
           <label class="ta-op"><input type="radio" name="c6b-9" value="0">Con otro modelo m&aacute;s grande y con uno m&aacute;s peque&ntilde;o.</label>
-          <label class="ta-op"><input type="radio" name="c6b-9" value="1">Con el modelo tonto que dice siempre lo mismo, y con el mejor <code>si</code> de una l&iacute;nea que puedas escribir a mano.</label>
-          <label class="ta-op"><input type="radio" name="c6b-9" value="2">Con el mismo modelo entrenado dos veces, para ver si sale igual.</label>
+          <label class="ta-op"><input type="radio" name="c6b-9" value="1">Con el mismo modelo entrenado dos veces, para ver si sale igual.</label>
+          <label class="ta-op"><input type="radio" name="c6b-9" value="2">Con el modelo tonto que dice siempre lo mismo, y con el mejor <code>si</code> de una l&iacute;nea que puedas escribir a mano.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Son los dos suelos. Si no les gana a los dos, no lo pongas: un <code>si</code> se lee, se depura, se explica en la defensa y cabe en 2 kB de memoria.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>11. &iquest;Qu&eacute; es exactamente el <b>modo seguro</b> de vuestro aparato?</p>
-          <label class="ta-op"><input type="radio" name="c6b-10" value="0">Un modo que arregla la aver&iacute;a y sigue funcionando.</label>
-          <label class="ta-op"><input type="radio" name="c6b-10" value="1">Un estado en el que deja de actuar, se queda quieto, avisa de que se ha parado y del que <b>no se sale solo</b>.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c6b-p11">
+          <p id="test-c6b-p11">11. &iquest;Qu&eacute; es exactamente el <b>modo seguro</b> de vuestro aparato?</p>
+          <label class="ta-op"><input type="radio" name="c6b-10" value="0">Un estado en el que deja de actuar, se queda quieto, avisa de que se ha parado y del que <b>no se sale solo</b>.</label>
+          <label class="ta-op"><input type="radio" name="c6b-10" value="1">Un modo que arregla la aver&iacute;a y sigue funcionando.</label>
           <label class="ta-op"><input type="radio" name="c6b-10" value="2">Bajar la potencia del actuador a la mitad hasta que alguien lo mire.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No arregla nada: para la m&aacute;quina y pide un humano. Y se sale a mano a prop&oacute;sito, igual que una seta de emergencia, que hay que girar para soltarla.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>12. Con la sonda fuera del tiesto y <b>sin</b> modo seguro, el aparato manda 216 avisos, y 198 de ellos dicen &laquo;he regado&raquo;. &iquest;Por qu&eacute; es eso peor que no mandar ninguno?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c6b-p12">
+          <p id="test-c6b-p12">12. Con la sonda fuera del tiesto y <b>sin</b> modo seguro, el aparato manda 216 avisos, y 198 de ellos dicen &laquo;he regado&raquo;. &iquest;Por qu&eacute; es eso peor que no mandar ninguno?</p>
           <label class="ta-op"><input type="radio" name="c6b-11" value="0">Porque gasta datos.</label>
           <label class="ta-op"><input type="radio" name="c6b-11" value="1">Porque ninguno de esos avisos dice que algo va mal: son los mismos que mandar&iacute;a si todo fuera bien, solo que muchos.</label>
           <label class="ta-op"><input type="radio" name="c6b-11" value="2">Porque llena la EEPROM.</label>
@@ -5632,7 +5713,7 @@ void loop() {
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -5647,7 +5728,7 @@ void loop() {
         (<b>unidad 8</b>) y pregunta a qui&eacute;n sirve (<b>unidad 9</b>). Pero el aparato, como
         aparato, ya est&aacute; terminado. Y sabes decir hasta d&oacute;nde llega, que es la parte que
         casi nadie sabe hacer.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema7/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 7 &middot; Rob&oacute;tica y automatismos &rarr;</a></p></div>
 
     </section>
 
@@ -5688,7 +5769,7 @@ void loop() {
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -5708,7 +5789,7 @@ void loop() {
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -5737,8 +5818,17 @@ void loop() {
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -5751,7 +5841,10 @@ void loop() {
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -5770,5 +5863,187 @@ void loop() {
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

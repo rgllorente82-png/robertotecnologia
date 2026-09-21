@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema1/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar">
+<meta property="og:description" content="Tema 1 de Tecnolog&iacute;a de 4.&ordm; de ESO: c&oacute;mo se detecta y se mide un problema de verdad, c&oacute;mo se escriben requisitos que se puedan comprobar, c&oacute;mo se elige entre alternativas con una matriz de decisi&oacute;n y c&oacute;mo se planifica un trimestre con camino cr&iacute;tico.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema1/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 1 &middot; El proyecto tecnol&oacute;gico: detectar, idear, planificar &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -287,18 +306,52 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 1</div>
     <h1>El proyecto tecnol&oacute;gico: detectar, idear, planificar</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; Un problema no es una idea</button><button type="button" data-ses="2">S2 &middot; Requisitos antes que ideas</button><button type="button" data-ses="3">S3 &middot; Elegir con criterios</button><button type="button" data-ses="4">S4 &middot; Planificar el trimestre</button><button type="button" data-ses="5">S5 &middot; El cuaderno del proyecto</button><button type="button" data-ses="6">S6 &middot; Trabajar a la vez, en digital</button><button type="button" data-ses="7">S7 &middot; Contarlo en tres minutos</button><button type="button" data-ses="8">S8 &middot; Del plan a lo que pas&oacute;</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Un problema no es una idea</button><button type="button" data-ses="2">S2 &middot; Requisitos antes que ideas</button><button type="button" data-ses="3">S3 &middot; Elegir con criterios</button><button type="button" data-ses="4">S4 &middot; Planificar el trimestre</button><button type="button" data-ses="5">S5 &middot; El cuaderno del proyecto</button><button type="button" data-ses="6">S6 &middot; Trabajar a la vez, en digital</button><button type="button" data-ses="7">S7 &middot; Contarlo en tres minutos</button><button type="button" data-ses="8">S8 &middot; Del plan a lo que pas&oacute;</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -322,7 +375,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c1">
         <div class="narrador-fig" id="narr-c1-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va este curso, y de qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va este curso, y de qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Todo el curso gira alrededor de una cosa que vais a construir. Hoy se decide qu&eacute;.</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -453,7 +506,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Esto no le pasa solo a los alumnos de cuarto. Le ha pasado a gente con mucho dinero y muy
          buenos ingenieros.</p>
       <figure class="foto">
-        <img src="../../../img/c1-segway.jpg" alt="Tres personas con casco montadas en Segways sobre una plaza de ladrillo en Washington, con coches de polic&iacute;a aparcados al fondo" loading="lazy">
+        <img src="../../../img/c1-segway.jpg" width="936" height="660" alt="Tres personas con casco montadas en Segways sobre una plaza de ladrillo en Washington, con coches de polic&iacute;a aparcados al fondo" loading="lazy">
         <figcaption>El <b>Segway</b>, presentado el <b>3 de diciembre de 2001</b> por el ingeniero <b>Dean Kamen</b>. El inversor John Doerr dijo que ser&iacute;a &laquo;m&aacute;s importante que internet&raquo;, y Steve Jobs, que era &laquo;tan grande como el PC&raquo;. Costaba <b>5.000 d&oacute;lares</b>. En toda su vida comercial se vendieron <b>140.000 unidades</b>. El final se anunci&oacute; en <b>junio de 2020</b> y el &uacute;ltimo sali&oacute; de la f&aacute;brica el <b>15 de julio</b> de ese a&ntilde;o. Esta foto es de 2006 y ense&ntilde;a d&oacute;nde acab&oacute;: rutas tur&iacute;sticas y patrullas. No en lo que iba a cambiar las ciudades.
           <span class="credito">Richard from DC, US &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Segway_PT_(2006).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -532,7 +585,7 @@ footer .wrap{padding-block:18px 26px}
             <div class="p1-campo">
               <label for="p1-coste">3 &middot; &iquest;Qu&eacute; cuesta cada vez?</label>
               <input type="number" id="p1-coste" min="0" max="1000" step="0.1">
-              <select id="p1-unidad">
+              <select id="p1-unidad" aria-label="Unidad de lo que cuesta cada vez">
                 <option value="min">minutos</option>
                 <option value="h">horas</option>
                 <option value="L">litros</option>
@@ -555,7 +608,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="p1-est" id="est-p1"></p>
         </div>
-        <div class="pie" id="pie-p1"></div>
+        <div class="pie" id="pie-p1" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -896,7 +949,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">C&oacute;mo se observa sin preguntar y sin dirigir la respuesta, con ejemplos. Es la parte que m&aacute;s se salta todo el mundo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=1R9eg3MCfWk" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -956,6 +1010,36 @@ footer .wrap{padding-block:18px 26px}
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>El segundo, y por bastante: 5 &times; 1 = <b>5 minutos al d&iacute;a</b> frente a 1 &times; 30 = <b>30 minutos al d&iacute;a</b>. Seis veces m&aacute;s. Por eso hay que contar a cu&aacute;ntos les pasa antes de decidir, y no fiarse de lo molesto que te parezca a ti.</p></div></details></li>
 
       </ol>
+      <div class="copiar">
+        <h4>El encargo del curso: eleg&iacute;s entre tres</h4>
+        <p>Los problemas que acab&aacute;is de encontrar por el centro son vuestros y no se tiran: de
+           ah&iacute; salen los requisitos, las medidas y casi todo lo que habr&aacute; que justificar.
+           Pero lo que se <b>construye</b> este curso es uno de estos tres, y cada grupo elige el suyo:</p>
+        <ul>
+          <li><b>A &middot; Riego autom&aacute;tico.</b> Sensor de humedad de suelo y bomba de 3-6 V o
+              servo. Lo que mide de impacto: <b>agua gastada</b> frente a regar a mano.</li>
+          <li><b>B &middot; Aviso de aula mal ventilada.</b> Sensor de temperatura y humedad (DHT11) y
+              una se&ntilde;al luminosa de tres colores. Impacto: <b>ventilar frente a calentar</b>, que
+              es un debate de verdad y no tiene respuesta obvia.</li>
+          <li><b>C &middot; L&aacute;mpara de estudio que se ajusta sola.</b> LDR y LED de potencia o
+              tira. Impacto: <b>el consumo real</b>, con la etiqueta energ&eacute;tica delante.</li>
+        </ul>
+        <p>Los tres llevan <b>un sensor, una decisi&oacute;n y un actuador</b>, que es lo que pide el
+           curso; los tres miden algo distinto, as&iacute; que en la puesta en com&uacute;n la clase ve
+           tres casos y no tres veces el mismo; y los tres se montan por menos de <b>5 &euro;</b> por
+           grupo, salvo la bomba del A.</p>
+      </div>
+
+      <div class="nota">
+        <span class="n-tag">Y el ejemplo que vais a ver aqu&iacute;</span>
+        En estas ocho sesiones el ejemplo que se lleva hasta el final es el <b>A</b>, porque es el que
+        da m&aacute;s n&uacute;meros que mirar. Nada de lo que se explica depende de eso: el requisito
+        comprobable, la matriz de decisi&oacute;n, el diagrama de Gantt y el parte de incidencias se
+        hacen igual con los tres. Si vuestro grupo lleva el <b>B</b> o el <b>C</b>, cambiad
+        <i>humedad del suelo</i> por <i>temperatura y humedad del aire</i> o por <i>luz</i>, y lo
+        dem&aacute;s se queda como est&aacute;.
+      </div>
+
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         Ya ten&eacute;is un problema y sab&eacute;is lo grande que es. La tentaci&oacute;n ahora es
@@ -1016,12 +1100,21 @@ footer .wrap{padding-block:18px 26px}
          proyecto ha salido bien, y la nota ser&aacute; una discusi&oacute;n.</p>
 
     </section>
+
+    <figure class="foto">
+      <img src="../../../img/problem-vs-solution.svg" width="1000" height="700" loading="lazy"
+           alt="Diferencia cr&iacute;tica entre plantear un problema y proponer una soluci&oacute;n">
+      <figcaption><strong>Un problema no es una idea:</strong> Un problema describe qu&eacute; va mal; una soluci&oacute;n propone c&oacute;mo arreglarlo. Si confundes los dos, no tienes criterios para elegir entre las opciones que comparen.
+        <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+      </figcaption>
+    </figure>
+
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <h3>El rengl&oacute;n que nadie escribi&oacute;</h3>
       <figure class="foto" style="max-width:430px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c1-millennium.jpg" alt="Vista cenital del puente del Milenio de Londres lleno de peatones, con el Tate Modern al fondo y el T&aacute;mesis debajo" loading="lazy">
+        <img src="../../../img/c1-millennium.jpg" width="960" height="1440" alt="Vista cenital del puente del Milenio de Londres lleno de peatones, con el Tate Modern al fondo y el T&aacute;mesis debajo" loading="lazy">
         <figcaption>El <b>puente del Milenio</b> de Londres, visto desde la c&uacute;pula de San Pablo. Abri&oacute; el <b>10 de junio de 2000</b>: lo cruzaron <b>90.000 personas</b> ese d&iacute;a, hasta <b>2.000 a la vez</b>. Se balance&oacute; de lado hasta <b>70 mm</b> y lo cerraron <b>dos d&iacute;as despu&eacute;s</b>. Cost&oacute; <b>18,2 millones de libras</b> y arreglarlo, <b>5 millones</b> m&aacute;s; reabri&oacute; el <b>22 de febrero de 2002</b> con <b>37 amortiguadores viscosos</b> y <b>52 de masa sintonizada</b>. Esta foto es de 2014: hoy aguanta exactamente esto.
           <span class="credito">Jan Kamen&iacute;&#269;ek &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:London_Millennium_Bridge_from_Saint_Paul%27s.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1100,7 +1193,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="p2-malos" id="malos-p2"></div>
           <p class="p2-est" id="est-p2"></p>
         </div>
-        <div class="pie" id="pie-p2"></div>
+        <div class="pie" id="pie-p2" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1118,11 +1211,13 @@ footer .wrap{padding-block:18px 26px}
       .p2-med b{font-family:var(--f-m);font-size:17px;font-weight:500;color:var(--goo-azul)}
       .p2-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
         color:var(--ink-soft);margin:16px 0 6px}
-      .p2-reqs{display:grid;gap:7px}
-      .p2-req{display:flex;align-items:center;gap:7px;flex-wrap:wrap;border:1.5px solid var(--line);
+      .p2-reqs{display:grid;gap:7px;min-width:0}
+      /* sin esto, el <select> mas largo estira la fila y la pagina se va a lo ancho en un movil */
+      .p2-req{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0;border:1.5px solid var(--line);
         border-radius:2px;padding:8px 10px;background:var(--surface);font-family:var(--f-m);font-size:12.5px}
       .p2-req select,.p2-req input[type="number"]{font-family:var(--f-m);font-size:12.5px;padding:4px 5px;
-        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+        border:1.5px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink);
+        max-width:100%;min-width:0}
       .p2-req input[type="number"]{width:68px}
       .p2-req .ud{color:var(--ink-soft);min-width:78px}
       .p2-req .ver{margin-left:auto;font-weight:500;display:flex;gap:9px;align-items:center}
@@ -1295,13 +1390,17 @@ footer .wrap{padding-block:18px 26px}
             return '<option value="' + k + '"' + (k === r.mag ? ' selected' : '') + '>'
                  + MAG[k].t + '</option>';
           }).join('');
+          /* los tres mandos se nombran solos: sin esto, un lector de pantalla
+             dice «cuadro combinado» tres veces y no se sabe cual es cual */
+          var nR = 'del requisito ' + (i + 1);
           return '<div class="p2-req" data-i="' + i + '">'
-               + '<select data-campo="mag">' + ops + '</select>'
-               + '<select data-campo="cmp">'
+               + '<select data-campo="mag" aria-label="Qu&eacute; se mide ' + nR + '">' + ops + '</select>'
+               + '<select data-campo="cmp" aria-label="Comparaci&oacute;n ' + nR + '">'
                + '<option value="ge"' + (r.cmp === 'ge' ? ' selected' : '') + '>ha de ser &ge;</option>'
                + '<option value="le"' + (r.cmp === 'le' ? ' selected' : '') + '>ha de ser &le;</option>'
                + '</select>'
-               + '<input type="number" data-campo="val" value="' + String(r.val) + '" step="0.1">'
+               + '<input type="number" data-campo="val" aria-label="Valor ' + nR
+               + ', en ' + m.ud + '" value="' + String(r.val) + '" step="0.1">'
                + '<span class="ud">' + m.ud + '</span>'
                + '<span class="ver"></span></div>';
         }
@@ -1542,6 +1641,14 @@ footer .wrap{padding-block:18px 26px}
       <p>Cinco maneras de resolver lo mismo, y una tabla para elegir una. Lo que hay que justificar no es la ganadora: son los pesos.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">A.1</span><span class="chip sab">A.3</span></div>
+
+      <figure class="foto">
+        <img src="../../../img/design-thinking-process.svg" width="1200" height="600" loading="lazy"
+             alt="Design Thinking: 6 fases - Empatizar, Definir, Idear, Prototipar, Validar, Implementar, con retroalimentaci&oacute;n iterativa">
+        <figcaption>El <b>Design Thinking</b> en seis fases: <b>Empatizar</b> (entender el usuario), <b>Definir</b> (concretar el problema), <b>Idear</b> (generar muchas opciones), <b>Prototipar</b> (construir r&aacute;pido y barato), <b>Validar</b> (probar con usuarios), <b>Implementar</b> (versi&oacute;n final). La flecha roja de retroalimentaci&oacute;n indica que si falla, vuelves atr&aacute;s a idear, no al principio. Cada iteraci&oacute;n ense&ntilde;a m&aacute;s que cien reuniones de planificaci&oacute;n.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
     </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -1590,7 +1697,7 @@ footer .wrap{padding-block:18px 26px}
            faltaba un requisito. Las dos cosas hay que arreglarlas.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c1-goteo.jpg" alt="Primer plano de un gotero de riego verde soltando una gota sobre una maceta con bolas de arcilla expandida y un cubo de lana de roca" loading="lazy">
+        <img src="../../../img/c1-goteo.jpg" width="1280" height="853" alt="Primer plano de un gotero de riego verde soltando una gota sobre una maceta con bolas de arcilla expandida y un cubo de lana de roca" loading="lazy">
         <figcaption>Un <b>gotero</b> soltando su gota, en un cultivo sobre arcilla expandida y lana de roca. Cuesta c&eacute;ntimos, no lleva electr&oacute;nica, no se estropea y riega nueve d&iacute;as sin que nadie lo toque. <b>Tiene que estar en vuestra tabla</b>: una comparaci&oacute;n en la que solo se han metido las alternativas que quer&iacute;ais que perdieran no demuestra nada.
           <span class="credito">Alan.ca &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Drip_emitter.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1631,7 +1738,7 @@ footer .wrap{padding-block:18px 26px}
           <p class="p3-est" id="est-p3"></p>
           <div class="p3-sens" id="sens-p3"></div>
         </div>
-        <div class="pie" id="pie-p3"></div>
+        <div class="pie" id="pie-p3" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1658,7 +1765,12 @@ footer .wrap{padding-block:18px 26px}
       .p3-sens div{font-family:var(--f-m);font-size:12px;line-height:1.5;color:var(--ink-soft);
         border-left:3px solid var(--line);padding-left:9px}
       .p3-sens div.vuelca{border-left-color:var(--goo-rojo);color:var(--ink)}
-      .p3-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
+      /* Este rotulo empieza DENTRO de la barra de color y, si la barra es corta,
+         acaba fuera: el mismo texto cruza dos fondos. Un halo del color del
+         papel lo hace legible en los dos, y en los dos temas, sin tocar el
+         color de la letra. */
+      .p3-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;
+        paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
       .p3-txt.fuerte{fill:var(--ink);font-weight:500}
       </style>
 
@@ -1704,16 +1816,17 @@ footer .wrap{padding-block:18px 26px}
         function esp(v, dec){ return v.toFixed(dec).replace('.', ','); }
 
         function tabla(){
-          var h = '<table><thead><tr><th class="alt">Alternativa</th>';
+          var h = '<table><thead><tr><th scope="col" class="alt">Alternativa</th>';
           CRIT.forEach(function(c, i){
-            h += '<th title="' + c.ay + '">' + c.t + '<br><span style="color:var(--ink-soft)">'
+            h += '<th scope="col" title="' + c.ay + '">' + c.t + '<br><span style="color:var(--ink-soft)">'
                + c.ay + '</span></th>';
           });
-          h += '<th>Total</th><th>%</th></tr>';
-          h += '<tr><th class="alt">Peso de cada criterio (1 a 5)</th>';
+          h += '<th scope="col">Total</th><th scope="col">%</th></tr>';
+          h += '<tr><th scope="row" class="alt">Peso de cada criterio (1 a 5)</th>';
           pesos.forEach(function(p, i){
             h += '<td class="peso"><input type="number" data-peso="' + i + '" min="1" max="5" '
-               + 'step="1" value="' + p + '"></td>';
+               + 'step="1" aria-label="Peso del criterio ' + CRIT[i].t + '"'
+               + ' value="' + p + '"></td>';
           });
           h += '<td colspan="2"></td></tr></thead><tbody>';
           var g = ganador(pesos);
@@ -1722,7 +1835,8 @@ footer .wrap{padding-block:18px 26px}
             h += '<tr' + (j === g ? ' class="gana"' : '') + '><td class="alt">' + a.t + '</td>';
             a.n.forEach(function(v, i){
               h += '<td class="nota"><input type="number" data-alt="' + j + '" data-crit="' + i
-                 + '" min="1" max="5" step="1" value="' + v + '"></td>';
+                 + '" min="1" max="5" step="1" aria-label="' + a.t + ', en ' + CRIT[i].t + '"'
+                 + ' value="' + v + '"></td>';
             });
             var t = total(a, pesos);
             h += '<td class="tot">' + t + '</td><td class="pct">'
@@ -1877,7 +1991,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La versi&oacute;n original del m&eacute;todo, la de comparar contra una referencia. Est&aacute; explicada para universidad, pero se sigue bien. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=Kr2QQ_q7Axc" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1960,6 +2075,14 @@ footer .wrap{padding-block:18px 26px}
       <p>Tareas, dependencias y una espera de cinco sesiones en la que nadie trabaja. Camino cr&iacute;tico, holguras, y mover una tarea para ver qu&eacute; se lleva por delante.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Cierre y test</span></div>
       <div class="chips"><span class="chip">CE1 &middot; 1.3</span><span class="chip">CE3 &middot; 3.1</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">A.1</span><span class="chip sab">A.1.4</span></div>
+
+      <figure class="foto">
+        <img src="../../../img/project-phases-timeline.svg" width="1000" height="500" loading="lazy"
+             alt="Fases del proyecto: Planificaci&oacute;n 10-15%, Dise&ntilde;o 15-20%, Construcci&oacute;n 50-60%, Pruebas 10-15%, Presentaci&oacute;n 5-10%">
+        <figcaption>Las <b>cinco fases de un proyecto tecnol&oacute;gico</b>: Planificaci&oacute;n (10-15%), Dise&ntilde;o (15-20%), Construcci&oacute;n (50-60% - la m&aacute;s larga), Pruebas (10-15%), Presentaci&oacute;n (5-10%). La <b>ruta cr&iacute;tica</b> es construcci&oacute;n: cualquier retraso all&iacute; retrasa todo el proyecto. Por eso se asignan m&aacute;s recursos y se planifican contingencias en esa fase.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
     </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -1993,7 +2116,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>De d&oacute;nde sale el dibujo que vais a usar</h3>
       <figure class="foto" style="max-width:340px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c1-gantt.jpg" alt="Retrato en blanco y negro de Henry Gantt, con gafas redondas, bigote y traje oscuro" loading="lazy">
+        <img src="../../../img/c1-gantt.jpg" width="282" height="332" alt="Retrato en blanco y negro de Henry Gantt, con gafas redondas, bigote y traje oscuro" loading="lazy">
         <figcaption><b>Henry Gantt</b> (1861-1919) public&oacute; sus gr&aacute;ficos en <b>1910</b> y <b>1915</b>, y con ellos se organiz&oacute; la construcci&oacute;n de barcos de la Primera Guerra Mundial. Pero el mismo dibujo lo hab&iacute;a inventado antes el ingeniero polaco <b>Karol Adamiecki</b>, en <b>1896</b>: lo llam&oacute; <i>harmonograma</i> y lo public&oacute; en <b>1909</b>, en polaco. Se qued&oacute; con el nombre de Gantt por una raz&oacute;n que no tiene nada que ver con la t&eacute;cnica: el de Gantt estaba escrito en ingl&eacute;s.
           <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Henry_Gantt.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2059,7 +2182,7 @@ footer .wrap{padding-block:18px 26px}
           <p class="p4-est" id="est-p4"></p>
           <div class="p4-cambio" id="cambio-p4"></div>
         </div>
-        <div class="pie" id="pie-p4"></div>
+        <div class="pie" id="pie-p4" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2222,8 +2345,8 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(R){
-          var h = '<table><thead><tr><th>#</th><th>Tarea</th><th>Qui&eacute;n</th>'
-                + '<th>Sesiones</th><th>Empieza</th><th>Acaba</th><th>Holgura</th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Tarea</th><th scope="col">Qui&eacute;n</th>'
+                + '<th scope="col">Sesiones</th><th scope="col">Empieza</th><th scope="col">Acaba</th><th scope="col">Holgura</th></tr></thead><tbody>';
           BASE.forEach(function(t, i){
             var movida = R.ES[i] !== PARTIDA.ES[i];
             h += '<tr class="' + (R.hol[i] === 0 ? 'crit ' : '') + (movida ? 'movida' : '') + '">'
@@ -2340,7 +2463,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">La herramienta que vais a usar en la pr&aacute;ctica. GanttProject es libre y gratuito, y marca el camino cr&iacute;tico solo. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=kbgiwFNxsG4" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2407,71 +2531,71 @@ footer .wrap{padding-block:18px 26px}
       </ol>
       <div class="ta" id="test-c1">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. &iquest;Cu&aacute;l de estas frases es un <b>problema</b>, y no una soluci&oacute;n disfrazada?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1-p1">
+          <p id="test-c1-p1">1. &iquest;Cu&aacute;l de estas frases es un <b>problema</b>, y no una soluci&oacute;n disfrazada?</p>
           <label class="ta-op"><input type="radio" name="c1-0" value="0">Quiero hacer un sistema de riego con Arduino.</label>
-          <label class="ta-op"><input type="radio" name="c1-0" value="1">Las plantas del hall se secan en los puentes y en junio hay que tirar varias.</label>
-          <label class="ta-op"><input type="radio" name="c1-0" value="2">Hace falta un sensor de humedad para las macetas.</label>
+          <label class="ta-op"><input type="radio" name="c1-0" value="1">Hace falta un sensor de humedad para las macetas.</label>
+          <label class="ta-op"><input type="radio" name="c1-0" value="2">Las plantas del hall se secan en los puentes y en junio hay que tirar varias.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la &uacute;nica que no nombra ninguna pieza: pasa la prueba de las piezas. Las otras dos ya traen la soluci&oacute;n dentro, y con ella cierran todas las dem&aacute;s antes de haberlas mirado.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>2. Un problema le cuesta 4 minutos a 20 personas, dos veces por semana, durante las 35 semanas del curso. &iquest;Cu&aacute;nto es en horas?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1-p2">
+          <p id="test-c1-p2">2. Un problema le cuesta 4 minutos a 20 personas, dos veces por semana, durante las 35 semanas del curso. &iquest;Cu&aacute;nto es en horas?</p>
           <label class="ta-op"><input type="radio" name="c1-1" value="0">93 horas y 20 minutos</label>
           <label class="ta-op"><input type="radio" name="c1-1" value="1">46 horas y 40 minutos</label>
           <label class="ta-op"><input type="radio" name="c1-1" value="2">23 horas y 20 minutos</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 20 &times; 2 &times; 4 min = 160 min por semana; &times; 35 semanas = 5.600 min; entre 60 = <b>93,3 horas</b>. La cuenta es siempre afectados &times; veces &times; coste &times; semanas.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. El Segway funcionaba t&eacute;cnicamente muy bien. &iquest;Por qu&eacute; se estudia como fracaso?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1-p3">
+          <p id="test-c1-p3">3. El Segway funcionaba t&eacute;cnicamente muy bien. &iquest;Por qu&eacute; se estudia como fracaso?</p>
           <label class="ta-op"><input type="radio" name="c1-2" value="0">Porque se estropeaba mucho.</label>
           <label class="ta-op"><input type="radio" name="c1-2" value="1">Porque resolv&iacute;a un problema que casi nadie ten&iacute;a.</label>
           <label class="ta-op"><input type="radio" name="c1-2" value="2">Porque era demasiado barato y no daba beneficio.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Vendi&oacute; 140.000 unidades en toda su vida comercial despu&eacute;s de que se dijera que ser&iacute;a &laquo;m&aacute;s importante que internet&raquo;. El fallo estaba antes de la ingenier&iacute;a: en la detecci&oacute;n del problema.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>4. &iquest;Qu&eacute; cuatro piezas tiene un requisito bien escrito?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1-p4">
+          <p id="test-c1-p4">4. &iquest;Qu&eacute; cuatro piezas tiene un requisito bien escrito?</p>
           <label class="ta-op"><input type="radio" name="c1-3" value="0">Magnitud, comparador con su valor, unidad y c&oacute;mo se comprueba.</label>
           <label class="ta-op"><input type="radio" name="c1-3" value="1">Objetivo, material, presupuesto y plazo.</label>
           <label class="ta-op"><input type="radio" name="c1-3" value="2">Qui&eacute;n, qu&eacute;, cu&aacute;ndo y d&oacute;nde.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con esas cuatro, la frase se puede convertir en una comparaci&oacute;n y correr contra unos datos. Si falta una, no se puede comprobar, y en junio la nota es una discusi&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. &laquo;Que la l&aacute;mpara gaste poco.&raquo; &iquest;Qu&eacute; le falta a esta frase?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1-p5">
+          <p id="test-c1-p5">5. &laquo;Que la l&aacute;mpara gaste poco.&raquo; &iquest;Qu&eacute; le falta a esta frase?</p>
           <label class="ta-op"><input type="radio" name="c1-4" value="0">Nada: ya dice lo que tiene que hacer.</label>
           <label class="ta-op"><input type="radio" name="c1-4" value="1">El valor, la unidad y c&oacute;mo se comprueba.</label>
           <label class="ta-op"><input type="radio" name="c1-4" value="2">Solo la unidad.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> &laquo;Poco&raquo; no es un n&uacute;mero. Arreglado ser&iacute;a algo como &laquo;consume 5 W o menos encendida; se comprueba con el medidor de enchufe durante una tarde de estudio&raquo;.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. En el ensayo de 14 d&iacute;as, bajar el umbral de riego hace que&hellip;</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1-p6">
+          <p id="test-c1-p6">6. En el ensayo de 14 d&iacute;as, bajar el umbral de riego hace que&hellip;</p>
           <label class="ta-op"><input type="radio" name="c1-5" value="0">mejoren todos los requisitos a la vez</label>
-          <label class="ta-op"><input type="radio" name="c1-5" value="1">se gaste menos agua y la humedad m&iacute;nima baje</label>
-          <label class="ta-op"><input type="radio" name="c1-5" value="2">no cambie nada, porque el umbral no afecta a la medida</label>
+          <label class="ta-op"><input type="radio" name="c1-5" value="1">no cambie nada, porque el umbral no afecta a la medida</label>
+          <label class="ta-op"><input type="radio" name="c1-5" value="2">se gaste menos agua y la humedad m&iacute;nima baje</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Los requisitos <b>tiran unos de otros</b>. No se pueden cumplir todos al m&aacute;ximo a la vez: hay que decidir cu&aacute;l manda y dejarlo escrito.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;De d&oacute;nde salen los criterios de una matriz de decisi&oacute;n?</p>
-          <label class="ta-op"><input type="radio" name="c1-6" value="0">De lo que cada uno considere importante ese d&iacute;a.</label>
-          <label class="ta-op"><input type="radio" name="c1-6" value="1">De los requisitos escritos en la fase anterior.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1-p7">
+          <p id="test-c1-p7">7. &iquest;De d&oacute;nde salen los criterios de una matriz de decisi&oacute;n?</p>
+          <label class="ta-op"><input type="radio" name="c1-6" value="0">De los requisitos escritos en la fase anterior.</label>
+          <label class="ta-op"><input type="radio" name="c1-6" value="1">De lo que cada uno considere importante ese d&iacute;a.</label>
           <label class="ta-op"><input type="radio" name="c1-6" value="2">Del precio de los componentes, que es lo &uacute;nico objetivo.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Si un criterio no sale de ning&uacute;n requisito, o sobra el criterio o faltaba el requisito. Es la manera de que la decisi&oacute;n no dependa de quien hable m&aacute;s alto.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. Con vuestros pesos gana la alternativa A; poniendo todos los pesos a 1 gana la C. &iquest;Qu&eacute; significa eso?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1-p8">
+          <p id="test-c1-p8">8. Con vuestros pesos gana la alternativa A; poniendo todos los pesos a 1 gana la C. &iquest;Qu&eacute; significa eso?</p>
           <label class="ta-op"><input type="radio" name="c1-7" value="0">Que la matriz est&aacute; mal montada.</label>
-          <label class="ta-op"><input type="radio" name="c1-7" value="1">Que la decisi&oacute;n est&aacute; en los pesos, y son ellos los que hay que justificar.</label>
-          <label class="ta-op"><input type="radio" name="c1-7" value="2">Que hay que repetirla hasta que las dos den lo mismo.</label>
+          <label class="ta-op"><input type="radio" name="c1-7" value="1">Que hay que repetirla hasta que las dos den lo mismo.</label>
+          <label class="ta-op"><input type="radio" name="c1-7" value="2">Que la decisi&oacute;n est&aacute; en los pesos, y son ellos los que hay que justificar.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La matriz no decide: ordena la discusi&oacute;n. Lo que va a la memoria es por qu&eacute; esos pesos, no la suma.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Una tarea tiene <b>holgura 2</b> y se retrasa <b>3 sesiones</b>. &iquest;Cu&aacute;nto se retrasa el proyecto?</p>
-          <label class="ta-op"><input type="radio" name="c1-8" value="0">3 sesiones</label>
-          <label class="ta-op"><input type="radio" name="c1-8" value="1">1 sesi&oacute;n</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1-p9">
+          <p id="test-c1-p9">9. Una tarea tiene <b>holgura 2</b> y se retrasa <b>3 sesiones</b>. &iquest;Cu&aacute;nto se retrasa el proyecto?</p>
+          <label class="ta-op"><input type="radio" name="c1-8" value="0">1 sesi&oacute;n</label>
+          <label class="ta-op"><input type="radio" name="c1-8" value="1">3 sesiones</label>
           <label class="ta-op"><input type="radio" name="c1-8" value="2">nada, porque ten&iacute;a holgura</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las dos primeras sesiones se las come la holgura; solo la tercera empuja al resto. Por eso, cuando se va mal de tiempo, lo primero es mirar la holgura.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. El material tarda 5 sesiones en llegar y nadie trabaja mientras. &iquest;Por qu&eacute; hay que ponerlo en el Gantt?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1-p10">
+          <p id="test-c1-p10">10. El material tarda 5 sesiones en llegar y nadie trabaja mientras. &iquest;Por qu&eacute; hay que ponerlo en el Gantt?</p>
           <label class="ta-op"><input type="radio" name="c1-9" value="0">Porque hay que justificar el gasto del departamento.</label>
           <label class="ta-op"><input type="radio" name="c1-9" value="1">Porque ocupa calendario aunque no ocupe trabajo, y puede estar en el camino cr&iacute;tico.</label>
           <label class="ta-op"><input type="radio" name="c1-9" value="2">No hace falta: si nadie trabaja, no es una tarea.</label>
@@ -2480,7 +2604,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2545,7 +2669,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>Un cuaderno al que se le puede preguntar</h3>
       <figure class="foto">
-        <img src="../../../img/c1-cuaderno.jpg" alt="Cuaderno antiguo abierto sobre una mesa de madera: la p&aacute;gina izquierda con texto manuscrito en alem&aacute;n y la derecha con una columna larga de n&uacute;meros, con fechas anotadas en el margen" loading="lazy">
+        <img src="../../../img/c1-cuaderno.jpg" width="1280" height="960" alt="Cuaderno antiguo abierto sobre una mesa de madera: la p&aacute;gina izquierda con texto manuscrito en alem&aacute;n y la derecha con una columna larga de n&uacute;meros, con fechas anotadas en el margen" loading="lazy">
         <figcaption>El <b>cuaderno de laboratorio de Otto Hahn</b>, en el <b>Deutsches Museum</b> de M&uacute;nich, junto al montaje con el que se descubri&oacute; la fisi&oacute;n nuclear. F&iacute;jate en la p&aacute;gina derecha: no es prosa, es una <b>columna de medidas</b>, y por el margen bajan las fechas de diciembre escritas a mano &mdash;17.XII, 18.XII, 19.XII, 20.XII, 21.XII&mdash;. Por eso se sabe que el experimento decisivo fue la noche del <b>16 al 17 de diciembre de 1938</b>: no hace falta que nadie se acuerde.
           <span class="credito">J Brew &middot; CC BY-SA 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Otto_Hahn%27s_notebook_1938_-_Deutsches_Museum_-_Munich.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2636,7 +2760,7 @@ footer .wrap{padding-block:18px 26px}
           <p class="p5-est" id="est-p5"></p>
           <div class="p5-tabla" id="tabla-p5"></div>
         </div>
-        <div class="pie" id="pie-p5"></div>
+        <div class="pie" id="pie-p5" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2843,9 +2967,9 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(cae, revisar){
-          var h = '<table><thead><tr><th>#</th><th>Sesi&oacute;n</th><th>Qui&eacute;n</th>'
-                + '<th>Qu&eacute; se decidi&oacute;</th><th>Cuelga de</th><th>Por qu&eacute;</th>'
-                + '<th>Rehacerla</th><th></th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Sesi&oacute;n</th><th scope="col">Qui&eacute;n</th>'
+                + '<th scope="col">Qu&eacute; se decidi&oacute;</th><th scope="col">Cuelga de</th><th scope="col">Por qu&eacute;</th>'
+                + '<th scope="col">Rehacerla</th><th scope="col"></th></tr></thead><tbody>';
           DEC.forEach(function(d, i){
             var clase = i === cae ? 'cae' : (revisar.indexOf(i) >= 0 ? 'revisa' : '');
             h += '<tr class="' + clase + '"><td class="c">' + (i + 1) + '</td>'
@@ -2883,7 +3007,7 @@ footer .wrap{padding-block:18px 26px}
           if(caida < 0){
             con.className = 'p5-col';
             sin.className = 'p5-col';
-            con.innerHTML = '<h5>El cuaderno, ahora mismo</h5><span class="grande">'
+            con.innerHTML = '<h4 class="h-menor">El cuaderno, ahora mismo</h4><span class="grande">'
               + DEC.length + ' decisiones</span><p>Tomadas en cuatro sesiones, con <b>'
               + (DEC.length - sinPorque.length) + '</b> porqu&eacute;s escritos y <b>'
               + sinPorque.length + '</b> sin escribir (la n&uacute;mero ' + sinPorque.join(', ')
@@ -3130,7 +3254,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>El documento compartido m&aacute;s grande del mundo se hizo por correo postal</h3>
       <figure class="foto" style="max-width:470px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c1-scriptorium.jpg" alt="Fotograf&iacute;a antigua en blanco y negro: un hombre mayor con barba blanca y gorro, de pie y leyendo unos papeles, rodeado por tres paredes de estanter&iacute;as repletas de fajos de papeletas del suelo al techo" loading="lazy">
+        <img src="../../../img/c1-scriptorium.jpg" width="960" height="1227" alt="Fotograf&iacute;a antigua en blanco y negro: un hombre mayor con barba blanca y gorro, de pie y leyendo unos papeles, rodeado por tres paredes de estanter&iacute;as repletas de fajos de papeletas del suelo al techo" loading="lazy">
         <figcaption><b>James Murray</b>, de pie en el <i>Scriptorium</i>, el cobertizo donde se hizo el <b>Oxford English Dictionary</b>. Eso que le rodea del suelo al techo, y que parece ropa doblada, son <b>papeletas</b>: cada una, una palabra con su cita, enviada por correo por alguno de los <b>m&aacute;s de 800 voluntarios</b>. Est&aacute;n repartidas en <b>1.029 casillas</b>. En 1880 hab&iacute;a ya <b>2.500.000</b> y llegaban <b>mil al d&iacute;a</b>. El diccionario se decidi&oacute; en <b>1858</b>; el primer fasc&iacute;culo sali&oacute; en <b>1884</b> y el &uacute;ltimo, el n&uacute;mero 125, en <b>1928</b>.
           <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:James_Murray_in_a_scriptorium.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3191,7 +3315,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="p6-doc" id="doc-p6"></div>
           <p class="p6-est" id="est-p6"></p>
         </div>
-        <div class="pie" id="pie-p6"></div>
+        <div class="pie" id="pie-p6" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3219,7 +3343,7 @@ footer .wrap{padding-block:18px 26px}
       .p6-rot{font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
         color:var(--ink-soft);margin:16px 0 6px}
       .p6-doc{border:1.5px solid var(--line);border-radius:2px;background:var(--surface)}
-      .p6-l{display:flex;gap:10px;align-items:baseline;padding:6px 10px;border-top:1px solid var(--line-soft);
+      .p6-l{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;padding:6px 10px;border-top:1px solid var(--line-soft);
         font-size:14px;line-height:1.5}
       .p6-l:first-child{border-top:0}
       .p6-l .rot{flex:none;width:118px;font-family:var(--f-m);font-size:11px;color:var(--ink-soft)}
@@ -3232,7 +3356,7 @@ footer .wrap{padding-block:18px 26px}
       .p6-l.perdida .txt{text-decoration:line-through;color:var(--ink-soft)}
       .p6-l.perdida .de{color:var(--goo-rojo)}
       .p6-l.choque{background:rgba(251,188,4,.16)}
-      .p6-l.choque .de{color:#9a7326}
+      .p6-l.choque .de{color:var(--amar-texto)}
       .p6-est{font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin:14px 0 0}
       .p6-est b{color:var(--ink)}
       .p6-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:10px}
@@ -3611,7 +3735,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">D&oacute;nde est&aacute; el historial, c&oacute;mo se lee y c&oacute;mo se vuelve a una versi&oacute;n anterior. Es lo que vais a hacer en la pr&aacute;ctica; si el centro usa otra herramienta, el men&uacute; se llama igual. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=Odwo6i52skU" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -3736,7 +3861,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>La demostraci&oacute;n que dur&oacute; noventa minutos y todav&iacute;a se estudia</h3>
       <figure class="foto" style="max-width:560px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c1-raton.jpg" alt="Una caja de madera del tama&ntilde;o de un pastilla de jab&oacute;n, con un solo bot&oacute;n rojo en la esquina de arriba y un cable trenzado enrollado al lado que acaba en un conector, sobre una peana de piedra de museo" loading="lazy">
+        <img src="../../../img/c1-raton.jpg" width="1280" height="720" alt="Una caja de madera del tama&ntilde;o de un pastilla de jab&oacute;n, con un solo bot&oacute;n rojo en la esquina de arriba y un cable trenzado enrollado al lado que acaba en un conector, sobre una peana de piedra de museo" loading="lazy">
         <figcaption>El primer rat&oacute;n, del prototipo de hacia <b>1964</b> del Stanford Research Institute, en el Computer History Museum (Commons lo cataloga como <b>r&eacute;plica</b>). Es eso: una caja de madera, dos ruedecillas dentro &mdash;se ven las ranuras en el costado&mdash; y <b>un solo bot&oacute;n</b>. El cartel de al lado explica por qu&eacute; uno: no cab&iacute;an m&aacute;s. <b>Douglas Engelbart</b> no explic&oacute; nunca qu&eacute; era un rat&oacute;n: el <b>9 de diciembre de 1968</b> cogi&oacute; uno delante de <b>mil personas</b> y movi&oacute; el puntero por la pantalla.
           <span class="credito">The wub &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Replica_of_prototype_Engelbart_mouse,_circa_1964,_Computer_History_Museum.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3808,7 +3933,8 @@ footer .wrap{padding-block:18px 26px}
             <div class="p7-fila">
               <label for="p7-arranque"><input type="checkbox" id="p7-arranque"> El aparato tarda en
                 arrancar delante de la gente</label>
-              <input type="number" id="p7-muerto" value="40" min="0" max="120" step="5">
+              <input type="number" id="p7-muerto" value="40" min="0" max="120" step="5"
+                aria-label="Segundos que se tarda en arrancar delante de la gente">
               <span class="p7-ud">segundos mirando c&oacute;mo arranca</span>
             </div>
           </div>
@@ -3818,7 +3944,7 @@ footer .wrap{padding-block:18px 26px}
           <div class="p7-tabla" id="tabla-p7"></div>
           <p class="p7-est" id="est-p7"></p>
         </div>
-        <div class="pie" id="pie-p7"></div>
+        <div class="pie" id="pie-p7" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3858,7 +3984,11 @@ footer .wrap{padding-block:18px 26px}
       .p7-est{font-family:var(--f-m);font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin:12px 0 0}
       .p7-est b{color:var(--ink)}
       .p7-est .mal{color:var(--goo-rojo)}
-      .p7-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:10px}
+      /* varios de estos rotulos caen ENCIMA de una barra de color a media
+         opacidad: el halo del color del papel los hace legibles ahi y fuera,
+         en los dos temas, sin tener que adivinar el color de la mezcla */
+      .p7-txt{fill:var(--ink-soft);font-family:var(--f-m);font-size:10px;
+        paint-order:stroke;stroke:var(--surface);stroke-width:2.5px;stroke-linejoin:round}
       .p7-txt.fuerte{fill:var(--ink);font-weight:500}
       </style>
 
@@ -4031,21 +4161,26 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(C){
-          var h = '<table><thead><tr><th>#</th><th>Bloque</th><th>Mover</th><th>Segundos</th>'
-                + '<th>Palabras que caben</th><th>Palabras escritas</th><th>Sobran</th>'
-                + '<th>Acaba en</th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Bloque</th><th scope="col">Mover</th><th scope="col">Segundos</th>'
+                + '<th scope="col">Palabras que caben</th><th scope="col">Palabras escritas</th><th scope="col">Sobran</th>'
+                + '<th scope="col">Acaba en</th></tr></thead><tbody>';
           C.S.forEach(function(i, k){
             var cab = caben(i, C);
             var sobran = BL[i].pal - cab;
             h += '<tr class="' + (BL[i].clave ? 'clave' : '') + '"><td>' + (k + 1) + '</td>'
                + '<td class="nom">' + BL[i].t + '</td>'
-               + '<td class="bot"><button type="button" data-sube="' + i + '">&#8593;</button> '
-               + '<button type="button" data-baja="' + i + '">&#8595;</button></td>'
-               + '<td class="bot"><button type="button" data-s="' + i + '" data-d="-5">&minus;</button> '
+               + '<td class="bot"><button type="button" data-sube="' + i + '" '
+               + 'aria-label="Subir ' + BL[i].t + '">&#8593;</button> '
+               + '<button type="button" data-baja="' + i + '" '
+               + 'aria-label="Bajar ' + BL[i].t + '">&#8595;</button></td>'
+               + '<td class="bot"><button type="button" data-s="' + i + '" data-d="-5" '
+               + 'aria-label="Cinco segundos menos para ' + BL[i].t + '">&minus;</button> '
                + '<b>' + seg[i] + '</b> '
-               + '<button type="button" data-s="' + i + '" data-d="5">+</button></td>'
+               + '<button type="button" data-s="' + i + '" data-d="5" '
+               + 'aria-label="Cinco segundos mas para ' + BL[i].t + '">+</button></td>'
                + '<td>' + esp(cab, 0) + '</td>'
-               + '<td><input type="number" data-pal="' + i + '" min="0" max="900" step="10" value="'
+               + '<td><input type="number" data-pal="' + i + '" min="0" max="900" step="10" '
+               + 'aria-label="Palabras de ' + BL[i].t + '" value="'
                + BL[i].pal + '"></td>'
                + '<td class="sobra' + (sobran <= 0 ? ' ok' : '') + '">'
                + (sobran > 0 ? '+' + esp(sobran, 0) : esp(sobran, 0)) + '</td>'
@@ -4195,7 +4330,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Una presentaci&oacute;n de tres minutos de verdad, de las de concurso. V&eacute;dla con el cron&oacute;metro y apuntad dos cosas: en qu&eacute; segundo entend&eacute;is de qu&eacute; va, y cu&aacute;ntas veces mira el papel. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin
-          cookies de seguimiento. Si la red del centro bloquea YouTube,
+          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=DZY3HGwBBVg" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -4324,7 +4460,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>El edificio que iba a costar siete millones y tardar seis a&ntilde;os</h3>
       <figure class="foto" style="max-width:430px;margin-left:auto;margin-right:auto">
-        <img src="../../../img/c1-sidney.jpg" alt="La &oacute;pera de S&iacute;dney a medio construir, vista desde el agua: unas conchas ya forradas de blanco y otras con las costillas de hormig&oacute;n al aire, tres gr&uacute;as amarillas y azules levantadas y el z&oacute;calo todav&iacute;a en obra" loading="lazy">
+        <img src="../../../img/c1-sidney.jpg" width="600" height="600" alt="La &oacute;pera de S&iacute;dney a medio construir, vista desde el agua: unas conchas ya forradas de blanco y otras con las costillas de hormig&oacute;n al aire, tres gr&uacute;as amarillas y azules levantadas y el z&oacute;calo todav&iacute;a en obra" loading="lazy">
         <figcaption>La <b>&Oacute;pera de S&iacute;dney</b> en <b>1966</b>, con unas conchas ya forradas y otras a medio montar, y las gr&uacute;as todav&iacute;a encima. El concurso lo gan&oacute; <b>J&oslash;rn Utzon</b> en <b>1957</b>; el presupuesto era de <b>7 millones</b> de d&oacute;lares australianos y ten&iacute;a que estar terminada el <b>26 de enero de 1963</b>. Esta foto es de <b>tres a&ntilde;os despu&eacute;s</b> de esa fecha. Se inaugur&oacute; el <b>20 de octubre de 1973</b> y cost&oacute; <b>102 millones</b>.
           <span class="credito">Robeyclark &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_-_construction_-_phase_2_1966.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4413,7 +4549,7 @@ footer .wrap{padding-block:18px 26px}
             <p class="p8-est" id="ereq-p8"></p>
           </div>
         </div>
-        <div class="pie" id="pie-p8"></div>
+        <div class="pie" id="pie-p8" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4603,8 +4739,8 @@ footer .wrap{padding-block:18px 26px}
         }
 
         function tabla(P, R){
-          var h = '<table><thead><tr><th>#</th><th>Tarea</th><th>Previsto</th><th>Lo que tard&oacute;</th>'
-                + '<th>Desv&iacute;o</th><th>Cr&iacute;tica prevista</th><th>Cr&iacute;tica real</th>'
+          var h = '<table><thead><tr><th scope="col">#</th><th scope="col">Tarea</th><th scope="col">Previsto</th><th scope="col">Lo que tard&oacute;</th>'
+                + '<th scope="col">Desv&iacute;o</th><th scope="col">Cr&iacute;tica prevista</th><th scope="col">Cr&iacute;tica real</th>'
                 + '</tr></thead><tbody>';
           T.forEach(function(t, i){
             var d = real[i] - t.plan;
@@ -4700,9 +4836,9 @@ footer .wrap{padding-block:18px 26px}
         var MEDBASE = REQ.map(function(r){ return r.med; });
 
         function pintaReq(){
-          var h = '<table><thead><tr><th>Requisito</th><th>Ped&iacute;amos</th>'
-                + '<th>Hemos medido</th><th>Desv&iacute;o</th><th>C&oacute;mo se ha medido</th>'
-                + '<th></th></tr></thead><tbody>';
+          var h = '<table><thead><tr><th scope="col">Requisito</th><th scope="col">Ped&iacute;amos</th>'
+                + '<th scope="col">Hemos medido</th><th scope="col">Desv&iacute;o</th><th scope="col">C&oacute;mo se ha medido</th>'
+                + '<th scope="col"></th></tr></thead><tbody>';
           var pasan = 0;
           REQ.forEach(function(r, i){
             var ok = r.cmp === 'ge' ? (r.med >= r.val) : (r.med <= r.val);
@@ -4712,7 +4848,8 @@ footer .wrap{padding-block:18px 26px}
                + '<td class="nom">' + r.t + '</td>'
                + '<td>' + (r.cmp === 'ge' ? '&ge; ' : '&le; ')
                + esp(r.val, r.val === Math.round(r.val) ? 0 : 1) + ' ' + r.ud + '</td>'
-               + '<td><input type="number" data-r="' + i + '" step="0.01" value="'
+               + '<td><input type="number" data-r="' + i + '" step="0.01" '
+               + 'aria-label="Lo medido de ' + r.t + ', en ' + r.ud + '" value="'
                + String(r.med) + '"> ' + r.ud + '</td>'
                /* Con un decimal a proposito: a cero decimales, un -22,5 se
                   redondea de una manera en el navegador y de otra en el
@@ -4893,94 +5030,94 @@ footer .wrap{padding-block:18px 26px}
       </ol>
       <div class="ta" id="test-c1b">
         <h4>Toda la unidad, de la primera sesi&oacute;n a la octava</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. &iquest;Cu&aacute;l de estas frases es un <b>problema</b> y no una soluci&oacute;n disfrazada?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1b-p1">
+          <p id="test-c1b-p1">1. &iquest;Cu&aacute;l de estas frases es un <b>problema</b> y no una soluci&oacute;n disfrazada?</p>
           <label class="ta-op"><input type="radio" name="c1b-0" value="0">Necesitamos una bomba con sensor de humedad para el hall.</label>
           <label class="ta-op"><input type="radio" name="c1b-0" value="1">Las 14 macetas del hall se secan en los puentes: 84 minutos de riego a mano a la semana.</label>
           <label class="ta-op"><input type="radio" name="c1b-0" value="2">Hay que programar un Arduino que riegue las plantas.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la &uacute;nica que pasa la <b>prueba de las piezas</b>: tacha los aparatos y la frase se sigue entendiendo. Adem&aacute;s trae dentro el n&uacute;mero que mide el problema.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>2. Un requisito bien escrito lleva cuatro piezas. &iquest;Cu&aacute;les?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1b-p2">
+          <p id="test-c1b-p2">2. Un requisito bien escrito lleva cuatro piezas. &iquest;Cu&aacute;les?</p>
           <label class="ta-op"><input type="radio" name="c1b-1" value="0">Magnitud, comparador con su valor, unidad y c&oacute;mo se comprueba.</label>
           <label class="ta-op"><input type="radio" name="c1b-1" value="1">Objetivo, responsable, plazo y presupuesto.</label>
           <label class="ta-op"><input type="radio" name="c1b-1" value="2">Problema, soluci&oacute;n, material y herramienta.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con esas cuatro, la frase se convierte en una comparaci&oacute;n y se puede correr contra unos datos. Si falta una, en junio la nota es una discusi&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Con vuestros pesos gana la alternativa A y con todos los pesos a 1 gana la C. &iquest;Qu&eacute; hay que justificar en la memoria?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1b-p3">
+          <p id="test-c1b-p3">3. Con vuestros pesos gana la alternativa A y con todos los pesos a 1 gana la C. &iquest;Qu&eacute; hay que justificar en la memoria?</p>
           <label class="ta-op"><input type="radio" name="c1b-2" value="0">La ganadora, explicando por qu&eacute; es la mejor.</label>
           <label class="ta-op"><input type="radio" name="c1b-2" value="1">Los pesos: por qu&eacute; ese reparto de importancia y no otro.</label>
           <label class="ta-op"><input type="radio" name="c1b-2" value="2">Las notas de cada casilla, una por una.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La matriz no decide: ordena la discusi&oacute;n. La decisi&oacute;n est&aacute; en los pesos, as&iacute; que son ellos los que hay que defender.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. Una tarea tiene <b>holgura 2</b> y acaba retras&aacute;ndose <b>3 sesiones</b>. &iquest;Cu&aacute;nto se retrasa el proyecto?</p>
-          <label class="ta-op"><input type="radio" name="c1b-3" value="0">3 sesiones</label>
-          <label class="ta-op"><input type="radio" name="c1b-3" value="1">1 sesi&oacute;n</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1b-p4">
+          <p id="test-c1b-p4">4. Una tarea tiene <b>holgura 2</b> y acaba retras&aacute;ndose <b>3 sesiones</b>. &iquest;Cu&aacute;nto se retrasa el proyecto?</p>
+          <label class="ta-op"><input type="radio" name="c1b-3" value="0">1 sesi&oacute;n</label>
+          <label class="ta-op"><input type="radio" name="c1b-3" value="1">3 sesiones</label>
           <label class="ta-op"><input type="radio" name="c1b-3" value="2">nada, porque ten&iacute;a holgura</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las dos primeras se las come la holgura; s&oacute;lo la tercera empuja al resto. Por eso, cuando se va mal de tiempo, lo primero que se mira es la holgura.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. &iquest;Qu&eacute; es un <b>asiento</b> del cuaderno del proyecto?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1b-p5">
+          <p id="test-c1b-p5">5. &iquest;Qu&eacute; es un <b>asiento</b> del cuaderno del proyecto?</p>
           <label class="ta-op"><input type="radio" name="c1b-4" value="0">El resumen de lo que hab&eacute;is hecho durante la semana.</label>
-          <label class="ta-op"><input type="radio" name="c1b-4" value="1">Cinco l&iacute;neas con fecha, autor, qu&eacute; se decidi&oacute;, de qu&eacute; cuelga, por qu&eacute; y qu&eacute; os har&iacute;a cambiar de idea.</label>
-          <label class="ta-op"><input type="radio" name="c1b-4" value="2">El apartado de la memoria donde va la justificaci&oacute;n final.</label>
+          <label class="ta-op"><input type="radio" name="c1b-4" value="1">El apartado de la memoria donde va la justificaci&oacute;n final.</label>
+          <label class="ta-op"><input type="radio" name="c1b-4" value="2">Cinco l&iacute;neas con fecha, autor, qu&eacute; se decidi&oacute;, de qu&eacute; cuelga, por qu&eacute; y qu&eacute; os har&iacute;a cambiar de idea.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El cuaderno registra <b>decisiones</b>, no actividades ni sentimientos. Y los tres campos que casi nadie escribe &mdash;de qu&eacute; cuelga, por qu&eacute; y qu&eacute; lo cambiar&iacute;a&mdash; son justo los que sirven en junio.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Se agota la bomba. &iquest;Para qu&eacute; sirve tener escrito <b>de qu&eacute; cuelga</b> cada decisi&oacute;n?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1b-p6">
+          <p id="test-c1b-p6">6. Se agota la bomba. &iquest;Para qu&eacute; sirve tener escrito <b>de qu&eacute; cuelga</b> cada decisi&oacute;n?</p>
           <label class="ta-op"><input type="radio" name="c1b-5" value="0">Para saber a qui&eacute;n echarle la culpa.</label>
-          <label class="ta-op"><input type="radio" name="c1b-5" value="1">Para saber exactamente qu&eacute; decisiones hay que volver a tomar y cu&aacute;les no se tocan.</label>
-          <label class="ta-op"><input type="radio" name="c1b-5" value="2">Para no tener que escribir la memoria al final.</label>
+          <label class="ta-op"><input type="radio" name="c1b-5" value="1">Para no tener que escribir la memoria al final.</label>
+          <label class="ta-op"><input type="radio" name="c1b-5" value="2">Para saber exactamente qu&eacute; decisiones hay que volver a tomar y cu&aacute;les no se tocan.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con las flechas se sigue el rastro y salen las que depend&iacute;an de la bomba. Sin ellas hay que volver a mirar todo lo decidido despu&eacute;s, incluido lo que no ten&iacute;a nada que ver.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Ana y Beto cambian <b>l&iacute;neas distintas</b> del mismo documento en l&iacute;nea. &iquest;Qu&eacute; pasa?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1b-p7">
+          <p id="test-c1b-p7">7. Ana y Beto cambian <b>l&iacute;neas distintas</b> del mismo documento en l&iacute;nea. &iquest;Qu&eacute; pasa?</p>
           <label class="ta-op"><input type="radio" name="c1b-6" value="0">Se pierde el cambio del que guarde primero.</label>
           <label class="ta-op"><input type="radio" name="c1b-6" value="1">Entran los dos cambios: el programa los fusiona porque no hay nada que decidir.</label>
           <label class="ta-op"><input type="radio" name="c1b-6" value="2">El documento se bloquea hasta que uno de los dos salga.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La fusi&oacute;n autom&aacute;tica funciona cuando s&oacute;lo uno ha tocado cada l&iacute;nea. El choque aparece cuando los dos tocan <b>la misma</b> y no dicen lo mismo, y ah&iacute; el programa avisa pero no decide.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. &iquest;Por qu&eacute; el historial de versiones <b>no sustituye</b> al cuaderno?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1b-p8">
+          <p id="test-c1b-p8">8. &iquest;Por qu&eacute; el historial de versiones <b>no sustituye</b> al cuaderno?</p>
           <label class="ta-op"><input type="radio" name="c1b-7" value="0">Porque el historial se borra al cabo de un mes.</label>
-          <label class="ta-op"><input type="radio" name="c1b-7" value="1">Porque guarda el qu&eacute; y el cu&aacute;ndo, pero no el <b>por qu&eacute;</b>.</label>
-          <label class="ta-op"><input type="radio" name="c1b-7" value="2">Porque el historial s&oacute;lo lo ve el que cre&oacute; el documento.</label>
+          <label class="ta-op"><input type="radio" name="c1b-7" value="1">Porque el historial s&oacute;lo lo ve el que cre&oacute; el documento.</label>
+          <label class="ta-op"><input type="radio" name="c1b-7" value="2">Porque guarda el qu&eacute; y el cu&aacute;ndo, pero no el <b>por qu&eacute;</b>.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El historial dice que el umbral pas&oacute; de 40 a 38 el jueves a las 12:14. No dice que fuera porque con 40 el riego se disparaba cada dos lecturas. El historial fecha el cuaderno; no lo escribe.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>9. Habl&aacute;is a <b>130 palabras por minuto</b> y ten&eacute;is <b>tres minutos</b>. &iquest;Cu&aacute;ntas palabras cab&eacute;is?</p>
-          <label class="ta-op"><input type="radio" name="c1b-8" value="0">unas 390</label>
-          <label class="ta-op"><input type="radio" name="c1b-8" value="1">unas 780</label>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c1b-p9">
+          <p id="test-c1b-p9">9. Habl&aacute;is a <b>130 palabras por minuto</b> y ten&eacute;is <b>tres minutos</b>. &iquest;Cu&aacute;ntas palabras cab&eacute;is?</p>
+          <label class="ta-op"><input type="radio" name="c1b-8" value="0">unas 780</label>
+          <label class="ta-op"><input type="radio" name="c1b-8" value="1">unas 390</label>
           <label class="ta-op"><input type="radio" name="c1b-8" value="2">unas 1.300</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 180 s &times; 130 &divide; 60 = <b>390 palabras</b>, o sea media cara de folio. Por eso un gui&oacute;n de dos folios no es un gui&oacute;n de tres minutos.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. &iquest;En qu&eacute; consiste la <b>prueba del minuto uno</b>?</p>
-          <label class="ta-op"><input type="radio" name="c1b-9" value="0">En no pasarse del primer minuto al presentar.</label>
-          <label class="ta-op"><input type="radio" name="c1b-9" value="1">En que, al acabar el primer minuto, quien escucha pueda decir con sus palabras qu&eacute; hace vuestro aparato.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1b-p10">
+          <p id="test-c1b-p10">10. &iquest;En qu&eacute; consiste la <b>prueba del minuto uno</b>?</p>
+          <label class="ta-op"><input type="radio" name="c1b-9" value="0">En que, al acabar el primer minuto, quien escucha pueda decir con sus palabras qu&eacute; hace vuestro aparato.</label>
+          <label class="ta-op"><input type="radio" name="c1b-9" value="1">En no pasarse del primer minuto al presentar.</label>
           <label class="ta-op"><input type="radio" name="c1b-9" value="2">En ensayar la presentaci&oacute;n durante un minuto antes de empezar.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Si no puede decirlo, el gui&oacute;n est&aacute; mal ordenado por bueno que sea el proyecto. Es lo que pasa cuando se cuenta la historia desde el principio: el &laquo;qu&eacute; hace&raquo; acaba cayendo en el segundo 165.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>11. El plan dec&iacute;a 21 sesiones y fueron 28; el trabajo previsto sumaba 26 y sum&oacute; 35. &iquest;Qu&eacute; n&uacute;mero os llev&aacute;is para el pr&oacute;ximo proyecto?</p>
-          <label class="ta-op"><input type="radio" name="c1b-10" value="0">Que hay que organizarse mejor.</label>
-          <label class="ta-op"><input type="radio" name="c1b-10" value="1">El factor 35 &divide; 26 = 1,35: por lo que hay que multiplicar vuestras previsiones.</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c1b-p11">
+          <p id="test-c1b-p11">11. El plan dec&iacute;a 21 sesiones y fueron 28; el trabajo previsto sumaba 26 y sum&oacute; 35. &iquest;Qu&eacute; n&uacute;mero os llev&aacute;is para el pr&oacute;ximo proyecto?</p>
+          <label class="ta-op"><input type="radio" name="c1b-10" value="0">El factor 35 &divide; 26 = 1,35: por lo que hay que multiplicar vuestras previsiones.</label>
+          <label class="ta-op"><input type="radio" name="c1b-10" value="1">Que hay que organizarse mejor.</label>
           <label class="ta-op"><input type="radio" name="c1b-10" value="2">Las 7 sesiones de retraso, para restarlas la pr&oacute;xima vez.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la &uacute;nica de las tres que es un dato y se puede aplicar. &laquo;Organizarse mejor&raquo; no cambia ning&uacute;n c&aacute;lculo, y el retraso en sesiones depende del tama&ntilde;o del proyecto; el factor, no.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>12. Medisteis 31 % de humedad m&iacute;nima y el requisito ped&iacute;a 40 %. &iquest;Qu&eacute; se escribe en la memoria?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c1b-p12">
+          <p id="test-c1b-p12">12. Medisteis 31 % de humedad m&iacute;nima y el requisito ped&iacute;a 40 %. &iquest;Qu&eacute; se escribe en la memoria?</p>
           <label class="ta-op"><input type="radio" name="c1b-11" value="0">Se baja el requisito al 30 % para que cumpla.</label>
-          <label class="ta-op"><input type="radio" name="c1b-11" value="1">Lo pedido, lo medido, la desviaci&oacute;n y la causa, diciendo si fall&oacute; el aparato o el requisito.</label>
-          <label class="ta-op"><input type="radio" name="c1b-11" value="2">Se quita ese requisito, porque no se ha podido cumplir.</label>
+          <label class="ta-op"><input type="radio" name="c1b-11" value="1">Se quita ese requisito, porque no se ha podido cumplir.</label>
+          <label class="ta-op"><input type="radio" name="c1b-11" value="2">Lo pedido, lo medido, la desviaci&oacute;n y la causa, diciendo si fall&oacute; el aparato o el requisito.</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cambiar el requisito al final para que cumpla es mover la porter&iacute;a con el bal&oacute;n en el aire. Una memoria que dice que cumple 2 de 5 y lo explica vale m&aacute;s que una que dice 5 de 5 y no se puede comprobar.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -4994,7 +5131,7 @@ footer .wrap{padding-block:18px 26px}
         soporte, la carcasa: alguien tiene que cortar una pieza de verdad, con un material de verdad
         y unas medidas que otro pueda leer. Eso es el <b>tema 2</b>, y ah&iacute; el proyecto deja de
         estar en el papel.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema2/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 2 &middot; Dise&ntilde;o y fabricaci&oacute;n: del material al producto &rarr;</a></p></div>
 
     </section>
 
@@ -5035,7 +5172,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -5055,7 +5192,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -5084,8 +5221,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -5098,7 +5244,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -5117,5 +5266,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

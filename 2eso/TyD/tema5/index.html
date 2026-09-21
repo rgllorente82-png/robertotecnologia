@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 5 &middot; Mecanismos">
+<meta property="og:description" content="Tema 5 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: palanca, poleas y polipasto, engranajes y relaci&oacute;n de transmisi&oacute;n, transformaci&oacute;n del movimiento, taller de engranajes de cart&oacute;n y test, con escenas interactivas.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema5.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 5 &middot; Mecanismos &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -323,22 +342,69 @@ footer .wrap{padding-block:18px 26px}
 .test-nota b.cifra{font-size:22px;font-family:var(--f-m)}
 .test-aviso{font-size:13.5px;color:var(--goo-rojo);margin:8px 0 0}
 @media print{.test-ops input{display:none}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
+<script>
+/* quien pide reducir el movimiento, lo pide tambien para las escenas */
+window.QUIETO = function(){
+  return !!(window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+};
+</script>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 5</div>
     <h1>Mecanismos</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; La palanca</button><button type="button" data-ses="2">S2 &middot; Poleas</button><button type="button" data-ses="3">S3 &middot; Engranajes</button><button type="button" data-ses="4">S4 &middot; Transformar</button><button type="button" data-ses="5">S5 &middot; Montar un mecanismo</button><button type="button" data-ses="6">S6 &middot; Repaso y test</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; La palanca</button><button type="button" data-ses="2">S2 &middot; Poleas</button><button type="button" data-ses="3">S3 &middot; Engranajes</button><button type="button" data-ses="4">S4 &middot; Transformar</button><button type="button" data-ses="5">S5 &middot; Montar un mecanismo</button><button type="button" data-ses="6">S6 &middot; Repaso y test</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
       <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
+
+      <figure class="foto">
+        <img src="../../../img/forces-newtons-laws.svg" width="1000" height="700" loading="lazy"
+             alt="Las tres leyes de Newton: inercia, F=ma y acción-reacción">
+        <figcaption>Las <b>tres leyes de Newton</b> explican todo lo que va a pasar en este tema: 1ª Ley (inercia): sin fuerza, un objeto sigue igual. 2ª Ley (F = m·a): más fuerza produce más aceleración. 3ª Ley (acción-reacción): toda fuerza tiene una pareja que va en dirección contraria. Las máquinas simples (palancas, poleas, engranajes) son formas inteligentes de repartir y modificar las fuerzas, pero no crean fuerza de la nada.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <h2>La barra que multiplica: por qu&eacute; un tubo afloja lo que t&uacute; no</h2>
       <p>Una palanca no te hace m&aacute;s fuerte: te cambia fuerza por recorrido. De ah&iacute; sale todo lo dem&aacute;s del tema.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
@@ -370,7 +436,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-u5">
         <div class="narrador-fig" id="narr-u5-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va este tema</h4>
+          <h3 class="h-menor">De qu&eacute; va este tema</h3>
           <span class="narrador-quien">El m&uacute;sculo mueve poco y mal: qu&eacute; ponemos entre &eacute;l y el problema</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -467,6 +533,15 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <h3>Una barra, un punto y un trato</h3>
+
+      <figure class="foto">
+        <img src="../../../img/simple-machines.svg" width="1200" height="500" loading="lazy"
+             alt="Las 6 máquinas simples: palanca, rueda y eje, polea, plano inclinado, cuña y tornillo">
+        <figcaption>Las <b>seis máquinas simples</b> que han resuelto todos los problemas de fuerza desde la antigüedad. Todas siguen el mismo principio: cambian fuerza por distancia. Aumentas uno, pierdes el otro. La ventaja mecánica es el intercambio.
+          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Pon una barra sobre un punto fijo, la carga en un lado y tu mano en el otro. Eso es todo el
          invento. Lo interesante es que la barra <b>no reparte la fuerza a partes iguales</b>: reparte
          seg&uacute;n lo lejos que est&eacute; cada cosa del punto de apoyo.</p>
@@ -488,7 +563,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Palanca con el punto de apoyo m&oacute;vil: al acercar el apoyo a la carga
                            baja la fuerza necesaria y sube el recorrido de la mano"></svg>
         </div>
-        <div class="pie" id="pie-palanca"></div>
+        <div class="pie" id="pie-palanca" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -663,6 +738,15 @@ footer .wrap{padding-block:18px 26px}
               <i>Pinzas de depilar, ca&ntilde;a de pescar, tu propio brazo.</i></li>
         </ul>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/lever-classes.svg" width="1000" height="750" loading="lazy"
+             alt="Las tres clases de palancas: fulcro en medio, carga en medio, esfuerzo en medio">
+        <figcaption><strong>Las tres clases de palancas:</strong> Orden de posiciones, ventaja mec&aacute;nica y ejemplos de cada clase
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <div class="video" id="video-palanca" data-vid="8fDOm-XJBOQ">
         <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Ley de la palanca (mecanismos)">
           <span class="video-tri" aria-hidden="true"></span>
@@ -672,7 +756,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Animaci&oacute;n de los tres g&eacute;neros con la ley aplicada paso a paso. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=8fDOm-XJBOQ" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -685,7 +770,7 @@ footer .wrap{padding-block:18px 26px}
         var b = c.querySelector('.video-play');
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
-          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -695,7 +780,7 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
       <figure class="foto">
-        <img src="../../../img/u5-shaduf.jpeg" loading="lazy" alt="Grabado de un hombre sacando agua de un r&iacute;o con un shaduf: una p&eacute;rtiga apoyada en un poste, con el cubo en un extremo y un contrapeso en el otro">
+        <img src="../../../img/u5-shaduf.jpeg" width="1293" height="1538" loading="lazy" alt="Grabado de un hombre sacando agua de un r&iacute;o con un shaduf: una p&eacute;rtiga apoyada en un poste, con el cubo en un extremo y un contrapeso en el otro">
         <figcaption>Un <b>shaduf</b>, la m&aacute;quina de regar del Nilo. Es una palanca de primer g&eacute;nero con un contrapeso: el agua sube sola y el hombre solo gu&iacute;a la p&eacute;rtiga. Se usaba en Egipto mucho antes de que nadie escribiera la ley de la palanca, y se sigue usando hoy.
           <span class="credito">G. Pearson &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Shaduf2.jpeg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -851,19 +936,19 @@ footer .wrap{padding-block:18px 26px}
           <span class="escena-titulo">80 kg colgando &middot; elige el montaje y tira</span>
           <div class="seg" id="seg-poleas">
             <button type="button" data-n="1" aria-pressed="true">Polea fija</button>
-            <button type="button" data-n="2">2 tramos</button>
-            <button type="button" data-n="3">3 tramos</button>
-            <button type="button" data-n="4">4 tramos</button>
+            <button type="button" data-n="2">Polea m&oacute;vil</button>
+            <button type="button" data-n="3">Polipasto de 3</button>
+            <button type="button" data-n="4">Polipasto de 4</button>
             <button type="button" data-n="tira">&#8595; Tirar de la cuerda</button>
           </div>
         </div>
         <div class="lienzo">
           <svg viewBox="0 0 640 330" id="svg-poleas" role="img"
-               aria-label="Polea fija y polipastos de dos, tres y cuatro tramos: la fuerza se divide
+               aria-label="Polea fija, polea m&oacute;vil y polipastos de tres y cuatro tramos: la fuerza se divide
                            entre el n&uacute;mero de tramos y la cuerda que hay que tirar se multiplica
                            por ese mismo n&uacute;mero"></svg>
         </div>
-        <div class="pie" id="pie-poleas"></div>
+        <div class="pie" id="pie-poleas" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -878,7 +963,12 @@ footer .wrap{padding-block:18px 26px}
         var YT = 72;          /* eje de las poleas fijas */
         var YB0 = 200;        /* eje de las poleas moviles, en reposo */
         var YM0 = 112;        /* la mano, en reposo */
-        var SUBE = 42;        /* lo que sube la carga al tirar */
+        /* Lo que sube la carga al tirar. La mano baja SUBE*n, asi que con 42 y
+           tres tramos acababa 126 px mas abajo: dentro de la caja. Con 28, la mano
+           se queda por encima de la caja en uno, dos y tres tramos, y en cuatro
+           le pasa por el lado con holgura. La carga sube medio cajon, que se ve
+           de sobra; lo que no se puede es que la mano acabe dentro. */
+        var SUBE = 28;        /* lo que sube la carga al tirar */
         var P = 800;          /* la carga, en newtons */
         var n = 1, tirado = false;
 
@@ -932,19 +1022,30 @@ footer .wrap{padding-block:18px 26px}
           /* el bloque movil y la carga */
           if(d.abajo.length){
             var x0 = d.abajo[0] - 26, x1 = d.abajo[d.abajo.length-1] + 26;
-            /* Si el cabo muerto se ata al bloque, el bloque tiene que llegar hasta
-               ese punto: si no, la cuerda se queda colgando en el aire.          */
-            if(d.ata === 'bloque') x0 = Math.min(x0, d.atax - 9);
+            /* Si la cuerda se ata AQUI, la barra tiene que llegar hasta el nudo.
+               En el montaje de tres, el nudo cae en 315 porque ese es el borde
+               por donde la cuerda sube a la polea fija de 330, y la barra
+               empezaba en 334: la cuerda se quedaba colgando en el aire
+               diecinueve pixeles a la izquierda del bloque. */
+            if(d.ata === 'bloque') x0 = Math.min(x0, d.atax - 8);
             m += '<rect x="' + x0 + '" y="' + (yb+Rr) + '" width="' + (x1-x0) + '" height="10" rx="2" '
                + 'fill="var(--surface-2)" stroke="var(--ink-soft)" stroke-width="2"></rect>';
             m += '<path d="M' + d.carga + ' ' + (yb+Rr+10) + ' V' + (yb+Rr+26) + '" '
                + 'stroke="var(--ink-soft)" stroke-width="2.5"></path>';
+            /* el nudo: un punto gordo donde la cuerda se ata al bloque, para que
+               se vea que esta ATADA y no apoyada encima */
+            if(d.ata === 'bloque'){
+              m += '<circle cx="' + d.atax + '" cy="' + (yb+Rr) + '" r="4" '
+                 + 'fill="var(--goo-rojo)"></circle>';
+            }
           } else {
             m += '<path d="M' + d.carga + ' ' + yb + ' V' + (yb+Rr+26) + '" stroke="var(--goo-rojo)" '
                + 'stroke-width="2.6"></path>';
           }
           var yc = yb + Rr + 26;
-          m += '<rect x="' + (d.carga-30) + '" y="' + yc + '" width="60" height="52" rx="3" '
+          /* 64 de ancho y no 84: con 84 la caja llegaba hasta el tramo libre de la
+             cuerda, que sale por la tangente de la ultima polea y no se puede mover. */
+          m += '<rect x="' + (d.carga-32) + '" y="' + yc + '" width="64" height="52" rx="3" '
              + 'fill="#a5783f" stroke="#7a5528" stroke-width="2"></rect>';
           m += '<text x="' + d.carga + '" y="' + (yc+31) + '" text-anchor="middle" class="rotulo-svg" '
              + 'style="fill:#fff;font-size:12.5px">80 kg</text>';
@@ -1006,10 +1107,20 @@ footer .wrap{padding-block:18px 26px}
               + 'es cambiar la direcci&oacute;n, y no es poco: ahora tiras <b>hacia abajo</b>, puedes colgarte '
               + 'de la cuerda y pueden tirar varios a la vez.';
           } else {
-            t = '<b>' + n + ' tramos de cuerda sostienen la carga</b>, as&iacute; que cada uno aguanta '
-              + Math.round(P/n) + ' N: eso es lo que notas t&uacute;. A cambio, por cada metro que sube la '
-              + 'carga tienes que tirar <b>' + n + ' metros</b> de cuerda. Fuerza dividida entre ' + n
-              + ', recorrido multiplicado por ' + n + '.';
+            /* El pie dice COMO SE LLAMA el montaje, no solo cuantos tramos tiene.
+               Los botones decian «2 tramos» y la teoria de al lado habla de polea
+               movil y de polipasto: el alumno tenia que adivinar cual era cual. */
+            t = (n === 2)
+              ? '<b>Esto es una polea m&oacute;vil</b>: su eje va enganchado a la carga y sube con '
+                + 'ella, y por eso la sostienen <b>dos tramos</b> de cuerda. '
+              : '<b>Esto ya es un polipasto</b>: poleas fijas y m&oacute;viles combinadas, con '
+                + '<b>' + n + ' tramos</b> sosteniendo la carga. ';
+            t += 'Cada tramo aguanta ' + Math.round(P/n) + ' N: eso es lo que notas t&uacute;. A cambio, '
+              + 'por cada metro que sube la carga tienes que tirar <b>' + n + ' metros</b> de cuerda. '
+              + 'Fuerza dividida entre ' + n + ', recorrido multiplicado por ' + n + '.';
+            if(n === 4){
+              t += ' Con cuatro, los 80 kg del andamio los sube <b>una persona sola</b> haciendo 200 N.';
+            }
           }
           pie.innerHTML = t;
         }
@@ -1063,7 +1174,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Ense&ntilde;a los tres montajes seguidos, con la cuerda que hay que tirar en cada uno. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=AlAxnplUNH0" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1076,7 +1188,7 @@ footer .wrap{padding-block:18px 26px}
         var b = c.querySelector('.video-play');
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
-          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1086,7 +1198,7 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
       <figure class="foto">
-        <img src="../../../img/u5-grua-haterii.jpg" loading="lazy" alt="Relieve romano de la tumba de los Haterii con una gr&uacute;a de rueda de andar, con hombres caminando dentro de la rueda y el polipasto colgando del m&aacute;stil">
+        <img src="../../../img/u5-grua-haterii.jpg" width="1760" height="2166" loading="lazy" alt="Relieve romano de la tumba de los Haterii con una gr&uacute;a de rueda de andar, con hombres caminando dentro de la rueda y el polipasto colgando del m&aacute;stil">
         <figcaption>La gr&uacute;a de la <b>tumba de los Haterii</b> (Roma, finales del siglo I). A la izquierda, la rueda de andar con los hombres dentro; arriba, el polipasto. Es la mejor imagen que se conserva de la m&aacute;quina de elevaci&oacute;n que describe Vitruvio.
           <span class="credito">Autor desconocido &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Tomb_of_the_Haterii_crane_relief_(Gusman_Art_decoratif_I_pl_27).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1249,7 +1361,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Dos ruedas dentadas engranadas girando en sentidos contrarios, una cadena
                            entre dos pi&ntilde;ones y un tornillo sin fin con su rueda"></svg>
         </div>
-        <div class="pie" id="pie-engranajes"></div>
+        <div class="pie" id="pie-engranajes" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1600,7 +1712,7 @@ footer .wrap{padding-block:18px 26px}
           pinta();
         });
         pinta();
-        raf = requestAnimationFrame(cuadro);
+        if(!QUIETO()) raf = requestAnimationFrame(cuadro);
       })();
       </script>
 
@@ -1656,7 +1768,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Animaci&oacute;n de trenes de engranajes con la relaci&oacute;n de transmisi&oacute;n calculada. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=0pO6cHi3HzE" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -1669,7 +1782,7 @@ footer .wrap{padding-block:18px 26px}
         var b = c.querySelector('.video-play');
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
-          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1679,7 +1792,7 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
       <figure class="foto">
-        <img src="../../../img/u5-anticitera.jpg" loading="lazy" alt="Tres fragmentos corro&iacute;dos del mecanismo de Anticitera en una vitrina; en el central se distingue una gran rueda dentada de bronce con sus radios">
+        <img src="../../../img/u5-anticitera.jpg" width="1760" height="880" loading="lazy" alt="Tres fragmentos corro&iacute;dos del mecanismo de Anticitera en una vitrina; en el central se distingue una gran rueda dentada de bronce con sus radios">
         <figcaption>El <b>mecanismo de Anticitera</b>, sacado del mar en 1901. Bajo esa corrosi&oacute;n hay una treintena de ruedas dentadas de bronce montadas unas sobre otras. Es del siglo II a. C.: engranajes de precisi&oacute;n mil a&ntilde;os antes de que nadie volviera a fabricar algo parecido.
           <span class="credito">Joyofmuseums &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Antikythera_Mechanism_-_National_Archaeological_Museum,_Athens_by_Joy_of_Museum.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1712,7 +1825,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 700 330" id="svg-caja" role="img"
                aria-label="Caja de cambios: dos ejes con pares de ruedas dentadas de distinto tama&ntilde;o"></svg>
         </div>
-        <div class="pie" id="pie-caja"></div>
+        <div class="pie" id="pie-caja" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1824,7 +1937,7 @@ footer .wrap{padding-block:18px 26px}
           m += rot(xt, 126, 'salida: ' + Math.round(rpm2) + ' rpm', TI, 13);
           m += rot(xt, 146, (i < 1 ? 'fuerza &times; ' + (1/i).toFixed(1)
                                    : 'fuerza &times; ' + (1/i).toFixed(2) + ' (pierde)'),
-                   i < 1 ? 'var(--goo-verde)' : RO, 13);
+                   i < 1 ? 'var(--verde-texto)' : RO, 13);
           m += rot(40, 302, 'Todos los pares suman ' + SUMA + ' dientes: los ejes est&aacute;n '
                  + 'a una distancia fija.', GR, 11.5);
           svg.innerHTML = m;
@@ -1847,7 +1960,7 @@ footer .wrap{padding-block:18px 26px}
           });
           sel = +b.dataset.m; pinta();
         });
-        raf = requestAnimationFrame(cuadro);
+        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(cuadro); }
       })();
       </script>
 
@@ -2046,7 +2159,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Mecanismo de biela y manivela: la manivela gira y el pist&oacute;n va y viene
                            dentro del cilindro, con la gr&aacute;fica de su recorrido a lo largo de una vuelta"></svg>
         </div>
-        <div class="pie" id="pie-biela"></div>
+        <div class="pie" id="pie-biela" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2233,7 +2346,7 @@ footer .wrap{padding-block:18px 26px}
           pinta();
         });
         pinta();
-        raf = requestAnimationFrame(cuadro);
+        if(!QUIETO()) raf = requestAnimationFrame(cuadro);
       })();
       </script>
 
@@ -2279,7 +2392,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Del mismo profesor que los v&iacute;deos de la palanca y de los engranajes, as&iacute; que usa el mismo vocabulario que hemos usado en clase. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=Dyee1JVYsd0" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
@@ -2292,7 +2406,7 @@ footer .wrap{padding-block:18px 26px}
         var b = c.querySelector('.video-play');
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
-          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1';
+          f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2302,7 +2416,7 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
       <figure class="foto">
-        <img src="../../../img/u5-biela-locomotora.jpg" loading="lazy" alt="Bajos de una locomotora de vapor vistos de lado: a la derecha el cilindro, del que sale un v&aacute;stago horizontal; ese v&aacute;stago se une a una barra larga que baja hasta un pasador montado fuera del centro de la rueda motriz">
+        <img src="../../../img/u5-biela-locomotora.jpg" width="1760" height="802" loading="lazy" alt="Bajos de una locomotora de vapor vistos de lado: a la derecha el cilindro, del que sale un v&aacute;stago horizontal; ese v&aacute;stago se une a una barra larga que baja hasta un pasador montado fuera del centro de la rueda motriz">
         <figcaption>Los bajos de una locomotora de vapor de 1911 (la Ec 4/5 n.&ordm; 11 del Dampfbahn Bern). Se ve la cadena entera: el <b>cilindro</b>, a la derecha; el <b>v&aacute;stago</b> que sale de &eacute;l empujado por el vapor; la <b>biela</b>, esa barra larga; y el pasador donde acaba, montado <b>fuera del centro</b> de la rueda: esa es la <b>manivela</b>. El vapor empuja recto y la rueda gira.
           <span class="credito">Abderitestatos &middot; CC BY 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:11Ec45SMBBauma-20121014viii.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2330,7 +2444,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Leva con seguidor, tornillo con tuerca y pi&ntilde;&oacute;n con cremallera, con
                            la altura del seguidor y el avance por vuelta calculados"></svg>
         </div>
-        <div class="pie" id="pie-transforma"></div>
+        <div class="pie" id="pie-transforma" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2698,7 +2812,7 @@ footer .wrap{padding-block:18px 26px}
           pinta();
         });
         pinta();
-        raf = requestAnimationFrame(cuadro);
+        if(!QUIETO()) raf = requestAnimationFrame(cuadro);
       })();
       </script>
 
@@ -2735,7 +2849,7 @@ footer .wrap{padding-block:18px 26px}
            Es la misma regla de la palanca, del polipasto y de los engranajes, llevada al extremo.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/u5-arbol-levas.jpg" loading="lazy" alt="Dos &aacute;rboles de levas de un motor de coche, expuestos en una vitrina: dos ejes de acero con una hilera de piezas ovaladas montadas a distintos &aacute;ngulos">
+        <img src="../../../img/u5-arbol-levas.jpg" width="1760" height="1326" loading="lazy" alt="Dos &aacute;rboles de levas de un motor de coche, expuestos en una vitrina: dos ejes de acero con una hilera de piezas ovaladas montadas a distintos &aacute;ngulos">
         <figcaption>Dos <b>&aacute;rboles de levas</b> de un motor de coche (Museo de la Industria de Chemnitz). Cada bulto ovalado es una leva, y cada una abre una v&aacute;lvula. F&iacute;jate en que <b>no est&aacute;n giradas igual</b>: esa diferencia de &aacute;ngulo es la que decide en qu&eacute; orden se abre cada v&aacute;lvula. El motor entero est&aacute; <b>programado en la forma y la posici&oacute;n</b> de estas piezas.
           <span class="credito">Elmschrat &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:1-_nockenwelle.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2975,7 +3089,7 @@ footer .wrap{padding-block:18px 26px}
                            dientes elegidos, con los di&aacute;metros y la distancia entre centros calculados"
                preserveAspectRatio="xMidYMid meet"></svg>
         </div>
-        <div class="pie" id="pie-plantilla"></div>
+        <div class="pie" id="pie-plantilla" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3135,7 +3249,7 @@ footer .wrap{padding-block:18px 26px}
            que resuelve la evolvente.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/u5-rueda-linterna.jpg" loading="lazy" alt="Interior de un molino de viento de madera: una rueda grande con dientes rectangulares de madera encajados en el borde engrana con un pi&ntilde;&oacute;n formado por barrotes redondos entre dos discos">
+        <img src="../../../img/u5-rueda-linterna.jpg" width="1600" height="963" loading="lazy" alt="Interior de un molino de viento de madera: una rueda grande con dientes rectangulares de madera encajados en el borde engrana con un pi&ntilde;&oacute;n formado por barrotes redondos entre dos discos">
         <figcaption>El engranaje de madera de un molino de viento de Long Island. A la izquierda, la rueda grande con los dientes <b>metidos uno a uno</b> en el borde; a la derecha, la <b>linterna</b>: dos discos y unos barrotes redondos que hacen de dientes. Ni una curva calculada: un carpintero repartiendo el contorno en partes iguales. Es exactamente lo que vas a hacer t&uacute; hoy con cart&oacute;n, y el motivo por el que todo depende de una sola medida: <b>lo que mide un diente</b>.
           <span class="credito">Historic American Buildings Survey &middot; Dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Cage_Gear.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3305,7 +3419,7 @@ footer .wrap{padding-block:18px 26px}
                aria-label="Cadena de mecanismos: motor, dos etapas de transmisi&oacute;n y una de
                            transformaci&oacute;n, con las vueltas y la fuerza calculadas en cada punto"></svg>
         </div>
-        <div class="pie" id="pie-cadena"></div>
+        <div class="pie" id="pie-cadena" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3348,10 +3462,15 @@ footer .wrap{padding-block:18px 26px}
           if(s.indexOf('.') >= 0) s = s.replace(/0+$/, '').replace(/\.$/, '');
           return s;
         }
+        /* el color del borde y el del titulo no son el mismo: el verde de rellenar
+           no se lee como texto sobre el fondo claro (2,75 : 1) */
+        var TINTA_DE = {'var(--goo-verde)': 'var(--verde-texto)',
+                        'var(--goo-amarillo)': 'var(--amar-texto)'};
+
         function caja(x, y, w, h, titulo, l1, l2, col, tam){
           var m = '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="3" fill="'
                 + S2 + '" stroke="' + col + '" stroke-width="2.2"></rect>';
-          m += rot(x + w/2, y + 20, titulo, col, 11.5, 'middle');
+          m += rot(x + w/2, y + 20, titulo, TINTA_DE[col] || col, 11.5, 'middle');
           if(l1) m += rot(x + w/2, y + 41, l1, TI, tam || 10.5, 'middle');
           if(l2) m += rot(x + w/2, y + 59, l2, GR, 10, 'middle');
           return m;
@@ -3505,15 +3624,108 @@ footer .wrap{padding-block:18px 26px}
          escrita cuando haga falta, y luego m&aacute;rcalas aqu&iacute; y pulsa
          <i>Corregir el test</i>. Al corregir te dir&aacute; la nota y a qu&eacute; sesiones tienes que
          volver.</p>
-      <div class="nota">
+            <p style="margin:18px 0 10px">Diez preguntas para comprobar qu&eacute; ha quedado sujeto.
+         Cada una explica por qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota.</p>
+      <div class="ta" id="test-u5">
+        <h4>Lo que tiene que haber quedado del tema</h4>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u5-p1">
+          <p id="test-u5-p1">1. Una palanca sirve para&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-0" value="0">crear m&aacute;s fuerza de la que t&uacute; haces</label>
+          <label class="ta-op"><input type="radio" name="u5-0" value="1">cambiar fuerza por recorrido: menos fuerza, m&aacute;s camino</label>
+          <label class="ta-op"><input type="radio" name="u5-0" value="2">que la carga pese menos</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es la idea del tema entero. La palanca no a&ntilde;ade energ&iacute;a: reparte la misma de otra manera. Si haces la mitad de fuerza, recorres el doble de camino.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u5-p2">
+          <p id="test-u5-p2">2. Con un polipasto de cuatro cabos subes un saco de 80 kg. Haces una fuerza de unos 20 kg. &iquest;Qu&eacute; pasa con la cuerda?</p>
+          <label class="ta-op"><input type="radio" name="u5-1" value="0">tiras de la misma longitud que sube el saco</label>
+          <label class="ta-op"><input type="radio" name="u5-1" value="1">tiras de la cuarta parte</label>
+          <label class="ta-op"><input type="radio" name="u5-1" value="2">tiras de cuatro veces m&aacute;s cuerda</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El mismo trato de la palanca. Divides la fuerza entre cuatro y multiplicas por cuatro el recorrido: para subir el saco un metro, tiras de cuatro metros de cuerda.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u5-p3">
+          <p id="test-u5-p3">3. Un pi&ntilde;&oacute;n peque&ntilde;o arrastra a una rueda grande. En la rueda grande&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-2" value="0">hay m&aacute;s fuerza y menos velocidad</label>
+          <label class="ta-op"><input type="radio" name="u5-2" value="1">hay m&aacute;s fuerza y m&aacute;s velocidad</label>
+          <label class="ta-op"><input type="radio" name="u5-2" value="2">hay menos fuerza y menos velocidad</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es un <b>reductor</b>. La rueda grande da menos vueltas, y a cambio cada vuelta sale con m&aacute;s fuerza. Lo mismo de siempre, pero girando.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u5-p4">
+          <p id="test-u5-p4">4. Una rueda de 12 dientes mueve otra de 36. La relaci&oacute;n de transmisi&oacute;n es&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-3" value="0">1 a 2: la grande da media vuelta por cada vuelta de la peque&ntilde;a</label>
+          <label class="ta-op"><input type="radio" name="u5-3" value="1">1 a 3: la grande da un tercio de vuelta por cada vuelta de la peque&ntilde;a</label>
+          <label class="ta-op"><input type="radio" name="u5-3" value="2">3 a 1: la grande da tres vueltas por cada vuelta de la peque&ntilde;a</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> 36 &divide; 12 = 3. Los dientes que entran por un lado salen por el otro, as&iacute; que la grande tarda tres vueltas de la peque&ntilde;a en dar una suya.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u5-p5">
+          <p id="test-u5-p5">5. En la bici, con el plato peque&ntilde;o subes la cuesta pero vas lento. &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="u5-4" value="0">porque la cadena pesa menos por ese lado</label>
+          <label class="ta-op"><input type="radio" name="u5-4" value="1">porque el plato peque&ntilde;o tiene m&aacute;s dientes</label>
+          <label class="ta-op"><input type="radio" name="u5-4" value="2">porque cambias fuerza por velocidad: das m&aacute;s pedaladas y cada una cuesta menos</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Cambiar de marcha es cambiar la relaci&oacute;n de transmisi&oacute;n. Nadie se hace m&aacute;s fuerte al cambiar: reparte el mismo esfuerzo en m&aacute;s vueltas.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u5-p6">
+          <p id="test-u5-p6">6. La biela-manivela sirve para&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-5" value="0">convertir un giro en un vaiv&eacute;n, o al rev&eacute;s</label>
+          <label class="ta-op"><input type="radio" name="u5-5" value="1">aumentar la fuerza de un giro</label>
+          <label class="ta-op"><input type="radio" name="u5-5" value="2">frenar un eje que gira demasiado</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Es un <b>transformador</b> de movimiento, no un multiplicador de fuerza. El motor gira siempre igual y el pist&oacute;n sube y baja: ah&iacute; est&aacute; la biela.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u5-p7">
+          <p id="test-u5-p7">7. &iquest;Cu&aacute;l de estos convierte giro en movimiento recto?</p>
+          <label class="ta-op"><input type="radio" name="u5-6" value="0">la polea fija</label>
+          <label class="ta-op"><input type="radio" name="u5-6" value="1">el pi&ntilde;&oacute;n-cremallera</label>
+          <label class="ta-op"><input type="radio" name="u5-6" value="2">la correa</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> El pi&ntilde;&oacute;n gira y la cremallera avanza recta. Es lo que mueve la puerta de un garaje o el carro de una impresora. La polea y la correa transmiten el giro sin cambiarlo de clase.</div>
+        </div>
+
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u5-p8">
+          <p id="test-u5-p8">8. Una leva&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-7" value="0">es una rueda dentada peque&ntilde;a</label>
+          <label class="ta-op"><input type="radio" name="u5-7" value="1">sirve para tensar una cadena</label>
+          <label class="ta-op"><input type="radio" name="u5-7" value="2">es una pieza con un bulto que, al girar, empuja a otra que sube y baja</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La forma del bulto decide <b>cu&aacute;ndo</b> y <b>cu&aacute;nto</b> sube el seguidor. Por eso la leva abre las v&aacute;lvulas de un motor justo en el momento que toca.</div>
+        </div>
+
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u5-p9">
+          <p id="test-u5-p9">9. Montaste el reductor de cart&oacute;n de 1 a 2 y la grande no daba media vuelta exacta. La causa m&aacute;s probable es&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-8" value="0">que los dientes no estaban todos iguales ni bien repartidos</label>
+          <label class="ta-op"><input type="radio" name="u5-8" value="1">que el cart&oacute;n pesa poco</label>
+          <label class="ta-op"><input type="radio" name="u5-8" value="2">que las chinchetas eran met&aacute;licas</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Lo que engrana no son las ruedas, son los <b>dientes</b>: si uno es m&aacute;s ancho, patina o se traba, y la cuenta de vueltas deja de salir. Recortados a ojo no engranan.</div>
+        </div>
+
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u5-p10">
+          <p id="test-u5-p10">10. La idea que hay debajo de los doce mecanismos del tema es&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u5-9" value="0">que cuantas m&aacute;s piezas tenga una m&aacute;quina, m&aacute;s fuerza da</label>
+          <label class="ta-op"><input type="radio" name="u5-9" value="1">que ninguno regala nada: lo que ganas por un lado lo pagas por otro</label>
+          <label class="ta-op"><input type="radio" name="u5-9" value="2">que todos sirven para lo mismo</label>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Fuerza, recorrido o velocidad: siempre se cambia una cosa por otra. Y en una m&aacute;quina real todav&iacute;a sale un poco menos de lo que entra, porque el rozamiento se lleva su parte.</div>
+          <div class="ta-pie">
+          <button type="button" data-a="corregir">Corregir</button>
+          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
+        </div>
+        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
+          Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
+      </div>
+      </div>
+
+<div class="nota">
         <span class="n-tag">C&oacute;mo se usa esto</span>
         La nota de aqu&iacute; <b>no cuenta</b> para nada: es para ti. Lo que cuenta es lo que hagas
         despu&eacute;s con las que falles. Puedes repetirlo las veces que quieras.
       </div>
       <div class="test" id="test-u5">
         <ol class="test-lista">
-          <li class="test-p" data-ok="1" data-ses="1">
-            <p class="test-enun">Una llave de 20 cm no puede con una tuerca. Le metes un tubo y la llave pasa a medir 60 cm. &iquest;Qu&eacute; le pasa a la fuerza que tienes que hacer?</p>
+          <li class="test-p" data-ok="1" data-ses="1" role="group" aria-labelledby="test-u5-p1">
+            <p class="test-enun" id="test-u5-p1">Una llave de 20 cm no puede con una tuerca. Le metes un tubo y la llave pasa a medir 60 cm. &iquest;Qu&eacute; le pasa a la fuerza que tienes que hacer?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp1" value="0"><span>Se multiplica por 3</span></label>
               <label><input type="radio" name="tp1" value="1"><span>Se divide entre 3</span></label>
@@ -3522,8 +3734,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>El brazo de tu fuerza se multiplica por 3, as&iacute; que la fuerza se divide entre 3. De F &middot; b<sub>F</sub> = R &middot; b<sub>R</sub>: si b<sub>F</sub> se triplica, F se reduce a la tercera parte. Y t&uacute; recorres el triple de arco.</p></div>
           </li>
-          <li class="test-p" data-ok="1" data-ses="1">
-            <p class="test-enun">Una carretilla es una palanca de <b>segundo g&eacute;nero</b>. Eso quiere decir que&hellip;</p>
+          <li class="test-p" data-ok="1" data-ses="1" role="group" aria-labelledby="test-u5-p2">
+            <p class="test-enun" id="test-u5-p2">Una carretilla es una palanca de <b>segundo g&eacute;nero</b>. Eso quiere decir que&hellip;</p>
             <div class="test-ops">
               <label><input type="radio" name="tp2" value="0"><span>el punto de apoyo est&aacute; en medio</span></label>
               <label><input type="radio" name="tp2" value="1"><span>la resistencia est&aacute; en medio, as&iacute; que siempre gana fuerza</span></label>
@@ -3532,8 +3744,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>El apoyo es la rueda, en un extremo; t&uacute; est&aacute;s en el otro, en los mangos; y la carga queda <b>en medio</b>. Como b<sub>F</sub> es forzosamente mayor que b<sub>R</sub>, una palanca de segundo g&eacute;nero <b>siempre</b> multiplica la fuerza.</p></div>
           </li>
-          <li class="test-p" data-ok="2" data-ses="1">
-            <p class="test-enun">Una palanca multiplica tu fuerza por 5. Para subir la carga 4 cm, tu mano recorre&hellip;</p>
+          <li class="test-p" data-ok="2" data-ses="1" role="group" aria-labelledby="test-u5-p3">
+            <p class="test-enun" id="test-u5-p3">Una palanca multiplica tu fuerza por 5. Para subir la carga 4 cm, tu mano recorre&hellip;</p>
             <div class="test-ops">
               <label><input type="radio" name="tp3" value="0"><span>4 cm</span></label>
               <label><input type="radio" name="tp3" value="1"><span>0,8 cm</span></label>
@@ -3542,8 +3754,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>Lo que se gana en fuerza se paga en recorrido, y en la misma proporci&oacute;n: 5 &times; 4 = <b>20 cm</b>. Es la regla de oro, y vale para la palanca, el polipasto, los engranajes y el gato del coche.</p></div>
           </li>
-          <li class="test-p" data-ok="2" data-ses="2">
-            <p class="test-enun">Un polipasto sube <b>150 kg</b> y quien tira hace <b>375 N</b>. &iquest;Cu&aacute;ntos tramos de cuerda sostienen la carga?</p>
+          <li class="test-p" data-ok="2" data-ses="2" role="group" aria-labelledby="test-u5-p4">
+            <p class="test-enun" id="test-u5-p4">Un polipasto sube <b>150 kg</b> y quien tira hace <b>375 N</b>. &iquest;Cu&aacute;ntos tramos de cuerda sostienen la carga?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp4" value="0"><span>2 tramos</span></label>
               <label><input type="radio" name="tp4" value="1"><span>3 tramos</span></label>
@@ -3552,8 +3764,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>150 kg son 1.500 N. n = 1.500 / 375 = <b>4 tramos</b>. Y para subir la carga un metro, hay que tirar de cuatro metros de cuerda.</p></div>
           </li>
-          <li class="test-p" data-ok="0" data-ses="2">
-            <p class="test-enun">Si una polea fija no multiplica la fuerza, &iquest;para qu&eacute; se pone?</p>
+          <li class="test-p" data-ok="0" data-ses="2" role="group" aria-labelledby="test-u5-p5">
+            <p class="test-enun" id="test-u5-p5">Si una polea fija no multiplica la fuerza, &iquest;para qu&eacute; se pone?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp5" value="0"><span>Para cambiar la <b>direcci&oacute;n</b> de la fuerza: as&iacute; puedes tirar hacia abajo, colgarte y poner a m&aacute;s gente en la cuerda</span></label>
               <label><input type="radio" name="tp5" value="1"><span>Para que la cuerda no se desgaste</span></label>
@@ -3562,8 +3774,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>Cambiar la direcci&oacute;n no multiplica nada, y aun as&iacute; puede ser media soluci&oacute;n: tirando hacia abajo sumas tu propio peso, apoyas los pies y cabe m&aacute;s gente en la cuerda. Adem&aacute;s te deja estar <b>lejos</b> de la carga.</p></div>
           </li>
-          <li class="test-p" data-ok="1" data-ses="3">
-            <p class="test-enun">Una rueda de <b>15 dientes</b> que gira a <b>600 rpm</b> mueve a otra de <b>45 dientes</b>. &iquest;A cu&aacute;ntas rpm gira la segunda?</p>
+          <li class="test-p" data-ok="1" data-ses="3" role="group" aria-labelledby="test-u5-p6">
+            <p class="test-enun" id="test-u5-p6">Una rueda de <b>15 dientes</b> que gira a <b>600 rpm</b> mueve a otra de <b>45 dientes</b>. &iquest;A cu&aacute;ntas rpm gira la segunda?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp6" value="0"><span>1.800 rpm</span></label>
               <label><input type="radio" name="tp6" value="1"><span>200 rpm</span></label>
@@ -3572,8 +3784,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>i = z<sub>1</sub>/z<sub>2</sub> = 15/45 = 0,33. n<sub>2</sub> = 600 &middot; 0,33 = <b>200 rpm</b>, y en sentido contrario. Es un reductor: tres veces menos velocidad y tres veces m&aacute;s fuerza.</p></div>
           </li>
-          <li class="test-p" data-ok="3" data-ses="3">
-            <p class="test-enun">&iquest;Qu&eacute; hace una rueda intermedia (una &laquo;loca&raquo;) metida entre otras dos?</p>
+          <li class="test-p" data-ok="3" data-ses="3" role="group" aria-labelledby="test-u5-p7">
+            <p class="test-enun" id="test-u5-p7">&iquest;Qu&eacute; hace una rueda intermedia (una &laquo;loca&raquo;) metida entre otras dos?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp7" value="0"><span>Multiplica la relaci&oacute;n de transmisi&oacute;n por sus dientes</span></label>
               <label><input type="radio" name="tp7" value="1"><span>Divide la relaci&oacute;n entre sus dientes</span></label>
@@ -3582,8 +3794,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>Sus dientes se cancelan en la cuenta: lo que multiplica por un lado lo divide por el otro. Lo &uacute;nico que consigue es <b>invertir el sentido</b>. Es exactamente lo que hace la marcha atr&aacute;s de un coche.</p></div>
           </li>
-          <li class="test-p" data-ok="1" data-ses="4">
-            <p class="test-enun">La manivela de una biela-manivela tiene <b>25 mm de radio</b>. La carrera del pist&oacute;n es&hellip;</p>
+          <li class="test-p" data-ok="1" data-ses="4" role="group" aria-labelledby="test-u5-p8">
+            <p class="test-enun" id="test-u5-p8">La manivela de una biela-manivela tiene <b>25 mm de radio</b>. La carrera del pist&oacute;n es&hellip;</p>
             <div class="test-ops">
               <label><input type="radio" name="tp8" value="0"><span>25 mm</span></label>
               <label><input type="radio" name="tp8" value="1"><span>50 mm</span></label>
@@ -3592,8 +3804,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>Carrera = 2 &middot; r = <b>50 mm</b>, que es el di&aacute;metro de la circunferencia que describe la mu&ntilde;eta. La biela <b>no</b> influye en la carrera: solo cambia lo brusco que es el reparto dentro de cada vuelta.</p></div>
           </li>
-          <li class="test-p" data-ok="2" data-ses="4">
-            <p class="test-enun">Un tornillo de banco tiene un paso de rosca de <b>3 mm</b>. Le das <b>7 vueltas</b>. &iquest;Cu&aacute;nto se ha cerrado?</p>
+          <li class="test-p" data-ok="2" data-ses="4" role="group" aria-labelledby="test-u5-p9">
+            <p class="test-enun" id="test-u5-p9">Un tornillo de banco tiene un paso de rosca de <b>3 mm</b>. Le das <b>7 vueltas</b>. &iquest;Cu&aacute;nto se ha cerrado?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp9" value="0"><span>3 mm</span></label>
               <label><input type="radio" name="tp9" value="1"><span>7 mm</span></label>
@@ -3602,8 +3814,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>El paso es lo que avanza la tuerca en <b>una</b> vuelta, as&iacute; que 3 &times; 7 = <b>21 mm</b>. Cuanto m&aacute;s fino sea el paso, m&aacute;s fuerza hace el tornillo y m&aacute;s vueltas hay que dar.</p></div>
           </li>
-          <li class="test-p" data-ok="3" data-ses="4">
-            <p class="test-enun">Necesitas que algo suba despacio, se quede quieto arriba un rato, caiga de golpe y espere. Una y otra vez. &iquest;Qu&eacute; mecanismo eliges?</p>
+          <li class="test-p" data-ok="3" data-ses="4" role="group" aria-labelledby="test-u5-p10">
+            <p class="test-enun" id="test-u5-p10">Necesitas que algo suba despacio, se quede quieto arriba un rato, caiga de golpe y espere. Una y otra vez. &iquest;Qu&eacute; mecanismo eliges?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp10" value="0"><span>Pi&ntilde;&oacute;n-cremallera</span></label>
               <label><input type="radio" name="tp10" value="1"><span>Tornillo-tuerca</span></label>
@@ -3612,8 +3824,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>Solo la <b>leva</b> sabe hacer un movimiento con gui&oacute;n propio, porque el gui&oacute;n <b>es su forma</b>. La biela-manivela solo sabe ir y venir siempre igual, y los otros dos dan un avance constante mientras giren.</p></div>
           </li>
-          <li class="test-p" data-ok="1" data-ses="5">
-            <p class="test-enun">Dos ruedas dentadas de <b>m&oacute;dulo 5 mm</b>, una de <b>16 dientes</b> y otra de <b>24</b>. &iquest;A qu&eacute; distancia hay que poner los dos ejes?</p>
+          <li class="test-p" data-ok="1" data-ses="5" role="group" aria-labelledby="test-u5-p11">
+            <p class="test-enun" id="test-u5-p11">Dos ruedas dentadas de <b>m&oacute;dulo 5 mm</b>, una de <b>16 dientes</b> y otra de <b>24</b>. &iquest;A qu&eacute; distancia hay que poner los dos ejes?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp11" value="0"><span>200 mm</span></label>
               <label><input type="radio" name="tp11" value="1"><span>100 mm</span></label>
@@ -3622,8 +3834,8 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="test-fb" hidden><p>d = m &middot; z, as&iacute; que 80 mm y 120 mm. Los ejes van a la <b>suma de los radios</b>: (80 + 120) / 2 = <b>100 mm</b>. Si te equivocas en esa medida, las ruedas no engranan por mucho que est&eacute;n bien trazadas.</p></div>
           </li>
-          <li class="test-p" data-ok="0" data-ses="6">
-            <p class="test-enun">Un motor de <b>1.500 rpm</b> pasa por un reductor de 12&rarr;48 dientes y luego por un <b>tornillo sin fin</b> con una rueda de 40. &iquest;Qu&eacute; sale por el otro lado?</p>
+          <li class="test-p" data-ok="0" data-ses="6" role="group" aria-labelledby="test-u5-p12">
+            <p class="test-enun" id="test-u5-p12">Un motor de <b>1.500 rpm</b> pasa por un reductor de 12&rarr;48 dientes y luego por un <b>tornillo sin fin</b> con una rueda de 40. &iquest;Qu&eacute; sale por el otro lado?</p>
             <div class="test-ops">
               <label><input type="radio" name="tp12" value="0"><span>9,4 rpm, y la fuerza multiplicada por 160</span></label>
               <label><input type="radio" name="tp12" value="1"><span>9,4 rpm, y la fuerza dividida entre 160</span></label>
@@ -3742,7 +3954,7 @@ footer .wrap{padding-block:18px 26px}
         <b>alguien empuje por un extremo</b>. Hasta ahora ese alguien has sido t&uacute;, o el agua, o el
         viento. En el <b>tema 6</b> aparece una forma de energ&iacute;a que llega por un cable, se
         enciende con un interruptor y no se cansa: la <b>electricidad</b>.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema6/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 6 &middot; Electricidad y electr&oacute;nica &rarr;</a></p></div>
   
     </section>
 
@@ -3797,7 +4009,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -3817,7 +4029,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3846,8 +4058,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -3860,7 +4081,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -3879,5 +4103,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

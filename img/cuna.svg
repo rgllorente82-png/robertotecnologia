@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" width="760" height="380">
+<rect width="760" height="330" fill="#fff"/>
+<style>text{font-family:monospace;font-size:12px;fill:#5f6368}.t{font-size:13px;fill:#202124}.c{font-size:11px;fill:#1a73e8}</style>
+<polygon points="430.0,380.0 450.0,380.0 450.0,250.0 430.0,250.0" fill="#e8eaed" stroke="#202124" stroke-width="2"/>
+<polygon points="430.0,190.0 450.0,190.0 450.0,40.0 430.0,40.0" fill="#e8eaed" stroke="#202124" stroke-width="2"/>
+<text class="t" x="460.0" y="318">A</text>
+<text x="478.0" y="318">respaldo vertical</text>
+<path d="M416.0 250.0 V190.0 M416.0 250.0 h-8 M416.0 190.0 h-8" stroke="#1a73e8" stroke-width="1.2"/>
+<text class="c" x="410.0" y="224.0" text-anchor="end">hendidura 12</text>
+<polygon points="40.0,250.0 580.0,250.0 580.0,230.0 40.0,230.0" fill="#fff" stroke="#202124" stroke-width="2"/>
+<text class="t" x="70.0" y="272.0">B</text>
+<text x="88.0" y="272.0">pieza horizontal, apoyada en el borde de abajo</text>
+<text class="c" x="110.0" y="210.0">queda este hueco de 8</text>
+<polygon points="380.0,230.0 580.0,230.0 580.0,190.0" fill="#fce8b2" stroke="#202124" stroke-width="2"/>
+<text class="t" x="590.0" y="186.0">C</text>
+<text x="608.0" y="186.0">la cu&#241;a: un tri&#225;ngulo de 40 x 8</text>
+<path d="M800.0 210.0 H610.0" stroke="#1a73e8" stroke-width="2.4"/>
+<path d="M610.0 210.0 l9 -5 l0 10 Z" fill="#1a73e8"/>
+<text class="c" x="820.0" y="215.0">se mete por aqu&#237;</text>
+<text class="t" x="40" y="26">El detalle de la uni&#243;n, a 5:1</text>
+<text x="40" y="46">B entra por la hendidura y se apoya en su borde de abajo. Como la hendidura es m&#225;s alta</text>
+<text x="40" y="64">que el grueso de B, encima queda un hueco: ah&#237; entra la cu&#241;a. Cuanto m&#225;s entra, m&#225;s aprieta,</text>
+<text x="40" y="82">y al apretar deja de haber juego: A no puede cabecear y B no puede salirse.</text>
+</svg>

@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema5/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 5 &middot; Electr&oacute;nica y neum&aacute;tica">
+<meta property="og:description" content="Tema 5 de Tecnolog&iacute;a de 4.&ordm; de ESO: divisor de tensi&oacute;n y sensores, el transistor como interruptor, cilindros neum&aacute;ticos y circuitos de mando con simbolog&iacute;a ISO 1219.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema5/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema5.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 5 &middot; Electr&oacute;nica y neum&aacute;tica &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -300,18 +319,56 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 </style>
+<script>
+/* quien pide reducir el movimiento, lo pide tambien para las escenas */
+window.QUIETO = function(){
+  return !!(window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+};
+</script>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 5</div>
     <h1>Electr&oacute;nica y neum&aacute;tica</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El sensor y el divisor</button><button type="button" data-ses="2">S2 &middot; El transistor</button><button type="button" data-ses="3">S3 &middot; Fuerza con aire</button><button type="button" data-ses="4">S4 &middot; Mandar el aire</button><button type="button" data-ses="5">S5 &middot; Del esquema al montaje</button><button type="button" data-ses="6">S6 &middot; El programa que decide</button><button type="button" data-ses="7">S7 &middot; Electrov&aacute;lvulas y secuencias</button><button type="button" data-ses="8">S8 &middot; El automatismo completo</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; El sensor y el divisor</button><button type="button" data-ses="2">S2 &middot; El transistor</button><button type="button" data-ses="3">S3 &middot; Fuerza con aire</button><button type="button" data-ses="4">S4 &middot; Mandar el aire</button><button type="button" data-ses="5">S5 &middot; Del esquema al montaje</button><button type="button" data-ses="6">S6 &middot; El programa que decide</button><button type="button" data-ses="7">S7 &middot; Electrov&aacute;lvulas y secuencias</button><button type="button" data-ses="8">S8 &middot; El automatismo completo</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -327,7 +384,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c5">
         <div class="narrador-fig" id="narr-c5-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va este tema</h4>
+          <h3 class="h-menor">De qu&eacute; va este tema</h3>
           <span class="narrador-quien">Ya sabes encender una bombilla. Ahora que se encienda sola, y que empuje</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -512,7 +569,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 380" id="svg-div" role="img"
                aria-label="Un divisor de tensi&oacute;n con un sensor y una resistencia fija, y la curva de la tensi&oacute;n de salida"></svg>
         </div>
-        <div class="pie" id="pie-div"></div>
+        <div class="pie" id="pie-div" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -855,7 +912,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="galeria-ri">
 
       <figure class="foto">
-        <img src="../../../img/u7-ldr.jpg" loading="lazy" alt="Primer plano de una LDR: c&aacute;psula redonda con una pista naranja en zigzag bajo un cristal y dos patillas">
+        <img src="../../../img/u7-ldr.jpg" width="1280" height="853" loading="lazy" alt="Primer plano de una LDR: c&aacute;psula redonda con una pista naranja en zigzag bajo un cristal y dos patillas">
         <figcaption>Una <b>LDR</b> de cerca. La pista naranja en zigzag es el material que cambia de resistencia con la luz. F&iacute;jate en que no tiene pantalla, ni chip, ni tres patillas: solo dos. Todo lo dem&aacute;s lo pone el circuito.
           <span class="credito">Suyash Dwivedi &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:25mm_light-dependent_resistor_(LDR)_(1).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -863,7 +920,7 @@ footer .wrap{padding-block:18px 26px}
       </figure>
 
       <figure class="foto">
-        <img src="../../../img/c5-ntc.jpg" loading="lazy" alt="Disco verde de una NTC soldado en una placa de circuito impreso, con la serigraf&iacute;a TH1 y el s&iacute;mbolo de resistencia debajo">
+        <img src="../../../img/c5-ntc.jpg" width="1211" height="1140" loading="lazy" alt="Disco verde de una NTC soldado en una placa de circuito impreso, con la serigraf&iacute;a TH1 y el s&iacute;mbolo de resistencia debajo">
         <figcaption>Una <b>NTC</b> soldada en la fuente de un aparato. Mira la serigraf&iacute;a: pone <b>TH1</b> (de <i>thermistor</i>) y lleva dibujado el s&iacute;mbolo de resistencia. Pero ojo: esta en concreto es de las <b>gordas, de limitar el golpe de corriente al encender</b> &mdash;el <b>08D050</b> quiere decir 8 &#8486; a 25 &deg;C&mdash;, no de medir. La de medir que usar&aacute;s t&uacute; es de <b>10 k&#8486;</b> y mucho m&aacute;s peque&ntilde;a. Se distinguen leyendo el n&uacute;mero, que es media asignatura.
           <span class="credito">Soumyapatra13 &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:NTC_Thermistor.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -881,7 +938,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">El mismo divisor, montado y medido con el pol&iacute;metro delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=lD1O4KYJF9A" target="_blank" rel="noopener">&aacute;brelo
           en otra pesta&ntilde;a</a>.</p>
       </div>
@@ -1010,7 +1068,7 @@ footer .wrap{padding-block:18px 26px}
          cada pin es un transistor min&uacute;sculo grabado en silicio, del tama&ntilde;o de unas
          mic&oacute;nes, y la hoja de caracter&iacute;sticas del ATmega328P lo dice sin rodeos:</p>
       <div class="copiar">
-        <h4>Lo que da un pin de Arduino Uno</h4>
+        <h3 class="h-menor">Lo que da un pin de Arduino Uno</h3>
         <ul>
           <li><b>20 mA</b> por pin: lo recomendado, con lo que el chip trabaja bien.</li>
           <li><b>40 mA</b> por pin: el m&aacute;ximo absoluto. Pasado eso, el pin se estropea.</li>
@@ -1045,6 +1103,14 @@ footer .wrap{padding-block:18px 26px}
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
+      <figure class="foto">
+        <img src="../../../img/transistor-basics.svg" width="1000" height="600" loading="lazy"
+             alt="El transistor como interruptor y amplificador, con aplicaciones prácticas">
+        <figcaption>El <b>transistor</b> es el componente que revolucionó la electrónica moderna: permite que una pequeña corriente de control abra o cierre el paso a una corriente mucho mayor. Como interruptor electrónico, permite que Arduino controle motores, bombas y electroválvulas. Como amplificador, es la base de radios, equipos de audio y toda la electrónica analógica. Inventado en 1947, un transistor moderno cuesta apenas 1 céntimo.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <h3>Un grifo que abre otro grifo</h3>
       <div class="copiar">
         <h4>Definici&oacute;n</h4>
@@ -1071,15 +1137,25 @@ footer .wrap{padding-block:18px 26px}
         </ul>
         <p><b>Por qu&eacute; importa saturar</b>: un transistor a medio abrir se queda con parte de
            la tensi&oacute;n, y tensi&oacute;n por corriente es <b>calor</b>. Saturado se queda con
-           0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y eso
-           ya son 300 mW dentro de una c&aacute;psula del tama&ntilde;o de un guisante.</p>
+           0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y
+           2,5 V por 250 mA son 625 mW &mdash;doce veces m&aacute;s&mdash; dentro de una c&aacute;psula del
+           tama&ntilde;o de un guisante.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/transistor-switch-concept.svg" width="1000" height="700" loading="lazy"
+             alt="El transistor como interruptor: comparaci&oacute;n entre base sin se&ntilde;al y con se&ntilde;al">
+        <figcaption><b>El transistor como interruptor inteligente</b>. Con 0 V en la base: transistor bloqueado, comportamiento como interruptor ABIERTO, no fluye corriente. Con 5 V en la base: transistor conduciendo (saturado), comportamiento como interruptor CERRADO, fluye corriente. Una corriente peque&ntilde;a en la base (~10 mA) controla una corriente enorme en el colector (~500 mA): es la amplificaci&oacute;n.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <p>Mira las cuatro barras de la escena. Cambia la carga, cambia la resistencia de base y mira
          cu&aacute;ndo se pone verde el letrero.</p>
 
       <div class="escena" id="esc-tr">
         <div class="escena-barra">
-          <span class="escena-titulo">El pin da 20 mA. El motor pide diez veces m&aacute;s</span>
+          <span class="escena-titulo">El pin da 20 mA. La bomba pide doce veces m&aacute;s</span>
           <div class="seg" id="seg-tr-carga">
             <button type="button" data-c="led">LED &middot; 20 mA</button>
             <button type="button" data-c="bomba" aria-pressed="true">Bomba de riego &middot; 250 mA</button>
@@ -1115,7 +1191,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 430" id="svg-tr" role="img"
                aria-label="Un transistor NPN gobernando una carga desde un pin de Arduino, con las corrientes calculadas"></svg>
         </div>
-        <div class="pie" id="pie-tr"></div>
+        <div class="pie" id="pie-tr" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -1522,7 +1598,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c5-transistores.jpg" loading="lazy" alt="Cuatro transistores de distinto tama&ntilde;o sobre fondo gris: uno min&uacute;sculo de montaje superficial, uno de pl&aacute;stico negro con tres patillas, uno mediano con aleta met&aacute;lica y uno grande met&aacute;lico de dos orificios">
+        <img src="../../../img/c5-transistores.jpg" width="1280" height="1012" loading="lazy" alt="Cuatro transistores de distinto tama&ntilde;o sobre fondo gris: uno min&uacute;sculo de montaje superficial, uno de pl&aacute;stico negro con tres patillas, uno mediano con aleta met&aacute;lica y uno grande met&aacute;lico de dos orificios">
         <figcaption>Los cuatro son transistores, y los cuatro hacen lo mismo. Lo que cambia es <b>la corriente que aguantan</b>, y por eso cambia el tama&ntilde;o: de abajo a la izquierda, el de montaje superficial (miliamperios), el <b>TO-92</b> de pl&aacute;stico (el formato de tu BC547), uno con aleta para atornillar a un disipador, y el <b>TO-3</b> met&aacute;lico de la derecha, que mueve amperios. El tama&ntilde;o no es capricho: es <b>sitio para soltar calor</b>.
           <span class="credito">Mister rf &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Transistorer_(cropped).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1539,7 +1615,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">El mismo montaje llevado a un rel&eacute;, que es la carga con bobina m&aacute;s descarada de todas. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=TE_pQ8pyL80" target="_blank" rel="noopener">&aacute;brelo
           en otra pesta&ntilde;a</a>.</p>
       </div>
@@ -1647,7 +1724,7 @@ footer .wrap{padding-block:18px 26px}
       <p>El proyecto necesita <b>mover algo que pesa</b>: la barrera del aparcamiento de bicis, la
          tapa del contenedor, un caj&oacute;n que hay que empujar. Y ah&iacute; el motor se acaba.</p>
       <div class="copiar">
-        <h4>La cuenta que mata la idea</h4>
+        <h3 class="h-menor">La cuenta que mata la idea</h3>
         <p>Un <b>servo SG90</b>, que es lo que hay en todos los kits, da <b>1,8 kg&middot;cm</b>
            de par. Si le pones un brazo de <b>5 cm</b>, en la punta levanta:</p>
         <p class="cuenta">1,8 kg&middot;cm / 5 cm = <b>0,36 kg</b></p>
@@ -1765,7 +1842,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 380" id="svg-cil" role="img"
                aria-label="Corte de un cilindro neum&aacute;tico empujando una caja, con las fuerzas calculadas"></svg>
         </div>
-        <div class="pie" id="pie-cil"></div>
+        <div class="pie" id="pie-cil" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2055,7 +2132,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto alta">
-        <img src="../../../img/c5-cilindro.jpg" loading="lazy" alt="Cilindro neum&aacute;tico met&aacute;lico montado en vertical en una l&iacute;nea industrial, con dos tubos de aire conectados a codos de lat&oacute;n en los extremos y dos sensores sujetos al cuerpo con una brida">
+        <img src="../../../img/c5-cilindro.jpg" width="1280" height="1707" loading="lazy" alt="Cilindro neum&aacute;tico met&aacute;lico montado en vertical en una l&iacute;nea industrial, con dos tubos de aire conectados a codos de lat&oacute;n en los extremos y dos sensores sujetos al cuerpo con una brida">
         <figcaption>Un cilindro de <b>doble efecto</b> trabajando, en una l&iacute;nea de montaje. Cu&eacute;ntale los tubos: hay <b>dos</b> codos de lat&oacute;n, uno arriba y otro abajo, y eso es exactamente lo que quiere decir &laquo;doble efecto&raquo;. Las dos cajitas sujetas al cuerpo son <b>sensores magn&eacute;ticos</b> que detectan por d&oacute;nde va el &eacute;mbolo por dentro: as&iacute; es como un aut&oacute;mata se entera de si el cilindro ha llegado, sin verlo.
           <span class="credito">Mixabest &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Pneumatic_cylinder_2172.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2072,7 +2149,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">El corte del cilindro en movimiento, con el muelle y las dos tomas. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=0qBAGGq711o" target="_blank" rel="noopener">&aacute;brelo
           en otra pesta&ntilde;a</a>.</p>
       </div>
@@ -2284,7 +2362,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 450" id="svg-man" role="img"
                aria-label="Circuito neum&aacute;tico con simbolog&iacute;a ISO 1219: cilindro de doble efecto, v&aacute;lvula 5/2 y pulsadores 3/2"></svg>
         </div>
-        <div class="pie" id="pie-man"></div>
+        <div class="pie" id="pie-man" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -2728,7 +2806,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <figure class="foto">
-        <img src="../../../img/c5-valvulas.jpg" loading="lazy" alt="Fila de unas veinte electrov&aacute;lvulas neum&aacute;ticas blancas montadas una junto a otra sobre una placa com&uacute;n, con tubos negros y azules saliendo por arriba">
+        <img src="../../../img/c5-valvulas.jpg" width="1280" height="680" loading="lazy" alt="Fila de unas veinte electrov&aacute;lvulas neum&aacute;ticas blancas montadas una junto a otra sobre una placa com&uacute;n, con tubos negros y azules saliendo por arriba">
         <figcaption>Una <b>isla de v&aacute;lvulas</b> dentro del armario de una m&aacute;quina. Cada una de esas rebanadas blancas es una <b>5/2</b> como la de la escena, y cada una manda un cilindro. Van todas clavadas sobre una <b>placa base</b> que les reparte la presi&oacute;n por dentro, as&iacute; que solo hace falta <b>un tubo gordo de entrada</b> para todas. Lo que las acciona no es un dedo: es una bobina el&eacute;ctrica mandada por un aut&oacute;mata &mdash;que es mando indirecto, con la se&ntilde;al llegando por un cable en vez de por un tubo.
           <span class="credito">Blonder1984 &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Innenleben_eines_Astronauten,_pneumatic_control_unit.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2745,7 +2823,8 @@ footer .wrap{padding-block:18px 26px}
           </span>
         </button>
         <p class="video-nota">Los dos circuitos montados en FluidSIM, que es el simulador con el que se dibuja esto profesionalmente. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce
-          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=3WvLarEkYK0" target="_blank" rel="noopener">&aacute;brelo
           en otra pesta&ntilde;a</a>.</p>
       </div>
@@ -2854,82 +2933,82 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Test y cierre &middot; 15 min</div>
       <div class="ta" id="test-c5">
         <h4>Comprueba lo de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. &iquest;Por qu&eacute; una LDR conectada directamente a <code>A0</code> da valores que bailan?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p1">
+          <p id="test-c5-p1">1. &iquest;Por qu&eacute; una LDR conectada directamente a <code>A0</code> da valores que bailan?</p>
           <label class="ta-op"><input type="radio" name="c5-0" value="0">Porque la LDR necesita alimentaci&oacute;n de 5 V que no tiene</label>
           <label class="ta-op"><input type="radio" name="c5-0" value="1">Porque <code>analogRead()</code> mide tensi&oacute;n y una resistencia sola no fija ninguna tensi&oacute;n: el pin queda al aire</label>
           <label class="ta-op"><input type="radio" name="c5-0" value="2">Porque hace falta un condensador para filtrar el ruido</label>
           <label class="ta-op"><input type="radio" name="c5-0" value="3">Porque la LDR es un componente digital y A0 es una entrada anal&oacute;gica</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El pin es un volt&iacute;metro: mide voltios entre ese punto y masa. Una resistencia colgando no define ninguna tensi&oacute;n, as&iacute; que el pin recoge lo que le llega del ambiente. El divisor es lo que fija esa tensi&oacute;n.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>2. En un divisor de 5 V con el sensor abajo, el sensor mide 20 k&#8486; y la fija 5 k&#8486;. &iquest;Qu&eacute; tensi&oacute;n sale?</p>
-          <label class="ta-op"><input type="radio" name="c5-1" value="0">1,0 V</label>
-          <label class="ta-op"><input type="radio" name="c5-1" value="1">2,5 V</label>
-          <label class="ta-op"><input type="radio" name="c5-1" value="2">4,0 V</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p2">
+          <p id="test-c5-p2">2. En un divisor de 5 V con el sensor abajo, el sensor mide 20 k&#8486; y la fija 5 k&#8486;. &iquest;Qu&eacute; tensi&oacute;n sale?</p>
+          <label class="ta-op"><input type="radio" name="c5-1" value="0">4,0 V</label>
+          <label class="ta-op"><input type="radio" name="c5-1" value="1">1,0 V</label>
+          <label class="ta-op"><input type="radio" name="c5-1" value="2">2,5 V</label>
           <label class="ta-op"><input type="radio" name="c5-1" value="3">5,0 V</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> V = 5 &middot; 20 / (5 + 20) = 4 V. La resistencia m&aacute;s grande se queda con la mayor parte de la tensi&oacute;n, y aqu&iacute; la grande es la de abajo, que es la que se mide.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>3. &iquest;Cu&aacute;l es el criterio para elegir la resistencia fija de un divisor?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p3">
+          <p id="test-c5-p3">3. &iquest;Cu&aacute;l es el criterio para elegir la resistencia fija de un divisor?</p>
           <label class="ta-op"><input type="radio" name="c5-2" value="0">Siempre 10 k&#8486;, que es el valor est&aacute;ndar</label>
           <label class="ta-op"><input type="radio" name="c5-2" value="1">La m&aacute;s grande posible, para que gaste menos corriente</label>
           <label class="ta-op"><input type="radio" name="c5-2" value="2">Parecida a la que tiene el sensor en la zona que te interesa medir</label>
           <label class="ta-op"><input type="radio" name="c5-2" value="3">La m&aacute;s peque&ntilde;a posible, para que la se&ntilde;al sea m&aacute;s fuerte</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Donde el sensor y la fija valen parecido, el divisor reparte a medias y es donde m&aacute;s se mueve la salida ante un cambio del sensor. Lejos de ah&iacute;, la cuenta apenas cambia y el circuito est&aacute; ciego. Los 10 k&#8486; son tan frecuentes porque muchos sensores andan por ese valor, no por norma.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Cu&aacute;nto vale un escal&oacute;n del conversor A/D de un Arduino Uno?</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5-p4">
+          <p id="test-c5-p4">4. &iquest;Cu&aacute;nto vale un escal&oacute;n del conversor A/D de un Arduino Uno?</p>
           <label class="ta-op"><input type="radio" name="c5-3" value="0">1 mV</label>
-          <label class="ta-op"><input type="radio" name="c5-3" value="1">4,9 mV</label>
-          <label class="ta-op"><input type="radio" name="c5-3" value="2">5 mV justos</label>
-          <label class="ta-op"><input type="radio" name="c5-3" value="3">Depende del sensor que conectes</label>
+          <label class="ta-op"><input type="radio" name="c5-3" value="1">5 mV justos</label>
+          <label class="ta-op"><input type="radio" name="c5-3" value="2">Depende del sensor que conectes</label>
+          <label class="ta-op"><input type="radio" name="c5-3" value="3">4,9 mV</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Son 10 bits, o sea 1024 escalones repartiendo 5 V: 5/1024 = 4,88 mV. Marca el l&iacute;mite de lo que el Arduino puede distinguir, y por eso conviene saberlo de memoria.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>5. Una bomba pide 250 mA. &iquest;Qu&eacute; pasa si la conectas directamente a un pin?</p>
-          <label class="ta-op"><input type="radio" name="c5-4" value="0">Funciona, pero m&aacute;s despacio de lo normal</label>
-          <label class="ta-op"><input type="radio" name="c5-4" value="1">No pasa nada: el pin limita solo la corriente que entrega</label>
-          <label class="ta-op"><input type="radio" name="c5-4" value="2">El pin se sobrecarga y puede estropearse, porque su l&iacute;mite son 20 mA (40 absolutos)</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p5">
+          <p id="test-c5-p5">5. Una bomba pide 250 mA. &iquest;Qu&eacute; pasa si la conectas directamente a un pin?</p>
+          <label class="ta-op"><input type="radio" name="c5-4" value="0">El pin se sobrecarga y puede estropearse, porque su l&iacute;mite son 20 mA (40 absolutos)</label>
+          <label class="ta-op"><input type="radio" name="c5-4" value="1">Funciona, pero m&aacute;s despacio de lo normal</label>
+          <label class="ta-op"><input type="radio" name="c5-4" value="2">No pasa nada: el pin limita solo la corriente que entrega</label>
           <label class="ta-op"><input type="radio" name="c5-4" value="3">Funciona bien si la bomba es de 5 V</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El l&iacute;mite no es de tensi&oacute;n, es de corriente. El pin no protege: intenta dar lo que le pidan hasta que se degrada. Por eso se pone un transistor en medio, que trae la corriente de otro sitio.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. &iquest;Qu&eacute; quiere decir que un transistor est&aacute; <b>saturado</b>?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5-p6">
+          <p id="test-c5-p6">6. &iquest;Qu&eacute; quiere decir que un transistor est&aacute; <b>saturado</b>?</p>
           <label class="ta-op"><input type="radio" name="c5-5" value="0">Que se ha calentado tanto que ya no puede dar m&aacute;s corriente</label>
-          <label class="ta-op"><input type="radio" name="c5-5" value="1">Que le sobra corriente de base, as&iacute; que est&aacute; abierto del todo y apenas se queda con tensi&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="c5-5" value="2">Que trabaja justo en el l&iacute;mite de su ganancia &beta;</label>
+          <label class="ta-op"><input type="radio" name="c5-5" value="1">Que trabaja justo en el l&iacute;mite de su ganancia &beta;</label>
+          <label class="ta-op"><input type="radio" name="c5-5" value="2">Que le sobra corriente de base, as&iacute; que est&aacute; abierto del todo y apenas se queda con tensi&oacute;n</label>
           <label class="ta-op"><input type="radio" name="c5-5" value="3">Que la corriente de colector ha llegado a su m&aacute;ximo absoluto</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Saturado significa abierto del todo: Vce baja a unos 0,2 V y el transistor se comporta como un interruptor cerrado. Se consigue d&aacute;ndole a la base de 5 a 10 veces m&aacute;s corriente de la m&iacute;nima, y sirve para que no se caliente.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>7. Carga de 200 mA, transistor con &beta; = 100 y margen de saturaci&oacute;n de 5. &iquest;Qu&eacute; Rb sale?</p>
-          <label class="ta-op"><input type="radio" name="c5-6" value="0">430 &#8486;</label>
-          <label class="ta-op"><input type="radio" name="c5-6" value="1">2,2 k&#8486;</label>
-          <label class="ta-op"><input type="radio" name="c5-6" value="2">4,3 k&#8486;</label>
-          <label class="ta-op"><input type="radio" name="c5-6" value="3">43 &#8486;</label>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5-p7">
+          <p id="test-c5-p7">7. Carga de 200 mA, transistor con &beta; = 100 y margen de saturaci&oacute;n de 5. &iquest;Qu&eacute; Rb sale?</p>
+          <label class="ta-op"><input type="radio" name="c5-6" value="0">2,2 k&#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="1">4,3 k&#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="2">43 &#8486;</label>
+          <label class="ta-op"><input type="radio" name="c5-6" value="3">430 &#8486;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Ib m&iacute;nima = 200/100 = 2 mA; con margen 5, Ib = 10 mA. Rb = (5 &minus; 0,7)/0,010 = 430 &#8486;. Y 10 mA est&aacute;n por debajo de los 20 mA del pin, as&iacute; que vale.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>8. &iquest;Para qu&eacute; sirve el diodo de rueda libre y d&oacute;nde se pone?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p8">
+          <p id="test-c5-p8">8. &iquest;Para qu&eacute; sirve el diodo de rueda libre y d&oacute;nde se pone?</p>
           <label class="ta-op"><input type="radio" name="c5-7" value="0">En serie con el motor, para que la corriente vaya en un solo sentido</label>
-          <label class="ta-op"><input type="radio" name="c5-7" value="1">En paralelo con la base, para proteger el pin del Arduino</label>
-          <label class="ta-op"><input type="radio" name="c5-7" value="2">En paralelo con la bobina y al rev&eacute;s, para que la punta de tensi&oacute;n del corte no se la coma el transistor</label>
+          <label class="ta-op"><input type="radio" name="c5-7" value="1">En paralelo con la bobina y al rev&eacute;s, para que la punta de tensi&oacute;n del corte no se la coma el transistor</label>
+          <label class="ta-op"><input type="radio" name="c5-7" value="2">En paralelo con la base, para proteger el pin del Arduino</label>
           <label class="ta-op"><input type="radio" name="c5-7" value="3">En serie con la resistencia de base, para bajar la tensi&oacute;n a 0,7 V</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al cortar, la bobina genera la tensi&oacute;n que haga falta para que su corriente siga pasando (V = L&middot;&Delta;I/&Delta;t, que da cientos o miles de voltios). El diodo, montado al rev&eacute;s en paralelo con la bobina, le abre un camino por donde agotarse sin destruir el transistor.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>9. Un cilindro de 40 mm a 6 bar. &iquest;Cu&aacute;nta fuerza da al avanzar?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5-p9">
+          <p id="test-c5-p9">9. Un cilindro de 40 mm a 6 bar. &iquest;Cu&aacute;nta fuerza da al avanzar?</p>
           <label class="ta-op"><input type="radio" name="c5-8" value="0">75 N</label>
-          <label class="ta-op"><input type="radio" name="c5-8" value="1">240 N</label>
-          <label class="ta-op"><input type="radio" name="c5-8" value="2">754 N</label>
+          <label class="ta-op"><input type="radio" name="c5-8" value="1">754 N</label>
+          <label class="ta-op"><input type="radio" name="c5-8" value="2">240 N</label>
           <label class="ta-op"><input type="radio" name="c5-8" value="3">1508 N</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> A = &pi; &middot; 40&sup2;/4 = 1257 mm&sup2;. F = 0,6 N/mm&sup2; &middot; 1257 = 754 N, unos 77 kg. Recuerda: 1 bar = 0,1 N/mm&sup2;.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. &iquest;Por qu&eacute; en la industria la mayor&iacute;a de los mandos son indirectos?</p>
-          <label class="ta-op"><input type="radio" name="c5-9" value="0">Porque as&iacute; el cilindro sale siempre m&aacute;s r&aacute;pido, sea cual sea el montaje</label>
-          <label class="ta-op"><input type="radio" name="c5-9" value="1">Porque el bot&oacute;n que aprieta la persona es siempre peque&ntilde;o y blando, la v&aacute;lvula de potencia va junto al cilindro y las se&ntilde;ales se pueden combinar</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5-p10">
+          <p id="test-c5-p10">10. &iquest;Por qu&eacute; en la industria la mayor&iacute;a de los mandos son indirectos?</p>
+          <label class="ta-op"><input type="radio" name="c5-9" value="0">Porque el bot&oacute;n que aprieta la persona es siempre peque&ntilde;o y blando, la v&aacute;lvula de potencia va junto al cilindro y las se&ntilde;ales se pueden combinar</label>
+          <label class="ta-op"><input type="radio" name="c5-9" value="1">Porque as&iacute; el cilindro sale siempre m&aacute;s r&aacute;pido, sea cual sea el montaje</label>
           <label class="ta-op"><input type="radio" name="c5-9" value="2">Porque una v&aacute;lvula 5/2 no se puede accionar a mano de ninguna manera</label>
           <label class="ta-op"><input type="radio" name="c5-9" value="3">Porque la norma ISO 1219 proh&iacute;be el mando directo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con mando directo, cuanto mayor es el cilindro m&aacute;s aire tiene que pasar por el bot&oacute;n, m&aacute;s grande es su asiento y m&aacute;s duro es de apretar. Con indirecto ese bot&oacute;n es siempre el mismo. Adem&aacute;s se pueden montar funciones Y y O en la parte de mando sin tocar la potencia.</div>
@@ -2937,7 +3016,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -3046,7 +3125,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Y ahora la otra mitad. Una placa de pruebas no es un tablero con agujeros: es un
          <b>montaje de grapas met&aacute;licas</b> escondidas debajo.</p>
       <figure class="foto">
-        <img src="../../../img/c5b-protoboard.jpg" loading="lazy" alt="La parte de atr&aacute;s de una placa de pruebas sin su adhesivo, con las tiras met&aacute;licas a la vista: dos bancos de tiras cortas separados por un hueco central y cuatro tiras largas en los bordes; una de las grapas est&aacute; sacada y puesta al lado">
+        <img src="../../../img/c5b-protoboard.jpg" width="1280" height="960" loading="lazy" alt="La parte de atr&aacute;s de una placa de pruebas sin su adhesivo, con las tiras met&aacute;licas a la vista: dos bancos de tiras cortas separados por un hueco central y cuatro tiras largas en los bordes; una de las grapas est&aacute; sacada y puesta al lado">
         <figcaption>Una placa de pruebas <b>por detr&aacute;s</b>, con el adhesivo quitado. Cuenta lo que se ve: en el centro, dos bancos de <b>tiras cortas</b>, y cada tira corta es <b>una columna de cinco agujeros</b>. En los bordes, <b>tiras largas</b> que recorren la placa entera: son los <b>railes</b> de alimentaci&oacute;n. Y en medio de los dos bancos, un hueco: ese hueco es el <b>canal central</b>, y no une nada, por eso los integrados se montan a caballo. Abajo a la derecha est&aacute; una grapa sacada: se ven sus <b>cinco pinzas</b>, una por agujero. Eso es todo lo que hay dentro de una placa de pruebas.
           <span class="credito">Zeroping &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Metal_contacts_within_a_breadboard.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3113,7 +3192,7 @@ footer .wrap{padding-block:18px 26px}
           <svg viewBox="0 0 640 470" id="svg-pla" role="img"
                aria-label="Una placa de pruebas con el circuito del riego montado, la lista de conexiones que hay de verdad y un pol&iacute;metro midiendo"></svg>
         </div>
-        <div class="pie" id="pie-pla"></div>
+        <div class="pie" id="pie-pla" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -3718,7 +3797,7 @@ footer .wrap{padding-block:18px 26px}
          minutos, y el orden es siempre el mismo: <b>desde la fuente hacia la carga</b>, porque
          cada punto depende del anterior.</p>
       <figure class="foto">
-        <img src="../../../img/c5b-polimetro.jpg" loading="lazy" alt="Dos puntas de pol&iacute;metro, roja y negra, clavadas en agujeros libres de una placa de pruebas, en las mismas filas que las patillas de una resistencia y un LED, con una placa Arduino a la izquierda">
+        <img src="../../../img/c5b-polimetro.jpg" width="1280" height="960" loading="lazy" alt="Dos puntas de pol&iacute;metro, roja y negra, clavadas en agujeros libres de una placa de pruebas, en las mismas filas que las patillas de una resistencia y un LED, con una placa Arduino a la izquierda">
         <figcaption>As&iacute; se mide en una placa de pruebas: <b>las puntas van clavadas en agujeros libres de la misma fila</b> que la patilla que quieres medir, no sujetas en el aire con la mano. Como los cinco agujeros de la columna son el mismo nudo, da igual en cu&aacute;l de los cinco pinches: mides lo mismo, y adem&aacute;s tienes las dos manos libres. F&iacute;jate tambi&eacute;n en los <b>n&uacute;meros y las letras</b> impresos en la placa: las columnas van numeradas y las filas llevan letra, y eso es lo que te deja escribir en la libreta <b>d&oacute;nde</b> has puesto cada cosa. (La placa de la izquierda no es un Uno: por los pines numerados hasta el 33 es una <b>Mega</b>.)
           <span class="credito">Zeroping &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Multimeter_probes_on_breadboard.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3746,8 +3825,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Las grapas de cinco y los railes, vistos por dentro. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga
-          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro
-          bloquea YouTube, <a href="https://www.youtube.com/watch?v=OvlutalHXoM" target="_blank"
+          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=OvlutalHXoM" target="_blank"
           rel="noopener">&aacute;brelo en otra pesta&ntilde;a</a>. Es obra de su autor y no forma
           parte del material publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -4024,7 +4103,7 @@ void loop() {
           <svg viewBox="0 0 640 400" id="svg-arr" role="img"
                aria-label="Gr&aacute;ficas de la tensi&oacute;n de alimentaci&oacute;n, del estado de la bomba y de la lectura del sensor durante los seis primeros segundos"></svg>
         </div>
-        <div class="pie" id="pie-arr"></div>
+        <div class="pie" id="pie-arr" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -4215,7 +4294,7 @@ void loop() {
               /* el rotulo solo cabe si la franja es mas ancha que el texto */
               if(x1 - x0 > 10 + NOMF[f0].length * 5.4)
                 s += rot((x0 + x1) / 2, 215, NOMF[f0],
-                         'font-size:9px;fill:#fff', 'middle');
+                         'font-size:9px;fill:var(--tinta-sobre)', 'middle');
               f0 = fa; t0 = (i < mu.length) ? mu[i].t : TFIN;
             }
           }
@@ -4228,7 +4307,7 @@ void loop() {
           /* el umbral se rotula en el eje, no sobre la curva: con 1023 cuentas
              en 78 pixeles, un rotulo encima se come el trazo */
           s += rot(L - 7, py2(UMBRAL) + 4, 'umbral ' + UMBRAL,
-                   'font-size:9px;fill:var(--goo-amarillo)', 'end');
+                   'font-size:9px;fill:var(--amar-texto)', 'end');
           s += rot(L - 7, py2(0) + 4, '0', 'font-size:9px', 'end');
           s += rot(L - 7, py2(1023) + 4, '1023', 'font-size:9px', 'end');
           var d2 = '', abierto = false;
@@ -4403,7 +4482,7 @@ void loop() {
         </ul>
       </div>
       <figure class="foto">
-        <img src="../../../img/c5b-die.jpg" loading="lazy" alt="Fotograf&iacute;a a 20 aumentos del interior de un microcontrolador ATmega328 sin su c&aacute;psula: un cuadrado de silicio con estructuras en amarillo, azul y rosa, rodeado por un anillo de cuadraditos de contacto con hilos finos soldados a ellos">
+        <img src="../../../img/c5b-die.jpg" width="1280" height="1399" loading="lazy" alt="Fotograf&iacute;a a 20 aumentos del interior de un microcontrolador ATmega328 sin su c&aacute;psula: un cuadrado de silicio con estructuras en amarillo, azul y rosa, rodeado por un anillo de cuadraditos de contacto con hilos finos soldados a ellos">
         <figcaption>El <b>ATmega328 sin la c&aacute;psula de pl&aacute;stico</b>, a veinte aumentos. Lo que se ve de verdad y merece la pena mirar: alrededor del borde hay un anillo de <b>cuadraditos met&aacute;licos</b>, y de cada uno sale un <b>hilo</b> negro y fin&iacute;simo hacia fuera. Ah&iacute; acaba cada patilla: el pin <code>A0</code> en el que clavas el cable del divisor es uno de esos hilos. Y las zonas <b>ordenadas y repetidas</b> &mdash;el rect&aacute;ngulo regular de arriba&mdash; son memoria: la memoria siempre se reconoce porque es la misma celda copiada un mill&oacute;n de veces. Lo que <b>no</b> se puede hacer es se&ntilde;alar d&oacute;nde est&aacute; el conversor anal&oacute;gico-digital: para eso har&iacute;a falta el plano del fabricante, y no se publica. Pero est&aacute; ah&iacute;, y no es una idea: es un trozo de este silicio.
           <span class="credito">Markus Kammerstetter &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Atmel_atmega328_mz_20x.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4420,8 +4499,8 @@ void loop() {
         </button>
         <p class="video-nota">El mismo problema del pin al aire, con el pulsador en vez de con la base del transistor. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga
-          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro
-          bloquea YouTube, <a href="https://www.youtube.com/watch?v=pvetokUpfzQ" target="_blank"
+          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=pvetokUpfzQ" target="_blank"
           rel="noopener">&aacute;brelo en otra pesta&ntilde;a</a>. Es obra de su autor y no forma
           parte del material publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -4544,7 +4623,7 @@ void loop() {
       <p>Llega, la conectas al pin como conectaste el LED el primer d&iacute;a&hellip; y no pasa
          nada. Antes de seguir, lee su chapa:</p>
       <figure class="foto">
-        <img src="../../../img/c5b-bobina.jpg" loading="lazy" alt="Primer plano de la bobina negra de una electrov&aacute;lvula neum&aacute;tica con los datos grabados: DC24V, 3W, Amp. 125mA, Temp. rise 60 grados, 100 % ED, IP 65 y el marcado CE; a su derecha, el conector transparente con una resistencia y componentes dentro">
+        <img src="../../../img/c5b-bobina.jpg" width="1280" height="958" loading="lazy" alt="Primer plano de la bobina negra de una electrov&aacute;lvula neum&aacute;tica con los datos grabados: DC24V, 3W, Amp. 125mA, Temp. rise 60 grados, 100 % ED, IP 65 y el marcado CE; a su derecha, el conector transparente con una resistencia y componentes dentro">
         <figcaption>La <b>bobina</b> de una electrov&aacute;lvula neum&aacute;tica, en su m&aacute;quina. L&eacute;ela entera, porque lo dice todo: <b>DC24V</b> (corriente continua, 24 voltios), <b>125 mA</b>, <b>3 W</b> &mdash;haz la cuenta: 24 &times; 0,125 = 3, los tres datos cuadran&mdash;, <b>100 % ED</b> (puede estar encendida el 100 % del tiempo sin quemarse), <b>Temp. rise 60 &deg;C</b> (se calienta 60 grados por encima del ambiente: no se toca) y <b>IP 65</b> (estanca al polvo y al agua a chorro). A la derecha, el <b>conector</b> transparente, y dentro se le ve una resistencia y m&aacute;s piezas: ah&iacute; es donde la industria mete el <b>LED indicador y la protecci&oacute;n de la bobina</b>, o sea el diodo de la sesi&oacute;n 2, vendido ya dentro del enchufe.
           <span class="credito">Sarah Adrita &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Solenoid_coil_of_a_pneumatic_valve.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4657,7 +4736,7 @@ void loop() {
         </ul>
       </div>
       <figure class="foto">
-        <img src="../../../img/c5b-finales.jpg" loading="lazy" alt="Tres finales de carrera azules con palanca de rodillo, atornillados sobre un ra&iacute;l de acero en una instalaci&oacute;n industrial, junto a una placa met&aacute;lica perfilada que los acciona al pasar">
+        <img src="../../../img/c5b-finales.jpg" width="1280" height="857" loading="lazy" alt="Tres finales de carrera azules con palanca de rodillo, atornillados sobre un ra&iacute;l de acero en una instalaci&oacute;n industrial, junto a una placa met&aacute;lica perfilada que los acciona al pasar">
         <figcaption>Tres <b>finales de carrera</b> montados en una m&aacute;quina de verdad. Mira lo que hay que mirar: cada uno tiene una <b>palanca con un rodillo</b> en la punta, y enfrente hay una <b>chapa perfilada</b> &mdash;se llama <b>leva</b>&mdash; que los va apretando al pasar. El final de carrera <b>no detecta el cilindro</b>: detecta que <b>algo ha pasado por este punto exacto</b>, y el punto lo fija la chapa. Por eso hay tres a distinta altura: tres puntos distintos del recorrido. Y por eso el rodillo: si fuera un tope recto, la leva lo arrancar&iacute;a en una semana.
           <span class="credito">Mixabest &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Limit_Switches.JPG" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4753,7 +4832,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           <svg viewBox="0 0 640 450" id="svg-sec" role="img"
                aria-label="Dos cilindros neum&aacute;ticos haciendo la secuencia A m&aacute;s, B m&aacute;s, A menos, B menos, con sus v&aacute;lvulas y el diagrama de espacio y fase"></svg>
         </div>
-        <div class="pie" id="pie-sec"></div>
+        <div class="pie" id="pie-sec" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -5175,7 +5254,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           tTx.textContent = coma(+tIn.value / 100, 2) + ' s'; choques = 0;
         });
 
-        raf = requestAnimationFrame(late);
+        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(late); }
       })();
       </script>
 
@@ -5221,8 +5300,8 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
         </button>
         <p class="video-nota">La misma secuencia de esta sesi&oacute;n, resuelta con el m&eacute;todo paso a paso. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga
-          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro
-          bloquea YouTube, <a href="https://www.youtube.com/watch?v=H3_xq9FLT1s" target="_blank"
+          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=H3_xq9FLT1s" target="_blank"
           rel="noopener">&aacute;brelo en otra pesta&ntilde;a</a>. Es obra de su autor y no forma
           parte del material publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -5376,7 +5455,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
           <svg viewBox="0 0 640 430" id="svg-cad" role="img"
                aria-label="La cadena completa del automatismo: magnitud, sensor, divisor, conversor, programa, transistor y actuador, con el n&uacute;mero de cada paso"></svg>
         </div>
-        <div class="pie" id="pie-cad"></div>
+        <div class="pie" id="pie-cad" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <script>
@@ -5805,7 +5884,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
               y se pide con margen. <b>Regla: la fuente, al doble del pico.</b> Aqu&iacute;, una de
               <b>5 V y 1 A</b> va sobrada y cuesta lo mismo que una de 500 mA.</li>
           <li>La <b>media</b> manda en la <b>pila</b>, si va con pila: una de 2000 mAh a 47 mA de
-              media dura 2000 / 47 = <b>42 horas</b>. Menos de dos d&iacute;as. Ah&iacute; se ve de
+              media dura 2000 / 47 = <b>42,5 horas</b>. Menos de dos d&iacute;as. Ah&iacute; se ve de
               un vistazo que <b>este proyecto no puede ir con pilas</b>, y eso hay que saberlo
               antes de comprarlas.</li>
         </ul>
@@ -5831,7 +5910,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
 
       <h3>Cu&aacute;l es cada cable: el cuadro de bornes</h3>
       <figure class="foto">
-        <img src="../../../img/c5b-bornes.jpg" loading="lazy" alt="Regleta de doce bornes de tornillo numerados del 1 al 12, atornillada a una caja met&aacute;lica gris, con cables rojos, negros, marrones, blancos y verdes entrando por arriba y por abajo, y una etiqueta impresa encima que pone BATTERIES 1-8">
+        <img src="../../../img/c5b-bornes.jpg" width="1280" height="960" loading="lazy" alt="Regleta de doce bornes de tornillo numerados del 1 al 12, atornillada a una caja met&aacute;lica gris, con cables rojos, negros, marrones, blancos y verdes entrando por arriba y por abajo, y una etiqueta impresa encima que pone BATTERIES 1-8">
         <figcaption>Un <b>cuadro de bornes</b> de verdad. Cada cable muere en <b>un tornillo numerado</b>, y los n&uacute;meros est&aacute;n impresos en la propia regleta: del 1 al 12. As&iacute;, cuando hay que decir d&oacute;nde va algo, se dice <b>&laquo;borne 7&raquo;</b> y no &laquo;el cable negro de en medio&raquo;, que aqu&iacute; hay cinco. F&iacute;jate tambi&eacute;n en un detalle honesto: el r&oacute;tulo de arriba dice <b>BATTERIES 1&ndash;8</b> y los bornes llegan al 12. Un r&oacute;tulo <b>no basta</b>: hace falta la <b>lista de conexiones</b> que diga qu&eacute; es cada borne, y esa lista va en el papel, no en la chapa.
           <span class="credito">tony_duell &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Cabinet_Terminal_Block.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5901,8 +5980,8 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
         </button>
         <p class="video-nota">De d&oacute;nde sacar la corriente que pide el automatismo entero. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga
-          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro
-          bloquea YouTube, <a href="https://www.youtube.com/watch?v=9SKD_p9sFcI" target="_blank"
+          hasta que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=9SKD_p9sFcI" target="_blank"
           rel="noopener">&aacute;brelo en otra pesta&ntilde;a</a>. Es obra de su autor y no forma
           parte del material publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -5993,90 +6072,90 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
       <div class="rotulo"><span class="num">03</span> Test y cierre &middot; 15 min</div>
       <div class="ta" id="test-c5b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Un pin anal&oacute;gico mide tensi&oacute;n, no resistencia. &iquest;Qu&eacute; hace el divisor?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p1">
+          <p id="test-c5b-p1">1. Un pin anal&oacute;gico mide tensi&oacute;n, no resistencia. &iquest;Qu&eacute; hace el divisor?</p>
           <label class="ta-op"><input type="radio" name="c5b-0" value="0">Amplifica la se&ntilde;al d&eacute;bil del sensor</label>
           <label class="ta-op"><input type="radio" name="c5b-0" value="1">Convierte el cambio de resistencia del sensor en un cambio de tensi&oacute;n que el pin s&iacute; puede leer</label>
           <label class="ta-op"><input type="radio" name="c5b-0" value="2">Protege el pin de corrientes altas</label>
           <label class="ta-op"><input type="radio" name="c5b-0" value="3">Filtra el ruido el&eacute;ctrico del ambiente</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Dos resistencias en serie entre 5 V y masa fijan una tensi&oacute;n en el punto de en medio: V = 5 &middot; R2 / (R1 + R2). Si una de las dos es el sensor, esa tensi&oacute;n se mueve con lo que el sensor mide. Ni amplifica ni protege ni filtra: traduce.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>2. &iquest;Por qu&eacute; hace falta un transistor entre el pin y la bomba?</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5b-p2">
+          <p id="test-c5b-p2">2. &iquest;Por qu&eacute; hace falta un transistor entre el pin y la bomba?</p>
           <label class="ta-op"><input type="radio" name="c5b-1" value="0">Porque el pin da 5 V y la bomba necesita 6</label>
           <label class="ta-op"><input type="radio" name="c5b-1" value="1">Porque el transistor convierte la corriente continua en alterna</label>
-          <label class="ta-op"><input type="radio" name="c5b-1" value="2">Porque el pin da 20 mA y la bomba pide 250: la corriente no cuadra, aunque la tensi&oacute;n s&iacute;</label>
-          <label class="ta-op"><input type="radio" name="c5b-1" value="3">Porque sin &eacute;l el programa no puede apagar la bomba</label>
+          <label class="ta-op"><input type="radio" name="c5b-1" value="2">Porque sin &eacute;l el programa no puede apagar la bomba</label>
+          <label class="ta-op"><input type="radio" name="c5b-1" value="3">Porque el pin da 20 mA y la bomba pide 250: la corriente no cuadra, aunque la tensi&oacute;n s&iacute;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El l&iacute;mite de un pin es de <b>corriente</b>: 20 mA recomendados, 40 como m&aacute;ximo absoluto. Una bomba peque&ntilde;a pide 250 mA. El transistor deja pasar esa corriente grande, que viene de otra fuente, mandado por una corriente peque&ntilde;a por la base.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>3. Un cilindro de 32 mm a 6 bar. &iquest;Cu&aacute;nto empuja al avanzar?</p>
-          <label class="ta-op"><input type="radio" name="c5b-2" value="0">96 N</label>
-          <label class="ta-op"><input type="radio" name="c5b-2" value="1">193 N</label>
-          <label class="ta-op"><input type="radio" name="c5b-2" value="2">482 N</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5b-p3">
+          <p id="test-c5b-p3">3. Un cilindro de 32 mm a 6 bar. &iquest;Cu&aacute;nto empuja al avanzar?</p>
+          <label class="ta-op"><input type="radio" name="c5b-2" value="0">482 N</label>
+          <label class="ta-op"><input type="radio" name="c5b-2" value="1">96 N</label>
+          <label class="ta-op"><input type="radio" name="c5b-2" value="2">193 N</label>
           <label class="ta-op"><input type="radio" name="c5b-2" value="3">1206 N</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> A = &pi; &middot; 32&sup2; / 4 = 804 mm&sup2;. Con 1 bar = 0,1 N/mm&sup2;: F = 0,6 &middot; 804 = 482 N, unos 49 kg. El di&aacute;metro va al cuadrado, as&iacute; que doblarlo multiplica la fuerza por cuatro.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Por qu&eacute; una llave de paso no sirve para mandar un cilindro de doble efecto?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p4">
+          <p id="test-c5b-p4">4. &iquest;Por qu&eacute; una llave de paso no sirve para mandar un cilindro de doble efecto?</p>
           <label class="ta-op"><input type="radio" name="c5b-3" value="0">Porque el aire pasar&iacute;a demasiado despacio</label>
-          <label class="ta-op"><input type="radio" name="c5b-3" value="1">Porque solo corta la entrada: el aire que ya hay dentro sigue empujando, y hace falta abrir el escape del otro lado</label>
-          <label class="ta-op"><input type="radio" name="c5b-3" value="2">Porque una llave de paso no aguanta 6 bar</label>
+          <label class="ta-op"><input type="radio" name="c5b-3" value="1">Porque una llave de paso no aguanta 6 bar</label>
+          <label class="ta-op"><input type="radio" name="c5b-3" value="2">Porque solo corta la entrada: el aire que ya hay dentro sigue empujando, y hace falta abrir el escape del otro lado</label>
           <label class="ta-op"><input type="radio" name="c5b-3" value="3">Porque la norma ISO 1219 no tiene s&iacute;mbolo para una llave de paso</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un cilindro no se apaga: se vac&iacute;a. Hace falta una v&aacute;lvula distribuidora que, al cambiar de posici&oacute;n, mande aire a una c&aacute;mara y <b>abra el escape</b> de la otra. Por eso una 5/2 tiene dos escapes, uno por salida de trabajo.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>5. Montas el circuito en la placa de pruebas y metes las dos patillas de la sonda en la misma columna de cinco agujeros. &iquest;Qu&eacute; lee <code>analogRead</code>?</p>
-          <label class="ta-op"><input type="radio" name="c5b-4" value="0">0, porque la sonda est&aacute; cortocircuitada a masa</label>
-          <label class="ta-op"><input type="radio" name="c5b-4" value="1">Lo mismo que antes: la columna no une nada</label>
-          <label class="ta-op"><input type="radio" name="c5b-4" value="2">1023 y clavado, porque la grapa cortocircuita la sonda y el nudo se queda colgando de los 5 V</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5b-p5">
+          <p id="test-c5b-p5">5. Montas el circuito en la placa de pruebas y metes las dos patillas de la sonda en la misma columna de cinco agujeros. &iquest;Qu&eacute; lee <code>analogRead</code>?</p>
+          <label class="ta-op"><input type="radio" name="c5b-4" value="0">1023 y clavado, porque la grapa cortocircuita la sonda y el nudo se queda colgando de los 5 V</label>
+          <label class="ta-op"><input type="radio" name="c5b-4" value="1">0, porque la sonda est&aacute; cortocircuitada a masa</label>
+          <label class="ta-op"><input type="radio" name="c5b-4" value="2">Lo mismo que antes: la columna no une nada</label>
           <label class="ta-op"><input type="radio" name="c5b-4" value="3">Un valor que baila, porque el pin queda al aire</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Los cinco agujeros de una columna son un nudo. Con las dos patillas ah&iacute;, la sonda queda puenteada y desaparece del circuito: el nudo del sensor solo tiene la R fija hacia los 5 V y nada hacia masa, as&iacute; que se va a 5 V. La cuenta se clava en 1023 y no se mueve.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>6. El emisor de tu transistor marca 3,2 V con el pol&iacute;metro. &iquest;Qu&eacute; es lo primero que sospechas?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c5b-p6">
+          <p id="test-c5b-p6">6. El emisor de tu transistor marca 3,2 V con el pol&iacute;metro. &iquest;Qu&eacute; es lo primero que sospechas?</p>
           <label class="ta-op"><input type="radio" name="c5b-5" value="0">Que el transistor est&aacute; quemado</label>
           <label class="ta-op"><input type="radio" name="c5b-5" value="1">Que la pila est&aacute; gastada</label>
           <label class="ta-op"><input type="radio" name="c5b-5" value="2">Que el emisor no est&aacute; en masa: o falta el cable, o el transistor est&aacute; girado y eso no es el emisor</label>
           <label class="ta-op"><input type="radio" name="c5b-5" value="3">Que la resistencia de base es demasiado grande</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El emisor de este montaje va a masa, as&iacute; que tiene que marcar 0 V siempre. Si marca otra cosa, o no est&aacute; conectado a masa o lo que has medido no es el emisor. Con colector y emisor cambiados el transistor sigue conduciendo, como seguidor, y el actuador recibe la mitad de tensi&oacute;n: va lento y no se quema nada.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Por qu&eacute; se pone una resistencia de 10 k&#8486; entre la base del transistor y masa?</p>
+        <div class="ta-p" data-ok="3" role="group" aria-labelledby="test-c5b-p7">
+          <p id="test-c5b-p7">7. &iquest;Por qu&eacute; se pone una resistencia de 10 k&#8486; entre la base del transistor y masa?</p>
           <label class="ta-op"><input type="radio" name="c5b-6" value="0">Para limitar la corriente de base, como hace la Rb</label>
-          <label class="ta-op"><input type="radio" name="c5b-6" value="1">Para que la base no quede al aire mientras el pin est&aacute; en entrada, que es todo el primer segundo despu&eacute;s de encender</label>
-          <label class="ta-op"><input type="radio" name="c5b-6" value="2">Para que el transistor sature antes</label>
-          <label class="ta-op"><input type="radio" name="c5b-6" value="3">Para descargar el diodo de rueda libre</label>
+          <label class="ta-op"><input type="radio" name="c5b-6" value="1">Para que el transistor sature antes</label>
+          <label class="ta-op"><input type="radio" name="c5b-6" value="2">Para descargar el diodo de rueda libre</label>
+          <label class="ta-op"><input type="radio" name="c5b-6" value="3">Para que la base no quede al aire mientras el pin est&aacute; en entrada, que es todo el primer segundo despu&eacute;s de encender</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al encender, todos los pines est&aacute;n en entrada y el gestor de arranque se queda alrededor de un segundo. Durante ese rato la base queda al aire y el transistor puede disparar. La resistencia a masa la sujeta en 0 V. Quien limita la corriente de base es la Rb, que es otra.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>8. La alimentaci&oacute;n del Arduino baja de 5,0 a 4,6 V. &iquest;Qu&eacute; le pasa a la cuenta que devuelve el divisor?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p8">
+          <p id="test-c5b-p8">8. La alimentaci&oacute;n del Arduino baja de 5,0 a 4,6 V. &iquest;Qu&eacute; le pasa a la cuenta que devuelve el divisor?</p>
           <label class="ta-op"><input type="radio" name="c5b-7" value="0">Baja en la misma proporci&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="c5b-7" value="1">Sube, porque el conversor tiene menos rango</label>
-          <label class="ta-op"><input type="radio" name="c5b-7" value="2">No cambia: el conversor mide tomando la alimentaci&oacute;n como referencia, as&iacute; que se cancela</label>
+          <label class="ta-op"><input type="radio" name="c5b-7" value="1">No cambia: el conversor mide tomando la alimentaci&oacute;n como referencia, as&iacute; que se cancela</label>
+          <label class="ta-op"><input type="radio" name="c5b-7" value="2">Sube, porque el conversor tiene menos rango</label>
           <label class="ta-op"><input type="radio" name="c5b-7" value="3">Se vuelve err&aacute;tica</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> cuenta = 1023 &middot; V / Vcc, y V = Vcc &middot; Rs/(Rf+Rs): la Vcc se va de la f&oacute;rmula. Se llama medida <b>ratiom&eacute;trica</b>. Dejar&iacute;a de valer con un sensor que diera tensi&oacute;n propia (un LM35) o cambiando la referencia del conversor.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>9. Una electrov&aacute;lvula servopilotada tiene sus 24 V, la bobina se calienta y no conmuta. &iquest;Qu&eacute; falta?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c5b-p9">
+          <p id="test-c5b-p9">9. Una electrov&aacute;lvula servopilotada tiene sus 24 V, la bobina se calienta y no conmuta. &iquest;Qu&eacute; falta?</p>
           <label class="ta-op"><input type="radio" name="c5b-8" value="0">Corriente: hay que subir la tensi&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="c5b-8" value="1">El diodo de rueda libre</label>
-          <label class="ta-op"><input type="radio" name="c5b-8" value="2">Presi&oacute;n: una servopilotada necesita un m&iacute;nimo (t&iacute;picamente 2 bar) porque el carrete lo mueve el aire, no el im&aacute;n</label>
+          <label class="ta-op"><input type="radio" name="c5b-8" value="1">Presi&oacute;n: una servopilotada necesita un m&iacute;nimo (t&iacute;picamente 2 bar) porque el carrete lo mueve el aire, no el im&aacute;n</label>
+          <label class="ta-op"><input type="radio" name="c5b-8" value="2">El diodo de rueda libre</label>
           <label class="ta-op"><input type="radio" name="c5b-8" value="3">Masa com&uacute;n con el Arduino</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En una servopilotada la bobina solo abre un conducto peque&ntilde;o; el que empuja el carrete es el propio aire de la red. Es mando indirecto metido dentro de la pieza. Sin la presi&oacute;n m&iacute;nima no conmuta por mucha corriente que le des. (Sin masa com&uacute;n la bobina no se calentar&iacute;a.)</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Tu automatismo pide 305 mA de pico y 47 mA de media. &iquest;Qu&eacute; fuente pides?</p>
-          <label class="ta-op"><input type="radio" name="c5b-9" value="0">Una de 5 V y 50 mA: lo que manda es la media</label>
-          <label class="ta-op"><input type="radio" name="c5b-9" value="1">Una de 5 V y 1 A: la fuente se elige por el <b>pico</b>, y con margen</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c5b-p10">
+          <p id="test-c5b-p10">10. Tu automatismo pide 305 mA de pico y 47 mA de media. &iquest;Qu&eacute; fuente pides?</p>
+          <label class="ta-op"><input type="radio" name="c5b-9" value="0">Una de 5 V y 1 A: la fuente se elige por el <b>pico</b>, y con margen</label>
+          <label class="ta-op"><input type="radio" name="c5b-9" value="1">Una de 5 V y 50 mA: lo que manda es la media</label>
           <label class="ta-op"><input type="radio" name="c5b-9" value="2">Una de 5 V y 305 mA exactos, para no desperdiciar</label>
           <label class="ta-op"><input type="radio" name="c5b-9" value="3">Da igual: el Arduino regula lo que le sobre</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> La fuente tiene que poder dar lo que se pida <b>a la vez</b>, o sea el pico, y se pide con margen (la regla c&oacute;moda es el doble). La media sirve para otra cosa: para saber cu&aacute;nto durar&iacute;a una pila. A 47 mA, una de 2000 mAh aguanta 42 horas, que es la manera de descubrir que este proyecto no puede ir con pilas.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La fuente tiene que poder dar lo que se pida <b>a la vez</b>, o sea el pico, y se pide con margen (la regla c&oacute;moda es el doble). La media sirve para otra cosa: para saber cu&aacute;nto durar&iacute;a una pila. A 47 mA, una de 2000 mAh aguanta 42,5 horas, que es la manera de descubrir que este proyecto no puede ir con pilas.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -6101,7 +6180,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
         fuente&mdash; y una idea que se ha repetido tres veces y merece la pena llevarse:
         <b>en electr&oacute;nica, &laquo;al aire&raquo; nunca quiere decir &laquo;a cero&raquo;</b>.
         Si quieres un cero, lo tienes que poner t&uacute;.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema6/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 6 &middot; Programaci&oacute;n, IoT e inteligencia artificial &rarr;</a></p></div>
 
     </section>
 
@@ -6156,7 +6235,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -6176,7 +6255,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -6205,8 +6284,17 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -6219,7 +6307,10 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -6238,5 +6329,187 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

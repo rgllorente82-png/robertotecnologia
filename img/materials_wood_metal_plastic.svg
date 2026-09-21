@@ -1,0 +1,93 @@
+<svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .material-label { font-size: 16px; font-weight: bold; text-anchor: middle; }
+      .property-label { font-size: 12px; text-anchor: middle; }
+      .property-value { font-size: 11px; text-anchor: middle; fill: #555; }
+    </style>
+    <pattern id="wood-texture" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="#8B4513"/>
+      <line x1="0" y1="0" x2="40" y2="40" stroke="#654321" stroke-width="0.5" opacity="0.3"/>
+      <line x1="0" y1="20" x2="40" y2="20" stroke="#654321" stroke-width="0.3" opacity="0.2"/>
+    </pattern>
+    <pattern id="metal-texture" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <rect width="30" height="30" fill="#A9A9A9"/>
+      <circle cx="5" cy="5" r="1" fill="#FFF" opacity="0.5"/>
+      <circle cx="15" cy="12" r="1" fill="#FFF" opacity="0.4"/>
+      <circle cx="25" cy="8" r="1" fill="#FFF" opacity="0.5"/>
+    </pattern>
+    <pattern id="plastic-texture" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <rect width="50" height="50" fill="#E6E6FA"/>
+      <rect width="50" height="50" fill="url(#gradient-plastic)" opacity="0.5"/>
+    </pattern>
+    <linearGradient id="gradient-plastic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D8BFD8;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#E6E6FA;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="480" y="30" style="font-size: 24px; font-weight: bold; text-anchor: middle;">Materiales Técnicos Comunes</text>
+
+  <!-- Wood Material -->
+  <g>
+    <!-- Sample -->
+    <rect x="80" y="70" width="120" height="120" fill="url(#wood-texture)" stroke="#654321" stroke-width="2" rx="5"/>
+    <text x="140" y="200" class="material-label">MADERA</text>
+
+    <!-- Properties -->
+    <text x="80" y="235" class="property-label">Dureza: Media</text>
+    <text x="80" y="255" class="property-label">Tenacidad: Alta</text>
+    <text x="80" y="275" class="property-label">Densidad: Baja</text>
+    <text x="80" y="295" class="property-label">Conductividad: Baja</text>
+    <text x="80" y="315" class="property-label">Costo: Bajo</text>
+
+    <!-- Applications -->
+    <rect x="80" y="330" width="120" height="50" fill="#F5F5DC" stroke="#DAA520" stroke-width="1" rx="3"/>
+    <text x="140" y="348" style="font-size: 11px; text-anchor: middle; font-weight: bold;">Aplicaciones</text>
+    <text x="140" y="365" style="font-size: 10px; text-anchor: middle;">Muebles, marcos,</text>
+    <text x="140" y="377" style="font-size: 10px; text-anchor: middle;">construcción</text>
+  </g>
+
+  <!-- Metal Material -->
+  <g>
+    <!-- Sample -->
+    <rect x="420" y="70" width="120" height="120" fill="url(#metal-texture)" stroke="#696969" stroke-width="2" rx="5"/>
+    <ellipse cx="480" cy="100" rx="40" ry="25" fill="#FFF" opacity="0.15"/>
+    <text x="480" y="200" class="material-label">METAL</text>
+
+    <!-- Properties -->
+    <text x="420" y="235" class="property-label">Dureza: Alta</text>
+    <text x="420" y="255" class="property-label">Tenacidad: Media-Alta</text>
+    <text x="420" y="275" class="property-label">Densidad: Media-Alta</text>
+    <text x="420" y="295" class="property-label">Conductividad: Muy Alta</text>
+    <text x="420" y="315" class="property-label">Costo: Medio</text>
+
+    <!-- Applications -->
+    <rect x="420" y="330" width="120" height="50" fill="#E0E0E0" stroke="#808080" stroke-width="1" rx="3"/>
+    <text x="480" y="348" style="font-size: 11px; text-anchor: middle; font-weight: bold;">Aplicaciones</text>
+    <text x="480" y="365" style="font-size: 10px; text-anchor: middle;">Máquinas, estructuras,</text>
+    <text x="480" y="377" style="font-size: 10px; text-anchor: middle;">herramientas</text>
+  </g>
+
+  <!-- Plastic Material -->
+  <g>
+    <!-- Sample -->
+    <rect x="760" y="70" width="120" height="120" fill="url(#plastic-texture)" stroke="#8B7B9E" stroke-width="2" rx="5"/>
+    <ellipse cx="820" cy="95" rx="35" ry="30" fill="#FFF" opacity="0.3"/>
+    <text x="820" y="200" class="material-label">PLÁSTICO</text>
+
+    <!-- Properties -->
+    <text x="760" y="235" class="property-label">Dureza: Baja-Media</text>
+    <text x="760" y="255" class="property-label">Tenacidad: Media</text>
+    <text x="760" y="275" class="property-label">Densidad: Baja</text>
+    <text x="760" y="295" class="property-label">Conductividad: Baja</text>
+    <text x="760" y="315" class="property-label">Costo: Bajo</text>
+
+    <!-- Applications -->
+    <rect x="760" y="330" width="120" height="50" fill="#FFE4E1" stroke="#DDA0DD" stroke-width="1" rx="3"/>
+    <text x="820" y="348" style="font-size: 11px; text-anchor: middle; font-weight: bold;">Aplicaciones</text>
+    <text x="820" y="365" style="font-size: 10px; text-anchor: middle;">Envases, electrónica,</text>
+    <text x="820" y="377" style="font-size: 10px; text-anchor: middle;">juguetes</text>
+  </g>
+</svg>

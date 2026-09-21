@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema2/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 2 &middot; Dise&ntilde;o y fabricaci&oacute;n">
+<meta property="og:description" content="Unidad 2 de Tecnolog&iacute;a de 4.&ordm; de ESO: croquis y plano acotado, acotaci&oacute;n en cadena frente a acotaci&oacute;n desde una referencia, tolerancias y ajustes, uniones fijas y desmontables, t&eacute;cnicas de fabricaci&oacute;n del aula, modelado 3D con par&aacute;metros, plan de corte, cadena de cotas del montaje y defensa de la pieza con control dimensional. Ocho sesiones con escenas interactivas que calculan.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/4eso/Tecnologia/tema2/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/4eso-Tecnologia-tema2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 2 &middot; Dise&ntilde;o y fabricaci&oacute;n &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -51,7 +64,7 @@ h1{font-weight:700;font-size:clamp(22px,4.4vw,30px);margin:6px 0 12px;letter-spa
 nav.sesiones{display:flex;gap:8px;overflow-x:auto;padding-bottom:12px}
 nav.sesiones button{flex:none;background:var(--surface);color:var(--ink-soft);border:1.5px solid var(--line);
   border-radius:2px;padding:7px 14px;font:400 13px var(--f-m);cursor:pointer;white-space:nowrap}
-nav.sesiones button[aria-selected="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
+nav.sesiones button[aria-pressed="true"]{background:var(--goo-azul);border-color:var(--goo-azul);color:#fff}
 nav.sesiones button[disabled]{opacity:.45;cursor:default}
 main{padding-block:26px 70px}
 .ses-head{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:20px;margin-bottom:26px}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -214,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -287,18 +306,52 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">4.&ordm; ESO</a> &middot; <a href="../">Tecnolog&iacute;a</a> &middot; Tema 2</div>
     <h1>Dise&ntilde;o y fabricaci&oacute;n: del material al producto</h1>
-    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-selected="true">S1 &middot; El plano que se fabrica</button><button type="button" data-ses="2">S2 &middot; Tolerancias y ajustes</button><button type="button" data-ses="3">S3 &middot; Uniones</button><button type="button" data-ses="4">S4 &middot; Del plano a la pieza</button><button type="button" data-ses="5">S5 &middot; Modelarlo en 3D</button><button type="button" data-ses="6">S6 &middot; Organizar la fabricaci&oacute;n</button><button type="button" data-ses="7">S7 &middot; Montar y ajustar</button><button type="button" data-ses="8">S8 &middot; Contarlo y defenderlo</button></nav>
+    <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; El plano que se fabrica</button><button type="button" data-ses="2">S2 &middot; Tolerancias y ajustes</button><button type="button" data-ses="3">S3 &middot; Uniones</button><button type="button" data-ses="4">S4 &middot; Del plano a la pieza</button><button type="button" data-ses="5">S5 &middot; Modelarlo en 3D</button><button type="button" data-ses="6">S6 &middot; Organizar la fabricaci&oacute;n</button><button type="button" data-ses="7">S7 &middot; Montar y ajustar</button><button type="button" data-ses="8">S8 &middot; Contarlo y defenderlo</button></nav>
   </div>
 </header>
 
-<main class="wrap">
+<main id="contenido" tabindex="-1" class="wrap">
 
   <div id="ses-1">
     <div class="ses-head">
@@ -307,6 +360,14 @@ footer .wrap{padding-block:18px 26px}
       <p>Acotas una tapa en cadena, la fabricas y el &uacute;ltimo agujero se ha ido casi un mil&iacute;metro. Nadie se ha equivocado: se han sumado cuatro errores diminutos.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.2 &middot; A.3.1</span></div>
+
+      <figure class="foto">
+        <img src="../../../img/cad-workflow.svg" width="1000" height="550" loading="lazy"
+             alt="Flujo CAD: Idea, Dibujo 2D, Modelo 3D, Simulaci&oacute;n, CAM/Fabricaci&oacute;n">
+        <figcaption>El <b>flujo de CAD</b> (Computer-Aided Design): (1) <b>Idea</b> en papel, (2) <b>Dibujo 2D</b> con vistas ortogonales y cotas precisas, (3) <b>Modelo 3D</b> param&eacute;trico (todo conectado: cambiar una cota actualiza la pieza entera), (4) <b>Simular</b> (fuerzas, movimiento, esfuerzos), (5) <b>CAM</b> (traducir a G-code para CNC o impresora 3D). Software: AutoCAD/SolidWorks para industria, FreeCAD/Tinkercad para educaci&oacute;n. La ventaja: ver en 3D antes de fabricar, sin errores.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
     </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -314,7 +375,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="narrador" id="narr-c2">
         <div class="narrador-fig" id="narr-c2-fig"></div>
         <div class="narrador-txt">
-          <h4>De qu&eacute; va esta unidad</h4>
+          <h3 class="h-menor">De qu&eacute; va esta unidad</h3>
           <span class="narrador-quien">Ya sabes qu&eacute; vas a construir. Ahora hay que hacerlo, y que encaje</span>
           <div class="seg">
             <button type="button" data-a="play">&#9654; Escuchar</button>
@@ -557,7 +618,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="ct-cuenta" id="ct-cuenta"></p>
         </div>
-        <div class="pie" id="pie-ct"></div>
+        <div class="pie" id="pie-ct" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -818,7 +879,7 @@ footer .wrap{padding-block:18px 26px}
          el plano viaja &mdash;a otra nave, a otra ciudad, a otro pa&iacute;s&mdash;, todo lo que el
          plano no diga se convierte en una pieza mal hecha.</p>
       <figure class="foto">
-        <img src="../../../img/c2-plano-1914.jpg" alt="Plano de fabricaci&oacute;n de 1911 de la General Electric: dos vistas de un disco con radios, dos secciones, un alzado seccionado y el cajet&iacute;n abajo a la derecha, todo cubierto de cotas" loading="lazy">
+        <img src="../../../img/c2-plano-1914.jpg" width="1760" height="1025" alt="Plano de fabricaci&oacute;n de 1911 de la General Electric: dos vistas de un disco con radios, dos secciones, un alzado seccionado y el cajet&iacute;n abajo a la derecha, todo cubierto de cotas" loading="lazy">
         <figcaption>Un plano de fabricaci&oacute;n de verdad: la <b>brida y la ara&ntilde;a del inducido</b> de un generador, dibujado en la General Electric de Schenectady (Nueva York) en <b>abril de 1911</b>. Mira tres cosas. Primero, el <b>cajet&iacute;n</b> de abajo a la derecha: qui&eacute;n lo empez&oacute;, qui&eacute;n lo pas&oacute; a limpio, qui&eacute;n lo inspeccion&oacute;, con fecha, y el n&uacute;mero de plano <i>M-1130859</i>. Segundo, las <b>secciones</b> AA y CC, que est&aacute;n ah&iacute; para poder acotar lo que no se ve por fuera. Y tercero, lo que de verdad importa para la sesi&oacute;n siguiente: hay cotas escritas con <b>tres decimales</b> &mdash;18.500, 19.525&mdash; y al lado la palabra <i>Fit</i>, ajuste. Ya en 1911 alguien sab&iacute;a que un n&uacute;mero redondo no basta cuando dos piezas tienen que encajar.
           <span class="credito">Griffin, Charles Lewis (1867-) y Adams, Charles Clyde (1882-) &middot; sin restricciones de copyright conocidas &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Machine_drawing;_a_practical_guide_to_the_standard_methods_of_graphical_representation_of_machines,_including_complete_detail_drawings_of_a_duplex_pump_and_of_a_direct-current_generator_(1914)_(14774400291).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -842,8 +903,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">La misma pieza acotada de dos maneras distintas, con el l&aacute;piz encima del papel. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=NC7AdFJDx4M" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=NC7AdFJDx4M" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -975,7 +1036,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Las palabras, con la pieza delante</h4>
+        <h3 class="h-menor">Las palabras, con la pieza delante</h3>
         <ul>
           <li><b>Medida nominal</b>: el n&uacute;mero redondo del que se habla. Los <b>8 mm</b> del eje.
               Es una etiqueta, no una medida: puede que ninguna pieza real la tenga.</li>
@@ -1049,7 +1110,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
             <div class="aj-dos">
               <div class="aj-grupo aj-ag">
-                <h6>El agujero del soporte</h6>
+                <h5 class="h-menor">El agujero del soporte</h5>
                 <div class="aj-fila">
                   <label for="aj-ai">desviaci&oacute;n inferior</label>
                   <input type="range" id="aj-ai" min="-500" max="500" step="5" value="0">
@@ -1088,7 +1149,7 @@ footer .wrap{padding-block:18px 26px}
             </div>
           </div>
         </div>
-        <div class="pie" id="pie-aj"></div>
+        <div class="pie" id="pie-aj" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1332,7 +1393,7 @@ footer .wrap{padding-block:18px 26px}
          si la pieza cumple</b>. Y una tolerancia que no se puede comprobar no es una tolerancia: es un
          deseo.</p>
       <figure class="foto">
-        <img src="../../../img/c2-calibre.jpg" alt="Detalle de un pie de rey met&aacute;lico: la regla principal graduada en cent&iacute;metros, el nonio deslizante grabado con 0,02 mm, las bocas grandes para exteriores y las peque&ntilde;as de arriba para interiores" loading="lazy">
+        <img src="../../../img/c2-calibre.jpg" width="1000" height="1000" alt="Detalle de un pie de rey met&aacute;lico: la regla principal graduada en cent&iacute;metros, el nonio deslizante grabado con 0,02 mm, las bocas grandes para exteriores y las peque&ntilde;as de arriba para interiores" loading="lazy">
         <figcaption>Un <b>pie de rey</b> (o calibre). En el cursor est&aacute; grabado lo &uacute;nico que de verdad importa: <b>0,02 mm</b>. Esa es su <b>resoluci&oacute;n</b>, lo m&aacute;s fino que puede distinguir, y sale del <b>nonio</b>, la escalita de abajo: sus divisiones son un pel&iacute;n m&aacute;s cortas que las de la regla de arriba, y basta con ver <b>cu&aacute;l de ellas coincide</b> con una raya de la regla para leer las cent&eacute;simas, sin tener que apreciar nada a ojo. F&iacute;jate en que tiene <b>dos parejas de bocas</b>: las grandes, abajo, miden por fuera; las peque&ntilde;as de arriba miden por dentro, que es como se mide un agujero. Regla de taller: para poder comprobar una tolerancia, el instrumento tiene que apreciar <b>del orden de diez veces menos</b> que lo que quieres medir.
           <span class="credito">ArtMechanic &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Messschieber.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1357,7 +1418,7 @@ footer .wrap{padding-block:18px 26px}
         <p>Los n&uacute;meros de esta tabla son <b>orientaci&oacute;n de taller</b>, no una norma.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c2-pasa-nopasa.jpg" alt="Calibre tamp&oacute;n cil&iacute;ndrico de acero de unos 100 mm, con dos extremos de di&aacute;metro distinto; en el mango van grabados GO 29.94 y NO GO 29.97" loading="lazy">
+        <img src="../../../img/c2-pasa-nopasa.jpg" width="1280" height="792" alt="Calibre tamp&oacute;n cil&iacute;ndrico de acero de unos 100 mm, con dos extremos de di&aacute;metro distinto; en el mango van grabados GO 29.94 y NO GO 29.97" loading="lazy">
         <figcaption>Un <b>calibre tamp&oacute;n pasa / no pasa</b>, y la idea de esta sesi&oacute;n convertida en un trozo de acero. En el mango est&aacute; grabado todo: un extremo mide <b>29,94 mm</b> y el otro <b>29,97 mm</b>. Para saber si un agujero est&aacute; bien, no se mide ni se lee nada: se prueban los dos extremos. El de <b>29,94 tiene que entrar</b> (si no entra, el agujero se ha quedado peque&ntilde;o) y el de <b>29,97 no tiene que entrar</b> (si entra, se ha pasado). El agujero est&aacute; bien si cae en esa ventana de <b>0,03 mm</b>, y la comprobaci&oacute;n la puede hacer cualquiera en dos segundos, sin saber leer un nonio. As&iacute; se controlaba la producci&oacute;n en serie antes de que existiera la electr&oacute;nica.
           <span class="credito">Glenn McKechnie &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:GaugePlugSpecialGoNoGo.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1407,8 +1468,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Va m&aacute;s all&aacute; de lo que se pide aqu&iacute; &mdash;entra en la notaci&oacute;n ISO completa&mdash;, pero el porqu&eacute; de los tres tipos de ajuste est&aacute; muy bien contado. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=961O25IM1ZI" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=961O25IM1ZI" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -1541,7 +1602,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Dos familias, y la pregunta que las separa</h4>
+        <h3 class="h-menor">Dos familias, y la pregunta que las separa</h3>
         <p><b>Uniones desmontables</b>: se pueden abrir y volver a cerrar <b>sin estropear nada</b>, y
            tantas veces como haga falta. Tornillo con tuerca, tornillo rosca-chapa, perno, pasador,
            chaveta, brida, im&aacute;n, encaje a presi&oacute;n.</p>
@@ -1639,7 +1700,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="un-cuenta" id="un-cuenta"></p>
         </div>
-        <div class="pie" id="pie-un"></div>
+        <div class="pie" id="pie-un" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -1906,7 +1967,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>Lo fijo, visto de cerca</h3>
       <figure class="foto">
-        <img src="../../../img/c2-remaches.jpg" alt="Dos remaches ciegos de cabeza blanca sobre fondo claro: el de arriba entero, con su v&aacute;stago met&aacute;lico recto; el de abajo ya colocado, con el cuerpo abierto en p&eacute;talos por el otro extremo" loading="lazy">
+        <img src="../../../img/c2-remaches.jpg" width="1280" height="895" alt="Dos remaches ciegos de cabeza blanca sobre fondo claro: el de arriba entero, con su v&aacute;stago met&aacute;lico recto; el de abajo ya colocado, con el cuerpo abierto en p&eacute;talos por el otro extremo" loading="lazy">
         <figcaption>Dos <b>remaches ciegos</b>, de los que sujetan una matr&iacute;cula. Arriba, sin usar. Abajo, despu&eacute;s de pasar por la remachadora: el v&aacute;stago de acero ha tirado hacia atr&aacute;s y ha <b>deformado el cuerpo</b>, que se ha abierto en p&eacute;talos por la cara de detr&aacute;s y ha aprisionado las dos piezas. Se llaman <b>ciegos</b> porque se ponen desde <b>un solo lado</b>: no hace falta llegar por detr&aacute;s, y eso los hace perfectos para un tubo o una caja cerrada. Ahora mira el de abajo y hazte la pregunta de esta sesi&oacute;n: <b>&iquest;c&oacute;mo lo quitas?</b> No hay manera de devolverlo a su forma. Hay que <b>taladrarle la cabeza</b> y perder el remache. Eso es exactamente lo que quiere decir <i>uni&oacute;n fija</i>: no es que sea m&aacute;s fuerte, es que la deformaci&oacute;n que la hace fuerte no se deshace.
           <span class="credito">Cjp24 &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Blind_rivets_before_and_after_strain.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -1940,8 +2001,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">La misma pregunta de esta sesi&oacute;n, con piezas de verdad y a escala de taller met&aacute;lico. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=vcpl2baqin4" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=vcpl2baqin4" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -2036,6 +2097,14 @@ footer .wrap{padding-block:18px 26px}
       <p>Mismo plano, tres presupuestos. Y solo una de las tres te da la cota que pediste &mdash;spoiler: ninguna te da la del eje&mdash;.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Test</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1 &middot; 2.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">A.3 &middot; D.4</span></div>
+
+      <figure class="foto">
+        <img src="../../../img/manufacturing-methods.svg" width="1000" height="600" loading="lazy"
+             alt="M&eacute;todos de fabricaci&oacute;n: Sustractiva (quitar material, 30-80% residuos) vs Aditiva (a&ntilde;adir material, 0-5% residuos)">
+        <figcaption><b>Fabricaci&oacute;n Sustractiva vs Aditiva</b>: Sustractiva QUITA material (torneado, fresado CNC, cortadora l&aacute;ser) - eficiente para producci&oacute;n en serie pero genera mucho residuo (30-80%). Aditiva A&Ntilde;ADE material (impresoras 3D FDM/SLA, sinterizado) - m&aacute;s lenta pero cero desperdicio (~5%), perfecta para prototipos. Elecci&oacute;n: Sustractiva si necesitas velocidad y cantidad; Aditiva si necesitas formas complejas y flexibilidad.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
     </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -2070,7 +2139,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>Lo que hay en el aula, y qu&eacute; hace cada cosa</h4>
+        <h3 class="h-menor">Lo que hay en el aula, y qu&eacute; hace cada cosa</h3>
         <ul>
           <li><b>Medir y marcar</b>: regla, escuadra, gramil, punta de trazar y <b>granete</b>. El
               granete hace una picadura donde va el agujero, y sin &eacute;l la broca <b>patina</b> y
@@ -2173,7 +2242,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="tl-cuenta" id="tl-cuenta"></p>
         </div>
-        <div class="pie" id="pie-tl"></div>
+        <div class="pie" id="pie-tl" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -2460,7 +2529,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>La m&aacute;quina que se imprime a s&iacute; misma</h3>
       <figure class="foto">
-        <img src="../../../img/c2-impresion3d.jpg" alt="Impresora 3D Prusa i3 de estructura negra con muchas piezas amarillas de pl&aacute;stico impreso, imprimiendo un jarr&oacute;n naranja en el que se distinguen las capas" loading="lazy">
+        <img src="../../../img/c2-impresion3d.jpg" width="1280" height="1707" alt="Impresora 3D Prusa i3 de estructura negra con muchas piezas amarillas de pl&aacute;stico impreso, imprimiendo un jarr&oacute;n naranja en el que se distinguen las capas" loading="lazy">
         <figcaption>Una <b>Prusa i3</b>, del proyecto <b>RepRap</b>, imprimiendo un jarr&oacute;n. Dos cosas que mirar. La primera, en la pieza naranja: se ven <b>las capas</b>, una encima de otra, y eso explica por qu&eacute; una pieza impresa se parte con m&aacute;s facilidad <b>en el sentido en que se separan las capas</b> que en cualquier otro. La segunda, y es la buena: casi todas las <b>piezas amarillas de la m&aacute;quina</b> &mdash;los soportes de las varillas, el carro, el extrusor&mdash; <b>est&aacute;n impresas</b>. RepRap naci&oacute; en 2005 en la Universidad de Bath con esa idea: una m&aacute;quina que fabrica la mayor parte de las piezas de otra m&aacute;quina igual, con los planos publicados para que cualquiera la copie. La tecnolog&iacute;a era de 1984, patentada por Chuck Hull, pero estuvo veinte a&ntilde;os en manos de la industria; cuando las patentes fueron caducando y apareci&oacute; RepRap, se llen&oacute; de impresoras el mundo. La que hay en tu instituto desciende de esta.
           <span class="credito">John Abella &middot; CC BY 2.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Prusa_i3_-_RepRap_3D_printer_printing.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -2491,8 +2560,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">El ejemplo m&aacute;s claro de que <b>el dise&ntilde;o depende de c&oacute;mo se fabrique</b>: la misma pieza, girada, aguanta otra cosa. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=Tz168RtMZJU" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=Tz168RtMZJU" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -2557,80 +2626,80 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
       <div class="ta" id="test-c2">
         <h4>Lo que tiene que haber quedado de estas cuatro sesiones</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Marcas cuatro agujeros midiendo cada uno desde el anterior, 25 mm cada vez, y te equivocas como mucho 0,2 mm en cada medida. En el peor caso, &iquest;d&oacute;nde puede acabar el cuarto?</p>
-          <label class="ta-op"><input type="radio" name="c2-0" value="0">a 0,2 mm de su sitio, porque ese es el error de una medida</label>
-          <label class="ta-op"><input type="radio" name="c2-0" value="1">a 0,8 mm de su sitio</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p1">
+          <p id="test-c2-p1">1. Marcas cuatro agujeros midiendo cada uno desde el anterior, 25 mm cada vez, y te equivocas como mucho 0,2 mm en cada medida. En el peor caso, &iquest;d&oacute;nde puede acabar el cuarto?</p>
+          <label class="ta-op"><input type="radio" name="c2-0" value="0">a 0,8 mm de su sitio</label>
+          <label class="ta-op"><input type="radio" name="c2-0" value="1">a 0,2 mm de su sitio, porque ese es el error de una medida</label>
           <label class="ta-op"><input type="radio" name="c2-0" value="2">a 0,05 mm, porque los errores se compensan entre s&iacute;</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En cadena, cada cota arranca donde acab&oacute; la anterior, as&iacute; que los errores se <b>suman</b>: 4 &middot; 0,2 = <b>0,8 mm</b>. Acotando las cuatro desde el mismo borde, el peor caso se habr&iacute;a quedado en 0,2 mm.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. &iquest;Por qu&eacute; est&aacute; mal poner en el plano 25 + 25 + 25 + 25 <b>y adem&aacute;s</b> el total de 100?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p2">
+          <p id="test-c2-p2">2. &iquest;Por qu&eacute; est&aacute; mal poner en el plano 25 + 25 + 25 + 25 <b>y adem&aacute;s</b> el total de 100?</p>
           <label class="ta-op"><input type="radio" name="c2-1" value="0">porque 25 &middot; 4 no es 100</label>
-          <label class="ta-op"><input type="radio" name="c2-1" value="1">porque es una cota de m&aacute;s: pide algo que no se puede cumplir y no dice cu&aacute;l de las cinco manda</label>
-          <label class="ta-op"><input type="radio" name="c2-1" value="2">porque las cotas totales nunca se ponen en un plano</label>
+          <label class="ta-op"><input type="radio" name="c2-1" value="1">porque las cotas totales nunca se ponen en un plano</label>
+          <label class="ta-op"><input type="radio" name="c2-1" value="2">porque es una cota de m&aacute;s: pide algo que no se puede cumplir y no dice cu&aacute;l de las cinco manda</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las cuatro medidas reales nunca van a sumar 100 exactos. Al poner las cinco cotas, el que fabrica tiene que <b>desobedecer alguna</b> y no le has dicho cu&aacute;l. Se pone la que manda; el total, si acaso, entre par&eacute;ntesis y como cota informativa.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>3. Un agujero va de 8,000 a 8,022 mm y su eje, de 7,972 a 7,987. &iquest;Qu&eacute; ajuste es?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p3">
+          <p id="test-c2-p3">3. Un agujero va de 8,000 a 8,022 mm y su eje, de 7,972 a 7,987. &iquest;Qu&eacute; ajuste es?</p>
           <label class="ta-op"><input type="radio" name="c2-2" value="0">con juego: el m&iacute;nimo es 0,013 y el m&aacute;ximo, 0,050</label>
           <label class="ta-op"><input type="radio" name="c2-2" value="1">indeterminado, porque los n&uacute;meros se solapan</label>
           <label class="ta-op"><input type="radio" name="c2-2" value="2">con apriete: el eje siempre entra forzando</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Juego m&aacute;ximo = 8,022 &minus; 7,972 = 0,050. Juego m&iacute;nimo = 8,000 &minus; 7,987 = 0,013. Los <b>dos positivos</b>, as&iacute; que el agujero es siempre mayor que el eje: gira, salgan como salgan las piezas.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Qu&eacute; quiere decir que un ajuste sea <b>indeterminado</b>?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p4">
+          <p id="test-c2-p4">4. &iquest;Qu&eacute; quiere decir que un ajuste sea <b>indeterminado</b>?</p>
           <label class="ta-op"><input type="radio" name="c2-3" value="0">que hay que medirlo para saber cu&aacute;nto mide</label>
           <label class="ta-op"><input type="radio" name="c2-3" value="1">que unas veces las piezas entran sueltas y otras aprietan, y no se puede saber de antemano cu&aacute;l toca</label>
           <label class="ta-op"><input type="radio" name="c2-3" value="2">que el plano no lleva tolerancias</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El juego m&iacute;nimo sale negativo y el m&aacute;ximo, positivo: la zona del eje y la del agujero se solapan. El mismo plano da piezas que giran y piezas que no, y eso es justo lo que no se puede permitir en una pieza que <b>tiene</b> que girar.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>5. El juego de un ajuste var&iacute;a entre 0,013 y 0,050 mm. Si aprietas la tolerancia del agujero de 22 a 11 micras y no tocas el eje&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c2-4" value="0">el juego pasa a variar la mitad, de 0,013 a 0,031</label>
-          <label class="ta-op"><input type="radio" name="c2-4" value="1">el juego deja de variar: sale siempre el mismo</label>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p5">
+          <p id="test-c2-p5">5. El juego de un ajuste var&iacute;a entre 0,013 y 0,050 mm. Si aprietas la tolerancia del agujero de 22 a 11 micras y no tocas el eje&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c2-4" value="0">el juego deja de variar: sale siempre el mismo</label>
+          <label class="ta-op"><input type="radio" name="c2-4" value="1">el juego pasa a variar la mitad, de 0,013 a 0,031</label>
           <label class="ta-op"><input type="radio" name="c2-4" value="2">no cambia nada, porque el juego lo marca el eje</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que var&iacute;a el juego es <b>la suma de las dos tolerancias</b>: 22 + 15 = 37 micras, que es justo 0,050 &minus; 0,013. Si el agujero baja a 11, la suma pasa a 26 micras y el juego va de 0,013 a 0,039. Baja, pero <b>no a la mitad</b>: la otra tolerancia sigue ah&iacute;.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Un tornillo M3 de acero aguanta unos 1700 N. Lo pones en una pieza de PLA de 3 mm, que aguanta 55 N/mm&sup2; de aplastamiento. &iquest;Con cu&aacute;nta fuerza falla la uni&oacute;n?</p>
-          <label class="ta-op"><input type="radio" name="c2-5" value="0">con 1700 N, que es lo que aguanta el tornillo</label>
-          <label class="ta-op"><input type="radio" name="c2-5" value="1">con unos 495 N, y lo que falla es la pieza</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p6">
+          <p id="test-c2-p6">6. Un tornillo M3 de acero aguanta unos 1700 N. Lo pones en una pieza de PLA de 3 mm, que aguanta 55 N/mm&sup2; de aplastamiento. &iquest;Con cu&aacute;nta fuerza falla la uni&oacute;n?</p>
+          <label class="ta-op"><input type="radio" name="c2-5" value="0">con unos 495 N, y lo que falla es la pieza</label>
+          <label class="ta-op"><input type="radio" name="c2-5" value="1">con 1700 N, que es lo que aguanta el tornillo</label>
           <label class="ta-op"><input type="radio" name="c2-5" value="2">con 165 N, porque hay que dividir entre los 3 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> &sigma; = F / (d &middot; t), as&iacute; que F = 55 &middot; 3 &middot; 3 = <b>495 N</b>. Manda <b>siempre el menor de los dos</b> modos de fallo, y en nuestros proyectos ese casi nunca es el tornillo: es el material de alrededor del agujero, que se ovala.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. &iquest;Por qu&eacute; un remache es una uni&oacute;n fija?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p7">
+          <p id="test-c2-p7">7. &iquest;Por qu&eacute; un remache es una uni&oacute;n fija?</p>
           <label class="ta-op"><input type="radio" name="c2-6" value="0">porque es m&aacute;s fuerte que un tornillo</label>
-          <label class="ta-op"><input type="radio" name="c2-6" value="1">porque para ponerlo hay que deformarlo, y esa deformaci&oacute;n no se deshace: para quitarlo hay que taladrarlo</label>
-          <label class="ta-op"><input type="radio" name="c2-6" value="2">porque va pegado adem&aacute;s de remachado</label>
+          <label class="ta-op"><input type="radio" name="c2-6" value="1">porque va pegado adem&aacute;s de remachado</label>
+          <label class="ta-op"><input type="radio" name="c2-6" value="2">porque para ponerlo hay que deformarlo, y esa deformaci&oacute;n no se deshace: para quitarlo hay que taladrarlo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que hace fija una uni&oacute;n no es la fuerza, es que <b>abrirla destruya algo</b>. El remache se abre en p&eacute;talos por la cara de detr&aacute;s y no hay manera de devolverlo a su forma: hay que taladrarle la cabeza y perderlo.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>8. Una junta pegada con 20 mm de solape aguanta 2400 N. Si doblas el solape a 40 mm&hellip;</p>
-          <label class="ta-op"><input type="radio" name="c2-7" value="0">aguanta lo mismo: lo que manda es el pegamento, no el tama&ntilde;o</label>
-          <label class="ta-op"><input type="radio" name="c2-7" value="1">aguanta el doble, unos 4800 N, y no cuesta un c&eacute;ntimo m&aacute;s</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2-p8">
+          <p id="test-c2-p8">8. Una junta pegada con 20 mm de solape aguanta 2400 N. Si doblas el solape a 40 mm&hellip;</p>
+          <label class="ta-op"><input type="radio" name="c2-7" value="0">aguanta el doble, unos 4800 N, y no cuesta un c&eacute;ntimo m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2-7" value="1">aguanta lo mismo: lo que manda es el pegamento, no el tama&ntilde;o</label>
           <label class="ta-op"><input type="radio" name="c2-7" value="2">aguanta cuatro veces m&aacute;s</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> En el pegado, &tau; = F / &aacute;rea. Doble &aacute;rea, doble fuerza. Es lineal, no al cuadrado, porque solo crece el solape y no el ancho. Y es la &uacute;nica manera de ganar resistencia que sale gratis: se gana <b>dibujando</b>.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>9. &iquest;A qu&eacute; revoluciones va una broca de &empty;8 en contrachapado, con una velocidad de corte de 40 m/min?</p>
-          <label class="ta-op"><input type="radio" name="c2-8" value="0">unas 1592 rpm</label>
-          <label class="ta-op"><input type="radio" name="c2-8" value="1">unas 320 rpm</label>
-          <label class="ta-op"><input type="radio" name="c2-8" value="2">unas 5000 rpm, que es lo que da el taladro</label>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2-p9">
+          <p id="test-c2-p9">9. &iquest;A qu&eacute; revoluciones va una broca de &empty;8 en contrachapado, con una velocidad de corte de 40 m/min?</p>
+          <label class="ta-op"><input type="radio" name="c2-8" value="0">unas 320 rpm</label>
+          <label class="ta-op"><input type="radio" name="c2-8" value="1">unas 5000 rpm, que es lo que da el taladro</label>
+          <label class="ta-op"><input type="radio" name="c2-8" value="2">unas 1592 rpm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> n = 1000 &middot; V<sub>c</sub> / (&pi; &middot; D) = 40000 / (&pi; &middot; 8) = 40000 / 25,13 = <b>1592 rpm</b>. F&iacute;jate en que D <b>divide</b>: la broca gorda pide menos vueltas, y por eso a las vueltas de una fina quema la madera.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>10. Necesitas un agujero de &empty;8 con tolerancia de 22 micras para que un eje gire justo. Con lo que hay en el aula&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2-p10">
+          <p id="test-c2-p10">10. Necesitas un agujero de &empty;8 con tolerancia de 22 micras para que un eje gire justo. Con lo que hay en el aula&hellip;</p>
           <label class="ta-op"><input type="radio" name="c2-9" value="0">lo hace el l&aacute;ser, que clava 0,15 mm</label>
-          <label class="ta-op"><input type="radio" name="c2-9" value="1">lo hace la impresora 3D, que clava 0,3 mm</label>
-          <label class="ta-op"><input type="radio" name="c2-9" value="2">ninguna de las tres llega: hay que taladrar por debajo y repasar con escariador, y comprar el eje ya calibrado</label>
+          <label class="ta-op"><input type="radio" name="c2-9" value="1">ninguna de las tres llega: hay que taladrar por debajo y repasar con escariador, y comprar el eje ya calibrado</label>
+          <label class="ta-op"><input type="radio" name="c2-9" value="2">lo hace la impresora 3D, que clava 0,3 mm</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 22 micras son 0,022 mm. El l&aacute;ser da &plusmn;0,15 y la impresora &plusmn;0,3: est&aacute;n <b>un orden de magnitud por encima</b>. Por eso los ejes de un proyecto no se fabrican, se compran calibrados, y lo que se ajusta es el agujero, con escariador o a lima, midiendo.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2863,7 +2932,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="md-cuenta" id="md-cuenta"></p>
         </div>
-        <div class="pie" id="pie-md"></div>
+        <div class="pie" id="pie-md" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3246,14 +3315,14 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>El &aacute;rbol, visto por dentro</h3>
       <figure class="foto">
-        <img src="../../../img/c2-cad-arbol.png" alt="Ventana de FreeCAD: a la izquierda, el &aacute;rbol del modelo con Body, Pad, Sketch, Pocket, Mirrored, Pad001 y Pocket001; a la derecha, en 3D, un soporte gris con dos patas y una ventana cuadrada en el centro" loading="lazy">
+        <img src="../../../img/c2-cad-arbol.png" width="800" height="500" alt="Ventana de FreeCAD: a la izquierda, el &aacute;rbol del modelo con Body, Pad, Sketch, Pocket, Mirrored, Pad001 y Pocket001; a la derecha, en 3D, un soporte gris con dos patas y una ventana cuadrada en el centro" loading="lazy">
         <figcaption><b>FreeCAD</b> con un soporte mec&aacute;nico terminado. Lo importante no est&aacute; en la pieza: est&aacute; en la <b>lista de la izquierda</b>. Se lee de arriba abajo y es exactamente lo que se hizo, en orden: un <i>Sketch</i> (un perfil plano), un <i>Pad</i> (extruirlo), un <i>Pocket</i> (restar), un <i>Mirrored</i> (repetir en espejo, que es la pata de la derecha), otro <i>Pad</i> y otro <i>Pocket</i>. Esa lista <b>es</b> la pieza: si abres el primer <i>Sketch</i> y cambias una cota, todo lo de abajo se vuelve a calcular. Por eso a esto se le llama modelado <b>por operaciones</b> y no dibujo. FreeCAD es libre y gratuito, y hace lo mismo que los programas de pago de la industria. Esta imagen es el <b>&uacute;ltimo fotograma</b> de una animaci&oacute;n publicada en Commons, recortado para poder leer el &aacute;rbol.
           <span class="credito">Donatello29 &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Parametric_and_feature-based_modeling_example.gif" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
       <figure class="foto">
-        <img src="../../../img/c2-stl-malla.png" alt="Pieza en 3D con forma de copa o pomo, gris sobre fondo azul, con toda la superficie cubierta de tri&aacute;ngulos peque&ntilde;os que se ven uno a uno" loading="lazy">
+        <img src="../../../img/c2-stl-malla.png" width="790" height="676" alt="Pieza en 3D con forma de copa o pomo, gris sobre fondo azul, con toda la superficie cubierta de tri&aacute;ngulos peque&ntilde;os que se ven uno a uno" loading="lazy">
         <figcaption>Y esto es lo que sale al exportar a <b>STL</b>. La pieza de arriba, con su &aacute;rbol y sus cotas, se convierte en <b>esto</b>: una bolsa de tri&aacute;ngulos. F&iacute;jate en el borde del hueco de la izquierda, donde se ven las caras de canto: lo que parec&iacute;a una circunferencia es un <b>pol&iacute;gono</b>. Aqu&iacute; ya no hay agujeros, ni cotas, ni orden de operaciones, ni manera de cambiar una medida: hay v&eacute;rtices. Por eso <b>el STL no se guarda como copia de seguridad</b> del dise&ntilde;o. El STL es el fichero que le das a la m&aacute;quina, como el PDF que mandas a imprimir; el modelo de verdad es el otro, y ese es el que hay que conservar.
           <span class="credito">Kaboldy &middot; CC BY-SA 3.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:STL_sample_2.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3299,8 +3368,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">La herramienta que vais a usar, de cero. Lo que aqu&iacute; interesa es la parte de <b>agrupar y vaciar</b>: es la resta que hace los agujeros. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=pp1Uxy14neU" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=pp1Uxy14neU" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -3431,7 +3500,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>1 &middot; La lista de materiales, o despiece</h4>
+        <h3 class="h-menor">1 &middot; La lista de materiales, o despiece</h3>
         <p>Una fila por pieza distinta, y una columna de <b>cantidad</b>: dos flancos iguales son
            <b>una fila con un &times;2</b>, no dos piezas dibujadas dos veces.</p>
         <table style="width:100%;border-collapse:collapse;font-size:14px;margin:6px 0">
@@ -3536,7 +3605,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="co-cuenta" id="co-cuenta"></p>
         </div>
-        <div class="pie" id="pie-co"></div>
+        <div class="pie" id="pie-co" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -3872,7 +3941,7 @@ footer .wrap{padding-block:18px 26px}
            hace que veinte piezas salgan iguales.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c2-galibo.jpg" alt="Pieza plana de lat&oacute;n dorado con forma estrellada de contornos rectos, en la vitrina de un museo, con una etiqueta debajo que pone Gabarit en laiton, y al lado un goni&oacute;metro met&aacute;lico antiguo y varios modelos de madera" loading="lazy">
+        <img src="../../../img/c2-galibo.jpg" width="1280" height="853" alt="Pieza plana de lat&oacute;n dorado con forma estrellada de contornos rectos, en la vitrina de un museo, con una etiqueta debajo que pone Gabarit en laiton, y al lado un goni&oacute;metro met&aacute;lico antiguo y varios modelos de madera" loading="lazy">
         <figcaption>Un <b>g&aacute;libo</b> (<i>gabarit</i>) de lat&oacute;n, en el Museo de Historia Natural de Nantes, junto a un <b>goni&oacute;metro de Carangeot</b> de principios del siglo XIX y unos modelos de madera de formas cristalinas. Es una plantilla, y la idea es la misma que la de vuestros flancos: en vez de medir una forma cada vez que hace falta, se fabrica <b>una sola vez, con cuidado</b>, y luego se compara o se copia contra ella. Mira el canto: est&aacute; recortado en tramos rectos con &aacute;ngulos concretos, porque lo que se quiere comprobar con &eacute;l son esos &aacute;ngulos. Un g&aacute;libo convierte una medici&oacute;n &mdash;lenta, y distinta cada vez&mdash; en una <b>comparaci&oacute;n</b>, que es r&aacute;pida y siempre igual. Es exactamente lo que hac&iacute;a el calibre pasa / no pasa de la sesi&oacute;n 2, pero para una forma entera.
           <span class="credito">Koreller &middot; CC BY-SA 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Mus%C3%A9um_de_Nantes_-_654_-_Gabarit_en_laiton.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -3938,8 +4007,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Un carpintero usando una herramienta web gratuita que hace exactamente lo que hace la escena de esta sesi&oacute;n, con tableros de verdad. F&iacute;jate en que lo primero que le pide es el <b>ancho de la sierra</b>. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=rL6ZIaso5KA" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=rL6ZIaso5KA" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -4071,7 +4140,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La cadena de cotas y la cota de cierre</h4>
+        <h3 class="h-menor">La cadena de cotas y la cota de cierre</h3>
         <p>Se recorre el montaje <b>de un lado a otro, en l&iacute;nea recta</b>, apuntando cada
            medida que te vas encontrando:</p>
         <ul>
@@ -4136,7 +4205,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <div class="ci-tablero">
             <div class="ci-caja" id="ci-c-nom">
-              <h5>La cota de cierre</h5>
+              <h4 class="h-menor">La cota de cierre</h4>
               <p class="ci-num" id="ci-nom-n">&mdash;</p>
               <p class="ci-det" id="ci-nom-d"></p>
             </div>
@@ -4153,7 +4222,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="ci-cuenta" id="ci-cuenta"></p>
         </div>
-        <div class="pie" id="pie-ci"></div>
+        <div class="pie" id="pie-ci" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -4534,7 +4603,7 @@ footer .wrap{padding-block:18px 26px}
            y la <b>galga de espesores</b>, que es la que dice cu&aacute;nto hueco hay.</p>
       </div>
       <figure class="foto">
-        <img src="../../../img/c2-galgas.jpg" alt="Juego de galgas de espesores abierto en abanico sobre una piedra, con doce l&aacute;minas de acero de distinto grosor; en el mango se lee M/M, Moore &amp; Wright, Sheffield England, 389M, y en las l&aacute;minas se distinguen n&uacute;meros grabados como 70, 10 y 80" loading="lazy">
+        <img src="../../../img/c2-galgas.jpg" width="1280" height="695" alt="Juego de galgas de espesores abierto en abanico sobre una piedra, con doce l&aacute;minas de acero de distinto grosor; en el mango se lee M/M, Moore &amp; Wright, Sheffield England, 389M, y en las l&aacute;minas se distinguen n&uacute;meros grabados como 70, 10 y 80" loading="lazy">
         <figcaption>Un <b>juego de galgas de espesores</b>, abierto en abanico. Cada l&aacute;mina es una chapa de acero de un <b>grosor exacto y grabado</b>: la de 0,10 mide 0,10 y la de 0,70 mide 0,70. Sirven para medir justo lo que no se puede medir de ninguna otra manera: <b>el hueco que queda entre dos piezas ya montadas</b>, donde no entra un pie de rey. Y se usan igual que el calibre pasa / no pasa de la sesi&oacute;n 2: se prueban l&aacute;minas hasta encontrar <b>la m&aacute;s gorda que entra</b>; el hueco mide eso. Se pueden apilar dos o tres para medir huecos mayores. Este juego es del taller: pone <b>M/M</b> porque es m&eacute;trico, y son de <i>Moore &amp; Wright</i>, de Sheffield, uno de los sitios donde se invent&oacute; buena parte de esto.
           <span class="credito">R. Henrik Nilsson &middot; CC BY 4.0 &middot;
             <a href="https://commons.wikimedia.org/wiki/File:1970s_feeler_gauge_0_05_1_mm_model_389M_by_Moore_and_Wright_Sheffield_England.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -4566,8 +4635,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Lo mismo que esta sesi&oacute;n contado por gente que se dedica a esto en la industria. Va m&aacute;s lejos de lo que se pide en 4.&ordm;, pero la idea de la <b>cota que no dibuja nadie</b> est&aacute; en el primer minuto. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=SmvnY4k2vRg" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=SmvnY4k2vRg" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -4711,7 +4780,7 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <div class="copiar">
-        <h4>El expediente de fabricaci&oacute;n: cinco hojas</h4>
+        <h3 class="h-menor">El expediente de fabricaci&oacute;n: cinco hojas</h3>
         <p>Es lo que en la industria acompa&ntilde;a a cada pieza. Una hoja cada uno, ni m&aacute;s:</p>
         <ol>
           <li><b>El plano final</b>, acotado y con tolerancias. El <b>de verdad</b>, con los cambios de
@@ -4794,7 +4863,7 @@ footer .wrap{padding-block:18px 26px}
           </div>
           <p class="cd-cuenta" id="cd-cuenta"></p>
         </div>
-        <div class="pie" id="pie-cd"></div>
+        <div class="pie" id="pie-cd" role="status" aria-live="polite" aria-atomic="true"></div>
       </div>
 
       <style>
@@ -5041,7 +5110,7 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>C&oacute;mo se mide esto cuando hay dinero de por medio</h3>
       <figure class="foto">
-        <img src="../../../img/c2-cmm.jpg" alt="Un t&eacute;cnico con guante blanco maneja una m&aacute;quina de medici&oacute;n por coordenadas: un palpador desciende sobre una pieza cil&iacute;ndrica de aluminio marcada a rotulador rojo, y en la pantalla de al lado se ve la misma pieza en 3D con un mapa de colores y una escala que va de -0,02 a +0,02" loading="lazy">
+        <img src="../../../img/c2-cmm.jpg" width="1280" height="1280" alt="Un t&eacute;cnico con guante blanco maneja una m&aacute;quina de medici&oacute;n por coordenadas: un palpador desciende sobre una pieza cil&iacute;ndrica de aluminio marcada a rotulador rojo, y en la pantalla de al lado se ve la misma pieza en 3D con un mapa de colores y una escala que va de -0,02 a +0,02" loading="lazy">
         <figcaption>Una <b>m&aacute;quina de medici&oacute;n por coordenadas</b> (CMM) en un laboratorio del NIST, el instituto de metrolog&iacute;a de Estados Unidos. Es la tabla de control dimensional convertida en m&aacute;quina: el palpador va tocando la pieza punto por punto y el ordenador compara <b>cada punto medido con el modelo 3D</b> de la sesi&oacute;n 5. Mira la pantalla de la izquierda: la pieza est&aacute; pintada por colores, y la <b>escala de la derecha va de &minus;0,02 a +0,02</b> mil&iacute;metros. Eso no es un dibujo bonito: es la <b>desviaci&oacute;n</b>, cota a cota, de la pieza real respecto a lo que ped&iacute;a el plano, que es exactamente la columna que est&aacute;s rellenando t&uacute; con el pie de rey. Y f&iacute;jate en el rotulador rojo sobre el aluminio: la pieza lleva escrito <b>su n&uacute;mero</b>, porque un informe de medici&oacute;n que no dice de qu&eacute; pieza es no sirve para nada.
           <span class="credito">National Institute of Standards and Technology (NIST) &middot; dominio p&uacute;blico &middot;
             <a href="https://commons.wikimedia.org/wiki/File:Coordinate_Measuring_Machines_(5885465714).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
@@ -5100,8 +5169,8 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Est&aacute; hecho para la universidad y se nota en el registro, as&iacute; que qu&eacute;date con la <b>estructura</b> y con lo que hace con las manos y con la voz, no con el vocabulario. <b>Nadie del proyecto lo ha visto entero:</b> est&aacute;n
           comprobados el t&iacute;tulo y el canal, no el contenido. El v&iacute;deo no se carga hasta
-          que lo pulsas, y se reproduce sin cookies de seguimiento. Si la red del centro bloquea
-          YouTube, <a href="https://www.youtube.com/watch?v=CcogpV4DjNs" target="_blank" rel="noopener">&aacute;brelo
+          que lo pulsas, y se reproduce sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;, <a href="https://www.youtube.com/watch?v=CcogpV4DjNs" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
       </div>
@@ -5162,80 +5231,80 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">03</span> Autoevaluaci&oacute;n &middot; 10 min</div>
       <div class="ta" id="test-c2b">
         <h4>Lo que tiene que haber quedado de la unidad entera</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Tienes cuatro agujeros acotados <b>desde el mismo borde</b>, con &plusmn;0,2 mm de error en cada medida. &iquest;Cu&aacute;nto se puede desviar el cuarto en el peor caso?</p>
-          <label class="ta-op"><input type="radio" name="c2b-0" value="0">0,8 mm, porque son cuatro medidas</label>
-          <label class="ta-op"><input type="radio" name="c2b-0" value="1">0,2 mm, y no crece aunque a&ntilde;adas veinte agujeros m&aacute;s</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p1">
+          <p id="test-c2b-p1">1. Tienes cuatro agujeros acotados <b>desde el mismo borde</b>, con &plusmn;0,2 mm de error en cada medida. &iquest;Cu&aacute;nto se puede desviar el cuarto en el peor caso?</p>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="0">0,2 mm, y no crece aunque a&ntilde;adas veinte agujeros m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="c2b-0" value="1">0,8 mm, porque son cuatro medidas</label>
           <label class="ta-op"><input type="radio" name="c2b-0" value="2">0,4 mm, la mitad que en cadena</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Acotando desde una referencia, cada cota sale de la misma cara y <b>solo carga con su propio error</b>. El que crece con el n&uacute;mero de cotas es el de la acotaci&oacute;n en cadena, donde cada una arranca donde acab&oacute; la anterior.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. En un plano, &iquest;qu&eacute; quiere decir &empty;8 <sup>+0,022</sup><sub>&nbsp;0</sub>?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2b-p2">
+          <p id="test-c2b-p2">2. En un plano, &iquest;qu&eacute; quiere decir &empty;8 <sup>+0,022</sup><sub>&nbsp;0</sub>?</p>
           <label class="ta-op"><input type="radio" name="c2b-1" value="0">que la pieza mide 8,022 mm</label>
-          <label class="ta-op"><input type="radio" name="c2b-1" value="1">que vale cualquier pieza entre 8,000 y 8,022, y que la tolerancia es de 22 micras</label>
-          <label class="ta-op"><input type="radio" name="c2b-1" value="2">que hay que fabricarla con un error m&aacute;ximo del 0,022 %</label>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="1">que hay que fabricarla con un error m&aacute;ximo del 0,022 %</label>
+          <label class="ta-op"><input type="radio" name="c2b-1" value="2">que vale cualquier pieza entre 8,000 y 8,022, y que la tolerancia es de 22 micras</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La medida &uacute;til no es un n&uacute;mero, es un <b>intervalo</b>: la nominal m&aacute;s cada desviaci&oacute;n. La tolerancia es la anchura de ese permiso, 8,022 &minus; 8,000 = 0,022 mm = 22 &micro;m, y siempre es positiva.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. Una uni&oacute;n atornillada con un M3 en una pieza de DM de 3 mm (12 N/mm&sup2; de aplastamiento). &iquest;Con cu&aacute;nta fuerza falla?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p3">
+          <p id="test-c2b-p3">3. Una uni&oacute;n atornillada con un M3 en una pieza de DM de 3 mm (12 N/mm&sup2; de aplastamiento). &iquest;Con cu&aacute;nta fuerza falla?</p>
           <label class="ta-op"><input type="radio" name="c2b-2" value="0">con 1700 N, que es lo que aguanta el tornillo</label>
           <label class="ta-op"><input type="radio" name="c2b-2" value="1">con 108 N, y lo que falla es el DM alrededor del agujero</label>
           <label class="ta-op"><input type="radio" name="c2b-2" value="2">con 36 N</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> &sigma; = F / (d &middot; t), as&iacute; que F = 12 &middot; 3 &middot; 3 = <b>108 N</b>. Manda <b>siempre el menor de los dos</b> modos de fallo, y con material blando ese nunca es el tornillo. Un ni&ntilde;o de 11 kg colgando ya lo rompe.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>4. &iquest;Por qu&eacute; la t&eacute;cnica de fabricaci&oacute;n no se elige al final, con el plano ya terminado?</p>
-          <label class="ta-op"><input type="radio" name="c2b-3" value="0">porque hay lista de espera para la impresora 3D</label>
-          <label class="ta-op"><input type="radio" name="c2b-3" value="1">porque cada t&eacute;cnica obliga a dibujar la pieza de otra manera, y elegirla al final obliga a redibujar</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p4">
+          <p id="test-c2b-p4">4. &iquest;Por qu&eacute; la t&eacute;cnica de fabricaci&oacute;n no se elige al final, con el plano ya terminado?</p>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="0">porque cada t&eacute;cnica obliga a dibujar la pieza de otra manera, y elegirla al final obliga a redibujar</label>
+          <label class="ta-op"><input type="radio" name="c2b-3" value="1">porque hay lista de espera para la impresora 3D</label>
           <label class="ta-op"><input type="radio" name="c2b-3" value="2">porque el profesor lo decide antes</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La sierra pide rincones redondeados, el l&aacute;ser pide que todo sea plano y que descuentes la sangr&iacute;a, y la impresora pide cuidado con los voladizos, con la orientaci&oacute;n de las capas y con los agujeros, que salen peque&ntilde;os. <b>El dibujo depende de qui&eacute;n lo vaya a hacer.</b></div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. &iquest;Qu&eacute; diferencia hay entre un fichero STL y el modelo del que sali&oacute;?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2b-p5">
+          <p id="test-c2b-p5">5. &iquest;Qu&eacute; diferencia hay entre un fichero STL y el modelo del que sali&oacute;?</p>
           <label class="ta-op"><input type="radio" name="c2b-4" value="0">ninguna, el STL es el modelo comprimido</label>
-          <label class="ta-op"><input type="radio" name="c2b-4" value="1">el STL es una piel de tri&aacute;ngulos sin medidas ni historia: no se puede volver a editar de verdad</label>
-          <label class="ta-op"><input type="radio" name="c2b-4" value="2">el STL lleva las cotas y el modelo no</label>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="1">el STL lleva las cotas y el modelo no</label>
+          <label class="ta-op"><input type="radio" name="c2b-4" value="2">el STL es una piel de tri&aacute;ngulos sin medidas ni historia: no se puede volver a editar de verdad</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El modelo guarda <b>el &aacute;rbol de operaciones</b> y las medidas, y por eso puedes volver al paso 2 y cambiar una cota. El STL solo guarda v&eacute;rtices: es el fichero que le das a la m&aacute;quina, como el PDF que mandas a imprimir. Por eso se guardan los dos, y el que no se puede perder es el otro.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>6. Un agujero de &empty;8,30 se exporta a STL con <b>8</b> facetas. &iquest;Pasa por &eacute;l un eje de 8 mm?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p6">
+          <p id="test-c2b-p6">6. Un agujero de &empty;8,30 se exporta a STL con <b>8</b> facetas. &iquest;Pasa por &eacute;l un eje de 8 mm?</p>
           <label class="ta-op"><input type="radio" name="c2b-5" value="0">no: el pol&iacute;gono inscrito deja pasar 8,30 &middot; cos(180&deg;/8) = 7,67</label>
           <label class="ta-op"><input type="radio" name="c2b-5" value="1">s&iacute;, porque el agujero sigue midiendo 8,30</label>
           <label class="ta-op"><input type="radio" name="c2b-5" value="2">s&iacute;, y adem&aacute;s con m&aacute;s holgura, porque el pol&iacute;gono tiene esquinas</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El STL sustituye el c&iacute;rculo por un pol&iacute;gono <b>metido dentro</b>, que solo toca la circunferencia en los v&eacute;rtices. Lo que de verdad pasa es la distancia entre lados opuestos: D &middot; cos(180&deg;/N) = 8,30 &middot; 0,924 = <b>7,67 mm</b>. Con 16 facetas saldr&iacute;an 8,14, y ah&iacute; ya pasa.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>7. Las piezas suman 29 950 mm&sup2; y el tablero tiene 60 000. No caben. &iquest;Por qu&eacute;?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p7">
+          <p id="test-c2b-p7">7. Las piezas suman 29 950 mm&sup2; y el tablero tiene 60 000. No caben. &iquest;Por qu&eacute;?</p>
           <label class="ta-op"><input type="radio" name="c2b-6" value="0">porque el tablero se mide por fuera y las piezas por dentro</label>
           <label class="ta-op"><input type="radio" name="c2b-6" value="1">porque el hueco que sobra no est&aacute; junto: una pieza no se puede partir en dos recortes</label>
           <label class="ta-op"><input type="radio" name="c2b-6" value="2">porque falta contar el peso del material</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lo que decide no es la superficie libre <b>total</b>, sino si queda un <b>rect&aacute;ngulo entero</b> donde quepa la pieza. Por eso el plan de corte se hace antes de cortar y se empieza por las piezas grandes: las peque&ntilde;as caben en cualquier hueco y las grandes no.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>8. Diez cortes con una sierra cuya sangr&iacute;a es de 2 mm. &iquest;Cu&aacute;nto tablero desaparece?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-c2b-p8">
+          <p id="test-c2b-p8">8. Diez cortes con una sierra cuya sangr&iacute;a es de 2 mm. &iquest;Cu&aacute;nto tablero desaparece?</p>
           <label class="ta-op"><input type="radio" name="c2b-7" value="0">nada: la sangr&iacute;a sale del hueco entre piezas</label>
           <label class="ta-op"><input type="radio" name="c2b-7" value="1">2 mm, que es lo que mide un corte</label>
           <label class="ta-op"><input type="radio" name="c2b-7" value="2">20 mm de ancho de tablero, que es lo que hay que dejar entre pieza y pieza</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cada pasada convierte en serr&iacute;n su propio ancho: 10 &times; 2 = <b>20 mm</b>. Por eso en el plan de corte las piezas no se pegan unas a otras en el papel. Y si adem&aacute;s cortas por el centro de la raya en vez de por fuera, la mitad de esa sangr&iacute;a se la come la pieza.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. Un montaje tiene cuatro eslabones con tolerancias de 0,20, 0,30, 0,10 y 0,10 mm, y un juego nominal de 0,40. &iquest;Entre qu&eacute; valores puede quedar el juego?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-c2b-p9">
+          <p id="test-c2b-p9">9. Un montaje tiene cuatro eslabones con tolerancias de 0,20, 0,30, 0,10 y 0,10 mm, y un juego nominal de 0,40. &iquest;Entre qu&eacute; valores puede quedar el juego?</p>
           <label class="ta-op"><input type="radio" name="c2b-8" value="0">entre 0,10 y 0,70, porque las tolerancias se compensan</label>
           <label class="ta-op"><input type="radio" name="c2b-8" value="1">entre &minus;0,30 y 1,10: todas las tolerancias se suman, tengan el signo que tengan</label>
           <label class="ta-op"><input type="radio" name="c2b-8" value="2">siempre 0,40, si las piezas cumplen</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> 0,20 + 0,30 + 0,10 + 0,10 = <b>0,70</b>, y J = 0,40 &plusmn; 0,70. Se suman <b>todas</b>, tambi&eacute;n las de las cotas que restan, porque el peor caso es que el hueco salga m&iacute;nimo <b>a la vez</b> que lo que va dentro sale m&aacute;ximo. Y un juego negativo quiere decir que no entra.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. Tus seis cotas est&aacute;n pedidas con &plusmn;0,15 y la sierra con la que las haces dispersa &plusmn;0,50. Van a salir mal. &iquest;Qu&eacute; dices en la defensa?</p>
-          <label class="ta-op"><input type="radio" name="c2b-9" value="0">que el grupo no ten&iacute;a buen pulso y hay que practicar m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="c2b-9" value="1">que la tolerancia era m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina, as&iacute; que el fallo est&aacute; en el plano y no en las manos</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-c2b-p10">
+          <p id="test-c2b-p10">10. Tus seis cotas est&aacute;n pedidas con &plusmn;0,15 y la sierra con la que las haces dispersa &plusmn;0,50. Van a salir mal. &iquest;Qu&eacute; dices en la defensa?</p>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="0">que la tolerancia era m&aacute;s estrecha que la dispersi&oacute;n de la m&aacute;quina, as&iacute; que el fallo est&aacute; en el plano y no en las manos</label>
+          <label class="ta-op"><input type="radio" name="c2b-9" value="1">que el grupo no ten&iacute;a buen pulso y hay que practicar m&aacute;s</label>
           <label class="ta-op"><input type="radio" name="c2b-9" value="2">que la sierra estaba desajustada y hay que mover el tope</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Con &plusmn;0,50 de dispersi&oacute;n, una cota de &plusmn;0,15 <b>no se puede cumplir</b> por bien que se sierre: eso se decidi&oacute; al elegir la t&eacute;cnica, en la sesi&oacute;n 4. El <b>desajuste</b> es otra cosa &mdash;empuja todas las medidas al mismo lado y se corrige moviendo el tope&mdash;; la dispersi&oacute;n se aguanta o se cambia de m&aacute;quina.</div>
         </div>
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -5276,7 +5345,7 @@ footer .wrap{padding-block:18px 26px}
         <b>qu&eacute; le cuesta al planeta</b> cada una de las decisiones que acabas de tomar
         &mdash;incluida la de pegar en vez de atornillar&mdash;. Y la <b>unidad 9</b> recoge el
         proyecto entero y lo pone delante de gente de fuera.
-      </div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema3/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 3 &middot; Materiales y ciclo de vida &rarr;</a></p></div>
 
     </section>
 
@@ -5317,7 +5386,7 @@ footer .wrap{padding-block:18px 26px}
     var b = e.target.closest('button[data-ses]');
     if(!b || b.disabled) return;
     nav.querySelectorAll('button').forEach(function(x){
-      x.setAttribute('aria-selected', x === b ? 'true' : 'false');
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
     });
     document.querySelectorAll('[id^="ses-"]').forEach(function(p){
       p.hidden = (p.id !== 'ses-' + b.dataset.ses);
@@ -5337,7 +5406,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -5366,8 +5435,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -5380,7 +5458,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -5399,5 +5480,187 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();
+</script>
+
 </body>
 </html>

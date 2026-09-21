@@ -1,0 +1,127 @@
+<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .box { stroke: #2c3e50; stroke-width: 2; fill-opacity: 0.9; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { stroke: #3498db; stroke-width: 2.5; fill: none; marker-end: url(#arrowright); }
+      .feedback { stroke: #e74c3c; stroke-width: 2; fill: none; marker-end: url(#arrowred); stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowright" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    </marker>
+    <marker id="arrowred" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="600" y="35" class="title" font-size="18">Design Thinking: Proceso de Diseño</text>
+
+  <!-- Phase 1: Empatizar -->
+  <g>
+    <circle cx="100" cy="180" r="50" class="box" fill="#e74c3c"/>
+    <text x="100" y="175" class="title" fill="white" font-size="12">1</text>
+    <text x="100" y="190" class="label" fill="white" font-size="11">EMPATIZAR</text>
+
+    <text x="100" y="270" class="label" font-size="10" text-anchor="middle" font-weight="bold">Entender</text>
+    <text x="100" y="290" class="label" font-size="9" text-anchor="middle">Observar usuarios</text>
+    <text x="100" y="305" class="label" font-size="9" text-anchor="middle">¿Cuál es el problema?</text>
+  </g>
+
+  <!-- Arrow 1-2 -->
+  <path d="M150,180 L230,180" class="arrow"/>
+
+  <!-- Phase 2: Definir -->
+  <g>
+    <circle cx="280" cy="180" r="50" class="box" fill="#f39c12"/>
+    <text x="280" y="175" class="title" fill="white" font-size="12">2</text>
+    <text x="280" y="190" class="label" fill="white" font-size="11">DEFINIR</text>
+
+    <text x="280" y="270" class="label" font-size="10" text-anchor="middle" font-weight="bold">Concretar</text>
+    <text x="280" y="290" class="label" font-size="9" text-anchor="middle">¿Qué necesita?</text>
+    <text x="280" y="305" class="label" font-size="9" text-anchor="middle">Limitar el alcance</text>
+  </g>
+
+  <!-- Arrow 2-3 -->
+  <path d="M330,180 L410,180" class="arrow"/>
+
+  <!-- Phase 3: Idear -->
+  <g>
+    <circle cx="460" cy="180" r="50" class="box" fill="#3498db"/>
+    <text x="460" y="175" class="title" fill="white" font-size="12">3</text>
+    <text x="460" y="190" class="label" fill="white" font-size="11">IDEAR</text>
+
+    <text x="460" y="270" class="label" font-size="10" text-anchor="middle" font-weight="bold">Generar ideas</text>
+    <text x="460" y="290" class="label" font-size="9" text-anchor="middle">Lluvia de ideas</text>
+    <text x="460" y="305" class="label" font-size="9" text-anchor="middle">Muchas opciones</text>
+  </g>
+
+  <!-- Arrow 3-4 -->
+  <path d="M510,180 L590,180" class="arrow"/>
+
+  <!-- Phase 4: Prototipar -->
+  <g>
+    <circle cx="640" cy="180" r="50" class="box" fill="#27ae60"/>
+    <text x="640" y="175" class="title" fill="white" font-size="12">4</text>
+    <text x="640" y="190" class="label" fill="white" font-size="11">PROTOTIPAR</text>
+
+    <text x="640" y="270" class="label" font-size="10" text-anchor="middle" font-weight="bold">Construir</text>
+    <text x="640" y="290" class="label" font-size="9" text-anchor="middle">Versión rápida</text>
+    <text x="640" y="305" class="label" font-size="9" text-anchor="middle">Bajo costo</text>
+  </g>
+
+  <!-- Arrow 4-5 -->
+  <path d="M690,180 L770,180" class="arrow"/>
+
+  <!-- Phase 5: Validar/Probar -->
+  <g>
+    <circle cx="820" cy="180" r="50" class="box" fill="#9b59b6"/>
+    <text x="820" y="175" class="title" fill="white" font-size="12">5</text>
+    <text x="820" y="190" class="label" fill="white" font-size="11">VALIDAR</text>
+
+    <text x="820" y="270" class="label" font-size="10" text-anchor="middle" font-weight="bold">Probar</text>
+    <text x="820" y="290" class="label" font-size="9" text-anchor="middle">Feedback usuarios</text>
+    <text x="820" y="305" class="label" font-size="9" text-anchor="middle">¿Funciona?</text>
+  </g>
+
+  <!-- Arrow 5-6 -->
+  <path d="M870,180 L950,180" class="arrow"/>
+
+  <!-- Phase 6: Implementar -->
+  <g>
+    <circle cx="1000" cy="180" r="50" class="box" fill="#1abc9c"/>
+    <text x="1000" y="175" class="title" fill="white" font-size="12">6</text>
+    <text x="1000" y="190" class="label" fill="white" font-size="11">IMPLEMENTAR</text>
+
+    <text x="1000" y="270" class="label" font-size="10" text-anchor="middle" font-weight="bold">Producir</text>
+    <text x="1000" y="290" class="label" font-size="9" text-anchor="middle">Versión final</text>
+    <text x="1000" y="305" class="label" font-size="9" text-anchor="middle">Lanzar producto</text>
+  </g>
+
+  <!-- Feedback loop -->
+  <path d="M1000,130 Q1000,80 100,80 Q100,130" class="feedback"/>
+  <text x="600" y="65" class="label" font-size="10" fill="#e74c3c" font-weight="bold">Si no funciona: ITERAR (volver atrás y mejorar)</text>
+
+  <!-- Bottom note -->
+  <rect x="40" y="350" width="1120" height="220" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
+
+  <text x="60" y="375" class="title" font-size="12" text-anchor="start" font-weight="bold">Claves del Design Thinking:</text>
+
+  <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
+    <text x="60" y="400">• <b>Centrado en el usuario:</b> Entender qué necesita REALMENTE (no lo que tú crees que necesita)</text>
+
+    <text x="60" y="425">• <b>Iterativo:</b> No es lineal. Si el prototipo no funciona, vuelves a idear, prototipas de nuevo, etc.</text>
+
+    <text x="60" y="450">• <b>Colaborativo:</b> Todos los equipos trabajan juntos desde el principio, no en silos</text>
+
+    <text x="60" y="475">• <b>Prototipado rápido:</b> No esperes a tener la solución perfecta. Haz algo ya y aprende de los errores</text>
+
+    <text x="60" y="500">• <b>Documentar todo:</b> Sketches, notas, fotos del proceso. El aprendizaje está en el viaje, no solo en el resultado</text>
+
+    <text x="60" y="525">• <b>Fracasar rápido:</b> Mejor fracasar en prototipo que en fabricación a escala. Cada fallo enseña algo</text>
+  </g>
+</svg>

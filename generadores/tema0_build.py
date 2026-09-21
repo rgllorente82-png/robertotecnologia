@@ -884,7 +884,7 @@ def cuerpo(k, n):
     <div class="eyebrow">%(migas)s</div>
     <h1>%(h1)s</h1>
     <nav class="sesiones" aria-label="Sesiones del tema">
-      <button type="button" aria-selected="true">Sesi&oacute;n &uacute;nica &middot; 60 min</button>
+      <button type="button" aria-pressed="true">Sesi&oacute;n &uacute;nica &middot; 60 min</button>
     </nav>
   </div>
 </header>
