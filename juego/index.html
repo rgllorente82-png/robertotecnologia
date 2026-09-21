@@ -321,6 +321,16 @@ body.aula button{font-size:16px}
 body.aula #dado{font-size:19px;padding:15px 18px}
 .aula-btn{position:absolute;right:20px;top:10px;padding:7px 12px!important;font-size:11px!important}
 @media (max-width:940px){.aula-btn{display:none}}
+/* En un móvil el mapa se dibuja a ~350px de ancho con un viewBox de 1000: un
+   rótulo de 13 acaba midiendo 4,5px reales y no se lee nada. Los textos del SVG
+   se agrandan DENTRO del viewBox para compensar, y el mapa se hace más alto
+   para que quepan sin pisarse. */
+@media (max-width:700px){
+  .caja-mapa .mapa-cont{aspect-ratio:1000/620}
+  .nodo-t{font-size:30px;stroke-width:8px}
+  .nodo-n{font-size:26px;stroke-width:8px}
+  .mapa{height:100%}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
