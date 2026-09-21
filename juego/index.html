@@ -284,6 +284,43 @@ footer p{margin:2px 0}
   border:1px solid var(--linea);border-radius:6px;padding:10px 12px;margin:10px 0 14px}
 .dib{width:104px;height:70px;flex:0 0 auto;color:var(--tinta)}
 .dib-pie{font:400 13px/1.4 var(--f-serif);color:var(--tinta2);margin:0}
+/* ---------- modo aula ----------
+   Medido a 1920x1080 sobre una proyección de 2,2 m: la pregunta y las cartas se
+   leían hasta 3,6 m y un aula tiene el fondo a 7-8. Esto no es «más grande por
+   gusto»: es la diferencia entre que la mitad de la clase lea el tablero o no. */
+body.aula .dlg{padding:34px 38px}
+body.aula dialog{max-width:1180px}
+body.aula .dlg h3{font-size:42px}
+body.aula .dlg .meta,body.aula .dlg-pie{font-size:17px}
+body.aula #dlg-cuerpo p{font-size:25px;line-height:1.45}
+body.aula #dlg-cuerpo .dib-pie{font-size:21px}
+body.aula .op{font-size:27px;padding:20px 24px}
+body.aula .dib{width:150px;height:100px}
+body.aula .resul{font-size:23px}
+body.aula .carta h3{font-size:25px}
+body.aula .carta .dato{font-size:18px}
+body.aula .carta .meta,body.aula .carta .anio{font-size:14px}
+body.aula .tag{font-size:12px}
+body.aula .caja h2,body.aula .plegar{font-size:13px}
+body.aula .jug .nom{font-size:19px}
+body.aula .jug .pt{font-size:21px}
+body.aula .jug .din{font-size:12.5px}
+/* con letra de aula y dos columnas no cabe «Grupo 1» y los puntos: en el panel
+   lateral la fila entera mide 160px. Con más de cuatro grupos, una sola columna
+   y el nombre algo menor, que lo que se lee de lejos es el marcador. */
+body.aula #jugadores.dos-col{grid-template-columns:1fr}
+body.aula #jugadores.dos-col .nom{font-size:17px}
+body.aula .jug{padding:2px 9px}
+body.aula .log p{font-size:16px}
+body.aula #anio{font-size:32px!important}
+body.aula .hito{font-size:21px}
+body.aula .nodo-t{font-size:17px}
+body.aula .nodo-n{font-size:15px}
+body.aula #sub-epoca{font-size:17px}
+body.aula button{font-size:16px}
+body.aula #dado{font-size:19px;padding:15px 18px}
+.aula-btn{position:absolute;right:20px;top:10px;padding:7px 12px!important;font-size:11px!important}
+@media (max-width:940px){.aula-btn{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -296,6 +333,7 @@ footer p{margin:2px 0}
       <h1>Desarrollo <em>tecnológico</em></h1>
     </div>
     <div class="linea" id="linea" aria-hidden="true"></div>
+    <button class="aula-btn" id="aula-btn" title="Letra grande para proyectar en clase">Modo aula</button>
     <div class="reloj">
       <span class="n" id="anio-n">0</span>
       <div>
@@ -902,9 +940,9 @@ function pintarOpciones(){
       ba.addEventListener('click',()=>preguntaSuelta(
         'Asentarse en '+r.nombre,
         'Para quedarte hay que demostrar que sabes de qué va esto. Si aciertas, pagas '+PRECIO_ASENT+' y la región es tuya.',
-        ()=>{ j.dinero-=PRECIO_ASENT; E.asent[id]=j.id;
-              log(`<b>${j.nombre}</b> funda un asentamiento en <b>${r.nombre}</b>.`);
-              return `Te asientas en <b>${r.nombre}</b>. Quien caiga aquí te pagará ${RENTA_ASENT}.`; }));
+        (g)=>{ g=g||j; g.dinero-=PRECIO_ASENT; E.asent[id]=g.id;
+              log(`<b>${g.nombre}</b> funda un asentamiento en <b>${nomReg(id)}</b>.`);
+              return `Te asientas en <b>${nomReg(id)}</b>. Quien caiga aquí te pagará ${RENTA_ASENT}.`; }, true));
       cont.appendChild(ba);
     } else {
       const p2=document.createElement('p'); p2.className='meta'; p2.style.marginTop='8px';
@@ -924,9 +962,9 @@ function pintarOpciones(){
         b3.addEventListener('click',()=>preguntaSuelta('En '+r.nombre,
           propia ? 'Tu gente vive aquí. Lo que ya sabéis hacer, se enseña.'
                  : 'Aquí ya vive gente. Mirar cómo se hacen las cosas también es aprender.',
-          ()=>{ j.dinero+=PREMIO_RUTA;
-                log(`<b>${j.nombre}</b> ${propia?'enseña lo que sabe en':'aprende algo de paso por'} ${r.nombre}: +${PREMIO_RUTA}.`);
-                return `Te llevas ${PREMIO_RUTA}.`; }));
+          (g)=>{ g=g||j; g.dinero+=PREMIO_RUTA;
+                log(`<b>${g.nombre}</b> ${propia?'enseña lo que sabe en':'aprende algo de paso por'} ${nomReg(id)}: +${PREMIO_RUTA}.`);
+                return `Se lleva ${PREMIO_RUTA}.`; }));
         cont.appendChild(b3);
       }
     }
@@ -939,8 +977,8 @@ function pintarOpciones(){
     b2.disabled=E.suelta || !disponibles().length;
     b2.addEventListener('click',()=>preguntaSuelta('En la salida',
       'Todo lo que ya se ha inventado pasa por aquí.',
-      ()=>{ j.dinero+=PREMIO_SALIDA; log(`<b>${j.nombre}</b> acierta el repaso de la salida: +${PREMIO_SALIDA}.`);
-            return `Te llevas ${PREMIO_SALIDA}.`; }));
+      (g)=>{ g=g||j; g.dinero+=PREMIO_SALIDA; log(`<b>${g.nombre}</b> acierta el repaso de la salida: +${PREMIO_SALIDA}.`);
+            return `Se lleva ${PREMIO_SALIDA}.`; }));
     cont.appendChild(b2);
   } else {
     nota.innerHTML = 'Una ruta comercial: aquí no se inventa, se cambia. Si sabes de lo que hablas, el trato sale bien: <b>+'+PREMIO_RUTA+'</b>.';
@@ -951,8 +989,8 @@ function pintarOpciones(){
     b2.disabled=E.suelta || !disponibles().length;
     b2.addEventListener('click',()=>preguntaSuelta('Ruta comercial',
       'Por aquí viajan las mercancías y, con ellas, lo que se sabe hacer.',
-      ()=>{ j.dinero+=PREMIO_RUTA; log(`<b>${j.nombre}</b> cierra un buen trato en la ruta: +${PREMIO_RUTA}.`);
-            return `Te llevas ${PREMIO_RUTA}.`; }));
+      (g)=>{ g=g||j; g.dinero+=PREMIO_RUTA; log(`<b>${g.nombre}</b> cierra un buen trato en la ruta: +${PREMIO_RUTA}.`);
+            return `Se lleva ${PREMIO_RUTA}.`; }));
     cont.appendChild(b2);
   }
   const b=document.createElement('button');
@@ -973,7 +1011,7 @@ function tecParaRepaso(){
   return candidatas[Math.floor(Math.random()*candidatas.length)];
 }
 /* Una pregunta suelta, sin comprar nada: acierta y te llevas lo que sea. */
-function preguntaSuelta(rotulo, texto, alAcertar){
+function preguntaSuelta(rotulo, texto, alAcertar, sinRobo){
   const t=tecParaRepaso();
   if(!t || E.suelta) return;
   E.suelta=true;          // una por turno: si no, comerciar era dinero infinito
@@ -991,23 +1029,51 @@ function preguntaSuelta(rotulo, texto, alAcertar){
   const cajas=[];
   t.pregunta.op.forEach((o,i)=>{
     const b=document.createElement('button'); b.className='op'; b.textContent=o;
-    b.addEventListener('click',()=>responder(i));
+    b.onclick=()=>responder(i);
     c.appendChild(b); cajas.push(b);
   });
-  function responder(i){
-    cajas.forEach((b,k)=>{ b.disabled=true;
-      if(k===t.pregunta.ok) b.classList.add('bien');
-      else if(k===i) b.classList.add('mal'); });
-    const ok=i===t.pregunta.ok;
+  /* También aquí puede robar el siguiente: son la mayoría de las tiradas, y es
+     donde más falta hace que los otros grupos estén pendientes. */
+  function fin(texto, clase){
     const res=document.createElement('div');
-    res.className='resul '+(ok?'ok':'ko');
-    res.innerHTML = ok ? `<b>Correcto.</b> ${alAcertar()}`
-                       : `<b>No era esa.</b> ${t.pregunta.op[t.pregunta.ok]}. Esta vez te vas de vacío.`;
+    res.className='resul '+clase; res.innerHTML=texto;
     c.appendChild(res);
     const cerrar=document.createElement('button');
     cerrar.className='primario'; cerrar.style.marginTop='12px'; cerrar.textContent='Seguir';
     cerrar.addEventListener('click',()=>{ dlg.close(); pintarTodo(); });
     c.appendChild(cerrar);
+  }
+  function responder(i, quien, esRobo){
+    const j0=E.jug[E.turno];
+    quien = quien || j0;
+    const ok=i===t.pregunta.ok;
+    cajas.forEach((b,k)=>{ b.disabled=true;
+      if(ok || esRobo){ if(k===t.pregunta.ok) b.classList.add('bien'); }
+      if(k===i && !ok) b.classList.add('mal'); });
+    if(ok){
+      fin(esRobo ? `<b>Correcto.</b> Se lo lleva <b>${quien.nombre}</b>. ${alAcertar(quien)}`
+                 : `<b>Correcto.</b> ${alAcertar(quien)}`, 'ok');
+      return;
+    }
+    const ladron = (esRobo||sinRobo)? null : E.jug[(E.turno+1)%E.jug.length];
+    if(!ladron || ladron.id===quien.id){
+      cajas.forEach((b,k)=>{ if(k===t.pregunta.ok) b.classList.add('bien'); });
+      fin(`<b>No era esa.</b> ${t.pregunta.op[t.pregunta.ok]}. Esta vez nadie se lo lleva.`, 'ko');
+      return;
+    }
+    const res=document.createElement('div');
+    res.className='resul ko';
+    res.innerHTML=`<b>No era esa.</b> Le toca intentarlo a <b>${ladron.nombre}</b>.`;
+    c.appendChild(res);
+    const b2=document.createElement('button');
+    b2.className='primario'; b2.style.marginTop='12px';
+    b2.textContent='Que lo intente '+ladron.nombre;
+    b2.addEventListener('click',()=>{
+      b2.remove(); res.innerHTML=`Le toca a <b>${ladron.nombre}</b>: queda una respuesta menos.`;
+      cajas.forEach((b,k)=>{ if(!b.classList.contains('mal')){ b.disabled=false;
+        b.onclick=()=>responder(k, ladron, true); } });
+    });
+    c.appendChild(b2);
   }
   dlg.showModal();
 }
@@ -1046,36 +1112,83 @@ function preguntar(t, precio, d0){
   const cajas=[];
   q.pregunta.op.forEach((o,i)=>{
     const b=document.createElement('button'); b.className='op'; b.textContent=o;
-    b.addEventListener('click',()=>responder(i));
+    // onclick y no addEventListener: al pasar el turno al que roba se
+    // REEMPLAZA el manejador, y con addEventListener se acumularían los dos
+    b.onclick=()=>responder(i);
     c.appendChild(b); cajas.push(b);
   });
-  function responder(i){
-    cajas.forEach((b,k)=>{ b.disabled=true;
-      if(k===q.pregunta.ok) b.classList.add('bien');
-      else if(k===i) b.classList.add('mal'); });
-    const ok = i===q.pregunta.ok;
-    const res=document.createElement('div');
-    res.className='resul '+(ok?'ok':'ko');
-    if(ok){
-      j.dinero-=precio; j.tec.push(t.id);
-      if(d0){ d0.dinero+=precio;
-        // una línea por pareja de regiones, no una por copia: si no, el mapa
-        // acaba siendo una maraña que no dice nada
-        if(d0.region!==j.region &&
-           !E.difusion.some(x=>x.de===d0.region && x.a===j.region))
-          E.difusion.push({de:d0.region, a:j.region}); }
-      res.innerHTML=`<b>Correcto.</b> Desarrollas <b>${t.n}</b> en ${nomReg(j.region)}.`
-                  + (d0? ` Le pagas ${precio} a ${d0.nombre}.` : ` Pagas ${precio}.`);
-      log(`<b>${j.nombre}</b> desarrolla <b>${t.n}</b> (${anioTexto(t.anio)}).`);
-    } else {
-      res.innerHTML=`<b>No era esa.</b> ${q.pregunta.op[q.pregunta.ok]}. No pagas nada, pero esta vez te quedas sin ella.`;
-      log(`<b>${j.nombre}</b> falla la pregunta de ${t.n}.`);
+  /* Si el grupo de turno falla, la tecnología no se pierde: puede ROBARLA el
+     siguiente que esté en condiciones de desarrollarla. Con ocho grupos y una
+     sola pantalla, es lo que mantiene mirando a los siete que no tiran. La
+     respuesta correcta NO se enseña hasta que se resuelve el robo — si no, el
+     que roba no tendría nada que pensar. */
+  function puedeCon(x){
+    if(x.id===j.id) return false;
+    if(d0 && d0.id===x.id) return false;
+    if(x.dinero<precio) return false;
+    return (t.req||[]).every(r=>x.tec.includes(r) || yaEstabaInventado(r));
+  }
+  function siguienteQuePueda(desde){
+    for(let k=1;k<E.jug.length;k++){
+      const x=E.jug[(desde+k)%E.jug.length];
+      if(puedeCon(x)) return x;
     }
+    return null;
+  }
+  function entrega(quien, robada){
+    quien.dinero-=precio; quien.tec.push(t.id);
+    if(d0){ d0.dinero+=precio;
+      // una línea por pareja de regiones, no una por copia: si no, el mapa
+      // acaba siendo una maraña que no dice nada
+      if(d0.region!==quien.region &&
+         !E.difusion.some(x=>x.de===d0.region && x.a===quien.region))
+        E.difusion.push({de:d0.region, a:quien.region}); }
+    log(`<b>${quien.nombre}</b> ${robada?'<b>roba</b>':'desarrolla'} <b>${t.n}</b> (${anioTexto(t.anio)}).`);
+  }
+  function cierra(texto, clase){
+    const res=document.createElement('div');
+    res.className='resul '+clase; res.innerHTML=texto;
     c.appendChild(res);
     const cerrar=document.createElement('button');
     cerrar.className='primario'; cerrar.style.marginTop='12px'; cerrar.textContent='Seguir';
     cerrar.addEventListener('click',()=>{ dlg.close(); siguienteTurno(); });
     c.appendChild(cerrar);
+  }
+  function responder(i, quien, esRobo){
+    quien = quien || j;
+    const ok = i===q.pregunta.ok;
+    cajas.forEach((b,k)=>{ b.disabled=true;
+      if(ok || esRobo){ if(k===q.pregunta.ok) b.classList.add('bien'); }
+      if(k===i && !ok) b.classList.add('mal'); });
+    if(ok){
+      entrega(quien, !!esRobo);
+      cierra(`<b>Correcto.</b> ${esRobo?'<b>'+quien.nombre+'</b> roba':'Desarrollas'} <b>${t.n}</b>`
+             + ` en ${nomReg(quien.region)}.`
+             + (d0? ` Le paga${esRobo?'':'s'} ${precio} a ${d0.nombre}.` : ` Paga${esRobo?'':'s'} ${precio}.`), 'ok');
+      return;
+    }
+    log(`<b>${quien.nombre}</b> falla la pregunta de ${t.n}.`);
+    const ladron = esRobo? null : siguienteQuePueda(j.id);
+    if(!ladron){
+      cajas.forEach((b,k)=>{ if(k===q.pregunta.ok) b.classList.add('bien'); });
+      cierra(`<b>No era esa.</b> ${q.pregunta.op[q.pregunta.ok]}.`
+             + (esRobo? ' Se queda sin desarrollar.' : ' No pagas nada, pero esta vez te quedas sin ella.'), 'ko');
+      return;
+    }
+    // hay quien puede robarla: no se enseña la respuesta todavía
+    const res=document.createElement('div');
+    res.className='resul ko';
+    res.innerHTML=`<b>No era esa.</b> Puede robártela <b>${ladron.nombre}</b>, que sí tiene con qué.`;
+    c.appendChild(res);
+    const b2=document.createElement('button');
+    b2.className='primario'; b2.style.marginTop='12px';
+    b2.textContent='Que lo intente '+ladron.nombre;
+    b2.addEventListener('click',()=>{
+      b2.remove(); res.innerHTML=`Le toca a <b>${ladron.nombre}</b>: queda una respuesta menos.`;
+      cajas.forEach((b,k)=>{ if(!b.classList.contains('mal')){ b.disabled=false;
+        b.onclick=()=>responder(k, ladron, true); } });
+    });
+    c.appendChild(b2);
   }
   dlg.showModal();
 }
@@ -1083,6 +1196,15 @@ function preguntar(t, precio, d0){
 /* ---------- arranque ---------- */
 document.body.classList.add('preparando');
 pintarSelector(); pintarRango(); pintarLinea();
+// el modo aula se recuerda: el profesor lo enciende una vez y se queda
+try{ if(localStorage.getItem('aula')==='1') document.body.classList.add('aula'); }catch(e){}
+document.getElementById('aula-btn').addEventListener('click',()=>{
+  const on=document.body.classList.toggle('aula');
+  try{ localStorage.setItem('aula', on?'1':'0'); }catch(e){}
+  document.getElementById('aula-btn').classList.toggle('primario', on);
+  if(E) pintarTodo();
+});
+try{ if(localStorage.getItem('aula')==='1') document.getElementById('aula-btn').classList.add('primario'); }catch(e){}
 document.getElementById('log-toggle').addEventListener('click',()=>{
   const c=document.getElementById('caja-log');
   const abierta=c.classList.toggle('abierta');
