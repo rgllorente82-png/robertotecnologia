@@ -596,6 +596,14 @@ S.append(dict(
            clasificaci&oacute;n es bot&aacute;nica, no de dureza real.</p>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/u3-madera.jpg" width="1200" height="675" loading="lazy"
+             alt="Tabla de pino cepillada con tres nudos redondos y la veta desvi&aacute;ndose alrededor de cada uno">
+        <figcaption>Esto es <b>pino</b>, la madera blanda del taller del instituto. Tres <b>nudos</b> y la veta desvi&aacute;ndose para rodearlos: un nudo es donde estaba una <b>rama</b>, y la fibra del tronco tuvo que abrirse para dejarla salir. De ah&iacute; salen las dos cosas que m&aacute;s te van a pasar cortando: la madera se raja <b>a lo largo de la fibra</b> y nunca a lo ancho, y una tabla con un nudo en medio es m&aacute;s d&eacute;bil justo ah&iacute;.
+          <br><br>Foto de <b>Eleonora Vokueva</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
       <h3>Los derivados: arreglar lo que la madera hace mal</h3>
       <p>Cada derivado se invent&oacute; para resolver <b>un defecto concreto</b> de la madera maciza. No son
          sucedáneos baratos: son soluciones t&eacute;cnicas.</p>
@@ -1273,6 +1281,14 @@ S.append(dict(
         Sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
         eso que has elegido <b>se sostenga</b>: las estructuras.
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/u3-reciclaje.jpg" width="1200" height="900" loading="lazy"
+             alt="Trabajadores con uniforme azul separando residuos a mano en una cinta transportadora de una planta de reciclaje">
+        <figcaption>El s&iacute;mbolo del tri&aacute;ngulo no recicla nada: <b>esto</b> es reciclar. Una cinta, y gente separando a mano lo que nosotros tiramos junto. Cada vez que un envase va al contenedor equivocado, alguien lo saca de aqu&iacute; &mdash; o no lo saca, y entonces el lote entero pierde valor.
+          <br><br>Foto de <b>CP Khanal</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
   """))))
 
 

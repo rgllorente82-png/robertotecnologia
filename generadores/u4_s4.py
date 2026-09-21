@@ -228,6 +228,14 @@ TEORIA = u'''
         </ul>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/u4-contrapeso.jpg" width="1200" height="801" loading="lazy"
+             alt="Extremo trasero del brazo de una gr&uacute;a torre amarilla con sus bloques de contrapeso de hormig&oacute;n colgados">
+        <figcaption>La cuarta manera, en una gr&uacute;a: esos bloques de hormig&oacute;n del brazo corto. No sujetan nada y no levantan nada &mdash; <b>lo &uacute;nico que hacen es pesar</b>, al otro lado del punto de vuelco. Se a&ntilde;aden o se quitan seg&uacute;n la carga que toque mover ese d&iacute;a.
+          <br><br>Foto de <b>Richard REVEL</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
         <p>Vuelve a la botella. Llena, el agua est&aacute; repartida hasta arriba y el centro de gravedad

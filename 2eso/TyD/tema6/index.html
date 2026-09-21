@@ -8,19 +8,6 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema6/">
-<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
-<meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Tema 6 &middot; Electricidad y electr&oacute;nica">
-<meta property="og:description" content="Tema 6 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: el circuito el&eacute;ctrico, tensi&oacute;n, intensidad, resistencia, ley de Ohm, serie y paralelo y simbolog&iacute;a normalizada, con escenas interactivas.">
-<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema6/">
-<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema6.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tema 6 &middot; Electricidad y electr&oacute;nica &middot; Materiales de Tecnolog&iacute;a">
-<meta name="twitter:card" content="summary_large_image">
-<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -40,7 +27,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +35,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -136,7 +123,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:var(--amar-texto)}
+.reto-piensa .n-tag{color:#9a7326}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -188,6 +175,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .copiar > :first-child{margin-top:6px}
 .copiar > :last-child{margin-bottom:0}
 .copiar h4{font-size:15px;margin:10px 0 4px}
+/* tablas de datos dentro de los bloques que se copian */
+.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
+.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 .entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
 .entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
@@ -227,12 +220,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
-/* la palabra que dice cual es cual: el color solo no vale, ni para quien
-   no distingue rojo y verde ni para quien no ve la pantalla */
-.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
-  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
-.ta-op.bien .ta-marca{color:var(--verde-texto)}
-.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -288,7 +275,10 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
 .cc-aviso h2{font-size:17px;margin:0 0 8px}
 .cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px;
+  /* la cita es una tirada sin espacios: en un movil empujaba la pagina 80 px
+     de lado, y con ella todo lo demas. Que parta antes que sacar la pagina. */
+  overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
@@ -306,38 +296,14 @@ footer .wrap{padding-block:18px 26px}
 .narrador-nota{font-size:12.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.5}
 @media (max-width:520px){.narrador{flex-direction:column;align-items:center}
   .narrador-txt{text-align:center}}
-
-  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
-     empujaba la página entera 80 px de lado, y con ella todo lo demás.
-     Que parta por donde haga falta antes que sacar la página del ancho. */
-  .cc-cita code{overflow-wrap:anywhere}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
-  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
-/* tablas anchas en el movil: se desplazan ellas, no la pagina */
-@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
-/* ---- al imprimir, que salgan todas las sesiones ---- */
-@media print{
-  #nav{display:none}
-  [id^="ses-"][hidden]{display:block !important}
-  [id^="ses-"]{break-before:page}
-  [id^="ses-"]:first-of-type{break-before:auto}
-  .escena-barra .seg,.video-play{display:none}
-  .escena{break-inside:avoid}
-}
-  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
-     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
-  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
 </head>
 <body>
@@ -849,15 +815,6 @@ footer .wrap{padding-block:18px 26px}
       </div>
 
       <h3>C&oacute;mo se dibuja: simbolog&iacute;a normalizada</h3>
-
-      <figure class="foto">
-        <img src="../../../img/electric-circuit-basics.svg" width="1000" height="600" loading="lazy"
-             alt="Circuito el&eacute;ctrico b&aacute;sico con s&iacute;mbolos normalizados: bater&iacute;a, cables, carga, interruptor y s&iacute;mbolos de componentes">
-        <figcaption>Los <b>elementos b&aacute;sicos de un circuito el&eacute;ctrico</b> y los s&iacute;mbolos normalizados que se usan en los esquemas. Voltaje, corriente, resistencia y la ley de Ohm que los une.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
-
       <p>Un esquema el&eacute;ctrico no es un dibujo del montaje: es un <b>plano</b>. No importa d&oacute;nde
          est&eacute; f&iacute;sicamente cada pieza ni qu&eacute; forma tiene, importa <b>qu&eacute; est&aacute; conectado con
          qu&eacute;</b>. Para eso cada componente tiene un s&iacute;mbolo acordado internacionalmente.</p>
@@ -977,8 +934,7 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Rep&aacute;salo en v&iacute;deo y <b>anota una cosa</b>: cada vez que aparezca un componente, p&aacute;ralo y dibuja su s&iacute;mbolo de memoria antes de mirarlo. Si no te sale, es que a&uacute;n no lo tienes.</p>
         <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
-          v&iacute;deo no se deje empotrar&mdash;,
+          seguimiento. Si la red del centro bloquea YouTube,
           <a href="https://www.youtube.com/watch?v=PFP9LsBdnLA" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
           licencia de esta p&aacute;gina.</p>
@@ -1319,20 +1275,11 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Va un poco m&aacute;s all&aacute; de esta sesi&oacute;n: habla tambi&eacute;n de <b>potencia</b>, que es la sesi&oacute;n 4. De momento qu&eacute;date con la parte de la ley de Ohm y toma nota de la otra: la vas a necesitar.</p>
         <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
-          v&iacute;deo no se deje empotrar&mdash;,
+          seguimiento. Si la red del centro bloquea YouTube,
           <a href="https://www.youtube.com/watch?v=tpt9FlNYq4k" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
           licencia de esta p&aacute;gina.</p>
       </div>
-
-      <figure class="foto">
-        <img src="../../../img/ohms-law-triangle.svg" width="1000" height="700" loading="lazy"
-             alt="Tensi&oacute;n, intensidad y resistencia: el tri&aacute;ngulo de Ohm">
-        <figcaption><strong>La ley de Ohm:</strong> La tensi&oacute;n (empu&aacute;n), la intensidad (caudal) y la resistencia (estorbo) se relacionan con V = I &times; R. Tapar lo que buscas y multiplicar (o dividir) los otros dos.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
     </section>
     <section class="bloque">
@@ -1448,14 +1395,6 @@ footer .wrap{padding-block:18px 26px}
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
-      <figure class="foto">
-        <img src="../../../img/series-parallel-circuits.svg" width="1200" height="500" loading="lazy"
-             alt="Comparaci&oacute;n de circuitos en serie y paralelo con bombillas LED">
-        <figcaption>En <b>serie</b>, todas las bombillas comparten el mismo camino: si se funde una, se corta el circuito completo. En <b>paralelo</b>, cada bombilla tiene su propio camino: si se funde una, las dem&aacute;s siguen luciendo. Las dos formas de entender c&oacute;mo se cablean las casas.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h3>Los dos montajes, con las cuentas delante</h3>
       <p>Tres l&aacute;mparas iguales de 9 &#8486; y una pila de 4,5 V. Cambia de montaje, pulsa una
@@ -1573,12 +1512,7 @@ footer .wrap{padding-block:18px 26px}
            paralelo (donde debajo pasa la rama vertical).                    */
         function pintaLampara(cx, cy, i, c, b){
           var luce = !rota[i] && !c.abierto;
-          /* La lampara es tambien parada del tabulador: con Intro o espacio
-             se funde y se repara, igual que pulsandola.                     */
-          var s = '<g class="lamp" data-l="' + i + '" tabindex="0" role="switch"'
-                + ' aria-checked="' + (rota[i] ? 'true' : 'false') + '"'
-                + ' aria-label="L&#225;mpara ' + (i + 1) + ', '
-                + (rota[i] ? 'fundida' : 'entera') + '">';
+          var s = '<g class="lamp" data-l="' + i + '">';
           if(rota[i]){
             /* Lampara fundida: el aspa se dibuja partida por el medio, que es
                justo lo que le ha pasado al filamento.                        */
@@ -1636,25 +1570,12 @@ footer .wrap{padding-block:18px 26px}
         }
         function fila(a, b){ return '<tr><td>' + a + '</td><td>' + b + '</td></tr>'; }
 
-        function funde(g){
+        svg.addEventListener('click', function(e){
+          var g = e.target.closest('[data-l]');
+          if(!g) return;
           var i = parseInt(g.dataset.l, 10);
           rota[i] = !rota[i];
           pinta();
-          /* Al repintar desaparece el elemento que tenia el foco: se le
-             devuelve a la misma lampara para seguir con el tabulador.       */
-          var nuevo = svg.querySelector('[data-l="' + i + '"][tabindex]');
-          if(nuevo && nuevo.focus) nuevo.focus();
-        }
-        svg.addEventListener('click', function(e){
-          var g = e.target.closest('[data-l]');
-          if(g) funde(g);
-        });
-        svg.addEventListener('keydown', function(e){
-          if(e.key !== ' ' && e.key !== 'Enter') return;
-          var g = e.target.closest ? e.target.closest('[data-l]') : null;
-          if(!g) return;
-          e.preventDefault();
-          funde(g);
         });
         seg.addEventListener('click', function(e){
           var b = e.target.closest('button[data-m]');
@@ -1754,8 +1675,7 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Un ejercicio resuelto paso a paso, del mismo nivel que el vuestro. Hacedlo vosotros primero en la libreta, con el v&iacute;deo pausado, y comparad despu&eacute;s.</p>
         <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
-          v&iacute;deo no se deje empotrar&mdash;,
+          seguimiento. Si la red del centro bloquea YouTube,
           <a href="https://www.youtube.com/watch?v=OVDqVpnRltw" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
           licencia de esta p&aacute;gina.</p>
@@ -1887,14 +1807,6 @@ footer .wrap{padding-block:18px 26px}
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
-
-      <figure class="foto">
-        <img src="../../../img/electrical-power-energy.svg" width="1000" height="600" loading="lazy"
-             alt="Potencia eléctrica y energía: diferencia entre vatios y kilovatio-hora">
-        <figcaption>La <b>potencia (P)</b> mide lo que gastas EN ESTE MOMENTO, en vatios. La <b>energía (E)</b> mide lo que acumulas en el tiempo, en kilovatio-hora (kWh). Es la diferencia entre el brillo actual de la bombilla (potencia) y la factura de electricidad (energía). P = V × I. E = P × t. Mezclar estas dos es el error más frecuente en problemas de electricidad.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h3>Lo deprisa que gastas: la potencia</h3>
       <p>En la sesi&oacute;n 2 te quedaste con dos n&uacute;meros: el empuj&oacute;n (V) y el caudal (I). Multiplicarlos
@@ -2260,7 +2172,7 @@ footer .wrap{padding-block:18px 26px}
       </style>
 
       <table id="factura-ej">
-        <thead><tr><th scope="col">Concepto</th><th scope="col">C&oacute;mo sale</th><th scope="col">Importe</th></tr></thead>
+        <thead><tr><th>Concepto</th><th>C&oacute;mo sale</th><th>Importe</th></tr></thead>
         <tbody>
           <tr><td>T&eacute;rmino de potencia</td>
               <td>3,45 kW &times; 30 d&iacute;as &times; 0,10 &euro;/kW&middot;d&iacute;a</td><td>10,35 &euro;</td></tr>
@@ -2326,13 +2238,6 @@ footer .wrap{padding-block:18px 26px}
            a&ntilde;o</b> seg&uacute;n entran renovables: en 2015 estaba en 398 g/kWh. Y ojo, es el mix de la red:
            una comercializadora que venda electricidad 100 % renovable certificada declara un valor
            distinto en tu factura.</p>
-        <p style="font-size:13.5px;color:var(--ink-soft);margin-bottom:0">Si buscas este dato por tu
-           cuenta te vas a encontrar cifras bastante m&aacute;s bajas &mdash;alrededor de
-           <b>146 g/kWh</b>&mdash; y no es que ninguna sea mentira: esas miden lo que sale de
-           <b>generar</b> la electricidad, y la de la CNMC mide el mix con el que se <b>vende</b>, del
-           que ya se ha descontado la parte que alguien ha comprado certificada como renovable. Son
-           dos preguntas distintas. Cuando des un n&uacute;mero de estos, di siempre cu&aacute;l de
-           las dos est&aacute;s contestando.</p>
       </div>
 
       <div class="entender">
@@ -2395,8 +2300,7 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">Otra explicaci&oacute;n de lo mismo, con ejercicios resueltos. Antes de darle al play, calcula t&uacute; lo que cuesta tener encendida la luz de tu habitaci&oacute;n tres horas al d&iacute;a durante un mes: as&iacute; el v&iacute;deo te corrige en vez de cont&aacute;rtelo.</p>
         <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
-          v&iacute;deo no se deje empotrar&mdash;,
+          seguimiento. Si la red del centro bloquea YouTube,
           <a href="https://www.youtube.com/watch?v=9qWYeA5y_r0" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
           licencia de esta p&aacute;gina.</p>
@@ -2583,9 +2487,8 @@ footer .wrap{padding-block:18px 26px}
         <ul>
           <li>Tensi&oacute;n que sobra: 3 &minus; 2,0 = <b>1,0 V</b>.</li>
           <li>R = 1,0 / 0,005 = <b>200 &#8486;</b>.</li>
-          <li>En la caja de clase no hay 200 &#8486;: la serie que llevan estos surtidos va
-              100, 120, 150, 180, 220&hellip;, as&iacute; que el valor m&aacute;s pr&oacute;ximo
-              <b>por encima</b> es <b>220 &#8486;</b>.</li>
+          <li>De 200 &#8486; no hay: el valor normalizado m&aacute;s pr&oacute;ximo <b>por encima</b> es
+              <b>220 &#8486;</b>.</li>
           <li>Con 220 &#8486; la corriente real es 1,0 / 220 = <b>4,5 mA</b>. Perfecto.</li>
         </ul>
         <p><b>Siempre hacia arriba.</b> Si eliges el valor de debajo pasar&aacute; <b>m&aacute;s</b> corriente de
@@ -3095,8 +2998,7 @@ footer .wrap{padding-block:18px 26px}
         </button>
         <p class="video-nota">La misma cuenta que acabas de hacer, contada por otra persona. Ve con la libreta delante y comprueba que usa <b>exactamente</b> la misma f&oacute;rmula: tensi&oacute;n de la fuente menos tensi&oacute;n del LED, dividido entre la corriente que t&uacute; decides.</p>
         <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
-          v&iacute;deo no se deje empotrar&mdash;,
+          seguimiento. Si la red del centro bloquea YouTube,
           <a href="https://www.youtube.com/watch?v=Bw4nVt8eQkw" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la
           licencia de esta p&aacute;gina.</p>
@@ -3218,7 +3120,7 @@ footer .wrap{padding-block:18px 26px}
   
     </section>
     <section class="bloque">
-      <div class="rotulo"><span class="num">01</span> El proyecto &middot; 30 min</div>
+      <div class="rotulo"><span class="num">01</span> El proyecto &middot; 35 min</div>
 
       <h3>Qu&eacute; se entrega, y por qu&eacute; cada cosa</h3>
       <p>Un proyecto de Tecnolog&iacute;a no es el montaje: el montaje es solo la parte que se ve. Lo que
@@ -3308,7 +3210,39 @@ footer .wrap{padding-block:18px 26px}
         #esc-test .botones button{background:var(--surface);border:1.5px solid var(--goo-azul);
           color:var(--goo-azul);border-radius:2px;padding:8px 16px;font:500 12px var(--f-m);cursor:pointer}
         #esc-test .botones button.flojo{border-color:var(--line);color:var(--ink-soft)}
-      </style>
+      /* visor de imagenes: lo pone afina_visor.py */
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}/* ayuda de palabras: lo pone afina_visor.py */
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}</style>
       <div class="escena" id="esc-test">
         <div class="escena-barra">
           <span class="escena-titulo">Autoevaluaci&oacute;n &middot; se corrige sola y cambia cada vez</span>
@@ -3601,7 +3535,7 @@ footer .wrap{padding-block:18px 26px}
   
     </section>
     <section class="bloque">
-      <div class="rotulo"><span class="num">02</span> Entrega &middot; 10 min</div>
+      <div class="rotulo"><span class="num">02</span> Entrega &middot; 15 min</div>
       <div class="ficha">
         <div class="ficha-cab">
           <span>Actividad 6 &middot; Proyecto final de la unidad</span>
@@ -3645,105 +3579,7 @@ footer .wrap{padding-block:18px 26px}
 
     </section>
     <section class="bloque">
-      <div class="rotulo"><span class="num">03</span> Test &middot; 10 min</div>
-
-      <p>Diez preguntas de todo el tema. Se corrigen aqu&iacute; mismo, y cada una explica por
-         qu&eacute; &mdash;tambi&eacute;n las que aciertes&mdash;. No cuenta para nota: es para que sepas
-         por d&oacute;nde andas antes del examen.</p>
-      <div class="ta" id="test-u6">
-        <h4>Lo que tiene que haber quedado del tema</h4>
-
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u6-p1">
-          <p id="test-u6-p1">1. Pones un cable que va directo de un polo de la pila al otro. Eso es un cortocircuito porque&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u6-0" value="0">el cable es demasiado corto</label>
-          <label class="ta-op"><input type="radio" name="u6-0" value="1">has cerrado el anillo, y cerrarlo siempre es peligroso</label>
-          <label class="ta-op"><input type="radio" name="u6-0" value="2">hay camino de vuelta <b>sin receptor</b>: nada estorba a la corriente</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> Lo que limita la corriente no es la pila: es la resistencia del <b>receptor</b>. Si lo quitas del camino, la corriente se dispara, el generador se calienta y algo se quema. Cerrar el anillo no es el problema; cerrarlo sin nada que consuma, s&iacute;.</div>
-        </div>
-
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u6-p2">
-          <p id="test-u6-p2">2. El amper&iacute;metro se conecta en serie y el volt&iacute;metro en paralelo porque&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u6-1" value="0">uno mide lo que pasa por un sitio y el otro, la diferencia entre dos puntos</label>
-          <label class="ta-op"><input type="radio" name="u6-1" value="1">es una convenci&oacute;n para no confundir los aparatos</label>
-          <label class="ta-op"><input type="radio" name="u6-1" value="2">el amper&iacute;metro gasta corriente y el volt&iacute;metro no</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> La intensidad es un <b>caudal</b>, y para medir un caudal hay que estar en el camino: se intercala. La tensi&oacute;n es una <b>diferencia</b> entre dos bornes, y para medir una diferencia hay que tocar los dos a la vez: se pone al lado. Intercalar un volt&iacute;metro deja el circuito casi abierto; poner un amper&iacute;metro en paralelo es un cortocircuito.</div>
-        </div>
-
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u6-p3">
-          <p id="test-u6-p3">3. Una pila de 9 V alimenta una resistencia de 45 &Omega;. &iquest;Qu&eacute; intensidad circula?</p>
-          <label class="ta-op"><input type="radio" name="u6-2" value="0">5 A</label>
-          <label class="ta-op"><input type="radio" name="u6-2" value="1">405 A</label>
-          <label class="ta-op"><input type="radio" name="u6-2" value="2">0,2 A</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> I = V / R = 9 / 45 = <b>0,2 A</b>, o sea 200 mA. Si sale un n&uacute;mero enorme es que has multiplicado; si sale 5, que has dividido al rev&eacute;s. Truco de control: m&aacute;s resistencia tiene que dar <b>menos</b> corriente.</div>
-        </div>
-
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u6-p4">
-          <p id="test-u6-p4">4. Tres l&aacute;mparas iguales de 9 &Omega; en <b>serie</b> con una pila de 4,5 V. &iquest;Cu&aacute;nta tensi&oacute;n recibe cada una?</p>
-          <label class="ta-op"><input type="radio" name="u6-3" value="0">1,5 V cada una</label>
-          <label class="ta-op"><input type="radio" name="u6-3" value="1">4,5 V cada una: la pila da 4,5 V</label>
-          <label class="ta-op"><input type="radio" name="u6-3" value="2">13,5 V entre las tres</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> En serie las resistencias se suman: R<sub>T</sub> = 27 &Omega;, luego I = 4,5 / 27 = 0,167 A, la misma para las tres. Y la tensi&oacute;n de la pila se <b>reparte</b>: 4,5 / 3 = <b>1,5 V</b> en cada una. Por eso alumbran poco.</div>
-        </div>
-
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u6-p5">
-          <p id="test-u6-p5">5. En las guirnaldas antiguas, si se fund&iacute;a una bombilla se apagaban todas. En las de ahora no. La diferencia es que&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u6-4" value="0">ahora las bombillas son LED y no se funden</label>
-          <label class="ta-op"><input type="radio" name="u6-4" value="1">antes iban en serie y ahora van en paralelo, y en paralelo cada una tiene su propio camino</label>
-          <label class="ta-op"><input type="radio" name="u6-4" value="2">ahora llevan una pila por bombilla</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> En serie hay <b>un solo camino</b>: se corta en un punto y se corta entero. En paralelo cada rama es independiente, as&iacute; que las dem&aacute;s siguen. Ese es el motivo real por el que las casas se cablean en paralelo.</div>
-        </div>
-
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u6-p6">
-          <p id="test-u6-p6">6. Una plancha de 1.150 W conectada a 230 V. &iquest;Qu&eacute; corriente le pasa?</p>
-          <label class="ta-op"><input type="radio" name="u6-5" value="0">5 A</label>
-          <label class="ta-op"><input type="radio" name="u6-5" value="1">0,2 A</label>
-          <label class="ta-op"><input type="radio" name="u6-5" value="2">264,5 A</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> De P = V &times; I se despeja I = P / V = 1.150 / 230 = <b>5 A</b>. Esta cuenta es la que decide el grosor de un cable: por eso el de la plancha es gordo y el del cargador del m&oacute;vil, fino.</div>
-        </div>
-
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u6-p7">
-          <p id="test-u6-p7">7. Un microondas de 2.000 W funcionando <b>15 minutos</b>. &iquest;Cu&aacute;nta energ&iacute;a gasta?</p>
-          <label class="ta-op"><input type="radio" name="u6-6" value="0">0,5 kWh</label>
-          <label class="ta-op"><input type="radio" name="u6-6" value="1">30 kWh</label>
-          <label class="ta-op"><input type="radio" name="u6-6" value="2">2 kWh</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> E = P &times; t con la potencia en <b>kilovatios</b> y el tiempo en <b>horas</b>: 2 kW &times; 0,25 h = <b>0,5 kWh</b>. A 0,27 &euro;/kWh son unos 14 c&eacute;ntimos. El fallo t&iacute;pico es meter 2.000 y 15 tal cual en la calculadora.</div>
-        </div>
-
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u6-p8">
-          <p id="test-u6-p8">8. Una base de enchufe normal es de 16 A, o sea 16 &times; 230 = 3.680 W. Si en una regleta juntas aparatos que suman 4.000 W&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u6-7" value="0">salta siempre el autom&aacute;tico: para eso est&aacute;</label>
-          <label class="ta-op"><input type="radio" name="u6-7" value="1">el cable de la regleta se calienta, y saltar solo salta si superas la potencia <b>contratada</b></label>
-          <label class="ta-op"><input type="radio" name="u6-7" value="2">no pasa nada: el l&iacute;mite es solo orientativo</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> Son dos l&iacute;mites distintos y conviene no mezclarlos. El de la base y su cable es t&eacute;rmico: pasarlo no abre nada, calienta &mdash;y es as&iacute; como empiezan los incendios por regleta&mdash;. El que te deja a oscuras es el interruptor de control de potencia, que vigila lo que tienes <b>contratado</b>.</div>
-        </div>
-
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u6-p9">
-          <p id="test-u6-p9">9. &iquest;Por qu&eacute; no se puede conectar un LED directamente a una pila de 4,5 V?</p>
-          <label class="ta-op"><input type="radio" name="u6-8" value="0">porque 4,5 V es poca tensi&oacute;n para encenderlo</label>
-          <label class="ta-op"><input type="radio" name="u6-8" value="1">porque no es &oacute;hmico: pasada su tensi&oacute;n directa la corriente se dispara y se quema</label>
-          <label class="ta-op"><input type="radio" name="u6-8" value="2">porque los LED funcionan con corriente alterna</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> Una l&aacute;mpara tiene 9 &Omega; le pongas la tensi&oacute;n que le pongas, as&iacute; que su corriente se calcula con Ohm. Un LED no tiene un valor de resistencia: por debajo de su <b>tensi&oacute;n directa</b> (V<sub>f</sub>) no conduce, y por encima unas d&eacute;cimas de voltio de m&aacute;s multiplican la corriente por diez. La pila empuja con 4,5 V y nada se lo impide.</div>
-        </div>
-
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u6-p10">
-          <p id="test-u6-p10">10. LED rojo (V<sub>f</sub> = 2,0 V) en un pin de 3 V, y quieres que pasen 5 mA. &iquest;Qu&eacute; resistencia le pones?</p>
-          <label class="ta-op"><input type="radio" name="u6-9" value="0">600 &Omega;, porque 3 / 0,005 = 600</label>
-          <label class="ta-op"><input type="radio" name="u6-9" value="1">ninguna: el pin ya limita la corriente</label>
-          <label class="ta-op"><input type="radio" name="u6-9" value="2">200 &Omega; de c&aacute;lculo, y de la caja coges 220 &Omega;</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> El LED se queda con sus 2,0 V pase lo que pase, as&iacute; que en la resistencia cae lo que sobra: 3 &minus; 2,0 = 1,0 V. R = 1,0 / 0,005 = <b>200 &Omega;</b>. En la caja de clase no hay 200 &Omega; &mdash;la serie de estos surtidos va 100, 120, 150, 180, 220&hellip;&mdash;, as&iacute; que coges el m&aacute;s pr&oacute;ximo <b>por encima</b>, 220 &Omega; &mdash;por encima, porque pasarse de resistencia solo alumbra un poco menos y quedarse corto quema el LED&mdash;. Dividir entre 3 V es el error cl&aacute;sico: esa tensi&oacute;n no est&aacute; toda en la resistencia.</div>
-        </div>
-
-        <div class="ta-pie">
-          <button type="button" data-a="corregir">Corregir</button>
-          <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota" role="status" aria-live="polite"></span>
-        </div>
-        <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.</p>
-      </div>
-
-    </section>
-    <section class="bloque">
-      <div class="rotulo"><span class="num">04</span> Cierre del tema &middot; 5 min</div>
+      <div class="rotulo"><span class="num">03</span> Cierre del tema &middot; 5 min</div>
 
       <p>Repasa de d&oacute;nde vienes. Empezaste con una pila, una bombilla y un cable que no encend&iacute;a
          nada, y acabas calculando cu&aacute;nta corriente puede dar un pin de una placa y cu&aacute;nto cuesta
@@ -3787,7 +3623,7 @@ footer .wrap{padding-block:18px 26px}
         que decida <b>sola</b>: que mida algo y act&uacute;e en consecuencia. Para eso hace falta una
         m&aacute;quina que procese informaci&oacute;n, y de eso va el <b>tema 7: el ordenador y sus
         componentes</b>.
-      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema7/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 7 &middot; El ordenador y sus componentes &rarr;</a></p></div>
+      </div>
   
     </section>
 
@@ -3848,7 +3684,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            + '?autoplay=1&rel=0&modestbranding=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3877,17 +3713,8 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          var vieja = L.querySelector('.ta-marca');
-          if(vieja) vieja.remove();
-          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
-          function marca(t){
-            var m = document.createElement('span');
-            m.className = 'ta-marca';
-            m.textContent = t;
-            L.appendChild(m);
-          }
-          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
-          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
+          if(i === ok) L.classList.add('bien');
+          else if(marcada && +marcada.value === i) L.classList.add('mal');
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -3900,10 +3727,7 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){
-        L.classList.remove('bien','mal');
-        var m = L.querySelector('.ta-marca'); if(m) m.remove();
-      });
+      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -3931,7 +3755,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
           b.addEventListener('click', function(){
             var f = document.createElement('iframe');
             f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                  + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                  + '?autoplay=1&rel=0&modestbranding=1';
             f.title = b.querySelector('.video-txt b').textContent;
             f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
             f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3941,35 +3765,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
         });
       })();
       </script>
-<!-- Visor de diagramas · 20-sep-2026 -->
-<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
-     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
-     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
-     natural sobre la pantalla y se pueden recorrer con el dedo. -->
-<style>
-.rtz-pista{display:none}
-@media (max-width:760px){
-  figure.foto img{cursor:zoom-in}
-  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
-    color:var(--muted,#667);text-transform:uppercase}
-  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
-     tape la última línea del contenido */
-  body{padding-bottom:64px}
-}
-.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
-  display:none;flex-direction:column}
-.rtz-capa.abierta{display:flex}
-.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
-.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
-  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
-  display:flex;align-items:flex-start;justify-content:flex-start}
-.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
-@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
-</style>
+
 <div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
   <div class="rtz-barra">
     <span class="rtz-tit"></span>
@@ -4054,30 +3850,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   if(window.MutationObserver){
     new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
   }
-})();
-</script>
-
-
-
-
-<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
-<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
-     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
-     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
-     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
-     desde SU tamaño propio, así que la jerarquía no se aplana. -->
-<style>
-.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
-.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
-  opacity:.65;margin-right:2px}
-.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
-  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
-.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
-.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
-.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
-@media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
-</style>
+})();</script>
 <script>
 (function(){
   var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
@@ -4120,8 +3893,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
   else montar();
-})();
-</script>
-
+})();</script>
 </body>
 </html>

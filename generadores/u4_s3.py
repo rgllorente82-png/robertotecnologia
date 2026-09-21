@@ -175,6 +175,14 @@ TEORIA = u'''
         </ul>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/u4-vigas.jpg" width="1200" height="802" loading="lazy"
+             alt="Vigas met&aacute;licas de secci&oacute;n en I apiladas en un patio industrial">
+        <figcaption>Nadie fabrica barras macizas para esto. Todas estas vigas son <b>huecas o en I</b>: el acero est&aacute; puesto arriba y abajo, lejos del eje, que es donde trabaja. Si te fijas en los extremos ves la secci&oacute;n, y es la misma forma repetida cientos de veces porque es la que sale a cuenta.
+          <br><br>Foto de <b>Michael Orshan</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
         <p>Esto <b>tiene un l&iacute;mite</b>, y conviene saberlo para no decir tonter&iacute;as. Si el alma del
