@@ -630,7 +630,7 @@ ESTADOS = u'''
                  + (act ? 'var(--goo-azul)' : 'var(--line)') + '" stroke-width="2"/>');
             s.push('<text x="' + NODO[k][0] + '" y="' + (NODO[k][1] + 4)
                  + '" text-anchor="middle" style="font-family:var(--f-m);font-size:9.5px;fill:'
-                 + (act ? '#fff' : 'var(--ink)') + '">' + P.est[k] + '</text>');
+                 + (act ? 'var(--tinta-sobre)' : 'var(--ink)') + '">' + P.est[k] + '</text>');
           }
           /* El actuador, dibujado con el angulo que llevan los eventos contados.
              Se dibuja como lo que es -- un mastil con un brazo que gira sobre

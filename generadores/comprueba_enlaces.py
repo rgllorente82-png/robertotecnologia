@@ -86,6 +86,9 @@ def main():
         # href de <a> y <link>, src de <img> y <script>
         refs = re.findall(r'<(?:a|link)\b[^>]*\bhref="([^"]+)"', s)
         refs += re.findall(r'<(?:img|script|source)\b[^>]*\bsrc="([^"]+)"', s)
+        # Una plantilla de JavaScript no es un enlace: `img/${d.file}` lo resuelve
+        # el navegador al vuelo, y darlo por roto llena el informe de ruido.
+        refs = [r for r in refs if '${' not in r]
 
         for ref in refs:
             ref = ref.strip()

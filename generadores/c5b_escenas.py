@@ -482,8 +482,11 @@ ESCENA_PLACA = u'''
              + (dy + 6) + ' L' + (dx + 5 * sg) + ' ' + dy + ' Z" fill="none" stroke="'
              + cd + '" stroke-width="1.8"></path>';
           s += linea('M' + (dx + 5 * sg) + ' ' + (dy - 7) + ' V' + (dy + 7), cd, 2.4);
+          /* El verde de rellenar no se lee como texto sobre fondo claro (2,75:1):
+             para el rotulo va la tinta de texto, que si pasa el 4,5:1.       */
           s += rot(Math.min(a.x, b.x) - 14, dy + 3, '1N4007',
-                   'font-size:8.5px;fill:' + cd, 'end');
+                   'font-size:8.5px;fill:' + (r.dioMal ? 'var(--goo-rojo)' : 'var(--verde-texto)'),
+                   'end');
           return s;
         }
 
@@ -938,8 +941,11 @@ ESCENA_ARRANQUE = u'''
               s += caja(x0, 200, x1 - x0, 22, COLF[f0], COLF[f0], 1);
               /* el rotulo solo cabe si la franja es mas ancha que el texto */
               if(x1 - x0 > 10 + NOMF[f0].length * 5.4)
+                /* Blanco no vale: las franjas van en amarillo y en verde de
+                   rellenar, y encima de esos dos el blanco se queda en 1,4:1.
+                   La tinta de ir sobre color es oscura en los dos temas.    */
                 s += rot((x0 + x1) / 2, 215, NOMF[f0],
-                         'font-size:9px;fill:#fff', 'middle');
+                         'font-size:9px;fill:var(--tinta-sobre)', 'middle');
               f0 = fa; t0 = (i < mu.length) ? mu[i].t : TFIN;
             }
           }
@@ -951,8 +957,10 @@ ESCENA_ARRANQUE = u'''
           s += linea('M' + L + ' ' + py2(UMBRAL) + ' H' + R, 'var(--goo-amarillo)', 1.4, '4 3');
           /* el umbral se rotula en el eje, no sobre la curva: con 1023 cuentas
              en 78 pixeles, un rotulo encima se come el trazo */
+          /* el amarillo de rellenar no se lee como texto sobre papel (1,71:1):
+             la linea de puntos sigue amarilla, el rotulo va en su tinta.    */
           s += rot(L - 7, py2(UMBRAL) + 4, 'umbral ' + UMBRAL,
-                   'font-size:9px;fill:var(--goo-amarillo)', 'end');
+                   'font-size:9px;fill:var(--amar-texto)', 'end');
           s += rot(L - 7, py2(0) + 4, '0', 'font-size:9px', 'end');
           s += rot(L - 7, py2(1023) + 4, '1023', 'font-size:9px', 'end');
           var d2 = '', abierto = false;

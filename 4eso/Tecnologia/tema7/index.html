@@ -320,11 +320,6 @@ footer .wrap{padding-block:18px 26px}
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
 /* ---- al imprimir, que salgan todas las sesiones ---- */
 @media print{
   #nav{display:none}
@@ -339,6 +334,11 @@ footer .wrap{padding-block:18px 26px}
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
@@ -985,7 +985,7 @@ footer .wrap{padding-block:18px 26px}
           publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
 
-      <div class="escena">
+      <div class="escena" id="esc-caminante">
         <div class="escena-barra"><span class="escena-titulo">Camina, y no es un robot &middot; 8 segundos</span></div>
         <div class="lienzo" style="padding:0;background:#000;display:flex;justify-content:center">
           <video controls preload="none" muted playsinline style="width:auto;max-width:100%;max-height:60vh;display:block"
@@ -995,10 +995,10 @@ footer .wrap{padding-block:18px 26px}
             <a href="../../../video/c7-caminante.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
           </video>
         </div>
-        <div class="pie">Baja la rampa &eacute;l solo, con paso de persona. Y por dentro <b>no hay nada</b>: ni motor, ni sensor, ni programa, ni una pila. Lo &uacute;nico que lo mueve es la gravedad y la forma de sus piernas. Si la frontera fuera <i>parecerlo</i> o <i>moverse solo</i>, esto ser&iacute;a un robot &mdash; y no lo es, porque no se entera de nada.<br><br>V&iacute;deo de <b>Steven H. Collins</b>, v&iacute;a Wikimedia Commons, <b>CC BY-SA 3.0</b>, la misma licencia de esta p&aacute;gina.</div>
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">Baja la rampa &eacute;l solo, con paso de persona. Y por dentro <b>no hay nada</b>: ni motor, ni sensor, ni programa, ni una pila. Lo &uacute;nico que lo mueve es la gravedad y la forma de sus piernas. Si la frontera fuera <i>parecerlo</i> o <i>moverse solo</i>, esto ser&iacute;a un robot &mdash; y no lo es, porque no se entera de nada.<br><br>V&iacute;deo de <b>Steven H. Collins</b>, v&iacute;a Wikimedia Commons, <b>CC BY-SA 3.0</b>, la misma licencia de esta p&aacute;gina.</div>
       </div>
 
-      <div class="escena">
+      <div class="escena" id="esc-robot-paquetes">
         <div class="escena-barra"><span class="escena-titulo">Esto s&iacute; lo es &middot; 8 segundos</span></div>
         <div class="lienzo" style="padding:0;background:#000;display:flex;justify-content:center">
           <video controls preload="none" muted playsinline style="width:auto;max-width:100%;max-height:60vh;display:block"
@@ -1008,9 +1008,9 @@ footer .wrap{padding-block:18px 26px}
             <a href="../../../video/c7-robot-paquetes.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
           </video>
         </div>
-        <div class="pie">El mismo criterio, al rev&eacute;s. Este brazo no repite un movimiento aprendido: las bolsas llegan <b>cada vez en un sitio distinto</b>, y &eacute;l mira, decide y coge. Qu&iacute;tale la c&aacute;mara y no puede hacer nada &mdash; ah&iacute; est&aacute; la frontera de la sesi&oacute;n: <b>enterarse de lo que hay fuera</b>.<br><br>V&iacute;deo de <i>newscreators</i>, v&iacute;a Wikimedia Commons, <b>CC BY 3.0</b>.</div>
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">El mismo criterio, al rev&eacute;s. Este brazo no repite un movimiento aprendido: las bolsas llegan <b>cada vez en un sitio distinto</b>, y &eacute;l mira, decide y coge. Qu&iacute;tale la c&aacute;mara y no puede hacer nada &mdash; ah&iacute; est&aacute; la frontera de la sesi&oacute;n: <b>enterarse de lo que hay fuera</b>.<br><br>V&iacute;deo de <i>newscreators</i>, v&iacute;a Wikimedia Commons, <b>CC BY 3.0</b>.</div>
 
-      <div class="escena">
+      <div class="escena" id="esc-robot-baila">
         <div class="escena-barra"><span class="escena-titulo">Y este, &iquest;qu&eacute; es? &middot; 24 segundos</span></div>
         <div class="lienzo" style="padding:0;background:#000;display:flex;justify-content:center">
           <video controls preload="none" muted playsinline style="width:auto;max-width:100%;max-height:60vh;display:block"
@@ -1020,7 +1020,7 @@ footer .wrap{padding-block:18px 26px}
             <a href="../../../video/c7-robot-baila.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
           </video>
         </div>
-        <div class="pie">Shenzhen, marzo de 2025: un humanoide chino baila la escena del hacha de <i>Kung Fu Sion</i> con dos personas, y lo hace mejor que ellas. Aqu&iacute; la frontera no est&aacute; tan clara, y por eso vale la pena pararse: la <b>coreograf&iacute;a va grabada</b> &mdash;eso es programa, como el lavavajillas&mdash;, pero el equilibrio <b>no</b>: mientras baila est&aacute; midiendo su propia inclinaci&oacute;n cientos de veces por segundo y corrigiendo los tobillos, o se caer&iacute;a al primer giro. O sea que s&iacute; se entera de algo del mundo: <b>de s&iacute; mismo</b>. &iquest;Basta eso para llamarlo robot? Discutidlo con el criterio de la sesi&oacute;n en la mano.<br><br>V&iacute;deo de <b>China News Service</b>, v&iacute;a Wikimedia Commons, <b>CC BY 4.0</b>. Recortado y recomprimido.</div>
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">Shenzhen, marzo de 2025: un humanoide chino baila la escena del hacha de <i>Kung Fu Sion</i> con dos personas, y lo hace mejor que ellas. Aqu&iacute; la frontera no est&aacute; tan clara, y por eso vale la pena pararse: la <b>coreograf&iacute;a va grabada</b> &mdash;eso es programa, como el lavavajillas&mdash;, pero el equilibrio <b>no</b>: mientras baila est&aacute; midiendo su propia inclinaci&oacute;n cientos de veces por segundo y corrigiendo los tobillos, o se caer&iacute;a al primer giro. O sea que s&iacute; se entera de algo del mundo: <b>de s&iacute; mismo</b>. &iquest;Basta eso para llamarlo robot? Discutidlo con el criterio de la sesi&oacute;n en la mano.<br><br>V&iacute;deo de <b>China News Service</b>, v&iacute;a Wikimedia Commons, <b>CC BY 4.0</b>. Recortado y recomprimido.</div>
       </div>
       </div>
 
@@ -2610,7 +2610,7 @@ digitalWrite(motor, LOW);</pre>
                  + (act ? 'var(--goo-azul)' : 'var(--line)') + '" stroke-width="2"/>');
             s.push('<text x="' + NODO[k][0] + '" y="' + (NODO[k][1] + 4)
                  + '" text-anchor="middle" style="font-family:var(--f-m);font-size:9.5px;fill:'
-                 + (act ? '#fff' : 'var(--ink)') + '">' + P.est[k] + '</text>');
+                 + (act ? 'var(--tinta-sobre)' : 'var(--ink)') + '">' + P.est[k] + '</text>');
           }
           /* El actuador, dibujado con el angulo que llevan los eventos contados.
              Se dibuja como lo que es -- un mastil con un brazo que gira sobre
@@ -4450,7 +4450,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>Caso peor</h4>
+        <h3 class="h-menor">Caso peor</h3>
         <p>Cuando se dise&ntilde;a algo que va a quedarse funcionando solo, no se calcula con lo
            normal: se calcula con el <b>caso peor</b>. No &laquo;cu&aacute;nta corriente pide la
            bomba&raquo;, sino <b>cu&aacute;nta pide si se atasca</b>. No &laquo;cu&aacute;nto tarda
@@ -5265,7 +5265,7 @@ digitalWrite(motor, LOW);</pre>
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
       <div class="copiar">
-        <h4>La ficha t&eacute;cnica de vuestro robot</h4>
+        <h3 class="h-menor">La ficha t&eacute;cnica de vuestro robot</h3>
         <p>Una p&aacute;gina. Es lo que acompa&ntilde;a a cualquier m&aacute;quina de verdad y lo que
            va a ver quien os eval&uacute;e antes de que abr&aacute;is la boca. Seis apartados:</p>
         <ol>
