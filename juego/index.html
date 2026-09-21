@@ -84,7 +84,9 @@ main{flex:1;min-height:0;padding:12px 18px 10px}
    pantalla de clase una carta de 260px no se lee ni en primera fila. El mapa
    sigue detrás, a un botón de distancia. */
 #eleccion{position:absolute;inset:34px 16px 16px;z-index:5;overflow:auto;
-  background:linear-gradient(170deg,rgba(24,18,12,.975),rgba(16,12,8,.985));
+  /* opaco del todo: con alpha, los rótulos del mapa (blancos y con perfil negro)
+     se transparentaban detrás de las cartas y ensuciaban la lectura */
+  background:linear-gradient(170deg,#181209,#100c08);
   border:1px solid var(--laton-osc);border-radius:9px;padding:0 14px 14px;
   box-shadow:0 24px 60px -20px #000}
 .eleccion-barra{position:sticky;top:0;display:flex;align-items:center;gap:14px;
