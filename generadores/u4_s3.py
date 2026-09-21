@@ -307,7 +307,7 @@ PRACTICA = ficha(
 # 03 - Cierre
 # --------------------------------------------------------------------------
 CIERRE = u'''
-      <p>Vuelve a la regla del principio. Ya tienes la respuesta buena: de canto, el pl&aacute;stico est&aacute;
+      <p>Vuelve a la regla del principio. Esa es la respuesta buena: de canto, el pl&aacute;stico est&aacute;
          <b>lejos del eje neutro</b>, y ah&iacute; es donde el material trabaja. Plana, est&aacute; todo apelotonado
          junto al eje, donde no sirve de nada.</p>
       <ol>
@@ -324,7 +324,7 @@ CIERRE = u'''
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes qu&eacute; familia elegir y con qu&eacute; barras hacerla. Falta una cosa que no tiene nada que
+        Familia elegida y barras decididas. Falta una cosa que no tiene nada que
         ver con la resistencia y tumba estructuras enteras: que <b>se vuelquen</b>. Una estructura
         puede tener todas sus piezas perfectas y caerse igual. Eso es la <b>estabilidad</b>.
       </div>

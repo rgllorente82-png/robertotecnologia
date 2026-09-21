@@ -342,7 +342,7 @@ S.append(dict(
       </div>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes analizar un problema. Pero las ideas que has escrito est&aacute;n en tu cabeza y en tres l&iacute;neas
+        Analizar el problema era el primer paso. Pero las ideas que has escrito est&aacute;n en tu cabeza y en tres l&iacute;neas
         de texto. En la pr&oacute;xima sesi&oacute;n: <b>c&oacute;mo se generan muchas ideas y c&oacute;mo se elige una sin que sea
         por votaci&oacute;n a mano alzada</b>.
       </div>
@@ -564,7 +564,7 @@ CFG = dict(
  desc=u'Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: el m&eacute;todo para pasar de una necesidad a un objeto que la resuelve, empezando por los requisitos.',
  sesiones=S)
 
-BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.makedirs(os.path.join(BASE, '2eso/TyD/tema1'), exist_ok=True)
 html = pagina(CFG)
 io.open(os.path.join(BASE, '2eso/TyD/tema1/index.html'), 'w', encoding='utf-8', newline='').write(html)

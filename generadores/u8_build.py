@@ -386,7 +386,7 @@ S2 = (
       <p>Y hay un problema todav&iacute;a peor, que no es de matem&aacute;ticas. Imagina que el secreto es
          <b>el m&eacute;todo</b> &mdash;&laquo;corremos el abecedario&raquo;&mdash;. El d&iacute;a que uno solo
          de los que lo usan se va de la lengua, <b>hay que cambi&aacute;rselo a todo el mundo a la vez</b>.
-         Y si el sistema lo usan mil millones de personas, eso no se puede hacer.</p>
+         Si el sistema lo usan mil millones de personas, eso no se puede hacer.</p>
 
       <div class="reto-piensa">
         <span class="n-tag">La pregunta que ordena el resto de la sesi&oacute;n</span>
@@ -792,7 +792,7 @@ S3 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Lo que llevas del tema</span>
-        Ya tienes las tres capas: <b>c&oacute;mo llega</b> lo que pides (paquetes, direcciones, routers y
+        Tienes las tres capas: <b>c&oacute;mo llega</b> lo que pides (paquetes, direcciones, routers y
         nombres), <b>qui&eacute;n lo ve pasar</b> (y por qu&eacute; el candado protege unas cosas y otras no) y
         <b>qu&eacute; dejas t&uacute; por el camino</b> sin que nadie te lo robe.
       </div>
@@ -1147,7 +1147,7 @@ S4 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes cerrar la puerta. Pero hay una pregunta que no hemos hecho todav&iacute;a, y es de las
+        La puerta ya sabes cerrarla. Pero hay una pregunta que no hemos hecho todav&iacute;a, y es de las
         raras: detr&aacute;s de esa puerta, <b>&iquest;d&oacute;nde est&aacute;n exactamente tus
         cosas?</b> La foto que subiste ayer no est&aacute; &laquo;en el m&oacute;vil&raquo;, y
         &laquo;en la nube&raquo; no es una respuesta: es el nombre de la pregunta.
@@ -1160,7 +1160,7 @@ S4 = (
 # ==========================================================================
 S5 = (
   bloque('00', u'Reto inicial &middot; 10 min', u'''
-      <p>Ya sabes cerrar la puerta. Vamos con lo que hay detr&aacute;s, que es una pregunta que casi
+      <p>Cerrar la puerta ya est&aacute;. Vamos con lo que hay detr&aacute;s, que es una pregunta que casi
          nadie se hace: la foto que subiste ayer, <b>&iquest;d&oacute;nde est&aacute;?</b></p>
       <p>Hay una manera de comprobar que no est&aacute; donde crees, y se hace en diez segundos.</p>
 

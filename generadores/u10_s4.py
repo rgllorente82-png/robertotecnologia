@@ -90,7 +90,7 @@ TEORIA = u'''
       </figure>
 
       <h3>La instrucci&oacute;n que faltaba</h3>
-      <p>Ya tienes el n&uacute;mero. Ahora hace falta decirle a la placa qu&eacute; hacer con &eacute;l, y para
+      <p>El n&uacute;mero ya lo tienes. Ahora hace falta decirle a la placa qu&eacute; hacer con &eacute;l, y para
          eso sirve la instrucci&oacute;n que en la sesi&oacute;n 2 se nombr&oacute; y no se us&oacute;:</p>
       <div class="copiar">
         <h4>Definici&oacute;n</h4>
@@ -236,7 +236,7 @@ CIERRE = VIDEO + u'''
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya tienes las tres piezas sueltas: <b>entrada</b>, <b>decisi&oacute;n</b> y <b>salida</b>. Lo
+        Las tres piezas est&aacute;n sueltas encima de la mesa: <b>entrada</b>, <b>decisi&oacute;n</b> y <b>salida</b>. Lo
         que hace tu farola, sin embargo, no cambia nada de su alrededor: la luz que enciende no
         modifica lo que mide el sensor. En la siguiente sesi&oacute;n s&iacute;: el aparato se mueve, y al
         moverse <b>cambia lo que va a medir despu&eacute;s</b>. Ah&iacute; deja de ser un automatismo y

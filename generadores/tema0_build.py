@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from tema0_base import cabeza, SELLO, aviso_licencia, SITIO, AUTOR_TXT, CARGO
 from tema0_contenido import HITOS, NIVELES
 
-BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 VIDEO_RI4 = u"""
     <h3>Un repaso r&aacute;pido antes de analizarlo</h3>
@@ -48,6 +48,22 @@ VIDEO_RI = u"""
 
 def cuerpo(k, n):
     es2 = (k == '2eso')
+
+    # El juego de tablero es ampliacion de 2.o; en 4.o esta seccion va sin el.
+    juego = u"""
+    <div class="ficha">
+      <div class="ficha-cab">
+        <span>Ampliaci&oacute;n &middot; Juego de tablero &laquo;Desarrollo tecnol&oacute;gico&raquo;</span>
+        <span class="chips"><span class="chip">1.1</span><span class="chip">A.1</span></span>
+      </div>
+      <p>La misma l&iacute;nea del tiempo, pero jugando. El tablero es un <b>mapamundi</b>: cada invento
+         solo se puede desarrollar <b>donde</b> naci&oacute; y <b>cuando</b> le toca, hace falta dinero y
+         acertar una pregunta, y el mundo avanza de 1760 a 2026 cada vez que alguien da la vuelta
+         entera. Al final se ve en el mapa qui&eacute;n desarroll&oacute; qu&eacute; y d&oacute;nde.</p>
+      <p>En grupos de 4 o 5, una sesi&oacute;n. Se abre en el navegador, sin instalar nada:
+         <a href="../../../juego/">abrir el juego</a>.</p>
+    </div>
+""" if es2 else u''
     clave = 'c2' if es2 else 'c4'
     hitos_js = json.dumps([{'id': h['id'], 'pos': h['pos'], 'ep': h['ep'], 't': h['t'], 'c': h[clave]}
                            for h in HITOS], ensure_ascii=False)
@@ -489,6 +505,44 @@ def cuerpo(k, n):
         tan r&aacute;pido como tus fotos, y quien no tiene conexi&oacute;n o no sabe manejarse se queda fuera de cosas
         b&aacute;sicas: la cita del m&eacute;dico, el banco o los deberes. Eso &uacute;ltimo se llama <b>brecha digital</b>.
       </div>
+
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">Treinta segundos &middot; m&iacute;ralo antes de seguir leyendo</span></div>
+        <div class="lienzo" style="padding:0;display:flex;justify-content:center;background:#000">
+          <video controls preload="metadata" style="width:auto;max-width:100%;max-height:68vh;display:block"
+                 poster="../../../video/bulo-ia.jpg">
+            <source src="../../../video/bulo-ia.mp4" type="video/mp4">
+            Tu navegador no puede reproducir v&iacute;deo.
+            <a href="../../../video/bulo-ia.mp4">Desc&aacute;rgalo aqu&iacute;</a>.
+          </video>
+        </div>
+        <div class="pie">Un cami&oacute;n cisterna de Coca-Cola y otro de Mentos, chocados en una autopista.
+          Quien lo public&oacute; escribi&oacute; debajo: &laquo;No es IA, es todo verdad verdadera&raquo;.
+          <b>&iquest;Te lo crees?</b> Cont&eacute;stalo antes de abrir la respuesta.
+          <br><br>Publicado en X el 18 de septiembre de 2026 por <i>@icardo8</i>. El v&iacute;deo es de su autor
+          y no forma parte del material publicado bajo la licencia de esta p&aacute;gina: est&aacute; aqu&iacute;
+          como objeto de estudio.</div>
+      </div>
+
+      <p>Para resolverlo no hace falta ser un experto en IA, y de hecho buscar &laquo;fallos en la imagen&raquo;
+         es la peor forma de intentarlo: cada mes se le notan menos. Lo que no cambia es esto:</p>
+      <div class="copiar">
+        <b>Comprobar algo antes de reenviarlo</b>
+        <ol>
+          <li><b>B&uacute;scalo en otro sitio.</b> Dos camiones destrozados en una autopista saldr&iacute;an en la
+              tele y en varios peri&oacute;dicos. Si solo existe en la cuenta que lo public&oacute;, no ha pasado.</li>
+          <li><b>Mira qui&eacute;n lo cuenta</b>, no qu&eacute; cuenta. Una cuenta de bromas no es un medio.</li>
+          <li><b>Desconf&iacute;a de lo que te encaja demasiado bien.</b> Lo que te hace gracia o te indigna
+              a la primera es justo lo que menos compruebas.</li>
+        </ol>
+      </div>
+      <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo">
+        <p>Est&aacute; <b>hecho con IA</b>, y el pie lo dice al rev&eacute;s: es una broma. Nadie aclara
+           &laquo;no es IA&raquo; sobre un v&iacute;deo que ha grabado de verdad.</p>
+        <p>Pero f&iacute;jate en lo importante: <b>eso no lo has decidido mirando el v&iacute;deo</b>, sino
+           preguntando d&oacute;nde m&aacute;s aparece. Ese es el m&eacute;todo, y seguir&aacute; valiendo dentro
+           de diez a&ntilde;os, cuando las im&aacute;genes falsas sean indistinguibles de las de verdad.</p>
+      </div></details>
       <p>Por eso la asignatura junta las dos palabras: <b>la digitalizaci&oacute;n es la tecnolog&iacute;a de nuestra
          &eacute;poca</b>, igual que la m&aacute;quina de vapor lo fue del siglo XIX. Y como con cualquier tecnolog&iacute;a,
          aqu&iacute; no basta con saber usarla: hay que entender c&oacute;mo funciona por dentro y decidir qu&eacute; queremos
@@ -939,7 +993,7 @@ def cuerpo(k, n):
             <span class="credito">Robert Henry Thurston &middot; Dominio p&uacute;blico &middot; <a href="https://commons.wikimedia.org/wiki/File:SteamEngine%%20Boulton%%26Watt%%201784.png" target="_blank" rel="noopener">Wikimedia Commons</a></span>
           </figcaption>
         </figure>
-
+%(juego)s
   </section>
 
   <section class="bloque">
@@ -1200,7 +1254,8 @@ var HITOS = %(hitos_js)s;
                    u'dise&ntilde;o y evaluaci&oacute;n de soluciones.'),
         video=(VIDEO_RI if es2 else VIDEO_RI4),
         licencia=aviso_licencia(n['titulo'], SITIO + '/' + n['ruta']),
-        curso=n['curso'], materia=n['materia'], hitos_js=hitos_js, sello=SELLO)
+        curso=n['curso'], materia=n['materia'], hitos_js=hitos_js, sello=SELLO,
+        juego=juego)
 
 
 for k, n in NIVELES.items():

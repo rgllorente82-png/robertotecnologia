@@ -397,7 +397,7 @@ CIERRE = u'''
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes elegir la familia. Pero dentro de una celos&iacute;a o de un entramado quedan las
+        La familia ya sabes elegirla. Dentro de una celos&iacute;a o de un entramado quedan las
         <b>barras</b>, y ah&iacute; hay otra decisi&oacute;n igual de importante: con el mismo acero, <b>la forma de
         la secci&oacute;n</b> cambia el aguante de una manera que sorprende. Eso es la sesi&oacute;n 3.
       </div>

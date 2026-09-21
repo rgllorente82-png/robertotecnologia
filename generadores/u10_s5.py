@@ -244,7 +244,7 @@ CIERRE = VIDEO + u'''
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya tienes todas las piezas del curso: material que aguanta, mecanismos que mueven, corriente
+        Est&aacute;n ya todas las piezas del curso: material que aguanta, mecanismos que mueven, corriente
         que alimenta, un ordenador que decide y ahora un programa que lo une todo. En la &uacute;ltima
         sesi&oacute;n te toca a ti: buscar <b>un problema de tu casa o de tu instituto</b> y montar el
         aparato que lo resuelve.

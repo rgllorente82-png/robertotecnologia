@@ -288,7 +288,7 @@ PRACTICA = ficha(
 # 03 - Cierre
 # --------------------------------------------------------------------------
 CIERRE = u'''
-      <p>Ya tienes el mapa completo del tema. Una estructura tiene que superar <b>dos ex&aacute;menes
+      <p>El mapa del tema ya est&aacute; completo. Una estructura tiene que superar <b>dos ex&aacute;menes
          distintos</b>, y hay que aprobar los dos:</p>
       <ul>
         <li><b>Resistencia</b>: que ninguna pieza se rompa ni pandee. Sesiones 1, 2 y 3.</li>

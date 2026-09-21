@@ -245,7 +245,7 @@ S1 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes qu&eacute; forma tiene que tener el montaje. Pero una pila de petaca se puede agarrar
+        La forma del montaje est&aacute; clara. Pero una pila de petaca se puede agarrar
         por los dos polos sin notar nada y un enchufe de casa puede matar, y en los dos hay cargas
         y cobre. La pr&oacute;xima sesi&oacute;n va de <b>qu&eacute; es lo que cambia, y c&oacute;mo se mide</b>.
       </div>
@@ -426,7 +426,7 @@ S2 = (
 # ==========================================================================
 S3 = (
   bloque('00', u'Reto inicial &middot; 10 min', u'''
-      <p>Ya sabes montar un anillo y ya sabes calcularlo. Ahora complicamos lo m&iacute;nimo posible:
+      <p>Montar un anillo y calcularlo: hecho. Ahora complicamos lo m&iacute;nimo posible:
          en vez de una l&aacute;mpara, <b>dos</b>.</p>
 
       <div class="aviso">
@@ -603,7 +603,7 @@ S3 = (
 
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes calcular qu&eacute; corriente circula y c&oacute;mo repartirla. Falta la pregunta que acaba
+        La corriente ya sabes calcularla y repartirla. Falta la pregunta que acaba
         llegando a casa en un papel: <b>&iquest;cu&aacute;nto cuesta tener esto encendido?</b> Para eso hacen
         falta dos conceptos nuevos, la <b>potencia</b> y el <b>consumo</b>.
       </div>
@@ -631,7 +631,7 @@ FACTURA_CSS = u'''
 
 S4 = (
   bloque('00', u'Reto inicial &middot; 10 min', u'''
-      <p>Ya sabes qu&eacute; corriente circula por un circuito y c&oacute;mo se reparte. Hoy la electricidad
+      <p>Hasta aqu&iacute;, la corriente y su reparto. Hoy la electricidad
          deja de ser un dibujo en la libreta: hoy son <b>euros</b> y son <b>gramos de CO&#8322;</b>.</p>
 
       <div class="aviso">
@@ -937,7 +937,7 @@ S5 = (
          alumbrar, y por fuera sigue igual de nuevo.</p>
       <p>Y en la mesa de al lado alguien ha puesto <b>una resistencia</b> en serie y el suyo luce
          perfectamente. Pregunta obligada: &iquest;cu&aacute;l ha puesto? La respuesta que suele salir es
-         &laquo;una que hab&iacute;a en la caja&raquo;. Y as&iacute;, a veces luce, a veces alumbra tan poco que no se ve,
+         &laquo;una que hab&iacute;a en la caja&raquo;. As&iacute; que a veces luce, a veces alumbra tan poco que no se ve,
          y a veces se muere igual.</p>
 
       <div class="reto-piensa">
@@ -1179,7 +1179,7 @@ S5 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes montar y calcular. La &uacute;ltima sesi&oacute;n es la que junta las cinco anteriores:
+        Con eso montas y calculas. La &uacute;ltima sesi&oacute;n es la que junta las cinco anteriores:
         <b>un montaje que resuelva un problema de verdad</b>, con su esquema, sus cuentas y su
         presupuesto. Ve pensando d&oacute;nde te hace falta una luz o un aviso que ahora no existe.
       </div>
@@ -1361,7 +1361,7 @@ S6 = (
 
       <div class="nota">
         <span class="n-tag">Siguiente tema</span>
-        Ya tienes energ&iacute;a que llega por un cable y sabes gobernarla con el dedo. Lo que falta es
+        Tienes energ&iacute;a que llega por un cable y sabes gobernarla con el dedo. Lo que falta es
         que decida <b>sola</b>: que mida algo y act&uacute;e en consecuencia. Para eso hace falta una
         m&aacute;quina que procese informaci&oacute;n, y de eso va el <b>tema 7: el ordenador y sus
         componentes</b>.

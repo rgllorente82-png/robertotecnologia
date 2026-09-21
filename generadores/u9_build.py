@@ -618,7 +618,7 @@ S2 = (
 # ==========================================================================
 S3 = (
   bloque('00', u'Reto inicial &middot; 10 min', u'''
-      <p>Ya sabes hacer un documento que no se descoloca y meterle im&aacute;genes que no pesan
+      <p>Sabes hacer un documento que no se descoloca y meterle im&aacute;genes que no pesan
          media vida. Queda lo m&aacute;s dif&iacute;cil: <b>cinco minutos, de pie, contando lo que
          ha hecho tu grupo</b>.</p>
 
@@ -900,7 +900,7 @@ S4 = (
          rara: es que el permiso para copiar <b>hay que darlo</b>, y si nadie lo ha dado, no
          est&aacute; dado. El silencio no es un s&iacute;.</p>
 
-      <p>Y sin embargo existe la Wikipedia, de la que puedes bajarte todo. Y existe
+      <p>Y sin embargo existe la Wikipedia, de la que puedes bajarte todo. Existe tambi&eacute;n
          <b>esta misma p&aacute;gina</b>, que te puedes copiar entera, cambiarla y volverla a
          publicar &mdash;lo pone al final, en &laquo;Licencia y uso&raquo;&mdash;. Si por defecto no
          se puede, &iquest;qu&eacute; han hecho estos para que s&iacute; se pueda? Eso es la
@@ -1141,7 +1141,7 @@ S4 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya tienes im&aacute;genes que puedes usar y sabes qu&eacute; escribir debajo. Pero el trabajo
+        Tienes im&aacute;genes que puedes usar y sabes qu&eacute; escribir debajo. Pero el trabajo
         no lo haces t&uacute; solo: sois <b>cuatro</b>. Antes de la pr&oacute;xima clase, contesta a
         esto en el cuaderno: cuando un grupo se manda el documento por el m&oacute;vil y cada uno
         escribe su parte, <b>&iquest;cu&aacute;ntos ficheros distintos hay dando vueltas?</b> Y la

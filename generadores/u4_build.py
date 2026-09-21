@@ -241,7 +241,7 @@ S1 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes que aguante. Pero una estructura que aguanta no hace nada: est&aacute; quieta. Lo siguiente es
+        Una estructura que aguanta no hace nada: est&aacute; quieta. Lo siguiente es
         conseguir que <b>algo se mueva</b>, y eso son los mecanismos.
       </div>
   '''))
@@ -286,7 +286,7 @@ CFG = dict(
  desc=u'Tema 4 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los cinco esfuerzos, la triangulaci&oacute;n y por qu&eacute; una estructura aguanta.',
  sesiones=S)
 
-BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.makedirs(os.path.join(BASE, '2eso/TyD/tema4'), exist_ok=True)
 html = pagina(CFG)
 io.open(os.path.join(BASE, '2eso/TyD/tema4/index.html'), 'w', encoding='utf-8', newline='').write(html)

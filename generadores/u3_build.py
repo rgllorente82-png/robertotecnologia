@@ -212,7 +212,7 @@ S1 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes que se elige comparando propiedades. La pr&oacute;xima sesi&oacute;n va de <b>c&oacute;mo se miden</b>
+        Un material se elige comparando propiedades. La pr&oacute;xima sesi&oacute;n va de <b>c&oacute;mo se miden</b>
         esas propiedades &mdash;porque si no se miden, volvemos a las opiniones.
       </div>
   '''))
@@ -427,7 +427,7 @@ S.append(dict(
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes elegir un material y medir sus propiedades. Toca mirar los materiales uno a uno,
+        Elegir y medir: hecho. Toca mirar los materiales uno a uno,
         empezando por el m&aacute;s antiguo de todos: <b>la madera</b>.
       </div>
   """))))
@@ -1085,7 +1085,7 @@ S.append(dict(
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Ya sabes elegir material. Falta la otra mitad de la decisi&oacute;n: <b>qu&eacute; pasa con &eacute;l cuando el
+        Eso es media decisi&oacute;n. Falta la otra mitad de la decisi&oacute;n: <b>qu&eacute; pasa con &eacute;l cuando el
         objeto se tira</b>. Y el test del tema.
       </div>
   """))))
@@ -1270,7 +1270,7 @@ S.append(dict(
       </ol>
       <div class="nota">
         <span class="n-tag">Tema terminado</span>
-        Ya sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
+        Sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
         eso que has elegido <b>se sostenga</b>: las estructuras.
       </div>
   """))))
@@ -1285,7 +1285,7 @@ CFG = dict(
  desc=u'Tema 3 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: propiedades de los materiales, c&oacute;mo se eligen y qu&eacute; impacto ambiental tienen.',
  sesiones=S)
 
-BASE = "C:/Users/javie/AppData/Local/Temp/rt-clone"
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.makedirs(os.path.join(BASE, '2eso/TyD/tema3'), exist_ok=True)
 html = pagina(CFG)
 io.open(os.path.join(BASE, '2eso/TyD/tema3/index.html'), 'w', encoding='utf-8', newline='').write(html)
