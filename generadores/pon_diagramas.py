@@ -152,6 +152,27 @@ FIGURAS = json.loads(u'''[
   "ancla": "<div id=\\"ses-5\\" hidden>\\n    <div class=\\"ses-head\\">\\n      <div class=\\"eyebrow\\">Sesi&oacute;n 5 &middot; 60 minutos</div>\\n      <h2>El puente de 40 cent&iacute;metros</h2>\\n      <p>Veinte folios enrollados en canutos. La nota no es lo que aguante: es lo que aguante dividido por lo que pese.</p>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/u4-puente-palillos.jpg\\" width=\\"412\\" height=\\"227\\" loading=\\"lazy\\" style=\\"max-width:412px;margin:0 auto\\"\\n             alt=\\"Puente de arco construido con palos de helado pegados, apoyado en una superficie\\">\\n        <figcaption>Otro que sali&oacute; de esta misma sesi&oacute;n, con palos de helado. Mirad c&oacute;mo est&aacute; resuelto: es un <b>arco</b>, y el arco lleva toda la carga a <b>compresi&oacute;n</b> hasta los dos apoyos &mdash; por eso aguanta con piezas que sueltas no aguantan nada. Fijaos tambi&eacute;n en el punto d&eacute;bil: los palos se solapan de dos en dos, y donde se unen es donde se abre.\\n          <br><br>Foto de <b>Roberto P. Garc&iacute;a Llorente</b>, del taller. Bajo la misma licencia que esta p&aacute;gina.</figcaption>\\n      </figure>",
   "modo": "antes"
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema4/index.html",
+  "img": "c4-cohete.mp4",
+  "ancla": "</p>\\n        <p>Pero el grifo de tu ducha <b>no</b> es un interruptor. Lo abres <b>un poco</b>. Esta\\n           sesi&oacute;n va de darle a la m&aacute;quina ese &laquo;un poco&raquo;.</p>\\n      </div>",
+  "figura": "<div class=\\"escena\\">\\n        <div class=\\"escena-barra\\"><span class=\\"escena-titulo\\">Control proporcional a tama&ntilde;o real &middot; 13 segundos</span></div>\\n        <div class=\\"lienzo\\" style=\\"padding:0;background:#000;display:flex;justify-content:center\\">\\n          <video controls preload=\\"none\\" muted playsinline style=\\"width:auto;max-width:100%;max-height:60vh;display:block\\"\\n                 poster=\\"../../../video/c4-cohete.jpg\\">\\n            <source src=\\"../../../video/c4-cohete.mp4\\" type=\\"video/mp4\\">\\n            Tu navegador no puede reproducir v&iacute;deo.\\n            <a href=\\"../../../video/c4-cohete.mp4\\">Desc&aacute;rgalo aqu&iacute;</a>.\\n          </video>\\n        </div>\\n        <div class=\\"pie\\">Los dos propulsores laterales de un Falcon Heavy, bajando a la vez. Un motor de cohete <b>no se enciende y se apaga</b> para frenar: eso ser&iacute;a todo-nada, y a esa velocidad la primera correcci&oacute;n de m&aacute;s te estrella. Lo que hace es <b>regular el empuje sin parar</b> seg&uacute;n lo que le queda por bajar, que es justo lo que acabas de programar t&uacute;: cuanto mayor es el error, mayor la respuesta. Y llega con velocidad casi cero al tocar.<br><br>V&iacute;deo de <b>SpaceX</b>, v&iacute;a Wikimedia Commons, <b>CC BY 2.0</b>. Recomprimido para la web.</div>\\n      </div>",
+  "modo": "antes"
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema7/index.html",
+  "img": "c7-caminante.mp4",
+  "ancla": "<a href=\\"https://www.youtube.com/watch?v=cwf-cURBUkI\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
+  "figura": "<div class=\\"escena\\">\\n        <div class=\\"escena-barra\\"><span class=\\"escena-titulo\\">Camina, y no es un robot &middot; 8 segundos</span></div>\\n        <div class=\\"lienzo\\" style=\\"padding:0;background:#000;display:flex;justify-content:center\\">\\n          <video controls preload=\\"none\\" muted playsinline style=\\"width:auto;max-width:100%;max-height:60vh;display:block\\"\\n                 poster=\\"../../../video/c7-caminante.jpg\\">\\n            <source src=\\"../../../video/c7-caminante.mp4\\" type=\\"video/mp4\\">\\n            Tu navegador no puede reproducir v&iacute;deo.\\n            <a href=\\"../../../video/c7-caminante.mp4\\">Desc&aacute;rgalo aqu&iacute;</a>.\\n          </video>\\n        </div>\\n        <div class=\\"pie\\">Baja la rampa &eacute;l solo, con paso de persona. Y por dentro <b>no hay nada</b>: ni motor, ni sensor, ni programa, ni una pila. Lo &uacute;nico que lo mueve es la gravedad y la forma de sus piernas. Si la frontera fuera <i>parecerlo</i> o <i>moverse solo</i>, esto ser&iacute;a un robot &mdash; y no lo es, porque no se entera de nada.<br><br>V&iacute;deo de <b>Steven H. Collins</b>, v&iacute;a Wikimedia Commons, <b>CC BY-SA 3.0</b>, la misma licencia de esta p&aacute;gina.</div>\\n      </div>",
+  "modo": "antes"
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema7/index.html",
+  "img": "c7-robot-paquetes.mp4",
+  "ancla": "<i>parecerlo</i> o <i>moverse solo</i>, esto ser&iacute;a un robot &mdash; y no lo es, porque no se entera de nada.<br><br>V&iacute;deo de <b>Steven H. Collins</b>, v&iacute;a Wikimedia Commons, <b>CC BY-SA 3.0</b>, la misma licencia de esta p&aacute;gina.</div>\\n      </div>",
+  "figura": "<div class=\\"escena\\">\\n        <div class=\\"escena-barra\\"><span class=\\"escena-titulo\\">Esto s&iacute; lo es &middot; 8 segundos</span></div>\\n        <div class=\\"lienzo\\" style=\\"padding:0;background:#000;display:flex;justify-content:center\\">\\n          <video controls preload=\\"none\\" muted playsinline style=\\"width:auto;max-width:100%;max-height:60vh;display:block\\"\\n                 poster=\\"../../../video/c7-robot-paquetes.jpg\\">\\n            <source src=\\"../../../video/c7-robot-paquetes.mp4\\" type=\\"video/mp4\\">\\n            Tu navegador no puede reproducir v&iacute;deo.\\n            <a href=\\"../../../video/c7-robot-paquetes.mp4\\">Desc&aacute;rgalo aqu&iacute;</a>.\\n          </video>\\n        </div>\\n        <div class=\\"pie\\">El mismo criterio, al rev&eacute;s. Este brazo no repite un movimiento aprendido: las bolsas llegan <b>cada vez en un sitio distinto</b>, y &eacute;l mira, decide y coge. Qu&iacute;tale la c&aacute;mara y no puede hacer nada &mdash; ah&iacute; est&aacute; la frontera de la sesi&oacute;n: <b>enterarse de lo que hay fuera</b>.<br><br>V&iacute;deo de <i>newscreators</i>, v&iacute;a Wikimedia Commons, <b>CC BY 3.0</b>.</div>\\n      </div>",
+  "modo": "antes"
  }
 ]''')
 
@@ -165,7 +186,8 @@ def main():
             print(u'   no existe la pagina: %s' % f['pagina'])
             continue
         s = io.open(ruta, encoding='utf-8').read()
-        if u'img/' + f['img'] in s:
+        # el fichero puede colgar de img/ o de video/: se mira el nombre a secas
+        if f['img'] in s:
             saltadas += 1
             continue
         if s.count(f['ancla']) != 1:
