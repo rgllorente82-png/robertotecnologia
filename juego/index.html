@@ -596,7 +596,7 @@ function pintarMapa(){
       n.setAttribute('class','nodo-n'); n.setAttribute('x',x);
       n.setAttribute('y', lado==='arriba' ? y-46 : y+58);
       n.setAttribute('text-anchor','middle');
-      n.textContent = viva ? (libres? libres+' libres' : '') : 'aún nada';
+      n.textContent = viva ? (libres? libres+(libres===1?' libre':' libres') : '') : 'aún nada';
       gN.appendChild(n);
     }
     const aqui=E.jug.filter(j=>j.pos===i);
