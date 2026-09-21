@@ -129,6 +129,12 @@ main{flex:1;min-height:0;padding:12px 18px 10px}
    ella, pero está apagada. Norteamérica no se enciende hasta 1807 */
 .nodo.dormida{stroke:#4a3826;opacity:.75}
 .nodo-t.dormida{fill:#6e5b41}
+/* la NIEBLA es otra cosa que estar dormida: dormida = la historia no ha llegado
+   ahí todavía; en niebla = nadie del tablero ha puesto un pie. Al empezar solo
+   África está descubierta y el resto del mundo es un interrogante. */
+.nodo.niebla{stroke:#3d2f1e;opacity:.5;stroke-dasharray:3 4}
+.nodo-t.niebla{fill:#57472f;letter-spacing:.2em}
+.aro-asent{fill:none;stroke-width:3;opacity:.95}
 .nodo.act{stroke:var(--laton-claro);stroke-width:3.5;filter:drop-shadow(0 0 10px rgba(227,192,122,.85))}
 .halo{fill:none;stroke:var(--laton-claro);stroke-width:2;opacity:0}
 .halo.act{animation:halo 2.2s ease-out infinite}
@@ -412,11 +418,20 @@ function empezar(){
       id:i, nombre:(NOMBRES[i]||"").trim() || ("Jugador "+(i+1)), color:COLORES[i%COLORES.length],
       pos:0, dinero:DATOS.reglas_recursos.dinero_inicial, tec:[], region:regs[i%regs.length]
     })),
-    turno:0, destapadas:0, tirado:false, difusion:[]
+    turno:0, destapadas:0, tirado:false, difusion:[],
+    desc:{},        // regiones DESCUBIERTAS: al empezar solo África
+    asent:{},       // región -> id del jugador que la tiene
+    repasadas:{},   // cuántas veces se ha preguntado ya cada tecnología
+    suelta:false    // ¿ya se ha usado la acción suelta de este turno?
   };
+  // donde vive cada jugador ya es suyo: su gente está asentada allí desde antes
+  // de que empiece nada. En el mapa sigue en niebla hasta que alguien llega.
+  E.jug.forEach(j=>{ E.asent[j.region]=j.id; });
   document.getElementById('preparacion').hidden=true;
   document.getElementById('mesa').hidden=false;
   destapar(2);   // el canto tallado y el bifaz: al principio SOLO hay África
+  // el mundo conocido al empezar es exactamente el de las dos primeras cartas: África
+  disponibles().forEach(t=>t.reg.forEach(r=>{ E.desc[r]=true; }));
   log("El mundo empieza <b>vacío</b>: hace 2,6 millones de años solo hay una región encendida, <b>África</b>, y en ella lo único que existe es una piedra con filo. Cada vuelta al tablero destapa lo siguiente que se inventó, en el orden en que pasó de verdad. El mapa se va abriendo solo.");
   pintarTodo();
 }
@@ -436,6 +451,14 @@ function epocaActual(){
   const ult=BARAJA[E.destapadas-1];
   return DATOS.epocas.find(e=>e.n===ult.ep) || DATOS.epocas[0];
 }
+// ninguna tirada se queda sin nada que hacer: si en la casilla no hay tecnología
+// que desarrollar, siempre queda asentarse, comerciar o repasar — y todo con
+// pregunta delante, que es lo que se viene a practicar.
+const PRECIO_ASENT = 150;   // fundar un asentamiento
+const RENTA_ASENT  = 50;    // lo que paga quien cae en región ajena
+const COBRO_EN_LO_TUYO = 100;  // por cada tecnología tuya en tu región (lo decían las reglas)
+const PREMIO_RUTA  = 100;   // comerciar en una ruta
+const PREMIO_SALIDA= 200;   // repasar al parar en la salida
 // una sola baraja, ordenada por fecha real: el mundo empieza vacío y se llena
 const BARAJA = DATOS.tecnologias.slice();
 function disponibles(){ return BARAJA.slice(0, E?E.destapadas:0); }
@@ -508,7 +531,8 @@ function pintarMapa(){
     const [x,y,lado]=NODOS[i];
     const r=REG[id];
     const viva = !r || encendida[id];
-    if(r){
+    const vista = descubierta(id);     // ¿ha puesto alguien un pie aquí?
+    if(r && vista){
       const niv=nivelRegion(id);
       // el resplandor crece con lo desarrollado
       if(niv.n){
@@ -544,18 +568,29 @@ function pintarMapa(){
       h.setAttribute('r',14); gN.appendChild(h);
     }
     const c=document.createElementNS(NS,'circle');
-    c.setAttribute('class','nodo'+(E.jug[E.turno].pos===i?' act':'')+(viva?'':' dormida'));
+    c.setAttribute('class','nodo'+(E.jug[E.turno].pos===i?' act':'')
+                   +(vista? (viva?'':' dormida') : ' niebla'));
     c.setAttribute('cx',x); c.setAttribute('cy',y);
     c.setAttribute('r', r?13:9);
-    c.setAttribute('fill', (r && viva)? r.color : '#3a2c1c');
+    c.setAttribute('fill', (r && vista && viva)? r.color : '#3a2c1c');
     gN.appendChild(c);
+    // quién tiene asentada la región: un aro de su color alrededor del nodo
+    const dA = (r && vista && E.asent[id]!==undefined) ? E.jug[E.asent[id]] : null;
+    if(dA){
+      const aro=document.createElementNS(NS,'circle');
+      aro.setAttribute('class','aro-asent');
+      aro.setAttribute('cx',x); aro.setAttribute('cy',y); aro.setAttribute('r',17.5);
+      aro.setAttribute('stroke', dA.color);
+      gN.appendChild(aro);
+    }
     const t=document.createElementNS(NS,'text');
-    t.setAttribute('class','nodo-t'+(viva?'':' dormida')); t.setAttribute('x',x);
+    t.setAttribute('class','nodo-t'+(vista? (viva?'':' dormida') : ' niebla'));
+    t.setAttribute('x',x);
     t.setAttribute('y', lado==='arriba' ? y-22 : y+34);
     t.setAttribute('text-anchor','middle');
-    t.textContent = r? r.nombre : (id==='salida'?'SALIDA':'ruta');
+    t.textContent = r ? (vista? r.nombre : '? ? ?') : (id==='salida'?'SALIDA':'ruta');
     gN.appendChild(t);
-    if(r){
+    if(r && vista){
       const libres=disponibles().filter(t2=>t2.reg.includes(id) && !dueno(t2.id)).length;
       const n=document.createElementNS(NS,'text');
       n.setAttribute('class','nodo-n'); n.setAttribute('x',x);
@@ -589,6 +624,10 @@ function pintarMapa(){
     `${j.nombre} está en ${r? r.nombre : (id==='salida'?'la salida':'una ruta comercial')}`;
 }
 function dueno(tid){ return E.jug.find(j=>j.tec.includes(tid)); }
+// una región está DESCUBIERTA cuando alguien ha caído en ella. Las rutas y la
+// salida no se descubren: son del tablero, no del mundo.
+function descubierta(id){ return !REG[id] || !!E.desc[id]; }
+function asentadaPor(id){ return E.asent[id]!==undefined ? E.jug[E.asent[id]] : null; }
 function encendidaRegion(id){ return disponibles().some(t=>t.reg.includes(id)); }
 // la víspera vale 1 punto y cada revolución uno más: lo antiguo cuenta, pero
 // llegar lejos cuenta más, y para llegar lejos hay que encadenar prerrequisitos
@@ -627,12 +666,35 @@ function tirar(){
     log(`<b>${j.nombre}</b> completa una vuelta: +${DATOS.reglas_recursos.cobro_por_vuelta} y el tiempo avanza.`);
     destapar(4);
   }
+  llegar(j);
   E.tirado=true;
   pintarTodo();
+}
+/* Lo que pasa por el hecho de pisar la casilla, antes de decidir nada. */
+function llegar(j){
+  const id=ANILLO[j.pos];
+  const r=REG[id];
+  if(!r) return;
+  if(!E.desc[id]){
+    E.desc[id]=true;
+    log(`<b>${j.nombre}</b> llega a una tierra donde no había estado nadie: <b>${r.nombre}</b>.`);
+  }
+  const dA=asentadaPor(id);
+  if(dA && dA.id!==j.id){
+    const renta=Math.min(RENTA_ASENT, j.dinero);
+    if(renta>0){ j.dinero-=renta; dA.dinero+=renta;
+      log(`<b>${j.nombre}</b> pasa por ${r.nombre}, de <b>${dA.nombre}</b>, y le paga ${renta}.`); }
+  } else if(dA && dA.id===j.id){
+    // lo que prometían las reglas y el juego no hacía: cobras por lo tuyo
+    const suyas=j.tec.filter(tid=>TEC[tid].reg.includes(id)).length;
+    if(suyas){ const cobro=suyas*COBRO_EN_LO_TUYO; j.dinero+=cobro;
+      log(`<b>${j.nombre}</b> vuelve a ${r.nombre}: cobra ${cobro} por sus ${suyas} tecnología${suyas>1?'s':''} de allí.`); }
+  }
 }
 function siguienteTurno(){
   E.turno=(E.turno+1)%E.jug.length;
   E.tirado=false;
+  E.suelta=false;
   document.getElementById('resultado-dado').textContent='';
   pintarTodo();
 }
@@ -679,18 +741,131 @@ function pintarOpciones(){
       cont.appendChild(c);
     });
   }
-  if(!hay){
-    cont.innerHTML = r
-      ? (encendidaRegion(id)
-          ? '<p class="meta">Aquí no queda nada por desarrollar todavía. El tiempo dirá.</p>'
-          : '<p class="meta">A esta región la historia no ha llegado aún: todavía no se ha inventado nada aquí. El mundo empieza en África y se va abriendo.</p>')
-      : (id==='salida' ? '<p class="meta">Cobras al pasar y el mundo avanza.</p>'
-                       : '<p class="meta">Las rutas comerciales solo sirven para moverse: la tecnología se desarrolla en las regiones.</p>');
+  // Lo que se puede hacer SIEMPRE, aunque aquí no haya nada que desarrollar.
+  const nota=document.createElement('p'); nota.className='meta';
+  if(r){
+    if(!hay) nota.innerHTML = encendidaRegion(id)
+      ? 'Aquí no queda nada por desarrollar todavía. El tiempo dirá.'
+      : 'A esta región la historia no ha llegado aún: todavía no se ha inventado nada aquí. El mundo empieza en África y se va abriendo.';
+    const dA=asentadaPor(id);
+    if(!dA){
+      if(!hay) cont.appendChild(nota);
+      const p2=document.createElement('p'); p2.className='meta'; p2.style.marginTop='8px';
+      p2.innerHTML = `Nadie se ha asentado en ${r.nombre}. Fundar un asentamiento cuesta <b>${PRECIO_ASENT}</b>: la región queda tuya y quien pase te paga ${RENTA_ASENT}. No suma puntos al final.`;
+      cont.appendChild(p2);
+      const ba=document.createElement('button');
+      ba.className='primario'; ba.style.marginTop='8px'; ba.style.width='100%';
+      ba.textContent='Fundar asentamiento · '+PRECIO_ASENT;
+      ba.disabled = E.suelta || j.dinero<PRECIO_ASENT || !disponibles().length;
+      ba.addEventListener('click',()=>preguntaSuelta(
+        'Asentarse en '+r.nombre,
+        'Para quedarte hay que demostrar que sabes de qué va esto. Si aciertas, pagas '+PRECIO_ASENT+' y la región es tuya.',
+        ()=>{ j.dinero-=PRECIO_ASENT; E.asent[id]=j.id;
+              log(`<b>${j.nombre}</b> funda un asentamiento en <b>${r.nombre}</b>.`);
+              return `Te asientas en <b>${r.nombre}</b>. Quien caiga aquí te pagará ${RENTA_ASENT}.`; }));
+      cont.appendChild(ba);
+    } else {
+      const p2=document.createElement('p'); p2.className='meta'; p2.style.marginTop='8px';
+      p2.innerHTML = dA.id===j.id
+        ? `<b>${r.nombre}</b> es tuya: cobras ${COBRO_EN_LO_TUYO} por cada tecnología tuya de aquí cada vez que vuelves.`
+        : `<b>${r.nombre}</b> es de <b>${dA.nombre}</b>: al caer le has pagado ${RENTA_ASENT}.`;
+      if(!hay) cont.appendChild(nota);
+      cont.appendChild(p2);
+      // región ya asentada y sin nada que desarrollar: aún queda mirar lo que
+      // hacen aquí. Ninguna tirada se va de vacío.
+      if(!hay){
+        const b3=document.createElement('button');
+        b3.className='primario'; b3.style.marginTop='8px'; b3.style.width='100%';
+        b3.textContent='Aprender de ellos · +'+PREMIO_RUTA;
+        b3.disabled=E.suelta || !disponibles().length;
+        b3.addEventListener('click',()=>preguntaSuelta('En '+r.nombre,
+          'Aquí ya vive gente. Mirar cómo se hacen las cosas también es aprender.',
+          ()=>{ j.dinero+=PREMIO_RUTA;
+                log(`<b>${j.nombre}</b> aprende algo de paso por ${r.nombre}: +${PREMIO_RUTA}.`);
+                return `Te llevas ${PREMIO_RUTA}.`; }));
+        cont.appendChild(b3);
+      }
+    }
+  } else if(id==='salida'){
+    nota.innerHTML = 'Has parado en la salida. Antes de seguir, un repaso: si aciertas te llevas <b>'+PREMIO_SALIDA+'</b>.';
+    cont.appendChild(nota);
+    const b2=document.createElement('button');
+    b2.className='primario'; b2.style.marginTop='8px'; b2.style.width='100%';
+    b2.textContent='Repasar · +'+PREMIO_SALIDA;
+    b2.disabled=E.suelta || !disponibles().length;
+    b2.addEventListener('click',()=>preguntaSuelta('En la salida',
+      'Todo lo que ya se ha inventado pasa por aquí.',
+      ()=>{ j.dinero+=PREMIO_SALIDA; log(`<b>${j.nombre}</b> acierta el repaso de la salida: +${PREMIO_SALIDA}.`);
+            return `Te llevas ${PREMIO_SALIDA}.`; }));
+    cont.appendChild(b2);
+  } else {
+    nota.innerHTML = 'Una ruta comercial: aquí no se inventa, se cambia. Si sabes de lo que hablas, el trato sale bien: <b>+'+PREMIO_RUTA+'</b>.';
+    cont.appendChild(nota);
+    const b2=document.createElement('button');
+    b2.className='primario'; b2.style.marginTop='8px'; b2.style.width='100%';
+    b2.textContent='Comerciar · +'+PREMIO_RUTA;
+    b2.disabled=E.suelta || !disponibles().length;
+    b2.addEventListener('click',()=>preguntaSuelta('Ruta comercial',
+      'Por aquí viajan las mercancías y, con ellas, lo que se sabe hacer.',
+      ()=>{ j.dinero+=PREMIO_RUTA; log(`<b>${j.nombre}</b> cierra un buen trato en la ruta: +${PREMIO_RUTA}.`);
+            return `Te llevas ${PREMIO_RUTA}.`; }));
+    cont.appendChild(b2);
   }
   const b=document.createElement('button');
   b.textContent='Pasar turno'; b.style.marginTop='6px';
   b.addEventListener('click', siguienteTurno);
   cont.appendChild(b);
+}
+
+/* ---------- repaso: una pregunta de algo que YA salió en la partida ----------
+   Se elige la menos preguntada hasta ahora, para que no se repita siempre la
+   misma cuando todavía hay pocas cartas destapadas. */
+function tecParaRepaso(){
+  const d=disponibles();
+  if(!d.length) return null;
+  let min=Infinity;
+  d.forEach(t=>{ const v=E.repasadas[t.id]||0; if(v<min) min=v; });
+  const candidatas=d.filter(t=>(E.repasadas[t.id]||0)===min);
+  return candidatas[Math.floor(Math.random()*candidatas.length)];
+}
+/* Una pregunta suelta, sin comprar nada: acierta y te llevas lo que sea. */
+function preguntaSuelta(rotulo, texto, alAcertar){
+  const t=tecParaRepaso();
+  if(!t || E.suelta) return;
+  E.suelta=true;          // una por turno: si no, comerciar era dinero infinito
+  E.repasadas[t.id]=(E.repasadas[t.id]||0)+1;
+  const dlg=document.getElementById('dlg');
+  const c=document.getElementById('dlg-cuerpo');
+  const dib=DIB[t.id];
+  c.innerHTML=`<h3>${rotulo}</h3><p class="meta">${texto}</p>`
+    + (dib ? `<div class="dib-caja">
+        <svg class="dib" viewBox="${DIB_VB}" aria-hidden="true"><g fill="none" stroke="currentColor"
+          stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${dib.d}</g></svg>
+        <p class="dib-pie">${dib.pie}</p></div>` : '')
+    + `<p class="meta" style="margin-top:10px">${t.n} · ${anioTexto(t.anio)}</p>`
+    + `<p style="margin:4px 0"><b>${t.pregunta.q}</b></p>`;
+  const cajas=[];
+  t.pregunta.op.forEach((o,i)=>{
+    const b=document.createElement('button'); b.className='op'; b.textContent=o;
+    b.addEventListener('click',()=>responder(i));
+    c.appendChild(b); cajas.push(b);
+  });
+  function responder(i){
+    cajas.forEach((b,k)=>{ b.disabled=true;
+      if(k===t.pregunta.ok) b.classList.add('bien');
+      else if(k===i) b.classList.add('mal'); });
+    const ok=i===t.pregunta.ok;
+    const res=document.createElement('div');
+    res.className='resul '+(ok?'ok':'ko');
+    res.innerHTML = ok ? `<b>Correcto.</b> ${alAcertar()}`
+                       : `<b>No era esa.</b> ${t.pregunta.op[t.pregunta.ok]}. Esta vez te vas de vacío.`;
+    c.appendChild(res);
+    const cerrar=document.createElement('button');
+    cerrar.className='primario'; cerrar.style.marginTop='12px'; cerrar.textContent='Seguir';
+    cerrar.addEventListener('click',()=>{ dlg.close(); pintarTodo(); });
+    c.appendChild(cerrar);
+  }
+  dlg.showModal();
 }
 
 /* ---------- la pregunta ---------- */
