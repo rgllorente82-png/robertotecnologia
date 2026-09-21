@@ -131,6 +131,27 @@ FIGURAS = json.loads(u'''[
   "ancla": "</b>: dice qui&eacute;n va delante de qui&eacute;n, no cu&aacute;nto. El diamante es un 10 y\\n           el corind&oacute;n un 9, pero el diamante no es «uno m&aacute;s duro»: es unas cuatro veces m&aacute;s duro. Por eso\\n           en la industria se usan hoy otras escalas &mdash;Brinell, Rockwell, Vickers&mdash; que s&iacute; dan\\n           n&uacute;meros proporcionales. La de Mohs sobrevive porque sigue siendo la &uacute;nica que funciona\\n           sin enchufe.</p>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/mohs_hardness_scale.svg\\" width=\\"640\\" height=\\"500\\" loading=\\"lazy\\"\\n             alt=\\"Escala de Mohs: 10 minerales ordenados por dureza creciente desde el talco hasta el diamante\\">\\n        <figcaption>La <b>escala de Mohs</b> de 1 a 10: una ordenación que sigue un principio simple:\\n          si A raya a B, A es más duro. Sin aparatos, sin opiniones. Solo física.</figcaption>\\n      </figure>",
   "modo": "antes"
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema5/index.html",
+  "img": "c5-reductora.jpg",
+  "ancla": "<b>hidr&aacute;ulica</b> (aceite, que no se comprime), y por eso las\\n              excavadoras son hidr&aacute;ulicas y no neum&aacute;ticas.</li>\\n        </ul>",
+  "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/c5-reductora.jpg\\" width=\\"1200\\" height=\\"800\\" loading=\\"lazy\\"\\n             alt=\\"Detalle de un tren de engranajes met&aacute;licos y un tornillo sin fin dentro de una reductora\\">\\n        <figcaption>La v&iacute;a que acabas de descartar, por dentro: <b>un motor peque&ntilde;o y un tren de engranajes</b> que cambia vueltas por par. Funciona &mdash; de ah&iacute; sale el par que te falta &mdash;, pero fíjate en cu&aacute;ntas piezas hay que meter, y en que basta con que una se atasque para que el motor siga tirando contra ella hasta quemarse.\\n          <br><br>Foto de <b>Rodrigo Pharazz</b> en Pexels. Es de su autor y no forma parte del material publicado bajo la licencia de esta p&aacute;gina.</figcaption>\\n      </figure>",
+  "modo": "antes"
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema8/index.html",
+  "img": "c8-reparar.jpg",
+  "ancla": "<li><b>Trabajo.</b> Horas vuestras, o de alguien que tiene que acordarse de algo cada\\n              curso.</li>\\n          <li><b>Prestaci&oacute;n perdida.</b> Algo que el aparato dejaba de hacer. Es la que no se\\n              apunta, y es la que rompe requisitos.</li>\\n        </ul>",
+  "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/c8-reparar.jpg\\" width=\\"1200\\" height=\\"800\\" loading=\\"lazy\\"\\n             alt=\\"T&eacute;cnico soldando con una lupa sobre una placa de circuito en un banco de trabajo\\">\\n        <figcaption>El cambio que no aparece en ninguna de las tres columnas: <b>que el aparato dure m&aacute;s</b>. Arreglar una placa gasta un soldador y media hora; fabricar la de repuesto gasta el mineral, la f&aacute;brica y el transporte otra vez. Por eso la cuenta honrada no es la del aparato: es la del aparato <b>dividido entre los a&ntilde;os que va a durar</b>.\\n          <br><br>Foto de <b>Kaboompics</b> en Pexels. Es de su autor y no forma parte del material publicado bajo la licencia de esta p&aacute;gina.</figcaption>\\n      </figure>",
+  "modo": "antes"
+ },
+ {
+  "pagina": "2eso/TyD/tema4/index.html",
+  "img": "u4-puente-palillos.jpg",
+  "ancla": "<div id=\\"ses-5\\" hidden>\\n    <div class=\\"ses-head\\">\\n      <div class=\\"eyebrow\\">Sesi&oacute;n 5 &middot; 60 minutos</div>\\n      <h2>El puente de 40 cent&iacute;metros</h2>\\n      <p>Veinte folios enrollados en canutos. La nota no es lo que aguante: es lo que aguante dividido por lo que pese.</p>",
+  "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/u4-puente-palillos.jpg\\" width=\\"412\\" height=\\"227\\" loading=\\"lazy\\" style=\\"max-width:412px;margin:0 auto\\"\\n             alt=\\"Puente de arco construido con palos de helado pegados, apoyado en una superficie\\">\\n        <figcaption>Otro que sali&oacute; de esta misma sesi&oacute;n, con palos de helado. Mirad c&oacute;mo est&aacute; resuelto: es un <b>arco</b>, y el arco lleva toda la carga a <b>compresi&oacute;n</b> hasta los dos apoyos &mdash; por eso aguanta con piezas que sueltas no aguantan nada. Fijaos tambi&eacute;n en el punto d&eacute;bil: los palos se solapan de dos en dos, y donde se unen es donde se abre.\\n          <br><br>Foto de <b>Roberto P. Garc&iacute;a Llorente</b>, del taller. Bajo la misma licencia que esta p&aacute;gina.</figcaption>\\n      </figure>",
+  "modo": "antes"
  }
 ]''')
 
