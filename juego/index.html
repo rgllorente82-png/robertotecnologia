@@ -148,7 +148,8 @@ main{flex:1;min-height:0;padding:12px 18px 10px}
 .ficha-m{stroke:var(--papel-3);stroke-width:2}
 .resplandor{filter:blur(9px);transition:r .6s ease,opacity .6s ease}
 .chapa{fill:#140e08;stroke:var(--laton-claro);stroke-width:2;animation:enciende .6s ease both}
-.simb{fill:none;stroke:var(--laton-claro);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;
+.simb,.simb *{fill:none;stroke:var(--laton-claro);stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round;
+  vector-effect:non-scaling-stroke;
   /* ⛔ nada de la animación 'apar': lleva un transform y el transform del CSS
      PISA el atributo transform del SVG — los símbolos se iban todos al 0,0 */
   opacity:1;animation:enciende .6s ease both}
@@ -645,20 +646,24 @@ function pintarMapa(){
       // el distintivo de la región: la revolución MÁS ALTA a la que ha llegado,
       // pegada al nodo como una chapa. Una fila de símbolos no cabía: en el
       // Mediterráneo hay cinco regiones en un palmo y se pisaban las etiquetas.
-      const alta=niv.epocas.filter(e=>SIMBOLOS[e]).pop();
-      if(alta){
+      // el dibujo de la ÚLTIMA tecnología desarrollada aquí, no un símbolo de
+      // época: se ve de un vistazo por dónde va cada zona
+      const ultima=ultimaDeRegion(id);
+      if(ultima && DIB[ultima.id]){
         // al costado del nodo: las etiquetas van centradas arriba y abajo, así
         // que el flanco derecho es la única banda libre en todas las regiones
-        const cx=x+25, cy=y;
+        const cx=x+30, cy=y;
         const ch=document.createElementNS(NS,'circle');
         ch.setAttribute('class','chapa');
-        ch.setAttribute('cx',cx); ch.setAttribute('cy',cy); ch.setAttribute('r',13.5);
+        ch.setAttribute('cx',cx); ch.setAttribute('cy',cy); ch.setAttribute('r',19);
         gN.appendChild(ch);
-        const sm=document.createElementNS(NS,'path');
-        sm.setAttribute('class','simb');
-        sm.setAttribute('d',SIMBOLOS[alta]);
-        sm.setAttribute('transform',`translate(${cx},${cy}) scale(1.25)`);
-        gN.appendChild(sm);
+        const g=document.createElementNS(NS,'g');
+        g.setAttribute('class','simb');
+        g.setAttribute('transform',`translate(${cx},${cy}) scale(0.29) translate(-60,-40)`);
+        g.innerHTML=DIB[ultima.id].d;
+        const t2=document.createElementNS(NS,'title');
+        t2.textContent=ultima.n; g.appendChild(t2);
+        gN.appendChild(g);
       }
     }
     if(E.jug[E.turno].pos===i){
@@ -737,6 +742,15 @@ function nomReg(id){
 function descubierta(id){ return !REG[id] || !!E.desc[id]; }
 function asentadaPor(id){ return E.asent[id]!==undefined ? E.jug[E.asent[id]] : null; }
 function encendidaRegion(id){ return disponibles().some(t=>t.reg.includes(id)); }
+// lo último que se ha desarrollado en una región, por fecha real
+function ultimaDeRegion(id){
+  let mejor=null;
+  E.jug.forEach(j=>j.tec.forEach(tid=>{
+    const t=TEC[tid];
+    if(t && t.reg.includes(id) && (!mejor || t.anio>mejor.anio)) mejor=t;
+  }));
+  return mejor;
+}
 // la víspera vale 1 punto y cada revolución uno más: lo antiguo cuenta, pero
 // llegar lejos cuenta más, y para llegar lejos hay que encadenar prerrequisitos
 function puntos(j){ return j.tec.reduce((s,id)=>s+TEC[id].ep,0); }
@@ -992,25 +1006,43 @@ function preguntar(t, precio, d0){
   const dlg=document.getElementById('dlg');
   const c=document.getElementById('dlg-cuerpo');
   const j=E.jug[E.turno];
-  const dib=DIB[t.id];
+  // al COPIAR se pregunta por un prerrequisito —lo que sostiene el invento—, y si
+  // no tiene ninguno a mano, por cualquier cosa ya destapada. Nunca por sí misma.
+  let q=t, pie='';
+  if(d0){
+    const base=(t.req||[]).map(x=>TEC[x]).filter(x=>x && BARAJA.indexOf(x)<E.destapadas)
+                 .sort((a,b)=>(E.repasadas[a.id]||0)-(E.repasadas[b.id]||0));
+    const rep=tecParaRepaso();
+    const minGlobal = rep? (E.repasadas[rep.id]||0) : 0;
+    const elegida = (base.length && (E.repasadas[base[0].id]||0) <= minGlobal+1) ? base[0] : rep;
+    if(elegida && elegida.id!==t.id){
+      q=elegida;
+      pie = base.length
+        ? `Para copiar <b>${t.n}</b> hay que saber en qué se apoya: <b>${q.n}</b>.`
+        : `Para copiar <b>${t.n}</b>, una de lo que ya se ha inventado: <b>${q.n}</b>.`;
+      E.repasadas[q.id]=(E.repasadas[q.id]||0)+1;
+    }
+  }
+  const dib=DIB[q.id];
   c.innerHTML=`<h3>${t.n}</h3>
     <p class="meta">${anioTexto(t.anio)} · ${t.reg.map(x=>nomReg(x)).join(' / ')} · ${precio}</p>`
+    + (pie? `<p class="dato" style="margin:0 0 4px">${pie}</p>` : '')
     + (dib ? `<div class="dib-caja">
         <svg class="dib" viewBox="${DIB_VB}" aria-hidden="true"><g fill="none" stroke="currentColor"
           stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${dib.d}</g></svg>
         <p class="dib-pie">${dib.pie}</p></div>` : '')
-    + `<p style="margin:12px 0 4px"><b>${t.pregunta.q}</b></p>`;
+    + `<p style="margin:12px 0 4px"><b>${q.pregunta.q}</b></p>`;
   const cajas=[];
-  t.pregunta.op.forEach((o,i)=>{
+  q.pregunta.op.forEach((o,i)=>{
     const b=document.createElement('button'); b.className='op'; b.textContent=o;
     b.addEventListener('click',()=>responder(i));
     c.appendChild(b); cajas.push(b);
   });
   function responder(i){
     cajas.forEach((b,k)=>{ b.disabled=true;
-      if(k===t.pregunta.ok) b.classList.add('bien');
+      if(k===q.pregunta.ok) b.classList.add('bien');
       else if(k===i) b.classList.add('mal'); });
-    const ok = i===t.pregunta.ok;
+    const ok = i===q.pregunta.ok;
     const res=document.createElement('div');
     res.className='resul '+(ok?'ok':'ko');
     if(ok){
@@ -1025,7 +1057,7 @@ function preguntar(t, precio, d0){
                   + (d0? ` Le pagas ${precio} a ${d0.nombre}.` : ` Pagas ${precio}.`);
       log(`<b>${j.nombre}</b> desarrolla <b>${t.n}</b> (${anioTexto(t.anio)}).`);
     } else {
-      res.innerHTML=`<b>No era esa.</b> ${t.pregunta.op[t.pregunta.ok]}. No pagas nada, pero esta vez te quedas sin ella.`;
+      res.innerHTML=`<b>No era esa.</b> ${q.pregunta.op[q.pregunta.ok]}. No pagas nada, pero esta vez te quedas sin ella.`;
       log(`<b>${j.nombre}</b> falla la pregunta de ${t.n}.`);
     }
     c.appendChild(res);
