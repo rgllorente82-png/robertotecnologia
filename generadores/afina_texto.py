@@ -118,7 +118,10 @@ def main():
         original = s
         s, n_p, n_e = arregla_texto(s)
         s, n_t = arregla_titulos(s)
-        if n_t and CSS not in s and 'h3.%s,' % CLASE not in s:
+        # La regla va si la clase esta en la pagina, la haya puesto esta pasada o
+        # no: cuando el cuerpo ya viene afinado desde el generador, n_t es 0 y
+        # antes se quedaba la clase sin su regla, con el h3 a su tamanio de h3.
+        if CLASE in s and CSS not in s and 'h3.%s,' % CLASE not in s:
             i = s.index('</style>')
             s = s[:i] + CSS + s[i:]
         tp += n_p; te += n_e; tt += n_t

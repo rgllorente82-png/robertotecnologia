@@ -166,6 +166,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .copiar > :first-child{margin-top:6px}
 .copiar > :last-child{margin-bottom:0}
 .copiar h4{font-size:15px;margin:10px 0 4px}
+/* tablas de datos dentro de los bloques que se copian */
+.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
+.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 .entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
 .entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
@@ -260,7 +266,10 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
 .cc-aviso h2{font-size:17px;margin:0 0 8px}
 .cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px;
+  /* la cita es una tirada sin espacios: en un movil empujaba la pagina 80 px
+     de lado, y con ella todo lo demas. Que parta antes que sacar la pagina. */
+  overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
