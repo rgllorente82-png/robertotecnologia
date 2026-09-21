@@ -47,7 +47,15 @@ ordena_indice · afina_fotos · pon_metadatos · afina_texto · pon_enlace_sigui
 afina_movil · afina_movimiento · afina_movimiento_js · afina_tintas
 afina_sobre_color · afina_lectores · afina_navegador · afina_test
 afina_impresion · afina_salto · afina_mandos · afina_tablas · afina_visor
+pon_diagramas          <-- OBLIGATORIO despues de cualquier build
 ```
+
+⛔ **`pon_diagramas.py` no es opcional.** Repone las 16 figuras —quince diagramas,
+la foto del puente de folios— que solo viven en el HTML. El 21-sep-2026 se
+comprobó a las malas: lanzar `u3`, `u4`, `u5` y `u6_build.py` para meter unas
+fotos borró **5.236 palabras** de contenido del 20-sep, y las páginas siguieron
+compilando y pasando los comprobadores como si nada. Se recuperaron del
+`git show rescate-20sep:<pagina>`.
 
 Necesitan el venv y su navegador:
 `/home/ubuntu/rt/venv/bin/python`, con `python -m playwright install chromium`.

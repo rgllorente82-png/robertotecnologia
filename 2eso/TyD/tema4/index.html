@@ -8,6 +8,19 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema4/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Tema 4 &middot; Estructuras">
+<meta property="og:description" content="Tema 4 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los cinco esfuerzos, la triangulaci&oacute;n y por qu&eacute; una estructura aguanta.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema4/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema4.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tema 4 &middot; Estructuras &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -27,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -35,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -123,7 +136,7 @@ h4{font-size:15.5px;margin:16px 0 4px}
 
 .reto-piensa{background:var(--surface);border:1.5px solid var(--goo-amarillo);border-left-width:5px;
   border-radius:2px;padding:14px 16px;margin:16px 0}
-.reto-piensa .n-tag{color:#9a7326}
+.reto-piensa .n-tag{color:var(--amar-texto)}
 .reto-piensa p{margin:0}
 .resp.revela summary{color:var(--goo-azul);font-weight:500}
 .resp.revela[open] summary{color:var(--ink-soft)}
@@ -175,12 +188,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .copiar > :first-child{margin-top:6px}
 .copiar > :last-child{margin-bottom:0}
 .copiar h4{font-size:15px;margin:10px 0 4px}
-/* tablas de datos dentro de los bloques que se copian */
-.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
-.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
-.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
-  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
-@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 .entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
 .entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
@@ -220,6 +227,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ta-op input{margin-right:9px}
 .ta-op.bien{border-color:var(--goo-verde);background:rgba(52,168,83,.07)}
 .ta-op.mal{border-color:var(--goo-rojo);background:rgba(234,67,53,.07)}
+/* la palabra que dice cual es cual: el color solo no vale, ni para quien
+   no distingue rojo y verde ni para quien no ve la pantalla */
+.ta-op .ta-marca{float:right;margin-left:12px;font-family:var(--f-m);font-size:11px;
+  letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.ta-op.bien .ta-marca{color:var(--verde-texto)}
+.ta-op.mal .ta-marca{color:var(--goo-rojo)}
 .ta-por{display:none;margin:8px 0 2px;padding:10px 12px;border-left:4px solid var(--goo-azul);
   background:var(--surface-2);font-size:14.5px;line-height:1.55}
 .ta.corregido .ta-por{display:block}
@@ -262,6 +275,15 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .lectura a.pdf{display:inline-block;font-family:var(--f-m);font-size:13px;
   background:var(--goo-verde);color:#fff;text-decoration:none;border-radius:2px;padding:9px 15px}
 @media print{.lectura{display:none}}
+/* Banco de demostraciones. Va fuera de las sesiones a proposito: no son
+   actividades con su hueco en los 60 minutos, son cosas de dos minutos que el
+   profesor intercala donde le cuadre, y cada una dice a que sesion acompana. */
+.demos{max-width:820px;margin:26px auto 0;padding:0 20px}
+.demos-cab{border-top:3px solid var(--goo-azul);padding-top:18px;margin-bottom:6px}
+.demos-cab h2{margin:6px 0 8px;font-size:22px;letter-spacing:-.01em}
+.demos-cab p{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.6}
+.eyebrow-d{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--goo-azul)}
 .rotulo-svg{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px;letter-spacing:.06em}
 .hito{fill:var(--surface);stroke:var(--goo-azul);stroke-width:2;cursor:pointer}
 .hito.on{fill:var(--goo-azul)}
@@ -275,22 +297,48 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
 .cc-aviso h2{font-size:17px;margin:0 0 8px}
 .cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px;
-  /* la cita es una tirada sin espacios: en un movil empujaba la pagina 80 px
-     de lado, y con ella todo lo demas. Que parta antes que sacar la pagina. */
-  overflow-wrap:anywhere}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
+
+  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
+     empujaba la página entera 80 px de lado, y con ella todo lo demás.
+     Que parta por donde haga falta antes que sacar la página del ancho. */
+  .cc-cita code{overflow-wrap:anywhere}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
-  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
+  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
+     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 </style>
+<script>
+/* quien pide reducir el movimiento, lo pide tambien para las escenas */
+window.QUIETO = function(){
+  return !!(window.matchMedia &&
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+};
+</script>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -316,21 +364,40 @@ footer .wrap{padding-block:18px 26px}
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
-      <p>Mira el edificio m&aacute;s alto que se vea desde la ventana. Ahora piensa en un temporal de los de
-         verdad.</p>
+      <p>En <b>grupos de cuatro</b>. Encima de la mesa hay <b>veinte folios usados</b>, de los de la
+         caja de reciclaje. Nada m&aacute;s: ni cinta, ni pegamento, ni grapas, ni clips.</p>
       <div class="aviso">
-        <span class="n-tag">El dato</span>
-        El viento empuja la fachada de un rascacielos con una fuerza que equivale a <b>varias toneladas
-        empujando de lado</b>. Y el edificio no vuelca: como mucho, su punta se balancea unos cent&iacute;metros.
+        <span class="n-tag">El encargo</span>
+        La <b>torre m&aacute;s alta</b> que se sostenga <b>sola</b> durante diez segundos, sin que nadie la
+        toque. Se mide desde la mesa hasta el punto m&aacute;s alto. Ten&eacute;is <b>siete minutos</b>.
       </div>
-      <p><b>&iquest;Por qu&eacute; no se cae?</b> Cont&eacute;stalo por escrito antes de seguir.</p>
-      <p>La respuesta habitual es «porque es muy fuerte» o «porque tiene mucho hormig&oacute;n». Y no es eso:
-         hay torres el&eacute;ctricas que est&aacute;n <b>casi huecas</b>, pesan una fracci&oacute;n de lo que parece, y aguantan
-         vendavales a&ntilde;o tras a&ntilde;o.</p>
+      <p><b>Se puede</b>: doblar, enrollar, rasgar, plegar, encajar una pieza dentro de otra y
+         <b>cortar con tijeras</b> &mdash;las tijeras son herramienta, no material&mdash;.
+         <b>No se puede</b>: pegar nada, que forme parte de la torre cualquier cosa que no sea folio,
+         ni apoyarla en la pared, en la silla o en el estuche.</p>
+      <div class="nota">
+        <span class="n-tag">Haz la cuenta antes de tocar nada</span>
+        Un folio A4 mide <b>29,7 cm</b> de largo. Enrollado en tubo por ese lado, da un tubo de esa
+        altura, y <b>29,7 cm por 20 son 594 cm</b>: casi seis metros de tubo, puestos uno encima de
+        otro. Nadie va a acercarse ni de lejos.
+        O sea que lo que te va a parar <b>no es la cantidad de papel</b>. Apunta ahora, antes de empezar,
+        qu&eacute; crees que te va a parar.
+      </div>
+      <p>Cuando se acabe el tiempo, medid la vuestra y anotad <b>por d&oacute;nde ha empezado a fallar</b>:
+         qu&eacute; pieza, y si se aplast&oacute;, si se dobl&oacute; de golpe, si se abri&oacute; por una uni&oacute;n o si se fue
+         de lado entera. Esa respuesta es justo lo que vamos a ver ahora.</p>
 
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
+
+      <figure class="foto">
+        <img src="../../../img/structural-stresses.svg" width="1000" height="700" loading="lazy"
+             alt="Los cinco esfuerzos en estructuras: compresión, tensión, flexión, torsión y cortante">
+        <figcaption>Los <b>cinco esfuerzos básicos</b> que pueden afectar a una estructura: compresión (se aplasta), tensión (se estira), flexión (se dobla), torsión (se retuerce) y cortante (se cizalla). Cada material tiene un límite diferente para cada uno, y el ingeniero elige el material y la forma para que el esfuerzo máximo sea menor que su límite de ruptura.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
 
       <h3>No aguanta porque sea fuerte: aguanta porque reparte</h3>
 
@@ -614,6 +681,14 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>El truco que lo cambia todo: triangular</h3>
 
+      <figure class="foto">
+        <img src="../../../img/triangulation-structures.svg" width="1000" height="600" loading="lazy"
+             alt="Comparación entre rectángulo que se deforma y triángulo rígido">
+        <figcaption>El <b>rectángulo es flexible</b>: sus vértices pueden moverse, deformando la figura. El <b>triángulo es indeformable</b>: con tres lados fijos, todos los ángulos quedan determinados. Triangular una estructura (añadir diagonales) crea triángulos internos que impiden cualquier deformación. Este es el principio fundamental de grúas, torres, puentes y cualquier estructura que soporte cargas.
+          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
+        </figcaption>
+      </figure>
+
       <div class="escena">
         <div class="escena-barra"><span class="escena-titulo">El tri&aacute;ngulo y el cuadrado, en movimiento</span></div>
         <div class="lienzo" style="padding:0">
@@ -656,31 +731,42 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
       <div class="ficha">
         <div class="ficha-cab">
-          <span>Actividad 9 &middot; La torre de papel</span>
+          <span>Actividad 9 &middot; La torre, otra vez, ya sabiendo por qu&eacute; se cae</span>
           <span class="chips"><span class="chip">2.1</span><span class="chip">3.1</span></span>
-          <span>Grupos de tres &middot; 20 min</span>
+          <span>Grupos de cuatro &middot; 20 min</span>
         </div>
         <div class="ficha-cuerpo">
           <h4>Qu&eacute; hay que hacer</h4>
-          <p>Material: <b>cinco folios y 50 cm de cinta</b>. Nada m&aacute;s.</p>
+          <p>La misma torre del principio de la clase, con <b>el mismo material y las mismas
+             reglas</b>: 20 folios, sin cinta, sin pegamento, sin grapas y sin clips. Lo &uacute;nico
+             que ha cambiado son <b>los veinticinco minutos de teor&iacute;a</b> que hay en medio. Esa
+             es la variable del experimento, y la diferencia de altura es su resultado.</p>
           <ol class="pasos">
+            <li>Antes de tocar el papel, dibujad el dise&ntilde;o y <b>se&ntilde;alad qu&eacute; esfuerzo</b> sufre cada pieza.</li>
             <li>Construid la torre <b>m&aacute;s alta posible</b> que aguante un libro de texto encima durante
                 un minuto.</li>
-            <li>Antes de empezar, dibujad el dise&ntilde;o y <b>se&ntilde;alad qu&eacute; esfuerzo</b> sufre cada pieza.</li>
-            <li>Al terminar, medid la altura y anotad <b>por d&oacute;nde ha fallado</b> si ha fallado.</li>
-            <li>Si se ha doblado una pieza vertical, decid si fue por aplastamiento o por <b>pandeo</b>.</li>
+            <li>Medid la altura y <b>comparadla con la de la primera torre</b>. Escribid la diferencia
+                en cent&iacute;metros, y con el signo que salga: si ha bajado, tambi&eacute;n hay que
+                explicarlo.</li>
+            <li>Anotad por d&oacute;nde ha fallado. Si se ha doblado una pieza vertical, decid si fue por
+                aplastamiento o por <b>pandeo</b>.</li>
           </ol>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
             <li>El dise&ntilde;o previo est&aacute; dibujado y con los esfuerzos se&ntilde;alados <b>(3 puntos)</b>.</li>
             <li>La torre aguanta el libro <b>(2 puntos)</b>.</li>
-            <li>Hay triangulaci&oacute;n y se justifica d&oacute;nde y por qu&eacute; <b>(3 puntos)</b>.</li>
-            <li>El an&aacute;lisis del fallo es correcto <b>(2 puntos)</b>.</li>
+            <li>Hay triangulaci&oacute;n y se justifica d&oacute;nde y por qu&eacute; <b>(2 puntos)</b>.</li>
+            <li>Est&aacute; comparada con la primera torre y explicado a qu&eacute; se debe la diferencia
+                <b>(2 puntos)</b>.</li>
+            <li>El an&aacute;lisis del fallo es correcto <b>(1 punto)</b>.</li>
           </ul>
           <div class="nota" style="margin-top:14px">
-            <span class="n-tag">Pista que casi nadie usa</span>
-            Un folio plano no aguanta nada de pie. <b>Enrollado en tubo, aguanta much&iacute;simo.</b> La
-            resistencia no depende solo del material: depende tambi&eacute;n de la <b>forma de la secci&oacute;n</b>.
+            <span class="n-tag">Dos pistas que casi nadie usa</span>
+            Un folio plano no aguanta nada de pie. <b>Enrollado en tubo, aguanta much&iacute;simo</b>: la
+            resistencia no depende solo del material, depende tambi&eacute;n de la <b>forma de la secci&oacute;n</b>.
+            Y la segunda, la que casi nadie ve a la primera: sin cinta, lo que falla casi nunca es el
+            papel. <b>Es la uni&oacute;n.</b> Un doblez, una pesta&ntilde;a metida por una ranura o un
+            canuto dentro de otro aguantan mucho m&aacute;s que dos piezas apoyadas.
           </div>
   </div>
       </div>
@@ -689,9 +775,15 @@ footer .wrap{padding-block:18px 26px}
     <section class="bloque">
       <div class="rotulo"><span class="num">03</span> Cierre &middot; 5 min</div>
 
-      <p>Vuelve al rascacielos. Ya puedes contestar sin decir «porque es fuerte»: no vuelca porque el
-         empuje del viento <b>se reparte</b> entre todas sus piezas y baja hasta el suelo, y porque su
-         estructura est&aacute; pensada para que ninguna pieza reciba m&aacute;s de lo que puede.</p>
+      <p>Mira ahora el edificio m&aacute;s alto que se vea desde la ventana, y piensa en un temporal de los
+         de verdad. El viento empuja su fachada con una fuerza que equivale a <b>varias toneladas
+         empujando de lado</b>, y el edificio no vuelca: como mucho su punta se balancea unos
+         cent&iacute;metros. <b>&iquest;Por qu&eacute; no se cae?</b></p>
+      <p>La respuesta habitual es «porque es muy fuerte» o «porque tiene mucho hormig&oacute;n», y no es eso:
+         hay torres el&eacute;ctricas <b>casi huecas</b>, que pesan una fracci&oacute;n de lo que parecen y aguantan
+         vendavales a&ntilde;o tras a&ntilde;o. No vuelca porque el empuje <b>se reparte</b> entre todas sus piezas
+         y baja hasta el suelo, y porque su estructura est&aacute; pensada para que ninguna pieza reciba
+         m&aacute;s de lo que puede. Que es, exactamente, lo que le faltaba a tu torre de papel.</p>
       <ol>
               <li>&iquest;Por qu&eacute; el tri&aacute;ngulo es indeformable y el cuadrado no?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque fijados los tres lados de un tri&aacute;ngulo, <b>los tres &aacute;ngulos quedan determinados</b>. Un cuadrado, en cambio, se desploma en rombo sin que sus lados cambien de longitud.</p></div></details></li>
@@ -796,6 +888,9 @@ footer .wrap{padding-block:18px 26px}
            azul = comprimido (lo aplastan), rojo = traccionado (lo estiran),
            ambar = fuerza que llega de fuera.                                */
         var AZ = 'var(--goo-azul)', RO = 'var(--goo-rojo)', AM = '#f29900',
+            /* el ambar de las flechas no se lee como TEXTO sobre el papel claro
+               (2,25 : 1), asi que los rotulos usan el ambar de texto */
+            AMT = 'var(--amar-texto)',
             TI = 'var(--ink)', GR = 'var(--ink-soft)', SU = 'var(--accent-soft)';
         var SUELO = 215, sel = 0;
 
@@ -816,7 +911,7 @@ footer .wrap{padding-block:18px 26px}
         /* --- 1. masiva: un muro que solo sabe estar aplastado --- */
         function masiva(){
           var m = '<path d="M290 '+SUELO+' L310 95 H400 L420 '+SUELO+' Z" fill="'+SU+'" stroke="'+AZ+'" stroke-width="3"></path>';
-          m += flecha(355, 55, 355, 88, AM) + rotulo(365, 70, 'carga', AM);
+          m += flecha(355, 55, 355, 88, AM) + rotulo(365, 70, 'carga', AMT);
           for(var i=0;i<3;i++) m += flecha(325+i*20, 120, 325+i*20, 195, AZ);
           m += rotulo(440, 160, 'todo comprimido', AZ);
           m += rotulo(440, 180, 'y todo peso', GR);
@@ -837,8 +932,8 @@ footer .wrap{padding-block:18px 26px}
           m += '<rect x="'+(cx+r2)+'" y="'+cy+'" width="26" height="'+(SUELO-cy)+'" fill="'+SU+'" stroke="'+AZ+'" stroke-width="2.5"></rect>';
           m += flecha(cx, 48, cx, 62, AM);
           m += flecha(cx-r2-30, 190, cx-r2-62, 190, AM) + flecha(cx+r2+30, 190, cx+r2+62, 190, AM);
-          m += rotulo(cx-r2-140, 176, 'empuja hacia fuera', AM);
-          m += rotulo(cx+r2+66, 176, 'y hacia fuera', AM);
+          m += rotulo(cx-r2-140, 176, 'empuja hacia fuera', AMT);
+          m += rotulo(cx+r2+66, 176, 'y hacia fuera', AMT);
           m += rotulo(cx-44, 118, 'comprimida', AZ);
           return m;
         }
@@ -900,7 +995,7 @@ footer .wrap{padding-block:18px 26px}
             m += linea(x, y, x, yd, RO, 2);
           }
           m += linea(185, yd, 535, yd, TI, 6);
-          m += flecha(420, 138, 420, yd-6, AM) + rotulo(428, 158, 'carga', AM);
+          m += flecha(420, 138, 420, yd-6, AM) + rotulo(428, 158, 'carga', AMT);
           m += rotulo(548, yd+4, 'tablero', GR);
           m += rotulo(548, yt+4, 'torres:', AZ);
           m += rotulo(548, yt+20, 'comprimidas', AZ);
@@ -990,6 +1085,12 @@ footer .wrap{padding-block:18px 26px}
            naranja = fuerza que llega de fuera.</p>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/structures-types.svg" width="1000" height="400" loading="lazy"
+             alt="Tres tipos principales de estructuras: viga, arco y celosía">
+        <figcaption>Tipos de estructuras: <b>viga</b> (resiste flexión), <b>arco</b> (resiste compresión), <b>celosía</b> (barras en tracción/compresión). Cada estructura transfiere las fuerzas de manera distinta según su forma.</figcaption>
+      </figure>
+
       <h3>Las tres en la realidad</h3>
       <div class="galeria-ri">
         <figure class="foto">
@@ -1028,7 +1129,8 @@ footer .wrap{padding-block:18px 26px}
           las familias que ya has visto. Ve anotando <b>un ejemplo nuevo</b> de cada una que no
           hayamos nombrado aqu&iacute;.</p>
         <p class="video-nota">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de
-          seguimiento. Si la red del centro bloquea YouTube,
+          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese
+          v&iacute;deo no se deje empotrar&mdash;,
           <a href="https://www.youtube.com/watch?v=Yv0cECrFydk" target="_blank" rel="noopener">&aacute;brelo
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material publicado
           bajo la licencia de esta p&aacute;gina.</p>
@@ -1102,6 +1204,52 @@ footer .wrap{padding-block:18px 26px}
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque en un colgante los cables trabajan a <b>tracci&oacute;n pura</b>, y la piedra se parte estirada. Solo sirve un material que aguante tirones: el acero.</p></div></details></li>
 
       </ol>
+
+      <div class="entender">
+        <span class="e-tag">Un puente que no lleva ni un clavo</span>
+        <p>Hacia 1502 Leonardo da Vinci trabajaba como <b>ingeniero militar</b> de César Borgia, y una
+           de las cosas que le pedían era cruzar ríos deprisa. Un ejército que se para en la orilla a
+           clavar y atar pierde la ventaja, y el puente que deja construido detrás lo usa después el
+           enemigo. Así que Leonardo dibujó un puente que se monta en minutos, se desmonta igual de
+           rápido y <b>no lleva ni un clavo, ni una cuerda, ni una gota de cola</b>. Tampoco hace falta
+           ninguna herramienta: solo vigas parecidas entre sí.</p>
+        <p>Lo que lo sostiene es su propio peso. Cada viga empuja a las que tiene debajo y queda
+           atrapada por las que tiene encima: todas están <b>comprimidas</b> unas contra otras, y el
+           rozamiento entre las maderas impide que resbalen. Cuanta más carga encima, más apretados
+           quedan los contactos y más firme está. Lo curioso es que funciona al revés de lo que uno
+           espera: no se cae por exceso de peso, sino porque le quites <b>una sola pieza</b>; entonces
+           se desarma entero de golpe, que era justo lo que se buscaba.</p>
+        <p>El dibujo está en el <b>Códice Atlántico</b> (folios 69 A recto y 71 vuelto), el cuaderno de
+           Leonardo que se conserva en la Biblioteca Ambrosiana de Milán. Él nunca llegó a construirlo:
+           se quedó en el papel durante cinco siglos. Hoy se levanta en parques y en escuelas de
+           ingeniería, y lo vas a levantar tú en la mesa.</p>
+      </div>
+
+      <figure class="foto">
+        <img src="../../../img/u4-leonardo-puente.png" width="1022" height="790" loading="lazy"
+             alt="Dibujo de Leonardo da Vinci del puente autoportante, en el Códice Atlántico">
+        <figcaption>El puente, dibujado por Leonardo. Fíjate en que no hay uniones dibujadas: no hay
+        nada que unir. Las vigas solo se cruzan y se apoyan. Leonardo da Vinci, <i>Códice Atlántico</i>
+        (h. 1478-1518), Biblioteca Ambrosiana, Milán · dominio público, vía Wikimedia Commons.</figcaption>
+      </figure>
+
+      <div class="nota">
+        <span class="n-tag">Ampliación · fuera del minutado de la sesión</span>
+        <b>Monta el puente de Leonardo.</b> En grupos de tres, con <b>20 palos de polo</b> (los de
+        madera, planos) y nada más: ni cinta, ni cola, ni gomas. Se empieza por tres palos cruzados
+        sobre la mesa y se va tejiendo hacia los lados; los primeros minutos se cae, y eso forma parte
+        del ejercicio. Cuando esté montado, apoya un libro encima y comprueba las dos cosas que dice
+        el texto de arriba: que <b>aguanta más de lo que parece</b> y que se viene abajo entero si
+        sacas una pieza del centro.
+        <p style="margin-top:10px">Y contesta en el cuaderno, que es lo que se evalúa:</p>
+        <ol style="margin:6px 0 0 18px">
+          <li>¿Qué esfuerzo sufre cada palo: <b>tracción, compresión o flexión</b>? ¿Todos el mismo?</li>
+          <li>¿Por qué no resbalan unos sobre otros? ¿Qué pasaría con palos <b>de plástico liso</b>?</li>
+          <li>La torre del primer día tampoco llevaba pegamento. ¿Qué la sujetaba a ella, y qué sujeta
+              a este puente? No es lo mismo.</li>
+        </ol>
+      </div>
+
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         La familia ya sabes elegirla. Dentro de una celos&iacute;a o de un entramado quedan las
@@ -1118,6 +1266,14 @@ footer .wrap{padding-block:18px 26px}
       <div class="eyebrow">Sesi&oacute;n 3 &middot; 60 minutos</div>
       <h2>El mismo acero, doce veces m&aacute;s aguante</h2>
       <p>Con la misma cantidad de material, lo que decide es d&oacute;nde lo pones. La regla de canto lo demuestra en dos segundos.</p>
+      <figure class="foto">
+        <img src="../../../img/u4-vigas.jpg" width="1200" height="802" loading="lazy"
+             alt="Vigas met&aacute;licas de secci&oacute;n en I apiladas en un patio industrial">
+        <figcaption>Nadie fabrica barras macizas para esto. Todas estas vigas son <b>huecas o en I</b>: el acero est&aacute; arriba y abajo, lejos del eje, que es donde trabaja. En los extremos se ve la secci&oacute;n, y es la misma forma repetida cientos de veces porque es la que sale a cuenta.
+          <br><br>Foto de <b>Michael Orshan</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.4</span><span class="chip sab">A.5</span><span class="chip sab">A.7</span></div>
     </div>
@@ -1281,14 +1437,6 @@ footer .wrap{padding-block:18px 26px}
           <li>Perfil en I de 107 mm de canto &rarr; <b>&times; 12</b></li>
         </ul>
       </div>
-
-      <figure class="foto">
-        <img src="../../../img/u4-vigas.jpg" width="1200" height="802" loading="lazy"
-             alt="Vigas met&aacute;licas de secci&oacute;n en I apiladas en un patio industrial">
-        <figcaption>Nadie fabrica barras macizas para esto. Todas estas vigas son <b>huecas o en I</b>: el acero est&aacute; puesto arriba y abajo, lejos del eje, que es donde trabaja. Si te fijas en los extremos ves la secci&oacute;n, y es la misma forma repetida cientos de veces porque es la que sale a cuenta.
-          <br><br>Foto de <b>Michael Orshan</b> en Pexels. Es de su autor y no forma parte del material
-          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
-      </figure>
 
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
@@ -1669,20 +1817,20 @@ footer .wrap{padding-block:18px 26px}
         </ul>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/u4-contrapeso.jpg" width="1200" height="801" loading="lazy"
-             alt="Extremo trasero del brazo de una gr&uacute;a torre amarilla con sus bloques de contrapeso de hormig&oacute;n colgados">
-        <figcaption>La cuarta manera, en una gr&uacute;a: esos bloques de hormig&oacute;n del brazo corto. No sujetan nada y no levantan nada &mdash; <b>lo &uacute;nico que hacen es pesar</b>, al otro lado del punto de vuelco. Se a&ntilde;aden o se quitan seg&uacute;n la carga que toque mover ese d&iacute;a.
-          <br><br>Foto de <b>Richard REVEL</b> en Pexels. Es de su autor y no forma parte del material
-          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
-      </figure>
-
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
         <p>Vuelve a la botella. Llena, el agua est&aacute; repartida hasta arriba y el centro de gravedad
            queda alto. A media botella, todo el agua est&aacute; abajo y el CDG baja mucho: aguanta m&aacute;s
            inclinaci&oacute;n. Y casi vac&iacute;a vuelve a empeorar un poco, porque lo que pesa entonces es el
            pl&aacute;stico, repartido por toda la altura.</p>
+      <figure class="foto">
+        <img src="../../../img/u4-contrapeso.jpg" width="1200" height="801" loading="lazy"
+             alt="Extremo trasero del brazo de una gr&uacute;a torre amarilla con sus bloques de contrapeso de hormig&oacute;n">
+        <figcaption>La cuarta manera, en una gr&uacute;a: esos bloques de hormig&oacute;n del brazo corto. No sujetan nada y no levantan nada &mdash; <b>lo &uacute;nico que hacen es pesar</b>, al otro lado del punto de vuelco. Se a&ntilde;aden o se quitan seg&uacute;n la carga que toque mover ese d&iacute;a.
+          <br><br>Foto de <b>Richard REVEL</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
         <p>Y ojo con una idea que parece de sentido com&uacute;n y es falsa: <b>el peso total no sale en la
            f&oacute;rmula</b>. Dos armarios id&eacute;nticos, uno vac&iacute;o y otro lleno de libros repartidos
            igual, vuelcan al mismo &aacute;ngulo. Lo que importa no es cu&aacute;nto pesa, sino <b>d&oacute;nde</b>
@@ -1771,7 +1919,7 @@ footer .wrap{padding-block:18px 26px}
     <div class="ses-head">
       <div class="eyebrow">Sesi&oacute;n 5 &middot; 60 minutos</div>
       <h2>El puente de 40 cent&iacute;metros</h2>
-      <p>Veinte palillos y un metro de cinta. La nota no es lo que aguante: es lo que aguante dividido por lo que pese.</p>
+      <p>Veinte folios enrollados en canutos. La nota no es lo que aguante: es lo que aguante dividido por lo que pese.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Dise&ntilde;o</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.4</span><span class="chip sab">A.5</span></div>
     </div>
@@ -1782,7 +1930,9 @@ footer .wrap{padding-block:18px 26px}
       <div class="aviso">
         <span class="n-tag">El encargo</span>
         Construir un <b>puente de 40 cm de luz</b> que aguante el mayor peso posible, con
-        <b>20 palillos de brocheta, 1 metro de cinta de carrocero y cola blanca</b>. Nada m&aacute;s.
+        <b>20 folios reciclados, 1 metro de cinta de carrocero y cola blanca</b>. Nada m&aacute;s.
+        Los folios no se usan planos: se enrollan en <b>canutos</b> con un palo de pinchito, que
+        hace de eje y <b>se saca</b> &mdash;el palo no forma parte del puente&mdash;.
         El puente no puede apoyarse en nada que no sean los dos bordes.
       </div>
       <p>Y la nota no es el peso que aguante. Es <b>esto</b>:</p>
@@ -1809,12 +1959,13 @@ footer .wrap{padding-block:18px 26px}
       <div class="copiar">
         <h3 class="h-menor">Lista de comprobaci&oacute;n antes de construir</h3>
         <ol>
-          <li><b>&iquest;Qu&eacute; familia?</b> Con palillos que trabajan bien a compresi&oacute;n y a
-              tracci&oacute;n, y con uniones que giran, la respuesta casi siempre es
-              <b>triangulada</b>.</li>
+          <li><b>&iquest;Qu&eacute; familia?</b> Con canutos, que aguantan muy bien a compresi&oacute;n
+              mientras sean <b>cortos</b>, y razonablemente a tracci&oacute;n si el nudo no se suelta,
+              la respuesta casi siempre es <b>triangulada</b>.</li>
           <li><b>&iquest;Est&aacute; todo triangulado?</b> Ni un solo cuadril&aacute;tero suelto.</li>
-          <li><b>&iquest;Qu&eacute; secci&oacute;n?</b> Un palillo solo pandea; dos pegados en L o tres en
-              tri&aacute;ngulo aguantan mucho m&aacute;s con poco m&aacute;s de peso.</li>
+          <li><b>&iquest;Qu&eacute; secci&oacute;n?</b> Un canuto largo pandea. Se arregla de dos maneras:
+              <b>acort&aacute;ndolo</b> &mdash;m&aacute;s nudos&mdash; o <b>metiendo un canuto dentro de
+              otro</b>, que engorda la secci&oacute;n con muy poco peso de m&aacute;s.</li>
           <li><b>&iquest;Se vuelca?</b> Un puente estrecho se tumba de lado. Hace falta
               <b>arriostrarlo</b>: unir las dos caras con barras transversales.</li>
         </ol>
@@ -1932,39 +2083,7 @@ footer .wrap{padding-block:18px 26px}
           });
 
           var col = mecanismo ? RO : VE;
-          var m = '<style>.et{font:12.5px var(--f-m)}.eg{font:11px var(--f-m);letter-spacing:.1em}/* visor de imagenes: lo pone afina_visor.py */
-.rtz-pista{display:none}
-@media (max-width:760px){
-  figure.foto img{cursor:zoom-in}
-  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
-    color:var(--muted,#667);text-transform:uppercase}
-  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
-     tape la última línea del contenido */
-  body{padding-bottom:64px}
-}
-.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
-  display:none;flex-direction:column}
-.rtz-capa.abierta{display:flex}
-.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
-.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
-  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
-  display:flex;align-items:flex-start;justify-content:flex-start}
-.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
-@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}/* ayuda de palabras: lo pone afina_visor.py */
-.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
-.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
-  opacity:.65;margin-right:2px}
-.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
-  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
-.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
-.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
-.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
-@media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}</style>';
+          var m = '<style>.et{font:12.5px var(--f-m)}.eg{font:11px var(--f-m);letter-spacing:.1em}</style>';
 
           /* el suelo y los apoyos */
           m += '<path d="M' + (X0-70) + ' ' + (Y0+26) + ' H' + (X0+P*ANCHO+70)
@@ -1991,9 +2110,15 @@ footer .wrap{padding-block:18px 26px}
 
           /* los botones invisibles de cada cuadro */
           for(var k = 0; k < P; k++){
+            /* La zona de pulsar es tambien parada del tabulador: con Intro o
+               espacio el cuadro va pasando por sus cuatro estados.          */
+            var COMO = ['sin diagonal', 'con una diagonal',
+                        'con la otra diagonal', 'con las dos diagonales'];
             m += '<rect x="' + (X0 + k*ANCHO + 14) + '" y="' + (Y0 - ALTO + 14) + '" width="'
                + (ANCHO-28) + '" height="' + (ALTO-28) + '" fill="transparent" '
-               + 'style="cursor:pointer" data-cuadro="' + k + '"></rect>';
+               + 'style="cursor:pointer" data-cuadro="' + k + '"'
+               + ' tabindex="0" role="button" aria-label="Cuadro ' + (k+1)
+               + ', ' + COMO[diag[k]] + '"></rect>';
             if(!diag[k]){
               m += '<text x="' + (X0 + k*ANCHO + ANCHO/2) + '" y="' + (Y0 - ALTO/2 + 5)
                  + '" text-anchor="middle" class="et" fill="' + GR + '" style="pointer-events:none">pulsa</text>';
@@ -2033,11 +2158,25 @@ footer .wrap{padding-block:18px 26px}
           pie.innerHTML = texto;
         }
 
-        svg.addEventListener('click', function(e){
-          var r = e.target.closest('[data-cuadro]'); if(!r) return;
+        function gira(r){
           var k = +r.dataset.cuadro;
           diag[k] = (diag[k] + 1) % 4;
           pinta();
+          /* Al repintar desaparece el elemento que tenia el foco: se le
+             devuelve al mismo cuadro para seguir con el tabulador.          */
+          var nuevo = svg.querySelector('[data-cuadro="' + k + '"]');
+          if(nuevo && nuevo.focus) nuevo.focus();
+        }
+        svg.addEventListener('click', function(e){
+          var r = e.target.closest('[data-cuadro]');
+          if(r) gira(r);
+        });
+        svg.addEventListener('keydown', function(e){
+          if(e.key !== ' ' && e.key !== 'Enter') return;
+          var r = e.target.closest ? e.target.closest('[data-cuadro]') : null;
+          if(!r) return;
+          e.preventDefault();
+          gira(r);
         });
         seg.addEventListener('click', function(e){
           var b = e.target.closest('button[data-t]'); if(!b) return;
@@ -2053,7 +2192,7 @@ footer .wrap{padding-block:18px 26px}
         });
 
         function cuadro(){ t += 0.05; pinta(); raf = requestAnimationFrame(cuadro); }
-        raf = requestAnimationFrame(cuadro);
+        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(cuadro); }
       })();
       </script>
 
@@ -2085,20 +2224,40 @@ footer .wrap{padding-block:18px 26px}
         <div class="ficha-cab">
           <span>Actividad 13 &middot; El puente de 40 cent&iacute;metros</span>
           <span class="chips"><span class="chip">2.1</span><span class="chip">3.1</span><span class="chip">A.4</span><span class="chip">A.5</span></span>
-          <span>Grupos de tres &middot; 20 min hoy + la siguiente sesi&oacute;n</span>
+          <span>Grupos de cuatro &middot; 20 min hoy + la siguiente sesi&oacute;n</span>
         </div>
         <div class="ficha-cuerpo">
           <h4>Material, tasado</h4>
-          <p>Por grupo: <b>20 palillos de brocheta, 1 m de cinta de carrocero, cola blanca</b>.
-             No se puede usar nada m&aacute;s. Los palillos se pueden cortar.</p>
+          <p>Por grupo: <b>20 folios reciclados, un palo de pinchito, 1 m de cinta de carrocero y
+             cola blanca</b>. No puede formar parte del puente nada m&aacute;s. Los canutos se cortan
+             <b>con tijeras</b>, que son herramienta y no material, igual que el palo:
+             <b>no cuenta</b>, s&oacute;lo sirve para enrollar y se saca.</p>
+          <div class="copiar">
+            <h4>C&oacute;mo se hace un canuto</h4>
+            <ol>
+              <li>Folio encima de la mesa. Pon el palo de pinchito sobre una <b>esquina</b>, en
+                  diagonal, casi tumbado.</li>
+              <li>Enrolla <b>apretando fuerte</b> y sin cambiar el &aacute;ngulo, hasta llegar a la
+                  esquina de enfrente.</li>
+              <li>Un punto de cola en esa &uacute;ltima esquina, sujeta cinco segundos y <b>saca el
+                  palo</b>.</li>
+            </ol>
+            <p>Sale un canuto de unos 30 cent&iacute;metros. Nunca m&aacute;s largo que la diagonal del
+               folio, que mide <b>36,4 cm</b>: cuanto m&aacute;s tumbado pongas el palo, m&aacute;s largo
+               y m&aacute;s fino sale, y cuanto m&aacute;s de pie, m&aacute;s corto y m&aacute;s gordo.
+               <b>Un canuto no llega a los 40 cm de luz</b>, as&iacute; que el cord&oacute;n de abajo hay
+               que hacerlo por tramos, de nudo a nudo, o empalmar metiendo un canuto fino dentro de
+               uno m&aacute;s gordo.</p>
+          </div>
           <h4>Hoy: dise&ntilde;o (20 min)</h4>
           <ol class="pasos">
             <li>Dibujad el puente <b>a tama&ntilde;o real</b> sobre un folio A3 o dos A4 pegados: 40 cm
                 de luz. Ese dibujo es la plantilla sobre la que luego pegar&eacute;is.</li>
             <li>Marcad <b>todos los nudos</b> y comprobad, uno a uno, que no queda ning&uacute;n
                 cuadril&aacute;tero sin diagonal.</li>
-            <li>Contad los palillos que os pide vuestro dise&ntilde;o. Si pasan de 20, hay que
-                simplificar: <b>quitad de donde menos trabaje</b>, nunca las diagonales.</li>
+            <li>Contad los canutos que os pide vuestro dise&ntilde;o: uno por folio, y hay 20. Si
+                pasan de 20, hay que simplificar: <b>quitad de donde menos trabaje</b>, nunca las
+                diagonales.</li>
             <li>Decidid c&oacute;mo lo vais a <b>arriostrar</b> para que no se tumbe de lado.</li>
             <li>Escribid una <b>predicci&oacute;n</b>: cu&aacute;ntos gramos creeis que aguantar&aacute; y
                 <b>por d&oacute;nde va a romper</b>. Esto se entrega ahora y no se puede cambiar.</li>
@@ -2106,8 +2265,10 @@ footer .wrap{padding-block:18px 26px}
           <div class="nota">
             <span class="n-tag">Consejo que vale la nota</span>
             El puente se cuelga de la carga por el centro del cord&oacute;n inferior. El cord&oacute;n
-            <b>superior</b> va comprimido y es el que <b>pandea</b>: ah&iacute; es donde compensa doblar
-            palillos, y no en el resto.
+            <b>superior</b> va comprimido y es el que <b>pandea</b>: ah&iacute; es donde compensa meter
+            un canuto dentro de otro, y no en el resto. Un folio de los normales pesa <b>5 gramos</b>,
+            y 5 gramos por 20 son 100 gramos: ese es <b>todo</b> el material que ten&eacute;is, y cada
+            canuto que gast&eacute;is de m&aacute;s sube el denominador de la nota.
           </div>
           <h4>C&oacute;mo se eval&uacute;a</h4>
           <ul>
@@ -2130,7 +2291,7 @@ footer .wrap{padding-block:18px 26px}
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque si no, ganar&iacute;a siempre el m&aacute;s pesado, y hacer algo pesado no tiene ning&uacute;n m&eacute;rito. Dividiendo, se premia <b>colocar bien el material</b>, que es el problema de verdad: en un puente grande, casi todo lo que aguanta se lo come su propio peso.</p></div></details></li>
         <li>Si la cuenta de barras sale bien, &iquest;seguro que aguanta?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p><b>No.</b> La cuenta es necesaria pero no suficiente: se puede tener el n&uacute;mero justo de barras con dos diagonales en un cuadro y ninguna en otro, y entonces se mueve. Hay que <b>mirar cuadro por cuadro</b>.</p></div></details></li>
-        <li>&iquest;Por d&oacute;nde suele romper un puente de palillos, y por qu&eacute;?
+        <li>&iquest;Por d&oacute;nde suele romper un puente de canutos, y por qu&eacute;?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Por el <b>cord&oacute;n superior</b>, cerca del centro, y casi nunca por rotura: por <b>pandeo</b>. Es la pieza m&aacute;s comprimida y m&aacute;s larga, y una pieza larga y delgada comprimida se dobla de golpe antes de aplastarse.</p></div></details></li>
 
       </ol>
@@ -2191,7 +2352,7 @@ footer .wrap{padding-block:18px 26px}
         <ul>
           <li><b>Una barra comprimida se ha doblado de golpe</b> &rarr; <b>pandeo</b>. La barra era
               demasiado larga y delgada. Se arregla acort&aacute;ndola (m&aacute;s nudos) o engros&aacute;ndola
-              (dos palillos pegados).</li>
+              (un canuto metido dentro de otro).</li>
           <li><b>Una barra estirada se ha partido en seco</b> &rarr; se super&oacute; su
               <b>resistencia a tracci&oacute;n</b>. Es el fallo m&aacute;s honrado: el material ha dado todo
               lo que ten&iacute;a.</li>
@@ -2202,6 +2363,19 @@ footer .wrap{padding-block:18px 26px}
               problema de resistencia: es de <b>estabilidad</b>, como la sesi&oacute;n 4.</li>
         </ul>
       </div>
+      
+      <figure class="foto">
+        <img src="../../../img/u4-puente-folios.jpg" width="345" height="265" loading="lazy"
+             style="max-width:345px;margin:0 auto"
+             alt="Puente de celosía construido con tubos de papel enrollado, visto desde arriba">
+        <figcaption>Uno terminado, para comparar con el vuestro. Mirad tres cosas: <b>no hay ni un
+        rectángulo</b> —todo son triángulos, que es lo único que no se deforma—; las dos cerchas
+        laterales están <b>unidas entre sí</b> por barras arriba y abajo, y eso es el arriostramiento
+        que impide que el puente se tumbe de lado; y cada barra es un <b>canuto</b>, no un folio plano:
+        el mismo papel, puesto de otra forma, aguanta kilos. Las uniones son el punto débil de todos
+        los puentes de papel, y aquí se ve por qué: son las únicas piezas que no puedes enrollar.</figcaption>
+      </figure>
+
       <p>Ahora comparad con lo que predijisteis:</p>
       <ol class="pasos">
         <li>&iquest;Acertasteis <b>el sitio</b>? Acertar el sitio vale m&aacute;s que acertar el peso: quiere
@@ -2227,71 +2401,71 @@ footer .wrap{padding-block:18px 26px}
          d&oacute;nde andas antes del examen.</p>
       <div class="ta" id="test-u4">
         <h4>Lo que tiene que haber quedado del tema</h4>
-        <div class="ta-p" data-ok="1">
-          <p>1. Una estructura aguanta, sobre todo, porque&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u4-0" value="0">tiene mucho material y es muy pesada</label>
-          <label class="ta-op"><input type="radio" name="u4-0" value="1">reparte la fuerza entre sus piezas hasta llevarla al suelo</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u4-p1">
+          <p id="test-u4-p1">1. Una estructura aguanta, sobre todo, porque&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u4-0" value="0">reparte la fuerza entre sus piezas hasta llevarla al suelo</label>
+          <label class="ta-op"><input type="radio" name="u4-0" value="1">tiene mucho material y es muy pesada</label>
           <label class="ta-op"><input type="radio" name="u4-0" value="2">est&aacute; hecha de un material muy duro</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la idea que organiza el tema entero. Una torre de celos&iacute;a est&aacute; casi hueca y aguanta m&aacute;s viento que un muro macizo del mismo peso.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>2. Una pieza larga y delgada que se comprime&hellip;</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u4-p2">
+          <p id="test-u4-p2">2. Una pieza larga y delgada que se comprime&hellip;</p>
           <label class="ta-op"><input type="radio" name="u4-1" value="0">se aplasta poco a poco</label>
           <label class="ta-op"><input type="radio" name="u4-1" value="1">se dobla de golpe hacia un lado: pandea</label>
           <label class="ta-op"><input type="radio" name="u4-1" value="2">se estira por el centro</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El <b>pandeo</b> es el fallo t&iacute;pico de la compresi&oacute;n en piezas esbeltas, y ocurre mucho antes de que el material llegue a aplastarse. Por eso los pilares altos son gruesos.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>3. &iquest;Por qu&eacute; el tri&aacute;ngulo es indeformable y el cuadrado no?</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u4-p3">
+          <p id="test-u4-p3">3. &iquest;Por qu&eacute; el tri&aacute;ngulo es indeformable y el cuadrado no?</p>
           <label class="ta-op"><input type="radio" name="u4-2" value="0">porque el tri&aacute;ngulo tiene menos lados y pesa menos</label>
-          <label class="ta-op"><input type="radio" name="u4-2" value="1">porque fijados los tres lados, los tres &aacute;ngulos quedan determinados</label>
-          <label class="ta-op"><input type="radio" name="u4-2" value="2">porque los tri&aacute;ngulos se hacen siempre con material m&aacute;s resistente</label>
+          <label class="ta-op"><input type="radio" name="u4-2" value="1">porque los tri&aacute;ngulos se hacen siempre con material m&aacute;s resistente</label>
+          <label class="ta-op"><input type="radio" name="u4-2" value="2">porque fijados los tres lados, los tres &aacute;ngulos quedan determinados</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un cuadrado articulado se desploma en rombo <b>sin que ning&uacute;n lado cambie de longitud</b>. En el tri&aacute;ngulo eso es imposible: no hay otra forma con esos tres lados.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>4. La piedra aguanta muy bien comprimida y se parte estirada. &iquest;Qu&eacute; forma le da eso?</p>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u4-p4">
+          <p id="test-u4-p4">4. La piedra aguanta muy bien comprimida y se parte estirada. &iquest;Qu&eacute; forma le da eso?</p>
           <label class="ta-op"><input type="radio" name="u4-3" value="0">el arco, que la mantiene siempre apretada</label>
           <label class="ta-op"><input type="radio" name="u4-3" value="1">la viga recta, que es la m&aacute;s sencilla</label>
           <label class="ta-op"><input type="radio" name="u4-3" value="2">el cable, que es la m&aacute;s ligera</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es el invento romano: dar a la piedra una forma curva para que cada pieza est&eacute; <b>aplastada contra la siguiente</b> y ninguna reciba un tir&oacute;n. A cambio, el arco empuja hacia fuera y hay que sujetarlo con contrafuertes.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>5. Un arco de piedra, adem&aacute;s de bajar la carga, hace algo molesto en sus apoyos:</p>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u4-p5">
+          <p id="test-u4-p5">5. Un arco de piedra, adem&aacute;s de bajar la carga, hace algo molesto en sus apoyos:</p>
           <label class="ta-op"><input type="radio" name="u4-4" value="0">los levanta hacia arriba</label>
-          <label class="ta-op"><input type="radio" name="u4-4" value="1">los empuja hacia fuera</label>
-          <label class="ta-op"><input type="radio" name="u4-4" value="2">los retuerce</label>
+          <label class="ta-op"><input type="radio" name="u4-4" value="1">los retuerce</label>
+          <label class="ta-op"><input type="radio" name="u4-4" value="2">los empuja hacia fuera</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> De ah&iacute; los <b>contrafuertes</b> de las catedrales y los estribos de los puentes de piedra: si el arco se puede abrir por abajo, se cae.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>6. Con la misma cantidad de acero, &iquest;qu&eacute; secci&oacute;n aguanta m&aacute;s a flexi&oacute;n?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u4-p6">
+          <p id="test-u4-p6">6. Con la misma cantidad de acero, &iquest;qu&eacute; secci&oacute;n aguanta m&aacute;s a flexi&oacute;n?</p>
           <label class="ta-op"><input type="radio" name="u4-5" value="0">un cuadrado macizo, porque est&aacute; lleno</label>
           <label class="ta-op"><input type="radio" name="u4-5" value="1">un perfil en I, con el material lejos del eje</label>
           <label class="ta-op"><input type="radio" name="u4-5" value="2">da igual: lo que cuenta es cu&aacute;nto acero hay</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El material que est&aacute; junto al eje neutro <b>no trabaja, solo pesa</b>. Con 400 mm&sup2; de acero, el perfil en I aguanta unas <b>doce veces</b> m&aacute;s que el cuadrado macizo.</div>
         </div>
-        <div class="ta-p" data-ok="2">
-          <p>7. Dos armarios id&eacute;nticos, uno vac&iacute;o y otro lleno de libros repartidos por igual. &iquest;Cu&aacute;l vuelca antes?</p>
-          <label class="ta-op"><input type="radio" name="u4-6" value="0">el lleno, porque pesa m&aacute;s</label>
-          <label class="ta-op"><input type="radio" name="u4-6" value="1">el vac&iacute;o, porque pesa menos</label>
-          <label class="ta-op"><input type="radio" name="u4-6" value="2">los dos al mismo &aacute;ngulo</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u4-p7">
+          <p id="test-u4-p7">7. Dos armarios id&eacute;nticos, uno vac&iacute;o y otro lleno de libros repartidos por igual. &iquest;Cu&aacute;l vuelca antes?</p>
+          <label class="ta-op"><input type="radio" name="u4-6" value="0">los dos al mismo &aacute;ngulo</label>
+          <label class="ta-op"><input type="radio" name="u4-6" value="1">el lleno, porque pesa m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="u4-6" value="2">el vac&iacute;o, porque pesa menos</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El peso total <b>no aparece</b> en la condici&oacute;n de vuelco. Lo que decide es la anchura de la base y la <b>altura</b> del centro de gravedad, y en los dos est&aacute; a la misma altura.</div>
         </div>
-        <div class="ta-p" data-ok="0">
-          <p>8. Un cuerpo no vuelca mientras&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u4-7" value="0">la vertical de su centro de gravedad caiga dentro de su base de sustentaci&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="u4-7" value="1">su centro de gravedad est&eacute; dentro del material</label>
-          <label class="ta-op"><input type="radio" name="u4-7" value="2">ninguna de sus piezas se rompa</label>
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u4-p8">
+          <p id="test-u4-p8">8. Un cuerpo no vuelca mientras&hellip;</p>
+          <label class="ta-op"><input type="radio" name="u4-7" value="0">su centro de gravedad est&eacute; dentro del material</label>
+          <label class="ta-op"><input type="radio" name="u4-7" value="1">ninguna de sus piezas se rompa</label>
+          <label class="ta-op"><input type="radio" name="u4-7" value="2">la vertical de su centro de gravedad caiga dentro de su base de sustentaci&oacute;n</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Volcar y romperse son <b>dos problemas distintos</b>. Una estructura con todas sus piezas perfectas se cae igual si la vertical del CDG se sale de la base.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>9. En una celos&iacute;a, la cuenta de barras sale justa. &iquest;Seguro que es r&iacute;gida?</p>
-          <label class="ta-op"><input type="radio" name="u4-8" value="0">s&iacute;: si la cuenta sale, aguanta</label>
-          <label class="ta-op"><input type="radio" name="u4-8" value="1">no: pueden estar mal repartidas y quedar un cuadro sin diagonal</label>
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u4-p9">
+          <p id="test-u4-p9">9. En una celos&iacute;a, la cuenta de barras sale justa. &iquest;Seguro que es r&iacute;gida?</p>
+          <label class="ta-op"><input type="radio" name="u4-8" value="0">no: pueden estar mal repartidas y quedar un cuadro sin diagonal</label>
+          <label class="ta-op"><input type="radio" name="u4-8" value="1">s&iacute;: si la cuenta sale, aguanta</label>
           <label class="ta-op"><input type="radio" name="u4-8" value="2">solo si es de acero</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La cuenta es <b>necesaria pero no suficiente</b>. Con dos diagonales en un cuadro y ninguna en otro sale el n&uacute;mero justo y la estructura se mueve igual.</div>
         </div>
-        <div class="ta-p" data-ok="1">
-          <p>10. En el ensayo, un puente rompe porque una barra <b>se dobla de golpe</b>. &iquest;Qu&eacute; hab&iacute;a que haber hecho?</p>
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u4-p10">
+          <p id="test-u4-p10">10. En el ensayo, un puente rompe porque una barra <b>se dobla de golpe</b>. &iquest;Qu&eacute; hab&iacute;a que haber hecho?</p>
           <label class="ta-op"><input type="radio" name="u4-9" value="0">usar m&aacute;s cinta en los nudos</label>
           <label class="ta-op"><input type="radio" name="u4-9" value="1">acortar esa barra con un nudo intermedio, o doblarla con otro palillo</label>
           <label class="ta-op"><input type="radio" name="u4-9" value="2">hacer todo el puente m&aacute;s pesado</label>
@@ -2300,7 +2474,7 @@ footer .wrap{padding-block:18px 26px}
         <div class="ta-pie">
           <button type="button" data-a="corregir">Corregir</button>
           <button type="button" class="otra" data-a="otra" hidden>Borrar y repetir</button>
-          <span class="ta-nota"></span>
+          <span class="ta-nota" role="status" aria-live="polite"></span>
         </div>
         <p class="ta-aviso">Se corrige en tu propio navegador: no se env&iacute;a ni se guarda nada.
           Las explicaciones aparecen al corregir, tanto en las que aciertes como en las que falles.</p>
@@ -2334,6 +2508,386 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
+
+
+  <section class="demos" id="demostraciones">
+    <div class="demos-cab">
+      <span class="eyebrow-d">Cuatro demostraciones de mesa</span>
+      <h2>Cosas que se hacen delante de la clase</h2>
+      <p>No son actividades de sesi&oacute;n: son <b>cuatro cosas cortas</b> que se montan en la mesa del
+         profesor, se ven en dos minutos y se recuerdan el curso entero. Cada una dice a qu&eacute;
+         sesi&oacute;n acompa&ntilde;a. Todas cuestan menos de un euro y todas <b>dejan un n&uacute;mero</b>,
+         porque si no se mide, es un truco de magia y no una clase de tecnolog&iacute;a.</p>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-cab">
+        <span>Demostraci&oacute;n 1 &middot; La mesa que flota</span>
+        <span class="chips"><span class="chip">S1</span><span class="chip">tracci&oacute;n</span><span class="chip">compresi&oacute;n</span></span>
+        <span>Montaje 20 min &middot; se ense&ntilde;a en 2</span>
+      </div>
+      <div class="ficha-cuerpo">
+        <p>Un cart&oacute;n queda <b>suspendido en el aire sobre otro</b>, sin que se toquen, sujeto
+           s&oacute;lo por hilos que parecen flojos. Se le puede poner un libro encima y no se hunde. Se
+           llama <b>tensegridad</b>, y no es un truco: es la unidad entera en un objeto.</p>
+        <h3 class="h-menor">Material</h3>
+        <p><b>Una caja de cart&oacute;n, hilo y pegamento.</b> Nada m&aacute;s: dos cuadrados de
+           <b>8 cm</b> y dos montantes del mismo cart&oacute;n. Todo cabe en un A4, as&iacute; que es
+           <b>una fotocopia por grupo</b>.</p>
+        <div class="aviso">
+          <span class="n-tag">El material importa m&aacute;s de lo que parece</span>
+          <ul>
+            <li><b>Cart&oacute;n plano no</b>, o al menos no una cara de caja de cereales: se comba, y en
+                cuanto se comba los hilos se destensan y se viene abajo. Si s&oacute;lo tienes cart&oacute;n
+                fino, pega <b>dos capas con las fibras cruzadas</b>: es el contrachapado de la
+                sesi&oacute;n 3 del tema anterior, y aqu&iacute; se ve para qu&eacute; sirve.</li>
+            <li><b>El montante, tubo o perfil, nunca una tira plana.</b> Es la pieza que trabaja a
+                compresi&oacute;n, y una tira de cart&oacute;n plano se dobla por el medio en cuanto
+                aprieta: eso es el <b>pandeo</b> de la demostraci&oacute;n 2. Enrollado en tubo de 2 cm o
+                doblado en tri&aacute;ngulo aguanta de sobra. Es la sesi&oacute;n 3 otra vez: el mismo
+                cart&oacute;n, lo que decide es la secci&oacute;n. Si alguien pregunta por qu&eacute; no
+                vale la tira plana, dale la tira y que lo compruebe.</li>
+            <li><b>Hilo de pescar</b> queda espectacular, porque casi no se ve y el cart&oacute;n parece
+                flotar de verdad. A cambio, el monofilamento <b>resbala en el nudo</b> &mdash;nudo doble y
+                una gota de pegamento&mdash; y <b>estira</b>, as&iacute; que hay que volver a tensarla
+                antes de la clase. Si va a vivir en una estanter&iacute;a y salir veinte veces, mejor hilo
+                de coser grueso o cordel fino.</li>
+          </ul>
+        </div>
+        <p style="margin-top:12px"><a class="pdf" href="molde-tensegridad.pdf" download>Descargar el
+           molde en A4</a> &mdash; una hoja a tama&ntilde;o real con las cuatro piezas, los agujeros
+           marcados y una l&iacute;nea de control para comprobar que la impresora no lo ha reducido. Se pega sobre el cart&oacute;n con cinta por los bordes, se cortan
+           los dos a la vez y luego se despega.</p>
+
+        <h4>C&oacute;mo se monta</h4>
+        <ol class="pasos">
+          <li>Haz los dos <b>montantes</b>: una tira de cart&oacute;n de <b>5,5 &times; 9 cm</b> doblada en
+              tres caras de 15 mm m&aacute;s una pesta&ntilde;a de 1 cm para pegar. Sale un tubo
+              triangular de 8 cm que no hay quien doble con la mano.</li>
+          <li>El <b>pie</b>, que es donde falla todo: haz tres cortes de 1 cm en un extremo del tubo, abre
+              esas tres leng&uuml;etas hacia fuera como las patas de una mesa y p&eacute;galas al
+              cart&oacute;n. Un montante pegado a tope, de canto, pivota en cuanto el hilo tira; con
+              leng&uuml;etas no. Uno apuntando hacia arriba y otro hacia abajo: quedan como dos <b>T</b>,
+              una de ellas del rev&eacute;s.</li>
+          <li>Ata un hilo de la <b>punta</b> del montante de abajo a la <b>punta</b> del de arriba. Ese hilo es
+              el que aguanta todo el peso, y fija la altura a la que queda flotando.</li>
+          <li>Ata otros tres hilos de las <b>esquinas</b> del cart&oacute;n de abajo a las esquinas del de
+              arriba. Estos no sujetan: <b>impiden que se vuelque</b>.</li>
+          <li>Tensa <b>en este orden</b>: primero el central, y despu&eacute;s los de las esquinas uno a
+              uno, hasta que el de arriba quede horizontal. Si alguno queda flojo, la estructura baila.</li>
+          <li>La prueba de que est&aacute; bien: aprieta el cart&oacute;n de arriba con el dedo y
+              <b>vuelve solo a su sitio</b>.</li>
+        </ol>
+        <div class="aviso">
+          <span class="n-tag">Los nudos: aqu&iacute; es donde se gana o se pierde</span>
+          <p>Atar un hilo a la medida exacta es dif&iacute;cil, y con hilo de pescar es peor porque
+             resbala. La soluci&oacute;n no es tener buen pulso: es <b>no necesitarlo</b>.</p>
+          <ul>
+            <li><b>No ates el hilo al cart&oacute;n, &aacute;talo a un travesa&ntilde;o.</b> Pasa el hilo
+                por el agujero y an&uacute;dalo por el otro lado alrededor de un trocito de palillo o de
+                cart&oacute;n de 2 cm. Tira y no se sale. Un nudo apretado contra el borde del agujero
+                lo rasga tarde o temprano.</li>
+            <li><b>Usa un g&aacute;libo para el hilo central.</b> Corta un taco de cart&oacute;n de
+                exactamente lo que tiene que medir ese hilo, tumba las dos piezas en la mesa con el taco
+                en medio, y ata el hilo tenso contra el taco. Luego lo quitas. As&iacute; la medida sale
+                del taco y no del ojo.</li>
+            <li><b>Que un extremo sea corredizo.</b> El otro no lo ates fijo: haz un lazo que pueda
+                deslizar sobre el propio hilo &mdash;dos vueltas y pasar la punta por dentro&mdash; y
+                tensa tirando. Corriges cuando quieras sin cortar nada, que es justo lo que hace falta
+                cuando el hilo de pescar estira al d&iacute;a siguiente.</li>
+            <li><b>Ata con todo tumbado en la mesa</b>, no en el aire. De pie tienes que sujetar la
+                estructura con una mano, el hilo con otra y hacer el nudo con la tercera.</li>
+          </ul>
+          <p>Y el orden, otra vez, porque es la mitad del asunto: <b>primero el central</b>, que fija la
+             altura, y despu&eacute;s los de esquina uno a uno.</p>
+        </div>
+        <div class="nota">
+          <span class="n-tag">La pregunta que hay que hacer</span>
+          &laquo;&iquest;Qu&eacute; est&aacute; empujando hacia arriba?&raquo; Nadie acierta a la primera.
+          <b>Los hilos s&oacute;lo pueden tirar</b>, nunca empujar; <b>los montantes s&oacute;lo empujan</b>,
+          nunca tiran. Con esas dos cosas y nada m&aacute;s se sostiene. Corta el hilo central con unas
+          tijeras y se viene abajo de golpe: eso demuestra cu&aacute;l trabajaba.
+        </div>
+        <h4>Y si quieres la grande, la de la entrada del instituto</h4>
+        <p>La misma idea a <b>cuarenta cent&iacute;metros de alto</b>, con una lata encima, que es como se ve en los
+           v&iacute;deos. Cambia la forma: en vez de un montante recto, dos piezas en <b>L</b> que se
+           miran, cada una con un <b>brazo que vuela 12 cm</b>, y el hilo central colgando entre las dos
+           puntas. Y cambia la f&iacute;sica con la forma: un brazo en voladizo trabaja a
+           <b>flexi&oacute;n</b>, no a compresi&oacute;n, as&iacute; que ah&iacute; manda la
+           secci&oacute;n &mdash;la sesi&oacute;n 3&mdash; y los brazos van anchos y en tres capas
+           pegadas con las ondas cruzadas.</p>
+        <p><a class="pdf" href="plano-tensegridad-grande.pdf" download>Descargar el plano de la
+           grande</a> &mdash; a este tama&ntilde;o el cart&oacute;n se corta con regla, as&iacute; que no
+           es un molde para calcar sino un <b>plano acotado</b>: el alzado con los hilos y las cuatro
+           piezas con sus medidas. Que es, de paso, exactamente lo que el tema 2 llama un plano.</p>
+        <p><a class="pdf" href="molde-tensegridad-grande.pdf" download>Y el molde recortable de los dos
+           brazos</a> &mdash; a tama&ntilde;o real, <b>partido en cuatro hojas</b> que se pegan haciendo
+           coincidir las cruces rojas. Lleva marcado <b>d&oacute;nde se agujerea</b> (c&iacute;rculo rojo)
+           y <b>d&oacute;nde se pega</b> (verde): el pie del brazo y sus dos cartelas. La base y la tapa
+           son <b>la misma pieza</b>, cortada dos veces: para la tapa se le da la vuelta y la huella del
+           brazo cae en su sitio, porque la columna de arriba est&aacute; en el espejo exacto de la de
+           abajo.</p>
+
+        <h4>El n&uacute;mero</h4>
+        <p>P&eacute;sala y despu&eacute;s ponle peso encima hasta que ceda. Sale una relaci&oacute;n
+           <b>peso aguantado entre peso propio</b> que se puede comparar directamente con el rendimiento
+           del puente de canutos de la sesi&oacute;n 5. Suele ganar la tensegridad, y por goleada.</p>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-cab">
+        <span>Demostraci&oacute;n 2 &middot; Cuatro tubos de papel y una persona encima</span>
+        <span class="chips"><span class="chip">S3</span><span class="chip">pandeo</span><span class="chip">secci&oacute;n</span></span>
+        <span>5 min &middot; hay que probarlo antes</span>
+      </div>
+      <div class="ficha-cuerpo">
+        <p>Cuatro folios enrollados en tubo, un tablero encima y <b>un alumno de pie ah&iacute; arriba</b>.
+           Veinte gramos de papel sosteniendo cincuenta kilos.</p>
+        <h3 class="h-menor">Material</h3>
+        <p>Cuatro folios, cinta y un tablero r&iacute;gido (una tapa de mesa, una balda, una tabla de
+           cocina). Nada de cristal.</p>
+        <h4>C&oacute;mo se hace</h4>
+        <ol class="pasos">
+          <li>Corta cada folio por la mitad a lo ancho y enrolla cada mitad en un tubo de unos
+              <b>5 cm de di&aacute;metro</b> y <b>10 cm de alto</b>. Pega bien la junta, a todo lo largo.</li>
+          <li>Coloca los cuatro tubos <b>de pie</b>, formando un cuadrado del tama&ntilde;o del tablero, y
+              pon el tablero encima. Comprueba que apoya en los cuatro a la vez: si uno queda corto, el
+              resto se lleva su parte y revienta antes.</li>
+          <li>Carga primero con <b>libros, de cinco en cinco kilos</b>, y anota cu&aacute;nto lleva.</li>
+          <li>Y s&oacute;lo cuando est&eacute; claro que aguanta, que se suba alguien, apoy&aacute;ndose en
+              dos compa&ntilde;eros.</li>
+        </ol>
+        <div class="aviso">
+          <span class="n-tag">Pru&eacute;balo t&uacute; antes, y en serio</span>
+          Lo que aguanta depende much&iacute;simo del <b>alto</b> del tubo, del di&aacute;metro y de si la
+          junta est&aacute; bien pegada. Con tubos de 10 cm sale; con tubos de 30 cm se doblan mucho
+          antes. Haz la prueba con libros el d&iacute;a anterior y no prometas en clase un n&uacute;mero
+          que no hayas medido.
+        </div>
+        <div class="nota">
+          <span class="n-tag">Y aqu&iacute; est&aacute; la clase</span>
+          Esa diferencia entre el tubo corto y el largo <b>no es un detalle: es la demostraci&oacute;n</b>.
+          El tubo largo no se aplasta, se <b>dobla de golpe</b> por el medio &mdash;eso es el
+          <b>pandeo</b>, el primero de los cuatro fallos de la sesi&oacute;n 6&mdash;, y por eso una barra
+          comprimida se arregla acort&aacute;ndola. Mismo papel, mismo di&aacute;metro, la tercera parte de
+          alto, varias veces m&aacute;s carga.
+        </div>
+        <h4>El n&uacute;mero</h4>
+        <p>Pesa los cuatro tubos en la balanza de cocina: unos <b>20 g</b>. Divide la carga que aguantaron
+           entre ese peso. Salen varios <b>miles</b>. Comp&aacute;ralo con el rendimiento del puente de la
+           sesi&oacute;n 5, que anda por decenas.</p>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-cab">
+        <span>Demostraci&oacute;n 3 &middot; El puente que se sujeta sin nada</span>
+        <span class="chips"><span class="chip">S5</span><span class="chip">S6</span><span class="chip">uniones</span></span>
+        <span>10 min &middot; coste cero</span>
+      </div>
+      <div class="ficha-cuerpo">
+        <p>Seis reglas del estuche entrelazadas, sin cinta, sin pegamento y sin un solo nudo, forman un
+           puente que se aguanta de pie y soporta una mochila. Es el <b>puente autoportante</b> que dibuj&oacute;
+           Leonardo hacia 1487 para cruzar r&iacute;os sin herramientas: se monta con lo que hay y se
+           desmonta igual de r&aacute;pido.</p>
+        <h3 class="h-menor">Material</h3>
+        <p>Seis u ocho reglas de 30 cm, o listones, o l&aacute;pices largos. Mejor sobre una mesa con algo
+           de agarre que sobre formica pulida.</p>
+        <h4>C&oacute;mo se hace</h4>
+        <ol class="pasos">
+          <li>Dos reglas en el suelo, paralelas, separadas un palmo: son los apoyos.</li>
+          <li>Una tercera cruzada <b>encima</b> de las dos, y una cuarta cruzada <b>por debajo</b> de la
+              tercera y <b>encima</b> de las siguientes. Cada pieza pisa a una y es pisada por otra.</li>
+          <li>Repite hasta cerrar el arco. Suelta las manos poco a poco.</li>
+          <li>Ponle peso encima: <b>aprieta m&aacute;s y se sujeta mejor</b>.</li>
+        </ol>
+        <div class="nota">
+          <span class="n-tag">Por qu&eacute; est&aacute; aqu&iacute;</span>
+          En el ensayo de la sesi&oacute;n 6, uno de los cuatro fallos es &laquo;se ha despegado un
+          nudo&raquo;, y es el que m&aacute;s rabia da porque el puente val&iacute;a m&aacute;s de lo que
+          demostr&oacute;. Este puente <b>no tiene ni un nudo</b> y aguanta: lo sujeta la geometr&iacute;a
+          y el rozamiento. Es el contraejemplo perfecto, y deja una pregunta buena para el cuaderno:
+          &iquest;por qu&eacute; no se construyen as&iacute; los puentes de verdad?
+        </div>
+        <h4>El n&uacute;mero</h4>
+        <p>Cu&aacute;ntas mochilas aguanta, y <b>cu&aacute;nto tarda en montarse</b> cron&oacute;metro en
+           mano. Lo segundo es la mitad de su gracia: era un puente militar.</p>
+      </div>
+    </div>
+
+    <div class="ficha">
+      <div class="ficha-cab">
+        <span>Demostraci&oacute;n 4 &middot; La cadena de Gaud&iacute;</span>
+        <span class="chips"><span class="chip">S2</span><span class="chip">arco</span><span class="chip">A.4</span></span>
+        <span>10 min &middot; una cadena y un m&oacute;vil</span>
+      </div>
+      <div class="ficha-cuerpo">
+        <p>Cuelga una cadenita entre dos puntos. Hazle una foto. <b>Gira la foto del rev&eacute;s</b>: ah&iacute;
+           est&aacute; la forma exacta del arco que no empuja de lado. La cadena, colgando, s&oacute;lo puede
+           trabajar a <b>tracci&oacute;n</b>; puesta del rev&eacute;s, esa misma forma trabaja s&oacute;lo a
+           <b>compresi&oacute;n</b>, que es justo lo que la piedra sabe hacer.</p>
+        <h3 class="h-menor">Material</h3>
+        <p>Una cadena fina de bisuter&iacute;a o un collar, dos chinchetas o masilla adhesiva, un
+           m&oacute;vil y una cartulina.</p>
+        <h4>C&oacute;mo se hace</h4>
+        <ol class="pasos">
+          <li>Sujeta los dos extremos de la cadena separados 30 cm, a la misma altura, sobre la pizarra.</li>
+          <li>Foto de frente. Gira la foto 180&deg; en el m&oacute;vil y ense&ntilde;ala.</li>
+          <li>Calca esa curva en una cartulina, rec&oacute;rtala en cinco o seis dovelas y mont&aacute;lalas
+              <b>sin pegamento</b>. Se aguanta.</li>
+          <li>Ahora prueba con un arco de medio punto recortado igual. Se abre por los apoyos.</li>
+        </ol>
+        <div class="nota">
+          <span class="n-tag">Solo para entenderlo</span>
+          Antoni Gaud&iacute; colg&oacute; as&iacute; la maqueta entera de la cripta de la Colonia
+          G&uuml;ell: un bosque de cuerdas con saquitos de perdigones haciendo de peso, del techo del
+          taller, <b>durante unos diez a&ntilde;os</b>. Fotografiaba la maqueta y le daba la vuelta a la
+          foto para dibujar encima. No hab&iacute;a otra manera de calcular aquella geometr&iacute;a, y
+          sigue siendo exacta: la forma que cuelga sin doblarse es la que se aguanta sin doblarse.
+        <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema5/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 5 &middot; Mecanismos &rarr;</a></p></div>
+        <div class="escena" id="esc-cadena">
+          <div class="escena-barra">
+            <span class="escena-titulo">La misma cadena, tres flechas &middot; y su arco</span>
+            <div class="seg" id="seg-cadena">
+              <button type="button" data-f="12" aria-pressed="true">Floja</button>
+              <button type="button" data-f="7">Media</button>
+              <button type="button" data-f="3">Tensa</button>
+            </div>
+          </div>
+          <div class="lienzo">
+            <svg viewBox="0 0 640 330" id="svg-cadena" role="img"
+                 aria-label="La cadena colgando y la misma curva del rev&eacute;s hecha arco, con la flecha y el empuje horizontal para tres tensiones"></svg>
+          </div>
+          <div class="pie" data-pie-cadena role="status" aria-live="polite" aria-atomic="true">Cuanto m&aacute;s tensa la cuelgas, m&aacute;s plana queda y m&aacute;s empuja hacia los lados.</div>
+        </div>
+
+        <script>
+        (function(){
+          var svg = document.getElementById('svg-cadena');
+          if(!svg) return;
+          var seg = document.getElementById('seg-cadena');
+          var pie = document.querySelector('[data-pie-cadena]');
+
+          /* Todo en centimetros de verdad, como la cadena de la mesa. El vano son
+             los 30 cm que dice la demostracion, y la flecha la eliges tu.       */
+          var L = 30, k = 7.2;                 /* vano en cm, y cm -> px */
+
+          /* La curva de una cadena colgando es la catenaria y = a cosh(x/a), y su
+             'a' no se despeja: se busca. Con a pequena la cadena cae mucho; con a
+             grande queda casi recta. Se parte por la mitad hasta acertar.       */
+          function busca_a(f){
+            var lo = 1e-6, hi = 1e6, a;
+            for(var i = 0; i < 200; i++){
+              a = (lo + hi)/2;
+              if(a*(Math.cosh(L/2/a) - 1) > f) lo = a; else hi = a;
+            }
+            return (lo + hi)/2;
+          }
+          function alto(x, a){ return a*Math.cosh(x/a) - a; }   /* sobre el punto mas bajo */
+
+          /* 1.23 no es un numero escrito en espaniol */
+          function coma(x){ return String(x).replace('.', ','); }
+          function txt(x, y, t, cls, tam, anc){
+            return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="'
+                 + (anc || 'middle') + '" class="' + (cls || 'rotulo-svg') + '"'
+                 + (tam ? ' style="font-size:' + tam + 'px"' : '') + '>' + t + '</text>';
+          }
+          function curva(cx, yRef, f, a, arco){
+            var d = '', n = 80;
+            for(var i = 0; i <= n; i++){
+              var x = -L/2 + L*i/n;
+              var h = f - alto(x, a);                      /* cuanto baja desde los extremos */
+              var px = cx + x*k;
+              var py = arco ? yRef - h*k : yRef + h*k;
+              d += (i ? ' L' : 'M') + px.toFixed(1) + ' ' + py.toFixed(1);
+            }
+            return d;
+          }
+          function flecha(x, y, dx, dy){
+            var n = Math.sqrt(dx*dx + dy*dy), ux = dx/n, uy = dy/n, px = -uy, py = ux;
+            return '<path d="M' + x + ' ' + y + ' L' + (x - 11*ux + 4*px) + ' ' + (y - 11*uy + 4*py)
+                 + ' L' + (x - 11*ux - 4*px) + ' ' + (y - 11*uy - 4*py) + ' Z" fill="var(--goo-rojo)"></path>';
+          }
+
+          function pinta(f){
+            var a = busca_a(f);
+            var s = 2*a*Math.sinh(L/2/a);            /* la cadena que hace falta */
+            var emp = a/s;                           /* empuje de lado, en pesos de cadena */
+            var m = '';
+
+            /* ---- izquierda: la cadena colgando ---- */
+            var cx1 = 170, y1 = 70;
+            m += '<path d="M' + (cx1 - L/2*k - 14) + ' ' + y1 + ' h' + (L*k + 28)
+               + '" stroke="var(--line)" stroke-width="2" fill="none"></path>';
+            m += '<path d="' + curva(cx1, y1, f, a, false) + '" stroke="var(--ink)" stroke-width="3" '
+               + 'fill="none" stroke-linecap="round"></path>';
+            m += '<circle cx="' + (cx1 - L/2*k) + '" cy="' + y1 + '" r="4" fill="var(--ink)"></circle>';
+            m += '<circle cx="' + (cx1 + L/2*k) + '" cy="' + y1 + '" r="4" fill="var(--ink)"></circle>';
+            /* la flecha, que es lo que se mide con la regla */
+            var yb = y1 + f*k;
+            m += '<path d="M' + cx1 + ' ' + y1 + ' V' + yb + '" stroke="var(--goo-rojo)" '
+               + 'stroke-width="1" stroke-dasharray="4 3" fill="none"></path>';
+            /* debajo del punto mas bajo, no al lado: con la cadena tensa el rotulo
+               se cruzaba con la propia cadena y no se leia ninguno de los dos */
+            m += txt(cx1, yb + 20, 'flecha ' + f + ' cm', 'rotulo-svg', 11);
+            m += txt(cx1, 36, 'LA CADENA, COLGANDO', 'rotulo-svg', 11.5);
+            m += txt(cx1, 52, 'solo puede tirar', 'rotulo-svg', 10);
+
+            /* ---- derecha: la misma curva, del reves ---- */
+            var cx2 = 460, y2 = 250;
+            m += '<path d="M' + (cx2 - L/2*k - 14) + ' ' + y2 + ' h' + (L*k + 28)
+               + '" stroke="var(--line)" stroke-width="2" fill="none"></path>';
+            m += '<path d="' + curva(cx2, y2, f, a, true) + '" stroke="var(--goo-azul)" stroke-width="7" '
+               + 'fill="none" stroke-linecap="round"></path>';
+            m += txt(cx2, 36, 'LA MISMA CURVA, DEL REV&Eacute;S', 'rotulo-svg', 11.5);
+            m += txt(cx2, 52, 'solo tiene que empujar', 'rotulo-svg', 10);
+            /* el empuje horizontal en los arranques */
+            var xa = cx2 - L/2*k, xb = cx2 + L/2*k;
+            m += '<path d="M' + (xa - 42) + ' ' + y2 + ' H' + (xa - 6) + '" stroke="var(--goo-rojo)" '
+               + 'stroke-width="2.4" fill="none"></path>' + flecha(xa - 6, y2, 1, 0);
+            m += '<path d="M' + (xb + 42) + ' ' + y2 + ' H' + (xb + 6) + '" stroke="var(--goo-rojo)" '
+               + 'stroke-width="2.4" fill="none"></path>' + flecha(xb + 6, y2, -1, 0);
+            m += txt(cx2, y2 + 26, 'empuje de lado = ' + coma(emp.toFixed(2))
+                   + ' &times; el peso de la cadena', 'rotulo-svg', 11);
+
+            /* ---- los numeros ---- */
+            m += txt(20, 306, 'vano ' + L + ' cm &nbsp;&middot;&nbsp; flecha ' + f
+                   + ' cm &nbsp;&middot;&nbsp; hace falta ' + coma(s.toFixed(1))
+                   + ' cm de cadena', 'rotulo-svg', 11.5, 'start');
+            svg.innerHTML = m;
+
+            pie.innerHTML = (f >= 12)
+              ? 'Colgada floja, la cadena baja <b>' + f + ' cm</b> y tira de los clavos con <b>'
+                + coma(emp.toFixed(2)) + ' veces su peso</b>. Del rev&eacute;s, ese arco es alto y empuja poco: '
+                + 'se aguanta casi solo.'
+              : (f >= 7)
+              ? 'A media tensi&oacute;n el empuje sube a <b>' + coma(emp.toFixed(2)) + ' veces su peso</b>. '
+                + 'Cada cent&iacute;metro que le quitas de flecha se paga en empuje de lado.'
+              : 'Tensa queda casi recta, pero ahora tira con <b>' + coma(emp.toFixed(2))
+                + ' veces su peso</b>: <b>cuatro veces y media</b> m&aacute;s que colgada floja. '
+                + 'Por eso un arco rebajado necesita contrafuertes y uno de medio punto casi no.';
+          }
+
+          seg.addEventListener('click', function(e){
+            var b = e.target.closest('button[data-f]'); if(!b) return;
+            seg.querySelectorAll('button').forEach(function(x){
+              x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+            });
+            pinta(+b.dataset.f);
+          });
+          pinta(12);
+        })();
+        </script>
+
+        <h4>El n&uacute;mero</h4>
+        <p>Mide la <b>flecha</b> (cu&aacute;nto baja la cadena por el centro) para dos separaciones
+           distintas y an&oacute;talas. Cuanto m&aacute;s tensa, m&aacute;s plana la curva y
+           <b>m&aacute;s empuja hacia los lados</b>: es la misma cuenta del arco de la sesi&oacute;n 2, que
+           por eso necesita contrafuertes.</p>
+      </div>
+    </div>
+  </section>
 
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
@@ -2403,7 +2957,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1';
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2432,8 +2986,17 @@ footer .wrap{padding-block:18px 26px}
         if(!marcada) sinContestar++;
         P.querySelectorAll('.ta-op').forEach(function(L, i){
           L.classList.remove('bien', 'mal');
-          if(i === ok) L.classList.add('bien');
-          else if(marcada && +marcada.value === i) L.classList.add('mal');
+          var vieja = L.querySelector('.ta-marca');
+          if(vieja) vieja.remove();
+          /* ademas del color, una palabra: el color solo no lo ve todo el mundo */
+          function marca(t){
+            var m = document.createElement('span');
+            m.className = 'ta-marca';
+            m.textContent = t;
+            L.appendChild(m);
+          }
+          if(i === ok){ L.classList.add('bien'); marca('la buena'); }
+          else if(marcada && +marcada.value === i){ L.classList.add('mal'); marca('la tuya'); }
         });
         if(marcada && +marcada.value === ok) bien++;
       });
@@ -2446,7 +3009,10 @@ footer .wrap{padding-block:18px 26px}
     otra.addEventListener('click', function(){
       T.classList.remove('corregido');
       T.querySelectorAll('input').forEach(function(i){ i.checked = false; });
-      T.querySelectorAll('.ta-op').forEach(function(L){ L.classList.remove('bien','mal'); });
+      T.querySelectorAll('.ta-op').forEach(function(L){
+        L.classList.remove('bien','mal');
+        var m = L.querySelector('.ta-marca'); if(m) m.remove();
+      });
       nota.textContent = '';
       otra.hidden = true;
       T.scrollIntoView({block:'start', behavior:'smooth'});
@@ -2465,7 +3031,35 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
-
+<!-- Visor de diagramas · 20-sep-2026 -->
+<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
+     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
+     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
+     natural sobre la pantalla y se pueden recorrer con el dedo. -->
+<style>
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
+</style>
 <div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
   <div class="rtz-barra">
     <span class="rtz-tit"></span>
@@ -2550,7 +3144,30 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   if(window.MutationObserver){
     new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
   }
-})();</script>
+})();
+</script>
+
+
+
+
+<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
+<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
+     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
+     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
+     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
+     desde SU tamaño propio, así que la jerarquía no se aplana. -->
+<style>
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
+</style>
 <script>
 (function(){
   var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
@@ -2593,6 +3210,8 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
   else montar();
-})();</script>
+})();
+</script>
+
 </body>
 </html>
