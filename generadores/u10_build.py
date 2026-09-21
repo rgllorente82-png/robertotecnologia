@@ -92,6 +92,17 @@ S1_TEORIA = u'''
       </div>
       <p>Ahora pru&eacute;balo. Este robot obedece tres instrucciones y nada m&aacute;s. Ll&eacute;valo hasta el
          c&iacute;rculo verde.</p>
+
+      <figure class="foto">
+        <img src="../../../img/u10-robot.jpg" width="1200" height="793" loading="lazy"
+             alt="Una chica adolescente montando un peque&ntilde;o coche robot con ruedas y su placa sobre una mesa">
+        <figcaption>Esto es a lo que le vas a hablar: un coche con dos motores, un par de sensores y una
+          placa. <b>No entiende nada</b> &mdash; no sabe qu&eacute; es una mesa ni qu&eacute; es el borde.
+          Har&aacute; exactamente lo que le pongas en la lista, en el orden en que se lo pongas, tambi&eacute;n
+          cuando lo que le pongas sea una tonter&iacute;a.
+          <br><br>Foto de <b>Vanessa Loring</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
 ''' + banco('r1', MAPAS_1, bucles=False, alto=210) + u'''
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>

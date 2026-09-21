@@ -2178,6 +2178,14 @@ S6 = (
       <p>Hasta ahora los hemos visto de uno en uno. En una m&aacute;quina de verdad van
          <b>encadenados</b>: el motor entra por un lado, atraviesa dos o tres etapas y por el otro
          extremo sale lo que hace falta.</p>
+      <figure class="foto">
+        <img src="../../../img/u5-engranajes.jpg" width="1200" height="675" loading="lazy"
+             alt="Decenas de engranajes de lat&oacute;n de distintos tama&ntilde;os engranados entre s&iacute; dentro de una m&aacute;quina">
+        <figcaption>Una m&aacute;quina de verdad: <b>ninguna rueda va sola</b>. Cada una recibe de la anterior y entrega a la siguiente, y en cada paso vuelve a pasar lo mismo &mdash; si multiplica la fuerza, divide la velocidad. Cuenta los dientes de dos que engranen y tienes su relaci&oacute;n de transmisi&oacute;n; multipl&iacute;calas todas y tienes la de la m&aacute;quina entera.
+          <br><br>Foto de <b>Andre</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
       <p>Y la cuenta es c&oacute;moda: las relaciones se <b>multiplican</b>. Monta tu m&aacute;quina en
          la escena, pulsando en los tres botones, y vigila el n&uacute;mero de la derecha del
          marcador.</p>

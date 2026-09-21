@@ -65,6 +65,14 @@ PROYECTO = u'''
               entra luz, y suena.</li>
         </ul>
       </div>
+      <figure class="foto">
+        <img src="../../../img/u10-sensor.jpg" width="1200" height="676" loading="lazy"
+             alt="Placa microcontroladora unida por cables de colores a una placa de pruebas con un sensor de temperatura y humedad">
+        <figcaption>Las tres piezas en una foto: la <b>placa</b> que decide, el <b>sensor</b> que se entera de lo que pasa y los cables que los unen. No hay m&aacute;s. Con esto y veinte l&iacute;neas de programa ya tienes un aparato que hace algo solo cuando cambia algo de tu casa.
+          <br><br>Foto de <b>Bmonster Lab</b> en Pexels. Es de su autor y no forma parte del material
+          publicado bajo la licencia de esta p&aacute;gina.</figcaption>
+      </figure>
+
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
         <p>F&iacute;jate en que los seis son <b>el mismo programa</b>: medir, comparar con un umbral,
