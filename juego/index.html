@@ -79,7 +79,34 @@ main{flex:1;min-height:0;padding:12px 18px 10px}
   box-shadow:0 20px 44px -24px var(--sombra),inset 0 1px 0 rgba(255,255,255,.04)}
 .caja h2{font:500 10.5px/1 var(--f-cond);letter-spacing:.28em;text-transform:uppercase;
   color:var(--laton);margin:0 0 10px}
-.caja-mapa{min-height:0;display:flex;flex-direction:column}
+.caja-mapa{min-height:0;display:flex;flex-direction:column;position:relative}
+/* Las cartas se eligen AQUÍ, sobre el mapa, y no en la columna estrecha: en una
+   pantalla de clase una carta de 260px no se lee ni en primera fila. El mapa
+   sigue detrás, a un botón de distancia. */
+#eleccion{position:absolute;inset:34px 16px 16px;z-index:5;overflow:auto;
+  background:linear-gradient(170deg,rgba(24,18,12,.975),rgba(16,12,8,.985));
+  border:1px solid var(--laton-osc);border-radius:9px;padding:0 14px 14px;
+  box-shadow:0 24px 60px -20px #000}
+.eleccion-barra{position:sticky;top:0;display:flex;align-items:center;gap:14px;
+  padding:11px 2px 10px;background:inherit;z-index:1;
+  font:500 11px/1 var(--f-cond);letter-spacing:.26em;text-transform:uppercase;color:var(--laton)}
+.eleccion-barra button{margin-left:auto;padding:6px 11px;font-size:11px}
+#volver-cartas{position:absolute;right:16px;top:34px;z-index:6;padding:8px 13px;font-size:11px;
+  background:var(--panel-3);border-color:var(--laton)}
+body.aula #volver-cartas{font-size:14px;padding:10px 16px}
+#eleccion-cartas{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));align-content:start}
+#eleccion-cartas .carta{margin:0}
+#eleccion-cartas .carta h3{font-size:24px}
+#eleccion-cartas .carta .dato{font-size:16px}
+#eleccion-cartas .dib-mini{width:74px;height:50px}
+#eleccion-cartas .carta button{font-size:15px;padding:14px 18px;width:100%}
+body.aula #eleccion-cartas{grid-template-columns:repeat(auto-fill,minmax(380px,1fr))}
+body.aula #eleccion-cartas .carta h3{font-size:31px}
+body.aula #eleccion-cartas .carta .dato{font-size:20px}
+body.aula #eleccion-cartas .carta .meta,body.aula #eleccion-cartas .carta .anio{font-size:15px}
+body.aula #eleccion-cartas .carta button{font-size:18px}
+body.aula .eleccion-barra{font-size:13px}
+@media (max-width:940px){#eleccion{position:static;inset:auto;margin-top:10px;max-height:none}}
 .caja-log{flex:0 0 auto}
 /* el mapa manda: ocupa TODO el ancho de su columna y su alto sale de la
    proporción del mundo (1000x400), así no quedan bandas negras arriba y abajo */
@@ -319,7 +346,7 @@ body.aula .nodo-n{font-size:15px}
 body.aula #sub-epoca{font-size:17px}
 body.aula button{font-size:16px}
 body.aula #dado{font-size:19px;padding:15px 18px}
-.aula-btn{position:absolute;right:20px;top:10px;padding:7px 12px!important;font-size:11px!important}
+.aula-btn{padding:4px 9px!important;font-size:10px!important;margin-left:10px;vertical-align:middle}
 @media (max-width:940px){.aula-btn{display:none}}
 /* En un móvil el mapa se dibuja a ~350px de ancho con un viewBox de 1000: un
    rótulo de 13 acaba midiendo 4,5px reales y no se lee nada. Los textos del SVG
@@ -339,11 +366,11 @@ body.aula #dado{font-size:19px;padding:15px 18px}
 <header>
   <div class="barra">
     <div class="tit">
-      <div class="marca">2.º ESO &middot; Tema 0</div>
+      <div class="marca">2.º ESO &middot; Tema 0
+        <button class="aula-btn" id="aula-btn" title="Letra grande para proyectar en clase">Modo aula</button></div>
       <h1>Desarrollo <em>tecnológico</em></h1>
     </div>
     <div class="linea" id="linea" aria-hidden="true"></div>
-    <button class="aula-btn" id="aula-btn" title="Letra grande para proyectar en clase">Modo aula</button>
     <div class="reloj">
       <span class="n" id="anio-n">0</span>
       <div>
@@ -382,6 +409,14 @@ body.aula #dado{font-size:19px;padding:15px 18px}
         </svg>
       </div>
       <p class="meta" id="pie-mapa"></p>
+      <button id="volver-cartas" hidden>Ver las cartas</button>
+      <div id="eleccion" hidden>
+        <div class="eleccion-barra">
+          <span id="eleccion-tit">Qué puedes desarrollar</span>
+          <button id="ver-mapa">Ver el mapa</button>
+        </div>
+        <div id="eleccion-cartas"></div>
+      </div>
     </div>
     <div class="caja tira">
       <svg class="escena" viewBox="0 0 500 420" id="escena" aria-hidden="true"></svg>
@@ -887,6 +922,10 @@ function pintarOpciones(){
   const r=REG[id];
   document.getElementById('tit-casilla').textContent = r ? r.nombre : (id==='salida'?'Salida':'Ruta comercial');
   cont.innerHTML='';
+  const cartasCont=document.getElementById('eleccion-cartas');
+  const panel=document.getElementById('eleccion');
+  cartasCont.innerHTML='';
+  panel.hidden=true; document.getElementById('volver-cartas').hidden=true;
   if(!E.tirado){ cont.innerHTML='<p class="meta">Tira el dado.</p>'; return; }
 
   let hay=false;
@@ -928,8 +967,17 @@ function pintarOpciones(){
       b.disabled=!puede;
       b.addEventListener('click',()=>preguntar(t, precio, d0));
       c.appendChild(b);
-      cont.appendChild(c);
+      cartasCont.appendChild(c);
     });
+  }
+  if(hay){
+    panel.hidden=false;
+    const n=cartasCont.children.length;
+    document.getElementById('eleccion-tit').textContent =
+      (r? nomReg(id) : 'Lo tuyo') + ' · ' + n + (n===1?' tecnología':' tecnologías');
+    const aviso=document.createElement('p'); aviso.className='meta';
+    aviso.innerHTML='Las cartas están <b>en el tablero</b>, a lo grande.';
+    cont.appendChild(aviso);
   }
   // Lo que se puede hacer SIEMPRE, aunque aquí no haya nada que desarrollar.
   const nota=document.createElement('p'); nota.className='meta';
@@ -1215,6 +1263,14 @@ document.getElementById('aula-btn').addEventListener('click',()=>{
   if(E) pintarTodo();
 });
 try{ if(localStorage.getItem('aula')==='1') document.getElementById('aula-btn').classList.add('primario'); }catch(e){}
+document.getElementById('ver-mapa').addEventListener('click',()=>{
+  document.getElementById('eleccion').hidden=true;
+  document.getElementById('volver-cartas').hidden=false;
+});
+document.getElementById('volver-cartas').addEventListener('click',()=>{
+  document.getElementById('eleccion').hidden=false;
+  document.getElementById('volver-cartas').hidden=true;
+});
 document.getElementById('log-toggle').addEventListener('click',()=>{
   const c=document.getElementById('caja-log');
   const abierta=c.classList.toggle('abierta');
