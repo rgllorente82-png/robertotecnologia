@@ -127,7 +127,7 @@ def medidas(ruta):
 
 def pon_medidas():
     u"""Escribe width y height en cada <img> que apunte a un fichero de aqui."""
-    puestas, actualizadas, fuera = 0, 0, 0
+    puestas, actualizadas, fuera, vectoriales = 0, 0, 0, 0
     for pag in sorted(paginas()):
         s = io.open(pag, encoding='utf-8').read()
         original = s
@@ -142,6 +142,11 @@ def pon_medidas():
             fichero = os.path.normpath(os.path.join(os.path.dirname(pag), src))
             if not os.path.exists(fichero):
                 continue
+            # Un SVG es vectorial: no tiene tamano en pixeles que medir, y PIL ni
+            # siquiera lo abre. Se escala con el CSS, asi que se deja como esta.
+            if fichero.lower().endswith('.svg'):
+                vectoriales += 1
+                continue
             an, al = medidas(fichero)
             nuevo = re.sub(r'\s+(width|height)="\d+"', '', tag)
             tenia = tag != nuevo
@@ -155,8 +160,9 @@ def pon_medidas():
                     puestas += 1
         if s != original:
             io.open(pag, 'w', encoding='utf-8', newline='').write(s)
-    print(u'medidas: %d puestas, %d al dia, %d remotas que no se pueden medir'
-          % (puestas, actualizadas, fuera))
+    print(u'medidas: %d puestas, %d al dia, %d remotas que no se pueden medir, '
+          u'%d vectoriales que no se miden'
+          % (puestas, actualizadas, fuera, vectoriales))
 
 
 def compara():

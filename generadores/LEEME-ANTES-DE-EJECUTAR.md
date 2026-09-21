@@ -15,7 +15,7 @@ volvería a quedarse en dos sesiones de seis.
 | Generador | ¿Seguro? |
 |---|---|
 | `tema0_build.py` | ⚠️ Rehace el tema 0 de 2.º y de 4.º. Contiene el juego y el vídeo del bulo, pero **no** los cambios del 20-sep. |
-| `u1_build.py` | ⛔ **NO**. Solo sabe 2 de las 6 sesiones. |
+| `u1_build.py` | ⚠️ Ya sabe **las 6 sesiones** (21-sep). Le faltan ~277 líneas de infraestructura común. |
 | `u3` … `u10_build.py` | ⛔ **NO** sin comparar antes: cada uno perdería entre 350 y 900 líneas. |
 | El tema 2 | No tiene generador: **el HTML es la fuente**. |
 
@@ -36,7 +36,32 @@ diff /tmp/antes.html 2eso/TyD/temaN/index.html   # 0 líneas = seguro
   creaban un árbol basura y dejaban el repo intacto en silencio. Ya está
   corregido, pero explica por qué parecían idempotentes.
 
+## La tubería, que sí existe
+
+Un build **no basta**: el HTML publicado sale de `uN_build.py` **y después** de
+los scripts de «los que ponen al día» de `COMO-SE-COMPRUEBA.md`, todos
+idempotentes. En este orden:
+
+```
+ordena_indice · afina_fotos · pon_metadatos · afina_texto · pon_enlace_siguiente
+afina_movil · afina_movimiento · afina_movimiento_js · afina_tintas
+afina_sobre_color · afina_lectores · afina_navegador · afina_test
+afina_impresion · afina_salto · afina_mandos · afina_tablas
+```
+
+Necesitan el venv y su navegador:
+`/home/ubuntu/rt/venv/bin/python`, con `python -m playwright install chromium`.
+
+Pasar la cadena recupera un tercio de la divergencia (en 4.º, de 613 líneas a
+416). El resto es contenido que no está en ningún generador.
+
 ## Lo pendiente
 
-Portar esas 6.500 líneas a los generadores, o decidir que el HTML pasa a ser la
-fuente y retirar los generadores. Mientras no se haga, **manda el HTML**.
+Lo que queda fuera de los generadores son **~277 líneas por página de
+infraestructura común**, no de contenido: el visor de imágenes (`.rtz-*`), el
+enlace «Saltar al contenido» (`.saltar`, que `afina_salto.py` no pone porque el
+molde no genera `<main>`) y el CSS de las tablas dentro de `.copiar`. Su sitio
+es el molde —`unidad_base.py` / `tema0_base.py`—, no cada tema: arreglarlo ahí
+cierra de una vez los 19 temas de los dos cursos.
+
+Mientras no se haga, **manda el HTML**.

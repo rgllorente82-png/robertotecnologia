@@ -162,6 +162,12 @@ def pon_etiquetas(d):
         s = re.sub(re.escape(MARCA_INI) + r'.*?' + re.escape(MARCA_FIN), bloque, s, flags=re.S)
     else:
         ancla = '<link rel="canonical"'
+        # Una pagina sin canonical no es del sitio de cursos (el juego, por
+        # ejemplo): no se le ponen tarjetas de compartir, pero tampoco se para
+        # todo por ella.
+        if ancla not in s:
+            print(u'   sin canonical, se salta: %s' % d['rel'])
+            return
         i = s.index(ancla)
         fin = s.index('>', i) + 1
         s = s[:fin] + '\n' + bloque + s[fin:]
