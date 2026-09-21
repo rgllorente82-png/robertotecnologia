@@ -37,6 +37,27 @@ header{padding:10px 18px 0;position:relative;flex:0 0 auto}
 .tit{flex:0 0 auto}
 .reloj{display:flex;align-items:center;gap:12px;flex:0 0 auto}
 .reloj .n{font:700 34px/.82 var(--f-display);color:var(--laton);text-shadow:0 2px 0 rgba(0,0,0,.5)}
+/* el reloj de la clase: lo que el profesor mira sin dejar de jugar */
+#crono{flex:0 0 auto;padding:7px 13px;border-color:var(--laton-osc);background:var(--panel-2);
+  font:600 21px/1 var(--f-cond);letter-spacing:.09em;color:var(--papel-2)}
+#crono.poco{color:#f0c07a;border-color:var(--laton)}
+#crono.ya{color:#ff9a8f;border-color:var(--crisis)}
+#crono.parado{opacity:.55;text-decoration:line-through}
+body.aula #crono{font-size:30px;padding:9px 16px}
+/* el marcador del final */
+.podio{list-style:none;margin:14px 0 0;padding:0;text-align:left}
+.podio li{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:7px;
+  border:1px solid var(--linea);margin-bottom:7px;background:var(--papel)}
+.podio li:first-child{border-color:var(--laton-osc);box-shadow:inset 0 0 0 1px var(--laton-osc)}
+.podio .pos{font:700 22px/1 var(--f-display);color:var(--tinta2);width:26px}
+.podio .nm{font:400 19px/1.2 var(--f-serif);color:var(--tinta)}
+.podio .pp{margin-left:auto;font:600 22px/1 var(--f-cond);color:var(--tinta)}
+.podio .de{font:400 13px/1 var(--f-cond);letter-spacing:.1em;color:var(--tinta2);text-transform:uppercase}
+body.aula .podio .nm{font-size:25px}
+body.aula .podio .pp{font-size:28px}
+.cierre{text-align:left;margin:16px 0 0;border-top:1px solid var(--linea);padding-top:12px}
+.cierre li{font:400 17px/1.5 var(--f-serif);color:var(--tinta);margin-bottom:7px}
+body.aula .cierre li{font-size:21px}
 @media (max-width:940px){.barra{flex-wrap:wrap}}
 header::after{content:'';position:absolute;inset:auto 20px 0;height:2px;
   background:linear-gradient(90deg,transparent,var(--laton-osc) 15%,var(--laton) 50%,var(--laton-osc) 85%,transparent);
@@ -401,6 +422,7 @@ body.aula #voz-sel{font-size:13px;max-width:240px}
       <h1>Desarrollo <em>tecnológico</em></h1>
     </div>
     <div class="linea" id="linea" aria-hidden="true"></div>
+    <button id="crono" hidden title="Pulsa para parar o seguir el reloj"><span id="crono-t">--:--</span></button>
     <div class="reloj">
       <span class="n" id="anio-n">0</span>
       <div>
@@ -467,6 +489,8 @@ body.aula #voz-sel{font-size:13px;max-width:240px}
         <p class="meta">¿Qué parte de la historia? <span style="text-transform:none;letter-spacing:0">(por defecto, toda)</span></p>
         <div class="fila" id="sel-rango" style="margin-bottom:4px"></div>
         <p class="meta" id="rango-txt" style="margin:0 0 10px"></p>
+        <p class="meta">¿Cuánto dura la clase?</p>
+        <div class="fila" id="sel-reloj" style="margin-bottom:10px"></div>
         <div id="nombres"></div>
         <button class="primario" id="empezar" style="margin-top:8px;width:100%">Empezar la partida</button>
       </div>
@@ -563,6 +587,17 @@ function pintarSelector(){
 /* Los nueve hitos, para elegir de cuál a cuál se juega. Un clic fija el
    principio, el siguiente el final; el tercero vuelve a empezar. Sin tocar
    nada se juega la historia entera, que es lo que pasará casi siempre. */
+let MINUTOS = 50;     // lo que dura la clase; 0 = sin reloj
+function pintarReloj(){
+  const c=document.getElementById('sel-reloj'); if(!c) return;
+  c.innerHTML='';
+  [[0,'Sin reloj'],[30,'30 min'],[45,'45'],[50,'50'],[55,'55'],[60,'60']].forEach(([m,t])=>{
+    const b=document.createElement('button');
+    b.textContent=t; if(m===MINUTOS) b.classList.add('primario');
+    b.addEventListener('click',()=>{ MINUTOS=m; pintarReloj(); });
+    c.appendChild(b);
+  });
+}
 let RANGO_PASO = 0;   // 0 = el próximo clic abre franja nueva
 function pintarRango(){
   const c=document.getElementById('sel-rango'); if(!c) return;
@@ -627,6 +662,10 @@ function empezar(){
     asent:{},       // región -> id del jugador que la tiene
     repasadas:{},   // cuántas veces se ha preguntado ya cada tecnología
     preguntadas:{}, // y cuántas veces cada una de SUS preguntas
+    queda: MINUTOS*60,  // segundos de clase que quedan
+    corre: MINUTOS>0,   // el reloj corre salvo que se pare a mano
+    avisos: {},         // los avisos de 10 y 5 minutos, una sola vez
+    acabada: false,
     suelta:false    // ¿ya se ha usado la acción suelta de este turno?
   };
   // donde vive cada jugador ya es suyo: su gente está asentada allí desde antes
@@ -636,6 +675,7 @@ function empezar(){
   BARAJA = TODAS.filter(t=>t.ep>=RANGO.a && t.ep<=RANGO.b);
   EPOCAS = DATOS.epocas.filter(e=>e.n>=RANGO.a && e.n<=RANGO.b).sort((a,b)=>a.n-b.n);
   document.body.classList.remove('preparando');
+  pintarCrono();
   document.getElementById('preparacion').hidden=true;
   document.getElementById('mesa').hidden=false;
   destapar(2);   // el canto tallado y el bifaz: al principio SOLO hay África
@@ -929,6 +969,7 @@ function tirar(){
   llegar(j);
   E.tirado=true;
   pintarTodo();
+  if(!E.acabada && E.jug.reduce((a,x)=>a+x.tec.length,0) >= BARAJA.length) finDePartida('completo');
 }
 /* Lo que pasa por el hecho de pisar la casilla, antes de decidir nada. */
 function llegar(j){
@@ -1098,6 +1139,77 @@ function pintarOpciones(){
   b.textContent='Pasar turno'; b.style.marginTop='6px';
   b.addEventListener('click', siguienteTurno);
   cont.appendChild(b);
+}
+
+/* ---------- el reloj de la clase ----------
+   El profesor pone lo que dura la sesión y el juego se encarga: avisa a los diez
+   y a los cinco minutos, y al acabar saca el marcador. Se para pulsándolo, que en
+   clase pasan cosas. */
+function mmss(s){
+  s=Math.max(0,s|0);
+  return (s/60|0).toString().padStart(2,'0')+':'+(s%60).toString().padStart(2,'0');
+}
+function pintarCrono(){
+  const b=document.getElementById('crono');
+  if(!E || !MINUTOS){ b.hidden=true; return; }
+  b.hidden=false;
+  document.getElementById('crono-t').textContent=mmss(E.queda);
+  b.classList.toggle('parado', !E.corre);
+  b.classList.toggle('poco', E.queda<=600 && E.queda>300);
+  b.classList.toggle('ya', E.queda<=300);
+}
+function tic(){
+  if(!E || !E.corre || E.acabada || !MINUTOS) return;
+  E.queda--;
+  [[600,'Quedan diez minutos'],[300,'Quedan cinco minutos']].forEach(([s,txt])=>{
+    if(E.queda===s && !E.avisos[s]){
+      E.avisos[s]=true;
+      log(`<b>${txt}.</b>`);
+      hablar(txt + ' de clase.');
+    }
+  });
+  if(E.queda<=0){ E.queda=0; E.corre=false; finDePartida('tiempo'); }
+  pintarCrono();
+}
+setInterval(tic, 1000);
+
+/* ---------- el final ---------- */
+function finDePartida(motivo){
+  if(E.acabada) return;
+  E.acabada=true; E.corre=false;
+  const orden=E.jug.map(j=>({j, p:puntos(j), n:j.tec.length}))
+                   .sort((a,b)=>b.p-a.p || b.n-a.n);
+  const d=document.getElementById('dlg-epoca');
+  const c=document.getElementById('cartel-cuerpo');
+  const hechas=E.jug.reduce((s,j)=>s+j.tec.length,0);
+  const enc=Object.keys(REG).filter(r=>ultimaDeRegion(r)).length;
+  c.innerHTML=`<h3>${motivo==='tiempo'?'Se acabó la clase':'¡El mundo está desarrollado!'}</h3>
+    <p class="cuando">${hechas} de ${BARAJA.length} inventos desarrollados · ${enc} de 9 regiones con algo</p>
+    <ol class="podio">` +
+    orden.map((o,i)=>`<li><span class="pos">${i+1}</span>
+        <span class="ficha" style="background:${o.j.color}"></span>
+        <span class="nm">${o.j.nombre}</span>
+        <span class="pp">${o.p} <span class="de">pts</span></span></li>`).join('') +
+    `</ol>
+    <ol class="cierre">
+      <li>¿Qué región se encendió la primera? ¿Y cuál fue la última, y en qué año?</li>
+      <li>Buscad tres tecnologías que NO nacieran en Europa. ¿Os sorprende alguna?</li>
+      <li>La agricultura aparece en cuatro regiones y ninguna se copió de otra. ¿Cómo puede ser?</li>
+      <li>El primer tramo de la línea dura 1,8 millones de años y el último, treinta y cinco.
+          ¿Por qué ocupan lo mismo en la pantalla?</li>
+    </ol>`;
+  const fila=document.createElement('div');
+  fila.className='fila'; fila.style.cssText='margin-top:18px;justify-content:center';
+  const seguir=document.createElement('button');
+  seguir.textContent = motivo==='tiempo' ? 'Seguir jugando de todas formas' : 'Cerrar';
+  seguir.addEventListener('click',()=>{ callar(); d.close();
+    if(motivo==='tiempo'){ E.acabada=false; MINUTOS=0; pintarCrono(); } });
+  fila.appendChild(seguir);
+  c.appendChild(fila);
+  d.showModal();
+  hablar(motivo==='tiempo'
+    ? 'Se acabó la clase. Gana ' + orden[0].j.nombre + ', con ' + orden[0].p + ' puntos.'
+    : 'El mundo está desarrollado del todo. Gana ' + orden[0].j.nombre + '.');
 }
 
 /* ---------- el cartel de cada época ---------- */
@@ -1398,7 +1510,7 @@ function preguntar(t, precio, d0){
 
 /* ---------- arranque ---------- */
 document.body.classList.add('preparando');
-pintarSelector(); pintarRango(); pintarLinea();
+pintarSelector(); pintarRango(); pintarReloj(); pintarLinea();
 // el modo aula se recuerda: el profesor lo enciende una vez y se queda
 try{ if(localStorage.getItem('aula')==='1') document.body.classList.add('aula'); }catch(e){}
 document.getElementById('aula-btn').addEventListener('click',()=>{
@@ -1431,6 +1543,11 @@ document.getElementById('voz-sel').addEventListener('change',(e)=>{
   try{ localStorage.setItem('voz_nombre', VOZ_NOMBRE); }catch(e){}
   VOZ_ON=true; pintarVoz();
   hablar('La rueda, el metal y la escritura. Las primeras ciudades necesitan agua, cuentas y caminos.');
+});
+document.getElementById('crono').addEventListener('click',()=>{
+  if(!E) return;
+  E.corre=!E.corre; pintarCrono();
+  log(E.corre? 'El reloj sigue.' : '<b>Reloj parado.</b>');
 });
 document.getElementById('ver-mapa').addEventListener('click',()=>{
   document.getElementById('eleccion').hidden=true;
