@@ -121,7 +121,7 @@
 
       <text x="60" y="523"><tspan font-weight="bold">Transistor (1947):</tspan> Pequeño, frío, duradero, bajo consumo. Permitió miniaturización exponencial: Ley de Moore.</text>
 
-      <text x="60" y="544"><tspan font-weight="bold">Hoy:</tspan> 100 mil millones de transistores en un smartphone. Consumo de miliwatios para hacer mil millones de operaciones por segundo. Este componente, inventado en 1947, es la razón por la que tienes tecnología portátil.</text>
+      <text x="60" y="544"><tspan font-weight="bold">Hoy:</tspan> 100 mil millones de transistores en un smartphone. Consumo de miliwatios para hacer mil millones de operaciones por segundo. Este componente, inventado en 1947, es la razón por<tspan x="60" dy="15">la que tienes tecnología portátil.</tspan></text>
 
       <text x="60" y="565"><tspan font-weight="bold">Futuro:</tspan> Llegamos a 3 nanómetros. Los siguiente es tecnología cuántica o óptica. Pero el transistor clásico va a seguir siendo la base durante décadas.</text>
     </g>

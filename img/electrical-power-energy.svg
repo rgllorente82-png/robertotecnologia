@@ -39,11 +39,11 @@
       <text x="60" y="340"><tspan font-weight="bold">¿Qué significa?</tspan></text>
       <text x="80" y="360">• Cuanta más potencia, más calor/luz/fuerza EN ESTE MOMENTO</text>
       <text x="80" y="378">• Una bombilla de 100 W gasta el doble de energía que una de 50 W</text>
-      <text x="80" y="396">• La potencia es lo que ves en el momento: LED brillando, motor girando, resistencia calentando</text>
+      <text x="80" y="396">• La potencia es lo que ves en el momento: LED brillando, motor girando,<tspan x="80" dy="15">resistencia calentando</tspan></text>
 
       <text x="60" y="430"><tspan font-weight="bold">En la casa:</tspan></text>
       <text x="80" y="448">• 230 V es fijo. Lo que cambia es la Intensidad (Amperios)</text>
-      <text x="80" y="466">• Más aparatos encendidos = más Amperios = más Potencia total = saltan los plomos</text>
+      <text x="80" y="466">• Más aparatos encendidos = más Amperios = más Potencia total =<tspan x="80" dy="15">saltan los plomos</tspan></text>
     </g>
   </g>
 

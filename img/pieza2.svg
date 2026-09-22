@@ -23,7 +23,7 @@
 <text class="pr" x="172.9" y="279.2">y el conector del cargador pide 12</text>
 <text class="b" x="44.8" y="224.6">un ala</text>
 <text class="b" x="172.9" y="224.6">y la otra</text>
-<text class="b" x="172.9" y="138.8">el alma de la T, por detr&#225;s</text>
+<text class="b" x="172.9" y="138.8">el alma de la<tspan x="172.9" dy="15">T, por detr&#225;s</tspan></text>
 <text class="t" x="560" y="0">DE LADO</text>
 <path class="mesa" d="M550 470 H942"/>
 <path class="ct" d="M658.8 470.0 L726.5 85.9 L734.2 87.3 L666.5 471.4 Z"/>

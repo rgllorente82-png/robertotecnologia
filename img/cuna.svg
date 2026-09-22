@@ -13,7 +13,7 @@
 <text class="c" x="110.0" y="210.0">queda este hueco de 8</text>
 <polygon points="380.0,230.0 580.0,230.0 580.0,190.0" fill="#fce8b2" stroke="#202124" stroke-width="2"/>
 <text class="t" x="590.0" y="186.0">C</text>
-<text x="608.0" y="186.0">la cu&#241;a: un tri&#225;ngulo de 40 x 8</text>
+<text x="608.0" y="186.0">la cu&#241;a: un<tspan x="608.0" dy="15">tri&#225;ngulo de 40 x 8</tspan></text>
 <path d="M800.0 210.0 H610.0" stroke="#1a73e8" stroke-width="2.4" fill="none"/>
 <path d="M610.0 210.0 l9 -5 l0 10 Z" fill="#1a73e8"/>
 <text class="c" x="820.0" y="215.0">se mete por aqu&#237;</text>
