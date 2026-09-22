@@ -31,18 +31,18 @@
   <g>
     <circle cx="350" cy="120" r="50" fill="#4285f4" stroke="#1a73e8" stroke-width="2.5"/>
     <text x="350" y="125" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#fff">2</text>
-    <text x="350" y="10" class="title" font-size="12" text-anchor="middle">Fabricación</text>
-    <text x="350" y="28" class="label" font-size="10" text-anchor="middle">Transformación</text>
-    <text x="350" y="42" class="label" font-size="10" text-anchor="middle">y ensamblaje</text>
+    <text x="350" y="196" class="title" style="font-size: 12px; text-anchor: middle">Fabricación</text>
+    <text x="350" y="212" class="label" style="font-size: 10px; text-anchor: middle">Transformación</text>
+    <text x="350" y="226" class="label" style="font-size: 10px; text-anchor: middle">y ensamblaje</text>
   </g>
 
   <!-- TRANSPORTATION -->
   <g>
     <circle cx="550" cy="120" r="50" fill="#fbbc04" stroke="#d68910" stroke-width="2.5"/>
     <text x="550" y="125" class="label" font-size="11" text-anchor="middle" font-weight="bold">3</text>
-    <text x="550" y="10" class="title" font-size="12" text-anchor="middle">Transporte</text>
-    <text x="550" y="72" class="label" style="font-size: 10px; text-anchor: middle">A tiendas,</text>
-    <text x="550" y="86" class="label" style="font-size: 10px; text-anchor: middle">a usuarios</text>
+    <text x="550" y="196" class="title" style="font-size: 12px; text-anchor: middle">Transporte</text>
+    <text x="550" y="212" class="label" style="font-size: 10px; text-anchor: middle">A tiendas,</text>
+    <text x="550" y="226" class="label" style="font-size: 10px; text-anchor: middle">a usuarios</text>
   </g>
 
   <!-- USE PHASE -->
@@ -74,11 +74,11 @@
   <g>
     <rect x="30" y="480" width="940" height="200" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
 
-    <text x="500" y="510" class="title" font-size="13">Impacto ambiental por fase</text>
+    <text x="60" y="512" class="title" style="font-size: 13px; text-anchor: start">Impacto ambiental por fase</text>
 
     <!-- Row 1: Raw materials -->
     <rect x="60" y="530" width="200" height="25" fill="#d4a574" stroke="#8b6914" stroke-width="1.5"/>
-    <text x="70" y="596" class="label" style="font-size: 11px" font-weight="bold">Materias primas</text>
+    <text x="70" y="548" class="label" style="font-size: 11px" font-weight="bold">Materias primas</text>
     <text x="270" y="548" class="label" font-size="11"><tspan font-weight="bold">10%</tspan> (minería)</text>
 
     <!-- Row 2: Manufacturing -->
@@ -107,12 +107,12 @@
 
   <!-- Left panel: Key insights -->
   <g>
-    <text x="30" y="480" class="title" font-size="12">Implicaciones:</text>
-    <text x="50" y="505" class="label" font-size="10">✓ Fabricar bien (1-2 años)</text>
-    <text x="50" y="520" class="label" font-size="10">✓ Que dure muchos años (la fase de uso)</text>
-    <text x="50" y="535" class="label" font-size="10">✓ Bajo consumo en uso</text>
-    <text x="50" y="550" class="label" style="font-size: 10px">✓ Fácil de reparar</text>
-    <text x="50" y="565" class="label" style="font-size: 10px">✓ Reciclable al final</text>
+    <text x="790" y="512" class="title" style="font-size: 12px; text-anchor: start">Lo que se deduce:</text>
+    <text x="790" y="536" class="label" style="font-size: 10px">✓ Fabricar bien</text>
+    <text x="790" y="556" class="label" style="font-size: 10px">✓ Que dure muchos años</text>
+    <text x="790" y="576" class="label" style="font-size: 10px">✓ Bajo consumo en uso</text>
+    <text x="790" y="596" class="label" style="font-size: 10px">✓ Fácil de reparar</text>
+    <text x="790" y="616" class="label" style="font-size: 10px">✓ Reciclable al final</text>
   </g>
 
 </svg>

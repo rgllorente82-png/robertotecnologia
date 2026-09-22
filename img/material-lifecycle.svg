@@ -85,24 +85,24 @@
   <!-- Right side: Impact indicators -->
   <rect x="800" y="120" width="170" height="220" fill="#e8f4f8" stroke="#3498db" stroke-width="1" rx="5"/>
 
-  <text x="815" y="145" class="phase-title" font-size="12">Impacto por fase:</text>
+  <text x="828" y="145" class="phase-title" style="font-size: 12px">Impacto por fase:</text>
 
   <g font-family="Arial" font-size="10" fill="#2c3e50">
     <text x="820" y="170">Extracción: 40%</text>
-    <rect x="820" y="172" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
-    <rect x="820" y="172" width="32" height="6" fill="#e74c3c"/>
+    <rect x="820" y="178" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
+    <rect x="820" y="178" width="32" height="6" fill="#e74c3c"/>
 
     <text x="820" y="195">Procesamiento: 35%</text>
-    <rect x="820" y="197" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
-    <rect x="820" y="197" width="28" height="6" fill="#f39c12"/>
+    <rect x="820" y="203" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
+    <rect x="820" y="203" width="28" height="6" fill="#f39c12"/>
 
     <text x="820" y="220">Fabricación: 20%</text>
-    <rect x="820" y="222" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
-    <rect x="820" y="222" width="16" height="6" fill="#3498db"/>
+    <rect x="820" y="228" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
+    <rect x="820" y="228" width="16" height="6" fill="#3498db"/>
 
     <text x="820" y="245">Distribución: 5%</text>
-    <rect x="820" y="247" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
-    <rect x="820" y="247" width="4" height="6" fill="#9b59b6"/>
+    <rect x="820" y="253" width="80" height="6" fill="#ecf0f1" stroke="#333" stroke-width="1"/>
+    <rect x="820" y="253" width="4" height="6" fill="#9b59b6"/>
   </g>
 
   <!-- Bottom note -->
