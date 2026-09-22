@@ -33,7 +33,7 @@
   <g>
     <!-- Sample -->
     <rect x="80" y="70" width="120" height="120" fill="url(#wood-texture)" stroke="#654321" stroke-width="2" rx="5"/>
-    <text x="140" y="200" class="material-label">MADERA</text>
+    <text x="140" y="212" class="material-label">MADERA</text>
 
     <!-- Properties -->
     <text x="80" y="235" class="property-label">Dureza: Media</text>
@@ -43,7 +43,7 @@
     <text x="80" y="315" class="property-label">Costo: Bajo</text>
 
     <!-- Applications -->
-    <rect x="80" y="330" width="120" height="50" fill="#F5F5DC" stroke="#DAA520" stroke-width="1" rx="3"/>
+    <rect x="80" y="330" width="120" height="62" fill="#F5F5DC" stroke="#DAA520" stroke-width="1" rx="3"/>
     <text x="140" y="348" style="font-size: 11px; text-anchor: middle; font-weight: bold;">Aplicaciones</text>
     <text x="140" y="365" style="font-size: 10px; text-anchor: middle;">Muebles, marcos,</text>
     <text x="140" y="377" style="font-size: 10px; text-anchor: middle;">construcción</text>
@@ -54,7 +54,7 @@
     <!-- Sample -->
     <rect x="420" y="70" width="120" height="120" fill="url(#metal-texture)" stroke="#696969" stroke-width="2" rx="5"/>
     <ellipse cx="480" cy="100" rx="40" ry="25" fill="#FFF" opacity="0.15"/>
-    <text x="480" y="200" class="material-label">METAL</text>
+    <text x="480" y="212" class="material-label">METAL</text>
 
     <!-- Properties -->
     <text x="420" y="235" class="property-label">Dureza: Alta</text>
@@ -64,7 +64,7 @@
     <text x="420" y="315" class="property-label">Costo: Medio</text>
 
     <!-- Applications -->
-    <rect x="420" y="330" width="120" height="50" fill="#E0E0E0" stroke="#808080" stroke-width="1" rx="3"/>
+    <rect x="420" y="330" width="120" height="62" fill="#E0E0E0" stroke="#808080" stroke-width="1" rx="3"/>
     <text x="480" y="348" style="font-size: 11px; text-anchor: middle; font-weight: bold;">Aplicaciones</text>
     <text x="480" y="365" style="font-size: 10px; text-anchor: middle;">Máquinas, estructuras,</text>
     <text x="480" y="377" style="font-size: 10px; text-anchor: middle;">herramientas</text>
@@ -75,7 +75,7 @@
     <!-- Sample -->
     <rect x="760" y="70" width="120" height="120" fill="url(#plastic-texture)" stroke="#8B7B9E" stroke-width="2" rx="5"/>
     <ellipse cx="820" cy="95" rx="35" ry="30" fill="#FFF" opacity="0.3"/>
-    <text x="820" y="200" class="material-label">PLÁSTICO</text>
+    <text x="820" y="212" class="material-label">PLÁSTICO</text>
 
     <!-- Properties -->
     <text x="760" y="235" class="property-label">Dureza: Baja-Media</text>
@@ -85,7 +85,7 @@
     <text x="760" y="315" class="property-label">Costo: Bajo</text>
 
     <!-- Applications -->
-    <rect x="760" y="330" width="120" height="50" fill="#FFE4E1" stroke="#DDA0DD" stroke-width="1" rx="3"/>
+    <rect x="760" y="330" width="120" height="62" fill="#FFE4E1" stroke="#DDA0DD" stroke-width="1" rx="3"/>
     <text x="820" y="348" style="font-size: 11px; text-anchor: middle; font-weight: bold;">Aplicaciones</text>
     <text x="820" y="365" style="font-size: 10px; text-anchor: middle;">Envases, electrónica,</text>
     <text x="820" y="377" style="font-size: 10px; text-anchor: middle;">juguetes</text>

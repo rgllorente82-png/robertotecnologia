@@ -37,9 +37,9 @@
 
     <rect x="290" y="130" width="180" height="80" fill="white" rx="3"/>
     <text x="300" y="145" class="mono" fill="#2c3e50" font-weight="bold">Hola mundo</text>
-    <text x="300" y="160" class="label" fill="#3498db">Título, negrita, color</text>
-    <text x="300" y="175" class="label" fill="#666">+ Metadatos</text>
-    <text x="300" y="190" class="label" fill="#666">+ Estilos</text>
+    <text x="300" y="160" class="label" style="text-anchor: start" fill="#3498db">Título, negrita, color</text>
+    <text x="300" y="175" class="label" style="text-anchor: start" fill="#666">+ Metadatos</text>
+    <text x="300" y="190" class="label" style="text-anchor: start" fill="#666">+ Estilos</text>
 
     <text x="380" y="230" class="label" fill="white" font-size="10">Tamaño: mediano</text>
     <text x="380" y="245" class="label" fill="white" font-size="10">Con formato y metadatos</text>
@@ -52,10 +52,10 @@
     <text x="620" y="120" class="label" fill="white">Documento fijo</text>
 
     <rect x="530" y="130" width="180" height="80" fill="white" rx="3"/>
-    <text x="540" y="145" class="label" fill="#666" font-weight="bold">Hola mundo</text>
-    <text x="540" y="160" class="label" fill="#666">Tipografía embebida</text>
-    <text x="540" y="175" class="label" fill="#666">Posición fija</text>
-    <text x="540" y="190" class="label" fill="#666">Se ve igual en cualquier PC</text>
+    <text x="540" y="145" class="label" style="text-anchor: start" fill="#666" font-weight="bold">Hola mundo</text>
+    <text x="540" y="160" class="label" style="text-anchor: start" fill="#666">Tipografía embebida</text>
+    <text x="540" y="175" class="label" style="text-anchor: start" fill="#666">Posición fija</text>
+    <text x="540" y="190" class="label" style="text-anchor: start" fill="#666">Se ve igual en cualquier PC</text>
 
     <text x="620" y="230" class="label" fill="white" font-size="10">Tamaño: grande</text>
     <text x="620" y="245" class="label" fill="white" font-size="10">Inmodificable</text>
