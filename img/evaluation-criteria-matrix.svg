@@ -31,7 +31,7 @@
       <text x="40" y="148" class="label">No funciona: 0 ptos</text>
       <text x="40" y="163" class="label">Funciona a medias: 2 ptos</text>
       <text x="40" y="178" class="label">Funciona siempre: 4 ptos</text>
-      <text x="200" y="195" class="score" fill="#e74c3c" font-size="14">Tu nota: 3 ptos</text>
+      <text x="200" y="195" class="score" style="fill: #e74c3c"  font-size="14">Tu nota: 3 ptos</text>
     </g>
 
     <!-- Criterion 2: Economía -->
@@ -41,7 +41,7 @@
       <text x="40" y="273" class="label">Caro o derrochador: 0 ptos</text>
       <text x="40" y="288" class="label">Coste moderado: 2 ptos</text>
       <text x="40" y="303" class="label">Rentable y ahorrativo: 4 ptos</text>
-      <text x="200" y="320" class="score" fill="#f39c12" font-size="14">Tu nota: 2 ptos</text>
+      <text x="200" y="320" class="score" style="fill: #f39c12"  font-size="14">Tu nota: 2 ptos</text>
     </g>
 
     <!-- Criterion 3: Mantenimiento -->
@@ -51,14 +51,14 @@
       <text x="40" y="398" class="label">Imposible de arreglar: 0 ptos</text>
       <text x="40" y="413" class="label">Mantenimiento complejo: 2 ptos</text>
       <text x="40" y="428" class="label">Un niño puede repararlo: 4 ptos</text>
-      <text x="200" y="445" class="score" fill="#27ae60" font-size="14">Tu nota: 4 ptos</text>
+      <text x="200" y="445" class="score" style="fill: #27ae60"  font-size="14">Tu nota: 4 ptos</text>
     </g>
 
     <!-- TOTAL -->
     <g>
       <rect x="30" y="485" width="380" height="80" fill="#ecf0f1" stroke="var(--color-text)" stroke-width="2"/>
       <text x="220" y="510" class="label" font-weight="bold" font-size="14">PUNTUACIÓN TOTAL</text>
-      <text x="220" y="540" class="score" font-size="18" fill="#2c3e50">3 + 2 + 4 = 9 puntos de 12</text>
+      <text x="220" y="540" class="score" style="fill: #2c3e50" font-size="18" >3 + 2 + 4 = 9 puntos de 12</text>
       <text x="220" y="560" class="label" font-size="12">Calificación: 75% (BIEN)</text>
     </g>
   </g>

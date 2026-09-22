@@ -24,27 +24,27 @@
   <!-- LEFT: Triangle mnemonic -->
   <g id="triangle-section">
     <!-- Main triangle -->
-    <polygon points="150,100 150,280 300,190" class="triangle"/>
+    <polygon points="195,88 300,272 90,272" class="triangle"/>
     
     <!-- V at top -->
-    <circle cx="150" cy="100" r="35" fill="#e74c3c" opacity="0.9"/>
-    <text x="150" y="115" class="box-label" font-size="20">V</text>
-    <text x="150" y="130" class="unit">Voltios</text>
+    <circle cx="195" cy="122" r="32" fill="#e74c3c" opacity="0.9"/>
+    <text x="195" y="130" class="box-label" style="font-size: 20px">V</text>
+    <text x="195" y="146" class="unit">Voltios</text>
     
     <!-- I at bottom left -->
-    <circle cx="110" cy="290" r="32" fill="#3498db" opacity="0.9"/>
-    <text x="110" y="305" class="box-label" font-size="20">I</text>
-    <text x="110" y="320" class="unit">Amperios</text>
+    <circle cx="142" cy="228" r="32" fill="#3498db" opacity="0.9"/>
+    <text x="142" y="236" class="box-label" style="font-size: 20px">I</text>
+    <text x="142" y="252" class="unit">Amperios</text>
     
     <!-- R at bottom right -->
-    <circle cx="280" cy="290" r="32" fill="#27ae60" opacity="0.9"/>
-    <text x="280" y="305" class="box-label" font-size="20">R</text>
-    <text x="280" y="320" class="unit">Ohmios</text>
+    <circle cx="248" cy="228" r="32" fill="#27ae60" opacity="0.9"/>
+    <text x="248" y="236" class="box-label" style="font-size: 20px">R</text>
+    <text x="248" y="252" class="unit">Ohmios</text>
     
     <!-- Formulas inside triangle -->
-    <text x="150" y="185" class="formula" font-size="13">V = I × R</text>
-    <text x="120" y="225" class="formula" font-size="13">I = V / R</text>
-    <text x="195" y="245" class="formula" font-size="13">R = V / I</text>
+    <text x="195" y="310" class="formula" style="font-size: 14px">V = I × R</text>
+    <text x="195" y="334" class="formula" style="font-size: 14px">I = V / R</text>
+    <text x="195" y="358" class="formula" style="font-size: 14px">R = V / I</text>
   </g>
 
   <!-- RIGHT: Practical examples -->
@@ -96,7 +96,7 @@
 
   <!-- Formula reminder -->
   <g>
-    <circle cx="150" cy="550" r="50" fill="#3498db" opacity="0.15"/>
-    <text x="150" y="528" class="formula" style="font-size: 26px">V=IR</text>
+    <circle cx="195" cy="420" r="46" fill="#3498db" opacity="0.15"/>
+    <text x="195" y="428" class="formula" style="font-size: 24px">V=IR</text>
   </g>
 </svg>

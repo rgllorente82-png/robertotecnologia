@@ -32,8 +32,8 @@
 
     <!-- Arrow with visible data -->
     <path d="M 145 160 L 250 160" stroke="#f39c12" stroke-width="3" fill="none" marker-end="url(#arrowyellow)"/>
-    <text x="195" y="150" class="code" text-anchor="middle" font-weight="bold">usuario=ana</text>
-    <text x="195" y="165" class="code" text-anchor="middle" font-weight="bold">contraseña=abc123</text>
+    <text x="195" y="128" class="code" style="text-anchor: middle" font-weight="bold">usuario=ana</text>
+    <text x="195" y="143" class="code" style="text-anchor: middle" font-weight="bold">contraseña=abc123</text>
 
     <!-- Server -->
     <circle cx="320" cy="160" r="25" fill="#fbbc04" stroke="#d68910" stroke-width="1.5"/>
@@ -44,7 +44,7 @@
     <g>
       <circle cx="195" cy="230" r="30" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5,3"/>
       <text x="195" y="235" class="label" font-size="13" text-anchor="middle" fill="#e74c3c">🚨</text>
-      <text x="195" y="260" class="label" font-size="10" text-anchor="middle" fill="#e74c3c" font-weight="bold">Hacker ve TODO</text>
+      <text x="195" y="278" class="label" style="font-size: 10px; text-anchor: middle" fill="#e74c3c" font-weight="bold">Hacker ve TODO</text>
     </g>
 
     <!-- Problem box -->
@@ -70,9 +70,9 @@
 
     <!-- Arrow with encrypted data -->
     <path d="M 705 160 L 810 160" stroke="#27ae60" stroke-width="3" fill="none" marker-end="url(#arrowgreen)"/>
-    <text x="755" y="150" class="code" text-anchor="middle" font-weight="bold">🔐 KhD9%jFk</text>
-    <text x="755" y="165" class="code" text-anchor="middle" font-weight="bold">mL2$pQw8Xz</text>
-    <text x="755" y="180" class="label" font-size="8" text-anchor="middle" fill="#27ae60">cifrado</text>
+    <text x="755" y="128" class="code" style="text-anchor: middle" font-weight="bold">🔐 KhD9%jFk</text>
+    <text x="755" y="143" class="code" style="text-anchor: middle" font-weight="bold">mL2$pQw8Xz</text>
+    <text x="755" y="186" class="label" style="font-size: 8px; text-anchor: middle" fill="#27ae60">cifrado</text>
 
     <!-- Server -->
     <circle cx="880" cy="160" r="25" fill="#f0fef0" stroke="#27ae60" stroke-width="1.5"/>
@@ -83,7 +83,7 @@
     <g>
       <circle cx="755" cy="230" r="30" fill="none" stroke="#27ae60" stroke-width="2"/>
       <text x="755" y="238" class="label" font-size="24" text-anchor="middle" fill="#27ae60">🔒</text>
-      <text x="755" y="260" class="label" font-size="10" text-anchor="middle" fill="#27ae60" font-weight="bold">El candado protege</text>
+      <text x="755" y="278" class="label" style="font-size: 10px; text-anchor: middle" fill="#27ae60" font-weight="bold">El candado protege</text>
     </g>
 
     <!-- Solution box -->
