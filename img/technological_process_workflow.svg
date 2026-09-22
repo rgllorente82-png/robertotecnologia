@@ -51,7 +51,7 @@
 
   <g id="step-4">
     <rect class="step-box" x="580" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="645" y="105">4. Planificar</text>
+    <text class="step-title" x="645" y="105" style="text-anchor: middle">4. Planificar</text>
     <text class="step-desc" x="590" y="120">pasos de</text>
     <text class="step-desc" x="590" y="135">trabajo, tiempo,</text>
     <text class="step-desc" x="590" y="150">recursos</text>
@@ -62,7 +62,7 @@
 
   <g id="step-5">
     <rect class="step-box" x="760" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="825" y="105">5. Construir</text>
+    <text class="step-title" x="825" y="105" style="text-anchor: middle">5. Construir</text>
     <text class="step-desc" x="770" y="120">seguir el</text>
     <text class="step-desc" x="770" y="135">proceso:</text>
     <text class="step-desc" x="770" y="150">herramientas,</text>

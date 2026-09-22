@@ -112,7 +112,7 @@
 
   <!-- BOTTOM: The History and Impact -->
   <g>
-    <rect x="40" y="450" width="920" height="130" fill="#fff3cd" stroke="#f39c12" stroke-width="2" rx="5"/>
+    <rect x="40" y="450" width="920" height="148" fill="#fff3cd" stroke="#f39c12" stroke-width="2" rx="5"/>
 
     <text style="text-anchor: start; font-size: 12" x="60" y="475" class="label" font-weight="bold" fill="#e74c3c">¿Por qué revolucionó el mundo?</text>
 
@@ -123,7 +123,7 @@
 
       <text x="60" y="544"><tspan font-weight="bold">Hoy:</tspan> 100 mil millones de transistores en un smartphone. Consumo de miliwatios para hacer mil millones de operaciones por segundo. Este componente, inventado en 1947, es la razón por<tspan x="60" dy="15">la que tienes tecnología portátil.</tspan></text>
 
-      <text x="60" y="565"><tspan font-weight="bold">Futuro:</tspan> Llegamos a 3 nanómetros. Los siguiente es tecnología cuántica o óptica. Pero el transistor clásico va a seguir siendo la base durante décadas.</text>
+      <text x="60" y="580"><tspan font-weight="bold">Futuro:</tspan> Llegamos a 3 nanómetros. Los siguiente es tecnología cuántica o óptica. Pero el transistor clásico va a seguir siendo la base durante décadas.</text>
     </g>
   </g>
 

@@ -19,8 +19,8 @@
 <rect class="p2" x="162.4" y="242.8" width="67.6" height="7.8"/>
 <rect class="p2" x="145.6" y="118.0" width="16.9" height="182.0"/>
 <path class="cab" d="M154.0 242.8 v52.0"/>
-<text class="pr" x="172.9" y="266.2">entre las alas solo quedan 6.5 mm</text>
-<text class="pr" x="172.9" y="279.2">y el conector del cargador pide 12</text>
+<text class="pr" x="20" y="330">entre las alas solo quedan 6.5 mm</text>
+<text class="pr" x="20" y="344">y el conector del cargador pide 12</text>
 <text class="b" x="44.8" y="224.6">un ala</text>
 <text class="b" x="172.9" y="224.6">y la otra</text>
 <text class="b" x="172.9" y="138.8">el alma de la<tspan x="172.9" dy="15">T, por detr&#225;s</tspan></text>
