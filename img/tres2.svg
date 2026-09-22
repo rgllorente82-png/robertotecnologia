@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 660" width="780" height="660">
-<rect width="780" height="660" fill="#fff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -12 823.2 684" width="780" height="660">
+<rect x="-12" y="-12" width="823" height="684" fill="#fff"/>
 <style>text{font-family:monospace;font-size:12px;fill:#5f6368}.t{font-size:13px;fill:#202124}.c{font-size:11px;fill:#1a73e8}.p{fill:#f1f3f4;stroke:#202124;stroke-width:2;stroke-linejoin:round}</style>
 <rect x="40" y="64" width="166.5" height="259" class="p"/>
 <rect x="119.55" y="138" width="7.4" height="92.5" fill="#fff" stroke="#202124" stroke-width="2"/>

@@ -92,9 +92,23 @@ footer a{color:var(--azul)}
   table.cru td.v input{color:#fff}
   main{grid-template-columns:1fr}
 }
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <header>
   <h1>Crucigrama <span>&middot; 2.&ordm; ESO</span></h1>
   <label class="vo" for="tema" style="color:var(--apagado);font-size:14px">Tema</label>
@@ -107,7 +121,7 @@ footer a{color:var(--azul)}
   <button id="menos" aria-label="Letra m&aacute;s peque&ntilde;a">&#8722;</button>
   <button id="mas" aria-label="Letra m&aacute;s grande">+</button>
 </header>
-<main>
+<main id="contenido" tabindex="-1">
   <section class="tablero">
     <p class="aviso">Pulsa una casilla o una pista para elegir palabra. Si pulsas una casilla donde se cruzan dos, cambia de una a la otra.</p>
     <div class="marcador"><span>Resueltas</span> <i id="hechas">0</i> <span>de</span> <span id="tot">0</span></div>

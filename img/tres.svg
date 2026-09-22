@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 330" width="520" height="330">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -45.7 559.7 429.1" width="520" height="330">
 <style>
  text{font:12px "DejaVu Sans",sans-serif;fill:#202124}
  .ti{font-size:14px;font-weight:700}
@@ -9,7 +9,7 @@
  .punt{stroke:#c9973f;stroke-width:7;stroke-linecap:round}
  
  .plom{stroke:#1a73e8;stroke-width:1.2;stroke-dasharray:4 4}
-</style><rect width="100%" height="100%" fill="#fff"/>
+</style><rect x="-16.0" y="-45.7" width="559.7" height="429.1" fill="#fff"/>
 <path class="mesa" d="M30 280 H419"/>
 <path class="base" d="M60.0 280.0 L379.0 280.0"/>
 <path class="resp" d="M159.0 280.0 L270.6 40.7"/>
