@@ -33,7 +33,7 @@
     </g>
 
     <!-- Example -->
-    <text x="170" y="260" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ejemplo: batería AA = 1.5V</text>
+    <text x="170" y="278" class="label" style="font-size: 9.5px; text-anchor: middle" font-weight="bold">Ejemplo: batería AA = 1,5 V</text>
   </g>
 
   <!-- INTENSITY -->
@@ -53,7 +53,7 @@
     </g>
 
     <!-- Example -->
-    <text x="500" y="260" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ejemplo: LED típico = 20mA</text>
+    <text x="500" y="278" class="label" style="font-size: 9.5px; text-anchor: middle" font-weight="bold">Ejemplo: LED típico = 20 mA</text>
   </g>
 
   <!-- RESISTANCE -->
@@ -74,7 +74,7 @@
     </g>
 
     <!-- Example -->
-    <text x="830" y="260" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ejemplo: resistencia = 10 Ω</text>
+    <text x="830" y="278" class="label" style="font-size: 9.5px; text-anchor: middle" font-weight="bold">Ejemplo: resistencia = 10 Ω</text>
   </g>
 
   <!-- OHM'S LAW -->
@@ -86,10 +86,12 @@
 
     <!-- The triangle -->
     <g transform="translate(500, 420)">
-      <polygon points="0,-50 50,35 -50,35" fill="none" stroke="#2c3e50" stroke-width="2"/>
-      <text x="0" y="-30" class="code" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold">V</text>
-      <text x="-40" y="35" class="code" text-anchor="middle" fill="#27ae60" font-size="14" font-weight="bold">I</text>
-      <text x="40" y="35" class="code" text-anchor="middle" fill="#f39c12" font-size="14" font-weight="bold">R</text>
+      <polygon points="0,-62 62,44 -62,44" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
+      <path d="M -31 -9 L 31 -9" stroke="#2c3e50" stroke-width="1.6"/>
+      <path d="M 0 -9 L 0 44" stroke="#2c3e50" stroke-width="1.6"/>
+      <text x="0" y="-22" class="code" style="text-anchor: middle; font-size: 22px" fill="#e74c3c" font-weight="bold">V</text>
+      <text x="-24" y="32" class="code" style="text-anchor: middle; font-size: 22px" fill="#27ae60" font-weight="bold">I</text>
+      <text x="24" y="32" class="code" style="text-anchor: middle; font-size: 22px" fill="#f39c12" font-weight="bold">R</text>
       <!-- Instructions -->
       <text x="0" y="80" class="label" font-size="9" text-anchor="middle">Tapa lo que buscas, multiplica los otros</text>
     </g>
