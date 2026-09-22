@@ -92,7 +92,7 @@
 
     <!-- EXPLORANDO -> CHARGING -->
     <path d="M 500 270 L 500 390" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)" stroke-dasharray="5,3"/>
-    <text x="515" y="330" class="label" font-size="9" fill="#3498db">batería baja</text>
+    <text x="500" y="306" class="label" style="font-size: 9px; text-anchor: middle" fill="#3498db">batería baja</text>
 
     <!-- CHARGING -> ESPERA -->
     <path d="M 580 420 Q 680 270 580 150" stroke="#3498db" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
@@ -115,7 +115,7 @@
       <text x="60" y="640"><tspan font-weight="bold">3. Acciones:</tspan> En cada estado, la máquina <tspan font-weight="bold">hace algo específico</tspan>.</text>
       <text x="80" y="660">   Ejemplo: En EXPLORANDO activa el cepillo. En CARGANDO lo apaga.</text>
 
-      <text x="500" y="660" class="label" font-size="10" text-anchor="middle" fill="#3498db" font-weight="bold">
+      <text x="500" y="692" class="label" font-size="10" text-anchor="middle" fill="#3498db" font-weight="bold">
         ← Esta es la base del programa de un robot →
       </text>
     </g>

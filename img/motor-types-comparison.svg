@@ -142,11 +142,11 @@
     <line x1="50" y1="520" x2="970" y2="520" stroke="#dadce0" stroke-width="1"/>
     <text x="50" y="517" class="label" font-size="10" font-weight="bold">Cuando usar</text>
     <text x="150" y="517" class="label" font-size="9">Movimiento rápido,</text>
-    <text x="150" y="527" class="label" font-size="9">sin importar exactitud</text>
+    <text x="150" y="530" class="label" style="font-size: 9px">sin importar exactitud</text>
     <text x="400" y="517" class="label" font-size="9">Posición exacta,</text>
-    <text x="400" y="527" class="label" font-size="9">rango limitado (0-180°)</text>
+    <text x="400" y="530" class="label" style="font-size: 9px">rango limitado (0-180°)</text>
     <text x="650" y="517" class="label" font-size="9">Precisión extrema,</text>
-    <text x="650" y="527" class="label" font-size="9">muchos pasos</text>
+    <text x="650" y="530" class="label" style="font-size: 9px">muchos pasos</text>
 
     <!-- Key insight -->
     <text x="500" y="560" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#e74c3c">

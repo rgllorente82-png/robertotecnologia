@@ -90,8 +90,8 @@
       <text x="110" y="447">  📄 tarea.docx</text>
       <text x="110" y="462" font-size="9" fill="#666">  Permisos: lectura+escritura (usuario)</text>
 
-      <text x="90" y="447">📁 Fotos/</text>
-      <text x="110" y="462" font-size="9" fill="#666">  Permisos: lectura (todos)</text>
+      <text x="90" y="487">📁 Fotos/</text>
+      <text x="110" y="502" font-size="9" fill="#666">  Permisos: lectura (todos)</text>
 
       <text x="250" y="430">📁 Música/</text>
       <text x="250" y="447">📁 Videos/</text>

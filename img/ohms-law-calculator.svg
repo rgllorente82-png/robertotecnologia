@@ -97,6 +97,6 @@
   <!-- Formula reminder -->
   <g>
     <circle cx="150" cy="550" r="50" fill="#3498db" opacity="0.15"/>
-    <text x="150" y="555" class="formula" font-size="28">V=IR</text>
+    <text x="150" y="528" class="formula" style="font-size: 26px">V=IR</text>
   </g>
 </svg>

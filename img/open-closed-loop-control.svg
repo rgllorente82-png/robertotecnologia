@@ -109,7 +109,7 @@
     <g>
       <path d="M 855 300 L 890 300" stroke="#27ae60" stroke-width="1.6" fill="none" stroke-dasharray="4,3"/>
       <text x="898" y="268" class="label" style="font-size: 10px" fill="#27ae60" font-weight="bold">Lo que cambia:</text>
-      <text x="898" y="286" class="label" style="font-size: 9px" fill="#188038">el sensor ve 35 %: bombea</text>
+      <text x="898" y="286" class="label" style="font-size: 9px" fill="#188038">ve 35 %: bombea</text>
       <text x="898" y="301" class="label" style="font-size: 9px" fill="#188038">ve 42 %: para</text>
       <text x="898" y="316" class="label" style="font-size: 9px" fill="#188038">y se adapta solo</text>
     </g>

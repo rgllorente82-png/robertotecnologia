@@ -30,7 +30,7 @@
 
     <circle cx="165" cy="160" r="20" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/>
     <text x="165" y="167" class="label" font-size="14" text-anchor="middle" fill="#fff">🌡️</text>
-    <text x="165" y="190" class="label" font-size="9" text-anchor="middle">Temperatura</text>
+    <text x="172" y="204" class="label" style="font-size: 9px; text-anchor: middle">Temperatura</text>
 
     <circle cx="230" cy="160" r="20" fill="#f39c12" stroke="#d68910" stroke-width="1.5"/>
     <text x="230" y="167" class="label" font-size="14" text-anchor="middle" fill="#fff">☀️</text>

@@ -12,12 +12,12 @@
  .tit{font-size:5.4px;font-weight:700}
  .sub{font-size:3px;fill:#444}
 </style>
-<text class="tit" x="0" y="8">ATRIL DE M&#211;VIL &#183; DESPIECE A TAMA&#209;O REAL</text>
-<text class="sub" x="0" y="13">2.&#186; ESO &#183; Tecnolog&#237;a y Digitalizaci&#243;n &#183; escala 1:1 &#183; medidas en mil&#237;metros &#183; cart&#243;n de 3 mm</text>
+<text class="tit" x="0" y="5">ATRIL DE M&#211;VIL &#183; DESPIECE A TAMA&#209;O REAL</text>
+<text class="sub" x="0" y="9.6">2.&#186; ESO &#183; Tecnolog&#237;a y Digitalizaci&#243;n &#183; escala 1:1 &#183; medidas en mil&#237;metros &#183; cart&#243;n de 3 mm</text>
 <path class="pieza" d="M16.00 20.00 L96.00 20.00 L96.00 160.00 L68.50 160.00 L68.50 145.00 L57.50 145.00 L57.50 90.00 L54.50 90.00 L54.50 145.00 L43.50 145.00 L43.50 160.00 L16.00 160.00 Z"/>
 <path class="eje" d="M56.00 16.00 V164.00"/>
-<text class="rot" x="16.00" y="11.00">A &#183; RESPALDO</text>
-<text class="rot2" x="16.00" y="15.80">1 unidad &#183; cart&#243;n de 3 mm</text>
+<text class="rot" x="100.00" y="30.00">A &#183; RESPALDO</text>
+<text class="rot2" x="100.00" y="35.00">1 unidad &#183; cart&#243;n de 3 mm</text>
 <path class="ref" d="M16.00 20.00 V14.00 M96.00 20.00 V14.00"/><path class="cot" d="M16.00 14.00 H96.00"/><path class="fle" d="M16.00 14.00 l3.20 -1.1 v2.2 Z"/><path class="fle" d="M96.00 14.00 l-3.20 -1.1 v2.2 Z"/><text class="ct" x="56.00" y="12.60">80</text>
 <path class="ref" d="M16.00 20.00 H9.00 M16.00 160.00 H9.00"/><path class="cot" d="M9.00 20.00 V160.00"/><path class="fle" d="M9.00 20.00 l-1.1 3.20 h2.2 Z"/><path class="fle" d="M9.00 160.00 l-1.1 -3.20 h2.2 Z"/><text class="ct" x="7.60" y="90.00" transform="rotate(-90 7.60 90.00)">140</text>
 <path class="ref" d="M96.00 90.00 H103.00 M96.00 160.00 H103.00"/><path class="cot" d="M103.00 90.00 V160.00"/><path class="fle" d="M103.00 90.00 l-1.1 3.20 h2.2 Z"/><path class="fle" d="M103.00 160.00 l-1.1 -3.20 h2.2 Z"/><text class="ct" x="101.60" y="125.00" transform="rotate(-90 101.60 125.00)">70</text>
