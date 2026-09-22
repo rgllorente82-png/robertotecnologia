@@ -23,8 +23,8 @@
   <g>
     <circle cx="80" cy="140" r="45" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
     <text x="80" y="135" class="step-label" fill="#fff">1</text>
-    <text x="80" y="165" class="label" font-size="10" text-anchor="middle" font-weight="bold">Definir</text>
-    <text x="80" y="180" class="label" font-size="9" text-anchor="middle">el problema</text>
+    <text x="80" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Definir</text>
+    <text x="80" y="220" class="label" font-size="9" text-anchor="middle">el problema</text>
   </g>
 
   <!-- Arrow 1-2 -->
@@ -34,8 +34,8 @@
   <g>
     <circle cx="235" cy="140" r="45" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
     <text x="235" y="135" class="step-label" fill="#fff">2</text>
-    <text x="235" y="165" class="label" font-size="10" text-anchor="middle" font-weight="bold">Especificar</text>
-    <text x="235" y="180" class="label" font-size="9" text-anchor="middle">requisitos</text>
+    <text x="235" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Especificar</text>
+    <text x="235" y="220" class="label" font-size="9" text-anchor="middle">requisitos</text>
   </g>
 
   <!-- Arrow 2-3 -->
@@ -45,8 +45,8 @@
   <g>
     <circle cx="390" cy="140" r="45" fill="#3498db" stroke="#1a73e8" stroke-width="2"/>
     <text x="390" y="135" class="step-label" fill="#fff">3</text>
-    <text x="390" y="165" class="label" font-size="10" text-anchor="middle" font-weight="bold">Diseñar</text>
-    <text x="390" y="180" class="label" font-size="9" text-anchor="middle">la solución</text>
+    <text x="390" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Diseñar</text>
+    <text x="390" y="220" class="label" font-size="9" text-anchor="middle">la solución</text>
   </g>
 
   <!-- Arrow 3-4 -->
@@ -56,8 +56,8 @@
   <g>
     <circle cx="545" cy="140" r="45" fill="#9b59b6" stroke="#7d3c98" stroke-width="2"/>
     <text x="545" y="135" class="step-label" fill="#fff">4</text>
-    <text x="545" y="165" class="label" font-size="10" text-anchor="middle" font-weight="bold">Construir</text>
-    <text x="545" y="180" class="label" font-size="9" text-anchor="middle">el prototipo</text>
+    <text x="545" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Construir</text>
+    <text x="545" y="220" class="label" font-size="9" text-anchor="middle">el prototipo</text>
   </g>
 
   <!-- Arrow 4-5 -->
@@ -67,8 +67,8 @@
   <g>
     <circle cx="700" cy="140" r="45" fill="#27ae60" stroke="#229954" stroke-width="2"/>
     <text x="700" y="135" class="step-label" fill="#fff">5</text>
-    <text x="700" y="165" class="label" font-size="10" text-anchor="middle" font-weight="bold">Probar</text>
-    <text x="700" y="180" class="label" font-size="9" text-anchor="middle">y validar</text>
+    <text x="700" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Probar</text>
+    <text x="700" y="220" class="label" font-size="9" text-anchor="middle">y validar</text>
   </g>
 
   <!-- Arrow 5-6 -->
@@ -78,8 +78,8 @@
   <g>
     <circle cx="855" cy="140" r="45" fill="#16a085" stroke="#117a65" stroke-width="2"/>
     <text x="855" y="135" class="step-label" fill="#fff">6</text>
-    <text x="855" y="165" class="label" font-size="10" text-anchor="middle" font-weight="bold">Mejorar</text>
-    <text x="855" y="180" class="label" font-size="9" text-anchor="middle">el diseño</text>
+    <text x="855" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Mejorar</text>
+    <text x="855" y="220" class="label" font-size="9" text-anchor="middle">el diseño</text>
   </g>
 
   <!-- Arrow 6-7 (downward) -->
@@ -89,13 +89,13 @@
   <g>
     <circle cx="855" cy="305" r="45" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
     <text x="855" y="300" class="step-label" fill="#fff">7</text>
-    <text x="855" y="330" class="label" font-size="10" text-anchor="middle" font-weight="bold">Documentar</text>
-    <text x="855" y="345" class="label" font-size="9" text-anchor="middle">y comunicar</text>
+    <text x="855" y="372" class="label" style="font-size: 10px; text-anchor: middle" font-weight="bold">Documentar</text>
+    <text x="855" y="388" class="label" style="font-size: 9px; text-anchor: middle">y comunicar</text>
   </g>
 
   <!-- Feedback loop from 6 to 5 -->
   <path d="M 810 140 Q 755 110 745 140" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowdark)" stroke-dasharray="5,3"/>
-  <text x="750" y="110" class="label" font-size="9" fill="#e74c3c">retroalimentación</text>
+  <text x="742" y="86" class="label" style="font-size: 9px" fill="#e74c3c">retroalimentación</text>
 
   <!-- BOTTOM: Details -->
   <g>
@@ -108,7 +108,7 @@
       <text x="80" y="488">¿Qué necesito construir? ¿Para quién? ¿Por qué no existe ya?</text>
 
       <text x="60" y="510"><tspan font-weight="bold">2. Especificar requisitos</tspan></text>
-      <text x="80" y="528">Lo que DEBE cumplir: tamaño, peso, materiales, resistencia, presupuesto. Requisitos comprobables.</text>
+      <text x="80" y="528">Lo que DEBE cumplir: tamaño, peso, materiales, resistencia y presupuesto.</text>
 
       <text x="60" y="550"><tspan font-weight="bold">3. Diseñar la solución</tspan></text>
       <text x="80" y="568">Croquis acotados, despieces, matriz de decisión de materiales, hoja de proceso, Gantt.</text>
