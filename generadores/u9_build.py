@@ -8,7 +8,7 @@ el tema, no solo de la ultima sesion.
 
     ~/venv/bin/python generadores/u9_build.py
 
-Escribe 2eso/TyD/tema9/index.html relativo a la raiz del repo (el padre de
+Escribe 2eso/TyD/tema11/index.html relativo a la raiz del repo (el padre de
 generadores/), no a una ruta absoluta: asi corre igual en el portatil y aqui.
 Necesita el venv porque las anchuras de las tipografias salen de las tablas AFM
 que trae reportlab (ver u9_metricas.py); la pagina que sale no depende de nada.
@@ -355,7 +355,7 @@ S1 = (
         <h4>Lectura del tema</h4>
         <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>30 p&aacute;rrafos numerados</b>:
            cada uno lee el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.</p>
-        <p style="margin-top:10px"><a href="lectura-tema9.pdf" target="_blank" rel="noopener"
+        <p style="margin-top:10px"><a href="lectura-tema11.pdf" target="_blank" rel="noopener"
            style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
            &#8595; Lo que dice y c&oacute;mo se ve &middot; PDF</a></p>
       </div>
@@ -1836,13 +1836,13 @@ S = [
 ]
 
 CFG = dict(
- ruta='2eso/TyD/tema9/',
+ ruta='2eso/TyD/tema11/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
        u'&middot; <a href="../">TyD</a> &middot; Tema 9',
  h1=u'Herramientas digitales y difusi&oacute;n',
- titulo=u'Tema 9 &middot; Herramientas digitales y difusi&oacute;n',
- tema=u'Tema 9', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
- desc=u'Tema 9 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: formatos de '
+ titulo=u'Tema 11 &middot; Herramientas digitales y difusi&oacute;n',
+ tema=u'Tema 11', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 11 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: formatos de '
       u'fichero, estilos frente a formato a mano y por qu&eacute; un PDF se ve igual en todas '
       u'partes; mapa de bits y vectorial, resoluci&oacute;n y compresi&oacute;n; c&oacute;mo se '
       u'hace una presentaci&oacute;n que se pueda evaluar con n&uacute;meros; derechos de autor, '

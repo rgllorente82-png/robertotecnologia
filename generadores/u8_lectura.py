@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Lectura de aula de la U8: 30 parrafos numerados y 10 preguntas, en PDF.
 
-    python generadores/u8_lectura.py   ->  2eso/TyD/tema8/lectura-tema8.pdf
+    python generadores/u8_lectura.py   ->  2eso/TyD/tema10/lectura-tema10.pdf
 
 El hilo es un solo gesto -le das al play en el recreo- y el texto lo sigue hasta
 el final: que viaja, quien lo ve pasar y que dejas por el camino. Asi la lectura
@@ -255,13 +255,13 @@ CFG = dict(
   parrafos=PARRAFOS,
   preguntas=PREGUNTAS,
   curso=u'2.º de ESO · Tecnología y Digitalización',
-  tema=u'Tema 8 · Internet, datos y seguridad',
+  tema=u'Tema 10 · Mantenimiento y seguridad digital',
 )
 
 if __name__ == '__main__':
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema8')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema10')
     os.makedirs(destino, exist_ok=True)
-    ruta = lectura.genera(CFG, os.path.join(destino, 'lectura-tema8.pdf'))
+    ruta = lectura.genera(CFG, os.path.join(destino, 'lectura-tema10.pdf'))
     n = sum(1 for p in PARRAFOS if not isinstance(p, tuple))
     print('Lectura U8: %s  ·  %d parrafos numerados, %d preguntas, %d bytes' % (
         ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

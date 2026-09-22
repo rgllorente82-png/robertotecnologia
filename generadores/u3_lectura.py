@@ -221,6 +221,6 @@ if __name__ == '__main__':
                    u'fabricar uno entero, y eso no es una manera de hablar.',
         parrafos=P, preguntas=PREGUNTAS,
         curso=u'2.º de ESO · Tecnología y Digitalización',
-        tema=u'Tema 3 · Materiales de uso técnico'), ruta)
+        tema=u'Tema 3 · Materiales'), ruta)
     print(u'%s  ·  %d párrafos numerados, %d preguntas, %d bytes'
           % (ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

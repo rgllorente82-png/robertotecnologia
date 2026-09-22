@@ -225,6 +225,6 @@ if __name__ == '__main__':
                    u'setecientos años.',
         parrafos=P, preguntas=PREGUNTAS,
         curso=u'2.º de ESO · Tecnología y Digitalización',
-        tema=u'Tema 2 · Representación gráfica de un proyecto'), ruta)
+        tema=u'Tema 2 · Expresión gráfica de un proyecto'), ruta)
     print(u'%s  ·  %d párrafos numerados, %d preguntas, %d bytes'
           % (ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

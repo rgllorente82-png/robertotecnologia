@@ -335,11 +335,6 @@ footer .wrap{padding-block:18px 26px}
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
-}
 /* ---- al imprimir, que salgan todas las sesiones ---- */
 @media print{
   #nav{display:none}
@@ -386,7 +381,12 @@ footer .wrap{padding-block:18px 26px}
 .rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
 .rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
 @media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}</style>
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
+</style>
 <script>
 /* quien pide reducir el movimiento, lo pide tambien para las escenas */
 window.QUIETO = function(){

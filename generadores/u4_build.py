@@ -279,17 +279,17 @@ S.append(dict(corto=u'Ensayo y test', titulo=u'Romperlo, entender por qu&eacute;
               cuerpo=S6))
 
 CFG = dict(
- ruta='2eso/TyD/tema4/',
- migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 4',
+ ruta='2eso/TyD/tema6/',
+ migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 6',
  h1=u'Estructuras',
- titulo=u'Tema 4 &middot; Estructuras',
- tema=u'Tema 4', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
- desc=u'Tema 4 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los cinco esfuerzos, la triangulaci&oacute;n y por qu&eacute; una estructura aguanta.',
+ titulo=u'Tema 6 &middot; Estructuras',
+ tema=u'Tema 6', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 6 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los cinco esfuerzos, la triangulaci&oacute;n y por qu&eacute; una estructura aguanta.',
  sesiones=S)
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.makedirs(os.path.join(BASE, '2eso/TyD/tema4'), exist_ok=True)
+os.makedirs(os.path.join(BASE, '2eso/TyD/tema6'), exist_ok=True)
 html = pagina(CFG)
-io.open(os.path.join(BASE, '2eso/TyD/tema4/index.html'), 'w', encoding='utf-8', newline='').write(html)
+io.open(os.path.join(BASE, '2eso/TyD/tema6/index.html'), 'w', encoding='utf-8', newline='').write(html)
 print('U4 generada: %d bytes, %d sesiones (%d escritas)' % (
     len(html), len(S), sum(1 for x in S if not x.get('pendiente'))))

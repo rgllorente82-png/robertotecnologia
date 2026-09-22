@@ -22,7 +22,7 @@ import sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(AQUI)
-CURSOS = [(('2eso', 'TyD'), 11), (('4eso', 'Tecnologia'), 10)]
+CURSOS = [(('2eso', 'TyD'), 13), (('4eso', 'Tecnologia'), 10)]
 MARCA = u'<!-- enlace al tema siguiente -->'
 
 

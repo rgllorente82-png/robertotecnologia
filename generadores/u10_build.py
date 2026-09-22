@@ -319,13 +319,13 @@ S.append(dict(corto=u'Proyecto y test',
               cuerpo=S6))
 
 CFG = dict(
-    ruta='2eso/TyD/tema10/',
+    ruta='2eso/TyD/tema12/',
     migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
           u'&middot; <a href="../">TyD</a> &middot; Tema 10',
     h1=u'Programaci&oacute;n y rob&oacute;tica',
-    titulo=u'Tema 10 &middot; Programaci&oacute;n y rob&oacute;tica',
-    tema=u'Tema 10', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
-    desc=u'Tema 10 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: algoritmos, '
+    titulo=u'Tema 12 &middot; Programaci&oacute;n y rob&oacute;tica',
+    tema=u'Tema 12', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+    desc=u'Tema 12 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: algoritmos, '
          u'bucles, condicionales y micro:bit.',
     sesiones=S)
 

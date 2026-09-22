@@ -596,7 +596,7 @@ S3 = (
         <h4>Lectura del tema</h4>
         <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>31 p&aacute;rrafos numerados</b>: cada uno lee
            el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.</p>
-        <p style="margin-top:10px"><a href="lectura-tema6.pdf" target="_blank" rel="noopener"
+        <p style="margin-top:10px"><a href="lectura-tema8.pdf" target="_blank" rel="noopener"
            style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
            &#8595; Un cable no hace nada &middot; PDF</a></p>
       </div>
@@ -1354,7 +1354,7 @@ S6 = (
         <h4>Lectura del tema</h4>
         <p>Si a&uacute;n no la hab&eacute;is hecho, la lectura va con este tema: <b>31 p&aacute;rrafos numerados</b>,
            uno cada uno en voz alta, y diez preguntas por escrito.</p>
-        <p style="margin-top:10px"><a href="lectura-tema6.pdf" target="_blank" rel="noopener"
+        <p style="margin-top:10px"><a href="lectura-tema8.pdf" target="_blank" rel="noopener"
            style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
            &#8595; Un cable no hace nada &middot; PDF</a></p>
       </div>
@@ -1399,13 +1399,13 @@ SESIONES = [
 ]
 
 CFG = dict(
- ruta='2eso/TyD/tema6/',
+ ruta='2eso/TyD/tema8/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; '
        u'<a href="../">TyD</a> &middot; Tema 6',
  h1=u'Electricidad y electr&oacute;nica',
- titulo=u'Tema 6 &middot; Electricidad y electr&oacute;nica',
- tema=u'Tema 6', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
- desc=u'Tema 6 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: el circuito el&eacute;ctrico, '
+ titulo=u'Tema 8 &middot; Electricidad y electr&oacute;nica',
+ tema=u'Tema 8', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 8 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: el circuito el&eacute;ctrico, '
       u'tensi&oacute;n, intensidad, resistencia, ley de Ohm, serie y paralelo y simbolog&iacute;a '
       u'normalizada, con escenas interactivas.',
  sesiones=SESIONES)

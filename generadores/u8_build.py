@@ -9,7 +9,7 @@ ultima sesion.
 
     python generadores/u8_build.py
 
-Escribe 2eso/TyD/tema8/index.html relativo a la raiz del repo (el padre de
+Escribe 2eso/TyD/tema10/index.html relativo a la raiz del repo (el padre de
 generadores/), no a una ruta absoluta: asi corre igual en el portatil y aqui.
 
 Ojo con la numeracion: esto es el TEMA 8 de la web y la UNIDAD 10 del libro
@@ -342,7 +342,7 @@ S1 = (
         <h4>Lectura del tema</h4>
         <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>30 p&aacute;rrafos numerados</b>: cada uno
            lee el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.</p>
-        <p style="margin-top:10px"><a href="lectura-tema8.pdf" target="_blank" rel="noopener"
+        <p style="margin-top:10px"><a href="lectura-tema10.pdf" target="_blank" rel="noopener"
            style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
            &#8595; El viaje de un v&iacute;deo, y qui&eacute;n lo ve pasar &middot; PDF</a></p>
       </div>
@@ -1803,13 +1803,13 @@ S = [
 ]
 
 CFG = dict(
- ruta='2eso/TyD/tema8/',
+ ruta='2eso/TyD/tema10/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
        u'&middot; <a href="../">TyD</a> &middot; Tema 8',
  h1=u'Internet, datos y seguridad',
- titulo=u'Tema 8 &middot; Internet, datos y seguridad',
- tema=u'Tema 8', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
- desc=u'Tema 8 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: paquetes, direcciones IP, '
+ titulo=u'Tema 10 &middot; Internet, datos y seguridad',
+ tema=u'Tema 10', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 10 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: paquetes, direcciones IP, '
       u'routers y DNS; http frente a https y qu&eacute; protege el candado; huella digital, cookies y '
       u'permisos de las aplicaciones.',
  sesiones=S)

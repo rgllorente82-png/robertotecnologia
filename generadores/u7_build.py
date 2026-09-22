@@ -6,7 +6,7 @@ u7_escenas.py las de las sesiones 1 a 3 y u7_escenas2.py las de las 4 a 6.
 
     python generadores/u7_build.py
 
-Escribe 2eso/TyD/tema7/index.html relativo a la raiz del repo (el padre de
+Escribe 2eso/TyD/tema9/index.html relativo a la raiz del repo (el padre de
 generadores/), no a una ruta absoluta: asi corre igual en el portatil y aqui.
 """
 import io, json, os, sys
@@ -275,7 +275,7 @@ S1 = (
         <h4>Lectura del tema</h4>
         <p>Una sesi&oacute;n entera dedicada a leer y contestar. <b>30 p&aacute;rrafos numerados</b>: cada uno
            lee el suyo en voz alta, en orden. Despu&eacute;s, diez preguntas por escrito.</p>
-        <p style="margin-top:10px"><a href="lectura-tema7.pdf" target="_blank" rel="noopener"
+        <p style="margin-top:10px"><a href="lectura-tema9.pdf" target="_blank" rel="noopener"
            style="font-family:var(--f-m);font-size:13px;color:var(--goo-verde);font-weight:500">
            &#8595; De una tecla que no responde a los ceros y unos &middot; PDF</a></p>
       </div>
@@ -1480,13 +1480,13 @@ S = [
 ]
 
 CFG = dict(
- ruta='2eso/TyD/tema7/',
+ ruta='2eso/TyD/tema9/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
        u'&middot; <a href="../">TyD</a> &middot; Tema 7',
  h1=u'El ordenador y sus componentes',
- titulo=u'Tema 7 &middot; El ordenador y sus componentes',
- tema=u'Tema 7', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
- desc=u'Tema 7 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: hardware y software, la CPU y '
+ titulo=u'Tema 9 &middot; El ordenador y sus componentes',
+ tema=u'Tema 9', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 9 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: hardware y software, la CPU y '
       u'su ciclo, memoria RAM frente a almacenamiento, representaci&oacute;n binaria, perif&eacute;ricos y '
       u'conversi&oacute;n anal&oacute;gico-digital, sistema operativo y diagn&oacute;stico de aver&iacute;as.',
  sesiones=S)

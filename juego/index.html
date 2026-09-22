@@ -417,15 +417,21 @@ body.aula #voz-sel{font-size:13px;max-width:240px}
   padding:12px 18px;border-radius:0 0 4px 0;text-decoration:none}
 .saltar:focus{left:0}
 #contenido:focus{outline:none}
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
 /* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
 @media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
-    transition-duration:.001ms!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
 }
 </style>
 </head>
 <body>
+<!-- saltar la cabecera: WCAG 2.4.1 -->
+<a class="saltar" href="#contenido">Saltar al contenido</a>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <div class="marco" id="marco">
 <header>

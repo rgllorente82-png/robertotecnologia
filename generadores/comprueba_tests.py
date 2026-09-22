@@ -26,7 +26,7 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.dirname(AQUI)
 
 CURSOS = [
-    ('2eso', ('2eso', 'TyD'), 11),
+    ('2eso', ('2eso', 'TyD'), 13),
     ('4eso', ('4eso', 'Tecnologia'), 10),
 ]
 

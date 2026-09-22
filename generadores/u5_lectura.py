@@ -3,7 +3,7 @@
 
     ~/venv/bin/python generadores/u5_lectura.py
 
-Deja  2eso/TyD/tema5/lectura-tema5.pdf
+Deja  2eso/TyD/tema7/lectura-tema7.pdf
 
 Parte del borrador LECTURA-BORRADOR.txt, con tres cambios de fondo:
   - las cifras romanas y egipcias estaban mal (decia 50 hombres por tonelada y
@@ -204,14 +204,14 @@ CFG = dict(
  entradilla=u'Un músculo que solo sabe tirar, y un mundo que pide fuerzas de cientos de kilos, giros '
             u'rápidos y recorridos largos. Entre las dos cosas, cinco mil años de mecanismos que hacen '
             u'siempre el mismo trato.',
- curso=u'2.º de ESO', tema=u'Tema 5 · Mecanismos',
+ curso=u'2.º de ESO', tema=u'Tema 7 · Mecanismos',
  parrafos=PARRAFOS, preguntas=PREGUNTAS)
 
 
 if __name__ == '__main__':
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema5')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema7')
     if not os.path.isdir(destino):
         os.makedirs(destino)
-    salida = lectura.genera(CFG, os.path.join(destino, 'lectura-tema5.pdf'))
+    salida = lectura.genera(CFG, os.path.join(destino, 'lectura-tema7.pdf'))
     numerados = sum(1 for p in PARRAFOS if not isinstance(p, tuple))
     print('%s  ->  %d parrafos numerados, %d preguntas' % (salida, numerados, len(PREGUNTAS)))

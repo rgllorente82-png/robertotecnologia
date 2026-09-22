@@ -220,14 +220,14 @@ CFG = dict(
                u'nada de nada. Esta lectura cuenta qué hay que añadirle, quién lo averiguó y cuánto '
                u'dinero se jugó alguien al decidirlo.',
     curso=u'2.º de ESO · Tecnología y Digitalización',
-    tema=u'Tema 6 · Electricidad y electrónica',
+    tema=u'Tema 8 · Electricidad',
     parrafos=P,
     preguntas=Q,
 )
 
 if __name__ == '__main__':
     raiz = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    destino = os.path.join(raiz, '2eso', 'TyD', 'tema6', 'lectura-tema6.pdf')
+    destino = os.path.join(raiz, '2eso', 'TyD', 'tema8', 'lectura-tema8.pdf')
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     lectura.genera(CFG, destino)
     n = sum(1 for p in P if not isinstance(p, tuple))

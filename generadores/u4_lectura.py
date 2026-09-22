@@ -3,7 +3,7 @@
 
     ~/venv/bin/python generadores/u4_lectura.py
 
-Deja  2eso/TyD/tema4/lectura-tema4.pdf
+Deja  2eso/TyD/tema6/lectura-tema6.pdf
 
 No repite la unidad: la unidad ensena por que las estructuras aguantan, y esto
 va de cinco que no aguantaron y de la frase que cada una dejo escrita en un
@@ -207,9 +207,9 @@ if __name__ == '__main__':
     if len(PREGUNTAS) != 10:
         sys.exit(u'Tienen que ser 10 preguntas y hay %d' % len(PREGUNTAS))
 
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema4')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema6')
     os.makedirs(destino, exist_ok=True)
-    ruta = os.path.join(destino, 'lectura-tema4.pdf')
+    ruta = os.path.join(destino, 'lectura-tema6.pdf')
     lectura.genera(dict(
         titulo=u'Por qué se caen los puentes',
         subtitulo=u'Cinco estructuras que fallaron y la frase que cada una dejó escrita en un '
@@ -220,6 +220,6 @@ if __name__ == '__main__':
                    u'hormigón. De cada una salió una regla que hoy es obligatoria.',
         parrafos=P, preguntas=PREGUNTAS,
         curso=u'2.º de ESO · Tecnología y Digitalización',
-        tema=u'Tema 4 · Estructuras'), ruta)
+        tema=u'Tema 6 · Estructuras'), ruta)
     print(u'%s  ·  %d párrafos numerados, %d preguntas, %d bytes'
           % (ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

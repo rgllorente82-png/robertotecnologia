@@ -3,7 +3,7 @@
 
     ~/venv/bin/python generadores/u9_lectura.py
 
-Deja 2eso/TyD/tema9/lectura-tema9.pdf. Ocupa una sesion entera: cada alumno lee
+Deja 2eso/TyD/tema11/lectura-tema11.pdf. Ocupa una sesion entera: cada alumno lee
 un parrafo en voz alta, en orden, y despues se contesta por escrito.
 
 Los parrafos son 30 justos, y esta comprobado abajo: si se anade uno hay que
@@ -223,9 +223,9 @@ if __name__ == '__main__':
     if len(PREGUNTAS) != 10:
         sys.exit(u'Tienen que ser 10 preguntas y hay %d' % len(PREGUNTAS))
 
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema9')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema11')
     os.makedirs(destino, exist_ok=True)
-    ruta = os.path.join(destino, 'lectura-tema9.pdf')
+    ruta = os.path.join(destino, 'lectura-tema11.pdf')
     lectura.genera(dict(
         titulo=u'Lo que dice y cómo se ve',
         subtitulo=u'Por qué un trabajo llega roto, cuánto pesa de verdad una foto y por qué la '
@@ -235,6 +235,6 @@ if __name__ == '__main__':
                    u'acabó obligando a separar lo que dices de lo que enseñas.',
         parrafos=P, preguntas=PREGUNTAS,
         curso=u'2.º de ESO · Tecnología y Digitalización',
-        tema=u'Tema 9 · Herramientas digitales y difusión'), ruta)
+        tema=u'Tema 11 · Ofimática'), ruta)
     print(u'%s  ·  %d párrafos numerados, %d preguntas, %d bytes'
           % (ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

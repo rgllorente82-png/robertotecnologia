@@ -21,35 +21,35 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 FIGURAS = json.loads(u'''[
  {
-  "pagina": "2eso/TyD/tema10/index.html",
+  "pagina": "2eso/TyD/tema12/index.html",
   "img": "conditional-if-else.svg",
   "ancla": "</code>,\\n           <code>bot&oacute;n A pulsado</code>.</p>\\n        <p><b>Umbral</b>: el n&uacute;mero con el que se compara. Es una <b>decisi&oacute;n tuya</b>, no un\\n           dato del sensor, y es lo que de verdad hay que ajustar en un automatismo.</p>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/conditional-if-else.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\"\\n             alt=\\"Diagrama de flujo de condicionales: si condici&oacute;n entonces acci&oacute;n\\">\\n        <figcaption><b>Estructura de un condicional: SI ... ENTONCES ... SI NO ...</b> El programa compara dos valores (condici&oacute;n), obtiene S&iacute; o NO, y ejecuta uno de dos caminos. En el ejemplo: si temperatura &lt; 20, encender calefacci&oacute;n; si no, apagarla. La indentaci&oacute;n (los espacios al inicio de la l&iacute;nea) marca qu&eacute; c&oacute;digo va dentro de cada rama. Un programa sin condicionales no podr&iacute;a adaptarse al mundo: siempre har&iacute;a lo mismo.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "electric-circuit-basics.svg",
   "ancla": "</li>\\n          <li><b>Cortocircuito</b>: hay un camino de vuelta <b>sin receptor</b>, solo cable. La\\n              corriente se dispara, el generador se calienta y algo se quema.</li>\\n        </ul>\\n      </div>\\n\\n      <h3>C&oacute;mo se dibuja: simbolog&iacute;a normalizada</h3>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/electric-circuit-basics.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Circuito el&eacute;ctrico b&aacute;sico con s&iacute;mbolos normalizados: bater&iacute;a, cables, carga, interruptor y s&iacute;mbolos de componentes\\">\\n        <figcaption>Los <b>elementos b&aacute;sicos de un circuito el&eacute;ctrico</b> y los s&iacute;mbolos normalizados que se usan en los esquemas. Voltaje, corriente, resistencia y la ley de Ohm que los une.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "electrical-power-energy.svg",
   "ancla": "</b>, y es la que\\n         viene escrita en la factura. Confundirlas es el error que hace que una casa pague de m&aacute;s\\n         todos los meses.</p>\\n  \\n    </section>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">01</span> Teor&iacute;a &middot; 20 min</div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/electrical-power-energy.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Potencia eléctrica y energía: diferencia entre vatios y kilovatio-hora\\">\\n        <figcaption>La <b>potencia (P)</b> mide lo que gastas EN ESTE MOMENTO, en vatios. La <b>energía (E)</b> mide lo que acumulas en el tiempo, en kilovatio-hora (kWh). Es la diferencia entre el brillo actual de la bombilla (potencia) y la factura de electricidad (energía). P = V × I. E = P × t. Mezclar estas dos es el error más frecuente en problemas de electricidad.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "forces-newtons-laws.svg",
   "ancla": "</button><button type=\\"button\\" data-ses=\\"6\\">S6 &middot; Repaso y test</button></nav>\\n  </div>\\n</header>\\n\\n<main id=\\"contenido\\" tabindex=\\"-1\\" class=\\"wrap\\">\\n\\n  <div id=\\"ses-1\\">\\n    <div class=\\"ses-head\\">\\n      <div class=\\"eyebrow\\">Sesi&oacute;n 1 &middot; 60 minutos</div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/forces-newtons-laws.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\"\\n             alt=\\"Las tres leyes de Newton: inercia, F=ma y acción-reacción\\">\\n        <figcaption>Las <b>tres leyes de Newton</b> explican todo lo que va a pasar en este tema: 1ª Ley (inercia): sin fuerza, un objeto sigue igual. 2ª Ley (F = m·a): más fuerza produce más aceleración. 3ª Ley (acción-reacción): toda fuerza tiene una pareja que va en dirección contraria. Las máquinas simples (palancas, poleas, engranajes) son formas inteligentes de repartir y modificar las fuerzas, pero no crean fuerza de la nada.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "lever-classes.svg",
   "ancla": "</i></li>\\n          <li><b>Tercer g&eacute;nero</b> &mdash; la <b>fuerza en medio</b>. Siempre <b>pierde</b>\\n              fuerza y gana recorrido y velocidad.\\n              <i>Pinzas de depilar, ca&ntilde;a de pescar, tu propio brazo.</i></li>\\n        </ul>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/lever-classes.svg\\" width=\\"1000\\" height=\\"750\\" loading=\\"lazy\\"\\n             alt=\\"Las tres clases de palancas: fulcro en medio, carga en medio, esfuerzo en medio\\">\\n        <figcaption><strong>Las tres clases de palancas:</strong> Orden de posiciones, ventaja mec&aacute;nica y ejemplos de cada clase\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
@@ -63,56 +63,56 @@ FIGURAS = json.loads(u'''[
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "ohms-law-triangle.svg",
   "ancla": "<a href=\\"https://www.youtube.com/watch?v=tpt9FlNYq4k\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/ohms-law-triangle.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\"\\n             alt=\\"Tensi&oacute;n, intensidad y resistencia: el tri&aacute;ngulo de Ohm\\">\\n        <figcaption><strong>La ley de Ohm:</strong> La tensi&oacute;n (empu&aacute;n), la intensidad (caudal) y la resistencia (estorbo) se relacionan con V = I &times; R. Tapar lo que buscas y multiplicar (o dividir) los otros dos.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema10/index.html",
+  "pagina": "2eso/TyD/tema12/index.html",
   "img": "programming_robotics_concepts.svg",
   "ancla": "<b>pasar desfilando</b> de derecha a izquierda. Eso tambi&eacute;n\\n           es una decisi&oacute;n de dise&ntilde;o de alguien: con 25 luces, o desfila o no se puede.</p>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/programming_robotics_concepts.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Conceptos de programación: sensores, bloques de programación (bucles, condicionales, variables), algoritmos y estructura de un programa\\">\\n        <figcaption>Los conceptos clave de programación y robótica: sensores que entienden el mundo, bloques que lo controlan (bucles, condicionales, variables),\\n          y la estructura básica de un programa en micro:bit con inicialización y bucle infinito.</figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "series-parallel-circuits.svg",
   "ancla": "<b>exactamente al rev&eacute;s</b>, y saber cu&aacute;l es cu&aacute;l es lo que\\n         impide que se te queme una regleta.</p>\\n  \\n    </section>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">01</span> Teor&iacute;a &middot; 20 min</div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/series-parallel-circuits.svg\\" width=\\"1200\\" height=\\"500\\" loading=\\"lazy\\"\\n             alt=\\"Comparaci&oacute;n de circuitos en serie y paralelo con bombillas LED\\">\\n        <figcaption>En <b>serie</b>, todas las bombillas comparten el mismo camino: si se funde una, se corta el circuito completo. En <b>paralelo</b>, cada bombilla tiene su propio camino: si se funde una, las dem&aacute;s siguen luciendo. Las dos formas de entender c&oacute;mo se cablean las casas.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "simple-machines.svg",
   "ancla": "</script>\\n\\n  \\n    </section>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">01</span> Teor&iacute;a &middot; 20 min</div>\\n\\n      <h3>Una barra, un punto y un trato</h3>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/simple-machines.svg\\" width=\\"1200\\" height=\\"500\\" loading=\\"lazy\\"\\n             alt=\\"Las 6 máquinas simples: palanca, rueda y eje, polea, plano inclinado, cuña y tornillo\\">\\n        <figcaption>Las <b>seis máquinas simples</b> que han resuelto todos los problemas de fuerza desde la antigüedad. Todas siguen el mismo principio: cambian fuerza por distancia. Aumentas uno, pierdes el otro. La ventaja mecánica es el intercambio.\\n          <span class=\\"credito\\">Elaboración propia · CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema4/index.html",
+  "pagina": "2eso/TyD/tema6/index.html",
   "img": "structural-stresses.svg",
   "ancla": "</p>\\n\\n    </section>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">01</span> Teor&iacute;a &middot; 25 min</div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/structural-stresses.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\"\\n             alt=\\"Los cinco esfuerzos en estructuras: compresión, tensión, flexión, torsión y cortante\\">\\n        <figcaption>Los <b>cinco esfuerzos básicos</b> que pueden afectar a una estructura: compresión (se aplasta), tensión (se estira), flexión (se dobla), torsión (se retuerce) y cortante (se cizalla). Cada material tiene un límite diferente para cada uno, y el ingeniero elige el material y la forma para que el esfuerzo máximo sea menor que su límite de ruptura.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema4/index.html",
+  "pagina": "2eso/TyD/tema6/index.html",
   "img": "structures-types.svg",
   "ancla": "<b>La forma de la estructura se elige\\n           para que el material trabaje solo en el esfuerzo que aguanta.</b></p>\\n        <p><b>C&oacute;digo de color de la unidad:</b> azul = pieza comprimida, rojo = pieza estirada,\\n           naranja = fuerza que llega de fuera.</p>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/structures-types.svg\\" width=\\"1000\\" height=\\"400\\" loading=\\"lazy\\"\\n             alt=\\"Tres tipos principales de estructuras: viga, arco y celosía\\">\\n        <figcaption>Tipos de estructuras: <b>viga</b> (resiste flexión), <b>arco</b> (resiste compresión), <b>celosía</b> (barras en tracción/compresión). Cada estructura transfiere las fuerzas de manera distinta según su forma.</figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema4/index.html",
+  "pagina": "2eso/TyD/tema6/index.html",
   "img": "triangulation-structures.svg",
   "ancla": "</li>\\n        </ul>\\n        <p><b>Estructura</b>: conjunto de elementos que soporta las cargas de un objeto y las conduce\\n           hasta el suelo sin romperse ni deformarse demasiado.</p>\\n      </div>\\n\\n      <h3>El truco que lo cambia todo: triangular</h3>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/triangulation-structures.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Comparación entre rectángulo que se deforma y triángulo rígido\\">\\n        <figcaption>El <b>rectángulo es flexible</b>: sus vértices pueden moverse, deformando la figura. El <b>triángulo es indeformable</b>: con tres lados fijos, todos los ángulos quedan determinados. Triangular una estructura (añadir diagonales) crea triángulos internos que impiden cualquier deformación. Este es el principio fundamental de grúas, torres, puentes y cualquier estructura que soporte cargas.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema4/index.html",
+  "pagina": "2eso/TyD/tema6/index.html",
   "img": "u4-puente-folios.jpg",
   "ancla": "</li>\\n          <li><b>El puente se ha tumbado de lado</b> &rarr; falt&oacute; <b>arriostramiento</b>. No es un\\n              problema de resistencia: es de <b>estabilidad</b>, como la sesi&oacute;n 4.</li>\\n        </ul>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/u4-puente-folios.jpg\\" width=\\"345\\" height=\\"265\\" loading=\\"lazy\\"\\n             style=\\"max-width:345px;margin:0 auto\\"\\n             alt=\\"Puente de celosía construido con tubos de papel enrollado, visto desde arriba\\">\\n        <figcaption>Uno terminado, para comparar con el vuestro. Mirad tres cosas: <b>no hay ni un\\n        rectángulo</b> —todo son triángulos, que es lo único que no se deforma—; las dos cerchas\\n        laterales están <b>unidas entre sí</b> por barras arriba y abajo, y eso es el arriostramiento\\n        que impide que el puente se tumbe de lado; y cada barra es un <b>canuto</b>, no un folio plano:\\n        el mismo papel, puesto de otra forma, aguanta kilos. Las uniones son el punto débil de todos\\n        los puentes de papel, y aquí se ve por qué: son las únicas piezas que no puedes enrollar.</figcaption>\\n      </figure>",
@@ -147,7 +147,7 @@ FIGURAS = json.loads(u'''[
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema4/index.html",
+  "pagina": "2eso/TyD/tema6/index.html",
   "img": "u4-puente-palillos.jpg",
   "ancla": "<div id=\\"ses-5\\" hidden>\\n    <div class=\\"ses-head\\">\\n      <div class=\\"eyebrow\\">Sesi&oacute;n 5 &middot; 60 minutos</div>\\n      <h2>El puente de 40 cent&iacute;metros</h2>\\n      <p>Veinte folios enrollados en canutos. La nota no es lo que aguante: es lo que aguante dividido por lo que pese.</p>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/u4-puente-palillos.jpg\\" width=\\"412\\" height=\\"227\\" loading=\\"lazy\\" style=\\"max-width:412px;margin:0 auto\\"\\n             alt=\\"Puente de arco construido con palos de helado pegados, apoyado en una superficie\\">\\n        <figcaption>Otro que sali&oacute; de esta misma sesi&oacute;n, con palos de helado. Mirad c&oacute;mo est&aacute; resuelto: es un <b>arco</b>, y el arco lleva toda la carga a <b>compresi&oacute;n</b> hasta los dos apoyos &mdash; por eso aguanta con piezas que sueltas no aguantan nada. Fijaos tambi&eacute;n en el punto d&eacute;bil: los palos se solapan de dos en dos, y donde se unen es donde se abre.\\n          <br><br>Foto de <b>Roberto P. Garc&iacute;a Llorente</b>, del taller. Bajo la misma licencia que esta p&aacute;gina.</figcaption>\\n      </figure>",
@@ -175,7 +175,7 @@ FIGURAS = json.loads(u'''[
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "u5-vibrador-olivos.mp4",
   "ancla": "</p>\\n        <p>Merece la pena pensarlo: durante catorce a&ntilde;os, la mejor m&aacute;quina de vapor del\\n           mundo llev&oacute; un mecanismo peor <b>por un motivo legal, no t&eacute;cnico</b>. La\\n           tecnolog&iacute;a no la deciden solo los ingenieros.</p>\\n      </div>",
   "figura": "<div class=\\"escena\\" id=\\"esc-olivos\\">\\n        <div class=\\"escena-barra\\"><span class=\\"escena-titulo\\">Transformar el movimiento, en el campo &middot; 18 segundos</span></div>\\n        <div class=\\"lienzo\\" style=\\"padding:0;background:#000;display:flex;justify-content:center\\">\\n          <video controls preload=\\"none\\" muted playsinline style=\\"width:auto;max-width:100%;max-height:60vh;display:block\\"\\n                 poster=\\"../../../video/u5-vibrador-olivos.jpg\\">\\n            <source src=\\"../../../video/u5-vibrador-olivos.mp4\\" type=\\"video/mp4\\">\\n            Tu navegador no puede reproducir v&iacute;deo.\\n            <a href=\\"../../../video/u5-vibrador-olivos.mp4\\">Desc&aacute;rgalo aqu&iacute;</a>.\\n          </video>\\n        </div>\\n        <div class=\\"pie\\" role=\\"status\\" aria-live=\\"polite\\" aria-atomic=\\"true\\">Una cosechadora de aceituna. El tractor solo sabe hacer una cosa: <b>girar</b>. Y lo que hace falta para que caiga la aceituna no es girar, es <b>sacudir</b>. Dentro de esa pinza hay unas masas descentradas dando vueltas: al girar tiran hacia un lado, media vuelta despu&eacute;s tiran hacia el otro, y el &aacute;rbol entero vibra. Giro convertido en vaiv&eacute;n, como la biela, pero a cuarenta sacudidas por segundo.<br><br>V&iacute;deo de <b>Jared Gulian</b>, v&iacute;a Wikimedia Commons, <b>CC BY 3.0</b>. Recortado y recomprimido.</div>\\n      </div>",
@@ -784,259 +784,259 @@ FIGURAS = json.loads(u'''[
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema4/index.html",
+  "pagina": "2eso/TyD/tema6/index.html",
   "img": "ytb:Yv0cECrFydk",
   "ancla": "data-vid=\\"Yv0cECrFydk\\"",
   "figura": "<div class=\\"video\\" id=\\"video-u4s2\\" data-vid=\\"Yv0cECrFydk\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo sobre tipos de estructuras\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Tipos de estructuras</b>\\n            <span>Elena Zubi &middot; Tecnolog&iacute;a 2.&ordm; ESO</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">V&eacute;alo despu&eacute;s de la escena, no antes: la gracia est&aacute; en que reconozcas\\n          las familias que ya has visto. Ve anotando <b>un ejemplo nuevo</b> de cada una que no\\n          hayamos nombrado aqu&iacute;.</p>\\n        <p class=\\"video-nota\\">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de\\n          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=Yv0cECrFydk\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material publicado\\n          bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "ytb:8fDOm-XJBOQ",
   "ancla": "data-vid=\\"8fDOm-XJBOQ\\"",
   "figura": "<div class=\\"video\\" id=\\"video-palanca\\" data-vid=\\"8fDOm-XJBOQ\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Ley de la palanca (mecanismos)\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Ley de la palanca (mecanismos)</b>\\n            <span>TECH LAPSE &middot; 2 minutos</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Animaci&oacute;n de los tres g&eacute;neros con la ley aplicada paso a paso. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce\\n          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=8fDOm-XJBOQ\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "ytb:AlAxnplUNH0",
   "ancla": "data-vid=\\"AlAxnplUNH0\\"",
   "figura": "<div class=\\"video\\" id=\\"video-poleas\\" data-vid=\\"AlAxnplUNH0\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Polea fija, polea m&oacute;vil y polipasto\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Polea fija, polea m&oacute;vil y polipasto</b>\\n            <span>tecnoblas2 &middot; 7 minutos y medio</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Ense&ntilde;a los tres montajes seguidos, con la cuerda que hay que tirar en cada uno. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce\\n          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=AlAxnplUNH0\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "ytb:0pO6cHi3HzE",
   "ancla": "data-vid=\\"0pO6cHi3HzE\\"",
   "figura": "<div class=\\"video\\" id=\\"video-engranajes\\" data-vid=\\"0pO6cHi3HzE\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Engranajes (Transmisi&oacute;n circular)\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Engranajes (Transmisi&oacute;n circular)</b>\\n            <span>TECH LAPSE &middot; 2 minutos y medio</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Animaci&oacute;n de trenes de engranajes con la relaci&oacute;n de transmisi&oacute;n calculada. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce\\n          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=0pO6cHi3HzE\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "ytb:Dyee1JVYsd0",
   "ancla": "data-vid=\\"Dyee1JVYsd0\\"",
   "figura": "<div class=\\"video\\" id=\\"video-biela\\" data-vid=\\"Dyee1JVYsd0\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: La biela - manivela (mecanismo de transformaci&oacute;n)\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>La biela - manivela (mecanismo de transformaci&oacute;n)</b>\\n            <span>TECH LAPSE &middot; poco m&aacute;s de 2 minutos</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Del mismo profesor que los v&iacute;deos de la palanca y de los engranajes, as&iacute; que usa el mismo vocabulario que hemos usado en clase. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce\\n          sin cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=Dyee1JVYsd0\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "ytb:PFP9LsBdnLA",
   "ancla": "data-vid=\\"PFP9LsBdnLA\\"",
   "figura": "<div class=\\"video\\" id=\\"video-PFP9LsBdnLA\\" data-vid=\\"PFP9LsBdnLA\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: El circuito el&eacute;ctrico y sus componentes\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>El circuito el&eacute;ctrico y sus componentes</b>\\n            <span>Clases Particulares en &Aacute;vila</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Rep&aacute;salo en v&iacute;deo y <b>anota una cosa</b>: cada vez que aparezca un componente, p&aacute;ralo y dibuja su s&iacute;mbolo de memoria antes de mirarlo. Si no te sale, es que a&uacute;n no lo tienes.</p>\\n        <p class=\\"video-nota\\">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de\\n          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=PFP9LsBdnLA\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "ytb:tpt9FlNYq4k",
   "ancla": "data-vid=\\"tpt9FlNYq4k\\"",
   "figura": "<div class=\\"video\\" id=\\"video-tpt9FlNYq4k\\" data-vid=\\"tpt9FlNYq4k\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Circuitos el&eacute;ctricos: ley de Ohm y potencia\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Circuitos el&eacute;ctricos: ley de Ohm y potencia</b>\\n            <span>El Traductor de Ingenier&iacute;a</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Va un poco m&aacute;s all&aacute; de esta sesi&oacute;n: habla tambi&eacute;n de <b>potencia</b>, que es la sesi&oacute;n 4. De momento qu&eacute;date con la parte de la ley de Ohm y toma nota de la otra: la vas a necesitar.</p>\\n        <p class=\\"video-nota\\">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de\\n          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=tpt9FlNYq4k\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "ytb:OVDqVpnRltw",
   "ancla": "data-vid=\\"OVDqVpnRltw\\"",
   "figura": "<div class=\\"video\\" id=\\"video-OVDqVpnRltw\\" data-vid=\\"OVDqVpnRltw\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Circuito el&eacute;ctrico con serie y paralelo &middot; Tecnolog&iacute;a 2.&ordm; ESO\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Circuito el&eacute;ctrico con serie y paralelo &middot; Tecnolog&iacute;a 2.&ordm; ESO</b>\\n            <span>Academia Usero Estepona</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Un ejercicio resuelto paso a paso, del mismo nivel que el vuestro. Hacedlo vosotros primero en la libreta, con el v&iacute;deo pausado, y comparad despu&eacute;s.</p>\\n        <p class=\\"video-nota\\">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de\\n          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=OVDqVpnRltw\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "ytb:9qWYeA5y_r0",
   "ancla": "data-vid=\\"9qWYeA5y_r0\\"",
   "figura": "<div class=\\"video\\" id=\\"video-9qWYeA5y_r0\\" data-vid=\\"9qWYeA5y_r0\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Potencia y energ&iacute;a el&eacute;ctrica: &iquest;cu&aacute;nto costar&aacute;?\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Potencia y energ&iacute;a el&eacute;ctrica: &iquest;cu&aacute;nto costar&aacute;?</b>\\n            <span>Ruben Sebastian</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Otra explicaci&oacute;n de lo mismo, con ejercicios resueltos. Antes de darle al play, calcula t&uacute; lo que cuesta tener encendida la luz de tu habitaci&oacute;n tres horas al d&iacute;a durante un mes: as&iacute; el v&iacute;deo te corrige en vez de cont&aacute;rtelo.</p>\\n        <p class=\\"video-nota\\">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de\\n          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=9qWYeA5y_r0\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema6/index.html",
+  "pagina": "2eso/TyD/tema8/index.html",
   "img": "ytb:Bw4nVt8eQkw",
   "ancla": "data-vid=\\"Bw4nVt8eQkw\\"",
   "figura": "<div class=\\"video\\" id=\\"video-Bw4nVt8eQkw\\" data-vid=\\"Bw4nVt8eQkw\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: C&oacute;mo calcular la resistencia para un LED (ley de Ohm f&aacute;cil)\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>C&oacute;mo calcular la resistencia para un LED (ley de Ohm f&aacute;cil)</b>\\n            <span>ITC MENTOR Academy</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">La misma cuenta que acabas de hacer, contada por otra persona. Ve con la libreta delante y comprueba que usa <b>exactamente</b> la misma f&oacute;rmula: tensi&oacute;n de la fuente menos tensi&oacute;n del LED, dividido entre la corriente que t&uacute; decides.</p>\\n        <p class=\\"video-nota\\">El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin cookies de\\n          seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=Bw4nVt8eQkw\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "ytb:-ZTekGoR8uQ",
   "ancla": "data-vid=\\"-ZTekGoR8uQ\\"",
   "figura": "<div class=\\"video\\" id=\\"video-cpu\\" data-vid=\\"-ZTekGoR8uQ\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: &iquest;C&oacute;mo funciona un procesador? Desde un transistor hasta una CPU\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>&iquest;C&oacute;mo funciona un procesador? Desde un transistor hasta una CPU</b>\\n            <span>Hardware 360&ordm; &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Para ver qu&eacute; hay debajo del ciclo de tres pasos: c&oacute;mo un mont&oacute;n de interruptores microsc&oacute;picos acaban siendo un procesador. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=-ZTekGoR8uQ\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "ytb:o3gGXwY-1uI",
   "ancla": "data-vid=\\"o3gGXwY-1uI\\"",
   "figura": "<div class=\\"video\\" id=\\"video-mem\\" data-vid=\\"o3gGXwY-1uI\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Diferencias entre SSD, disco duro y memoria RAM\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Diferencias entre SSD, disco duro y memoria RAM</b>\\n            <span>Inform&aacute;ticaI3J &middot; en espa&ntilde;ol &middot; unos 6 minutos</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Repasa los tres componentes con piezas reales en la mano. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=o3gGXwY-1uI\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "ytb:iRpB3TVCCtE",
   "ancla": "data-vid=\\"iRpB3TVCCtE\\"",
   "figura": "<div class=\\"video\\" id=\\"video-bin\\" data-vid=\\"iRpB3TVCCtE\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: &iquest;Por qu&eacute; los ordenadores usan el sistema binario?\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>&iquest;Por qu&eacute; los ordenadores usan el sistema binario?</b>\\n            <span>EDteam &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Cuenta la misma historia del reto de hoy: por qu&eacute; dos estados y no diez. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=iRpB3TVCCtE\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "ytb:9GxcNyGQsuk",
   "ancla": "data-vid=\\"9GxcNyGQsuk\\"",
   "figura": "<div class=\\"video\\" id=\\"video-adc\\" data-vid=\\"9GxcNyGQsuk\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Muestreo / Cuantificaci&oacute;n / Codificaci&oacute;n\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Muestreo / Cuantificaci&oacute;n / Codificaci&oacute;n</b>\\n            <span>Universitat Polit&egrave;cnica de Val&egrave;ncia &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Los mismos tres pasos de hoy, contados con la se&ntilde;al delante. Es de un canal universitario y el nivel est&aacute; por encima del de clase: m&iacute;ralo para fijar el vocabulario, no para aprender de cero. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=9GxcNyGQsuk\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "ytb:vnJCudAed08",
   "ancla": "data-vid=\\"vnJCudAed08\\"",
   "figura": "<div class=\\"video\\" id=\\"video-so\\" data-vid=\\"vnJCudAed08\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Microaprendizaje: &iquest;Qu&eacute; es un sistema operativo?\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Microaprendizaje: &iquest;Qu&eacute; es un sistema operativo?</b>\\n            <span>Educar Portal &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Un repaso corto de las funciones que acabas de copiar, por si alguna se ha quedado a medias. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=vnJCudAed08\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "ytb:pMG7x0XnCU8",
   "ancla": "data-vid=\\"pMG7x0XnCU8\\"",
   "figura": "<div class=\\"video\\" id=\\"video-diag\\" data-vid=\\"pMG7x0XnCU8\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: C&oacute;mo diagnosticar problemas en mi PC\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>C&oacute;mo diagnosticar problemas en mi PC</b>\\n            <span>Edutin Academy &middot; curso de mantenimiento &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">El mismo m&eacute;todo aplicado a un equipo real, con las herramientas delante. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=pMG7x0XnCU8\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "ytb:u1xxZ8r2rRc",
   "ancla": "data-vid=\\"u1xxZ8r2rRc\\"",
   "figura": "<div class=\\"video\\" id=\\"video-cables\\" data-vid=\\"u1xxZ8r2rRc\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: C&oacute;mo funciona internet: los cables submarinos que conectan al mundo\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>C&oacute;mo funciona internet: los cables submarinos que conectan al mundo</b>\\n            <span>Un Mundo Inmenso &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Para ver por d&oacute;nde va f&iacute;sicamente eso que llamamos &laquo;la nube&raquo;: barcos, cables y mapas. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=u1xxZ8r2rRc\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "ytb:U0iiT41OI3I",
   "ancla": "data-vid=\\"U0iiT41OI3I\\"",
   "figura": "<div class=\\"video\\" id=\\"video-https\\" data-vid=\\"U0iiT41OI3I\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Qu&eacute; significa que una web empiece por HTTPS\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Qu&eacute; significa que una web empiece por HTTPS</b>\\n            <span>Oficina de Seguridad del Internauta (INCIBE) &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">La versi&oacute;n oficial y corta de lo mismo, del organismo p&uacute;blico espa&ntilde;ol de ciberseguridad. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=U0iiT41OI3I\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "ytb:L1EqDetsFKU",
   "ancla": "data-vid=\\"L1EqDetsFKU\\"",
   "figura": "<div class=\\"video\\" id=\\"video-cookies\\" data-vid=\\"L1EqDetsFKU\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Qu&eacute; son las cookies y c&oacute;mo funcionan, en 1 minuto\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Qu&eacute; son las cookies y c&oacute;mo funcionan, en 1 minuto</b>\\n            <span>Fundaci&oacute;n Cibervoluntarios &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Un minuto, para fijar la diferencia entre la cookie que hace falta y la que te sigue. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=L1EqDetsFKU\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "ytb:Q-jjSRovIIA",
   "ancla": "data-vid=\\"Q-jjSRovIIA\\"",
   "figura": "<div class=\\"video\\" id=\\"video-2fa\\" data-vid=\\"Q-jjSRovIIA\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Activaci&oacute;n del Doble Factor de Autenticaci&oacute;n\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Activaci&oacute;n del Doble Factor de Autenticaci&oacute;n</b>\\n            <span>UOC &middot; Universitat Oberta de Catalunya &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Para ver el paso a paso de activarlo, que es m&aacute;s f&aacute;cil de lo que parece. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=Q-jjSRovIIA\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "ytb:PM_M4Iz6I4o",
   "ancla": "data-vid=\\"PM_M4Iz6I4o\\"",
   "figura": "<div class=\\"video\\" id=\\"video-321\\" data-vid=\\"PM_M4Iz6I4o\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Backup 3-2-1, el m&eacute;todo definitivo para mantener a salvo tus datos\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Backup 3-2-1, el m&eacute;todo definitivo para mantener a salvo tus datos</b>\\n            <span>Xataka &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">La misma regla contada con ejemplos de aparatos de hoy. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=PM_M4Iz6I4o\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "ytb:p3nATAVU6kM",
   "ancla": "data-vid=\\"p3nATAVU6kM\\"",
   "figura": "<div class=\\"video\\" id=\\"video-derechos\\" data-vid=\\"p3nATAVU6kM\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Cu&aacute;les son tus derechos de protecci&oacute;n de datos personales\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Cu&aacute;les son tus derechos de protecci&oacute;n de datos personales</b>\\n            <span>Agencia Espa&ntilde;ola de Protecci&oacute;n de Datos &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Los mismos derechos contados por el organismo que se encarga de hacerlos cumplir. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=p3nATAVU6kM\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "ytb:pSBpSSbx9Ps",
   "ancla": "data-vid=\\"pSBpSSbx9Ps\\"",
   "figura": "<div class=\\"video\\" id=\\"video-pdf\\" data-vid=\\"pSBpSSbx9Ps\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: &iquest;Qu&eacute; es un PDF?\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>&iquest;Qu&eacute; es un PDF?</b>\\n            <span>Micro Conocimiento &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Un minuto y medio para fijar por qu&eacute; se manda en PDF lo que tiene que verse igual en todas partes. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=pSBpSSbx9Ps\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "ytb:RZywV73MDGM",
   "ancla": "data-vid=\\"RZywV73MDGM\\"",
   "figura": "<div class=\\"video\\" id=\\"video-vector\\" data-vid=\\"RZywV73MDGM\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: &iquest;Qu&eacute; diferencia hay entre una imagen vectorial y un mapa de bits?\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>&iquest;Qu&eacute; diferencia hay entre una imagen vectorial y un mapa de bits?</b>\\n            <span>Micro Conocimiento &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Un minuto, del mismo canal que el v&iacute;deo del PDF, para fijar la distinci&oacute;n. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=RZywV73MDGM\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "ytb:zRoxXHR_-Ac",
   "ancla": "data-vid=\\"zRoxXHR_-Ac\\"",
   "figura": "<div class=\\"video\\" id=\\"video-presentar\\" data-vid=\\"zRoxXHR_-Ac\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Muerte por PowerPoint: trucos para no aburrir a la audiencia\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Muerte por PowerPoint: trucos para no aburrir a la audiencia</b>\\n            <span>La Hoguera Bloguera &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Los errores de siempre, vistos desde fuera. Lo que dice se solapa con la r&uacute;brica de arriba: comprobadlo mientras lo veis. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=zRoxXHR_-Ac\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "ytb:ksmzVNMJhZ4",
   "ancla": "data-vid=\\"ksmzVNMJhZ4\\"",
   "figura": "<div class=\\"video\\" id=\\"video-licencias\\" data-vid=\\"ksmzVNMJhZ4\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: &iquest;Qu&eacute; es Creative Commons? (y sus tipos de licencia)\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>&iquest;Qu&eacute; es Creative Commons? (y sus tipos de licencia)</b>\\n            <span>OpenWebinars &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Las mismas cuatro condiciones contadas de otra manera. Mientras lo ves, ve diciendo en voz alta qu&eacute; obliga cada letra: si te sale sola, lo tienes. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=ksmzVNMJhZ4\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "ytb:8ZKlKAAh6HI",
   "ancla": "data-vid=\\"8ZKlKAAh6HI\\"",
   "figura": "<div class=\\"video\\" id=\\"video-lector\\" data-vid=\\"8ZKlKAAh6HI\\">\\n        <button type=\\"button\\" class=\\"video-play\\" aria-label=\\"Reproducir el v&iacute;deo: Lector de pantalla: manejar una web\\">\\n          <span class=\\"video-tri\\" aria-hidden=\\"true\\"></span>\\n          <span class=\\"video-txt\\">\\n            <b>Lector de pantalla: manejar una web</b>\\n            <span>Universidad de Alicante &middot; en espa&ntilde;ol</span>\\n          </span>\\n        </button>\\n        <p class=\\"video-nota\\">Una web recorrida de verdad con un lector de pantalla. Mientras lo veis, contad cu&aacute;ntas veces salta de encabezado en encabezado: es exactamente lo de la escena de arriba, pero con una p&aacute;gina real. El v&iacute;deo no se carga hasta que lo pulsas, y se reproduce sin\\n          cookies de seguimiento. Si no se ve aqu&iacute; &mdash;porque la red del centro bloquee YouTube o porque ese\\n          v&iacute;deo no se deje empotrar&mdash;,\\n          <a href=\\"https://www.youtube.com/watch?v=8ZKlKAAh6HI\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>",
   "modo": "reemplaza"
  },
  {
-  "pagina": "2eso/TyD/tema5/index.html",
+  "pagina": "2eso/TyD/tema7/index.html",
   "img": "u5-vibrador-olivos.jpg",
   "ancla": "</p>\\n        <p>Merece la pena pensarlo: durante catorce a&ntilde;os, la mejor m&aacute;quina de vapor del\\n           mundo llev&oacute; un mecanismo peor <b>por un motivo legal, no t&eacute;cnico</b>. La\\n           tecnolog&iacute;a no la deciden solo los ingenieros.</p>\\n      </div>",
   "figura": "<div class=\\"escena\\">\\n        <div class=\\"escena-barra\\"><span class=\\"escena-titulo\\">Transformar el movimiento, en el campo &middot; 18 segundos</span></div>\\n        <div class=\\"lienzo\\" style=\\"padding:0;background:#000;display:flex;justify-content:center\\">\\n          <video controls preload=\\"none\\" muted playsinline style=\\"width:auto;max-width:100%;max-height:60vh;display:block\\"\\n                 poster=\\"../../../video/u5-vibrador-olivos.jpg\\">\\n            <source src=\\"../../../video/u5-vibrador-olivos.mp4\\" type=\\"video/mp4\\">\\n            Tu navegador no puede reproducir v&iacute;deo.\\n            <a href=\\"../../../video/u5-vibrador-olivos.mp4\\">Desc&aacute;rgalo aqu&iacute;</a>.\\n          </video>\\n        </div>\\n        <div class=\\"pie\\">Una cosechadora de aceituna. El tractor solo sabe hacer una cosa: <b>girar</b>. Y lo que hace falta para que caiga la aceituna no es girar, es <b>sacudir</b>. Dentro de esa pinza hay unas masas descentradas dando vueltas: al girar tiran hacia un lado, media vuelta despu&eacute;s tiran hacia el otro, y el &aacute;rbol entero vibra. Giro convertido en vaiv&eacute;n, como la biela, pero a cuarenta sacudidas por segundo.<br><br>V&iacute;deo de <b>Jared Gulian</b>, v&iacute;a Wikimedia Commons, <b>CC BY 3.0</b>. Recortado y recomprimido.</div>\\n      </div>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "computer-architecture.svg",
   "ancla": "</p>\\n      </div>\\n\\n      <h3>Qui&eacute;n obedece la lista: la CPU</h3>\\n      <p>La pieza que lee la lista y la obedece es el <b>procesador</b>. No es un cerebro y no decide\\n         nada: hace tres cosas, en este orden, y vuelve a empezar. Sin parar, mientras tenga corriente.</p>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/computer-architecture.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Arquitectura del ordenador: CPU, RAM, Almacenamiento, Entrada/Salida, interconectados por bus de datos\\">\\n        <figcaption>La <b>arquitectura de Von Neumann</b>: todo ordenador tiene estos cinco componentes: la CPU que procesa, la RAM que guarda lo que se est&aacute; usando, el almacenamiento que persiste, y los perif&eacute;ricos que permiten entrada y salida. Todo conectado por <b>buses de datos</b> que transportan n&uacute;meros. El bus es como una carretera en la que circulan &oacute;rdenes y datos a velocidades de gigahertz.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "os-process-management.svg",
   "ancla": "</div>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">00</span> Reto inicial &middot; 10 min</div>\\n\\n      <p>Dos cosas que ya te han pasado, y que todo el mundo cuenta como si fueran mala suerte:</p>\\n      <ol>\\n        <li>Abres muchas pesta&ntilde;as y el ordenador empieza a <b>arrastrarse</b>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/os-process-management.svg\\" width=\\"1000\\" height=\\"500\\" loading=\\"lazy\\"\\n             alt=\\"Sistema Operativo: Time sharing de CPU, aislamiento de memoria entre procesos, y gesti&oacute;n de archivos\\">\\n        <figcaption>El <b>Sistema Operativo (SO) como repartidor</b>: mientras ves ocho programas funcionando a la vez, el SO alterna entre ellos cada microsegundo (time sharing). Cada programa est&aacute; en su propia zona de memoria, protegido del resto. El SO tambi&eacute;n organiza tus archivos en carpetas y controla qui&eacute;n puede leer o escribir en cada uno. Todo eso que funciona &laquo;m&aacute;gicamente&raquo; lo hace el SO sin que t&uacute; le digas nada.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "despues"
  },
  {
-  "pagina": "2eso/TyD/tema7/index.html",
+  "pagina": "2eso/TyD/tema9/index.html",
   "img": "binary-representation.svg",
   "ancla": "</div>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">00</span> Reto inicial &middot; 10 min</div>\\n\\n      <p>De la unidad de electricidad te llevaste un hecho que ahora vale oro: por un cable\\n         <b>pasa corriente o no pasa</b>. Eso es todo lo que un cable sabe distinguir con seguridad.</p>\\n\\n      <div class=\\"aviso\\">",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/binary-representation.svg\\" width=\\"1000\\" height=\\"550\\" loading=\\"lazy\\"\\n             alt=\\"Representaci&oacute;n binaria: bits, bytes, y potencias de 2 para guardar informaci&oacute;n\\">\\n        <figcaption>Los <b>bits y bytes</b>: la unidad b&aacute;sica de informaci&oacute;n es un <b>bit</b> (0 &oacute; 1). Ocho bits hacen un <b>byte</b> (256 valores posibles). Con <b>N bits</b> se pueden representar <b>2^N valores</b>: 8 bits para un car&aacute;cter, 1 KB para un p&aacute;rrafo, 1 MB para una foto, 1 GB para una pel&iacute;cula. Todo el ordenador habla en potencias de dos porque los &oacute;rg&oacute;nos internos solo saben decir s&iacute; o no.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "despues"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "network-layers-osi.svg",
   "ancla": "</h3>\\n      <p>Prueba la red de abajo. Pide el v&iacute;deo y, <b>mientras los paquetes van de camino</b>, corta un\\n         cable pulsando encima. Fíjate en dos cosas: en qu&eacute; pasa con el paquete que iba justo por\\n         ah&iacute;, y en el orden en el que llegan los seis.</p>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/network-layers-osi.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Modelo OSI de 7 capas: F&iacute;sica, Enlace, Red, Transporte, Sesi&oacute;n, Presentaci&oacute;n, Aplicaci&oacute;n, con protocolos y ejemplos pr&aacute;cticos en cada capa\\">\\n        <figcaption>El <b>modelo de capas OSI</b> (Open Systems Interconnection): siete niveles que van desde los cables f&iacute;sicos en la base hasta la aplicaci&oacute;n que usa el usuario en la c&uacute;spide. Cada capa tiene sus propios protocolos (WiFi, TCP, HTTP, etc.) que hablan con su equivalente en el otro lado. Es la <b>gram&aacute;tica de Internet</b>: c&oacute;mo un m&oacute;vil en Madrid consigue hablar con un servidor en Silicon Valley sin que les importe c&oacute;mo est&aacute;n conectadas las m&aacute;quinas.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema8/index.html",
+  "pagina": "2eso/TyD/tema10/index.html",
   "img": "http-vs-https-security.svg",
   "ancla": "</h3>\\n      <p>Aqu&iacute; entra el <b>candado</b>. En la escena de abajo escribe un usuario y una contrase&ntilde;a\\n         &mdash;inventados, no los tuyos&mdash; y ve pulsando cada salto del camino con\\n         <b>http</b> y con <b>https</b>. Mira sobre todo los dos extremos.</p>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/http-vs-https-security.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\"\\n             alt=\\"HTTP vs HTTPS: comparaci&oacute;n de seguridad entre datos sin cifrar y datos cifrados\\">\\n        <figcaption><b>HTTP vs HTTPS: el candado protege cifrado</b>. En HTTP los datos viajan en texto limpio: cualquiera en el camino (red Wi-Fi pública, router del ISP&hellip;) puede verlo. <b>Tus contraseñas están expuestas.</b> En HTTPS los datos viajan cifrados: aunque alguien los intercepte, solo ve un galimatías. El candado 🔒 en el navegador significa que está activado. Pero cuidado: HTTPS protege que nadie <b>vea</b> lo que envías, no que <b>sea real</b> el sitio (ojo con phishing).\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "file-formats.svg",
   "ancla": "</div>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">00</span> Reto inicial &middot; 10 min</div>\\n\\n      <p>De la unidad de internet sales sabiendo c&oacute;mo llega a tu pantalla lo que pides y\\n         qui&eacute;n lo ve pasar por el camino. Todo eso lo mirabas t&uacute;. A partir de hoy le\\n         damos la vuelta a la pregunta: <b>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/file-formats.svg\\" width=\\"1000\\" height=\\"600\\" loading=\\"lazy\\"\\n             alt=\\"Formatos de archivo: TXT, DOCX, PDF, JPG/PNG, MP4, HTML, MP3 - contenido, ventajas y desventajas\\">\\n        <figcaption>Los <b>formatos de archivo</b> m&aacute;s comunes: un <b>.TXT</b> es s&oacute;lo texto (ligero, universal). Un <b>.DOCX</b> guarda formato, estilos y metadatos (flexible, pesado). Un <b>.PDF</b> congela la posici&oacute;n (se ve igual siempre, pero es dif&iacute;cil de editar). Las <b>im&aacute;genes</b> son grillas de p&iacute;xeles. Los <b>videos</b> son fotogramas + audio. La diferencia entre guardar &laquo;qu&eacute; dice&raquo; (texto, c&oacute;digo) y guardar &laquo;c&oacute;mo se ve&raquo; (imagen, PDF) es fundamental: lo primero ocupa poco, lo segundo mucho.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "despues"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "image-pixels-color.svg",
   "ancla": "</div>\\n    <section class=\\"bloque\\">\\n      <div class=\\"rotulo\\"><span class=\\"num\\">00</span> Reto inicial &middot; 10 min</div>\\n\\n      <p>El grupo termina la presentaci&oacute;n: catorce diapositivas y once fotos. Al ir a\\n         subirla, el aviso de siempre: <b>48 MB</b>, demasiado. Y lo raro es que ah&iacute; dentro\\n         no hay 48 MB de ideas.</p>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/image-pixels-color.svg\\" width=\\"1000\\" height=\\"650\\" loading=\\"lazy\\"\\n             alt=\\"Una imagen es una grilla de p&iacute;xeles con color RGB: resoluci&oacute;n, tama&ntilde;o de archivo, y modelo de color\\">\\n        <figcaption>Una <b>imagen digital es una grilla de p&iacute;xeles</b>, cada uno con un n&uacute;mero que es su color (RGB: rojo, verde, azul, 0-255 cada uno). La <b>resoluci&oacute;n</b> dice cu&aacute;ntos p&iacute;xeles: 1920&times;1080 Full HD son 2 millones de p&iacute;xeles. Cada p&iacute;xel necesita 3 bytes (uno por cada color), as&iacute; que una foto sin comprimir pesa unos 6 MB. Con compresi&oacute;n JPG baja a 500 KB. Por eso tu m&oacute;vil toma fotos de 4.032&times;3.024: parecen 35 MB pero se transforman en 3 MB.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
   "modo": "despues"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "image-resolution-filesize.svg",
   "ancla": "<a href=\\"https://www.youtube.com/watch?v=RZywV73MDGM\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material\\n          publicado bajo la licencia de esta p&aacute;gina.</p>\\n      </div>\\n\\n    </section>",
   "figura": "<figure class=\\"foto\\">\\n      <img src=\\"../../../img/image-resolution-filesize.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\" alt=\\"Comparaci&oacute;n de resoluci&oacute;n de imagen: baja, media y alta, con p&iacute;xeles y tama&ntilde;o de archivo\\">\\n      <figcaption><b>Resoluci&oacute;n y tama&ntilde;o de archivo.</b> Tres destinos diferentes requieren diferente resoluci&oacute;n. En pantalla cabe una foto peque&ntilde;a; en A4 hace falta talla grande; en Instagram sobra casi siempre. La relaci&oacute;n entre p&iacute;xeles y &laquo;MB&raquo; es lineal: el doble de p&iacute;xeles pesa cuatro veces m&aacute;s si no se comprime, pero solo el doble si se comprime bien.\\n        <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n      </figcaption>\\n    </figure>",
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema9/index.html",
+  "pagina": "2eso/TyD/tema11/index.html",
   "img": "digital-collaboration.svg",
   "ancla": "<span class=\\"min\\"><b>20'</b> Teor&iacute;a</span><span class=\\"min\\"><b>25'</b> Pr&aacute;ctica</span><span class=\\"min\\"><b>5'</b> Cierre</span></div>\\n      <div class=\\"chips\\"><span class=\\"chip\\">CE2 &middot; 2.1</span><span class=\\"chip\\">CE4 &middot; 4.1</span><span class=\\"chip sab\\">B.1 &middot; B.3</span></div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/digital-collaboration.svg\\" width=\\"1000\\" height=\\"550\\" loading=\\"lazy\\"\\n             alt=\\"Colaboraci&oacute;n digital: emails vs nube compartida, comentarios, y historial de versiones\\">\\n        <figcaption>La <b>colaboraci&oacute;n digital moderno</b>: el m&eacute;todo antiguo de emails genera conflictos (Ana edita v1, Bob edita v1, &iquest;cu&aacute;l es correcta?). Con <b>nube compartida</b> (Google Docs, OneDrive) hay UNA versi&oacute;n que se sincroniza al instante. Los <b>comentarios</b> permiten feedback sin cambiar el texto. El <b>historial</b> guarda todas las versiones anteriores. Un &uacute;nico documento, un &uacute;nico due&ntilde;o, todo el mundo viendo lo mismo.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",

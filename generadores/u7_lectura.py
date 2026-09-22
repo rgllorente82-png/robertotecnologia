@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Lectura de aula de la U7: 30 parrafos numerados y 10 preguntas, en PDF.
 
-    python generadores/u7_lectura.py   ->  2eso/TyD/tema7/lectura-tema7.pdf
+    python generadores/u7_lectura.py   ->  2eso/TyD/tema9/lectura-tema9.pdf
 
 El hilo es una sola averia -pulsas una tecla y no sale nada- y el texto recorre
 la maquina entera buscandole la causa. Asi la lectura no es un resumen del tema:
@@ -224,13 +224,13 @@ CFG = dict(
   parrafos=PARRAFOS,
   preguntas=PREGUNTAS,
   curso=u'2.º de ESO · Tecnología y Digitalización',
-  tema=u'Tema 7 · El ordenador y sus componentes',
+  tema=u'Tema 9 · Equipos informáticos',
 )
 
 if __name__ == '__main__':
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema7')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema9')
     os.makedirs(destino, exist_ok=True)
-    ruta = lectura.genera(CFG, os.path.join(destino, 'lectura-tema7.pdf'))
+    ruta = lectura.genera(CFG, os.path.join(destino, 'lectura-tema9.pdf'))
     n = sum(1 for p in PARRAFOS if not isinstance(p, tuple))
     print('Lectura U7: %s  ·  %d parrafos numerados, %d preguntas, %d bytes' % (
         ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

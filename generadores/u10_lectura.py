@@ -3,7 +3,7 @@
 
     ~/venv/bin/python generadores/u10_lectura.py
 
-Deja  2eso/TyD/tema10/lectura-tema10.pdf
+Deja  2eso/TyD/tema12/lectura-tema12.pdf
 
 No repite la unidad: la unidad ensena a escribir programas, y esto cuenta de
 donde sale la idea de escribir aparte lo que la maquina tiene que hacer. Telar
@@ -204,9 +204,9 @@ if __name__ == '__main__':
     if len(PREGUNTAS) != 10:
         sys.exit(u'Tienen que ser 10 preguntas y hay %d' % len(PREGUNTAS))
 
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema10')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema12')
     os.makedirs(destino, exist_ok=True)
-    ruta = os.path.join(destino, 'lectura-tema10.pdf')
+    ruta = os.path.join(destino, 'lectura-tema12.pdf')
     lectura.genera(dict(
         titulo=u'El primer programa se escribió para una máquina que no existía',
         subtitulo=u'Ada Lovelace, la máquina analítica y los cien años que tardó en volver la idea '
@@ -217,6 +217,6 @@ if __name__ == '__main__':
                    u'después.',
         parrafos=P, preguntas=PREGUNTAS,
         curso=u'2.º de ESO · Tecnología y Digitalización',
-        tema=u'Tema 10 · Programación y robótica'), ruta)
+        tema=u'Tema 12 · Programación y robótica'), ruta)
     print(u'%s  ·  %d párrafos numerados, %d preguntas, %d bytes'
           % (ruta, n, len(PREGUNTAS), os.path.getsize(ruta)))

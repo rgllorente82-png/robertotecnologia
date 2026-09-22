@@ -32,15 +32,15 @@ AYUDA = (u'<script>\n' + MARCA + u'\n'
 # para que un cambio en la pagina haga fallar el script en vez de parchear otra
 # cosa por parecido.
 ARRANQUES = [
-    ('2eso/TyD/tema4/index.html',
+    ('2eso/TyD/tema6/index.html',
      u'        raf = requestAnimationFrame(cuadro);\n      })();',
      u'        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(cuadro); }\n      })();',
      1),
-    ('2eso/TyD/tema5/index.html',
+    ('2eso/TyD/tema7/index.html',
      u'        pinta();\n        raf = requestAnimationFrame(cuadro);',
      u'        pinta();\n        if(!QUIETO()) raf = requestAnimationFrame(cuadro);',
      3),
-    ('2eso/TyD/tema5/index.html',
+    ('2eso/TyD/tema7/index.html',
      u'          sel = +b.dataset.m; pinta();\n        });\n        raf = requestAnimationFrame(cuadro);',
      u'          sel = +b.dataset.m; pinta();\n        });\n'
      u'        if(QUIETO()){ pinta(); } else { raf = requestAnimationFrame(cuadro); }',

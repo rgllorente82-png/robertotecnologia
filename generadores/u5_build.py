@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """2.o TyD - U5 - Mecanismos: la fuerza, la velocidad y la direccion que necesito.
 
-Genera 2eso/TyD/tema5/index.html con las SEIS sesiones escritas.
+Genera 2eso/TyD/tema7/index.html con las SEIS sesiones escritas.
 
 Las escenas de las sesiones 1 a 3 estan aqui; las de la 4, la 5 y la 6 viven en
 u5_escenas2.py, porque el fichero se hacia inmanejable.
@@ -2330,13 +2330,13 @@ S = [
 ]
 
 CFG = dict(
- ruta='2eso/TyD/tema5/',
+ ruta='2eso/TyD/tema7/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
        u'&middot; <a href="../">TyD</a> &middot; Tema 5',
  h1=u'Mecanismos',
- titulo=u'Tema 5 &middot; Mecanismos',
- tema=u'Tema 5', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
- desc=u'Tema 5 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: palanca, poleas y '
+ titulo=u'Tema 7 &middot; Mecanismos',
+ tema=u'Tema 7', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',
+ desc=u'Tema 7 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: palanca, poleas y '
       u'polipasto, engranajes y relaci&oacute;n de transmisi&oacute;n, transformaci&oacute;n del '
       u'movimiento, taller de engranajes de cart&oacute;n y test, con escenas interactivas.',
  sesiones=S)
