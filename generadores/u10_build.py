@@ -112,6 +112,43 @@ S1_TEORIA = u'''
         <p>Esto, que parece una pega, es justo lo que hace &uacute;til a una m&aacute;quina: hace <b>siempre
            lo mismo</b>. Un torno que decidiera por su cuenta ser&iacute;a un peligro, no un avance.</p>
       </div>
+
+      <h3>D&oacute;nde vas a escribir todo esto</h3>
+      <p>Lo que acabas de hacer con el robot se programa igual en cualquier sitio, pero en clase
+      vas a usar tres entornos distintos, y conviene saber para qu&eacute; sirve cada uno:</p>
+      <table class="tabla-ancha">
+        <thead><tr><th>Entorno</th><th>Qu&eacute; se hace con &eacute;l</th><th>Qu&eacute; sale</th></tr></thead>
+        <tbody>
+          <tr><td><b>Scratch</b></td><td>Programaci&oacute;n por bloques: juegos, animaciones, historias</td>
+              <td>Un proyecto que se ejecuta en el navegador</td></tr>
+          <tr><td><b>App Inventor</b></td><td>Aplicaciones para el m&oacute;vil, tambi&eacute;n por bloques</td>
+              <td>Una app que se instala en un Android</td></tr>
+          <tr><td><b>micro:bit</b> y <b>VEXcode</b></td><td>Programar una placa o un robot de verdad</td>
+              <td>Algo que se mueve, suena o enciende</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Scratch en cinco palabras</h3>
+      <p>En Scratch todo pasa en un <b>escenario</b>, que es el rect&aacute;ngulo donde se ve el proyecto, y
+      lo que se mueve por &eacute;l son los <b>objetos</b> &mdash;los personajes&mdash;. Cada objeto tiene su
+      propio programa.</p>
+      <ul>
+        <li>El escenario tiene <b>coordenadas</b>: la x va de -240 a 240 y la y de -180 a 180, con el
+            (0,&nbsp;0) en el centro. Mover un personaje es cambiarle la x y la y.</li>
+        <li>Los bloques est&aacute;n <b>agrupados por color</b>: Movimiento en azul, Apariencia en morado,
+            Sonido en rosa, <b>Eventos</b> en amarillo, <b>Control</b> en naranja, Sensores en celeste,
+            Operadores en verde y Variables en naranja oscuro.</li>
+        <li>Un programa casi siempre empieza con un bloque de <b>Eventos</b>: <i>al hacer clic en la
+            bandera verde</i>. Sin &eacute;l, el programa est&aacute; escrito pero nadie lo lanza.</li>
+        <li>Los bloques <b>encajan como piezas</b>: si dos no encajan, es que ah&iacute; no van. Es la
+            manera que tiene el programa de evitarte un error de sintaxis.</li>
+      </ul>
+      <div class="caja caja-nuestro">
+        <span class="n-tag">Lo mismo, con otra ropa</span>
+        <p>Los bloques de Scratch y las instrucciones del robot de arriba son <b>lo mismo</b>: una
+        lista ordenada, finita y sin ambig&uuml;edad. Cambia el aspecto, no la idea. Por eso quien
+        entiende el robot entiende Scratch en diez minutos, y al rev&eacute;s no siempre pasa.</p>
+      </div>
       <div class="copiar">
         <h4>C&oacute;mo se busca un fallo en un programa</h4>
         <p>Cuando no hace lo que esperabas, no cambies cosas al azar. <b>Sigue el programa t&uacute;
@@ -213,6 +250,26 @@ S2_TEORIA = u'''
               haya pared&raquo;. Este es el que hace falta de verdad, y el que puede quedarse
               colgado para siempre si la condici&oacute;n nunca cambia.</li>
         </ul>
+      </div>
+
+      <h3>Y cuando lo que quieres es una app</h3>
+      <p><b>App Inventor</b> usa los mismos bloques, pero a&ntilde;ade algo que Scratch no tiene: hay que
+      <b>dise&ntilde;ar la pantalla</b> antes de programarla. Por eso trabaja en dos vistas, y se salta
+      de una a otra constantemente:</p>
+      <ul>
+        <li>El <b>Dise&ntilde;ador</b>: aqu&iacute; arrastras los <b>componentes</b> a la pantalla del m&oacute;vil
+            &mdash;un bot&oacute;n, una etiqueta, una imagen, un sonido&mdash; y les pones nombre.</li>
+        <li>Los <b>Bloques</b>: aqu&iacute; dices qu&eacute; hace cada componente. Y casi todo empieza igual:
+            <i>cuando Bot&oacute;n1 sea presionado, hacer&hellip;</i></li>
+      </ul>
+      <p>Una app puede tener <b>varias pantallas</b>, y se pasa de una a otra con el bloque
+      <i>abrir otra pantalla</i>. Al terminar se prueba en un m&oacute;vil de verdad y, si funciona, se
+      genera el archivo que se instala.</p>
+      <div class="caja caja-oficial">
+        <span class="n-tag">Un orden que ahorra disgustos</span>
+        <p>Primero el componente, despu&eacute;s el bloque. Si programas un bot&oacute;n que todav&iacute;a no has
+        puesto en la pantalla, ese bloque no existe y no lo vas a encontrar en la lista. Parece
+        obvio y es el fallo m&aacute;s repetido del aula.</p>
       </div>
 '''
 
@@ -330,7 +387,7 @@ CFG = dict(
     sesiones=S)
 
 if __name__ == '__main__':
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema10')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema12')
     if not os.path.isdir(destino):
         os.makedirs(destino)
     html = pagina(CFG)

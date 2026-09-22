@@ -1549,7 +1549,78 @@
           vinculadas por líneas de alineación. La correspondencia entre ellas (anchos, alturas, profundidades)
           garantiza que la pieza se puede reconstruir exactamente desde el plano.</figcaption>
       </figure>
-    </section>
+    
+      <h3>Y al rev&eacute;s: de las vistas a un dibujo que se entiende de un vistazo</h3>
+      <p>Las tres vistas sirven para <b>fabricar</b>, porque en ellas se puede medir y acotar. Pero
+      para <b>ense&ntilde;ar</b> c&oacute;mo es la pieza hace falta lo contrario: un solo dibujo donde se vean
+      las tres dimensiones a la vez. Eso es una <b>perspectiva</b>.</p>
+      <p>En 2.&ordm; se usan dos, y la diferencia est&aacute; en los ejes:</p>
+
+      <div class="escena">
+        <div class="escena-barra"><span class="escena-titulo">Las dos perspectivas, con la misma pieza</span></div>
+        <div class="lienzo">
+          <svg viewBox="0 0 640 260" role="img"
+               aria-label="El mismo cubo dibujado en perspectiva caballera, con el eje de profundidad a 45 grados, y en perspectiva isometrica, con los tres ejes a 120 grados">
+            <g font-family="system-ui, sans-serif" font-size="12" fill="#2b3240">
+              <g transform="translate(40,40)">
+                <text x="90" y="-12" text-anchor="middle" font-weight="600">Caballera</text>
+                <rect x="20" y="40" width="110" height="110" fill="#bfe0ff" stroke="#2b3240" stroke-width="2.5"/>
+                <path d="M20 40 L75 -1 M130 40 L185 -1 M130 150 L185 109" fill="none" stroke="#2b3240" stroke-width="2.5"/>
+                <path d="M75 -1 h110 v110" fill="none" stroke="#2b3240" stroke-width="2.5"/>
+                <g stroke="#e5484d" stroke-width="2" fill="none">
+                  <path d="M20 150 h150"/><path d="M20 150 v-125"/><path d="M20 150 l62 -46"/>
+                </g>
+                <text x="150" y="168" fill="#e5484d">X</text>
+                <text x="4" y="30" fill="#e5484d">Z</text>
+                <text x="86" y="100" fill="#e5484d">Y &middot; 45&deg;</text>
+              </g>
+              <g transform="translate(360,40)">
+                <text x="105" y="-12" text-anchor="middle" font-weight="600">Isom&eacute;trica</text>
+                <path d="M105 30 L185 76 L185 168 L105 214 L25 168 L25 76 Z" fill="#bfe0ff" stroke="#2b3240" stroke-width="2.5"/>
+                <path d="M105 30 L105 122 L185 168 M105 122 L25 168" fill="none" stroke="#2b3240" stroke-width="2.5"/>
+                <g stroke="#e5484d" stroke-width="2" fill="none">
+                  <path d="M105 122 l80 46"/><path d="M105 122 l-80 46"/><path d="M105 122 v-100"/>
+                </g>
+                <text x="190" y="176" fill="#e5484d">X &middot; 30&deg;</text>
+                <text x="2" y="176" fill="#e5484d">Y &middot; 30&deg;</text>
+                <text x="112" y="24" fill="#e5484d">Z</text>
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="pie" role="status" aria-live="polite" aria-atomic="true">Dibujo propio. En rojo, los <b>ejes</b>: es lo &uacute;nico que cambia de una a
+          otra, y de ah&iacute; sale todo lo dem&aacute;s.</div>
+      </div>
+
+      <div class="tabla-wrap"><table>
+        <thead><tr><th scope="col"></th><th scope="col">Caballera</th><th scope="col">Isom&eacute;trica</th></tr></thead>
+        <tbody>
+          <tr><td><b>Ejes</b></td>
+              <td>X horizontal y Z vertical, perpendiculares. El de profundidad (Y), a <b>45&deg;</b></td>
+              <td>Los tres a <b>120&deg;</b> entre s&iacute;: X e Y a 30&deg; sobre la horizontal, Z vertical</td></tr>
+          <tr><td><b>Medidas</b></td>
+              <td>En X y Z, reales. En el eje de profundidad se <b>reducen a la mitad</b></td>
+              <td>Se llevan <b>iguales en los tres ejes</b></td></tr>
+          <tr><td><b>C&oacute;mo se ve</b></td>
+              <td>La cara de frente sale <b>sin deformar</b>: un cuadrado sigue siendo un cuadrado</td>
+              <td>Ninguna cara est&aacute; de frente; las tres se ven por igual</td></tr>
+          <tr><td><b>Cu&aacute;ndo conviene</b></td>
+              <td>Cuando la pieza tiene una cara importante &mdash;un agujero, una curva&mdash; que hay
+                  que ver bien</td>
+              <td>Cuando interesa que las tres dimensiones se vean por igual. Es la de los planos de
+                  montaje y la de los videojuegos con vista &laquo;en diagonal&raquo;</td></tr>
+        </tbody>
+      </table></div>
+      <div class="caja caja-nuestro">
+        <span class="n-tag">La trampa de la caballera</span>
+        <p>Lo de reducir a la mitad la profundidad no es un capricho: sin esa reducci&oacute;n la pieza
+        <b>parece much&iacute;simo m&aacute;s larga</b> de lo que es. Dib&uacute;jalo una vez con la medida entera y lo
+        vas a ver en seguida. Y ojo en el examen: ese coeficiente se pregunta.</p>
+      </div>
+      <p>Una advertencia que vale para las dos: <b>una perspectiva no se acota para fabricar</b>. Se
+      dibuja para entender la pieza. Para dar medidas se vuelve a las tres vistas, que es donde cada
+      magnitud aparece en verdadera magnitud.</p>
+</section>
 
     <!-- animación -->
     <section class="bloque">

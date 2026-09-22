@@ -222,6 +222,55 @@ S1 = (
         <p>Regla corta: <b>marcar lo que algo es, no pintar lo que parece</b>.</p>
       </div>
 
+
+      <h3>El paquete completo, y el que no has tocado todav&iacute;a</h3>
+      <p>Un <b>paquete de ofim&aacute;tica</b> &mdash;LibreOffice, Microsoft Office, Google Docs&mdash; no
+      es un programa: son varios que se parecen por fuera y hacen cosas distintas.</p>
+      <table class="tabla-ancha">
+        <thead><tr><th>Programa</th><th>Para qu&eacute;</th><th>En LibreOffice</th></tr></thead>
+        <tbody>
+          <tr><td><b>Procesador de textos</b></td><td>Escribir documentos: cartas, guiones, trabajos</td><td>Writer</td></tr>
+          <tr><td><b>Hoja de c&aacute;lculo</b></td><td>Hacer c&aacute;lculos y <b>representarlos en gr&aacute;ficos</b></td><td>Calc</td></tr>
+          <tr><td><b>Presentaciones</b></td><td>Exponer informaci&oacute;n con diapositivas</td><td>Impress</td></tr>
+          <tr><td><b>Gestor de bases de datos</b></td><td>Crear, consultar y modificar datos</td><td>Base</td></tr>
+          <tr><td><b>Planificador de tareas</b></td><td>Anotar citas y trabajos pendientes</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+
+      <h3>La hoja de c&aacute;lculo: una tabla que se calcula sola</h3>
+      <p>Una hoja de c&aacute;lculo es una cuadr&iacute;cula de <b>celdas</b>. Cada celda tiene una direcci&oacute;n,
+      que es su columna y su fila: <b>B4</b> es la columna B, fila 4. Y en una celda puedes poner
+      tres cosas distintas:</p>
+      <ul>
+        <li>Un <b>n&uacute;mero</b> o un texto, tal cual.</li>
+        <li>Una <b>f&oacute;rmula</b>, que empieza siempre por <b>=</b> y se calcula sola: <i>=B4*2</i>.</li>
+        <li>Una <b>funci&oacute;n</b>, que es una f&oacute;rmula con nombre: <i>=SUMA(B4:B15)</i>,
+            <i>=PROMEDIO(B4:B15)</i>, <i>=MAX(B4:B15)</i>.</li>
+      </ul>
+      <div class="caja caja-nuestro">
+        <span class="n-tag">Lo que la hace &uacute;til de verdad</span>
+        <p>Una f&oacute;rmula <b>no guarda el resultado, guarda el c&aacute;lculo</b>. Si cambias el n&uacute;mero de
+        la celda B4, todo lo que depend&iacute;a de B4 se recalcula solo. Por eso una hoja de c&aacute;lculo no
+        es una calculadora con cuadros: es lo que te permite preguntar &laquo;&iquest;y si&hellip;?&raquo;
+        veinte veces sin repetir una sola cuenta.</p>
+      </div>
+      <p>Y de ah&iacute; salen los <b>gr&aacute;ficos</b>. Se seleccionan los datos, se elige el tipo &mdash;de
+      l&iacute;neas para ver c&oacute;mo cambia algo con el tiempo, de barras para comparar, de sectores para
+      repartir un total&mdash; y el gr&aacute;fico queda <b>enlazado a los datos</b>: si cambias un n&uacute;mero,
+      el dibujo cambia con &eacute;l.</p>
+      <div class="caja caja-oficial">
+        <span class="n-tag">Elegir bien el gr&aacute;fico</span>
+        <p>Horas de sol a lo largo de los meses: <b>l&iacute;neas</b>, porque hay una secuencia. Qu&eacute;
+        deporte practica cada grupo: <b>barras</b>, porque se comparan cosas sueltas. De qu&eacute; est&aacute;
+        hecha la basura de casa: <b>sectores</b>, porque todo suma cien. Un gr&aacute;fico mal elegido no
+        es un adorno feo: cuenta mal el dato.</p>
+      </div>
+
+      <h3>Plantillas: el documento que ya viene hecho</h3>
+      <p>Una <b>plantilla</b> es un documento con el formato ya decidido &mdash;m&aacute;rgenes, estilos,
+      logotipo, tablas&mdash; que se abre como copia. T&uacute; rellenas y no tocas el dise&ntilde;o. Es la misma
+      idea de los estilos de antes, pero llevada al documento entero: <b>decidir el aspecto una vez
+      y reutilizarlo</b>.</p>
       <h3>Y entonces, &iquest;por qu&eacute; el PDF se ve igual?</h3>
       <p>Porque hace justo lo contrario, y a prop&oacute;sito. Un PDF no deja nada por decidir: ya
          lleva calculada la posici&oacute;n de cada letra, y adem&aacute;s se lleva <b>las letras
@@ -1876,7 +1925,7 @@ EXTRA_CSS = avatar_flat.CSS + u"""
 
 if __name__ == '__main__':
     html = pagina(CFG).replace(u'</style>', EXTRA_CSS + u'</style>', 1)
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema9')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema11')
     os.makedirs(destino, exist_ok=True)
     io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8', newline='').write(html)
     print('U9 generada: %d bytes, %d sesiones (%d escritas)' % (

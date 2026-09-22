@@ -1419,7 +1419,7 @@ if __name__ == '__main__':
     # El cargador diferido de los videos, una sola vez para los tres.
     html = html.replace(u'</body>', VIDEO_JS + u'</body>', 1)
 
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema6', 'index.html')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema8', 'index.html')
     os.makedirs(os.path.dirname(destino), exist_ok=True)
     io.open(destino, 'w', encoding='utf-8', newline='').write(html)
     print('U6 generada: %d bytes, %d sesiones (%d escritas)' % (

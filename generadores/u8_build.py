@@ -995,6 +995,66 @@ S4 = (
            con segundo factor.</b></p>
       </div>
 
+
+      <h3>De qu&eacute; te defiendes: los programas malignos</h3>
+      <p>Un <b>programa maligno</b> o <b>malware</b> es c&oacute;digo escrito a prop&oacute;sito para da&ntilde;ar un
+      equipo <b>sin que el usuario lo sepa</b>: para estropearlo, para controlarlo, para colarse,
+      para robar informaci&oacute;n o para pedir dinero a cambio de devolverte tus ficheros.</p>
+      <p>No hay uno, hay familias, y un mismo programa suele tener rasgos de varias:</p>
+      <table class="tabla-ancha">
+        <thead><tr><th>Tipo</th><th>Qu&eacute; hace</th><th>Por d&oacute;nde entra</th></tr></thead>
+        <tbody>
+          <tr><td><b>Virus</b></td><td>Se mete dentro de otros programas y los infecta al ejecutarlos</td><td>Un archivo que abres t&uacute;</td></tr>
+          <tr><td><b>Gusano</b></td><td>Se copia solo de un equipo a otro, sin que nadie lo abra</td><td>La red, el correo, un pendrive</td></tr>
+          <tr><td><b>Troyano</b></td><td>Parece un programa normal y &uacute;til, pero abre una <b>puerta trasera</b></td><td>Una descarga que parec&iacute;a buena</td></tr>
+          <tr><td><b>Spyware</b></td><td>Espía lo que haces y lo manda fuera</td><td>Instalado junto a otro programa</td></tr>
+          <tr><td><b>Ransomware</b></td><td>Cifra tus ficheros y pide un rescate</td><td>Un adjunto, un enlace</td></tr>
+        </tbody>
+      </table>
+      <div class="caja caja-nuestro">
+        <span class="n-tag">La diferencia que se pregunta</span>
+        <p><b>Virus</b> necesita que alguien lo ejecute; <b>gusano</b> no necesita a nadie;
+        <b>troyano</b> te necesita a ti, pero enga&ntilde;&aacute;ndote. Los tres pueden acabar haciendo lo
+        mismo: la diferencia est&aacute; en <b>c&oacute;mo llegan</b>.</p>
+      </div>
+
+      <h3>Las cuatro defensas, por orden de utilidad</h3>
+      <ol class="pasos">
+        <li><b>Actualizar.</b> La mayor&iacute;a de los ataques no usan trucos nuevos: usan agujeros
+            <b>ya conocidos y ya tapados</b> en equipos que no se actualizaron. Es la defensa m&aacute;s
+            aburrida y la que m&aacute;s evita.</li>
+        <li><b>Copia de seguridad.</b> No impide el ataque: lo hace <b>reversible</b>. Contra el
+            ransomware es lo &uacute;nico que funciona de verdad. Y una copia que est&aacute; siempre enchufada
+            al ordenador se cifra con lo dem&aacute;s: tiene que haber una <b>fuera</b>.</li>
+        <li><b>Antivirus.</b> Vigila los ficheros y compara con lo que ya conoce. Ayuda, pero va
+            siempre un paso por detr&aacute;s de lo que a&uacute;n no ha visto nadie.</li>
+        <li><b>Cortafuegos</b> (<i>firewall</i>). Controla <b>qu&eacute; entra y qu&eacute; sale</b> por la red y
+            corta las conexiones que no deber&iacute;an existir. Va en el ordenador y en el router.</li>
+      </ol>
+      <div class="caja caja-oficial">
+        <span class="n-tag">Y la que no es un programa</span>
+        <p>El <b>phishing</b> no ataca al ordenador: te ataca a ti. Un correo o un mensaje que
+        imita a tu banco, al instituto o a una tienda, y te lleva a una web calcada donde escribes
+        la contrase&ntilde;a. Contra eso no hay antivirus que valga: hay <b>mirar el dominio</b> antes de
+        escribir nada.</p>
+      </div>
+
+      <h3>D&oacute;nde vive todo eso: el disco</h3>
+      <p>Un <b>disco duro</b> (HDD) guarda los datos en platos magn&eacute;ticos que giran, con un cabezal
+      que se mueve por encima. Un <b>SSD</b> no tiene piezas m&oacute;viles: guarda en memoria, como un
+      pendrive grande.</p>
+      <table class="tabla-ancha">
+        <thead><tr><th></th><th>Disco duro (HDD)</th><th>SSD</th></tr></thead>
+        <tbody>
+          <tr><td><b>Velocidad</b></td><td>Lento: hay que esperar a que el plato gire</td><td>Mucho m&aacute;s r&aacute;pido</td></tr>
+          <tr><td><b>Golpes</b></td><td>Se estropea si se cae en marcha</td><td>Aguanta mejor</td></tr>
+          <tr><td><b>Precio por giga</b></td><td>M&aacute;s barato</td><td>M&aacute;s caro</td></tr>
+          <tr><td><b>Ruido</b></td><td>Se oye</td><td>Silencioso</td></tr>
+        </tbody>
+      </table>
+      <p>Por eso un ordenador viejo revive al cambiarle el disco por un SSD, y por eso los
+      servidores donde se guardan copias siguen llevando discos duros: ah&iacute; importa el precio por
+      giga, no la velocidad.</p>
       <h3>Si tienen que ser largas y distintas, no caben en la cabeza</h3>
       <p>Y es verdad: no caben. Cuarenta contrase&ntilde;as largas y distintas no se acuerda nadie. Esa
          es exactamente la raz&oacute;n de que exista la herramienta siguiente, y no al rev&eacute;s.</p>
@@ -1831,7 +1891,7 @@ EXTRA_CSS = avatar_flat.CSS + u"""
 
 if __name__ == '__main__':
     html = pagina(CFG).replace(u'</style>', EXTRA_CSS + u'</style>', 1)
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema8')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema10')
     os.makedirs(destino, exist_ok=True)
     io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8', newline='').write(html)
     print('U8 generada: %d bytes, %d sesiones (%d escritas)' % (

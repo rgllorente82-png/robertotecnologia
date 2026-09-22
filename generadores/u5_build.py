@@ -2353,7 +2353,7 @@ if __name__ == '__main__':
         html = html.replace(u'</style>', avatar_flat.CSS + u'</style>', 1)
     # El CSS del test tampoco va en el molde comun: lo usa solo la sesion 6.
     html = html.replace(u'</style>', CSS_TEST + u'</style>', 1)
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema5')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema7')
     if not os.path.isdir(destino):
         os.makedirs(destino)
     io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8', newline='').write(html)

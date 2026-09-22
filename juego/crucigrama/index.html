@@ -1,0 +1,280 @@
+<!doctype html>
+<!-- ⛔ GENERADO por rt/crucigrama/construir.py — no editar a mano: cualquier
+     cambio aquí se pierde en la siguiente regeneración. Lo que haya que tocar,
+     se toca en construir.py / palabras.json. -->
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Crucigrama de vocabulario &middot; 2.&ordm; ESO</title>
+<meta name="description" content="Crucigrama del vocabulario de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO, tema a tema. Para hacer en clase con la pizarra digital o en el m&oacute;vil.">
+<link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/juego/crucigrama/">
+<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Crucigrama de vocabulario &middot; 2.&ordm; ESO">
+<meta property="og:description" content="Crucigrama del vocabulario de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO, tema a tema. Para hacer en clase con la pizarra digital o en el m&oacute;vil.">
+<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/juego/crucigrama/">
+<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/juego-crucigrama.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Crucigrama de vocabulario &middot; 2.&ordm; ESO &middot; Materiales de Tecnolog&iacute;a">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /og -->
+<meta property="og:title" content="Crucigrama de vocabulario &middot; 2.&ordm; ESO">
+<meta property="og:description" content="El vocabulario de cada tema, tema a tema, para repasar en clase todos juntos.">
+<meta property="og:type" content="website">
+<style>
+:root{
+  --bg:#101418; --panel:#18202a; --panel2:#1f2936; --borde:#33455c;
+  --papel:#f5f2ea; --tinta:#131a22; --azul:#4a9eff; --azul2:#1c5fa8;
+  --verde:#35b47e; --rojo:#e5584d; --ambar:#f0b13a; --apagado:#93a4b8;
+  --f:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f-m:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--papel);font:16px/1.5 var(--f);
+  -webkit-text-size-adjust:100%}
+header{padding:14px 18px;border-bottom:1px solid var(--borde);display:flex;
+  gap:14px;align-items:center;flex-wrap:wrap;background:var(--panel)}
+h1{font-size:19px;margin:0;font-weight:650;letter-spacing:.01em}
+h1 span{color:var(--azul)}
+select,button{font:inherit;border-radius:6px;border:1px solid var(--borde);
+  background:var(--panel2);color:var(--papel);padding:7px 12px;cursor:pointer}
+select{max-width:100%;min-width:0}
+header{max-width:100%}
+select:focus-visible,button:focus-visible{outline:3px solid var(--azul);outline-offset:2px}
+button:hover{border-color:var(--azul)}
+button.p{background:var(--azul2);border-color:var(--azul2);font-weight:600}
+.sp{flex:1}
+main{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:22px;
+  padding:20px;align-items:start}
+@media(max-width:900px){main{grid-template-columns:minmax(0,1fr);padding:14px}}
+.tablero{background:var(--panel);border:1px solid var(--borde);border-radius:10px;
+  padding:16px;overflow-x:auto;min-width:0;max-width:100%}
+table.cru{border-collapse:collapse;margin:0 auto}
+table.cru td{width:var(--lado);height:var(--lado);padding:0;border:0;position:relative}
+table.cru td.v{border:1px solid #2c3b4e;background:var(--papel)}
+table.cru td.v input{width:100%;height:100%;border:0;background:transparent;
+  text-align:center;font:600 calc(var(--lado)*.56)/1 var(--f-m);color:var(--tinta);
+  text-transform:uppercase;padding:0}
+table.cru td.v input:focus{outline:0;background:#cfe6ff}
+table.cru td.act{background:#e7f0ff}
+table.cru td.pal{background:#f0f5ff}
+table.cru td.bien input{color:var(--verde)}
+table.cru td.mal input{color:var(--rojo)}
+table.cru .n{position:absolute;top:1px;left:2px;font:600 calc(var(--lado)*.28)/1 var(--f-m);
+  color:#63788f;pointer-events:none}
+.pistas{background:var(--panel);border:1px solid var(--borde);border-radius:10px;padding:16px}
+.pistas h2{font-size:13px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--azul);margin:0 0 10px}
+.pistas h2+ol{margin:0 0 20px}
+ol{margin:0;padding-left:0;list-style:none}
+ol li{display:flex;gap:9px;padding:6px 7px;border-radius:6px;cursor:pointer;
+  align-items:baseline;line-height:1.4}
+ol li:hover{background:var(--panel2)}
+ol li.sel{background:#1d3352;box-shadow:inset 0 0 0 1px var(--azul2)}
+ol li.ok{color:var(--apagado);text-decoration:line-through;text-decoration-color:var(--verde)}
+ol li b{font:600 14px/1.4 var(--f-m);color:var(--ambar);min-width:20px;text-align:right}
+.marcador{display:flex;gap:10px;align-items:center;font:600 14px var(--f-m);
+  color:var(--apagado);padding:0 2px 12px}
+.marcador i{font-style:normal;color:var(--verde)}
+footer{padding:14px 20px;border-top:1px solid var(--borde);color:var(--apagado);font-size:13px}
+footer a{color:var(--azul)}
+.aviso{margin:0 0 12px;padding:9px 12px;border-radius:7px;background:#1d3352;
+  font-size:14px;color:#cfe0f5}
+@media print{
+  body{background:#fff;color:#000}
+  header button,header select,.marcador,footer{display:none}
+  table.cru td.v{border:1px solid #000;background:#fff}
+  table.cru td.v input{color:#fff}
+  main{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Crucigrama <span>&middot; 2.&ordm; ESO</span></h1>
+  <label class="vo" for="tema" style="color:var(--apagado);font-size:14px">Tema</label>
+  <select id="tema"><option value="0">Tema 0 &middot; ¿Qué es la tecnología?</option><option value="1">Tema 1 &middot; Proyecto tecnológico</option><option value="2">Tema 2 &middot; Expresión gráfica</option><option value="3">Tema 3 &middot; Materiales</option><option value="4">Tema 4 &middot; Madera</option><option value="5">Tema 5 &middot; Metales</option><option value="6">Tema 6 &middot; Estructuras</option><option value="7">Tema 7 &middot; Mecanismos</option><option value="8">Tema 8 &middot; Electricidad</option><option value="9">Tema 9 &middot; Equipos informáticos</option><option value="10">Tema 10 &middot; Mantenimiento y seguridad digital</option><option value="11">Tema 11 &middot; Ofimática</option><option value="12">Tema 12 &middot; Programación y robótica</option></select>
+  <span class="sp"></span>
+  <button id="pista" title="Rellena una letra de la palabra seleccionada">Una letra</button>
+  <button id="comprobar" class="p">Comprobar</button>
+  <button id="borrar">Borrar</button>
+  <button id="resolver">Resolver</button>
+  <button id="menos" aria-label="Letra m&aacute;s peque&ntilde;a">&#8722;</button>
+  <button id="mas" aria-label="Letra m&aacute;s grande">+</button>
+</header>
+<main>
+  <section class="tablero">
+    <p class="aviso">Pulsa una casilla o una pista para elegir palabra. Si pulsas una casilla donde se cruzan dos, cambia de una a la otra.</p>
+    <div class="marcador"><span>Resueltas</span> <i id="hechas">0</i> <span>de</span> <span id="tot">0</span></div>
+    <table class="cru" id="tab"></table>
+  </section>
+  <aside class="pistas">
+    <h2>Horizontales</h2>
+    <ol id="hor"></ol>
+    <h2>Verticales</h2>
+    <ol id="ver"></ol>
+  </aside>
+</main>
+<footer>
+  Vocabulario de <a href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/">Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO</a>.
+  Las palabras van <b>sin tildes</b>, como es costumbre en los crucigramas.
+  &middot; Roberto P. Garc&iacute;a Llorente &middot; CC BY-SA 4.0
+</footer>
+<script>
+var DATOS = {"0": {"t": "¿Qué es la tecnología?", "alto": 14, "ancho": 19, "e": [{"p": "NECESIDAD", "f": 0, "c": 10, "h": 0, "n": 1, "pista": "Lo que falta y pone en marcha todo el proceso tecnológico"}, {"p": "HERRAMIENTA", "f": 1, "c": 6, "h": 0, "n": 2, "pista": "Objeto que prolonga la mano y multiplica lo que puede hacer"}, {"p": "CIENCIA", "f": 1, "c": 14, "h": 0, "n": 3, "pista": "Busca entender cómo funciona el mundo, sin tener que fabricar nada"}, {"p": "MAQUINA", "f": 2, "c": 18, "h": 0, "n": 4, "pista": "Aparato que transforma energía para hacer un trabajo"}, {"p": "INNOVAR", "f": 3, "c": 0, "h": 1, "n": 5, "pista": "Mejorar algo que ya existe hasta que sirve mejor que antes"}, {"p": "PREHISTORIA", "f": 3, "c": 8, "h": 0, "n": 6, "pista": "Etapa de la piedra tallada, donde empieza la historia de la tecnología"}, {"p": "TECNICA", "f": 3, "c": 12, "h": 0, "n": 7, "pista": "Manera de hacer algo que se aprende y se repite, aunque no se sepa por qué funciona"}, {"p": "DIGITALIZACION", "f": 7, "c": 5, "h": 1, "n": 8, "pista": "Pasar información del mundo físico a números que un ordenador entiende"}, {"p": "INVENTO", "f": 7, "c": 16, "h": 0, "n": 9, "pista": "Objeto o procedimiento nuevo que antes no existía"}, {"p": "IMPACTO", "f": 12, "c": 8, "h": 1, "n": 10, "pista": "Huella que deja en el entorno todo lo que fabricamos"}], "fuera": []}, "1": {"t": "Proyecto tecnológico", "alto": 17, "ancho": 20, "e": [{"p": "PRESUPUESTO", "f": 0, "c": 4, "h": 0, "n": 1, "pista": "Lo que cuesta el proyecto, pieza a pieza, antes de empezar"}, {"p": "DIAGRAMA", "f": 1, "c": 0, "h": 1, "n": 2, "pista": "Dibujo de cajas y flechas con el orden de las operaciones"}, {"p": "PROTOTIPO", "f": 4, "c": 15, "h": 0, "n": 3, "pista": "Primer ejemplar que se construye para probar si la idea funciona"}, {"p": "REQUISITO", "f": 5, "c": 6, "h": 0, "n": 4, "pista": "Condición que la solución tiene que cumplir, escrita para poder comprobarla"}, {"p": "ROMBO", "f": 5, "c": 15, "h": 1, "n": 5, "pista": "Figura del diagrama de flujo que marca una decisión con dos salidas"}, {"p": "EQUIPO", "f": 6, "c": 6, "h": 1, "n": 6, "pista": "Lo que hace falta repartir en la fase de planificación"}, {"p": "MEMORIA", "f": 9, "c": 9, "h": 0, "n": 7, "pista": "Documento donde queda escrito todo el proyecto para poder repetirlo"}, {"p": "OBSOLESCENCIA", "f": 10, "c": 4, "h": 1, "n": 8, "pista": "Que un objeto deje de servir, a veces solo porque parece viejo"}, {"p": "EVALUAR", "f": 10, "c": 12, "h": 0, "n": 9, "pista": "Comprobar al final si se cumplen los requisitos del principio"}, {"p": "BOCETO", "f": 12, "c": 2, "h": 1, "n": 10, "pista": "Dibujo rápido a mano alzada, sin medidas, para explicar una idea"}], "fuera": []}, "2": {"t": "Expresión gráfica", "alto": 15, "ancho": 14, "e": [{"p": "ORTOGONAL", "f": 0, "c": 9, "h": 0, "n": 1, "pista": "Proyección que se obtiene mirando la pieza perpendicularmente"}, {"p": "ACOTAR", "f": 2, "c": 6, "h": 1, "n": 2, "pista": "Poner las medidas en un plano para que se pueda fabricar"}, {"p": "CROQUIS", "f": 2, "c": 7, "h": 0, "n": 3, "pista": "Dibujo a mano alzada pero ya con medidas"}, {"p": "PLANTA", "f": 4, "c": 13, "h": 0, "n": 4, "pista": "Vista desde arriba"}, {"p": "ISOMETRICA", "f": 5, "c": 2, "h": 0, "n": 5, "pista": "Perspectiva con los tres ejes a 120 grados y las medidas iguales"}, {"p": "CABALLERA", "f": 6, "c": 5, "h": 0, "n": 6, "pista": "Perspectiva con el eje de profundidad a 45 grados y medidas reducidas a la mitad"}, {"p": "NORMALIZACION", "f": 7, "c": 1, "h": 1, "n": 7, "pista": "Ponerse de acuerdo en cómo se dibuja para que todos lo entiendan igual"}, {"p": "PERFIL", "f": 11, "c": 0, "h": 1, "n": 8, "pista": "Vista lateral"}, {"p": "ESCALA", "f": 12, "c": 5, "h": 1, "n": 9, "pista": "Relación entre el dibujo y el objeto real"}, {"p": "ALZADO", "f": 14, "c": 2, "h": 1, "n": 10, "pista": "Vista de frente de una pieza"}], "fuera": []}, "3": {"t": "Materiales", "alto": 13, "ancho": 23, "e": [{"p": "TENACIDAD", "f": 0, "c": 16, "h": 0, "n": 1, "pista": "Aguantar un golpe sin romperse"}, {"p": "PETROLEO", "f": 1, "c": 0, "h": 1, "n": 2, "pista": "Materia prima mineral de la que salen los plásticos"}, {"p": "ENSAYO", "f": 1, "c": 1, "h": 0, "n": 3, "pista": "Prueba que se hace a un material para medir lo que aguanta"}, {"p": "ELASTICIDAD", "f": 1, "c": 6, "h": 0, "n": 4, "pista": "Recuperar la forma cuando deja de actuar la fuerza"}, {"p": "RECICLAR", "f": 1, "c": 15, "h": 1, "n": 5, "pista": "Volver a convertir en materia prima lo que ya se usó"}, {"p": "METACRILATO", "f": 2, "c": 8, "h": 0, "n": 6, "pista": "Plástico transparente que se obtiene de las naftas en un reactor"}, {"p": "BIOMATERIAL", "f": 2, "c": 10, "h": 0, "n": 7, "pista": "Material nuevo que imita huesos, tejidos o músculos"}, {"p": "ARTIFICIAL", "f": 2, "c": 13, "h": 0, "n": 8, "pista": "Material que el ser humano obtiene transformando la materia prima"}, {"p": "MATERIAPRIMA", "f": 3, "c": 5, "h": 1, "n": 9, "pista": "De donde se saca un material antes de transformarlo"}, {"p": "DUREZA", "f": 10, "c": 1, "h": 1, "n": 10, "pista": "Resistencia de un material a ser rayado o penetrado"}], "fuera": []}, "4": {"t": "Madera", "alto": 15, "ancho": 17, "e": [{"p": "CELULOSA", "f": 0, "c": 9, "h": 0, "n": 1, "pista": "Las fibras que forman la madera, pegadas con lignina"}, {"p": "FRONDOSA", "f": 0, "c": 12, "h": 0, "n": 2, "pista": "Árbol de madera dura, como el roble o el nogal"}, {"p": "ESCOFINA", "f": 0, "c": 14, "h": 0, "n": 3, "pista": "Herramienta de dientes gruesos para desbastar madera"}, {"p": "MEDULA", "f": 2, "c": 5, "h": 1, "n": 4, "pista": "La parte central del tronco"}, {"p": "ALBURA", "f": 4, "c": 0, "h": 1, "n": 5, "pista": "Parte exterior de la madera del tronco: más clara, blanda y joven"}, {"p": "AGLOMERADO", "f": 4, "c": 5, "h": 0, "n": 6, "pista": "Tablero de astillas prensadas con cola, poroso y pesado"}, {"p": "APEO", "f": 4, "c": 16, "h": 0, "n": 7, "pista": "Primera operación: cortar el tronco y derribarlo"}, {"p": "CONTRACHAPADO", "f": 7, "c": 4, "h": 1, "n": 8, "pista": "Tablero de láminas encoladas, estable y resistente"}, {"p": "CONIFERA", "f": 7, "c": 10, "h": 0, "n": 9, "pista": "Árbol de madera blanda, como el pino o el abeto"}, {"p": "BERBIQUI", "f": 10, "c": 3, "h": 1, "n": 10, "pista": "Taladro manual que se gira con las dos manos"}, {"p": "DURAMEN", "f": 12, "c": 5, "h": 1, "n": 11, "pista": "Parte interior de la madera del tronco: más oscura, dura y antigua"}, {"p": "CAMBIUM", "f": 14, "c": 9, "h": 1, "n": 12, "pista": "Capa fina entre la corteza y la madera donde el árbol crece"}], "fuera": []}, "5": {"t": "Metales", "alto": 17, "ancho": 16, "e": [{"p": "LATON", "f": 0, "c": 2, "h": 0, "n": 1, "pista": "Aleación de cobre y cinc"}, {"p": "GRANETE", "f": 1, "c": 0, "h": 1, "n": 2, "pista": "Punzón que marca el punto donde se va a taladrar"}, {"p": "TREFILADO", "f": 1, "c": 5, "h": 0, "n": 3, "pista": "Estirar el metal para convertirlo en hilo"}, {"p": "ARRABIO", "f": 1, "c": 14, "h": 0, "n": 4, "pista": "Lo que sale del alto horno, con demasiado carbono todavía"}, {"p": "BRONCE", "f": 3, "c": 0, "h": 1, "n": 5, "pista": "Aleación de cobre y estaño"}, {"p": "FUNDICION", "f": 5, "c": 9, "h": 0, "n": 6, "pista": "Férrico con más del 2 % de carbono: muy duro y frágil"}, {"p": "GALVANIZADO", "f": 7, "c": 4, "h": 1, "n": 7, "pista": "Recubrimiento de cinc que se oxida antes que el acero"}, {"p": "ALEACION", "f": 7, "c": 12, "h": 0, "n": 8, "pista": "Mezcla de dos o más elementos de los que uno es metal"}, {"p": "GANGA", "f": 10, "c": 11, "h": 1, "n": 9, "pista": "Lo que se desecha del mineral"}, {"p": "ESCORIA", "f": 11, "c": 4, "h": 1, "n": 10, "pista": "Las impurezas que recoge la caliza y flotan en el horno"}, {"p": "LAMINADO", "f": 13, "c": 5, "h": 1, "n": 11, "pista": "Pasar el metal entre rodillos para hacer chapa"}, {"p": "MENA", "f": 13, "c": 7, "h": 0, "n": 12, "pista": "Parte del mineral de la que se extrae el metal"}], "fuera": []}, "6": {"t": "Estructuras", "alto": 15, "ancho": 17, "e": [{"p": "TORSION", "f": 0, "c": 16, "h": 0, "n": 1, "pista": "Esfuerzo que retuerce"}, {"p": "COMPRESION", "f": 2, "c": 5, "h": 0, "n": 2, "pista": "Esfuerzo que aplasta una pieza"}, {"p": "CORTADURA", "f": 2, "c": 7, "h": 0, "n": 3, "pista": "Esfuerzo que corta, como unas tijeras"}, {"p": "FLEXION", "f": 2, "c": 14, "h": 0, "n": 4, "pista": "Esfuerzo que la dobla: comprime una cara y estira la otra"}, {"p": "PANDEO", "f": 3, "c": 0, "h": 1, "n": 5, "pista": "Un pilar largo y delgado que se dobla de golpe al comprimirlo"}, {"p": "VIGA", "f": 4, "c": 9, "h": 0, "n": 6, "pista": "Elemento horizontal que trabaja sobre todo a flexión"}, {"p": "TRACCION", "f": 4, "c": 12, "h": 0, "n": 7, "pista": "Esfuerzo que estira una pieza"}, {"p": "TRIANGULACION", "f": 6, "c": 4, "h": 1, "n": 8, "pista": "Recurso para que una estructura no se desmonte en rombo"}, {"p": "PILAR", "f": 10, "c": 9, "h": 0, "n": 9, "pista": "Elemento vertical que trabaja a compresión"}, {"p": "TIRANTE", "f": 11, "c": 8, "h": 1, "n": 10, "pista": "Elemento que solo trabaja a tracción"}], "fuera": []}, "7": {"t": "Mecanismos", "alto": 12, "ancho": 16, "e": [{"p": "POLEA", "f": 0, "c": 5, "h": 1, "n": 1, "pista": "Rueda con una garganta por donde pasa una cuerda"}, {"p": "POLIPASTO", "f": 0, "c": 5, "h": 0, "n": 1, "pista": "Conjunto de poleas que reduce la fuerza necesaria"}, {"p": "FULCRO", "f": 1, "c": 0, "h": 1, "n": 2, "pista": "El punto de apoyo de una palanca"}, {"p": "MANIVELA", "f": 3, "c": 2, "h": 1, "n": 3, "pista": "Lo que se gira con la mano para mover un mecanismo"}, {"p": "ENGRANAJE", "f": 3, "c": 7, "h": 0, "n": 4, "pista": "Rueda dentada que transmite giro a otra"}, {"p": "PALANCA", "f": 3, "c": 15, "h": 0, "n": 5, "pista": "Barra rígida que gira alrededor de un punto de apoyo"}, {"p": "LEVA", "f": 5, "c": 2, "h": 1, "n": 6, "pista": "Pieza con forma irregular que empuja a otra al girar"}, {"p": "PINON", "f": 6, "c": 11, "h": 0, "n": 7, "pista": "La rueda dentada más pequeña de un par"}, {"p": "BIELA", "f": 6, "c": 13, "h": 0, "n": 8, "pista": "Pieza que convierte el giro en vaivén junto a la manivela"}, {"p": "TRANSMISION", "f": 7, "c": 5, "h": 1, "n": 9, "pista": "Llevar el movimiento de un sitio a otro sin cambiar su tipo"}], "fuera": []}, "8": {"t": "Electricidad", "alto": 13, "ancho": 18, "e": [{"p": "CONDUCTOR", "f": 0, "c": 12, "h": 0, "n": 1, "pista": "Material que deja pasar la electricidad"}, {"p": "INTENSIDAD", "f": 1, "c": 9, "h": 0, "n": 2, "pista": "Cantidad de carga que pasa por segundo, en amperios"}, {"p": "RENOVABLE", "f": 1, "c": 17, "h": 0, "n": 3, "pista": "Fuente de energía que no se agota al usarla"}, {"p": "TENSION", "f": 2, "c": 3, "h": 1, "n": 4, "pista": "Se mide en voltios y empuja a los electrones"}, {"p": "INTERRUPTOR", "f": 2, "c": 7, "h": 0, "n": 5, "pista": "Elemento de control que abre o cierra el paso"}, {"p": "GENERADOR", "f": 4, "c": 14, "h": 0, "n": 6, "pista": "Elemento que aporta la energía al circuito"}, {"p": "AISLANTE", "f": 5, "c": 0, "h": 1, "n": 7, "pista": "Material que no la deja pasar"}, {"p": "RESISTENCIA", "f": 6, "c": 7, "h": 1, "n": 8, "pista": "Lo que se opone al paso de la corriente, en ohmios"}, {"p": "PARALELO", "f": 11, "c": 0, "h": 1, "n": 9, "pista": "Conexión en la que la corriente se reparte en varios caminos"}, {"p": "SERIE", "f": 12, "c": 12, "h": 1, "n": 10, "pista": "Conexión en la que la corriente solo tiene un camino"}], "fuera": []}, "9": {"t": "Equipos informáticos", "alto": 18, "ancho": 18, "e": [{"p": "PLACABASE", "f": 0, "c": 11, "h": 0, "n": 1, "pista": "La placa grande donde se conecta todo lo demás"}, {"p": "MEMORIARAM", "f": 2, "c": 8, "h": 0, "n": 2, "pista": "Memoria de trabajo que se borra al apagar"}, {"p": "CONFIGURACION", "f": 4, "c": 3, "h": 0, "n": 3, "pista": "Menú desde el que se ajusta cómo funciona el equipo"}, {"p": "PROCESADOR", "f": 4, "c": 6, "h": 0, "n": 4, "pista": "El que hace las cuentas y manda sobre el resto"}, {"p": "BYTE", "f": 5, "c": 11, "h": 1, "n": 5, "pista": "Ocho bits"}, {"p": "HARDWARE", "f": 7, "c": 13, "h": 0, "n": 6, "pista": "Todo lo que se puede tocar de un ordenador"}, {"p": "SOFTWARE", "f": 7, "c": 17, "h": 0, "n": 7, "pista": "Los programas: lo que no se puede tocar"}, {"p": "SISTEMAOPERATIVO", "f": 8, "c": 2, "h": 1, "n": 8, "pista": "Programa que gobierna la máquina y lanza los demás"}, {"p": "PERIFERICO", "f": 8, "c": 10, "h": 0, "n": 9, "pista": "Aparato que se conecta al ordenador para entrar o sacar datos"}, {"p": "BINARIO", "f": 12, "c": 0, "h": 1, "n": 10, "pista": "Sistema de ceros y unos con el que trabaja la máquina"}], "fuera": []}, "10": {"t": "Mantenimiento y seguridad digital", "alto": 16, "ancho": 15, "e": [{"p": "PHISHING", "f": 0, "c": 12, "h": 0, "n": 1, "pista": "Engaño que imita una web de confianza para robarte la contraseña"}, {"p": "ANTIVIRUS", "f": 1, "c": 6, "h": 0, "n": 2, "pista": "Programa que compara los ficheros con lo que ya conoce"}, {"p": "NUBE", "f": 2, "c": 6, "h": 1, "n": 3, "pista": "Sitio de internet donde se guardan los ficheros para tenerlos en todos los aparatos"}, {"p": "VIRUS", "f": 3, "c": 14, "h": 0, "n": 4, "pista": "Se mete dentro de otro programa y necesita que alguien lo ejecute"}, {"p": "COPIA", "f": 6, "c": 0, "h": 1, "n": 5, "pista": "Lo único que hace reversible un ataque de ransomware"}, {"p": "ACTUALIZAR", "f": 6, "c": 4, "h": 0, "n": 6, "pista": "La defensa más aburrida y la que más ataques evita"}, {"p": "MALWARE", "f": 6, "c": 8, "h": 0, "n": 7, "pista": "Programa escrito para dañar un equipo sin que lo sepas"}, {"p": "GUSANO", "f": 6, "c": 10, "h": 0, "n": 8, "pista": "Se copia solo de un equipo a otro, sin que nadie lo abra"}, {"p": "CORTAFUEGOS", "f": 7, "c": 4, "h": 1, "n": 9, "pista": "Controla qué entra y qué sale por la red"}, {"p": "TROYANO", "f": 14, "c": 0, "h": 1, "n": 10, "pista": "Parece inofensivo y abre una puerta trasera"}], "fuera": []}, "11": {"t": "Ofimática", "alto": 16, "ancho": 15, "e": [{"p": "GRAFICO", "f": 0, "c": 8, "h": 0, "n": 1, "pista": "Dibujo enlazado a los datos que cambia cuando ellos cambian"}, {"p": "FORMULA", "f": 0, "c": 14, "h": 0, "n": 2, "pista": "Lo que empieza por el signo igual y se calcula solo"}, {"p": "CELDA", "f": 2, "c": 4, "h": 1, "n": 3, "pista": "Cada casilla de una hoja de cálculo, con su columna y su fila"}, {"p": "FUNCION", "f": 2, "c": 12, "h": 0, "n": 4, "pista": "Fórmula con nombre, como SUMA o PROMEDIO"}, {"p": "LIBREOFFICE", "f": 5, "c": 5, "h": 0, "n": 5, "pista": "Paquete de ofimática libre con Writer, Calc e Impress"}, {"p": "DIAPOSITIVA", "f": 6, "c": 4, "h": 1, "n": 6, "pista": "Cada una de las pantallas de una presentación"}, {"p": "PLANTILLA", "f": 6, "c": 7, "h": 0, "n": 7, "pista": "Documento con el formato ya decidido que se abre como copia"}, {"p": "SECTORES", "f": 6, "c": 9, "h": 0, "n": 8, "pista": "Tipo de gráfico que se usa cuando todo suma cien"}, {"p": "ESTILO", "f": 10, "c": 0, "h": 1, "n": 9, "pista": "Marcar lo que algo es en vez de pintar lo que parece"}, {"p": "PDF", "f": 12, "c": 3, "h": 1, "n": 10, "pista": "Formato que lleva las letras dentro y no se descoloca"}], "fuera": []}, "12": {"t": "Programación y robótica", "alto": 22, "ancho": 18, "e": [{"p": "SENSOR", "f": 0, "c": 4, "h": 0, "n": 1, "pista": "Lo que le permite a un robot enterarse de lo que pasa fuera"}, {"p": "DEPURAR", "f": 5, "c": 0, "h": 1, "n": 2, "pista": "Seguir el programa paso a paso hasta dar con el fallo"}, {"p": "EVENTOS", "f": 5, "c": 1, "h": 0, "n": 3, "pista": "Los bloques amarillos que lanzan el programa"}, {"p": "APPINVENTOR", "f": 5, "c": 5, "h": 0, "n": 4, "pista": "Sirve para hacer aplicaciones de móvil por bloques"}, {"p": "ALGORITMO", "f": 9, "c": 8, "h": 0, "n": 5, "pista": "Lista ordenada, finita y sin ambigüedad de instrucciones"}, {"p": "VARIABLE", "f": 11, "c": 10, "h": 0, "n": 6, "pista": "Caja con nombre donde el programa guarda un dato"}, {"p": "CONDICIONAL", "f": 14, "c": 4, "h": 1, "n": 7, "pista": "Hacer una cosa u otra según se cumpla algo"}, {"p": "ACTUADOR", "f": 14, "c": 13, "h": 0, "n": 8, "pista": "Lo que hace que el robot mueva, encienda o suene"}, {"p": "BUCLE", "f": 17, "c": 12, "h": 1, "n": 9, "pista": "Repetir un trozo de programa sin volver a escribirlo"}, {"p": "SCRATCH", "f": 21, "c": 11, "h": 1, "n": 10, "pista": "Entorno de bloques donde hay un escenario y objetos"}], "fuera": []}};
+var tema = null, sel = null, lado = 34;
+
+function $(s, d){ return (d||document).querySelector(s); }
+
+function pinta(clave){
+  tema = DATOS[clave];
+  var t = $('#tab'), n = tema;
+  var celdas = {};
+  n.e.forEach(function(e){
+    for(var i=0;i<e.p.length;i++){
+      var f = e.h ? e.f : e.f+i, c = e.h ? e.c+i : e.c;
+      celdas[f+','+c] = (celdas[f+','+c]||{letra:e.p[i], ids:[]});
+      celdas[f+','+c].ids.push(e.n+(e.h?'H':'V'));
+    }
+  });
+  var num = {};
+  n.e.forEach(function(e){ num[e.f+','+e.c] = e.n; });
+
+  var html = '';
+  for(var f=0; f<n.alto; f++){
+    html += '<tr>';
+    for(var c=0; c<n.ancho; c++){
+      var k = f+','+c, cel = celdas[k];
+      if(!cel){ html += '<td></td>'; continue; }
+      html += '<td class="v" data-k="'+k+'" data-ids="'+cel.ids.join(' ')+'">'
+            + (num[k] ? '<span class="n">'+num[k]+'</span>' : '')
+            + '<input maxlength="1" inputmode="text" aria-label="fila '+(f+1)+' columna '+(c+1)+'" data-ok="'+cel.letra+'">'
+            + '</td>';
+    }
+    html += '</tr>';
+  }
+  t.innerHTML = html;
+  t.style.setProperty('--lado', lado+'px');
+
+  var hs = n.e.filter(function(e){ return e.h; }), vs = n.e.filter(function(e){ return !e.h; });
+  function lista(a){
+    return a.map(function(e){
+      return '<li data-id="'+e.n+(e.h?'H':'V')+'" tabindex="0"><b>'+e.n+'</b><span>'+e.pista
+           + ' <i style="color:#63788f">('+e.p.length+')</i></span></li>';
+    }).join('');
+  }
+  $('#hor').innerHTML = lista(hs);
+  $('#ver').innerHTML = lista(vs);
+  $('#tot').textContent = n.e.length;
+  marca();
+  enfoca(n.e[0]);
+}
+
+function celdasDe(id){
+  return Array.prototype.filter.call(document.querySelectorAll('#tab td.v'), function(td){
+    return td.dataset.ids.split(' ').indexOf(id) >= 0;
+  });
+}
+
+function enfoca(e){
+  sel = e.n + (e.h ? 'H' : 'V');
+  document.querySelectorAll('#tab td').forEach(function(td){ td.classList.remove('pal'); });
+  document.querySelectorAll('.pistas li').forEach(function(li){
+    li.classList.toggle('sel', li.dataset.id === sel);
+  });
+  var cs = celdasDe(sel);
+  cs.forEach(function(td){ td.classList.add('pal'); });
+  if(cs[0]) cs[0].querySelector('input').focus();
+}
+
+function porId(id){
+  return tema.e.filter(function(e){ return e.n + (e.h?'H':'V') === id; })[0];
+}
+
+function marca(){
+  var hechas = 0;
+  tema.e.forEach(function(e){
+    var id = e.n + (e.h?'H':'V');
+    var cs = celdasDe(id);
+    var ok = cs.length && cs.every(function(td){
+      return td.querySelector('input').value.toUpperCase() === td.querySelector('input').dataset.ok;
+    });
+    if(ok) hechas++;
+    var li = document.querySelector('.pistas li[data-id="'+id+'"]');
+    if(li) li.classList.toggle('ok', ok);
+  });
+  $('#hechas').textContent = hechas;
+}
+
+document.addEventListener('input', function(ev){
+  if(ev.target.tagName !== 'INPUT') return;
+  ev.target.value = ev.target.value.toUpperCase().replace(/[^A-ZÑ]/g,'');
+  marca();
+  if(ev.target.value && sel){
+    var cs = celdasDe(sel), i = cs.indexOf(ev.target.parentNode);
+    if(i >= 0 && cs[i+1]) cs[i+1].querySelector('input').focus();
+  }
+});
+
+document.addEventListener('keydown', function(ev){
+  if(ev.target.tagName !== 'INPUT' || !sel) return;
+  var cs = celdasDe(sel), i = cs.indexOf(ev.target.parentNode);
+  if(ev.key === 'Backspace' && !ev.target.value && cs[i-1]){ cs[i-1].querySelector('input').focus(); }
+  if(ev.key === 'ArrowRight' && cs[i+1]){ cs[i+1].querySelector('input').focus(); ev.preventDefault(); }
+  if(ev.key === 'ArrowLeft' && cs[i-1]){ cs[i-1].querySelector('input').focus(); ev.preventDefault(); }
+});
+
+document.addEventListener('click', function(ev){
+  var li = ev.target.closest('.pistas li');
+  if(li){ enfoca(porId(li.dataset.id)); return; }
+  var td = ev.target.closest('#tab td.v');
+  if(td){
+    var ids = td.dataset.ids.split(' ');
+    var otro = ids.filter(function(x){ return x !== sel; })[0];
+    enfoca(porId(ids.indexOf(sel) >= 0 && otro ? otro : ids[0]));
+  }
+});
+
+$('#tema').addEventListener('change', function(){ pinta(this.value); });
+$('#comprobar').addEventListener('click', function(){
+  document.querySelectorAll('#tab td.v').forEach(function(td){
+    var inp = td.querySelector('input');
+    td.classList.remove('bien','mal');
+    if(inp.value) td.classList.add(inp.value.toUpperCase() === inp.dataset.ok ? 'bien' : 'mal');
+  });
+  setTimeout(function(){
+    document.querySelectorAll('#tab td.v').forEach(function(td){ td.classList.remove('bien','mal'); });
+  }, 2500);
+});
+$('#pista').addEventListener('click', function(){
+  if(!sel) return;
+  var cs = celdasDe(sel).filter(function(td){
+    var i = td.querySelector('input');
+    return i.value.toUpperCase() !== i.dataset.ok;
+  });
+  if(!cs.length) return;
+  var td = cs[0], inp = td.querySelector('input');
+  inp.value = inp.dataset.ok;
+  marca();
+});
+$('#resolver').addEventListener('click', function(){
+  if(!confirm('¿Seguro? Se rellena el crucigrama entero.')) return;
+  document.querySelectorAll('#tab td.v input').forEach(function(i){ i.value = i.dataset.ok; });
+  marca();
+});
+$('#borrar').addEventListener('click', function(){
+  document.querySelectorAll('#tab td.v input').forEach(function(i){ i.value = ''; });
+  marca();
+});
+$('#mas').addEventListener('click', function(){ lado = Math.min(64, lado+5); $('#tab').style.setProperty('--lado', lado+'px'); });
+$('#menos').addEventListener('click', function(){ lado = Math.max(20, lado-5); $('#tab').style.setProperty('--lado', lado+'px'); });
+
+pinta('0');
+</script>
+</body>
+</html>

@@ -91,6 +91,64 @@ S1 = u'''    <section class="bloque">
         cumplen o no. Si no los escribiste, <b>nunca sabr&aacute;s si tu soluci&oacute;n es buena</b>, solo si te gusta.
       </div>
 
+
+      <h3>C&oacute;mo se llama esto en el libro</h3>
+      <p>Lo que aqu&iacute; llamamos <b>los siete pasos</b>, el libro lo llama <b>las fases del proyecto
+      t&eacute;cnico</b>. Es lo mismo con otros nombres, y conviene saber los dos porque el examen usa los
+      suyos:</p>
+      <table class="tabla-ancha">
+        <thead><tr><th>Fase</th><th>Qu&eacute; se hace</th><th>Qu&eacute; produce</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Identificaci&oacute;n del problema y b&uacute;squeda de informaci&oacute;n</b></td>
+              <td>Definir qu&eacute; falta y mirar qu&eacute; soluciones existen ya</td><td>Un problema claro</td></tr>
+          <tr><td><b>2. Dise&ntilde;o t&eacute;cnico</b></td>
+              <td>Idear varias soluciones y <b>dibujarlas</b>: bocetos, croquis, planos con medidas</td>
+              <td>El dise&ntilde;o elegido</td></tr>
+          <tr><td><b>3. Planificaci&oacute;n y organizaci&oacute;n</b></td>
+              <td>Pasos, orden de montaje, herramientas, reparto y tiempos</td><td>El plan de trabajo</td></tr>
+          <tr><td><b>4. Construcci&oacute;n</b></td>
+              <td>Fabricar el <b>prototipo</b> siguiendo el dise&ntilde;o</td><td>El objeto</td></tr>
+          <tr><td><b>5. Verificaci&oacute;n y evaluaci&oacute;n</b></td>
+              <td>Comprobar si cumple. Si no, se vuelve atr&aacute;s</td><td>La <b>memoria t&eacute;cnica</b></td></tr>
+        </tbody>
+      </table>
+      <div class="copiar">
+        <h4>Tres palabras que hay que saber decir</h4>
+        <p><b>Prototipo</b>: el primer ejemplar que se construye para <b>probar si la idea
+        funciona</b>. No es el producto final; es el que sirve para descubrir qu&eacute; falla.</p>
+        <p><b>Memoria t&eacute;cnica</b>: el documento donde queda escrito todo el proyecto &mdash;el
+        problema, los dise&ntilde;os, los materiales, el presupuesto y lo que pas&oacute; al probarlo&mdash;. Sin
+        memoria, el proyecto no se puede repetir ni defender.</p>
+        <p><b>Presupuesto</b>: lo que cuesta, pieza a pieza, antes de empezar.</p>
+      </div>
+
+      <h3>El diagrama de flujo: el plan dibujado</h3>
+      <p>Un <b>diagrama de flujo</b> es el orden de las operaciones dibujado con cajas y flechas. Se
+      usa en la fase 3 y sirve para una cosa muy concreta: ver de un vistazo <b>qu&eacute; va antes que
+      qu&eacute;</b> y d&oacute;nde hay que decidir algo.</p>
+      <ul>
+        <li><b>Elipse</b>: inicio y fin.</li>
+        <li><b>Rect&aacute;ngulo</b>: una operaci&oacute;n (&laquo;cortar los cuatro listones&raquo;).</li>
+        <li><b>Rombo</b>: una decisi&oacute;n, con dos salidas, s&iacute; y no (&laquo;&iquest;mide 40&nbsp;cm?&raquo;).</li>
+        <li><b>Flechas</b>: el orden. Y pueden volver atr&aacute;s, que es lo que pasa cuando algo no sale.</li>
+      </ul>
+      <p>Si el diagrama de una silla te sale sin ning&uacute;n rombo, casi seguro que te has dejado las
+      comprobaciones: en un taller siempre hay un momento de &laquo;&iquest;ha quedado bien? &iquest;sigo o lo
+      repito?&raquo;.</p>
+
+      <h3>Y una pregunta que va al final del proceso pero decide desde el principio</h3>
+      <p>Todo lo que fabricas se acaba tirando alguna vez. La <b>obsolescencia</b> es que un objeto
+      deje de servir, y tiene dos versiones muy distintas:</p>
+      <ul>
+        <li><b>Obsolescencia t&eacute;cnica</b>: deja de funcionar o se queda corto de verdad.</li>
+        <li><b>Obsolescencia percibida</b>: funciona perfectamente, pero <b>parece viejo</b>. Es la
+            del m&oacute;vil que se cambia porque sali&oacute; otro.</li>
+      </ul>
+      <p>Frente a eso, el <b>consumo sostenible</b> no es reciclar m&aacute;s: es sobre todo
+      <b>comprar menos y elegir mejor</b>. Reparar antes que sustituir, comprar de segunda mano,
+      elegir lo que se puede desmontar y tiene repuestos, y dejar el reciclaje para cuando ya no
+      queda otra. Es una decisi&oacute;n que se toma en la fase&nbsp;2, no al tirar el objeto.</p>
+
       <figure class="foto">
         <img src="../../../img/technological-process-steps.svg" width="1000" height="700" loading="lazy"
              alt="El proceso tecnol&oacute;gico: 7 pasos desde definir el problema hasta documentar">

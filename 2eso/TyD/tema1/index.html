@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tema 1 &middot; Proyecto tecnol&oacute;gico</title>
+<title>Tema 1 &middot; El proceso tecnol&oacute;gico</title>
 <meta name="description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones y evaluaci&oacute;n del proyecto, todo alrededor de un soporte de m&oacute;vil de cart&oacute;n que se construye en clase, con escenas interactivas y test.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Tema 1 &middot; Proyecto tecnol&oacute;gico">
+<meta property="og:title" content="Tema 1 &middot; El proceso tecnol&oacute;gico">
 <meta property="og:description" content="Tema 1 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: los siete pasos del proceso tecnol&oacute;gico, requisitos comprobables, matriz de decisi&oacute;n, croquis acotado y despiece, hoja de proceso y diagrama de Gantt, uniones y evaluaci&oacute;n del proyecto, todo alrededor de un soporte de m&oacute;vil de cart&oacute;n que se construye en clase, con escenas interactivas y test.">
 <meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/">
 <meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tema 1 &middot; Proyecto tecnol&oacute;gico &middot; Materiales de Tecnolog&iacute;a">
+<meta property="og:image:alt" content="Tema 1 &middot; El proceso tecnol&oacute;gico &middot; Materiales de Tecnolog&iacute;a">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
@@ -29,9 +29,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 1 &middot; Proyecto tecnol&oacute;gico","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/","inLanguage":"es",
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 1 &middot; El proceso tecnol&oacute;gico","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/","inLanguage":"es",
  "license":"https://creativecommons.org/licenses/by-sa/4.0/",
- "creditText":"Roberto P. García Llorente (2026) &middot; Tema 1 &middot; Proyecto tecnol&oacute;gico &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 1 &middot; El proceso tecnol&oacute;gico &middot; CC BY-SA 4.0","copyrightYear":"2026",
  "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
  "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
  "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
@@ -78,6 +78,8 @@ main{padding-block:26px 70px}
 .bloque{margin-bottom:34px}
 .rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+/* casi todos los rotulos son un numero de dos cifras, pero alguno es una
+   palabra corta -- «LEY» -- y con 26 px justos se le corta la ultima letra. */
 .rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
   padding:0 5px;flex:none;display:inline-grid;place-items:center;font-weight:500}
 .rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
@@ -304,6 +306,17 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+/* tablas anchas en el movil: se desplazan ellas, no la pagina */
+@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* ---- al imprimir, que salgan todas las sesiones ---- */
+@media print{
+  #nav{display:none}
+  [id^="ses-"][hidden]{display:block !important}
+  [id^="ses-"]{break-before:page}
+  [id^="ses-"]:first-of-type{break-before:auto}
+  .escena-barra .seg,.video-play{display:none}
+  .escena{break-inside:avoid}
+}
 /* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
 .saltar{position:absolute;left:-9999px;top:0;z-index:99;
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
@@ -341,18 +354,7 @@ footer .wrap{padding-block:18px 26px}
 .rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
 .rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
 @media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}/* tablas anchas en el movil: se desplazan ellas, no la pagina */
-@media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
-/* ---- al imprimir, que salgan todas las sesiones ---- */
-@media print{
-  #nav{display:none}
-  [id^="ses-"][hidden]{display:block !important}
-  [id^="ses-"]{break-before:page}
-  [id^="ses-"]:first-of-type{break-before:auto}
-  .escena-barra .seg,.video-play{display:none}
-  .escena{break-inside:avoid}
-}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
@@ -365,7 +367,7 @@ footer .wrap{padding-block:18px 26px}
 <header class="top">
   <div class="wrap">
     <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 1</div>
-    <h1>Proyecto tecnol&oacute;gico</h1>
+    <h1>El proceso tecnol&oacute;gico</h1>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; &iquest;Por qu&eacute; un m&eacute;todo?</button><button type="button" data-ses="2">S2 &middot; Ideas y decisi&oacute;n</button><button type="button" data-ses="3">S3 &middot; Dise&ntilde;o</button><button type="button" data-ses="4">S4 &middot; Planificaci&oacute;n y taller</button><button type="button" data-ses="5">S5 &middot; Construcci&oacute;n</button><button type="button" data-ses="6">S6 &middot; Evaluaci&oacute;n y test</button></nav>
   </div>
 </header>
@@ -462,9 +464,67 @@ footer .wrap{padding-block:18px 26px}
         cumplen o no. Si no los escribiste, <b>nunca sabr&aacute;s si tu soluci&oacute;n es buena</b>, solo si te gusta.
       </div>
 
+
+      <h3>C&oacute;mo se llama esto en el libro</h3>
+      <p>Lo que aqu&iacute; llamamos <b>los siete pasos</b>, el libro lo llama <b>las fases del proyecto
+      t&eacute;cnico</b>. Es lo mismo con otros nombres, y conviene saber los dos porque el examen usa los
+      suyos:</p>
+      <table class="tabla-ancha">
+        <thead><tr><th scope="col">Fase</th><th scope="col">Qu&eacute; se hace</th><th scope="col">Qu&eacute; produce</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Identificaci&oacute;n del problema y b&uacute;squeda de informaci&oacute;n</b></td>
+              <td>Definir qu&eacute; falta y mirar qu&eacute; soluciones existen ya</td><td>Un problema claro</td></tr>
+          <tr><td><b>2. Dise&ntilde;o t&eacute;cnico</b></td>
+              <td>Idear varias soluciones y <b>dibujarlas</b>: bocetos, croquis, planos con medidas</td>
+              <td>El dise&ntilde;o elegido</td></tr>
+          <tr><td><b>3. Planificaci&oacute;n y organizaci&oacute;n</b></td>
+              <td>Pasos, orden de montaje, herramientas, reparto y tiempos</td><td>El plan de trabajo</td></tr>
+          <tr><td><b>4. Construcci&oacute;n</b></td>
+              <td>Fabricar el <b>prototipo</b> siguiendo el dise&ntilde;o</td><td>El objeto</td></tr>
+          <tr><td><b>5. Verificaci&oacute;n y evaluaci&oacute;n</b></td>
+              <td>Comprobar si cumple. Si no, se vuelve atr&aacute;s</td><td>La <b>memoria t&eacute;cnica</b></td></tr>
+        </tbody>
+      </table>
+      <div class="copiar">
+        <h4>Tres palabras que hay que saber decir</h4>
+        <p><b>Prototipo</b>: el primer ejemplar que se construye para <b>probar si la idea
+        funciona</b>. No es el producto final; es el que sirve para descubrir qu&eacute; falla.</p>
+        <p><b>Memoria t&eacute;cnica</b>: el documento donde queda escrito todo el proyecto &mdash;el
+        problema, los dise&ntilde;os, los materiales, el presupuesto y lo que pas&oacute; al probarlo&mdash;. Sin
+        memoria, el proyecto no se puede repetir ni defender.</p>
+        <p><b>Presupuesto</b>: lo que cuesta, pieza a pieza, antes de empezar.</p>
+      </div>
+
+      <h3>El diagrama de flujo: el plan dibujado</h3>
+      <p>Un <b>diagrama de flujo</b> es el orden de las operaciones dibujado con cajas y flechas. Se
+      usa en la fase 3 y sirve para una cosa muy concreta: ver de un vistazo <b>qu&eacute; va antes que
+      qu&eacute;</b> y d&oacute;nde hay que decidir algo.</p>
+      <ul>
+        <li><b>Elipse</b>: inicio y fin.</li>
+        <li><b>Rect&aacute;ngulo</b>: una operaci&oacute;n (&laquo;cortar los cuatro listones&raquo;).</li>
+        <li><b>Rombo</b>: una decisi&oacute;n, con dos salidas, s&iacute; y no (&laquo;&iquest;mide 40&nbsp;cm?&raquo;).</li>
+        <li><b>Flechas</b>: el orden. Y pueden volver atr&aacute;s, que es lo que pasa cuando algo no sale.</li>
+      </ul>
+      <p>Si el diagrama de una silla te sale sin ning&uacute;n rombo, casi seguro que te has dejado las
+      comprobaciones: en un taller siempre hay un momento de &laquo;&iquest;ha quedado bien? &iquest;sigo o lo
+      repito?&raquo;.</p>
+
+      <h3>Y una pregunta que va al final del proceso pero decide desde el principio</h3>
+      <p>Todo lo que fabricas se acaba tirando alguna vez. La <b>obsolescencia</b> es que un objeto
+      deje de servir, y tiene dos versiones muy distintas:</p>
+      <ul>
+        <li><b>Obsolescencia t&eacute;cnica</b>: deja de funcionar o se queda corto de verdad.</li>
+        <li><b>Obsolescencia percibida</b>: funciona perfectamente, pero <b>parece viejo</b>. Es la
+            del m&oacute;vil que se cambia porque sali&oacute; otro.</li>
+      </ul>
+      <p>Frente a eso, el <b>consumo sostenible</b> no es reciclar m&aacute;s: es sobre todo
+      <b>comprar menos y elegir mejor</b>. Reparar antes que sustituir, comprar de segunda mano,
+      elegir lo que se puede desmontar y tiene repuestos, y dejar el reciclaje para cuando ya no
+      queda otra. Es una decisi&oacute;n que se toma en la fase&nbsp;2, no al tirar el objeto.</p>
+
       <figure class="foto">
         <img src="../../../img/technological-process-steps.svg" width="1000" height="700" loading="lazy"
-             alt="Proyecto tecnol&oacute;gico: 7 pasos desde definir el problema hasta documentar">
+             alt="El proceso tecnol&oacute;gico: 7 pasos desde definir el problema hasta documentar">
         <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>. Cada paso produce algo: el 1 produce un problema claro, el 2 produce una lista de requisitos comprobables, el 3 un dise&ntilde;o concreto. El proceso no es lineal: cuando pruebas en el paso 5, a menudo tienes que volver al 6 (mejorar) o incluso al 3 (redise&ntilde;ar). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.
           <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
         </figcaption>
@@ -730,7 +790,7 @@ footer .wrap{padding-block:18px 26px}
         <li>&laquo;Que sea resistente&raquo;: &iquest;es un buen requisito?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No. No es comprobable. S&iacute; lo ser&iacute;a: <b>&laquo;que sujete un m&oacute;vil de 165 mm sin volcar al tocar la pantalla&raquo;</b>.</p></div></details></li>
         <li>&iquest;Qu&eacute; se hace si al construir descubres que el dise&ntilde;o no funciona?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se vuelve al paso de dise&ntilde;o. Proyecto tecnol&oacute;gico <b>no es una l&iacute;nea recta</b>: volver atr&aacute;s forma parte de &eacute;l.</p></div></details></li>
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Se vuelve al paso de dise&ntilde;o. El proceso tecnol&oacute;gico <b>no es una l&iacute;nea recta</b>: volver atr&aacute;s forma parte de &eacute;l.</p></div></details></li>
 
       </ol>
 
@@ -2292,11 +2352,11 @@ footer .wrap{padding-block:18px 26px}
           <div class="ta-por"><b>Por qu&eacute;:</b> Las tareas con holgura se pueden retrasar un poco sin consecuencias; las que no la tienen son las que mandan en la hora de acabar, y son las que hay que vigilar. Saber cu&aacute;les son es media planificaci&oacute;n.</div>
         </div>
 
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u1-p9">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u1-p9">
           <p id="test-u1-p9">9. Pegas las dos piezas de cart&oacute;n con cola, a tope, en vez de encastrarlas. &iquest;Qu&eacute; va a pasar?</p>
           <label class="ta-op"><input type="radio" name="u1-8" value="0">aguantar&aacute; m&aacute;s que encastradas, porque pega toda la superficie</label>
-          <label class="ta-op"><input type="radio" name="u1-8" value="1">aguantar&aacute; lo mismo, porque la cola de madera vale para todo</label>
-          <label class="ta-op"><input type="radio" name="u1-8" value="2">aguantar&aacute; poco, y al tirar se llevar&aacute; la capa de papel</label>
+          <label class="ta-op"><input type="radio" name="u1-8" value="1">aguantar&aacute; poco, y al tirar se llevar&aacute; la capa de papel</label>
+          <label class="ta-op"><input type="radio" name="u1-8" value="2">aguantar&aacute; lo mismo, porque la cola de madera vale para todo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El cart&oacute;n es <b>papel con aire dentro</b>. La cola se mete en la onda en vez de quedarse en la junta, y lo que acaba fallando no es el pegamento: es el propio cart&oacute;n, que se abre en dos y deja la onda al aire. Por eso aqu&iacute; se une <b>por la forma</b> y no por el pegamento, que adem&aacute;s se desmonta y cabe plano en la mochila.</div>
         </div>
 
@@ -2352,14 +2412,14 @@ footer .wrap{padding-block:18px 26px}
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>
-  <p><span property="dct:title">Tema 1 &middot; Proyecto tecnol&oacute;gico</span> &middot; &copy; 2026
+  <p><span property="dct:title">Tema 1 &middot; El proceso tecnol&oacute;gico</span> &middot; &copy; 2026
      <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
   <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
      Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
      siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
      derivadas con esta misma licencia.</p>
   <h3>C&oacute;mo citar</h3>
-  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 1 &middot; Proyecto tecnol&oacute;gico</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 1 &middot; El proceso tecnol&oacute;gico</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema1/. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
   <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
   <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia

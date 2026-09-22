@@ -1506,7 +1506,7 @@ EXTRA_CSS = avatar_flat.CSS + u"""
 
 if __name__ == '__main__':
     html = pagina(CFG).replace(u'</style>', EXTRA_CSS + u'</style>', 1)
-    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema7')
+    destino = os.path.join(RAIZ, '2eso', 'TyD', 'tema9')
     os.makedirs(destino, exist_ok=True)
     io.open(os.path.join(destino, 'index.html'), 'w', encoding='utf-8', newline='').write(html)
     print('U7 generada: %d bytes, %d sesiones (%d escritas)' % (

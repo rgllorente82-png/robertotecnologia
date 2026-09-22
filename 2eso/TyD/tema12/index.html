@@ -78,6 +78,8 @@ main{padding-block:26px 70px}
 .bloque{margin-bottom:34px}
 .rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+/* casi todos los rotulos son un numero de dos cifras, pero alguno es una
+   palabra corta -- «LEY» -- y con 26 px justos se le corta la ultima letra. */
 .rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
   padding:0 5px;flex:none;display:inline-grid;place-items:center;font-weight:500}
 .rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
@@ -318,11 +320,6 @@ footer .wrap{padding-block:18px 26px}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
   h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
-/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
-.saltar{position:absolute;left:-9999px;top:0;z-index:99;
-  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
-  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
-.saltar:focus{left:0}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
 /* ---- al imprimir, que salgan todas las sesiones ---- */
@@ -334,6 +331,11 @@ footer .wrap{padding-block:18px 26px}
   .escena-barra .seg,.video-play{display:none}
   .escena{break-inside:avoid}
 }
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
 /* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
@@ -346,7 +348,7 @@ footer .wrap{padding-block:18px 26px}
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
-    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 12</div>
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 10</div>
     <h1>Programaci&oacute;n y rob&oacute;tica</h1>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Dec&iacute;rselo a una m&aacute;quina</button><button type="button" data-ses="2">S2 &middot; Repetir y decidir</button><button type="button" data-ses="3">S3 &middot; La placa: micro:bit</button><button type="button" data-ses="4">S4 &middot; Sensores y entradas</button><button type="button" data-ses="5">S5 &middot; El robot</button><button type="button" data-ses="6">S6 &middot; Proyecto y test</button></nav>
   </div>
@@ -727,6 +729,43 @@ footer .wrap{padding-block:18px 26px}
         <p>Esto, que parece una pega, es justo lo que hace &uacute;til a una m&aacute;quina: hace <b>siempre
            lo mismo</b>. Un torno que decidiera por su cuenta ser&iacute;a un peligro, no un avance.</p>
       </div>
+
+      <h3>D&oacute;nde vas a escribir todo esto</h3>
+      <p>Lo que acabas de hacer con el robot se programa igual en cualquier sitio, pero en clase
+      vas a usar tres entornos distintos, y conviene saber para qu&eacute; sirve cada uno:</p>
+      <table class="tabla-ancha">
+        <thead><tr><th scope="col">Entorno</th><th scope="col">Qu&eacute; se hace con &eacute;l</th><th scope="col">Qu&eacute; sale</th></tr></thead>
+        <tbody>
+          <tr><td><b>Scratch</b></td><td>Programaci&oacute;n por bloques: juegos, animaciones, historias</td>
+              <td>Un proyecto que se ejecuta en el navegador</td></tr>
+          <tr><td><b>App Inventor</b></td><td>Aplicaciones para el m&oacute;vil, tambi&eacute;n por bloques</td>
+              <td>Una app que se instala en un Android</td></tr>
+          <tr><td><b>micro:bit</b> y <b>VEXcode</b></td><td>Programar una placa o un robot de verdad</td>
+              <td>Algo que se mueve, suena o enciende</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Scratch en cinco palabras</h3>
+      <p>En Scratch todo pasa en un <b>escenario</b>, que es el rect&aacute;ngulo donde se ve el proyecto, y
+      lo que se mueve por &eacute;l son los <b>objetos</b> &mdash;los personajes&mdash;. Cada objeto tiene su
+      propio programa.</p>
+      <ul>
+        <li>El escenario tiene <b>coordenadas</b>: la x va de -240 a 240 y la y de -180 a 180, con el
+            (0,&nbsp;0) en el centro. Mover un personaje es cambiarle la x y la y.</li>
+        <li>Los bloques est&aacute;n <b>agrupados por color</b>: Movimiento en azul, Apariencia en morado,
+            Sonido en rosa, <b>Eventos</b> en amarillo, <b>Control</b> en naranja, Sensores en celeste,
+            Operadores en verde y Variables en naranja oscuro.</li>
+        <li>Un programa casi siempre empieza con un bloque de <b>Eventos</b>: <i>al hacer clic en la
+            bandera verde</i>. Sin &eacute;l, el programa est&aacute; escrito pero nadie lo lanza.</li>
+        <li>Los bloques <b>encajan como piezas</b>: si dos no encajan, es que ah&iacute; no van. Es la
+            manera que tiene el programa de evitarte un error de sintaxis.</li>
+      </ul>
+      <div class="caja caja-nuestro">
+        <span class="n-tag">Lo mismo, con otra ropa</span>
+        <p>Los bloques de Scratch y las instrucciones del robot de arriba son <b>lo mismo</b>: una
+        lista ordenada, finita y sin ambig&uuml;edad. Cambia el aspecto, no la idea. Por eso quien
+        entiende el robot entiende Scratch en diez minutos, y al rev&eacute;s no siempre pasa.</p>
+      </div>
       <div class="copiar">
         <h4>C&oacute;mo se busca un fallo en un programa</h4>
         <p>Cuando no hace lo que esperabas, no cambies cosas al azar. <b>Sigue el programa t&uacute;
@@ -1058,6 +1097,26 @@ footer .wrap{padding-block:18px 26px}
         </ul>
       </div>
 
+      <h3>Y cuando lo que quieres es una app</h3>
+      <p><b>App Inventor</b> usa los mismos bloques, pero a&ntilde;ade algo que Scratch no tiene: hay que
+      <b>dise&ntilde;ar la pantalla</b> antes de programarla. Por eso trabaja en dos vistas, y se salta
+      de una a otra constantemente:</p>
+      <ul>
+        <li>El <b>Dise&ntilde;ador</b>: aqu&iacute; arrastras los <b>componentes</b> a la pantalla del m&oacute;vil
+            &mdash;un bot&oacute;n, una etiqueta, una imagen, un sonido&mdash; y les pones nombre.</li>
+        <li>Los <b>Bloques</b>: aqu&iacute; dices qu&eacute; hace cada componente. Y casi todo empieza igual:
+            <i>cuando Bot&oacute;n1 sea presionado, hacer&hellip;</i></li>
+      </ul>
+      <p>Una app puede tener <b>varias pantallas</b>, y se pasa de una a otra con el bloque
+      <i>abrir otra pantalla</i>. Al terminar se prueba en un m&oacute;vil de verdad y, si funciona, se
+      genera el archivo que se instala.</p>
+      <div class="caja caja-oficial">
+        <span class="n-tag">Un orden que ahorra disgustos</span>
+        <p>Primero el componente, despu&eacute;s el bloque. Si programas un bot&oacute;n que todav&iacute;a no has
+        puesto en la pantalla, ese bloque no existe y no lo vas a encontrar en la lista. Parece
+        obvio y es el fallo m&aacute;s repetido del aula.</p>
+      </div>
+
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
@@ -1137,7 +1196,7 @@ footer .wrap{padding-block:18px 26px}
       </div>
       <p>No puede. Y no es que le falte una instrucci&oacute;n: es que <b>le falta cuerpo</b>. Un programa,
          solo, no toca nada del mundo. Para que lo toque hacen falta dos cosas que el ordenador de
-         la sesi&oacute;n del tema 9 ya ten&iacute;a, pero que aqu&iacute; se ven much&iacute;simo mejor:</p>
+         la sesi&oacute;n del tema 7 ya ten&iacute;a, pero que aqu&iacute; se ven much&iacute;simo mejor:</p>
       <ul>
         <li><b>Entradas</b>: por donde le llega al programa lo que pasa fuera. Un bot&oacute;n, un
             sensor de luz, un term&oacute;metro.</li>
@@ -2929,10 +2988,10 @@ footer .wrap{padding-block:18px 26px}
          d&oacute;nde andas antes del examen.</p>
       <div class="ta" id="test-u10">
         <h4>Lo que tiene que haber quedado del tema</h4>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p1">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p1">
           <p id="test-u10-p1">1. Un algoritmo tiene que ser ordenado, finito y&hellip;</p>
-          <label class="ta-op"><input type="radio" name="u10-0" value="0">sin ambig&uuml;edad: cada instrucci&oacute;n significa una sola cosa</label>
-          <label class="ta-op"><input type="radio" name="u10-0" value="1">corto, cuantas menos instrucciones mejor</label>
+          <label class="ta-op"><input type="radio" name="u10-0" value="0">corto, cuantas menos instrucciones mejor</label>
+          <label class="ta-op"><input type="radio" name="u10-0" value="1">sin ambig&uuml;edad: cada instrucci&oacute;n significa una sola cosa</label>
           <label class="ta-op"><input type="radio" name="u10-0" value="2">escrito en ingl&eacute;s, que es el idioma de las m&aacute;quinas</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Las tres condiciones son <b>ordenado</b>, <b>finito</b> y <b>sin ambig&uuml;edad</b>. Que sea corto est&aacute; bien, pero no es una condici&oacute;n; y el idioma da igual: un algoritmo se puede escribir en espa&ntilde;ol y en la libreta.</div>
         </div>
@@ -2943,25 +3002,25 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="u10-1" value="2">porque le faltaba un sensor de choque</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La m&aacute;quina no mira, no interpreta y no corrige: hace lo que pone. Ver la pared es trabajo tuyo <b>al escribir el programa</b>. Un sensor de choque ayudar&iacute;a, pero solo si el programa tuviera un condicional que lo mirase.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p3">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p3">
           <p id="test-u10-p3">3. Un bucle <i>repetir 4 veces</i>, &iquest;hace que la m&aacute;quina trabaje menos?</p>
-          <label class="ta-op"><input type="radio" name="u10-2" value="0">s&iacute;: agrupa las cuatro en una sola operaci&oacute;n</label>
-          <label class="ta-op"><input type="radio" name="u10-2" value="1">no: ejecuta las mismas instrucciones, lo que ahorra es escritura</label>
+          <label class="ta-op"><input type="radio" name="u10-2" value="0">no: ejecuta las mismas instrucciones, lo que ahorra es escritura</label>
+          <label class="ta-op"><input type="radio" name="u10-2" value="1">s&iacute;: agrupa las cuatro en una sola operaci&oacute;n</label>
           <label class="ta-op"><input type="radio" name="u10-2" value="2">s&iacute;, porque la memoria ocupa cuatro veces menos</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Al ejecutarse, las cuatro repeticiones siguen ah&iacute;, una detr&aacute;s de otra. El bucle ahorra <b>escritura</b>, y sobre todo permite escribir un programa que depende de un n&uacute;mero que <b>todav&iacute;a no conoces</b>.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u10-p4">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p4">
           <p id="test-u10-p4">4. &iquest;Cu&aacute;ndo se queda colgado un bucle <i>mientras</i>?</p>
           <label class="ta-op"><input type="radio" name="u10-3" value="0">cuando se repite m&aacute;s de mil veces</label>
-          <label class="ta-op"><input type="radio" name="u10-3" value="1">cuando la condici&oacute;n es falsa desde el principio</label>
-          <label class="ta-op"><input type="radio" name="u10-3" value="2">cuando dentro de &eacute;l no pasa nada que pueda cambiar la condici&oacute;n de salida</label>
+          <label class="ta-op"><input type="radio" name="u10-3" value="1">cuando dentro de &eacute;l no pasa nada que pueda cambiar la condici&oacute;n de salida</label>
+          <label class="ta-op"><input type="radio" name="u10-3" value="2">cuando la condici&oacute;n es falsa desde el principio</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Si la condici&oacute;n es falsa desde el principio, el bucle no se ejecuta ni una vez: eso no cuelga nada. Lo que cuelga es <b>repetir algo que nunca cambia la condici&oacute;n</b>, como girar en una esquina con paredes en las cuatro direcciones.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u10-p5">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p5">
           <p id="test-u10-p5">5. &iquest;Para qu&eacute; sirve una variable?</p>
           <label class="ta-op"><input type="radio" name="u10-4" value="0">para hacer el programa m&aacute;s corto</label>
-          <label class="ta-op"><input type="radio" name="u10-4" value="1">para guardar el programa cuando se apaga la placa</label>
-          <label class="ta-op"><input type="radio" name="u10-4" value="2">para que el programa recuerde un dato de una vez para otra</label>
+          <label class="ta-op"><input type="radio" name="u10-4" value="1">para que el programa recuerde un dato de una vez para otra</label>
+          <label class="ta-op"><input type="radio" name="u10-4" value="2">para guardar el programa cuando se apaga la placa</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es un caj&oacute;n con nombre donde se guarda un dato <b>mientras el programa corre</b>. Sin la variable <i>cuenta</i>, la placa no sabr&iacute;a por qu&eacute; n&uacute;mero iba. Y ojo: al apagar la placa, lo que hay en una variable <b>se pierde</b>.</div>
         </div>
         <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p6">
@@ -2971,31 +3030,31 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="u10-5" value="2"><i>para siempre</i> solo funciona si la placa est&aacute; enchufada al ordenador</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> <i>Para siempre</i> es un <b>bucle infinito</b>, y aqu&iacute; no es un error: una m&aacute;quina que vigila algo tiene que estar mirando siempre. <i>Al iniciar</i> es donde se preparan las cosas que se hacen una sola vez.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u10-p7">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p7">
           <p id="test-u10-p7">7. &iquest;Qu&eacute; le entrega un sensor al programa?</p>
           <label class="ta-op"><input type="radio" name="u10-6" value="0">una orden de lo que hay que hacer</label>
-          <label class="ta-op"><input type="radio" name="u10-6" value="1">una imagen de lo que est&aacute; pasando</label>
-          <label class="ta-op"><input type="radio" name="u10-6" value="2">un n&uacute;mero, y nada m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="u10-6" value="1">un n&uacute;mero, y nada m&aacute;s</label>
+          <label class="ta-op"><input type="radio" name="u10-6" value="2">una imagen de lo que est&aacute; pasando</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un sensor <b>no ve, no sabe y no entiende</b>: convierte una magnitud f&iacute;sica en un n&uacute;mero. Lo que ese n&uacute;mero significa lo decide el programa al <b>compararlo</b> con un umbral.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p8">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p8">
           <p id="test-u10-p8">8. Tu farola autom&aacute;tica parpadea sin parar al anochecer, y el programa no tiene errores. &iquest;Qu&eacute; est&aacute; pasando?</p>
-          <label class="ta-op"><input type="radio" name="u10-7" value="0">el bucle <i>para siempre</i> va demasiado r&aacute;pido</label>
-          <label class="ta-op"><input type="radio" name="u10-7" value="1">la lectura tiembla alrededor del umbral y lo cruza una y otra vez</label>
+          <label class="ta-op"><input type="radio" name="u10-7" value="0">la lectura tiembla alrededor del umbral y lo cruza una y otra vez</label>
+          <label class="ta-op"><input type="radio" name="u10-7" value="1">el bucle <i>para siempre</i> va demasiado r&aacute;pido</label>
           <label class="ta-op"><input type="radio" name="u10-7" value="2">la bombilla est&aacute; fundida</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Ning&uacute;n sensor da un n&uacute;mero limpio. Si el valor ronda el umbral, unas veces cae por encima y otras por debajo. Se arregla con <b>dos umbrales</b>, uno para encender y otro m&aacute;s alto para apagar: <b>hist&eacute;resis</b>.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p9">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p9">
           <p id="test-u10-p9">9. Un robot con <b>un solo</b> sensor de luz, &iquest;puede ir hacia la l&aacute;mpara?</p>
-          <label class="ta-op"><input type="radio" name="u10-8" value="0">no, mientras no consiga dos medidas que comparar</label>
-          <label class="ta-op"><input type="radio" name="u10-8" value="1">s&iacute;, si el sensor es lo bastante bueno</label>
+          <label class="ta-op"><input type="radio" name="u10-8" value="0">s&iacute;, si el sensor es lo bastante bueno</label>
+          <label class="ta-op"><input type="radio" name="u10-8" value="1">no, mientras no consiga dos medidas que comparar</label>
           <label class="ta-op"><input type="radio" name="u10-8" value="2">no, hace falta obligatoriamente una c&aacute;mara</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Una medida sola dice <b>cu&aacute;nta</b> luz hay, no <b>por d&oacute;nde</b>. Las dos medidas pueden ser dos sensores a la vez (lo que hicimos nosotros) o el mismo sensor en dos posiciones distintas, movi&eacute;ndolo (lo que hizo Grey Walter en 1948).</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u10-p10">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u10-p10">
           <p id="test-u10-p10">10. &iquest;Qu&eacute; es un sistema de <b>lazo cerrado</b>?</p>
-          <label class="ta-op"><input type="radio" name="u10-9" value="0">uno en el que el resultado de actuar vuelve a entrar por los sensores y cambia la decisi&oacute;n siguiente</label>
-          <label class="ta-op"><input type="radio" name="u10-9" value="1">uno que se apaga solo al terminar</label>
+          <label class="ta-op"><input type="radio" name="u10-9" value="0">uno que se apaga solo al terminar</label>
+          <label class="ta-op"><input type="radio" name="u10-9" value="1">uno en el que el resultado de actuar vuelve a entrar por los sensores y cambia la decisi&oacute;n siguiente</label>
           <label class="ta-op"><input type="radio" name="u10-9" value="2">uno que funciona sin cables</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Un microondas a tres minutos es de <b>lazo abierto</b>: no prueba la comida. Un horno con term&oacute;metro que enciende y apaga la resistencia es de <b>lazo cerrado</b>, y tu robot buscando la l&aacute;mpara tambi&eacute;n: al girar cambia lo que va a medir.</div>
         </div>

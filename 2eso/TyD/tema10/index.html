@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Tema 10 &middot; Mantenimiento y seguridad digital</title>
+<title>Tema 10 &middot; Internet, datos y seguridad</title>
 <meta name="description" content="Tema 10 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: paquetes, direcciones IP, routers y DNS; http frente a https y qu&eacute; protege el candado; huella digital, cookies y permisos de las aplicaciones.">
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
 <meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Tema 10 &middot; Mantenimiento y seguridad digital">
+<meta property="og:title" content="Tema 10 &middot; Internet, datos y seguridad">
 <meta property="og:description" content="Tema 10 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: paquetes, direcciones IP, routers y DNS; http frente a https y qu&eacute; protege el candado; huella digital, cookies y permisos de las aplicaciones.">
 <meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/">
 <meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema10.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tema 10 &middot; Mantenimiento y seguridad digital &middot; Materiales de Tecnolog&iacute;a">
+<meta property="og:image:alt" content="Tema 10 &middot; Internet, datos y seguridad &middot; Materiales de Tecnolog&iacute;a">
 <meta name="twitter:card" content="summary_large_image">
 <!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
@@ -29,9 +29,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 10 &middot; Mantenimiento y seguridad digital","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/","inLanguage":"es",
+{"@context":"https://schema.org","@type":"LearningResource","name":"Tema 10 &middot; Internet, datos y seguridad","url":"https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/","inLanguage":"es",
  "license":"https://creativecommons.org/licenses/by-sa/4.0/",
- "creditText":"Roberto P. García Llorente (2026) &middot; Tema 10 &middot; Mantenimiento y seguridad digital &middot; CC BY-SA 4.0","copyrightYear":"2026",
+ "creditText":"Roberto P. García Llorente (2026) &middot; Tema 10 &middot; Internet, datos y seguridad &middot; CC BY-SA 4.0","copyrightYear":"2026",
  "author":{"@type":"Person","name":"Roberto P. García Llorente","affiliation":{"@type":"Organization","name":"Profesor de Tecnología en Educación Secundaria"}},
  "copyrightHolder":{"@type":"Person","name":"Roberto P. García Llorente"},"isAccessibleForFree":true,
  "educationalLevel":"Educaci&oacute;n Secundaria Obligatoria","learningResourceType":"Unidad did&aacute;ctica interactiva"}
@@ -40,7 +40,7 @@
 :root{
   --paper:#f8f9fa;--surface:#fff;--surface-2:#f1f3f4;--ink:#202124;--ink-soft:#5f6368;
   --line:#dadce0;--line-soft:#e8eaed;--accent:#1a73e8;--accent-soft:#e8f0fe;
-  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853;
+  --goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--tinta-sobre:#202124;--verde-texto:#188038;--amar-texto:#8a6410;--goo-verde:#34a853;
   --grid:rgba(66,133,244,.09);
   --f-b:"Roboto",-apple-system,"Segoe UI",Arial,sans-serif;
   --f-m:"Roboto Mono",ui-monospace,Consolas,monospace;
@@ -48,7 +48,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   --paper:#202124;--surface:#292a2d;--surface-2:#35363a;--ink:#e8eaed;--ink-soft:#9aa0a6;
   --line:#5f6368;--line-soft:#3c4043;--accent:#8ab4f8;--accent-soft:#1f3347;
-  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--verde-texto:#81c995;--tinta-sobre:#202124;--amar-texto:#fdd663;--goo-verde:#81c995;
+  --goo-azul:#8ab4f8;--goo-rojo:#f28b82;--goo-amarillo:#fdd663;--tinta-sobre:#202124;--verde-texto:#81c995;--amar-texto:#fdd663;--goo-verde:#81c995;
   --grid:rgba(138,180,248,.09)}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--f-b);letter-spacing:.01em}
@@ -78,6 +78,8 @@ main{padding-block:26px 70px}
 .bloque{margin-bottom:34px}
 .rotulo{display:flex;align-items:center;gap:10px;font-family:var(--f-m);font-size:12px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px}
+/* casi todos los rotulos son un numero de dos cifras, pero alguno es una
+   palabra corta -- «LEY» -- y con 26 px justos se le corta la ultima letra. */
 .rotulo .num{background:var(--goo-azul);color:#fff;border-radius:2px;min-width:26px;height:24px;
   padding:0 5px;flex:none;display:inline-grid;place-items:center;font-weight:500}
 .rotulo::after{content:"";flex:1;height:2px;background:var(--goo-azul);opacity:.3}
@@ -188,6 +190,12 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .copiar > :first-child{margin-top:6px}
 .copiar > :last-child{margin-bottom:0}
 .copiar h4{font-size:15px;margin:10px 0 4px}
+/* tablas de datos dentro de los bloques que se copian */
+.copiar table{border-collapse:collapse;width:100%;margin:10px 0 4px;font-size:14.5px}
+.copiar th,.copiar td{border:1px solid var(--line);padding:6px 9px;text-align:left}
+.copiar th{background:var(--surface-2);font-family:var(--f-m);font-size:11.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+@media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 .entender{border-left:4px solid var(--line);padding:2px 0 2px 16px;margin:18px 0;color:var(--ink-soft)}
 .entender .e-tag{display:block;font-family:var(--f-m);font-size:10.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-soft);margin-bottom:6px}
@@ -288,7 +296,10 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .cc-aviso{background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:18px;margin-top:40px;font-size:14.5px}
 .cc-aviso h2{font-size:17px;margin:0 0 8px}
 .cc-aviso h3{font-size:14px;margin:14px 0 4px}
-.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px}
+.cc-cita code{font-family:var(--f-m);font-size:12.5px;background:var(--surface-2);padding:8px 10px;display:block;border-radius:2px;
+  /* la cita es una tirada sin espacios: en un movil empujaba la pagina 80 px
+     de lado, y con ella todo lo demas. Que parta antes que sacar la pagina. */
+  overflow-wrap:anywhere}
 footer{border-top:1px solid var(--line);color:var(--ink-soft);font-size:13.5px;margin-top:30px}
 footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
@@ -316,21 +327,11 @@ footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){.copiar table{font-size:13px}.copiar th,.copiar td{padding:5px 6px}}
 /* listas dentro de una lista de pasos: que no se peguen al texto de arriba */
 .pasos ul{margin:6px 0 2px}
-
-  /* La cita de «Cómo citar» es una sola tirada sin espacios: en un móvil
-     empujaba la página entera 80 px de lado, y con ella todo lo demás.
-     Que parta por donde haga falta antes que sacar la página del ancho. */
-  .cc-cita code{overflow-wrap:anywhere}
   /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
      saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
-  h3.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
+  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
-/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
-.saltar{position:absolute;left:-9999px;top:0;z-index:99;
-  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
-  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
-.saltar:focus{left:0}
 /* ---- al imprimir, que salgan todas las sesiones ---- */
 @media print{
   #nav{display:none}
@@ -340,10 +341,44 @@ footer .wrap{padding-block:18px 26px}
   .escena-barra .seg,.video-play{display:none}
   .escena{break-inside:avoid}
 }
-  /* un h3 con el tamanio de un h4: lo puso afina_texto.py al quitar los
-     saltos de nivel en los titulos. Cambia el nivel, no el aspecto. */
-  h3.h-menor,h4.h-menor{font-size:15.5px;margin:16px 0 4px;font-weight:600}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+/* el enlace de saltar la cabecera: fuera de la vista hasta que recibe el foco */
+.saltar{position:absolute;left:-9999px;top:0;z-index:99;
+  background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
+  padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
+.saltar:focus{left:0}
+/* visor de imagenes: lo pone afina_visor.py */
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
+}
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}/* ayuda de palabras: lo pone afina_visor.py */
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
@@ -355,8 +390,8 @@ footer .wrap{padding-block:18px 26px}
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
-    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 10</div>
-    <h1>Mantenimiento y seguridad digital</h1>
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 8</div>
+    <h1>Internet, datos y seguridad</h1>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; C&oacute;mo llega un v&iacute;deo</button><button type="button" data-ses="2">S2 &middot; Qui&eacute;n ve lo que mandas</button><button type="button" data-ses="3">S3 &middot; Tus datos valen dinero</button><button type="button" data-ses="4">S4 &middot; Contrase&ntilde;as</button><button type="button" data-ses="5">S5 &middot; La nube</button><button type="button" data-ses="6">S6 &middot; Tus derechos</button></nav>
   </div>
 </header>
@@ -535,6 +570,7 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
 
+
       <div class="escena" id="esc-ruta">
         <div class="escena-barra">
           <span class="escena-titulo">Seis paquetes buscando camino</span>
@@ -710,9 +746,7 @@ footer .wrap{padding-block:18px 26px}
                + (roto ? 'roto' : E[i][2]+' ms')+'</text>';
             /* zona de clic, ancha y transparente */
             m += '<path class="tramo" data-i="'+i+'" d="M'+A.x+' '+A.y+' L'+B.x+' '+B.y
-               + '" fill="none" stroke="transparent" stroke-width="16" style="cursor:pointer"'
-               + ' tabindex="0" role="button" aria-label="Cable '+i+' ('+(E[i][0])+' a '+(E[i][1])+')"'
-               + ' aria-pressed="'+(roto ? 'true' : 'false')+'"></path>';
+               + '" fill="none" stroke="transparent" stroke-width="16" style="cursor:pointer"></path>';
           }
 
           /* nodos */
@@ -817,14 +851,6 @@ footer .wrap{padding-block:18px 26px}
 
         svg.addEventListener('click', function(e){
           var l = e.target.closest('.tramo'); if(!l) return;
-          var i = +l.dataset.i;
-          if(cortes[i]) delete cortes[i]; else cortes[i] = 1;
-          pinta();
-        });
-        svg.addEventListener('keydown', function(e){
-          var l = e.target.closest('[role="button"]'); if(!l) return;
-          if(e.key !== ' ' && e.key !== 'Enter') return;
-          e.preventDefault();
           var i = +l.dataset.i;
           if(cortes[i]) delete cortes[i]; else cortes[i] = 1;
           pinta();
@@ -1131,7 +1157,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                + '?autoplay=1&rel=0&modestbranding=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -1322,6 +1348,7 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
 
+
       <div class="escena" id="esc-espia">
         <div class="escena-barra">
           <span class="escena-titulo">Lo que ve cada salto del camino</span>
@@ -1419,8 +1446,7 @@ footer .wrap{padding-block:18px 26px}
 
           for(i = 0; i < SALTOS.length; i++){
             var x = 16 + i * 128, s = SALTOS[i], act = (i === sel);
-            m += '<g class="salto" data-i="'+i+'" style="cursor:pointer" tabindex="0" role="button"'
-               + ' aria-label="'+s.etq+': '+s.sub+'" aria-pressed="'+(act ? 'true' : 'false')+'">';
+            m += '<g class="salto" data-i="'+i+'" style="cursor:pointer">';
             m += '<rect x="'+x+'" y="44" width="110" height="56" rx="2" fill="'
                + (act ? 'var(--accent-soft)' : 'var(--surface)')+'" stroke="'
                + (act ? 'var(--goo-azul)' : 'var(--line)')+'" stroke-width="'+(act ? 2 : 1.5)+'"></rect>';
@@ -1494,12 +1520,6 @@ footer .wrap{padding-block:18px 26px}
 
         svg.addEventListener('click', function(e){
           var g = e.target.closest('.salto'); if(!g) return;
-          sel = +g.dataset.i; pinta();
-        });
-        svg.addEventListener('keydown', function(e){
-          var g = e.target.closest('[role="button"]'); if(!g) return;
-          if(e.key !== ' ' && e.key !== 'Enter') return;
-          e.preventDefault();
           sel = +g.dataset.i; pinta();
         });
         seg.addEventListener('click', function(e){
@@ -1767,7 +1787,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                + '?autoplay=1&rel=0&modestbranding=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2210,7 +2230,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                + '?autoplay=1&rel=0&modestbranding=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -2415,7 +2435,6 @@ footer .wrap{padding-block:18px 26px}
           <div class="seg">
             <label style="font:400 12px var(--f-m);color:var(--ink-soft)">
               <input id="fz-txt" type="text" value="Ab3$x!Qz" maxlength="40"
-                     aria-label="Contrase&ntilde;a que quieres probar"
                      style="font:400 12px var(--f-m);padding:5px 7px;border:1.5px solid var(--line);
                             border-radius:2px;background:var(--surface);color:var(--ink);width:250px">
             </label>
@@ -2693,7 +2712,6 @@ footer .wrap{padding-block:18px 26px}
           <div class="seg">
             <label style="font:400 12px var(--f-m);color:var(--ink-soft)">
               <input id="hs-txt" type="text" value="tres cabras" maxlength="32"
-                     aria-label="Texto del que calcular el resumen"
                      style="font:400 12px var(--f-m);padding:5px 7px;border:1.5px solid var(--line);
                             border-radius:2px;background:var(--surface);color:var(--ink);width:230px">
             </label>
@@ -2954,6 +2972,66 @@ footer .wrap{padding-block:18px 26px}
            con segundo factor.</b></p>
       </div>
 
+
+      <h3>De qu&eacute; te defiendes: los programas malignos</h3>
+      <p>Un <b>programa maligno</b> o <b>malware</b> es c&oacute;digo escrito a prop&oacute;sito para da&ntilde;ar un
+      equipo <b>sin que el usuario lo sepa</b>: para estropearlo, para controlarlo, para colarse,
+      para robar informaci&oacute;n o para pedir dinero a cambio de devolverte tus ficheros.</p>
+      <p>No hay uno, hay familias, y un mismo programa suele tener rasgos de varias:</p>
+      <table class="tabla-ancha">
+        <thead><tr><th scope="col">Tipo</th><th scope="col">Qu&eacute; hace</th><th scope="col">Por d&oacute;nde entra</th></tr></thead>
+        <tbody>
+          <tr><td><b>Virus</b></td><td>Se mete dentro de otros programas y los infecta al ejecutarlos</td><td>Un archivo que abres t&uacute;</td></tr>
+          <tr><td><b>Gusano</b></td><td>Se copia solo de un equipo a otro, sin que nadie lo abra</td><td>La red, el correo, un pendrive</td></tr>
+          <tr><td><b>Troyano</b></td><td>Parece un programa normal y &uacute;til, pero abre una <b>puerta trasera</b></td><td>Una descarga que parec&iacute;a buena</td></tr>
+          <tr><td><b>Spyware</b></td><td>Espía lo que haces y lo manda fuera</td><td>Instalado junto a otro programa</td></tr>
+          <tr><td><b>Ransomware</b></td><td>Cifra tus ficheros y pide un rescate</td><td>Un adjunto, un enlace</td></tr>
+        </tbody>
+      </table>
+      <div class="caja caja-nuestro">
+        <span class="n-tag">La diferencia que se pregunta</span>
+        <p><b>Virus</b> necesita que alguien lo ejecute; <b>gusano</b> no necesita a nadie;
+        <b>troyano</b> te necesita a ti, pero enga&ntilde;&aacute;ndote. Los tres pueden acabar haciendo lo
+        mismo: la diferencia est&aacute; en <b>c&oacute;mo llegan</b>.</p>
+      </div>
+
+      <h3>Las cuatro defensas, por orden de utilidad</h3>
+      <ol class="pasos">
+        <li><b>Actualizar.</b> La mayor&iacute;a de los ataques no usan trucos nuevos: usan agujeros
+            <b>ya conocidos y ya tapados</b> en equipos que no se actualizaron. Es la defensa m&aacute;s
+            aburrida y la que m&aacute;s evita.</li>
+        <li><b>Copia de seguridad.</b> No impide el ataque: lo hace <b>reversible</b>. Contra el
+            ransomware es lo &uacute;nico que funciona de verdad. Y una copia que est&aacute; siempre enchufada
+            al ordenador se cifra con lo dem&aacute;s: tiene que haber una <b>fuera</b>.</li>
+        <li><b>Antivirus.</b> Vigila los ficheros y compara con lo que ya conoce. Ayuda, pero va
+            siempre un paso por detr&aacute;s de lo que a&uacute;n no ha visto nadie.</li>
+        <li><b>Cortafuegos</b> (<i>firewall</i>). Controla <b>qu&eacute; entra y qu&eacute; sale</b> por la red y
+            corta las conexiones que no deber&iacute;an existir. Va en el ordenador y en el router.</li>
+      </ol>
+      <div class="caja caja-oficial">
+        <span class="n-tag">Y la que no es un programa</span>
+        <p>El <b>phishing</b> no ataca al ordenador: te ataca a ti. Un correo o un mensaje que
+        imita a tu banco, al instituto o a una tienda, y te lleva a una web calcada donde escribes
+        la contrase&ntilde;a. Contra eso no hay antivirus que valga: hay <b>mirar el dominio</b> antes de
+        escribir nada.</p>
+      </div>
+
+      <h3>D&oacute;nde vive todo eso: el disco</h3>
+      <p>Un <b>disco duro</b> (HDD) guarda los datos en platos magn&eacute;ticos que giran, con un cabezal
+      que se mueve por encima. Un <b>SSD</b> no tiene piezas m&oacute;viles: guarda en memoria, como un
+      pendrive grande.</p>
+      <table class="tabla-ancha">
+        <thead><tr><th scope="col"></th><th scope="col">Disco duro (HDD)</th><th scope="col">SSD</th></tr></thead>
+        <tbody>
+          <tr><td><b>Velocidad</b></td><td>Lento: hay que esperar a que el plato gire</td><td>Mucho m&aacute;s r&aacute;pido</td></tr>
+          <tr><td><b>Golpes</b></td><td>Se estropea si se cae en marcha</td><td>Aguanta mejor</td></tr>
+          <tr><td><b>Precio por giga</b></td><td>M&aacute;s barato</td><td>M&aacute;s caro</td></tr>
+          <tr><td><b>Ruido</b></td><td>Se oye</td><td>Silencioso</td></tr>
+        </tbody>
+      </table>
+      <p>Por eso un ordenador viejo revive al cambiarle el disco por un SSD, y por eso los
+      servidores donde se guardan copias siguen llevando discos duros: ah&iacute; importa el precio por
+      giga, no la velocidad.</p>
       <h3>Si tienen que ser largas y distintas, no caben en la cabeza</h3>
       <p>Y es verdad: no caben. Cuarenta contrase&ntilde;as largas y distintas no se acuerda nadie. Esa
          es exactamente la raz&oacute;n de que exista la herramienta siguiente, y no al rev&eacute;s.</p>
@@ -3045,7 +3123,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                + '?autoplay=1&rel=0&modestbranding=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3623,7 +3701,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                + '?autoplay=1&rel=0&modestbranding=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -3934,7 +4012,7 @@ footer .wrap{padding-block:18px 26px}
           var HITOS = [
             {d:0,  etq:'lo env\u00edas', f:env,  anc:'start', col:'var(--ink)'},
             {d:d1, etq:'l\u00edmite normal', f:un, anc:'middle', col:'var(--goo-verde)'},
-            {d:d3, etq:'con pr\u00f3rroga', f:tres, anc:'end',   col:'var(--amar-texto)'}
+            {d:d3, etq:'con pr\u00f3rroga', f:tres, anc:'end',   col:'var(--goo-amarillo)'}
           ];
           for(var i = 0; i < HITOS.length; i++){
             var T = HITOS[i], x = X(T.d);
@@ -3980,7 +4058,7 @@ footer .wrap{padding-block:18px 26px}
             for(j = 0; j < lt.length && j < 2; j++)
               m += '<text x="32" y="' + (334 + j * 17) + '" class="rotulo-svg" '
                  + 'style="font-size:12.5px;fill:'
-                 + (puede ? 'var(--goo-verde)' : 'var(--amar-texto)') + '">'
+                 + (puede ? 'var(--goo-verde)' : 'var(--goo-amarillo)') + '">'
                  + esc(lt[j]) + '</text>';
           }
 
@@ -4154,7 +4232,7 @@ footer .wrap{padding-block:18px 26px}
         b.addEventListener('click', function(){
           var f = document.createElement('iframe');
           f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-                + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+                + '?autoplay=1&rel=0&modestbranding=1';
           f.title = b.querySelector('.video-txt b').textContent;
           f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
           f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -4231,18 +4309,18 @@ footer .wrap{padding-block:18px 26px}
          es para que sepas por d&oacute;nde andas antes del examen.</p>
       <div class="ta" id="test-u8">
         <h4>Lo que tiene que haber quedado de la unidad</h4>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u8-p1">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p1">
           <p id="test-u8-p1">1. &iquest;Por qu&eacute; Internet no reserva un camino entero para cada conversaci&oacute;n?</p>
-          <label class="ta-op"><input type="radio" name="u8-0" value="0">porque no cabe: har&iacute;an falta tantos caminos como parejas de usuarios, y cada uno quedar&iacute;a ocupado sin usarse</label>
-          <label class="ta-op"><input type="radio" name="u8-0" value="1">porque los cables no aguantar&iacute;an el peso de tantos datos</label>
+          <label class="ta-op"><input type="radio" name="u8-0" value="0">porque los cables no aguantar&iacute;an el peso de tantos datos</label>
+          <label class="ta-op"><input type="radio" name="u8-0" value="1">porque no cabe: har&iacute;an falta tantos caminos como parejas de usuarios, y cada uno quedar&iacute;a ocupado sin usarse</label>
           <label class="ta-op"><input type="radio" name="u8-0" value="2">porque los paquetes viajan m&aacute;s r&aacute;pido que una l&iacute;nea reservada</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la cuenta de la primera sesi&oacute;n: en un instituto de 600 personas ya salen 179.700 cables. Al trocear y <b>compartir</b>, el mismo cable sirve para much&iacute;simas conversaciones a la vez. La velocidad no tiene nada que ver.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p2">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u8-p2">
           <p id="test-u8-p2">2. Escribes un nombre en el navegador. &iquest;Qu&eacute; pasa <b>antes</b> de que empiece a llegar la p&aacute;gina?</p>
           <label class="ta-op"><input type="radio" name="u8-1" value="0">se cifra el nombre con el candado</label>
-          <label class="ta-op"><input type="radio" name="u8-1" value="1">hay que traducir el nombre a una direcci&oacute;n IP, y de eso se encarga el DNS</label>
-          <label class="ta-op"><input type="radio" name="u8-1" value="2">se parte el nombre en paquetes y se manda</label>
+          <label class="ta-op"><input type="radio" name="u8-1" value="1">se parte el nombre en paquetes y se manda</label>
+          <label class="ta-op"><input type="radio" name="u8-1" value="2">hay que traducir el nombre a una direcci&oacute;n IP, y de eso se encarga el DNS</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La red <b>solo sabe ir a n&uacute;meros</b>. El <b>DNS</b> es la agenda que convierte aula.example.es en 192.0.2.41. Si nadie ten&iacute;a la respuesta guardada, hay que preguntarla en varios sitios, y eso tarda unas d&eacute;cimas <b>antes</b> de todo lo dem&aacute;s.</div>
         </div>
         <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p3">
@@ -4252,24 +4330,24 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="u8-2" value="2">tu contrase&ntilde;a, porque la wifi es abierta</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El candado protege el <b>contenido</b>, no el <b>destino</b>. Ve con qui&eacute;n hablas, cu&aacute;ndo y cu&aacute;nto ocupa; no ve qu&eacute; le dices. Y eso, repetido durante un rato, tambi&eacute;n cuenta bastante de una persona.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u8-p4">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p4">
           <p id="test-u8-p4">4. En criptograf&iacute;a, &iquest;qu&eacute; tiene que ser secreto?</p>
-          <label class="ta-op"><input type="radio" name="u8-3" value="0">la clave; el m&eacute;todo se publica entero a prop&oacute;sito</label>
-          <label class="ta-op"><input type="radio" name="u8-3" value="1">el m&eacute;todo, para que nadie sepa c&oacute;mo funciona</label>
+          <label class="ta-op"><input type="radio" name="u8-3" value="0">el m&eacute;todo, para que nadie sepa c&oacute;mo funciona</label>
+          <label class="ta-op"><input type="radio" name="u8-3" value="1">la clave; el m&eacute;todo se publica entero a prop&oacute;sito</label>
           <label class="ta-op"><input type="radio" name="u8-3" value="2">los dos, y por eso se cambian cada d&iacute;a</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Es la regla de Kerckhoffs, de 1883. Un secreto que tiene que saber mucha gente <b>no se aguanta</b>, y si se escapa hay que cambi&aacute;rselo a todos a la vez. Publicando el m&eacute;todo, si se escapa una clave se cambia <b>esa</b> y ya. Adem&aacute;s, un m&eacute;todo publicado lo puede intentar romper todo el mundo.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u8-p5">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p5">
           <p id="test-u8-p5">5. &iquest;Cu&aacute;l es la diferencia entre una <i>cookie</i> y la huella digital del navegador?</p>
           <label class="ta-op"><input type="radio" name="u8-4" value="0">ninguna: son dos nombres para lo mismo</label>
-          <label class="ta-op"><input type="radio" name="u8-4" value="1">la huella la pones t&uacute; y la cookie la pone la web</label>
-          <label class="ta-op"><input type="radio" name="u8-4" value="2">la cookie te la ponen dentro y se puede borrar; la huella es c&oacute;mo es tu aparato, y no se borra</label>
+          <label class="ta-op"><input type="radio" name="u8-4" value="1">la cookie te la ponen dentro y se puede borrar; la huella es c&oacute;mo es tu aparato, y no se borra</label>
+          <label class="ta-op"><input type="radio" name="u8-4" value="2">la huella la pones t&uacute; y la cookie la pone la web</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Una es una <b>pegatina</b> que te pegan y puedes quitar; la otra es <b>reconocerte por la cara</b>: la combinaci&oacute;n de pantalla, idioma, zona horaria y dem&aacute;s. Por eso borrar las cookies o abrir una ventana de inc&oacute;gnito no cambia la huella.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u8-p6">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p6">
           <p id="test-u8-p6">6. Partiendo de ocho min&uacute;sculas, &iquest;qu&eacute; sube m&aacute;s el mont&oacute;n de combinaciones?</p>
-          <label class="ta-op"><input type="radio" name="u8-5" value="0">a&ntilde;adirle cuatro letras min&uacute;sculas m&aacute;s (&times;456.976)</label>
-          <label class="ta-op"><input type="radio" name="u8-5" value="1">llenarla de may&uacute;sculas, n&uacute;meros y signos (&times;29.190)</label>
+          <label class="ta-op"><input type="radio" name="u8-5" value="0">llenarla de may&uacute;sculas, n&uacute;meros y signos (&times;29.190)</label>
+          <label class="ta-op"><input type="radio" name="u8-5" value="1">a&ntilde;adirle cuatro letras min&uacute;sculas m&aacute;s (&times;456.976)</label>
           <label class="ta-op"><input type="radio" name="u8-5" value="2">las dos cosas suben lo mismo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Porque <b>cada carácter nuevo multiplica</b> por el alfabeto entero, mientras que hacerla rara <b>agranda el alfabeto una sola vez</b>. Las cuatro letras ganan por quince veces, y encima te las acuerdas, que es lo que hace que no acabes repiti&eacute;ndola.</div>
         </div>
@@ -4287,18 +4365,18 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="u8-7" value="2">s&iacute;, porque la nube guarda todo para siempre</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Sincronizar es <b>tener siempre lo mismo</b> en dos sitios: para eso est&aacute; hecho, y lo hace tambi&eacute;n con los desastres. Te salva de que se rompa el aparato, no de que te equivoques t&uacute;. Una copia de seguridad es otra cosa: <b>c&oacute;mo estaban las cosas antes</b>, guardado aparte y sin cambiar.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u8-p9">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u8-p9">
           <p id="test-u8-p9">9. En la regla 3-2-1, &iquest;para qu&eacute; sirve el <b>1</b> (una copia fuera de casa)?</p>
-          <label class="ta-op"><input type="radio" name="u8-8" value="0">para el desastre que se lleva un sitio entero: fuego, agua o robo</label>
-          <label class="ta-op"><input type="radio" name="u8-8" value="1">para poder llegar a ella desde el m&oacute;vil</label>
-          <label class="ta-op"><input type="radio" name="u8-8" value="2">para que sea m&aacute;s barata</label>
+          <label class="ta-op"><input type="radio" name="u8-8" value="0">para poder llegar a ella desde el m&oacute;vil</label>
+          <label class="ta-op"><input type="radio" name="u8-8" value="1">para que sea m&aacute;s barata</label>
+          <label class="ta-op"><input type="radio" name="u8-8" value="2">para el desastre que se lleva un sitio entero: fuego, agua o robo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cada n&uacute;mero mata un desastre distinto. Tres copias en el mismo caj&oacute;n son, ante un incendio, <b>una sola copia</b>. Por eso una tiene que estar en otro sitio f&iacute;sico.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u8-p10">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u8-p10">
           <p id="test-u8-p10">10. Pides a una empresa que te ense&ntilde;e los datos que tiene tuyos. &iquest;Qu&eacute; te ampara?</p>
           <label class="ta-op"><input type="radio" name="u8-9" value="0">nada: es un favor, y pueden no contestarte</label>
-          <label class="ta-op"><input type="radio" name="u8-9" value="1">solo puedes pedirlo con un abogado y pagando una tasa</label>
-          <label class="ta-op"><input type="radio" name="u8-9" value="2">el derecho de acceso, gratis, y tienen un mes para contestar (dos m&aacute;s si avisan)</label>
+          <label class="ta-op"><input type="radio" name="u8-9" value="1">el derecho de acceso, gratis, y tienen un mes para contestar (dos m&aacute;s si avisan)</label>
+          <label class="ta-op"><input type="radio" name="u8-9" value="2">solo puedes pedirlo con un abogado y pagando una tasa</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> No es un favor: es un <b>derecho</b> con art&iacute;culo (RGPD, art. 15), <b>plazo</b> (un mes, prorrogable otros dos avisando) y <b>&aacute;rbitro</b> (la Agencia Espa&ntilde;ola de Protecci&oacute;n de Datos, a la que se reclama gratis). Y en Espa&ntilde;a, desde los <b>14 a&ntilde;os</b>, lo ejerces t&uacute; solo.</div>
         </div>
         <div class="ta-pie">
@@ -4346,7 +4424,7 @@ footer .wrap{padding-block:18px 26px}
         gr&aacute;fica, cuando aprendiste a explicar con un plano lo que hab&iacute;as hecho. Era la
         misma pregunta: <b>c&oacute;mo cuentas a otro lo tuyo</b>. Primero a mano; ahora, con todo esto
         detr&aacute;s.
-      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema11/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 11 &middot; Ofim&aacute;tica &rarr;</a></p></div>
+      <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema11/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 11 &middot; Herramientas digitales y difusi&oacute;n &rarr;</a></p></div>
   
     </section>
 
@@ -4356,14 +4434,14 @@ footer .wrap{padding-block:18px 26px}
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>
-  <p><span property="dct:title">Tema 10 &middot; Mantenimiento y seguridad digital</span> &middot; &copy; 2026
+  <p><span property="dct:title">Tema 10 &middot; Internet, datos y seguridad</span> &middot; &copy; 2026
      <a property="cc:attributionName" rel="cc:attributionURL" href="https://rgllorente82-png.github.io/robertotecnologia">Roberto P. Garc&iacute;a Llorente</a>, Profesor de Tecnología en Educación Secundaria.</p>
   <p>Publicado bajo <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es"><b>Creative Commons Reconocimiento-CompartirIgual 4.0
      Internacional</b></a>. Puedes copiarlo, adaptarlo y redistribuirlo, incluso con fines comerciales,
      siempre que cites la autor&iacute;a, indiques si lo has modificado y publiques tus versiones
      derivadas con esta misma licencia.</p>
   <h3>C&oacute;mo citar</h3>
-  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 10 &middot; Mantenimiento y seguridad digital</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/. Bajo licencia CC BY-SA 4.0.</code></p>
+  <p class="cc-cita"><code>Roberto P. Garc&iacute;a Llorente (2026). <i>Tema 10 &middot; Internet, datos y seguridad</i>. https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema10/. Bajo licencia CC BY-SA 4.0.</code></p>
   <h3>Qu&eacute; cubre</h3>
   <p>Los <b>textos, los dibujos y el c&oacute;digo</b> de esta p&aacute;gina, que son obra propia.</p>
   <p><b>No cubre las fotograf&iacute;as</b>, que proceden de Wikimedia Commons y conservan su propia
@@ -4407,7 +4485,7 @@ footer .wrap{padding-block:18px 26px}
     b.addEventListener('click', function(){
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
-            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+            + '?autoplay=1&rel=0&modestbranding=1';
       f.title = b.querySelector('.video-txt b').textContent;
       f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
       f.referrerPolicy = 'strict-origin-when-cross-origin';
@@ -4481,35 +4559,7 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
-<!-- Visor de diagramas · 20-sep-2026 -->
-<!-- Los SVG están dibujados para 1000-1200 px de ancho. En un móvil de 390 px se pintan
-     a ~306 px, así que su texto queda entre 3 y 4 px reales: medido en los 57, ninguno
-     llega a 8 px. No es que se vean pequeños, es que no se leen. Aquí se abren a tamaño
-     natural sobre la pantalla y se pueden recorrer con el dedo. -->
-<style>
-.rtz-pista{display:none}
-@media (max-width:760px){
-  figure.foto img{cursor:zoom-in}
-  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
-    color:var(--muted,#667);text-transform:uppercase}
-  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
-     tape la última línea del contenido */
-  body{padding-bottom:64px}
-}
-.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
-  display:none;flex-direction:column}
-.rtz-capa.abierta{display:flex}
-.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
-  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
-.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
-  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
-.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
-  display:flex;align-items:flex-start;justify-content:flex-start}
-.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
-@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}
-</style>
+
 <div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
   <div class="rtz-barra">
     <span class="rtz-tit"></span>
@@ -4594,30 +4644,7 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   if(window.MutationObserver){
     new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
   }
-})();
-</script>
-
-
-
-
-<!-- Tamaño de letra del cuerpo · 20-sep-2026 -->
-<!-- Amplía SOLO el texto que se lee: párrafos, listas, tablas, pies y avisos.
-     Los títulos, la barra de sesiones y el minutado se quedan como están, que es
-     la diferencia con el zoom del navegador —ese agranda todo por igual y a la
-     tercera pulsación el título ocupa media pantalla—. Cada elemento se escala
-     desde SU tamaño propio, así que la jerarquía no se aplana. -->
-<style>
-.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
-.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
-  opacity:.65;margin-right:2px}
-.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
-  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
-.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
-.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
-.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
-@media print{.rtt{display:none}}
-@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}
-</style>
+})();</script>
 <script>
 (function(){
   var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
@@ -4660,8 +4687,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
   else montar();
-})();
-</script>
-
+})();</script>
 </body>
 </html>
