@@ -79,22 +79,22 @@
     <!-- Row 1: Raw materials -->
     <rect x="60" y="530" width="200" height="25" fill="#d4a574" stroke="#8b6914" stroke-width="1.5"/>
     <text x="70" y="548" class="label" font-size="11" font-weight="bold">Materias primas</text>
-    <text x="270" y="548" class="label" font-size="11"><b>10%</b> (minería)</text>
+    <text x="270" y="548" class="label" font-size="11"><tspan font-weight="bold">10%</tspan> (minería)</text>
 
     <!-- Row 2: Manufacturing -->
     <rect x="60" y="565" width="300" height="25" fill="#4285f4" stroke="#1a73e8" stroke-width="1.5"/>
     <text x="70" y="583" class="label" font-size="11" font-weight="bold" fill="#fff">Fabricación</text>
-    <text x="370" y="583" class="label" font-size="11"><b>15%</b> (energía en fábricas)</text>
+    <text x="370" y="583" class="label" font-size="11"><tspan font-weight="bold">15%</tspan> (energía en fábricas)</text>
 
     <!-- Row 3: Transport -->
     <rect x="60" y="600" width="150" height="25" fill="#fbbc04" stroke="#d68910" stroke-width="1.5"/>
     <text x="70" y="618" class="label" font-size="11" font-weight="bold">Transporte</text>
-    <text x="220" y="618" class="label" font-size="11"><b>5%</b> (si es local)</text>
+    <text x="220" y="618" class="label" font-size="11"><tspan font-weight="bold">5%</tspan> (si es local)</text>
 
     <!-- Row 4: Usage - THE BIG ONE -->
     <rect x="60" y="635" width="680" height="25" fill="#34a853" stroke="#229954" stroke-width="2"/>
     <text x="70" y="653" class="label" font-size="11" font-weight="bold" fill="#fff">USO (5-10 años)</text>
-    <text x="750" y="653" class="label" font-size="11" font-weight="bold" fill="#229954"><b>70%</b></text>
+    <text x="750" y="653" class="label" font-size="11" font-weight="bold" fill="#229954"><tspan font-weight="bold">70%</tspan></text>
 
     <!-- Insight text -->
     <text x="500" y="670" class="label" font-size="10.5" text-anchor="middle" fill="#1a73e8" font-weight="bold">

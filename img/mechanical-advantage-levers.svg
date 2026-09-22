@@ -102,7 +102,7 @@
 
     <text x="330" y="210" font-weight="bold">Ejemplo práctico:</text>
     <text x="330" y="230">Si tu mano está a 1 metro del fulcro y el objeto está a 0.1 metros:</text>
-    <text x="330" y="250">Ventaja = 1 m / 0.1 m = <b>10:1</b></text>
+    <text x="330" y="250">Ventaja = 1 m / 0.1 m = <tspan font-weight="bold">10:1</tspan></text>
     <text x="330" y="270">Aplicas 10 kg de fuerza = Levantas 100 kg</text>
 
     <text x="330" y="310" font-weight="bold">Regla de oro: Cambias fuerza por distancia</text>

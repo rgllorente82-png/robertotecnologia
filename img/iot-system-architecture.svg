@@ -116,15 +116,15 @@
     <text x="730" y="375" class="label" font-size="10" text-anchor="middle" font-weight="bold" fill="#1a73e8">¿Por qué es IoT?</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="540" y="400"><b>1. Conectado</b></text>
+      <text x="540" y="400"><tspan font-weight="bold">1. Conectado</tspan></text>
       <text x="550" y="418">Se conecta a internet para compartir datos</text>
       <text x="550" y="433">y recibir ordenes. Si no: es solo automatismo.</text>
 
-      <text x="540" y="460"><b>2. Inteligente</b></text>
+      <text x="540" y="460"><tspan font-weight="bold">2. Inteligente</tspan></text>
       <text x="550" y="478">Aprende con el tiempo: las reglas no son</text>
       <text x="550" y="493">fijas, mejoran. Eso es inteligencia.</text>
 
-      <text x="540" y="520"><b>3. Local y remoto</b></text>
+      <text x="540" y="520"><tspan font-weight="bold">3. Local y remoto</tspan></text>
       <text x="550" y="538">El Arduino funciona sin internet. La nube</text>
       <text x="550" y="553">añade análisis. Juntos crean IoT.</text>
     </g>

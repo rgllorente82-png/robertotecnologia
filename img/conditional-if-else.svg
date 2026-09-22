@@ -103,8 +103,8 @@
 
     <!-- Key points -->
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="660"><b>Lo importante:</b></text>
-      <text x="80" y="678">• La <b>condición</b> es una pregunta que da SÍ o NO (true/false)</text>
+      <text x="60" y="660"><tspan font-weight="bold">Lo importante:</tspan></text>
+      <text x="80" y="678">• La <tspan font-weight="bold">condición</tspan> es una pregunta que da SÍ o NO (true/false)</text>
       <text x="80" y="696">• La indentación (espacios) marca qué código va dentro del IF/ELSE</text>
     </g>
   </g>

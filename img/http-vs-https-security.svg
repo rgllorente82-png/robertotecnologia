@@ -104,12 +104,12 @@
     <text x="500" y="500" class="title" font-size="13">Cómo reconocerlo y qué significa</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="530"><b>En el navegador:</b></text>
+      <text x="60" y="530"><tspan font-weight="bold">En el navegador:</tspan></text>
       <text x="80" y="548">• Mira la barra de direcciones (URL):</text>
       <text x="100" y="565"><code class="code">http://ejemplo.com</code> = SIN cifrado (peligroso con datos sensibles)</text>
       <text x="100" y="583"><code class="code">https://ejemplo.com</code> con candado 🔒 = CON cifrado (seguro)</text>
 
-      <text x="60" y="610"><b>¿Cuándo es obligatorio HTTPS?</b></text>
+      <text x="60" y="610"><tspan font-weight="bold">¿Cuándo es obligatorio HTTPS?</tspan></text>
       <text x="80" y="628">✓ Siempre que escribas contraseña (email, redes sociales)</text>
       <text x="80" y="646">✓ Sitios bancarios y tiendas online (donde pones tarjeta)</text>
       <text x="80" y="664">✗ Blogs de noticias o páginas informativas: menos crítico, pero preferible</text>
@@ -120,7 +120,7 @@
     <text x="730" y="555" class="label" font-size="11" text-anchor="middle" font-weight="bold" fill="#188038">⚠️ IMPORTANTE:</text>
     <g font-family="Arial" font-size="9.5" fill="#2c3e50" text-anchor="start">
       <text x="540" y="580">El HTTPS protege que nadie vea lo que envías.</text>
-      <text x="540" y="598">Pero <b>NO</b> protege frente a:</text>
+      <text x="540" y="598">Pero <tspan font-weight="bold">NO</tspan> protege frente a:</text>
       <text x="560" y="616">• Phishing (sitios falsos que parecen reales)</text>
       <text x="560" y="634">• Virus si descargas archivos peligrosos</text>
       <text x="560" y="652">• Tu contraseña si es fácil (123456, password...)</text>

@@ -29,13 +29,13 @@
     <text x="175" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">2,5 MJ</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="225"><b>Ventajas:</b></text>
+      <text x="60" y="225"><tspan font-weight="bold">Ventajas:</tspan></text>
       <text x="70" y="245">• Más bajo de todos</text>
       <text x="70" y="260">• Es renovable</text>
       <text x="70" y="275">• Fácil de reciclar</text>
       <text x="70" y="290">• Se recorta fácilmente</text>
 
-      <text x="60" y="320"><b>Problema:</b></text>
+      <text x="60" y="320"><tspan font-weight="bold">Problema:</tspan></text>
       <text x="70" y="340">Menos resistencia: más grueso</text>
       <text x="70" y="355">= más material total</text>
     </g>
@@ -51,13 +51,13 @@
     <text x="500" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">32 MJ</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="385" y="225"><b>Ventajas:</b></text>
+      <text x="385" y="225"><tspan font-weight="bold">Ventajas:</tspan></text>
       <text x="395" y="245">• Muy resistente</text>
       <text x="395" y="260">• Más delgado = menos kg</text>
       <text x="395" y="275">• Ampliamente reciclable</text>
       <text x="395" y="290">• Muchos usos</text>
 
-      <text x="385" y="320"><b>Problema:</b></text>
+      <text x="385" y="320"><tspan font-weight="bold">Problema:</tspan></text>
       <text x="395" y="340">Mucha energía para</text>
       <text x="395" y="355">fundir el mineral de hierro</text>
     </g>
@@ -73,13 +73,13 @@
     <text x="825" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">186 MJ</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="710" y="225"><b>Ventajas:</b></text>
+      <text x="710" y="225"><tspan font-weight="bold">Ventajas:</tspan></text>
       <text x="720" y="245">• Muy ligero</text>
       <text x="720" y="260">• Excelente para vehículos</text>
       <text x="720" y="275">• Reciclable indefinidamente</text>
       <text x="720" y="290">• Resiste la corrosión</text>
 
-      <text x="710" y="320"><b>Problema:</b></text>
+      <text x="710" y="320"><tspan font-weight="bold">Problema:</tspan></text>
       <text x="720" y="340">Más caro en energía</text>
       <text x="720" y="355">que lo que pesa</text>
     </g>
@@ -92,14 +92,14 @@
     <text x="500" y="490" class="title" font-size="13">¿Qué significa esto realmente?</text>
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="520"><b>1. La cuenta comienza en la fábrica, no en el bosque</b></text>
-      <text x="80" y="540">Si compras 1 kg de aluminio ya fabricado (lata, marco, etc.), <b>ya lleva dentro 186 MJ de energía</b> que alguien gastó en la reducción del mineral.</text>
+      <text x="60" y="520"><tspan font-weight="bold">1. La cuenta comienza en la fábrica, no en el bosque</tspan></text>
+      <text x="80" y="540">Si compras 1 kg de aluminio ya fabricado (lata, marco, etc.), <tspan font-weight="bold">ya lleva dentro 186 MJ de energía</tspan> que alguien gastó en la reducción del mineral.</text>
 
-      <text x="60" y="575"><b>2. El aluminio se recicla casi de balde</b></text>
-      <text x="80" y="595">Fundir aluminio reciclado cuesta solo <b>15 MJ, no 186</b>. Por eso reciclar aluminio ahorra el 92% de la energía. El acero reciclado ahorra solo un 20-30%.</text>
+      <text x="60" y="575"><tspan font-weight="bold">2. El aluminio se recicla casi de balde</tspan></text>
+      <text x="80" y="595">Fundir aluminio reciclado cuesta solo <tspan font-weight="bold">15 MJ, no 186</tspan>. Por eso reciclar aluminio ahorra el 92% de la energía. El acero reciclado ahorra solo un 20-30%.</text>
 
-      <text x="60" y="630"><b>3. No es lo mismo fabricar que usar</b></text>
-      <text x="80" y="650">En muchos productos, la mitad de la energía total en el ciclo de vida ocurre <b>durante los 5-10 años de uso</b>, no en los primeros días de fabricación.</text>
+      <text x="60" y="630"><tspan font-weight="bold">3. No es lo mismo fabricar que usar</tspan></text>
+      <text x="80" y="650">En muchos productos, la mitad de la energía total en el ciclo de vida ocurre <tspan font-weight="bold">durante los 5-10 años de uso</tspan>, no en los primeros días de fabricación.</text>
     </g>
   </g>
 

@@ -95,16 +95,16 @@
 
     <rect x="60" y="350" width="240" height="150" fill="white" stroke="#999" stroke-width="1" rx="3"/>
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="75" y="370">• <b>AutoCAD:</b> El estándar industrial</text>
+      <text x="75" y="370">• <tspan font-weight="bold">AutoCAD:</tspan> El estándar industrial</text>
       <text x="75" y="387">  Planos técnicos, 2D, 3D</text>
 
-      <text x="75" y="407">• <b>SolidWorks:</b> Modelado 3D + simulación</text>
+      <text x="75" y="407">• <tspan font-weight="bold">SolidWorks:</tspan> Modelado 3D + simulación</text>
       <text x="75" y="424">  Muy usado en ingeniería</text>
 
-      <text x="75" y="444">• <b>Fusion 360:</b> Cloud-based, 3D + CAM</text>
+      <text x="75" y="444">• <tspan font-weight="bold">Fusion 360:</tspan> Cloud-based, 3D + CAM</text>
       <text x="75" y="461">  Integrado con 3D Print</text>
 
-      <text x="75" y="481">• <b>FreeCAD:</b> Open source, gratis</text>
+      <text x="75" y="481">• <tspan font-weight="bold">FreeCAD:</tspan> Open source, gratis</text>
       <text x="75" y="498">  Buena alternativa educativa</text>
     </g>
   </g>
@@ -115,16 +115,16 @@
 
     <rect x="370" y="350" width="240" height="150" fill="white" stroke="#999" stroke-width="1" rx="3"/>
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="385" y="370">• <b>Tinkercad:</b> Web, muy fácil</text>
+      <text x="385" y="370">• <tspan font-weight="bold">Tinkercad:</tspan> Web, muy fácil</text>
       <text x="385" y="387">  Aprende lo básico rápido</text>
 
-      <text x="385" y="407">• <b>Blender:</b> 3D completo (artístico)</text>
+      <text x="385" y="407">• <tspan font-weight="bold">Blender:</tspan> 3D completo (artístico)</text>
       <text x="385" y="424">  Modelado, renderizado, animación</text>
 
-      <text x="385" y="444">• <b>SketchUp:</b> Arquitectura e interiores</text>
+      <text x="385" y="444">• <tspan font-weight="bold">SketchUp:</tspan> Arquitectura e interiores</text>
       <text x="385" y="461">  Interfaz intuitiva</text>
 
-      <text x="385" y="481">• <b>Onshape:</b> Cloud-based professional</text>
+      <text x="385" y="481">• <tspan font-weight="bold">Onshape:</tspan> Cloud-based professional</text>
       <text x="385" y="498">  Versión gratuita con límites</text>
     </g>
   </g>

@@ -96,15 +96,15 @@
 
     <!-- Examples -->
     <g font-family="Arial" font-size="10" fill="#2c3e50">
-      <text x="60" y="530"><b>Ejemplo 1: Encontrar V</b></text>
+      <text x="60" y="530"><tspan font-weight="bold">Ejemplo 1: Encontrar V</tspan></text>
       <text x="80" y="548">Tienes: I = 2A (amperios), R = 10Ω (ohmios)</text>
       <text x="80" y="566">V = I × R = 2 × 10 = 20V (voltios)</text>
 
-      <text x="60" y="600"><b>Ejemplo 2: Encontrar I</b></text>
+      <text x="60" y="600"><tspan font-weight="bold">Ejemplo 2: Encontrar I</tspan></text>
       <text x="80" y="618">Tienes: V = 12V, R = 4Ω</text>
       <text x="80" y="636">I = V ÷ R = 12 ÷ 4 = 3A</text>
 
-      <text x="500" y="530"><b>Ejemplo 3: Encontrar R</b></text>
+      <text x="500" y="530"><tspan font-weight="bold">Ejemplo 3: Encontrar R</tspan></text>
       <text x="520" y="548">Tienes: V = 5V, I = 0.1A</text>
       <text x="520" y="566">R = V ÷ I = 5 ÷ 0.1 = 50Ω</text>
 

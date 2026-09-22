@@ -62,7 +62,7 @@
     <g transform="translate(755, 170)">
       <circle cx="0" cy="0" r="40" fill="none" stroke="#27ae60" stroke-width="2"/>
       <circle cx="0" cy="0" r="30" fill="none" stroke="#27ae60" stroke-width="1.5"/>
-      <path d="M -20 0 L 20 0 M 0 -20 L 0 20" stroke="#27ae60" stroke-width="2"/>
+      <path d="M -20 0 L 20 0 M 0 -20 L 0 20" stroke="#27ae60" stroke-width="2" fill="none"/>
       <text x="0" y="65" class="label" font-size="10" text-anchor="middle" fill="#27ae60">✓ Correcto</text>
     </g>
 

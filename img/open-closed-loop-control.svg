@@ -131,13 +131,13 @@
 
     <!-- Comparison table-like -->
     <g font-family="Arial" font-size="10.5" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="530"><b>LAZO ABIERTO</b></text>
+      <text x="60" y="530"><tspan font-weight="bold">LAZO ABIERTO</tspan></text>
       <text x="80" y="550">✗ Orden → Actuador directo, sin medir resultado</text>
       <text x="80" y="567">✗ No se adapta a cambios del entorno</text>
       <text x="80" y="584">✗ Si algo falla, no lo detecta: solo sigue órdenes</text>
       <text x="80" y="601">✓ Más simple, barato, menos energía</text>
 
-      <text x="520" y="530"><b>LAZO CERRADO</b></text>
+      <text x="520" y="530"><tspan font-weight="bold">LAZO CERRADO</tspan></text>
       <text x="540" y="550">✓ Sensor → Comparador → Actuador (si falta algo)</text>
       <text x="540" y="567">✓ Se adapta en tiempo real a cambios</text>
       <text x="540" y="584">✓ Si se desvía del objetivo, corrige automáticamente</text>
@@ -145,7 +145,7 @@
 
       <text x="60" y="635" class="label" font-size="11" font-weight="bold" fill="#3498db">La realimentación es la clave:</text>
       <text x="80" y="655" class="label" font-size="10">El sensor mide qué pasó, el comparador decide si hay que cambiar, el actuador obedece el nuevo comando.</text>
-      <text x="80" y="670" class="label" font-size="10">Eso se llama <b>control de realimentación</b> o <b>control de lazo cerrado</b>: el resultado realimenta al sistema.</text>
+      <text x="80" y="670" class="label" font-size="10">Eso se llama <tspan font-weight="bold">control de realimentación</tspan> o <tspan font-weight="bold">control de lazo cerrado</tspan>: el resultado realimenta al sistema.</text>
     </g>
   </g>
 

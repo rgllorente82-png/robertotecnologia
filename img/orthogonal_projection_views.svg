@@ -116,6 +116,5 @@
   <text x="430" y="560" style="font-size: 11px; fill: #333;">• Las líneas de alineación vinculan las vistas</text>
   <text x="430" y="580" style="font-size: 11px; fill: #333;">• Cada dimensión (A, P, H) aparece en dos vistas</text>
   <text x="430" y="600" style="font-size: 11px; fill: #333;">• Este sistema es el estándar europeo (ISO)</text>
-  <text x="430" y="620" style="font-size: 11px; fill: #333;">• Con estas tres vistas se puede reconstruir</text>
-  <text x="430" y="635" style="font-size: 11px; fill: #333;">  el objeto en 3D exactamente</text>
+  <text x="430" y="620" style="font-size: 11px; fill: #333;">• Con las tres vistas se reconstruye la pieza exacta</text>
 </svg>

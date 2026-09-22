@@ -1,138 +1,124 @@
-<svg viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1000 590" xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="La misma pieza dibujada tres veces: como boceto a mano alzada sin medidas, como croquis a mano con cotas aproximadas y como plano a escala con cotas, vistas y cajetín">
   <defs>
-    <style>
-      .title { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; }
-      .label { font-family: Arial, sans-serif; font-size: 12px; }
-      .code { font-family: 'Courier New', monospace; font-size: 10px; }
-      .flowbox { stroke: #2c3e50; stroke-width: 2; }
-      .arrow { stroke: #3498db; stroke-width: 2.5; fill: none; }
-    </style>
-    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#3498db"/>
+    <marker id="cota" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 z" fill="#c0392b"/>
+    </marker>
+    <marker id="cotaini" markerWidth="8" markerHeight="8" refX="1" refY="3" orient="auto">
+      <path d="M7,0 L0,3 L7,6 z" fill="#c0392b"/>
+    </marker>
+    <marker id="paso" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#5a6472"/>
     </marker>
   </defs>
 
-  <!-- Background -->
-  <rect width="1000" height="700" fill="#f8f9fa"/>
+  <rect x="0" y="0" width="1000" height="590" fill="#f8f9fa"/>
 
-  <!-- Title -->
-  <text x="500" y="35" class="title" font-size="18">Del boceto al plano: la evolución del dibujo</text>
-  <text x="500" y="55" class="label" font-size="11" fill="#666" text-anchor="middle">Cómo evoluciona el dibujo desde la idea rápida hasta el plano técnico exacto</text>
+  <text x="500" y="38" style="font-family: Arial, sans-serif; font-size: 19px; font-weight: bold; text-anchor: middle; fill: #1f2733">La misma pieza, tres veces</text>
+  <text x="500" y="60" style="font-family: Arial, sans-serif; font-size: 13px; text-anchor: middle; fill: #5a6472">Del garabato que sirve para pensar al documento con el que se fabrica</text>
 
-  <!-- Left: BOCETO (Sketch) -->
+  <!-- ============================ BOCETO ============================ -->
   <g>
-    <rect x="30" y="100" width="280" height="280" fill="#fff8e8" stroke="#f39c12" stroke-width="2" rx="4"/>
+    <rect x="34" y="86" width="290" height="360" rx="6" fill="#fff8ee" stroke="#e08b1e" stroke-width="2"/>
+    <text x="179" y="116" style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #b46c0a">BOCETO</text>
+    <text x="179" y="136" style="font-family: Arial, sans-serif; font-size: 11.5px; text-anchor: middle; fill: #8a6a31">a mano alzada, sin medir</text>
 
-    <text x="170" y="130" class="title" font-size="14">BOCETO</text>
-    <text x="170" y="150" class="label" font-size="9" text-anchor="middle" fill="#f39c12" font-weight="bold">La idea rápida</text>
-
-    <!-- Example sketch -->
-    <g transform="translate(170, 180)">
-      <circle cx="0" cy="0" r="30" fill="none" stroke="#e74c3c" stroke-width="2.5" opacity="0.6"/>
-      <circle cx="-25" cy="-15" r="8" fill="none" stroke="#e74c3c" stroke-width="2" opacity="0.6"/>
-      <line x1="-15" y1="25" x2="15" y2="25" stroke="#e74c3c" stroke-width="2" opacity="0.6"/>
-      <path d="M -20 15 Q -15 5 -10 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
-      <path d="M 10 15 Q 15 5 20 15" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+    <!-- pieza en L, trazo suelto: cada lado con dos pasadas -->
+    <g fill="none" stroke="#b46c0a" stroke-width="2.4" stroke-linecap="round">
+      <path d="M92 300 L92 186 L96 184"/>
+      <path d="M90 302 L196 302 L194 298"/>
+      <path d="M94 184 L206 186"/>
+      <path d="M204 186 L206 244 L202 246"/>
+      <path d="M204 245 L268 243"/>
+      <path d="M266 243 L268 302 L264 300"/>
+      <path d="M266 303 L196 301"/>
+      <circle cx="132" cy="226" r="15"/>
+      <circle cx="130" cy="228" r="13"/>
     </g>
+    <text x="179" y="338" style="font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; fill: #8a6a31">sin cotas, sin escuadra, sin escala</text>
 
-    <!-- Characteristics -->
-    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="50" y="280">✓ Rápido de hacer</text>
-      <text x="50" y="300">✓ Sin instrumentos</text>
-      <text x="50" y="320">✓ Solo idea general</text>
-      <text x="50" y="340">✗ No tiene medidas</text>
+    <g style="font-family: Arial, sans-serif; font-size: 11.5px; fill: #3a4351">
+      <text x="56" y="366">Sirve para <tspan font-weight="bold">pensar</tspan> y comparar ideas.</text>
+      <text x="56" y="386">Se hace en segundos, encima de</text>
+      <text x="56" y="403">cualquier papel. Y no se borra:</text>
+      <text x="56" y="420">si sale torcida, otra línea al lado.</text>
     </g>
   </g>
 
-  <!-- Arrow 1 -->
-  <path d="M 310 240 L 370 240" class="arrow" marker-end="url(#arrowblue)"/>
+  <path d="M334 250 L354 250" stroke="#5a6472" stroke-width="2.5" fill="none" marker-end="url(#paso)"/>
 
-  <!-- Center: CROQUIS (Technical sketch) -->
+  <!-- ============================ CROQUIS ============================ -->
   <g>
-    <rect x="360" y="100" width="280" height="280" fill="#e8f4f8" stroke="#3498db" stroke-width="2" rx="4"/>
+    <rect x="355" y="86" width="290" height="360" rx="6" fill="#eef6fd" stroke="#2f6feb" stroke-width="2"/>
+    <text x="500" y="116" style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #1c5fa8">CROQUIS</text>
+    <text x="500" y="136" style="font-family: Arial, sans-serif; font-size: 11.5px; text-anchor: middle; fill: #2f6feb">a mano alzada, pero ya con cotas</text>
 
-    <text x="500" y="130" class="title" font-size="14">CROQUIS</text>
-    <text x="500" y="150" class="label" font-size="9" text-anchor="middle" fill="#3498db" font-weight="bold">Dibujo con proporciones</text>
-
-    <!-- Example technical sketch with measurements -->
-    <g transform="translate(500, 180)">
-      <rect x="-35" y="-25" width="70" height="50" fill="none" stroke="#3498db" stroke-width="2"/>
-      <!-- Dimension lines -->
-      <line x1="-35" y1="-35" x2="35" y2="-35" stroke="#3498db" stroke-width="1"/>
-      <line x1="-35" y1="-32" x2="-35" y2="-38" stroke="#3498db" stroke-width="1"/>
-      <line x1="35" y1="-32" x2="35" y2="-38" stroke="#3498db" stroke-width="1"/>
-      <text x="0" y="-28" class="code" text-anchor="middle" fill="#3498db" font-size="9">70 mm</text>
-
-      <line x1="40" y1="-25" x2="40" y2="25" stroke="#3498db" stroke-width="1"/>
-      <line x1="37" y1="-25" x2="43" y2="-25" stroke="#3498db" stroke-width="1"/>
-      <line x1="37" y1="25" x2="43" y2="25" stroke="#3498db" stroke-width="1"/>
-      <text x="50" y="5" class="code" fill="#3498db" font-size="9">50 mm</text>
+    <g fill="none" stroke="#1c5fa8" stroke-width="2.4" stroke-linejoin="round">
+      <path d="M413 300 L413 186 L527 186 L527 245 L589 245 L589 300 Z"/>
+      <circle cx="453" cy="226" r="14"/>
     </g>
+    <!-- cotas aproximadas, a mano -->
+    <g stroke="#c0392b" stroke-width="1.3" fill="none">
+      <path d="M413 322 L589 322" marker-end="url(#cota)" marker-start="url(#cotaini)"/>
+      <path d="M413 308 L413 326 M589 308 L589 326"/>
+      <path d="M603 186 L603 300" marker-end="url(#cota)" marker-start="url(#cotaini)"/>
+      <path d="M593 186 L609 186 M593 300 L609 300"/>
+    </g>
+    <text x="501" y="317" style="font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; fill: #c0392b">120</text>
+    <text x="619" y="247" style="font-family: Arial, sans-serif; font-size: 11px; fill: #c0392b">80</text>
 
-    <!-- Characteristics -->
-    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="380" y="280">✓ Proporciones correctas</text>
-      <text x="380" y="300">✓ Medidas aproximadas</text>
-      <text x="380" y="320">✓ Rápido pero más preciso</text>
-      <text x="380" y="340">✗ No es exacto</text>
+    <g style="font-family: Arial, sans-serif; font-size: 11.5px; fill: #3a4351">
+      <text x="377" y="366">Sirve para <tspan font-weight="bold">tomar datos</tspan> de una pieza</text>
+      <text x="377" y="386">que tienes delante. Las proporciones</text>
+      <text x="377" y="403">se cuidan y las medidas son reales,</text>
+      <text x="377" y="420">pero el trazo sigue siendo a pulso.</text>
     </g>
   </g>
 
-  <!-- Arrow 2 -->
-  <path d="M 640 240 L 700 240" class="arrow" marker-end="url(#arrowblue)"/>
+  <path d="M655 250 L675 250" stroke="#5a6472" stroke-width="2.5" fill="none" marker-end="url(#paso)"/>
 
-  <!-- Right: PLANO (Technical plan) -->
+  <!-- ============================= PLANO ============================= -->
   <g>
-    <rect x="690" y="100" width="280" height="280" fill="#f0fef0" stroke="#27ae60" stroke-width="2" rx="4"/>
+    <rect x="676" y="86" width="290" height="360" rx="6" fill="#eef9f1" stroke="#2fa84f" stroke-width="2"/>
+    <text x="821" y="116" style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; text-anchor: middle; fill: #1d7a38">PLANO</text>
+    <text x="821" y="136" style="font-family: Arial, sans-serif; font-size: 11.5px; text-anchor: middle; fill: #2fa84f">con instrumentos y a escala</text>
 
-    <text x="830" y="130" class="title" font-size="14">PLANO</text>
-    <text x="830" y="150" class="label" font-size="9" text-anchor="middle" fill="#27ae60" font-weight="bold">Precisión exacta</text>
-
-    <!-- Example technical plan -->
-    <g transform="translate(830, 180)">
-      <rect x="-35" y="-25" width="70" height="50" fill="none" stroke="#27ae60" stroke-width="2.5"/>
-      <!-- Exact dimension lines with arrows -->
-      <line x1="-35" y1="-35" x2="35" y2="-35" stroke="#27ae60" stroke-width="1"/>
-      <path d="M -35 -32 L -35 -38 M 35 -32 L 35 -38" stroke="#27ae60" stroke-width="1" fill="none"/>
-      <text x="0" y="-28" class="code" text-anchor="middle" fill="#27ae60" font-size="10" font-weight="bold">70±0.5 mm</text>
-
-      <line x1="40" y1="-25" x2="40" y2="25" stroke="#27ae60" stroke-width="1"/>
-      <path d="M 37 -25 L 43 -25 M 37 25 L 43 25" stroke="#27ae60" stroke-width="1" fill="none"/>
-      <text x="50" y="5" class="code" fill="#27ae60" font-size="10" font-weight="bold">50±0.3</text>
-
-      <!-- Title block indicator -->
-      <rect x="-35" y="35" width="70" height="20" fill="none" stroke="#27ae60" stroke-width="1" stroke-dasharray="2,2"/>
-      <text x="0" y="48" class="code" text-anchor="middle" fill="#27ae60" font-size="8">Cajetín</text>
+    <g fill="none" stroke="#1d7a38" stroke-width="2.2" stroke-linejoin="miter">
+      <path d="M718 292 L718 178 L832 178 L832 237 L894 237 L894 292 Z"/>
+      <circle cx="758" cy="218" r="14"/>
+    </g>
+    <!-- ejes del agujero -->
+    <g stroke="#1d7a38" stroke-width="0.9" stroke-dasharray="7 3 2 3">
+      <path d="M736 218 L780 218 M758 196 L758 240" fill="none"/>
+    </g>
+    <!-- cotas con línea auxiliar, como en un plano -->
+    <g stroke="#c0392b" stroke-width="1.1" fill="none">
+      <path d="M718 312 L894 312" marker-end="url(#cota)" marker-start="url(#cotaini)"/>
+      <path d="M718 296 L718 318 M894 296 L894 318"/>
+      <path d="M908 178 L908 292" marker-end="url(#cota)" marker-start="url(#cotaini)"/>
+      <path d="M898 178 L914 178 M898 292 L914 292"/>
+    </g>
+    <text x="806" y="307" style="font-family: Arial, sans-serif; font-size: 10.5px; text-anchor: middle; fill: #c0392b">120 ±0,2</text>
+    <text x="918" y="238" style="font-family: Arial, sans-serif; font-size: 10.5px; fill: #c0392b">80</text>
+    <!-- cajetín -->
+    <g>
+      <rect x="718" y="326" width="176" height="24" fill="#ffffff" stroke="#1d7a38" stroke-width="1.2"/>
+      <path d="M800 326 L800 350" stroke="#1d7a38" stroke-width="1.2" fill="none"/>
+      <text x="726" y="342" style="font-family: Arial, sans-serif; font-size: 9.5px; fill: #1d7a38">Soporte en L</text>
+      <text x="808" y="342" style="font-family: Arial, sans-serif; font-size: 9.5px; fill: #1d7a38">Escala 1:2</text>
     </g>
 
-    <!-- Characteristics -->
-    <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
-      <text x="710" y="280">✓ Medidas exactas</text>
-      <text x="710" y="300">✓ Tolerancias</text>
-      <text x="710" y="320">✓ Instrumental (regla, compás)</text>
-      <text x="710" y="340">✓ Válido para fabricar</text>
+    <g style="font-family: Arial, sans-serif; font-size: 11.5px; fill: #3a4351">
+      <text x="698" y="374">Sirve para <tspan font-weight="bold">fabricar</tspan>. Lleva escala,</text>
+      <text x="698" y="394">tolerancias y cajetín, y sigue las</text>
+      <text x="698" y="411">normas: con él, la pieza sale igual</text>
+      <text x="698" y="428">en este taller y en otro cualquiera.</text>
     </g>
   </g>
 
-  <!-- Bottom: Progression explanation -->
-  <g>
-    <rect x="30" y="420" width="940" height="260" fill="white" stroke="#2c3e50" stroke-width="1.5" rx="3"/>
-
-    <text x="500" y="450" class="title" font-size="13">El viaje del dibujo técnico</text>
-
-    <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="480"><b>Fase 1: BOCETO</b></text>
-      <text x="80" y="500">Es la idea inicial. Lo haces rápido, sin herramientas, solo para capturar lo que imaginas.</text>
-      <text x="80" y="520">Ejemplo: dibujas un taburete en una servilleta.</text>
-
-      <text x="60" y="555"><b>Fase 2: CROQUIS</b></text>
-      <text x="80" y="575">Le das forma real al boceto. Ahora respetas las proporciones y añades medidas aproximadas.</text>
-      <text x="80" y="595">Lo haces en papel milimetrado y puede llevar más tiempo, pero sigue siendo rápido.</text>
-
-      <text x="60" y="630"><b>Fase 3: PLANO</b></text>
-      <text x="80" y="650">Es el documento oficial, exacto, con todas las medidas y tolerancias.</text>
-      <text x="80" y="670">Necesita regla, compás, o programas CAD. Con él pueden fabricar lo que diseñaste, en cualquier taller del mundo.</text>
-    </g>
-  </g>
-
+  <!-- ============================ CIERRE ============================= -->
+  <rect x="34" y="482" width="932" height="76" rx="6" fill="#ffffff" stroke="#d6dce5" stroke-width="1.5"/>
+  <text x="56" y="508" style="font-family: Arial, sans-serif; font-size: 12.5px; font-weight: bold; fill: #1f2733">Lo que cambia de uno a otro no es la habilidad de dibujar: es qué información lleva dentro.</text>
+  <text x="56" y="530" style="font-family: Arial, sans-serif; font-size: 11.5px; fill: #3a4351">El boceto lleva una idea. El croquis, además, las medidas. El plano, además, la escala, las tolerancias y quién responde de él.</text>
+  <text x="56" y="548" style="font-family: Arial, sans-serif; font-size: 11.5px; fill: #3a4351">Por eso un boceto se enseña, un croquis se usa en el taller y un plano se firma.</text>
 </svg>

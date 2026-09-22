@@ -26,14 +26,14 @@
     <text x="160" y="180" class="label" font-size="10">robot inteligente con IA</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="220"><b>El problema:</b></text>
+      <text x="60" y="220"><tspan font-weight="bold">El problema:</tspan></text>
       <text x="80" y="240">❌ Coste: €€€€€ (miles)</text>
       <text x="80" y="255">❌ Mantenimiento complejo</text>
       <text x="80" y="270">❌ Se rompe → sin riego</text>
       <text x="80" y="285">❌ Consumo de energía alto</text>
       <text x="80" y="300">❌ Excesiva para la tarea</text>
 
-      <text x="60" y="340"><b>Resultado:</b> Fracaso. Todos</text>
+      <text x="60" y="340"><tspan font-weight="bold">Resultado:</tspan> Fracaso. Todos</text>
       <text x="60" y="355">compran un sistema simple.</text>
     </g>
   </g>
@@ -50,14 +50,14 @@
     <text x="650" y="180" class="label" font-size="10">+ electroválvula de riego</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="550" y="220"><b>Las ventajas:</b></text>
+      <text x="550" y="220"><tspan font-weight="bold">Las ventajas:</tspan></text>
       <text x="570" y="240">✓ Coste: €€ (decenas)</text>
       <text x="570" y="255">✓ Simple de mantener</text>
       <text x="570" y="270">✓ Si se rompe, fácil cambio</text>
       <text x="570" y="285">✓ Bajo consumo de energía</text>
       <text x="570" y="300">✓ Justa para la tarea</text>
 
-      <text x="550" y="340"><b>Resultado:</b> Funciona años.</text>
+      <text x="550" y="340"><tspan font-weight="bold">Resultado:</tspan> Funciona años.</text>
       <text x="550" y="355">Todos la copian.</text>
     </g>
   </g>
@@ -69,19 +69,19 @@
     <text x="500" y="440" class="title" font-size="13">¿Qué hace que una tecnología sea APROPIADA?</text>
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="470"><b>1. ESCALA correcta</b></text>
+      <text x="60" y="470"><tspan font-weight="bold">1. ESCALA correcta</tspan></text>
       <text x="80" y="488">   Para una persona o un pueblo, no necesitas lo mismo que para una ciudad.</text>
       <text x="80" y="505">   Ejemplo: El riego con sensor es escala personal. Un smartphone no lo es para un granjero.</text>
 
-      <text x="60" y="535"><b>2. COSTE proporcionado</b></text>
+      <text x="60" y="535"><tspan font-weight="bold">2. COSTE proporcionado</tspan></text>
       <text x="80" y="553">   Si gasta €100 en mantener algo que te ahorra €50/año, está mal.</text>
       <text x="80" y="570">   ROI (retorno de inversión): ¿cuánto tiempo tarda en pagarse a sí mismo?</text>
 
-      <text x="60" y="600"><b>3. MANTENIBILIDAD local</b></text>
+      <text x="60" y="600"><tspan font-weight="bold">3. MANTENIBILIDAD local</tspan></text>
       <text x="80" y="618">   Si se rompe, ¿puede repararlo alguien del lugar?</text>
       <text x="80" y="635">   Si solo el fabricante puede repararla, no es apropiada para pueblos remotos.</text>
 
-      <text x="60" y="665"><b>4. SOSTENIBILIDAD real</b></text>
+      <text x="60" y="665"><tspan font-weight="bold">4. SOSTENIBILIDAD real</tspan></text>
       <text x="80" y="683">   Consumo de energía, disponibilidad de piezas, facilidad de reciclaje.</text>
     </g>
   </g>

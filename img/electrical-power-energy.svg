@@ -31,17 +31,17 @@
 
     <!-- Examples -->
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="250"><b>LED:</b> 5 V × 0,02 A = 0,1 W (un décimo de vatio)</text>
-      <text x="60" y="270"><b>Bombilla LED:</b> 230 V × 0,05 A = 11,5 W</text>
-      <text x="60" y="290"><b>Tostadora: 230V × 5 A = 1.150 W (una plancha)</b></text>
-      <text x="60" y="310"><b>Horno eléctrico:</b> 230 V × 15 A = 3.450 W</text>
+      <text x="60" y="250"><tspan font-weight="bold">LED:</tspan> 5 V × 0,02 A = 0,1 W (un décimo de vatio)</text>
+      <text x="60" y="270"><tspan font-weight="bold">Bombilla LED:</tspan> 230 V × 0,05 A = 11,5 W</text>
+      <text x="60" y="290"><tspan font-weight="bold">Tostadora: 230V × 5 A = 1.150 W (una plancha)</tspan></text>
+      <text x="60" y="310"><tspan font-weight="bold">Horno eléctrico:</tspan> 230 V × 15 A = 3.450 W</text>
 
-      <text x="60" y="340"><b>¿Qué significa?</b></text>
+      <text x="60" y="340"><tspan font-weight="bold">¿Qué significa?</tspan></text>
       <text x="80" y="360">• Cuanta más potencia, más calor/luz/fuerza EN ESTE MOMENTO</text>
       <text x="80" y="378">• Una bombilla de 100 W gasta el doble de energía que una de 50 W</text>
       <text x="80" y="396">• La potencia es lo que ves en el momento: LED brillando, motor girando, resistencia calentando</text>
 
-      <text x="60" y="430"><b>En la casa:</b></text>
+      <text x="60" y="430"><tspan font-weight="bold">En la casa:</tspan></text>
       <text x="80" y="448">• 230 V es fijo. Lo que cambia es la Intensidad (Amperios)</text>
       <text x="80" y="466">• Más aparatos encendidos = más Amperios = más Potencia total = saltan los plomos</text>
     </g>
@@ -63,18 +63,18 @@
 
     <!-- Examples -->
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="550" y="280"><b>Un LED de 0,1 W durante 1 hora:</b></text>
+      <text x="550" y="280"><tspan font-weight="bold">Un LED de 0,1 W durante 1 hora:</tspan></text>
       <text x="570" y="298">E = 0,1 W × 3.600 s = 360 Julios</text>
 
-      <text x="550" y="330"><b>Una plancha de 1.150 W durante 2 horas:</b></text>
+      <text x="550" y="330"><tspan font-weight="bold">Una plancha de 1.150 W durante 2 horas:</tspan></text>
       <text x="570" y="348">E = 1.150 W × 2 h = 2.300 Wh = 2,3 kWh</text>
 
-      <text x="550" y="380"><b>¿Qué es un kWh?</b></text>
+      <text x="550" y="380"><tspan font-weight="bold">¿Qué es un kWh?</tspan></text>
       <text x="570" y="398">• 1 kilowatio durante 1 hora = 1 kWh</text>
       <text x="570" y="416">• Es lo que ves en tu factura de electricidad</text>
       <text x="570" y="434">• Cuesta ~0,15 €/kWh (varía por zona)</text>
 
-      <text x="550" y="468"><b>Tu móvil:</b> Batería de 3.000 mAh a 3,7 V</text>
+      <text x="550" y="468"><tspan font-weight="bold">Tu móvil:</tspan> Batería de 3.000 mAh a 3,7 V</text>
       <text x="570" y="486">E = 3 Ah × 3,7 V = 11,1 Wh = 11,1 kiloJulios</text>
     </g>
   </g>

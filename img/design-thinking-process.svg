@@ -112,16 +112,16 @@
   <text x="60" y="375" class="title" font-size="12" text-anchor="start" font-weight="bold">Claves del Design Thinking:</text>
 
   <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-    <text x="60" y="400">• <b>Centrado en el usuario:</b> Entender qué necesita REALMENTE (no lo que tú crees que necesita)</text>
+    <text x="60" y="400">• <tspan font-weight="bold">Centrado en el usuario:</tspan> Entender qué necesita REALMENTE (no lo que tú crees que necesita)</text>
 
-    <text x="60" y="425">• <b>Iterativo:</b> No es lineal. Si el prototipo no funciona, vuelves a idear, prototipas de nuevo, etc.</text>
+    <text x="60" y="425">• <tspan font-weight="bold">Iterativo:</tspan> No es lineal. Si el prototipo no funciona, vuelves a idear, prototipas de nuevo, etc.</text>
 
-    <text x="60" y="450">• <b>Colaborativo:</b> Todos los equipos trabajan juntos desde el principio, no en silos</text>
+    <text x="60" y="450">• <tspan font-weight="bold">Colaborativo:</tspan> Todos los equipos trabajan juntos desde el principio, no en silos</text>
 
-    <text x="60" y="475">• <b>Prototipado rápido:</b> No esperes a tener la solución perfecta. Haz algo ya y aprende de los errores</text>
+    <text x="60" y="475">• <tspan font-weight="bold">Prototipado rápido:</tspan> No esperes a tener la solución perfecta. Haz algo ya y aprende de los errores</text>
 
-    <text x="60" y="500">• <b>Documentar todo:</b> Sketches, notas, fotos del proceso. El aprendizaje está en el viaje, no solo en el resultado</text>
+    <text x="60" y="500">• <tspan font-weight="bold">Documentar todo:</tspan> Sketches, notas, fotos del proceso. El aprendizaje está en el viaje, no solo en el resultado</text>
 
-    <text x="60" y="525">• <b>Fracasar rápido:</b> Mejor fracasar en prototipo que en fabricación a escala. Cada fallo enseña algo</text>
+    <text x="60" y="525">• <tspan font-weight="bold">Fracasar rápido:</tspan> Mejor fracasar en prototipo que en fabricación a escala. Cada fallo enseña algo</text>
   </g>
 </svg>

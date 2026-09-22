@@ -22,7 +22,7 @@
 <text x="330" y="290">130 x 90</text>
 <text class="c" x="404.6" y="484.5">ranura del respaldo</text>
 <text class="c" x="515.6" y="500.5">ranura del puntal</text>
-<path d="M50 590 H310" stroke="#dadce0" stroke-width="1.5"/>
+<path d="M50 590 H310" stroke="#dadce0" stroke-width="1.5" fill="none"/>
 <rect x="60" y="584.4" width="182" height="5.6" class="p"/>
 <polygon points="110.4,584.4 116,584.4 189.423,402.672 183.823,402.672" class="p"/>
 <polygon points="194.4,584.4 313.4,584.4 194.4,497.6" fill="#fce8b2" stroke="#202124" stroke-width="2"/>

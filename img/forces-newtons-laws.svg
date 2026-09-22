@@ -28,16 +28,16 @@
     <text x="180" y="110" class="title" font-size="13">1ª LEY (Inercia)</text>
 
     <!-- Visual: object at rest -->
-    <circle cx="150" cy="155" r="20" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
-    <text x="150" y="160" class="label" font-size="10" font-weight="bold">En reposo</text>
+    <circle cx="110" cy="150" r="20" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
+    <text x="110" y="192" class="label" style="font-size: 11px" font-weight="bold">En reposo</text>
 
     <!-- Visual: object moving -->
-    <circle cx="200" cy="155" r="20" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
-    <text x="200" y="160" class="label" font-size="10" font-weight="bold">Movimiento</text>
-    <path d="M220,155 L250,155" class="good"/>
+    <circle cx="225" cy="150" r="20" fill="#d4a574" stroke="#8b6914" stroke-width="2"/>
+    <text x="225" y="192" class="label" style="font-size: 11px" font-weight="bold">Movimiento</text>
+    <path d="M248,150 L285,150" class="good"/>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="50" y="210"><b>Si no hay fuerza:</b> Un objeto en reposo</text>
+      <text x="50" y="210"><tspan font-weight="bold">Si no hay fuerza:</tspan> Un objeto en reposo</text>
       <text x="50" y="225">permanece en reposo. Uno en movimiento</text>
       <text x="50" y="240">sigue con velocidad constante.</text>
     </g>
@@ -63,7 +63,7 @@
     <text x="555" y="200" class="label" font-size="10" font-weight="bold">a</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="370" y="235"><b>Más fuerza = más aceleración</b></text>
+      <text x="370" y="235"><tspan font-weight="bold">Más fuerza = más aceleración</tspan></text>
       <text x="370" y="250">Una fuerza produce aceleración.</text>
     </g>
   </g>
@@ -83,7 +83,7 @@
     <text x="820" y="200" class="label" font-size="10" text-anchor="middle" font-weight="bold">Acción ↔ Reacción</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
-      <text x="700" y="235"><b>Si A empuja a B:</b></text>
+      <text x="700" y="235"><tspan font-weight="bold">Si A empuja a B:</tspan></text>
       <text x="700" y="250">B empuja a A con igual fuerza</text>
       <text x="700" y="265">pero en dirección contraria.</text>
     </g>
@@ -93,22 +93,22 @@
   <g>
     <rect x="30" y="300" width="940" height="380" fill="#fffbea" stroke="#f39c12" stroke-width="2" rx="5"/>
 
-    <text x="60" y="330" class="title" font-size="14" text-anchor="start">Aplicaciones prácticas de las tres leyes</text>
+    <text x="60" y="330" class="title" style="text-anchor: start; font-size: 14px">Aplicaciones prácticas de las tres leyes</text>
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="365"><b>1ª Ley (Inercia):</b> Por eso llevas cinturón de seguridad. El coche frena (fuerza del freno), pero tú sigues hacia adelante (inercia). El cinturón es la fuerza que te detiene contigo.</text>
+      <text x="60" y="358"><tspan font-weight="bold">1ª Ley (Inercia):</tspan> Por eso llevas cinturón de seguridad. El coche frena, pero tú sigues hacia adelante<tspan x="60" dy="15">por inercia. El cinturón es la fuerza que te detiene a ti.</tspan></text>
 
-      <text x="60" y="395"><b>2ª Ley (F = m·a):</b> Un motor pequeño no levanta una carga grande (poca fuerza). Un motor potente sí (mucha fuerza). La aceleración que consigues depende de cuánta fuerza tengas y cuánto pese lo que mueves.</text>
+      <text x="60" y="398"><tspan font-weight="bold">2ª Ley (F = m·a):</tspan> Un motor pequeño no levanta una carga grande; uno potente sí. La aceleración que<tspan x="60" dy="15">consigues depende de cuánta fuerza tengas y de cuánto pese lo que mueves.</tspan></text>
 
-      <text x="60" y="425"><b>3ª Ley (Acción-Reacción):</b> Un cohete expulsa gas hacia abajo (acción). El gas lo empuja hacia arriba (reacción). Un aviador apunta el avión hacia delante, pero su turbo lo empuja hacia atrás: acción-reacción.</text>
+      <text x="60" y="438"><tspan font-weight="bold">3ª Ley (Acción-Reacción):</tspan> Un cohete expulsa gas hacia abajo y el gas lo empuja hacia arriba.<tspan x="60" dy="15">Cada fuerza tiene su pareja, del mismo tamaño y en sentido contrario.</tspan></text>
 
-      <text x="60" y="460"><b>En máquinas simples:</b> Una palanca de 2º te permite levantar 100 kg con 25 kg de fuerza (ganancia 4:1 en fuerza, pérdida 4:1 en distancia). La energía es la misma: F₁·d₁ = F₂·d₂ (ley de conservación de la energía, que viene de Newton).</text>
+      <text x="60" y="478"><tspan font-weight="bold">En máquinas simples:</tspan> Una palanca de 2.º género levanta 100 kg con 25 kg de fuerza: ganas 4 en<tspan x="60" dy="15">fuerza y pierdes 4 en distancia. La energía es la misma: F₁·d₁ = F₂·d₂.</tspan></text>
 
-      <text x="60" y="495"><b>Peso vs Masa:</b> Tu masa es siempre 70 kg. Tu peso es 70 kg × 9,81 m/s² = 686 N (la fuerza que la gravedad ejerce sobre ti). En otro planeta, tu masa sigue siendo 70 kg, pero tu peso cambia (porque g ≠ 9,81).</text>
+      <text x="60" y="518"><tspan font-weight="bold">Peso y masa:</tspan> Tu masa es siempre 70 kg. Tu peso es 70 × 9,81 = 686 N, que es la fuerza con que<tspan x="60" dy="15">la gravedad tira de ti. En otro planeta la masa no cambia; el peso, sí.</tspan></text>
 
-      <text x="60" y="530"><b>Sistema solar:</b> Los planetas orbitan el sol porque la gravedad (una fuerza) los mantiene en trayectoria curva. Sin esa fuerza, seguirían recto (1ª ley).</text>
+      <text x="60" y="558"><tspan font-weight="bold">Sistema solar:</tspan> Los planetas giran alrededor del Sol porque la gravedad los mantiene en curva.<tspan x="60" dy="15">Sin esa fuerza saldrían disparados en línea recta, por la 1ª ley.</tspan></text>
 
-      <text x="60" y="565"><b>Clave:</b> Toda la tecnología (motores, puentes, edificios, aviones, robots) sigue estas tres leyes. Si una máquina funciona, es porque las fuerzas están equilibradas (o acelera como se espera). Si falla, es porque hay una fuerza que no se calculó bien.</text>
+      <text x="60" y="598"><tspan font-weight="bold">Clave:</tspan> Toda la tecnología —motores, puentes, edificios, aviones, robots— sigue estas tres<tspan x="60" dy="15">leyes. Si una máquina falla, es porque hay una fuerza que no se calculó bien.</tspan></text>
     </g>
   </g>
 

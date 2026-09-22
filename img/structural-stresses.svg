@@ -34,8 +34,8 @@
     <rect x="70" y="145" width="40" height="40" class="material"/>
     <text x="90" y="173" class="label" font-size="9">Normal</text>
 
-    <path d="M130,155 L160,155" stroke="#e74c3c" stroke-width="3" marker-start="url(#arrowright)"/>
-    <path d="M170,155 L140,155" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowright)"/>
+    <path d="M130,155 L160,155" stroke="#e74c3c" stroke-width="3" marker-start="url(#arrowright)" fill="none"/>
+    <path d="M170,155 L140,155" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowright)" fill="none"/>
 
     <rect x="120" y="150" width="50" height="30" class="material" opacity="0.7"/>
     <text x="145" y="173" class="label" font-size="9">Aplastado</text>
@@ -51,8 +51,8 @@
     <rect x="310" y="145" width="40" height="40" class="material"/>
     <text x="330" y="173" class="label" font-size="9">Normal</text>
 
-    <path d="M300,160 L280,160" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowred)"/>
-    <path d="M380,160 L400,160" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowred)"/>
+    <path d="M300,160 L280,160" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowred)" fill="none"/>
+    <path d="M380,160 L400,160" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrowred)" fill="none"/>
 
     <rect x="300" y="150" width="70" height="30" class="material" opacity="0.7"/>
     <text x="335" y="173" class="label" font-size="9">Estirado</text>
@@ -68,8 +68,8 @@
     <line x1="550" y1="160" x2="630" y2="160" stroke="#8b6914" stroke-width="8"/>
     <text x="590" y="175" class="label" font-size="9">Recto</text>
 
-    <path d="M560,155 L560,170" stroke="#e74c3c" stroke-width="2"/>
-    <path d="M620,155 L620,170" stroke="#e74c3c" stroke-width="2"/>
+    <path d="M560,155 L560,170" stroke="#e74c3c" stroke-width="2" fill="none"/>
+    <path d="M620,155 L620,170" stroke="#e74c3c" stroke-width="2" fill="none"/>
 
     <path d="M550 160 Q590 145 630 160" stroke="#8b6914" stroke-width="8" fill="none"/>
     <text x="590" y="195" class="label" font-size="9">Doblado</text>
@@ -103,8 +103,8 @@
     <rect x="70" y="325" width="40" height="40" class="material"/>
     <text x="90" y="375" class="label" font-size="9">Normal</text>
 
-    <path d="M130,335 L150,325" stroke="#e74c3c" stroke-width="3"/>
-    <path d="M130,355 L110,345" stroke="#e74c3c" stroke-width="3"/>
+    <path d="M130,335 L150,325" stroke="#e74c3c" stroke-width="3" fill="none"/>
+    <path d="M130,355 L110,345" stroke="#e74c3c" stroke-width="3" fill="none"/>
 
     <polygon points="110,330 150,330 140,350 100,350" class="material" opacity="0.7"/>
     <text x="125" y="370" class="label" font-size="9">Cortado</text>
@@ -116,11 +116,11 @@
     <text x="620" y="285" class="label" font-weight="bold" font-size="13">Ejemplos de la vida real</text>
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="290" y="310"><b>Compresión:</b> Las columnas de un edificio aguantan el peso de los pisos encima</text>
-      <text x="290" y="330"><b>Tensión:</b> Los cables de un puente colgante se estiran por el peso del tablero</text>
-      <text x="290" y="350"><b>Flexión:</b> Una viga de acero se dobla si la cargas en el medio (pero no debe romper)</text>
-      <text x="290" y="370"><b>Torsión:</b> Un tornillo se retuerce al entrar en el material, o un eje de motor</text>
-      <text x="290" y="390"><b>Cortante:</b> Las tijeras cizallan: una hoja sube y otra baja, cortando el papel entre ellas</text>
+      <text x="290" y="310"><tspan font-weight="bold">Compresión:</tspan> Las columnas de un edificio aguantan el peso de los pisos encima</text>
+      <text x="290" y="330"><tspan font-weight="bold">Tensión:</tspan> Los cables de un puente colgante se estiran por el peso del tablero</text>
+      <text x="290" y="350"><tspan font-weight="bold">Flexión:</tspan> Una viga de acero se dobla si la cargas en el medio (pero no debe romper)</text>
+      <text x="290" y="370"><tspan font-weight="bold">Torsión:</tspan> Un tornillo se retuerce al entrar en el material, o un eje de motor</text>
+      <text x="290" y="390"><tspan font-weight="bold">Cortante:</tspan> Las tijeras cizallan: una hoja sube y otra baja, cortando el papel entre ellas</text>
     </g>
   </g>
 
@@ -131,13 +131,13 @@
     <text x="50" y="465" class="label" font-weight="bold" font-size="12" text-anchor="start" fill="#e74c3c">La regla de oro: cada material tiene un límite</text>
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="50" y="495"><b>Acero:</b> Aguanta mucha tensión (por eso se usa en cables) y compresión (vigas), pero less torsión</text>
-      <text x="50" y="520"><b>Hormigón:</b> Aguanta bien <b>compresión</b> (columnas, muros) pero <b>nada de tensión</b> (por eso se refuerza con acero)</text>
-      <text x="50" y="545"><b>Aluminio:</b> Más ligero que el acero, menos resistente, pero excelente para estructuras que no pesan mucho</text>
-      <text x="50" y="570"><b>Plástico impreso (3D):</b> Débil en todos los esfuerzos, especialmente en tensión y cortante</text>
-      <text x="50" y="595"><b>Madera:</b> Resiste bien la compresión <b>paralela</b> a las fibras (columna de madera), pero no la perpendicular</text>
-      <text x="50" y="620"><b>Evitar fallos:</b> Los ingenieros eligen materiales y formas para que el esfuerzo máximo que sufran sea menor que su límite de ruptura. Y dejan un margen de seguridad.</text>
-      <text x="50" y="655"><b>Triangular funciona:</b> Un triángulo no se deforma. Por eso se usan en cerchas, grúas y cualquier sitio donde necesites resistencia máxima</text>
+      <text x="50" y="495"><tspan font-weight="bold">Acero:</tspan> Aguanta mucha tensión (por eso se usa en cables) y compresión (vigas), pero less torsión</text>
+      <text x="50" y="520"><tspan font-weight="bold">Hormigón:</tspan> Aguanta bien <tspan font-weight="bold">compresión</tspan> (columnas, muros) pero <tspan font-weight="bold">nada de tensión</tspan> (por eso se refuerza con acero)</text>
+      <text x="50" y="545"><tspan font-weight="bold">Aluminio:</tspan> Más ligero que el acero, menos resistente, pero excelente para estructuras que no pesan mucho</text>
+      <text x="50" y="570"><tspan font-weight="bold">Plástico impreso (3D):</tspan> Débil en todos los esfuerzos, especialmente en tensión y cortante</text>
+      <text x="50" y="595"><tspan font-weight="bold">Madera:</tspan> Resiste bien la compresión <tspan font-weight="bold">paralela</tspan> a las fibras (columna de madera), pero no la perpendicular</text>
+      <text x="50" y="620"><tspan font-weight="bold">Evitar fallos:</tspan> Los ingenieros eligen materiales y formas para que el esfuerzo máximo que sufran sea menor que su límite de ruptura. Y dejan un margen de seguridad.</text>
+      <text x="50" y="655"><tspan font-weight="bold">Triangular funciona:</tspan> Un triángulo no se deforma. Por eso se usan en cerchas, grúas y cualquier sitio donde necesites resistencia máxima</text>
     </g>
   </g>
 </svg>

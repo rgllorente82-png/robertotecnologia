@@ -104,25 +104,25 @@
     <text x="500" y="440" class="title" font-size="13">Qué se hace en cada paso</text>
 
     <g font-family="Arial" font-size="10.5" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="470"><b>1. Definir el problema</b></text>
+      <text x="60" y="470"><tspan font-weight="bold">1. Definir el problema</tspan></text>
       <text x="80" y="488">¿Qué necesito construir? ¿Para quién? ¿Por qué no existe ya?</text>
 
-      <text x="60" y="510"><b>2. Especificar requisitos</b></text>
+      <text x="60" y="510"><tspan font-weight="bold">2. Especificar requisitos</tspan></text>
       <text x="80" y="528">Lo que DEBE cumplir: tamaño, peso, materiales, resistencia, presupuesto. Requisitos comprobables.</text>
 
-      <text x="60" y="550"><b>3. Diseñar la solución</b></text>
+      <text x="60" y="550"><tspan font-weight="bold">3. Diseñar la solución</tspan></text>
       <text x="80" y="568">Croquis acotados, despieces, matriz de decisión de materiales, hoja de proceso, Gantt.</text>
 
-      <text x="60" y="590"><b>4. Construir el prototipo</b></text>
+      <text x="60" y="590"><tspan font-weight="bold">4. Construir el prototipo</tspan></text>
       <text x="80" y="608">Ejecutar el plan: medir, cortar, ensamblar, probar componentes individuales.</text>
 
-      <text x="60" y="630"><b>5. Probar y validar</b></text>
+      <text x="60" y="630"><tspan font-weight="bold">5. Probar y validar</tspan></text>
       <text x="80" y="648">¿Cumple los requisitos? ¿Funciona bajo condiciones normales y extremas?</text>
 
-      <text x="500" y="470"><b>6. Mejorar el diseño</b></text>
+      <text x="500" y="470"><tspan font-weight="bold">6. Mejorar el diseño</tspan></text>
       <text x="520" y="488">Si algo falla: vuelves al paso anterior, arreglas y pruebas de nuevo.</text>
 
-      <text x="500" y="510"><b>7. Documentar y comunicar</b></text>
+      <text x="500" y="510"><tspan font-weight="bold">7. Documentar y comunicar</tspan></text>
       <text x="520" y="528">Memoría del proyecto: cómo lo hiciste, qué aprendíste, cómo se usa.</text>
 
       <text x="500" y="560" class="label" font-size="11" fill="#e74c3c" font-weight="bold">Esto no es lineal:</text>
