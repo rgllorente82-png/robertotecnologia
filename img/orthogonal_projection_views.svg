@@ -12,13 +12,13 @@
 
   <!-- 3D reference object -->
   <g id="3d-box">
-    <text x="750" y="95" style="font-size: 12px; font-weight: bold; fill: #1976D2;">Objeto 3D</text>
+    <text x="750" y="78" style="font-size: 12px; font-weight: bold; fill: #1976D2;">Objeto 3D</text>
     <!-- Front face -->
     <rect x="700" y="110" width="80" height="60" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
-    <!-- Side edge (perspective) -->
-    <polygon points="780,110 800,100 800,160 780,170" fill="#B3E5FC" stroke="#1976D2" stroke-width="2"/>
-    <!-- Top edge (perspective) -->
-    <polygon points="700,110 780,100 800,100 720,110" fill="#81D4FA" stroke="#1976D2" stroke-width="2"/>
+    <!-- cara lateral: profundidad a 45º, media medida -->
+    <polygon points="780,110 798,92 798,152 780,170" fill="#B3E5FC" stroke="#1976D2" stroke-width="2"/>
+    <!-- cara superior: los mismos 45º, y sin cruzar -->
+    <polygon points="700,110 718,92 798,92 780,110" fill="#81D4FA" stroke="#1976D2" stroke-width="2"/>
   </g>
 
   <!-- ALZADO (Front View) -->
