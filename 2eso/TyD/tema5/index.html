@@ -8,19 +8,6 @@
 <meta name="license" content="CC BY-SA 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.es">
 <link rel="canonical" href="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/">
-<!-- og: lo pone pon_metadatos.py, no se escribe a mano -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Materiales de Tecnolog&iacute;a">
-<meta property="og:locale" content="es_ES">
-<meta property="og:title" content="Tema 5 &middot; Metales">
-<meta property="og:description" content="Tema 5 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO: mena y ganga, el proceso sider&uacute;rgico, las propiedades de los metales, f&eacute;rricos y no f&eacute;rricos, aleaciones y el trabajo con chapa.">
-<meta property="og:url" content="https://rgllorente82-png.github.io/robertotecnologia/2eso/TyD/tema5/">
-<meta property="og:image" content="https://rgllorente82-png.github.io/robertotecnologia/img/og/2eso-TyD-tema5.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Tema 5 &middot; Metales &middot; Materiales de Tecnolog&iacute;a">
-<meta name="twitter:card" content="summary_large_image">
-<!-- /og -->
 <meta name="author" content="Roberto P. García Llorente">
 <meta name="dcterms.rights" content="Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional">
 <meta name="dcterms.rightsHolder" content="Roberto P. García Llorente">
@@ -305,6 +292,11 @@ footer .wrap{padding-block:18px 26px}
 @media (max-width:560px){body{font-size:15.5px}.lienzo{padding:4px}}
 /* tablas anchas en el movil: se desplazan ellas, no la pagina */
 @media (max-width:560px){table{display:block;overflow-x:auto;max-width:100%}}
+/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto!important}
+}
 /* ---- al imprimir, que salgan todas las sesiones ---- */
 @media print{
   #nav{display:none}
@@ -319,12 +311,39 @@ footer .wrap{padding-block:18px 26px}
   background:var(--goo-azul);color:#fff;font:500 14px var(--f-b);
   padding:11px 18px;border-radius:0 0 2px 0;text-decoration:none}
 .saltar:focus{left:0}
-/* quien pide reducir el movimiento, lo reduce (WCAG 2.3.3 y 2.2.2) */
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-  html{scroll-behavior:auto!important}
+/* visor de imagenes: lo pone afina_visor.py */
+.rtz-pista{display:none}
+@media (max-width:760px){
+  figure.foto img{cursor:zoom-in}
+  .rtz-pista{display:block;margin-top:6px;font-size:12.5px;letter-spacing:.02em;
+    color:var(--muted,#667);text-transform:uppercase}
+  /* el sello de licencia va fijo abajo a la derecha: se le reserva sitio para que no
+     tape la última línea del contenido */
+  body{padding-bottom:64px}
 }
-</style>
+.rtz-capa{position:fixed;inset:0;z-index:100000;background:rgba(17,20,24,.94);
+  display:none;flex-direction:column}
+.rtz-capa.abierta{display:flex}
+.rtz-barra{flex:none;display:flex;align-items:center;justify-content:space-between;
+  gap:12px;padding:10px 12px;color:#fff;font:500 13.5px/1.3 system-ui,sans-serif}
+.rtz-tit{opacity:.85;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rtz-ajustar{flex:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:2px;padding:8px 12px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-cerrar{flex:none;background:#fff;color:#111;border:0;border-radius:2px;
+  padding:8px 14px;font:600 13.5px/1 system-ui,sans-serif;cursor:pointer}
+.rtz-lienzo{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:10px;
+  display:flex;align-items:flex-start;justify-content:flex-start}
+.rtz-lienzo img{flex:none;max-width:none;height:auto;background:#fff;border-radius:2px;display:block}
+@media print{.rtz-capa{display:none !important}.rtz-pista{display:none !important}}/* ayuda de palabras: lo pone afina_visor.py */
+.rtt{position:absolute;top:10px;right:12px;display:flex;align-items:center;gap:6px;z-index:40}
+.rtt span{font:600 10.5px/1 var(--f-m,system-ui);letter-spacing:.06em;text-transform:uppercase;
+  opacity:.65;margin-right:2px}
+.rtt button{width:30px;height:30px;padding:0;border:1.5px solid var(--line,#ccc);background:var(--surface,#fff);
+  color:var(--ink,#222);border-radius:2px;cursor:pointer;font-family:var(--f-m,system-ui);line-height:1}
+.rtt button:hover{border-color:var(--goo-azul,#1a73e8)}
+.rtt button[aria-pressed="true"]{border-color:var(--goo-azul,#1a73e8);color:var(--goo-azul,#1a73e8);font-weight:700}
+.rtt .b1{font-size:11px}.rtt .b2{font-size:13.5px}.rtt .b3{font-size:16px}
+@media print{.rtt{display:none}}
+@media (max-width:620px){.rtt{position:static;justify-content:flex-end;margin:0 0 10px}}</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -491,6 +510,14 @@ footer .wrap{padding-block:18px 26px}
         no arde: sirve para <b>atrapar las impurezas</b> y formar la escoria, que flota y se
         retira. Sin caliza, la porquer&iacute;a se quedar&iacute;a dentro del hierro.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/umet-colada.jpg" width="1370" height="1119" alt="Foto antigua en blanco y negro: una cuchara enorme colgada de una grúa vierte hierro fundido en un horno, y un obrero mira al lado" loading="lazy">
+        <figcaption><b>Arrabio</b> recién salido del alto horno, vertido desde una cuchara colgada de una grúa en el horno que lo afinará hasta hacerlo <b>acero</b>: es el paso 5 de la tabla. Pittsburgh (EE.&nbsp;UU.), en los años cuarenta. Fíjate en el tamaño del obrero de la izquierda.
+          <span class="credito">U.S. Office of War Information &middot; Dominio público &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Photograph_of_a_Vat_of_Molten_Pig_Iron_Being_Poured_into_an_Open_Hearth_Furnace_at_the_Jones_and_Laughlin_Steel_Company,_Pittsburgh,_Pennsy_-_NARA_-_535922_(high_contrast).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <h3>El metal cuesta energ&iacute;a, y eso lo explica casi todo</h3>
 <p>La diferencia esencial con la madera: el metal <b>no existe puro en la naturaleza</b> salvo
          excepciones. Est&aacute; combinado con otros elementos formando un <b>mineral</b>, y separarlo exige
@@ -726,6 +753,14 @@ footer .wrap{padding-block:18px 26px}
       metal (galvanizado con cinc, cromado) o <b>alear</b> &mdash;que es lo que hace el acero
       inoxidable con el cromo&mdash;.</p>
 
+      <figure class="foto">
+        <img src="../../../img/umet-oxido.jpg" width="1760" height="1320" alt="Eslabones de una cadena gruesa cubiertos de óxido naranja que se desprende en escamas" loading="lazy">
+        <figcaption>Una cadena de un puerto de Suecia, con eslabones de unos 30&nbsp;cm. El óxido del hierro <b>no protege</b>: se abre en escamas, se cae y deja al aire metal nuevo, que vuelve a oxidarse. Por eso al acero hay que protegerlo desde fuera.
+          <span class="credito">W.carter &middot; CC0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Very_rusty_chain.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
@@ -907,6 +942,14 @@ footer .wrap{padding-block:18px 26px}
               <td>No</td><td>Carrocer&iacute;as, estructuras, tuber&iacute;as</td></tr>
         </tbody>
       </table>
+
+      <figure class="foto">
+        <img src="../../../img/umet-remaches.jpg" width="1760" height="1176" alt="Viga de acero de un puente con dos filas de cabezas de remache redondas; al fondo, la llama de un soplete" loading="lazy">
+        <figcaption><b>Remaches</b> de un puente de acero de hace cien años, mientras lo desmontan. Al fondo se ve la llama de un <b>soplete</b>: un remache no se desenrosca, hay que <b>cortarlo</b>. Esa es la columna «¿Se puede deshacer?» de la tabla.
+          <span class="credito">August Geyler &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Nieten_einer_im_Abbau_befindlichen_Stahlbr%C3%BCcke.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <div class="caja caja-oficial">
         <span class="n-tag">Soldadura blanda y soldadura fuerte</span>
         <p>En <b>soldadura blanda</b> (la del esta&ntilde;o, la del taller y la de los circuitos) se funde
@@ -930,6 +973,14 @@ footer .wrap{padding-block:18px 26px}
       <p>Reciclar metal no es solo ahorrar mineral: es ahorrar <b>el horno</b>. Fundir chatarra de
       aluminio gasta alrededor de un <b>5&nbsp;%</b> de la energ&iacute;a que costar&iacute;a sacar ese aluminio de
       la bauxita. Por eso una lata vale dinero y un envase de pl&aacute;stico, casi no.</p>
+
+      <figure class="foto">
+        <img src="../../../img/umet-chatarra.jpg" width="1760" height="1320" alt="Dos montañas de chatarra en un muelle y una grúa verde reflejadas en el agua" loading="lazy">
+        <figcaption>Un <b>desguace de chatarra</b> en un puerto. Desde el muelle, la grúa carga la chatarra en el barco que la lleva a fundir. Todo eso son toneladas de metal que no hay que sacar de una mina.
+          <span class="credito">Digitura &middot; CC0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Scrap_metal_yard.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
 
     </section>
     <section class="bloque">
@@ -1053,31 +1104,31 @@ footer .wrap{padding-block:18px 26px}
       <div class="rotulo"><span class="num">01</span> Test &middot; 20 min</div>
       <div class="ta" id="test-umet">
         <h4>Lo que tiene que haber quedado del tema</h4>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-umet-p1">
+        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-umet-p1">
           <p id="test-umet-p1">1. En un mineral, la parte de la que se saca el metal se llama&hellip;</p>
-          <label class="ta-op"><input type="radio" name="umet-0" value="0">ganga</label>
-          <label class="ta-op"><input type="radio" name="umet-0" value="1">mena</label>
+          <label class="ta-op"><input type="radio" name="umet-0" value="0">mena</label>
+          <label class="ta-op"><input type="radio" name="umet-0" value="1">ganga</label>
           <label class="ta-op"><input type="radio" name="umet-0" value="2">escoria</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> La <b>mena</b>. La ganga es lo que se desecha y la escoria sale despu&eacute;s, en el alto horno.</div>
         </div>
-        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-umet-p2">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-umet-p2">
           <p id="test-umet-p2">2. &iquest;Cu&aacute;l de estos es un metal noble?</p>
           <label class="ta-op"><input type="radio" name="umet-1" value="0">El hierro</label>
-          <label class="ta-op"><input type="radio" name="umet-1" value="1">El aluminio</label>
-          <label class="ta-op"><input type="radio" name="umet-1" value="2">El platino</label>
+          <label class="ta-op"><input type="radio" name="umet-1" value="1">El platino</label>
+          <label class="ta-op"><input type="radio" name="umet-1" value="2">El aluminio</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Nobles: cobre, oro, plata y platino. El hierro y el aluminio se obtienen de minerales.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-umet-p3">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-umet-p3">
           <p id="test-umet-p3">3. El bronce es una aleaci&oacute;n de&hellip;</p>
-          <label class="ta-op"><input type="radio" name="umet-2" value="0">cobre y esta&ntilde;o</label>
-          <label class="ta-op"><input type="radio" name="umet-2" value="1">cobre y cinc</label>
-          <label class="ta-op"><input type="radio" name="umet-2" value="2">hierro y carbono</label>
+          <label class="ta-op"><input type="radio" name="umet-2" value="0">cobre y cinc</label>
+          <label class="ta-op"><input type="radio" name="umet-2" value="1">hierro y carbono</label>
+          <label class="ta-op"><input type="radio" name="umet-2" value="2">cobre y esta&ntilde;o</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Cobre + esta&ntilde;o. Cobre + cinc es el lat&oacute;n; hierro + carbono, el acero.</div>
         </div>
-        <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-umet-p4">
+        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-umet-p4">
           <p id="test-umet-p4">4. &iquest;Qu&eacute; se echa en el alto horno adem&aacute;s del mineral?</p>
-          <label class="ta-op"><input type="radio" name="umet-3" value="0">Carb&oacute;n y caliza</label>
-          <label class="ta-op"><input type="radio" name="umet-3" value="1">Carb&oacute;n y cinc</label>
+          <label class="ta-op"><input type="radio" name="umet-3" value="0">Carb&oacute;n y cinc</label>
+          <label class="ta-op"><input type="radio" name="umet-3" value="1">Carb&oacute;n y caliza</label>
           <label class="ta-op"><input type="radio" name="umet-3" value="2">Caliza y cromo</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> El carb&oacute;n es el combustible y aporta carbono; la caliza recoge las impurezas y forma la escoria.</div>
         </div>
@@ -1095,11 +1146,11 @@ footer .wrap{padding-block:18px 26px}
           <label class="ta-op"><input type="radio" name="umet-5" value="2">igual, cambia el nombre</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Lleva m&aacute;s del 2&nbsp;% de carbono: gana dureza y pierde tenacidad, por eso no se forja, se moldea.</div>
         </div>
-        <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-umet-p7">
+        <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-umet-p7">
           <p id="test-umet-p7">7. El granete sirve para&hellip;</p>
           <label class="ta-op"><input type="radio" name="umet-6" value="0">trazar l&iacute;neas paralelas al borde</label>
-          <label class="ta-op"><input type="radio" name="umet-6" value="1">marcar el punto donde se va a taladrar</label>
-          <label class="ta-op"><input type="radio" name="umet-6" value="2">extraer pasadores</label>
+          <label class="ta-op"><input type="radio" name="umet-6" value="1">extraer pasadores</label>
+          <label class="ta-op"><input type="radio" name="umet-6" value="2">marcar el punto donde se va a taladrar</label>
           <div class="ta-por"><b>Por qu&eacute;:</b> Acaba en punta y marca el centro del taladro. Las paralelas las traza el gramil; los pasadores los saca el botador.</div>
         </div>
         <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-umet-p8">
@@ -1287,5 +1338,134 @@ footer .wrap{padding-block:18px 26px}
 new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document.body.appendChild(c.cloneNode(true));})
 .observe(document.body,{childList:true,subtree:true});})();
 </script>
+
+<div class="rtz-capa" role="dialog" aria-modal="true" aria-label="Diagrama ampliado">
+  <div class="rtz-barra">
+    <span class="rtz-tit"></span>
+    <span style="flex:none;display:flex;gap:8px"><button type="button" class="rtz-ajustar">Ver entero</button><button type="button" class="rtz-cerrar">Cerrar</button></span>
+  </div>
+  <div class="rtz-lienzo"><img alt=""></div>
+</div>
+<script>
+(function(){
+  var capa=document.querySelector('.rtz-capa'); if(!capa) return;
+  var lienzo=capa.querySelector('.rtz-lienzo'), img=lienzo.querySelector('img');
+  var tit=capa.querySelector('.rtz-tit'), btn=capa.querySelector('.rtz-cerrar');
+  var btnAj=capa.querySelector('.rtz-ajustar'), entero=false;
+  var previo=null;
+
+  // ancho al que la imagen se lee. Un SVG es vectorial: se puede estirar hasta
+  // que su texto sea legible (nunca menos de 900 px). Una foto NO: pasada de su
+  // tamaño real solo se ve pixelada, así que ahí el techo es su propio ancho.
+  function esVector(o){ return /\.svg(\?|$)/i.test(o.getAttribute('src')||''); }
+  function anchoUtil(o){
+    var w=parseInt(o.getAttribute('width'),10)||o.naturalWidth||1000;
+    return esVector(o) ? Math.max(w, 900) : w;
+  }
+  function abrir(o){
+    previo=o;
+    img.src=o.currentSrc||o.src;
+    img.alt=o.alt||'';
+    entero=false; if(btnAj) btnAj.textContent='Ver entero';
+    img.style.width=anchoUtil(o)+'px';
+    tit.textContent=o.alt||'Diagrama';
+    capa.classList.add('abierta');
+    document.documentElement.style.overflow='hidden';
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+    btn.focus();
+  }
+  function cerrar(){
+    capa.classList.remove('abierta');
+    document.documentElement.style.overflow='';
+    img.removeAttribute('src');
+    if(previo && previo.focus) previo.focus();
+  }
+  if(btnAj) btnAj.addEventListener('click', function(){
+    entero=!entero;
+    if(entero){ img.style.width='100%'; btnAj.textContent='Tamaño real'; }
+    else { img.style.width=anchoUtil(previo)+'px'; btnAj.textContent='Ver entero'; }
+    lienzo.scrollLeft=0; lienzo.scrollTop=0;
+  });
+  btn.addEventListener('click', cerrar);
+  capa.addEventListener('click', function(e){ if(e.target===capa||e.target===lienzo) cerrar(); });
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && capa.classList.contains('abierta')) cerrar();
+  });
+
+  // delegación: la galería crea sus diagramas con JS, así que no basta con
+  // recorrer los que hay al cargar.
+  document.addEventListener('click', function(e){
+    var o=e.target;
+    if(o && o.tagName==='IMG' && /\.(svg|png|jpe?g|webp)(\?|$)/i.test(o.getAttribute('src')||'')
+       && !capa.contains(o) && (o.closest('figure.foto') || esVector(o))) abrir(o);
+  });
+  function marcar(){
+    var figs=document.querySelectorAll('figure.foto img, img[src$=".svg"]');
+    Array.prototype.forEach.call(figs, function(o){
+      if(capa.contains(o) || o.dataset.rtz) return;
+      o.dataset.rtz='1';
+      o.setAttribute('role','button');
+      o.setAttribute('tabindex','0');
+      o.addEventListener('keydown', function(ev){
+        if(ev.key==='Enter'||ev.key===' '){ ev.preventDefault(); abrir(o); }
+      });
+      var fig=o.closest('figure.foto');
+      if(fig && !fig.querySelector('.rtz-pista')){
+        var d=document.createElement('div');
+        d.className='rtz-pista';
+        d.textContent='Toca el diagrama para ampliarlo';
+        var cap=fig.querySelector('figcaption');
+        if(cap) cap.parentNode.insertBefore(d, cap); else fig.appendChild(d);
+      }
+    });
+  }
+  marcar();
+  if(window.MutationObserver){
+    new MutationObserver(marcar).observe(document.body,{childList:true,subtree:true});
+  }
+})();</script>
+<script>
+(function(){
+  var SEL='main p, main li, main dd, main dt, main td, main th, main figcaption, main summary,'
+        + ' main .nota, main .entender, main .resp-cuerpo';
+  var FACTORES=[1, 1.15, 1.32];
+  function aplicar(i){
+    var f=FACTORES[i]||1;
+    var els=document.querySelectorAll(SEL);
+    for(var k=0;k<els.length;k++){
+      var e=els[k];
+      if(!e.dataset.fsBase){
+        var fs=parseFloat(window.getComputedStyle(e).fontSize);
+        if(!fs) continue;
+        e.dataset.fsBase=fs;
+      }
+      e.style.fontSize=(parseFloat(e.dataset.fsBase)*f).toFixed(2)+'px';
+    }
+    var bs=document.querySelectorAll('.rtt button');
+    for(var j=0;j<bs.length;j++) bs[j].setAttribute('aria-pressed', j===i?'true':'false');
+    try{ localStorage.setItem('rt-texto', i); }catch(e){}
+  }
+  function montar(){
+    var cab=document.querySelector('header .wrap') || document.querySelector('header') || document.body;
+    if(document.querySelector('.rtt')) return;
+    var cont=document.createElement('div');
+    cont.className='rtt';
+    cont.innerHTML='<span>Texto</span>'
+      + '<button type="button" class="b1" aria-label="Tamaño de texto normal">A</button>'
+      + '<button type="button" class="b2" aria-label="Tamaño de texto grande">A</button>'
+      + '<button type="button" class="b3" aria-label="Tamaño de texto muy grande">A</button>';
+    if(getComputedStyle(cab).position==='static') cab.style.position='relative';
+    cab.appendChild(cont);
+    var bs=cont.querySelectorAll('button');
+    for(var i=0;i<bs.length;i++)(function(i){
+      bs[i].addEventListener('click', function(){ aplicar(i); });
+    })(i);
+    var g=0;
+    try{ g=parseInt(localStorage.getItem('rt-texto'),10)||0; }catch(e){}
+    aplicar(g);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', montar);
+  else montar();
+})();</script>
 </body>
 </html>

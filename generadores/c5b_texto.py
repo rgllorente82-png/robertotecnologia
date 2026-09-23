@@ -1095,7 +1095,7 @@ S8_TEORIA = u'''
               y se pide con margen. <b>Regla: la fuente, al doble del pico.</b> Aqu&iacute;, una de
               <b>5 V y 1 A</b> va sobrada y cuesta lo mismo que una de 500 mA.</li>
           <li>La <b>media</b> manda en la <b>pila</b>, si va con pila: una de 2000 mAh a 47 mA de
-              media dura 2000 / 47 = <b>42 horas</b>. Menos de dos d&iacute;as. Ah&iacute; se ve de
+              media dura 2000 / 47 &asymp; <b>42 horas y media</b>. Menos de dos d&iacute;as. Ah&iacute; se ve de
               un vistazo que <b>este proyecto no puede ir con pilas</b>, y eso hay que saberlo
               antes de comprarlas.</li>
         </ul>

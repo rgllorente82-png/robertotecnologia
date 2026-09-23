@@ -25,7 +25,10 @@ TUBERIA = ['ordena_indice', 'afina_fotos', 'pon_metadatos', 'afina_texto',
            'afina_movimiento_js', 'afina_tintas', 'afina_sobre_color',
            'afina_lectores', 'afina_navegador', 'afina_test', 'afina_impresion',
            'afina_salto', 'afina_mandos', 'afina_tablas', 'afina_visor',
-           'pon_diagramas']
+           'pon_diagramas',
+           # el ultimo: un build rehace el test con la buena siempre en el
+           # mismo sitio (22-sep: c7b, las diez en medio, por segunda vez)
+           'baraja_tests']
 
 # Cuantas palabras puede perder una pagina sin que se considere un destrozo: las
 # de una reescritura normal (una muletilla mas corta, un titulo afinado).

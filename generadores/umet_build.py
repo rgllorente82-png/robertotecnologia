@@ -128,6 +128,14 @@ S2_T = u'''
         no arde: sirve para <b>atrapar las impurezas</b> y formar la escoria, que flota y se
         retira. Sin caliza, la porquer&iacute;a se quedar&iacute;a dentro del hierro.</p>
       </div>
+
+      <figure class="foto">
+        <img src="../../../img/umet-colada.jpg" alt="Foto antigua en blanco y negro: una cuchara enorme colgada de una grúa vierte hierro fundido en un horno, y un obrero mira al lado" loading="lazy">
+        <figcaption><b>Arrabio</b> recién salido del alto horno, vertido desde una cuchara colgada de una grúa en el horno que lo afinará hasta hacerlo <b>acero</b>: es el paso 5 de la tabla. Pittsburgh (EE.&nbsp;UU.), en los años cuarenta. Fíjate en el tamaño del obrero de la izquierda.
+          <span class="credito">U.S. Office of War Information &middot; Dominio público &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Photograph_of_a_Vat_of_Molten_Pig_Iron_Being_Poured_into_an_Open_Hearth_Furnace_at_the_Jones_and_Laughlin_Steel_Company,_Pittsburgh,_Pennsy_-_NARA_-_535922_(high_contrast).jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <h3>El metal cuesta energ&iacute;a, y eso lo explica casi todo</h3>
 <p>La diferencia esencial con la madera: el metal <b>no existe puro en la naturaleza</b> salvo
          excepciones. Est&aacute; combinado con otros elementos formando un <b>mineral</b>, y separarlo exige
@@ -338,6 +346,14 @@ S3_T = u'''
       <p>Contra la oxidaci&oacute;n hay tres caminos: <b>pintar</b> o barnizar, <b>recubrir</b> con otro
       metal (galvanizado con cinc, cromado) o <b>alear</b> &mdash;que es lo que hace el acero
       inoxidable con el cromo&mdash;.</p>
+
+      <figure class="foto">
+        <img src="../../../img/umet-oxido.jpg" alt="Eslabones de una cadena gruesa cubiertos de óxido naranja que se desprende en escamas" loading="lazy">
+        <figcaption>Una cadena de un puerto de Suecia, con eslabones de unos 30&nbsp;cm. El óxido del hierro <b>no protege</b>: se abre en escamas, se cae y deja al aire metal nuevo, que vuelve a oxidarse. Por eso al acero hay que protegerlo desde fuera.
+          <span class="credito">W.carter &middot; CC0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Very_rusty_chain.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
 '''
 
 S3 = (
@@ -472,6 +488,14 @@ S5_T = u'''
               <td>No</td><td>Carrocer&iacute;as, estructuras, tuber&iacute;as</td></tr>
         </tbody>
       </table>
+
+      <figure class="foto">
+        <img src="../../../img/umet-remaches.jpg" alt="Viga de acero de un puente con dos filas de cabezas de remache redondas; al fondo, la llama de un soplete" loading="lazy">
+        <figcaption><b>Remaches</b> de un puente de acero de hace cien años, mientras lo desmontan. Al fondo se ve la llama de un <b>soplete</b>: un remache no se desenrosca, hay que <b>cortarlo</b>. Esa es la columna «¿Se puede deshacer?» de la tabla.
+          <span class="credito">August Geyler &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Nieten_einer_im_Abbau_befindlichen_Stahlbr%C3%BCcke.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <div class="caja caja-oficial">
         <span class="n-tag">Soldadura blanda y soldadura fuerte</span>
         <p>En <b>soldadura blanda</b> (la del esta&ntilde;o, la del taller y la de los circuitos) se funde
@@ -495,6 +519,14 @@ S5_T = u'''
       <p>Reciclar metal no es solo ahorrar mineral: es ahorrar <b>el horno</b>. Fundir chatarra de
       aluminio gasta alrededor de un <b>5&nbsp;%</b> de la energ&iacute;a que costar&iacute;a sacar ese aluminio de
       la bauxita. Por eso una lata vale dinero y un envase de pl&aacute;stico, casi no.</p>
+
+      <figure class="foto">
+        <img src="../../../img/umet-chatarra.jpg" alt="Dos montañas de chatarra en un muelle y una grúa verde reflejadas en el agua" loading="lazy">
+        <figcaption>Un <b>desguace de chatarra</b> en un puerto. Desde el muelle, la grúa carga la chatarra en el barco que la lleva a fundir. Todo eso son toneladas de metal que no hay que sacar de una mina.
+          <span class="credito">Digitura &middot; CC0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Scrap_metal_yard.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
 '''
 
 S5 = (

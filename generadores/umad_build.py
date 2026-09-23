@@ -75,6 +75,14 @@ S1_T = u'''
         <b>albura</b> suena a <i>alba</i>, blanca; <b>duramen</b> lleva dentro <i>duro</i>.</p>
       </div>
 
+      <figure class="foto">
+        <img src="../../../img/umad-anillos.jpg" alt="Tocón serrado visto desde arriba, con decenas de anillos concéntricos y grietas que salen del centro" loading="lazy">
+        <figcaption>Un <b>tocón</b> visto desde arriba. Cada anillo es <b>un año</b>: la franja clara crece en primavera y la línea oscura, en verano. Las grietas que salen del centro son de <b>secado</b>: la madera encoge al perder agua, y encoge más en el sentido de los anillos que hacia el centro. Es lo mismo que le pasa a un mueble hecho con madera sin secar.
+          <span class="credito">Paul VanDerWerf &middot; CC BY 2.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Tree_Rings_-_Flickr_-_Me_in_ME.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
       <h3>Y una cosa que no es obvia: la madera quema en verde</h3>
       <p>Al arder, la madera suelta <b>menos CO<sub>2</sub> del que el &aacute;rbol absorbi&oacute;</b> mientras
       crec&iacute;a. Por eso se dice que su <b>balance de carbono es negativo</b> y cuenta como energ&iacute;a
@@ -140,6 +148,14 @@ S2_T = u'''
           <tr><td>7</td><td><b>Secado</b></td><td>Se conservan las piezas hasta que pierden el agua</td></tr>
         </tbody>
       </table>
+
+      <figure class="foto">
+        <img src="../../../img/umad-aserradero.jpg" alt="Miles de troncos de pino del mismo largo apilados en el patio de un aserradero, todavía con la corteza" loading="lazy">
+        <figcaption>Troncos de pino en el patio de un <b>aserradero</b> de Kemijärvi (Finlandia). Ya están <b>apeados, desramados y tronzados</b>: todos tienen el mismo largo. Y todavía llevan la <b>corteza</b>. En muchos aserraderos grandes el descortezado se hace al llegar, a máquina. Para el examen vale el orden de la tabla.
+          <span class="credito">Q0ywo &middot; CC BY-SA 4.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Pine_logs_at_Keitele_Group_sawmill_in_Kemij%C3%A4rvi.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <div class="caja caja-nuestro">
         <span class="n-tag">Por qu&eacute; el secado va al final y no es un capricho</span>
         <p>La madera reci&eacute;n cortada lleva <b>mucha agua dentro</b>. Si se monta un mueble con ella,
@@ -389,6 +405,22 @@ S3_T = u'''
               <td>Liso y uniforme. S&iacute; admite acabados. Ligero</td><td>Suelos laminados, molduras, puertas</td></tr>
         </tbody>
       </table>
+
+      <figure class="foto">
+        <img src="../../../img/umad-aglomerado.jpg" alt="Trozo de tablero aglomerado visto de canto: astillas de madera de varios tamaños prensadas" loading="lazy">
+        <figcaption><b>Aglomerado</b> visto de canto. Se ven las <b>astillas</b> una a una, más finas en las caras y más gordas en el centro. Por eso el canto es rugoso y no se puede pintar: en los muebles va siempre forrado de melamina.
+          <span class="credito">D-Kuru &middot; CC BY-SA 3.0 AT &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:Particle_board_close_up-horizontal-f22_PNr%C2%B00101.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
+
+      <figure class="foto">
+        <img src="../../../img/umad-dm.jpg" alt="Tres listones de tablero DM apilados, con los cantos lisos y del mismo color que las caras" loading="lazy">
+        <figcaption><b>DM</b> (o MDF): las fibras son tan finas que no se ven. El canto sale tan liso como la cara, y por eso admite pintura y se puede moldurar.
+          <span class="credito">Vaderluck &middot; CC BY-SA 3.0 &middot;
+            <a href="https://commons.wikimedia.org/wiki/File:MDF_Sample.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
+        </figcaption>
+      </figure>
       <div class="caja caja-nuestro">
         <span class="n-tag">La respuesta al reto</span>
         <p>Dos razones: <b>cuestan menos</b> y, sobre todo, vienen en <b>tableros grandes y

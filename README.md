@@ -51,8 +51,10 @@ calcularlos desde la definición del problema, en Python, y los contrasta con lo
 que la página dibuja de verdad en un navegador. Si no coinciden, uno de los dos
 está mal —y unas cuantas veces ha sido el verificador—.
 
-Las **diecinueve unidades y los dos temas 0** —las veintiuna páginas de
-tema— tienen su verificador. Se
+Las **veintiuna unidades y los dos temas 0** —las veintitrés páginas de
+tema— tienen su test, su lectura y sus comprobadores comunes; todas menos
+Madera y Metales (temas 4 y 5 de 2.º, añadidos para seguir el libro) tienen
+además su verificador propio. Se
 comprueban además las cuentas escritas en la prosa, los enlaces internos, los
 caracteres, los tests, las lecturas en PDF, el contraste de los rótulos, que el
 texto se pueda agrandar al 200 % sin que nada se corte, y que los códigos de
@@ -81,24 +83,19 @@ están enlazados; ni las tipografías, de Google Fonts.
 
 ## Lo que falta
 
-Tres cosas, y las tres necesitan una red que llegue a donde este repositorio no
-llega:
+Dos cosas, y las dos necesitan que alguien las mire con los ojos:
 
-- **Comprobar uno a uno los 92 vídeos de YouTube.** Están empotrados sin cookies
+- **Comprobar uno a uno los 93 vídeos de YouTube.** Están empotrados sin cookies
   de seguimiento y todos traen debajo su enlace directo, pero que un vídeo
   concreto se deje ver sin cuenta depende de cómo lo tenga configurado su autor
   —empotrado desactivado, restricción de edad, sólo para miembros del canal—, y
   eso sólo lo contesta YouTube. Lo clasifica `comprueba_videos.py`.
-- **Fotografías para el tema 3 de 2.º**, el de materiales, que es la única unidad
-  sin ninguna. Las trae `bajar_fotos.py` de Wikimedia Commons, con su autor y su
-  licencia.
-- **Un vídeo para los temas 1, 2 y 3 de 2.º**, las tres únicas unidades sin
-  ninguno. La página ya trae el cargador —el vídeo no se descarga hasta que se
-  pulsa—, así que es cuestión de elegirlo; pero elegirlo a ciegas sería poner un
-  enlace que quizá pida cuenta para verse, que es justo lo que no puede pasar.
+- **Un vídeo para los temas 2, 3, 4 y 5 de 2.º**, las cuatro únicas unidades sin
+  ninguno. Elegirlo a ciegas sería poner un enlace que quizá pida cuenta para
+  verse, que es justo lo que no puede pasar.
 
-Lo demás está: las veintiuna páginas de tema tienen sus escenas, su test que se
-corrige solo, sus fichas de actividad y su lectura de aula en PDF.
+Lo demás está: las veintitrés páginas de tema tienen sus escenas, su test que se
+corrige solo, sus fichas de actividad, sus fotos y su lectura de aula en PDF.
 
 ## Erratas
 
