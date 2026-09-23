@@ -10,9 +10,9 @@ esto va de DE DONDE SALE cada material. Un solo objeto —el lapiz— y el viaje
 sus cinco piezas: el bosque (cedro), la mina (grafito), la piedra (bauxita), el
 arbol de caucho (goma) y el petroleo (la laca). Con lo que cuesta cada viaje.
 
-Las cifras de energia del aluminio son LAS MISMAS que usa la escena de la
-sesion 4 de la unidad (45 kWh/kg virgen, 2,3 reciclado), para que el alumno
-reconozca el dato. Fuentes y comprobaciones, en INFORME.md.
+Las cifras de energia del aluminio (45 kWh/kg virgen, 2,3 reciclado) venian
+de una escena de la unidad vieja de materiales que ya no esta en el tema 3;
+el texto ya no remite a ella (23-sep-2026). Fuentes y comprobaciones, en INFORME.md.
 """
 import os
 import sys
@@ -62,7 +62,7 @@ P = [
     u'la receta. Un 2B tiene más grafito y pinta más negro; un 2H tiene más arcilla y raya más '
     u'flojo. Es una propiedad ajustada a voluntad, girando un mando.',
 
-    u'Y la dureza aquí tampoco es una opinión, se mide como aprendiste en la sesión 2: rayando. El '
+    u'Y la dureza aquí tampoco es una opinión, se mide como aprendiste en la sesión 3: rayando. El '
     u'grafito está en el 1 o el 2 de la escala de Mohs, así que lo raya hasta la uña. Justo por eso '
     u'pinta: al pasarlo por el papel se deja media pieza por el camino.',
 
@@ -74,8 +74,8 @@ P = [
     ('h', u'El bosque'),
 
     u'La madera del lápiz tiene un trabajo mucho más difícil de lo que parece: aguantar que la '
-    u'afilen. Y afilar es cortar en espiral, o sea <b>en todas las direcciones a la vez</b>. Con lo '
-    u'que sabes de la sesión 3, ya ves el problema: la madera es anisótropa, va bien a lo largo de la '
+    u'afilen. Y afilar es cortar en espiral, o sea <b>en todas las direcciones a la vez</b>. Y ahí '
+    u'está el problema: la madera es anisótropa, va bien a lo largo de la '
     u'veta y se raja a lo ancho, así que casi todas se astillan en el sacapuntas.',
 
     u'La que mejor se porta es el cedro de incienso, que crece en los bosques del interior de '
@@ -103,7 +103,7 @@ P = [
     u'latón. Es la pieza que más cuesta por gramo de todo el lápiz, y viene de una piedra rojiza que '
     u'se saca a cielo abierto: la bauxita.',
 
-    u'Las cuentas ya las viste en la escena de la sesión 4, y ahora tienen un objeto donde caer. '
+    u'Y las cuentas asustan, ahora que tienen un objeto donde caer. '
     u'Hacen falta del orden de <b>cuatro o cinco toneladas de bauxita para dos de alúmina y una de '
     u'aluminio</b>, y unos <b>45 kWh por kilo</b>. Unos 15 de esos kilovatios-hora son solo la '
     u'electrolisis: pasar corriente por el material fundido, sin alternativa posible.',
@@ -116,7 +116,7 @@ P = [
     u'Si la virola de tu lápiz es dorada, entonces no es un metal: es una <b>aleación</b>, latón, '
     u'que es cobre con zinc. Y ni el aluminio ni el latón llevan hierro, así que aquí tienes un '
     u'experimento de dos segundos: acércale un imán a la virola de tu lápiz y no se pegará. Es el '
-    u'truco de la sesión 4, hecho en la mesa.',
+    u'truco para saber si un metal lleva hierro, hecho en la mesa.',
 
     ('h', u'El árbol que se ordeña'),
 
@@ -156,7 +156,7 @@ P = [
     u'ahí porque sí.',
 
     u'Todo ese viaje está dentro del precio, pero sobre todo está dentro de la huella de la que habla '
-    u'la sesión 6: minas, hornos, camiones y barcos. El lápiz no empieza en la papelería, igual que '
+    u'la sesión 5: minas, hornos, camiones y barcos. El lápiz no empieza en la papelería, igual que '
     u'el pollo no empieza en la bandeja.',
 
     u'Y ahora la otra mitad de la decisión, la que casi nunca se piensa cuando se diseña algo. Un '
@@ -184,7 +184,7 @@ PREGUNTAS = [
     u'Enumera las cinco piezas de un lápiz y di de qué material es cada una. Cita el párrafo.',
     u'La mina no lleva plomo. ¿De dónde viene entonces el nombre, y qué lleva de verdad?',
     u'¿Qué cambia entre un lápiz 2H y uno 2B? Relaciona la respuesta con la propiedad que se mide '
-    u'en la sesión 2 y di cómo se mide.',
+    u'en la sesión 3 y di cómo se mide.',
     u'¿Por qué se eligió el cedro para los lápices? Da dos razones del texto y explica qué tiene que '
     u'ver con que la madera sea anisótropa.',
     u'Una virola de aluminio pesa unos 0,35 g. Si un kilo de aluminio necesita 45 kWh, ¿cuánta '

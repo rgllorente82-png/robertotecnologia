@@ -116,7 +116,7 @@ P = [
 
     u'Y deja una segunda lección que sorprende a todo el mundo: casi nunca falla la viga. <b>Falla la '
     u'unión.</b> Un nudo mal resuelto tira abajo una estructura hecha de piezas perfectas, y eso lo '
-    u'has visto tú en pequeño cuando a un puente de palillos se le despega un nudo antes de que se '
+    u'has visto tú en pequeño cuando a un puente de canutos se le despega un nudo antes de que se '
     u'rompa ninguna barra.',
 
     ('h', u'2007 · Un error que durmió cuarenta años'),
@@ -140,7 +140,7 @@ P = [
     u'<b>cambia a lo largo de su vida</b> y hay que llevar la cuenta. Un puente no es un objeto '
     u'terminado: es un objeto al que la gente le va añadiendo cosas.',
 
-    u'Vuelve a tu ensayo de palillos. La nota era lo que aguanta dividido por lo que pesa, ¿te '
+    u'Vuelve a tu ensayo del puente de canutos. La nota era lo que aguanta dividido por lo que pesa, ¿te '
     u'acuerdas? Pues esto es esa misma división a tamaño real: cada capa de asfalto que se echa '
     u'encima sube el denominador, y lo que sube el denominador se lo quita a lo que el puente todavía '
     u'puede aguantar de los coches.',
@@ -188,7 +188,7 @@ PREGUNTAS = [
     u'cambio le puso el doble de carga, ¿a qué porcentaje de lo exigido se quedó?',
     u'En Minneapolis el error llevaba cuarenta años sin dar problemas. Di las dos cosas que lo '
     u'despertaron.',
-    u'¿Qué tiene que ver la nota de tu puente de palillos —lo que aguanta dividido por lo que pesa— '
+    u'¿Qué tiene que ver la nota de tu puente de canutos —lo que aguanta dividido por lo que pesa— '
     u'con las capas de asfalto de un puente de verdad?',
     u'¿Por qué el momento más peligroso de una estructura suele ser mientras se está construyendo? '
     u'Da dos razones que estén en el texto.',

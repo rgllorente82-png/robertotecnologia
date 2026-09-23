@@ -123,7 +123,7 @@ S1 = (
            u'Adolph B. Rice Studio &middot; The Library of Virginia',
            u'Sin restricciones conocidas de derechos',
            u'https://commons.wikimedia.org/wiki/File:City,_telephone_room_(2898490491).jpg') + u'''
-      <p>Vamos a romperla con tres cuentas. H&aacute;zlas t&uacute;, no las leas:</p>
+      <p>Vamos a romperla con tres cuentas. Hazlas t&uacute;, no las leas:</p>
 
       <div class="reto-piensa">
         <span class="n-tag">Las tres cuentas</span>
@@ -449,7 +449,7 @@ S2 = (
 
       <h3>El problema gordo: ponerse de acuerdo en la clave</h3>
       <p>Si el candado cifra con una clave, <b>t&uacute; y la web ten&eacute;is que tener la misma</b>. Pero no
-         os hab&eacute;is visto nunca, no hay manera de qued&aacute;is antes, y todo lo que os dig&aacute;is va a
+         os hab&eacute;is visto nunca, no hay manera de quedar antes, y todo lo que os dig&aacute;is va a
          pasar por esas diez m&aacute;quinas de otros. Parece imposible: cualquier cosa que mandes para
          acordar la clave la oye el de en medio.</p>
       <p>Pues se puede. Mira los n&uacute;meros de abajo y cambia los secretos con los botones.</p>
@@ -1039,22 +1039,6 @@ S4 = (
         escribir nada.</p>
       </div>
 
-      <h3>D&oacute;nde vive todo eso: el disco</h3>
-      <p>Un <b>disco duro</b> (HDD) guarda los datos en platos magn&eacute;ticos que giran, con un cabezal
-      que se mueve por encima. Un <b>SSD</b> no tiene piezas m&oacute;viles: guarda en memoria, como un
-      pendrive grande.</p>
-      <table class="tabla-ancha">
-        <thead><tr><th></th><th>Disco duro (HDD)</th><th>SSD</th></tr></thead>
-        <tbody>
-          <tr><td><b>Velocidad</b></td><td>Lento: hay que esperar a que el plato gire</td><td>Mucho m&aacute;s r&aacute;pido</td></tr>
-          <tr><td><b>Golpes</b></td><td>Se estropea si se cae en marcha</td><td>Aguanta mejor</td></tr>
-          <tr><td><b>Precio por giga</b></td><td>M&aacute;s barato</td><td>M&aacute;s caro</td></tr>
-          <tr><td><b>Ruido</b></td><td>Se oye</td><td>Silencioso</td></tr>
-        </tbody>
-      </table>
-      <p>Por eso un ordenador viejo revive al cambiarle el disco por un SSD, y por eso los
-      servidores donde se guardan copias siguen llevando discos duros: ah&iacute; importa el precio por
-      giga, no la velocidad.</p>
       <h3>Si tienen que ser largas y distintas, no caben en la cabeza</h3>
       <p>Y es verdad: no caben. Cuarenta contrase&ntilde;as largas y distintas no se acuerda nadie. Esa
          es exactamente la raz&oacute;n de que exista la herramienta siguiente, y no al rev&eacute;s.</p>

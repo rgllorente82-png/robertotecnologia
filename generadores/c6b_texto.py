@@ -582,7 +582,7 @@ S7_RETO = u'''
       <div class="aviso">
         <span class="n-tag">El encargo de hoy</span>
         Vuestro aparato lleva d&iacute;as midiendo. Coged <b>120 medidas</b> guardadas &mdash;treinta
-        de cada una de cuatro jornadas&mdash; y poned a cada una, <b>a mano</b>, si en ese momento
+        de cada una de cuatro jornadas, cada jornada en una maceta distinta&mdash; y poned a cada una, <b>a mano</b>, si en ese momento
         hac&iacute;a falta actuar o no. Entrenad con 40 y probad con otras 40 elegidas al azar.
       </div>
       <p>Sale un <b>93 %</b>. En un trabajo de clase eso se escribe en negrita y se pasa a la
@@ -616,7 +616,7 @@ S7_TEORIA = u'''
         </ol>
       </div>
       <p>La escena tiene las 120 medidas. Cambia el mando de <b>&laquo;parto los datos&raquo;</b> de
-         <b>al azar</b> a <b>por jornada</b> y no toques nada m&aacute;s: ni los ejemplos, ni el modelo,
+         <b>al azar</b> a <b>por jornada</b> (cada jornada es una maceta) y no toques nada m&aacute;s: ni los ejemplos, ni el modelo,
          ni el n&uacute;mero de ejemplos. Mira las dos filas de acierto.</p>
 ''' + DATOS + u'''
       <div class="copiar">
@@ -918,7 +918,8 @@ void loop() {
               &laquo;guardo solo cuando pasa algo&raquo; cambia tanto.</li>
           <li>Cada celda de esa EEPROM aguanta unas <b>100.000 escrituras</b> y se gasta. Un registro
               cada media hora durante un curso son unas 12.000: cabe de sobra. Un registro por
-              segundo se la carga en <b>un d&iacute;a</b>. En la memoria RAM esto no pasa; en la
+              segundo, si se escribe siempre en la misma celda, se la carga en algo m&aacute;s de
+              <b>un d&iacute;a</b>. En la memoria RAM esto no pasa; en la
               EEPROM, s&iacute;.</li>
         </ul>
         <p>Y un pariente cercano del modo seguro, un piso m&aacute;s abajo: el <b>perro guardi&aacute;n</b>

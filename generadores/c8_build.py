@@ -708,7 +708,7 @@ S3_TEORIA = u'''
            u'funciona a unos <b>4 vatios</b>. Da much&iacute;sima menos luz que una bombilla '
            u'corriente. <b>Esa es la clave de la sesi&oacute;n:</b> durar y alumbrar tiran en '
            u'sentidos contrarios. Un filamento m&aacute;s fr&iacute;o dura m&aacute;s y alumbra '
-           u'menos. As&iacute; que el c&aacute;rtel Phoebus no elegi&oacute; entre lo bueno y lo '
+           u'menos. As&iacute; que el c&aacute;rtel Phoebus no eligi&oacute; entre lo bueno y lo '
            u'malo: eligi&oacute; un punto de ese equilibrio <b>y no lo cont&oacute;</b>. Lo grave '
            u'no fue elegir. Fue ocultarlo, y multar al que eligiera distinto.',
            u'LPS.1', u'CC0 (dominio p&uacute;blico)',
@@ -814,7 +814,7 @@ S3_PRACTICA = ficha(
           <h4>Primera parte &middot; clasificad (10 min)</h4>
           <p>Para cada uno de estos tres casos, contestad las <b>tres preguntas</b> por escrito y
              decid cu&aacute;nto hay de l&iacute;mite t&eacute;cnico, cu&aacute;nto de enga&ntilde;o y
-             cu&aacute;nto de decisi&oacute;n de dise&ntilde;o. Se val&uacute;a el razonamiento, no la
+             cu&aacute;nto de decisi&oacute;n de dise&ntilde;o. Se eval&uacute;a el razonamiento, no la
              etiqueta:</p>
           <ol class="pasos">
             <li>Unos auriculares inal&aacute;mbricos que a los dos a&ntilde;os aguantan media hora, y

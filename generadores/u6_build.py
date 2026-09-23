@@ -900,7 +900,7 @@ S4 = (
          se multiplica y se mira.</p>
       <ol>
       ''' + pregunta(u'Una estufa de 1.500 W funciona 4 horas al d&iacute;a durante 20 d&iacute;as. &iquest;Cu&aacute;nta energ&iacute;a gasta y cu&aacute;nto cuesta a 0,27 &euro;/kWh?',
-                     u'<p>E = 1,5 kW &times; 4 h &times; 20 d&iacute;as = <b>120 kWh</b>. Coste = 120 &times; 0,27 = <b>32,40 &euro;</b>. Y de paso: 120 &times; 258 = <b>30,9 kg de CO&#8322;</b>.</p>')
+                     u'<p>E = 1,5 kW &times; 4 h &times; 20 d&iacute;as = <b>120 kWh</b>. Coste = 120 &times; 0,27 = <b>32,40 &euro;</b>. Y de paso: 120 &times; 258 = <b>31,0 kg de CO&#8322;</b>.</p>')
         + pregunta(u'&iquest;Qu&eacute; corriente pide una vitrocer&aacute;mica de 2.300 W a 230 V? &iquest;Se puede enchufar a una regleta junto a un secador de 2.000 W?',
                    u'<p>I = P / V = 2.300 / 230 = <b>10 A</b>. Con el secador ser&iacute;an 10 + 8,7 = <b>18,7 A</b>, por encima de los <b>16 A</b> de la base: el cable de la regleta se calentar&iacute;a. Y adem&aacute;s 4.300 W superan la potencia contratada m&aacute;s habitual, as&iacute; que probablemente saltar&iacute;a el autom&aacute;tico antes.</p>')
         + pregunta(u'Un frigor&iacute;fico de clase A y otro de clase F. &iquest;Qu&eacute; dato de la etiqueta te dice lo que vas a pagar, la letra o el n&uacute;mero?',

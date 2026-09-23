@@ -1,0 +1,278 @@
+[
+ {
+  "fichero": "4eso/Tecnologia/tema1/index.html",
+  "viejo": "Fases del proyecto: Planificaci&oacute;n 10-15%, Dise&ntilde;o 15-20%, Construcci&oacute;n 50-60%, Pruebas 10-15%, Presentaci&oacute;n 5-10%",
+  "nuevo": "Fases del proyecto: Planificaci&oacute;n, Dise&ntilde;o, Construcci&oacute;n, Pruebas y Presentaci&oacute;n",
+  "motivo": "S4: los porcentajes por fase no salen en ninguna parte de la pagina (diagrama del 20-sep sin revisar)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema1/index.html",
+  "viejo": "Las <b>cinco fases de un proyecto tecnol&oacute;gico</b>: Planificaci&oacute;n (10-15%), Dise&ntilde;o (15-20%), Construcci&oacute;n (50-60% - la m&aacute;s larga), Pruebas (10-15%), Presentaci&oacute;n (5-10%). La <b>ruta cr&iacute;tica</b> es construcci&oacute;n: cualquier retraso all&iacute; retrasa todo el proyecto. Por eso se asignan m&aacute;s recursos y se planifican contingencias en esa fase.",
+  "nuevo": "Las <b>cinco fases de un proyecto tecnol&oacute;gico</b>: planificaci&oacute;n, dise&ntilde;o, construcci&oacute;n, pruebas y presentaci&oacute;n. Cu&aacute;nto dura cada una depende del proyecto, y la fase m&aacute;s larga no es por eso la cr&iacute;tica: el <b>camino cr&iacute;tico</b> es la cadena de tareas con holgura <b>cero</b>, y es un retraso en una de esas tareas el que retrasa el proyecto entero. La escena de esta sesi&oacute;n lo calcula.",
+  "motivo": "S4: el pie inventaba porcentajes por fase y decia que la ruta critica es construccion; la sesion define camino critico = cadena con holgura cero (y S8 lo repite)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema1/index.html",
+  "viejo": "no tienes criterios para elegir entre las opciones que comparen.",
+  "nuevo": "no tienes criterios para comparar las opciones ni para elegir entre ellas.",
+  "motivo": "S2 (pie de problem-vs-solution): la ultima frase estaba mal construida."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema1/index.html",
+  "viejo": "cu&aacute;ntas\n         <b>letras distintas</b> tiene el documento resultante",
+  "nuevo": "cu&aacute;ntos\n         <b>tipos de letra</b> distintos tiene el documento resultante",
+  "motivo": "S6 encargo: \"letras distintas\" queria decir tipos de letra (cada trozo pegado trae su fuente)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema1/index.html",
+  "viejo": "Lo normal es que salgan tres letras, siete minutos",
+  "nuevo": "Lo normal es que salgan tres tipos de letra, siete minutos",
+  "motivo": "S6 encargo: \"tres letras\" -> tres tipos de letra."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": "    <text x=\"115\" y=\"217\" class=\"phase-label\" fill=\"white\">10-15%</text>\n",
+  "nuevo": "",
+  "motivo": "Porcentaje de fase inventado dentro del dibujo; la pagina no lo da."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": "    <text x=\"275\" y=\"217\" class=\"phase-label\" fill=\"white\">15-20%</text>\n",
+  "nuevo": "",
+  "motivo": "Porcentaje de fase inventado dentro del dibujo; la pagina no lo da."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": "    <text x=\"435\" y=\"217\" class=\"phase-label\" fill=\"white\">50-60%</text>\n",
+  "nuevo": "",
+  "motivo": "Porcentaje de fase inventado dentro del dibujo; la pagina no lo da."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": "    <text x=\"595\" y=\"217\" class=\"phase-label\" fill=\"white\">10-15%</text>\n",
+  "nuevo": "",
+  "motivo": "Porcentaje de fase inventado dentro del dibujo; la pagina no lo da."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": "    <text x=\"755\" y=\"217\" class=\"phase-label\" fill=\"white\">5-10%</text>\n",
+  "nuevo": "",
+  "motivo": "Porcentaje de fase inventado dentro del dibujo; la pagina no lo da."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": ">Ruta crítica: Lo que más importa</text>",
+  "nuevo": ">Camino crítico: holgura cero</text>",
+  "motivo": "El recuadro decia que la ruta critica es la fase mas larga; la pagina la define como la cadena con holgura cero."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": ">Construcción es la fase más larga (50-60%). Cualquier retraso ahí retrasa todo el proyecto.</text>",
+  "nuevo": ">No es la fase más larga: es la cadena de tareas con holgura cero. Un retraso en una de ellas retrasa todo el proyecto.</text>",
+  "motivo": "Idem."
+ },
+ {
+  "fichero": "img/project-phases-timeline.svg",
+  "viejo": ">Por eso: asigna más tiempo, más personas, y planifica contingencias para construcción.</text>",
+  "nuevo": ">Por eso: meter horas en una tarea con holgura no adelanta nada; se aprieta en las del camino crítico.</text>",
+  "motivo": "Idem; con la regla que da la sesion (meter horas en una tarea con holgura no adelanta el proyecto)."
+ },
+ {
+  "fichero": "img/problem-vs-solution.svg",
+  "viejo": "Ejemplo: \"Es difícil riego manual\"",
+  "nuevo": "Ejemplo: \"Regar a mano es difícil\"",
+  "motivo": "Frase mal construida dentro del dibujo."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema2/index.html",
+  "viejo": "La ventaja: ver en 3D antes de fabricar, sin errores.",
+  "nuevo": "La ventaja: ver la pieza en 3D antes de fabricar. Lo que no hace es quitar los errores: la tolerancia de cada m&aacute;quina, la sangr&iacute;a del l&aacute;ser y el agujero que encoge al exportar el STL siguen ah&iacute;, y de eso va este tema.",
+  "motivo": "S1 (pie de cad-workflow): \"sin errores\" choca con el tema entero (errores que se suman, tolerancias, sangria, agujero facetado)."
+ },
+ {
+  "fichero": "img/cad-workflow.svg",
+  "viejo": ">✓ Precisión: errores = 0</text>",
+  "nuevo": ">✓ Cotas exactas en el modelo</text>",
+  "motivo": "Dentro del dibujo: \"errores = 0\" contradice el tema."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema2/index.html",
+  "viejo": "M&eacute;todos de fabricaci&oacute;n: Sustractiva (quitar material, 30-80% residuos) vs Aditiva (a&ntilde;adir material, 0-5% residuos)",
+  "nuevo": "M&eacute;todos de fabricaci&oacute;n: Sustractiva (quitar material) frente a Aditiva (a&ntilde;adir material capa a capa)",
+  "motivo": "S4: los porcentajes de residuo no salen en la pagina."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema2/index.html",
+  "viejo": "<b>Fabricaci&oacute;n Sustractiva vs Aditiva</b>: Sustractiva QUITA material (torneado, fresado CNC, cortadora l&aacute;ser) - eficiente para producci&oacute;n en serie pero genera mucho residuo (30-80%). Aditiva A&Ntilde;ADE material (impresoras 3D FDM/SLA, sinterizado) - m&aacute;s lenta pero cero desperdicio (~5%), perfecta para prototipos. Elecci&oacute;n: Sustractiva si necesitas velocidad y cantidad; Aditiva si necesitas formas complejas y flexibilidad.",
+  "nuevo": "<b>Fabricaci&oacute;n sustractiva frente a aditiva</b>. La sustractiva parte de un bloque o un tablero y le <b>quita</b> material (sierra, taladro, lima, cortadora l&aacute;ser): lo que sobra es residuo. La aditiva lo <b>a&ntilde;ade</b> capa a capa (impresora 3D) y es la &uacute;nica que puede hacer formas huecas por dentro, pero es la m&aacute;s lenta: con una impresora para diez grupos, la cola dura casi dos semanas de clase. No hay una ganadora, y se elige antes de dibujar, porque cada t&eacute;cnica decide lo que puedes dibujar.",
+  "motivo": "S4: \"cero desperdicio (~5%)\" se contradice y los porcentajes 30-80 % no salen en la pagina; se reescribe con lo que dice la sesion."
+ },
+ {
+  "fichero": "img/manufacturing-methods.svg",
+  "viejo": ">RESIDUOS: 30-80%</text>",
+  "nuevo": ">RESIDUO: lo que se quita</text>",
+  "motivo": "Porcentaje sin fuente en la pagina."
+ },
+ {
+  "fichero": "img/manufacturing-methods.svg",
+  "viejo": ">del material se desperdicia</text>",
+  "nuevo": ">(virutas y recortes)</text>",
+  "motivo": "Idem."
+ },
+ {
+  "fichero": "img/manufacturing-methods.svg",
+  "viejo": ">Residuos: 0-5%</text>",
+  "nuevo": ">Capa a capa</text>",
+  "motivo": "Porcentaje sin fuente en la pagina."
+ },
+ {
+  "fichero": "img/manufacturing-methods.svg",
+  "viejo": ">(mínima pérdida)</text>",
+  "nuevo": ">(más lenta)</text>",
+  "motivo": "Idem; la sesion dice que es la mas lenta."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema2/index.html",
+  "viejo": "te quedan <b>1,4</b>.",
+  "nuevo": "te quedan <b>0,14 mm</b> (1,4 d&eacute;cimas).",
+  "motivo": "S5: 8,30 - 0,30 de holgura; 8,30 x cos(11,25) = 8,14 y el eje es de 8: quedan 0,14 mm. \"1,4\" a secas parecia mm."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema2/index.html",
+  "viejo": "cotas que sali&oacute;n del modelo",
+  "nuevo": "cotas que salieron del modelo",
+  "motivo": "S8: errata \"salion\"."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": " (40% de la energía total) hasta el uso y el final del producto. Cada fase consume energía y genera residuos.",
+  "nuevo": " hasta el uso y el final del producto. Cada fase consume energía y genera residuos, y cuál pesa más depende del aparato: por eso la cuenta se hace etapa por etapa.",
+  "motivo": "S1 (pie de material-lifecycle): el 40 % no sale en la pagina; la sesion ensena que la etapa que manda cambia de un aparato a otro."
+ },
+ {
+  "fichero": "img/material-lifecycle.svg",
+  "viejo": ">Impacto por fase:</text>",
+  "nuevo": ">Cada fase gasta:</text>",
+  "motivo": "Recuadro con porcentajes inventados."
+ },
+ {
+  "fichero": "img/material-lifecycle.svg",
+  "viejo": "  <g font-family=\"Arial\" font-size=\"10\" fill=\"#2c3e50\">\n    <text x=\"820\" y=\"170\">Extracción: 40%</text>\n    <rect x=\"820\" y=\"178\" width=\"80\" height=\"6\" fill=\"#ecf0f1\" stroke=\"#333\" stroke-width=\"1\"/>\n    <rect x=\"820\" y=\"178\" width=\"32\" height=\"6\" fill=\"#e74c3c\"/>\n\n    <text x=\"820\" y=\"195\">Procesamiento: 35%</text>\n    <rect x=\"820\" y=\"203\" width=\"80\" height=\"6\" fill=\"#ecf0f1\" stroke=\"#333\" stroke-width=\"1\"/>\n    <rect x=\"820\" y=\"203\" width=\"28\" height=\"6\" fill=\"#f39c12\"/>\n\n    <text x=\"820\" y=\"220\">Fabricación: 20%</text>\n    <rect x=\"820\" y=\"228\" width=\"80\" height=\"6\" fill=\"#ecf0f1\" stroke=\"#333\" stroke-width=\"1\"/>\n    <rect x=\"820\" y=\"228\" width=\"16\" height=\"6\" fill=\"#3498db\"/>\n\n    <text x=\"820\" y=\"245\">Distribución: 5%</text>\n    <rect x=\"820\" y=\"253\" width=\"80\" height=\"6\" fill=\"#ecf0f1\" stroke=\"#333\" stroke-width=\"1\"/>\n    <rect x=\"820\" y=\"253\" width=\"4\" height=\"6\" fill=\"#9b59b6\"/>\n  </g>",
+  "nuevo": "  <g font-family=\"Arial\" font-size=\"10\" fill=\"#2c3e50\">\n    <text x=\"820\" y=\"170\">Extracción</text>\n    <text x=\"820\" y=\"190\">Procesamiento</text>\n    <text x=\"820\" y=\"210\">Fabricación</text>\n    <text x=\"820\" y=\"230\">Distribución</text>\n    <text x=\"820\" y=\"250\">Uso</text>\n    <text x=\"820\" y=\"285\">Cuál pesa más</text>\n    <text x=\"820\" y=\"300\">depende del aparato</text>\n  </g>",
+  "motivo": "Los porcentajes por fase (40/35/20/5) y sus barras no salen en la pagina."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "Energ&iacute;a incorporada de materiales: madera 2,5 MJ, acero 32 MJ, aluminio 186 MJ",
+  "nuevo": "Energ&iacute;a incorporada de materiales: madera aserrada 10 MJ, acero 25 MJ, aluminio 186 MJ",
+  "motivo": "S2: la tabla da madera aserrada 10 MJ/kg y acero 25 MJ/kg."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "Un kilo de madera lleva incorporados 2,5 MJ; el acero, 32 MJ; el aluminio, 186 MJ.",
+  "nuevo": "Un kilo de madera aserrada lleva incorporados unos 10 MJ (el contrachapado, 15); el acero, 25 MJ; el aluminio, 186 MJ.",
+  "motivo": "S2: cifras alineadas con la tabla de la sesion y la escena."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": ">Madera</text>",
+  "nuevo": ">Madera aserrada</text>",
+  "motivo": "Como en la tabla."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "<rect x=\"80\" y=\"150\" width=\"150\" height=\"40\" fill=\"#d4a574\"",
+  "nuevo": "<rect x=\"170\" y=\"150\" width=\"10\" height=\"40\" fill=\"#d4a574\"",
+  "motivo": "Barras a escala (186 MJ = 190 px): antes el acero salia mas largo que el aluminio."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": ">2,5 MJ</text>",
+  "nuevo": ">10 MJ</text>",
+  "motivo": "Tabla de S2: madera aserrada 10 MJ/kg."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "• Más bajo de todos",
+  "nuevo": "• El más bajo de los tres",
+  "motivo": "En la tabla el hormigon esta mas bajo."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": ">Menos resistencia: más grueso</text>",
+  "nuevo": ">Menos rígida: más espesor</text>",
+  "motivo": "S3: a igualdad de rigidez gana la madera."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": ">= más material total</text>",
+  "nuevo": ">(pero pesa menos, sesión 3)</text>",
+  "motivo": "S3: 72 g la de madera frente a 317 g la de acero."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "<rect x=\"405\" y=\"150\" width=\"190\" height=\"40\" fill=\"#4285f4\"",
+  "nuevo": "<rect x=\"487\" y=\"150\" width=\"26\" height=\"40\" fill=\"#4285f4\"",
+  "motivo": "Barra a escala."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": ">32 MJ</text>",
+  "nuevo": ">25 MJ</text>",
+  "motivo": "Tabla de S2: acero bajo en carbono 25 MJ/kg."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "• Más delgado = menos kg",
+  "nuevo": "• Más delgado a igual rigidez",
+  "motivo": "S3: el acero adelgaza a un tercio pero pesa mas que la madera."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "<rect x=\"730\" y=\"150\" width=\"170\" height=\"40\" fill=\"#fbbc04\"",
+  "nuevo": "<rect x=\"730\" y=\"150\" width=\"190\" height=\"40\" fill=\"#fbbc04\"",
+  "motivo": "Barra a escala."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "Fundir aluminio reciclado cuesta solo <tspan font-weight=\"bold\">15 MJ, no 186</tspan>. Por eso reciclar aluminio ahorra el 92% de la energía. El acero reciclado ahorra solo un 20-30%.",
+  "nuevo": "El aluminio reciclado cuesta solo <tspan font-weight=\"bold\">8,3 MJ, no 186</tspan>. Por eso reciclar aluminio ahorra el 95 % de la energía. El acero reciclado ahorra un 60 %.",
+  "motivo": "Tabla de S2: aluminio 186 / 8,3 (95 %), acero 25 / 10 (60 %)."
+ },
+ {
+  "fichero": "img/embodied-energy-comparison.svg",
+  "viejo": "En muchos productos, la mitad de la energía total en el ciclo de vida ocurre <tspan font-weight=\"bold\">durante los 5-10 años de uso</tspan>, no en los primeros días de fabricación.",
+  "nuevo": "En muchos aparatos, lo que gastan <tspan font-weight=\"bold\">mientras se usan</tspan> es la mitad larga del total: una cuenta que acaba en la puerta de la fábrica lo deja fuera.",
+  "motivo": "Los \"5-10 anos\" no salen en la pagina; la frase de S1 es \"en muchos aparatos es la mitad larga del total\"."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "unidad funcional est&aacute; bien elegida, se",
+  "nuevo": "unidad funcional est&aacute; elegida a conveniencia, se",
+  "motivo": "S1 cierre: por el sentido (huella cero), es elegida a conveniencia, no bien elegida."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "mover la mochila de la electr&oacute;nica de 20 a 200 MJ.</li>",
+  "nuevo": "mover la mochila de la electr&oacute;nica de 60 a 200 MJ.</li>",
+  "motivo": "Practica 1: la escena parte de 60 MJ y la teoria dice \"de 60 a 200\"."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "la del aluminio cae en picado y la de\n              la madera es casi plana.",
+  "nuevo": "la del aluminio cae en picado y la del\n              vidrio es casi plana.",
+  "motivo": "Escena de S2: no tiene madera (solo aluminio, acero, cobre y vidrio); el vidrio es el que menos ahorra (15 -> 9)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "bater&iacute;as prohibe expresamente los tornillos",
+  "nuevo": "bater&iacute;as proh&iacute;be expresamente los tornillos",
+  "motivo": "S4: tilde."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "la prohibe expresamente en los aparatos",
+  "nuevo": "la proh&iacute;be expresamente en los aparatos",
+  "motivo": "S4: tilde."
+ }
+]

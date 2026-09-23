@@ -22,22 +22,22 @@
   <!-- WOOD -->
   <g>
     <rect x="40" y="90" width="270" height="350" fill="#f4e8d8" stroke="#8b6914" stroke-width="2" rx="5"/>
-    <text x="175" y="120" class="title" font-size="13">Madera</text>
+    <text x="175" y="120" class="title" font-size="13">Madera aserrada</text>
 
     <!-- Bar showing energy -->
-    <rect x="80" y="150" width="150" height="40" fill="#d4a574" stroke="#8b6914" stroke-width="1.5"/>
-    <text x="175" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">2,5 MJ</text>
+    <rect x="170" y="150" width="10" height="40" fill="#d4a574" stroke="#8b6914" stroke-width="1.5"/>
+    <text x="175" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">10 MJ</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
       <text x="60" y="225"><tspan font-weight="bold">Ventajas:</tspan></text>
-      <text x="70" y="245">• Más bajo de todos</text>
+      <text x="70" y="245">• El más bajo de los tres</text>
       <text x="70" y="260">• Es renovable</text>
       <text x="70" y="275">• Fácil de reciclar</text>
       <text x="70" y="290">• Se recorta fácilmente</text>
 
       <text x="60" y="320"><tspan font-weight="bold">Problema:</tspan></text>
-      <text x="70" y="340">Menos resistencia: más grueso</text>
-      <text x="70" y="355">= más material total</text>
+      <text x="70" y="340">Menos rígida: más espesor</text>
+      <text x="70" y="355">(pero pesa menos, sesión 3)</text>
     </g>
   </g>
 
@@ -47,13 +47,13 @@
     <text x="500" y="120" class="title" font-size="13">Acero</text>
 
     <!-- Bar showing energy -->
-    <rect x="405" y="150" width="190" height="40" fill="#4285f4" stroke="#1a73e8" stroke-width="1.5"/>
-    <text x="500" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">32 MJ</text>
+    <rect x="487" y="150" width="26" height="40" fill="#4285f4" stroke="#1a73e8" stroke-width="1.5"/>
+    <text x="500" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">25 MJ</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
       <text x="385" y="225"><tspan font-weight="bold">Ventajas:</tspan></text>
       <text x="395" y="245">• Muy resistente</text>
-      <text x="395" y="260">• Más delgado = menos kg</text>
+      <text x="395" y="260">• Más delgado a igual rigidez</text>
       <text x="395" y="275">• Ampliamente reciclable</text>
       <text x="395" y="290">• Muchos usos</text>
 
@@ -69,7 +69,7 @@
     <text x="825" y="120" class="title" font-size="13">Aluminio</text>
 
     <!-- Bar showing energy -->
-    <rect x="730" y="150" width="170" height="40" fill="#fbbc04" stroke="#d68910" stroke-width="1.5"/>
+    <rect x="730" y="150" width="190" height="40" fill="#fbbc04" stroke="#d68910" stroke-width="1.5"/>
     <text x="825" y="180" class="label" font-size="14" text-anchor="middle" font-weight="bold">186 MJ</text>
 
     <g font-family="Arial" font-size="10" fill="#2c3e50" text-anchor="start">
@@ -96,10 +96,10 @@
       <text x="80" y="540">Si compras 1 kg de aluminio ya fabricado (lata, marco, etc.), <tspan font-weight="bold">ya lleva dentro 186 MJ de energía</tspan> que alguien gastó en la reducción del mineral.</text>
 
       <text x="60" y="575"><tspan font-weight="bold">2. El aluminio se recicla casi de balde</tspan></text>
-      <text x="80" y="595">Fundir aluminio reciclado cuesta solo <tspan font-weight="bold">15 MJ, no 186</tspan>. Por eso reciclar aluminio ahorra el 92% de la energía. El acero reciclado ahorra solo un 20-30%.</text>
+      <text x="80" y="595">El aluminio reciclado cuesta solo <tspan font-weight="bold">8,3 MJ, no 186</tspan>. Por eso reciclar aluminio ahorra el 95 % de la energía. El acero reciclado ahorra un 60 %.</text>
 
       <text x="60" y="630"><tspan font-weight="bold">3. No es lo mismo fabricar que usar</tspan></text>
-      <text x="80" y="650">En muchos productos, la mitad de la energía total en el ciclo de vida ocurre <tspan font-weight="bold">durante los 5-10 años de uso</tspan>, no en los primeros días de fabricación.</text>
+      <text x="80" y="650">En muchos aparatos, lo que gastan <tspan font-weight="bold">mientras se usan</tspan> es la mitad larga del total: una cuenta que acaba en la puerta de la fábrica lo deja fuera.</text>
     </g>
   </g>
 

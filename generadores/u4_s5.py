@@ -252,7 +252,7 @@ ESCENA = u'''
 '''
 
 TEORIA = u'''
-      <p>Antes de gastar un solo palillo, hay cuatro decisiones que ya sabes tomar. Son las cuatro
+      <p>Antes de gastar un solo folio, hay cuatro decisiones que ya sabes tomar. Son las cuatro
          sesiones de este tema, en orden:</p>
       <div class="copiar">
         <h4>Lista de comprobaci&oacute;n antes de construir</h4>

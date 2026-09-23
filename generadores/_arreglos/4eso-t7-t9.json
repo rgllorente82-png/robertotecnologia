@@ -1,0 +1,128 @@
+[
+ {
+  "fichero": "4eso/Tecnologia/tema7/index.html",
+  "viejo": "tabla de cuatro\n             columnas (cerebro, muebles, suelo cubierto, choques, pasos)",
+  "nuevo": "tabla de cinco\n             columnas (cerebro, muebles, suelo cubierto, choques, pasos)",
+  "motivo": "T7 S1 Act.1: enumera cinco columnas y decía cuatro"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema7/index.html",
+  "viejo": "Los tres motores en este tema: <b>velocidad vs precisión vs coste</b>. Motor DC por tiempo no sabe dónde está. Paso a paso es preciso pero lento y caro. Servo motor llega a una posición exacta pero en rango limitado. La escena de arriba se comporta como si tuviera los tres.",
+  "nuevo": "Tres de los motores de la tabla: <b>corriente continua, servo y paso a paso</b>. El de corriente continua no sabe dónde está. El servo va a un ángulo exacto, pero solo en unos 180°. El paso a paso lo sabe a base de contar pasos. La escena de arriba no lleva servo: compara la corriente continua por tiempo, el paso a paso y la corriente continua con encoder.",
+  "motivo": "T7 S2 pie: la escena no tiene servo (CC por tiempo, paso a paso, CC+encoder); 'lento y caro' no lo dice la página"
+ },
+ {
+  "fichero": "img/motor-types-comparison.svg",
+  "viejo": "Baja (no sabe dónde es)",
+  "nuevo": "Baja (no sabe dónde está)",
+  "motivo": "T7 SVG motores: errata 'dónde es'"
+ },
+ {
+  "fichero": "img/motor-types-comparison.svg",
+  "viejo": "font-weight=\"bold\">Cuando usar</text>",
+  "nuevo": "font-weight=\"bold\">Cuándo usar</text>",
+  "motivo": "T7 SVG motores: falta tilde en 'Cuándo'"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema7/index.html",
+  "viejo": "es 26,3 % con topes y 26,2 %\n              sin ellos",
+  "nuevo": "es 26,2 % con topes y 26,3 %\n              sin ellos",
+  "motivo": "T7 S8: cifras cruzadas; la escena da 26,16 con topes (=las cuatro) y 26,31 sin topes"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema8/index.html",
+  "viejo": "<figcaption><b>Donde est&aacute; el impacto ambiental real</b>. El ciclo de vida de cualquier producto pasa por cinco fases. La m&aacute;s importante no es la fabricaci&oacute;n, sino el <b>uso: all&iacute; ocurre el 70 % del impacto</b>. Por eso un product durable que consuma poco en uso es m&aacute;s sostenible que uno que se fabrique con eficiencia pero sea derrochador.",
+  "nuevo": "<figcaption><b>D&oacute;nde est&aacute; el impacto ambiental real</b>. El ciclo de vida de un producto pasa por cinco fases, y cu&aacute;l pesa m&aacute;s depende del aparato. En un m&oacute;vil manda la <b>fabricaci&oacute;n</b>: en el iPhone 17 de arriba, fabricarlo es el 76 % y cargarlo durante tres a&ntilde;os, el 18 %. Por eso lo que m&aacute;s baja su huella es <b>que dure</b>: la fabricaci&oacute;n se paga una sola vez y se reparte entre los a&ntilde;os que se use.",
+  "motivo": "T8 S1 pie: decía que el uso es el 70 %; choca con el iPhone (76 % fabricarlo) y con S3"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema8/index.html",
+  "viejo": "Ciclo de vida de un producto: materias primas 10%, fabricaci&oacute;n 15%, transporte 5%, uso 70%, fin de vida",
+  "nuevo": "Ciclo de vida de un producto en cinco fases, y el reparto de su huella en un m&oacute;vil, el iPhone 17 de 256 GB: fabricarlo 76 %, cargarlo 18 %, traerlo 4 % y deshacerse de &eacute;l 1 %",
+  "motivo": "T8 S1 alt de la figura: mismos datos falsos del 70 % de uso"
+ },
+ {
+  "fichero": "img/product-lifecycle-sustainability.svg",
+  "viejo": "    <text x=\"60\" y=\"512\" class=\"title\" style=\"font-size: 13px; text-anchor: start\">Impacto ambiental por fase</text>\n\n    <!-- Row 1: Raw materials -->\n    <rect x=\"60\" y=\"530\" width=\"200\" height=\"25\" fill=\"#d4a574\" stroke=\"#8b6914\" stroke-width=\"1.5\"/>\n    <text x=\"70\" y=\"548\" class=\"label\" style=\"font-size: 11px\" font-weight=\"bold\">Materias primas</text>\n    <text x=\"270\" y=\"548\" class=\"label\" font-size=\"11\"><tspan font-weight=\"bold\">10%</tspan> (minería)</text>\n\n    <!-- Row 2: Manufacturing -->\n    <rect x=\"60\" y=\"565\" width=\"300\" height=\"25\" fill=\"#4285f4\" stroke=\"#1a73e8\" stroke-width=\"1.5\"/>\n    <text x=\"70\" y=\"583\" class=\"label\" font-size=\"11\" font-weight=\"bold\" fill=\"#fff\">Fabricación</text>\n    <text x=\"370\" y=\"583\" class=\"label\" font-size=\"11\"><tspan font-weight=\"bold\">15%</tspan> (energía en fábricas)</text>\n\n    <!-- Row 3: Transport -->\n    <rect x=\"60\" y=\"600\" width=\"150\" height=\"25\" fill=\"#fbbc04\" stroke=\"#d68910\" stroke-width=\"1.5\"/>\n    <text x=\"70\" y=\"618\" class=\"label\" font-size=\"11\" font-weight=\"bold\">Transporte</text>\n    <text x=\"220\" y=\"618\" class=\"label\" font-size=\"11\"><tspan font-weight=\"bold\">5%</tspan> (si es local)</text>\n\n    <!-- Row 4: Usage - THE BIG ONE -->\n    <rect x=\"60\" y=\"635\" width=\"680\" height=\"25\" fill=\"#34a853\" stroke=\"#229954\" stroke-width=\"2\"/>\n    <text x=\"70\" y=\"653\" class=\"label\" font-size=\"11\" font-weight=\"bold\" fill=\"#fff\">USO (5-10 años)</text>\n    <text x=\"750\" y=\"653\" class=\"label\" font-size=\"11\" font-weight=\"bold\" fill=\"#229954\"><tspan font-weight=\"bold\">70%</tspan></text>\n\n    <!-- Insight text -->\n    <text x=\"500\" y=\"670\" class=\"label\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#1a73e8\" font-weight=\"bold\">\n      ↑ Aquí está la mayor parte del impacto ambiental\n    </text>\n    <text x=\"500\" y=\"700\" class=\"label\" font-size=\"10\" text-anchor=\"middle\" fill=\"#666\">\n      Reducir consumo en USO es más importante que la fabricación\n    </text>",
+  "nuevo": "    <text x=\"60\" y=\"512\" class=\"title\" style=\"font-size: 13px; text-anchor: start\">Impacto ambiental por fase · un móvil</text>\n\n    <!-- Row 1: Manufacturing (76 %) -->\n    <rect x=\"60\" y=\"530\" width=\"608\" height=\"25\" fill=\"#4285f4\" stroke=\"#1a73e8\" stroke-width=\"2\"/>\n    <text x=\"70\" y=\"548\" class=\"label\" font-size=\"11\" font-weight=\"bold\" fill=\"#fff\">Fabricarlo</text>\n    <text x=\"678\" y=\"548\" class=\"label\" font-size=\"11\" font-weight=\"bold\" fill=\"#1a73e8\"><tspan font-weight=\"bold\">76%</tspan></text>\n\n    <!-- Row 2: Use (18 %) -->\n    <rect x=\"60\" y=\"565\" width=\"144\" height=\"25\" fill=\"#34a853\" stroke=\"#229954\" stroke-width=\"1.5\"/>\n    <text x=\"70\" y=\"583\" class=\"label\" font-size=\"11\" font-weight=\"bold\" fill=\"#fff\">Uso (3 años)</text>\n    <text x=\"214\" y=\"583\" class=\"label\" font-size=\"11\"><tspan font-weight=\"bold\">18%</tspan> (cargarlo)</text>\n\n    <!-- Row 3: Transport (4 %) -->\n    <rect x=\"60\" y=\"600\" width=\"32\" height=\"25\" fill=\"#fbbc04\" stroke=\"#d68910\" stroke-width=\"1.5\"/>\n    <text x=\"102\" y=\"618\" class=\"label\" font-size=\"11\" font-weight=\"bold\">Transporte</text>\n    <text x=\"180\" y=\"618\" class=\"label\" font-size=\"11\"><tspan font-weight=\"bold\">4%</tspan> (traerlo)</text>\n\n    <!-- Row 4: End of life (1 %) -->\n    <rect x=\"60\" y=\"635\" width=\"8\" height=\"25\" fill=\"#ea4335\" stroke=\"#c0392b\" stroke-width=\"1.5\"/>\n    <text x=\"102\" y=\"653\" class=\"label\" font-size=\"11\" font-weight=\"bold\">Fin de vida</text>\n    <text x=\"180\" y=\"653\" class=\"label\" font-size=\"11\"><tspan font-weight=\"bold\">1%</tspan> (deshacerse de él)</text>\n\n    <!-- Insight text -->\n    <text x=\"500\" y=\"674\" class=\"label\" font-size=\"10.5\" text-anchor=\"middle\" fill=\"#1a73e8\" font-weight=\"bold\">\n      Ejemplo: iPhone 17 de 256 GB, 55 kg de CO₂e según Apple (suman 99 por el redondeo)\n    </text>\n    <text x=\"500\" y=\"700\" class=\"label\" font-size=\"10\" text-anchor=\"middle\" fill=\"#666\">\n      En un móvil, fabricarlo pesa cuatro veces más que usarlo: lo que más baja su huella es que dure\n    </text>",
+  "motivo": "T8 SVG ciclo de vida: las barras dibujaban uso 70 %; se cambian por el reparto del iPhone que da la página"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema8/index.html",
+  "viejo": "Phoebus no elegi&oacute; entre",
+  "nuevo": "Phoebus no eligi&oacute; entre",
+  "motivo": "T8 S3 pie bombilla: errata 'elegió'"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema8/index.html",
+  "viejo": "Se val&uacute;a el razonamiento",
+  "nuevo": "Se eval&uacute;a el razonamiento",
+  "motivo": "T8 Act.3: errata 'Se valúa'"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "<p>&Uacute;ltima sesi&oacute;n del curso, y empieza con la pregunta",
+  "nuevo": "<p>Cuarta sesi&oacute;n de la unidad, y empieza con la pregunta",
+  "motivo": "T9 S4: no es la última sesión, quedan cuatro"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "La &uacute;ltima cuenta del curso, y no sale bien.",
+  "nuevo": "La cuenta del propio aparato, y no sale bien.",
+  "motivo": "T9 S4 entradilla: tampoco es la última cuenta (S5-S8 hacen más)"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "<p><b>Lo que no cab&iacute;a.</b> Este curso se ha quedado fuera bastante, y conviene saber\n           qu&eacute;: el an&aacute;lisis de ciclo de vida hecho en serio, la accesibilidad (dise&ntilde;ar\n           para quien no ve, no oye o no puede apretar un bot&oacute;n), el residuo electr&oacute;nico y\n           d&oacute;nde acaba, y el derecho a reparar. Cuatro cosas que dan para un curso entero\n           cada una.</p>",
+  "nuevo": "<p><b>Lo que no cab&iacute;a.</b> Este curso se ha quedado fuera bastante, y conviene saber\n           qu&eacute;: el an&aacute;lisis de ciclo de vida hecho en serio, que da para un curso entero.\n           La accesibilidad (dise&ntilde;ar para quien no ve, no oye o no puede apretar un bot&oacute;n),\n           el residuo electr&oacute;nico y d&oacute;nde acaba, y el derecho a reparar s&iacute; han\n           entrado: los visteis en el tema 8 y aqu&iacute; no se repiten.</p>",
+  "motivo": "T9 S4: accesibilidad, residuo electrónico y derecho a reparar se trabajan en el tema 8 (S2, S5, S3)"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "tiene cinco macetas que piden medio litro al d&iacute;a: son 7,6 litros",
+  "nuevo": "tiene cinco macetas que entre todas piden medio litro al d&iacute;a: son 7,6 litros",
+  "motivo": "T9 S5: la escena da 0,51 L/día para las cinco juntas (0,51 x 15 = 7,6)"
+ },
+ {
+  "fichero": "generadores/c9_build.py",
+  "viejo": "tiene cinco macetas que piden medio litro al d&iacute;a: son 7,6 '",
+  "nuevo": "tiene cinco macetas que entre todas piden medio litro al d&iacute;a: son 7,6 '",
+  "motivo": "T9 S5 en el generador (partido en otra línea)"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "En el caso de partida son 22 horas en cinco a&ntilde;os, m&aacute;s de trece veces el precio del material.",
+  "nuevo": "En el caso de partida son 22 horas en cinco a&ntilde;os: a 12 &euro; la hora, como en la escena, y con 67 &euro; de piezas y pilas, mantenerlo cuesta m&aacute;s de trece veces lo que cost&oacute; el material.",
+  "motivo": "T9 S6: comparaba horas con euros; la escena usa 12 €/h y da 333 € = 13,3 x 25 €"
+ },
+ {
+  "fichero": "generadores/c9_build.py",
+  "viejo": "u'En el caso de partida son 22 horas en cinco a&ntilde;os, m&aacute;s de trece veces el '\n          u'precio del material.</p>')",
+  "nuevo": "u'En el caso de partida son 22 horas en cinco a&ntilde;os: a 12 &euro; la hora, como en la '\n          u'escena, y con 67 &euro; de piezas y pilas, mantenerlo cuesta m&aacute;s de trece veces lo '\n          u'que cost&oacute; el material.</p>')",
+  "motivo": "T9 S6 en el generador (partido en otra línea)"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "<b>Tecnolog&iacute;a apropriada vs inadecuada</b>",
+  "nuevo": "<b>Tecnolog&iacute;a apropiada vs inadecuada</b>",
+  "motivo": "T9 S2 pie: errata 'apropriada'"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "falla de completo si se daña",
+  "nuevo": "falla por completo si se daña",
+  "motivo": "T9 S2 pie: 'falla de completo'"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "H&aacute;zla en el cuaderno",
+  "nuevo": "Hazla en el cuaderno",
+  "motivo": "T9 S2: 'Házla' no lleva tilde"
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema9/index.html",
+  "viejo": "la nota que esper&aacute;bais",
+  "nuevo": "la nota que esperabais",
+  "motivo": "T9 S3: 'esperábais' no lleva tilde"
+ }
+]

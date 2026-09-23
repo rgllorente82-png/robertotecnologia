@@ -353,9 +353,9 @@ S3_T = u'''
       <div class="copiar">
         <h4>Los dos grandes grupos</h4>
         <ul>
-          <li><b>Maderas blandas</b>: de &aacute;rboles de hoja perenne, que crecen r&aacute;pido &mdash;pino, abeto,
-              chopo&mdash;. Baratas, ligeras, f&aacute;ciles de trabajar. Es lo que hay en el taller del instituto.</li>
-          <li><b>Maderas duras</b>: de hoja caduca, de crecimiento lento &mdash;roble, haya, nogal&mdash;.
+          <li><b>Maderas blandas</b>: de <b>con&iacute;feras</b>, que crecen r&aacute;pido &mdash;pino,
+              abeto&mdash;. Baratas, ligeras, f&aacute;ciles de trabajar. Es lo que hay en el taller del instituto.</li>
+          <li><b>Maderas duras</b>: de <b>frondosas</b>, de crecimiento lento &mdash;roble, haya, nogal&mdash;.
               Caras, pesadas, resistentes y bonitas. Muebles y suelos.</li>
         </ul>
         <p>Cuidado con los nombres: <b>la balsa es una madera dura</b> aunque se corte con la u&ntilde;a. La
@@ -549,8 +549,8 @@ S4 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        &Uacute;ltima del tema: fabricar <b>papel reciclado</b> &mdash;que tambi&eacute;n sale de la madera&mdash; y
-        cerrar con el test.
+        Ya sabes cortar y perforar. Lo siguiente es <b>unir</b> las piezas &mdash;que es por donde se rompe
+        casi todo mueble&mdash; y darles el <b>acabado</b>.
       </div>
   '''))
 
@@ -576,7 +576,7 @@ S5_T = u'''
           <tr><td rowspan="3"><b>Fijas</b></td><td>Cola blanca (acetato de polivinilo)</td>
               <td>La uni&oacute;n m&aacute;s com&uacute;n del taller. Necesita <b>presi&oacute;n y tiempo</b></td></tr>
           <tr><td>Clavos y puntas</td><td>R&aacute;pido y barato; aguanta mal si se tira del clavo</td></tr>
-          <tr><td>Espigas encoladas, caja y esp&iacute;ga</td><td>Muebles de calidad: la madera se traba consigo misma</td></tr>
+          <tr><td>Espigas encoladas, caja y espiga</td><td>Muebles de calidad: la madera se traba consigo misma</td></tr>
         </tbody>
       </table>
 
@@ -640,9 +640,9 @@ S5 = (
 
 # ---------------------------------------------------------------- sesion 6 ---
 PREGUNTAS = [
- dict(p=u'&iquest;Cu&aacute;l es la capa m&aacute;s interna de la madera del tronco?',
+ dict(p=u'&iquest;Qu&eacute; capa del tronco es la madera m&aacute;s antigua, la que se busca para un mueble que tenga que durar?',
       op=[u'La albura', u'El duramen', u'El c&aacute;mbium'], ok=1,
-      por=u'El duramen es la madera vieja del centro: m&aacute;s oscura y m&aacute;s dura. La albura es la de fuera.'),
+      por=u'El duramen es la madera vieja de dentro: m&aacute;s oscura y m&aacute;s dura. La albura es la de fuera, la m&aacute;s joven.'),
  dict(p=u'La madera est&aacute; formada por&hellip;',
       op=[u'fibras de celulosa unidas con lignina', u'resinas y c&aacute;mbium', u'celulosa y silicio'], ok=0,
       por=u'Celulosa (las fibras) y lignina (el pegamento). Es lo que le da resistencia en el sentido de la fibra.'),
@@ -662,8 +662,8 @@ PREGUNTAS = [
       op=[u'sujetar la pieza', u'lijar el canto', u'marcar con el comp&aacute;s'], ok=0,
       por=u'Nunca se corta una pieza suelta: primero el tornillo de banco o el sargento.'),
  dict(p=u'El balance de carbono de la madera es negativo porque&hellip;',
-      op=[u'no produce CO&sub2; al arder', u'suelta menos CO&sub2; del que absorbi&oacute; al crecer', u'absorbe CO&sub2; mientras arde'], ok=1,
-      por=u'S&iacute; produce CO&sub2; al arder, pero menos del que el &aacute;rbol captur&oacute;. Por eso cuenta como renovable, si la explotaci&oacute;n es sostenible.'),
+      op=[u'no produce CO<sub>2</sub> al arder', u'suelta menos CO<sub>2</sub> del que absorbi&oacute; al crecer', u'absorbe CO<sub>2</sub> mientras arde'], ok=1,
+      por=u'S&iacute; produce CO<sub>2</sub> al arder, pero menos del que el &aacute;rbol captur&oacute;. Por eso cuenta como renovable, si la explotaci&oacute;n es sostenible.'),
 ]
 
 S6_T = u'''

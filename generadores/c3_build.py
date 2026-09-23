@@ -348,7 +348,7 @@ S1_PRACTICA = ficha(
               <ul>
                 <li>quitar la casilla del reposo;</li>
                 <li>cambiar el barco por el avi&oacute;n;</li>
-                <li>mover la mochila de la electr&oacute;nica de 20 a 200 MJ.</li>
+                <li>mover la mochila de la electr&oacute;nica de 60 a 200 MJ.</li>
               </ul>
               De cada una, una l&iacute;nea: &iquest;cambia la etapa que manda, s&iacute; o no?</li>
             <li>Cerrad con <b>una propuesta concreta</b> para bajar el total de vuestro aparato, y
@@ -381,7 +381,7 @@ S1_CIERRE = u'''
     u'preguntas antes de cre&eacute;rtelo?',
     u'<p>Los <b>l&iacute;mites del sistema</b> y la <b>unidad funcional</b>. Si la cuenta va de la '
     u'cuna a la puerta, todo lo que gasta el aparato mientras se usa queda fuera, y eso en muchos '
-    u'aparatos es la mitad larga del total. Y si la unidad funcional est&aacute; bien elegida, se '
+    u'aparatos es la mitad larga del total. Y si la unidad funcional est&aacute; elegida a conveniencia, se '
     u'puede ganar casi cualquier comparaci&oacute;n.</p>') + pregunta(
     u'En el riego, la bomba tira 3,5 W tres minutos al d&iacute;a y la placa 0,3 W las 24 horas. '
     u'&iquest;Cu&aacute;l gasta m&aacute;s al a&ntilde;o? Haz la cuenta.',
@@ -525,8 +525,8 @@ S2_TEORIA = u'''
               ahorro relativo es menor: no hab&iacute;a tanto que ahorrar.</li>
           <li>Prueba el <b>vidrio</b>: no tiene calor latente de fusi&oacute;n, porque no cristaliza.
               El vidrio no funde, se <b>reblandece</b>.</li>
-          <li>Sube el porcentaje de reciclado y mira la recta: la del aluminio cae en picado y la de
-              la madera es casi plana. <b>No todos los materiales ganan lo mismo con
+          <li>Sube el porcentaje de reciclado y mira la recta: la del aluminio cae en picado y la del
+              vidrio es casi plana. <b>No todos los materiales ganan lo mismo con
               reciclarse.</b></li>
         </ul>
       </div>
@@ -982,7 +982,7 @@ S4_TEORIA = u'''
            u'l&oacute;bulos no aprieta mejor que una estrella normal ni aguanta m&aacute;s par: lo que '
            u'hace es que <b>tu destornillador no entre</b>. Es una uni&oacute;n desmontable que se ha '
            u'dise&ntilde;ado para que la desmonte solo quien tenga la punta. El nuevo reglamento '
-           u'europeo de bater&iacute;as prohibe expresamente los tornillos propietarios en los '
+           u'europeo de bater&iacute;as proh&iacute;be expresamente los tornillos propietarios en los '
            u'aparatos con bater&iacute;a incorporada.') + u'''
 
 ''' + REPARA + u'''
@@ -1231,7 +1231,7 @@ S4_CIERRE = u'''
     u'<p>T&eacute;cnicamente, nada: no aprietan m&aacute;s ni aguantan m&aacute;s par. Lo que gana es '
     u'que el aparato solo lo pueda abrir quien tenga esa punta, o sea su servicio t&eacute;cnico. Es '
     u'una uni&oacute;n desmontable convertida en barrera a prop&oacute;sito, y el reglamento europeo '
-    u'de bater&iacute;as la prohibe expresamente en los aparatos que lleven bater&iacute;a '
+    u'de bater&iacute;as la proh&iacute;be expresamente en los aparatos que lleven bater&iacute;a '
     u'incorporada.</p>') + pregunta(
     u'Une la sesi&oacute;n 1 con esta: &iquest;por qu&eacute; alargar la vida de un aparato baja '
     u'su impacto, aunque no cambies ni un material?',

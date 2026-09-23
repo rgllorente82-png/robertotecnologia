@@ -1,0 +1,218 @@
+[
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "mientras se encolan.</p></div></details></li>\n\n      </ol>\n      <div class=\"nota\">\n        <span class=\"n-tag\">Siguiente sesi&oacute;n</span>\n        &Uacute;ltima del tema: fabricar <b>papel reciclado</b> &mdash;que tambi&eacute;n sale de la madera&mdash; y\n        cerrar con el test.",
+  "nuevo": "mientras se encolan.</p></div></details></li>\n\n      </ol>\n      <div class=\"nota\">\n        <span class=\"n-tag\">Siguiente sesi&oacute;n</span>\n        Ya sabes cortar y perforar. Lo siguiente es <b>unir</b> las piezas &mdash;que es por donde se rompe\n        casi todo mueble&mdash; y darles el <b>acabado</b>.",
+  "motivo": "T4: el pie de la S4 anunciaba la S6 (papel reciclado y test) y se saltaba la S5 (uniones y acabado)"
+ },
+ {
+  "fichero": "generadores/umad_build.py",
+  "viejo": "mientras se encolan.</p>') + u'''\n      </ol>\n      <div class=\"nota\">\n        <span class=\"n-tag\">Siguiente sesi&oacute;n</span>\n        &Uacute;ltima del tema: fabricar <b>papel reciclado</b> &mdash;que tambi&eacute;n sale de la madera&mdash; y\n        cerrar con el test.",
+  "nuevo": "mientras se encolan.</p>') + u'''\n      </ol>\n      <div class=\"nota\">\n        <span class=\"n-tag\">Siguiente sesi&oacute;n</span>\n        Ya sabes cortar y perforar. Lo siguiente es <b>unir</b> las piezas &mdash;que es por donde se rompe\n        casi todo mueble&mdash; y darles el <b>acabado</b>.",
+  "motivo": "T4: el pie de la S4 anunciaba la S6 (papel reciclado y test) y se saltaba la S5 (uniones y acabado) (generador)"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "value=\"0\">suelta menos CO&sub2; del que",
+  "nuevo": "value=\"0\">suelta menos CO<sub>2</sub> del que",
+  "motivo": "T4 test p8: entidad inexistente CO&sub2; se ve literal; CO<sub>2</sub> como en el resto de la pagina"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "value=\"1\">no produce CO&sub2; al arder",
+  "nuevo": "value=\"1\">no produce CO<sub>2</sub> al arder",
+  "motivo": "T4 test p8: entidad inexistente CO&sub2; se ve literal; CO<sub>2</sub> como en el resto de la pagina"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "value=\"2\">absorbe CO&sub2; mientras arde",
+  "nuevo": "value=\"2\">absorbe CO<sub>2</sub> mientras arde",
+  "motivo": "T4 test p8: entidad inexistente CO&sub2; se ve literal; CO<sub>2</sub> como en el resto de la pagina"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "S&iacute; produce CO&sub2; al arder, pero menos del que el &aacute;rbol captur&oacute;. Por eso cuenta como renovable, si la explotaci&oacute;n es sostenible.</div>",
+  "nuevo": "S&iacute; produce CO<sub>2</sub> al arder, pero menos del que el &aacute;rbol captur&oacute;. Por eso cuenta como renovable, si la explotaci&oacute;n es sostenible.</div>",
+  "motivo": "T4 test p8: entidad inexistente CO&sub2; se ve literal; CO<sub>2</sub> como en el resto de la pagina"
+ },
+ {
+  "fichero": "generadores/umad_build.py",
+  "viejo": "      op=[u'no produce CO&sub2; al arder', u'suelta menos CO&sub2; del que absorbi&oacute; al crecer', u'absorbe CO&sub2; mientras arde'], ok=1,\n      por=u'S&iacute; produce CO&sub2; al arder,",
+  "nuevo": "      op=[u'no produce CO<sub>2</sub> al arder', u'suelta menos CO<sub>2</sub> del que absorbi&oacute; al crecer', u'absorbe CO<sub>2</sub> mientras arde'], ok=1,\n      por=u'S&iacute; produce CO<sub>2</sub> al arder,",
+  "motivo": "T4 test p8: entidad inexistente CO&sub2; se ve literal; CO<sub>2</sub> como en el resto de la pagina (generador)"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "          <li><b>Maderas blandas</b>: de &aacute;rboles de hoja perenne, que crecen r&aacute;pido &mdash;pino, abeto,\n              chopo&mdash;. Baratas, ligeras, f&aacute;ciles de trabajar. Es lo que hay en el taller del instituto.</li>\n          <li><b>Maderas duras</b>: de hoja caduca, de crecimiento lento &mdash;roble, haya, nogal&mdash;.",
+  "nuevo": "          <li><b>Maderas blandas</b>: de <b>con&iacute;feras</b>, que crecen r&aacute;pido &mdash;pino,\n              abeto&mdash;. Baratas, ligeras, f&aacute;ciles de trabajar. Es lo que hay en el taller del instituto.</li>\n          <li><b>Maderas duras</b>: de <b>frondosas</b>, de crecimiento lento &mdash;roble, haya, nogal&mdash;.",
+  "motivo": "T4 S3: blandas = hoja perenne con el chopo de ejemplo; la S2 y el resumen las definen como coniferas/frondosas. Se unifica y sale el chopo"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "&iquest;Cu&aacute;l es la capa m&aacute;s interna de la madera del tronco?",
+  "nuevo": "&iquest;Qu&eacute; capa del tronco es la madera m&aacute;s antigua, la que se busca para un mueble que tenga que durar?",
+  "motivo": "T4 test p1: la capa mas interna es la medula (tabla), no el duramen"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "El duramen es la madera vieja del centro: m&aacute;s oscura y m&aacute;s dura. La albura es la de fuera.",
+  "nuevo": "El duramen es la madera vieja de dentro: m&aacute;s oscura y m&aacute;s dura. La albura es la de fuera, la m&aacute;s joven.",
+  "motivo": "T4 test p1: la explicacion ponia el duramen en el centro, donde la tabla pone la medula"
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "caja y esp&iacute;ga",
+  "nuevo": "caja y espiga",
+  "motivo": "T4 S5: errata espíga"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "entramada, triangulada, colgante&mdash;",
+  "nuevo": "entramada, triangulada, colgante y laminar&mdash;",
+  "motivo": "T6 pie S1: anunciaba cinco familias; la S2 da seis (faltaba la laminar)"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "Los cinco esfuerzos en estructuras: compresión, tensión, flexión, torsión y cortante",
+  "nuevo": "Los cinco esfuerzos en estructuras: compresión, tracción, flexión, torsión y cortadura",
+  "motivo": "T6 figura S1: tension/cortante -> traccion/cortadura, los terminos del texto"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "compresión (se aplasta), tensión (se estira), flexión (se dobla), torsión (se retuerce) y cortante (se cizalla)",
+  "nuevo": "compresión (se aplasta), tracción (se estira), flexión (se dobla), torsión (se retuerce) y cortadura (se cizalla)",
+  "motivo": "T6 pie de figura S1: tension/cortante -> traccion/cortadura, los terminos del texto"
+ },
+ {
+  "fichero": "img/structural-stresses.svg",
+  "viejo": "font-size=\"13\">CORTANTE (CIZALLA)</text>",
+  "nuevo": "font-size=\"13\">CORTADURA (CIZALLA)</text>",
+  "motivo": "T6 diagrama S1: rotula tension/cortante y el texto dice traccion/cortadura (y un \"less\" en ingles)"
+ },
+ {
+  "fichero": "img/structural-stresses.svg",
+  "viejo": "<tspan font-weight=\"bold\">Tensión:</tspan>",
+  "nuevo": "<tspan font-weight=\"bold\">Tracción:</tspan>",
+  "motivo": "T6 diagrama S1: rotula tension/cortante y el texto dice traccion/cortadura (y un \"less\" en ingles)"
+ },
+ {
+  "fichero": "img/structural-stresses.svg",
+  "viejo": "<tspan font-weight=\"bold\">Cortante:</tspan>",
+  "nuevo": "<tspan font-weight=\"bold\">Cortadura:</tspan>",
+  "motivo": "T6 diagrama S1: rotula tension/cortante y el texto dice traccion/cortadura (y un \"less\" en ingles)"
+ },
+ {
+  "fichero": "img/structural-stresses.svg",
+  "viejo": "Aguanta mucha tensión (por eso se usa en cables) y compresión (vigas), pero less torsión",
+  "nuevo": "Aguanta mucha tracción (por eso se usa en cables) y compresión (vigas), pero menos torsión",
+  "motivo": "T6 diagrama S1: rotula tension/cortante y el texto dice traccion/cortadura (y un \"less\" en ingles)"
+ },
+ {
+  "fichero": "img/structural-stresses.svg",
+  "viejo": "nada de tensión</tspan>",
+  "nuevo": "nada de tracción</tspan>",
+  "motivo": "T6 diagrama S1: rotula tension/cortante y el texto dice traccion/cortadura (y un \"less\" en ingles)"
+ },
+ {
+  "fichero": "img/structural-stresses.svg",
+  "viejo": "especialmente en tensión y cortante",
+  "nuevo": "especialmente en tracción y cortadura",
+  "motivo": "T6 diagrama S1: rotula tension/cortante y el texto dice traccion/cortadura (y un \"less\" en ingles)"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "Leonardo hacia 1487 para cruzar",
+  "nuevo": "Leonardo hacia 1502 para cruzar",
+  "motivo": "T6 demostracion 3: 1487 contradice el texto de la S2 (hacia 1502, con Cesar Borgia); manda el texto"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "es el contrachapado de la\n                sesi&oacute;n 3 del tema anterior, y",
+  "nuevo": "es el contrachapado de la\n                sesi&oacute;n 3 del tema de la madera, y",
+  "motivo": "T6 demostracion 1: el tema anterior es Metales; el contrachapado esta en la S3 del tema 4 (Madera)"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "o doblarla con otro palillo",
+  "nuevo": "o meter un canuto dentro de otro",
+  "motivo": "T6 test p10: el puente es de canutos de papel, no de palillos (la S5 da estas dos soluciones al pandeo)"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "Cuando termines tu puente de palillos,",
+  "nuevo": "Cuando termines tu puente de canutos,",
+  "motivo": "T6 cierre S6: el puente es de canutos de papel"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "Antes de gastar un solo palillo,",
+  "nuevo": "Antes de gastar un solo folio,",
+  "motivo": "T6 S5: el puente es de folios enrollados en canutos, no de palillos"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "<li>Su&eacute;tala por los dos extremos",
+  "nuevo": "<li>Suj&eacute;tala por los dos extremos",
+  "motivo": "T6 S3: errata Suétala"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "gírala 90 grados y su&eacute;tala <b>de canto</b>",
+  "nuevo": "gírala 90 grados y suj&eacute;tala <b>de canto</b>",
+  "motivo": "T6 S3: errata suétala"
+ },
+ {
+  "fichero": "2eso/TyD/tema6/index.html",
+  "viejo": "dovelas y mont&aacute;lalas",
+  "nuevo": "dovelas y m&oacute;ntalas",
+  "motivo": "T6 demostracion 4: errata montálalas"
+ },
+ {
+  "fichero": "generadores/u4_lectura.py",
+  "viejo": "cuando a un puente de palillos se le despega",
+  "nuevo": "cuando a un puente de canutos se le despega",
+  "motivo": "T6 lectura PDF: el puente de la S5 es de canutos de papel, no de palillos"
+ },
+ {
+  "fichero": "generadores/u4_lectura.py",
+  "viejo": "Vuelve a tu ensayo de palillos.",
+  "nuevo": "Vuelve a tu ensayo del puente de canutos.",
+  "motivo": "T6 lectura PDF: el puente de la S5 es de canutos de papel, no de palillos"
+ },
+ {
+  "fichero": "generadores/u4_lectura.py",
+  "viejo": "la nota de tu puente de palillos",
+  "nuevo": "la nota de tu puente de canutos",
+  "motivo": "T6 lectura PDF: el puente de la S5 es de canutos de papel, no de palillos"
+ },
+ {
+  "fichero": "2eso/TyD/tema7/index.html",
+  "viejo": "      <p>Doce preguntas de todo el tema. Cont&eacute;stalas <b>primero en el cuaderno</b>, con la cuenta\n         escrita cuando haga falta, y luego m&aacute;rcalas aqu&iacute; y pulsa\n         <i>Corregir el test</i>. Al corregir te dir&aacute; la nota y a qu&eacute; sesiones tienes que\n         volver.</p>\n            <p style=\"margin:18px 0 10px\">Diez preguntas para comprobar",
+  "nuevo": "            <p style=\"margin:18px 0 10px\">Diez preguntas para comprobar",
+  "motivo": "T7 test: el parrafo de las doce preguntas estaba encima del test de diez; se lleva encima del de doce"
+ },
+ {
+  "fichero": "2eso/TyD/tema7/index.html",
+  "viejo": "Puedes repetirlo las veces que quieras.\n      </div>\n      <div class=\"test\" id=\"test-u5\">",
+  "nuevo": "Puedes repetirlo las veces que quieras.\n      </div>\n      <p>Doce preguntas de todo el tema. Cont&eacute;stalas <b>primero en el cuaderno</b>, con la cuenta\n         escrita cuando haga falta, y luego m&aacute;rcalas aqu&iacute; y pulsa\n         <i>Corregir el test</i>. Al corregir te dir&aacute; la nota y a qu&eacute; sesiones tienes que\n         volver.</p>\n      <div class=\"test\" id=\"test-u5\">",
+  "motivo": "T7 test: el parrafo de las doce preguntas estaba encima del test de diez; se lleva encima del de doce"
+ },
+ {
+  "fichero": "2eso/TyD/tema7/index.html",
+  "viejo": "<p>El gato del coche multiplica tu fuerza <b>m&aacute;s de 300 veces</b>&hellip; y para subir el",
+  "nuevo": "<p>El gato de la escena (palanca de 25 cm, paso de 5 mm) multiplica tu fuerza <b>m&aacute;s de 300 veces</b>&hellip; y para subir el",
+  "motivo": "T7 S4: dos gatos distintos (300 y casi 500 veces); se dice cual es cada uno"
+ },
+ {
+  "fichero": "2eso/TyD/tema7/index.html",
+  "viejo": "es el precio de multiplicar la fuerza por casi quinientos.",
+  "nuevo": "es el precio de multiplicar la fuerza por casi quinientos &mdash;m&aacute;s que el gato de la teor&iacute;a,\n            porque este tiene la palanca m&aacute;s larga y el paso m&aacute;s fino&mdash;.",
+  "motivo": "T7 practica S4: dos gatos distintos (300 y casi 500 veces); se dice por que este multiplica mas"
+ },
+ {
+  "fichero": "2eso/TyD/tema7/index.html",
+  "viejo": "Con un polipasto de cuatro cabos",
+  "nuevo": "Con un polipasto de cuatro tramos",
+  "motivo": "T7 test p2: cabos -> tramos, el termino de la teoria"
+ }
+]

@@ -168,7 +168,7 @@ S6 = u'''
           <label class="ta-op"><input type="radio" name="u1-1" value="0">Que sea resistente</label>
           <label class="ta-op"><input type="radio" name="u1-1" value="1">Que quede bonito en el aula</label>
           <label class="ta-op"><input type="radio" name="u1-1" value="2">Que sujete un m&oacute;vil de 165 mm sin volcar al tocar la pantalla</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> La prueba es esta: <i>&iquest;podr&iacute;an dos personas discutir sobre si se cumple?</i> Con los dos primeros, s&iacute;. Con el tercero no: se cuelgan 3 kg y se mira. Un requisito bueno se comprueba con una regla, un cron&oacute;metro o un s&iacute;/no.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> La prueba es esta: <i>&iquest;podr&iacute;an dos personas discutir sobre si se cumple?</i> Con los dos primeros, s&iacute;. Con el tercero no: se pone el m&oacute;vil, se empuja arriba con un dedo y se mira si se levanta. Un requisito bueno se comprueba con una regla, un cron&oacute;metro o un s&iacute;/no.</div>
         </div>
 
         <div class="ta-p" data-ok="0" role="group" aria-labelledby="test-u1-p3">
@@ -204,11 +204,11 @@ S6 = u'''
         </div>
 
         <div class="ta-p" data-ok="2" role="group" aria-labelledby="test-u1-p7">
-          <p id="test-u1-p7">7. En el diagrama de Gantt, el secado de la cola ocupa una fila entera aunque no lo haga nadie. &iquest;Por qu&eacute;?</p>
-          <label class="ta-op"><input type="radio" name="u1-6" value="0">para que se vea que se ha usado cola</label>
+          <p id="test-u1-p7">7. En el diagrama de Gantt, la espera de turno de la base de corte ocupa una fila entera aunque no la haga nadie. &iquest;Por qu&eacute;?</p>
+          <label class="ta-op"><input type="radio" name="u1-6" value="0">para que se vea que se ha usado la base de corte</label>
           <label class="ta-op"><input type="radio" name="u1-6" value="1">no deber&iacute;a ocuparla: las esperas no se dibujan</label>
           <label class="ta-op"><input type="radio" name="u1-6" value="2">porque ocupa tiempo, y el Gantt reparte tiempo, no trabajo</label>
-          <div class="ta-por"><b>Por qu&eacute;:</b> Una espera que no est&aacute; dibujada aparece igual, pero por sorpresa y cuando ya no queda sesi&oacute;n. Y mientras la cola agarra, el Gantt ense&ntilde;a qu&eacute; otra cosa se puede ir haciendo.</div>
+          <div class="ta-por"><b>Por qu&eacute;:</b> Una espera que no est&aacute; dibujada aparece igual, pero por sorpresa y cuando ya no queda sesi&oacute;n. Y mientras se espera turno, el Gantt ense&ntilde;a qu&eacute; otra cosa se puede ir haciendo.</div>
         </div>
 
         <div class="ta-p" data-ok="1" role="group" aria-labelledby="test-u1-p8">
@@ -269,7 +269,7 @@ S6 = u'''
         <span class="n-tag">Siguiente tema</span>
         En este tema hab&eacute;is dibujado croquis a mano alzada y os ha bastado para cortar cuatro
         piezas. Para algo m&aacute;s complicado no basta: hacen falta <b>vistas</b>, <b>escalas</b>,
-        reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. Eso es justo lo que trabajasteis en el
-        <b>tema 2</b>, que disteis antes que este.
+        reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. Eso es justo lo que vais a trabajar en el
+        <b>tema 2</b>, el siguiente.
       <!-- enlace al tema siguiente --><p style="margin-top:12px"><a href="../tema3/" style="font-family:var(--f-m);font-size:13px;color:var(--goo-azul);font-weight:500">Ir al tema 3 &middot; Materiales de uso técnico &rarr;</a></p></div>
     </section>'''

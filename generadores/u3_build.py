@@ -212,8 +212,8 @@ S1 = (
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Un material se elige comparando propiedades. La pr&oacute;xima sesi&oacute;n va de <b>c&oacute;mo se miden</b>
-        esas propiedades &mdash;porque si no se miden, volvemos a las opiniones.
+        Un material se elige comparando propiedades. Pero antes de medirlas hay que ir un paso atr&aacute;s:
+        la pr&oacute;xima sesi&oacute;n va de <b>de d&oacute;nde sale</b> cada material.
       </div>
   '''))
 
@@ -230,7 +230,7 @@ S.append(dict(
  chips=[u'CE1 &middot; 1.2', u'CE2 &middot; 2.2', u'A.3', u'A.7'],
  cuerpo=(
   bloque('00', u'Reto inicial &middot; 10 min', u"""
-      <p>En la sesi&oacute;n anterior qued&oacute; claro que un material se elige <b>comparando propiedades</b>.
+      <p>En la primera sesi&oacute;n qued&oacute; claro que un material se elige <b>comparando propiedades</b>.
          Bien. Coge estas dos cosas de la mesa:</p>
       <div class="aviso">
         <span class="n-tag">La pregunta</span>
@@ -239,7 +239,7 @@ S.append(dict(
       </div>
       <p>Aqu&iacute; empiezan los problemas. Casi todos contestar&aacute;n «la mesa, porque se nota». Pero <i>notarlo</i>
          no es saberlo. Si dos personas discrepan, &iquest;qui&eacute;n decide?</p>
-      <p>Mientras la respuesta sea «se nota», seguimos en las opiniones del tema anterior. Una propiedad
+      <p>Mientras la respuesta sea «se nota», seguimos en las opiniones de la primera sesi&oacute;n. Una propiedad
          solo sirve para elegir si se puede <b>medir</b> &mdash;y medir significa que cualquiera repita la
          prueba y le salga lo mismo.</p>
 """) +
@@ -379,7 +379,7 @@ S.append(dict(
       </div>
       <div class="nota">
         <span class="n-tag">De aqu&iacute; sal&iacute;a lo del aluminio</span>
-        En la sesi&oacute;n anterior el cuadro de aluminio dec&iacute;a «se fatiga: puede fallar sin aviso». Ahora ya
+        En la primera sesi&oacute;n el cuadro de aluminio dec&iacute;a «se fatiga: puede fallar sin aviso». Ahora ya
         sabes de d&oacute;nde sale ese dato: de un <b>ensayo de fatiga</b>, no de la impresi&oacute;n de nadie.
       </div>
 """) +
@@ -427,8 +427,8 @@ S.append(dict(
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Elegir y medir: hecho. Toca mirar los materiales uno a uno,
-        empezando por el m&aacute;s antiguo de todos: <b>la madera</b>.
+        Elegir y medir: hecho. Toca mirar de cerca una familia de materiales, la m&aacute;s joven
+        de todas: <b>los pl&aacute;sticos</b>, que hubo que inventar.
       </div>
   """))))
 
@@ -587,9 +587,9 @@ S.append(dict(
       <div class="copiar">
         <h4>Los dos grandes grupos</h4>
         <ul>
-          <li><b>Maderas blandas</b>: de &aacute;rboles de hoja perenne, que crecen r&aacute;pido &mdash;pino, abeto,
-              chopo&mdash;. Baratas, ligeras, f&aacute;ciles de trabajar. Es lo que hay en el taller del instituto.</li>
-          <li><b>Maderas duras</b>: de hoja caduca, de crecimiento lento &mdash;roble, haya, nogal&mdash;.
+          <li><b>Maderas blandas</b>: de <b>con&iacute;feras</b>, que crecen r&aacute;pido &mdash;pino,
+              abeto&mdash;. Baratas, ligeras, f&aacute;ciles de trabajar. Es lo que hay en el taller del instituto.</li>
+          <li><b>Maderas duras</b>: de <b>frondosas</b>, de crecimiento lento &mdash;roble, haya, nogal&mdash;.
               Caras, pesadas, resistentes y bonitas. Muebles y suelos.</li>
         </ul>
         <p>Cuidado con los nombres: <b>la balsa es una madera dura</b> aunque se corte con la u&ntilde;a. La
@@ -905,7 +905,7 @@ S.append(dict(
            entonces&mdash; a quien encontrara un sustituto del <b>marfil</b> para las bolas. Se estaban
            quedando sin elefantes, y con ellos sin negocio.</p>
         <p>John Wesley Hyatt gan&oacute; el premio en 1869 con el <b>celuloide</b>. Funcionaba, aunque con un
-           inconveniente memorable: era tan inflamable que, seg&uacute;n contaban los duenos de los salones, a
+           inconveniente memorable: era tan inflamable que, seg&uacute;n contaban los due&ntilde;os de los salones, a
            veces el choque de dos bolas provocaba un peque&ntilde;o estallido y los vaqueros sacaban la pistola.</p>
         <p>El primer pl&aacute;stico totalmente sint&eacute;tico lleg&oacute; en 1907: la <b>baquelita</b>, de Leo Baekeland.
            Y merece la pena quedarse con la iron&iacute;a: <b>los pl&aacute;sticos se inventaron para dejar de matar
@@ -1093,8 +1093,8 @@ S.append(dict(
       </ol>
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
-        Eso es media decisi&oacute;n. Falta la otra mitad de la decisi&oacute;n: <b>qu&eacute; pasa con &eacute;l cuando el
-        objeto se tira</b>. Y el test del tema.
+        Elegir un material por sus propiedades es media decisi&oacute;n. Falta la otra mitad: <b>qu&eacute; pasa con &eacute;l
+        cuando el objeto se tira</b>. Y el test del tema.
       </div>
   """))))
 
@@ -1188,7 +1188,7 @@ S.append(dict(
               + 'los recursos parec&iacute;an infinitos y la basura, invisible. Pulsa cada fase.';
           else
             pie.innerHTML = 'El modelo <b>circular</b>: lo que se tira vuelve a entrar como materia prima. '
-              + 'No es reciclar por gusto: es que <b>extraer sale car&iacute;simo</b>, como viste con el aluminio.';
+              + 'No es reciclar por gusto: es que <b>extraer y fabricar desde cero sale car&iacute;simo</b>, y ah&iacute; se gasta la mayor parte de la energ&iacute;a.';
         }
         svg.addEventListener('click', function(e){
           var g = e.target.closest('.fase'); if(!g) return;
@@ -1239,7 +1239,7 @@ S.append(dict(
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Elegid un objeto cotidiano: una botella de agua, un boli, unos auriculares, un m&oacute;vil.</p>
           <ol class="pasos">
-            <li>Reconstruid su <b>ciclo de vida completo</b>, las cinco fases, con todo el detalle que pod&aacute;is.</li>
+            <li>Reconstruid su <b>ciclo de vida completo</b>, las cinco fases &mdash;extraer, fabricar, transportar, usar y tirar&mdash;, con todo el detalle que pod&aacute;is.</li>
             <li>Se&ntilde;alad en qu&eacute; fase se gasta <b>m&aacute;s energ&iacute;a</b> y en cu&aacute;l se genera m&aacute;s residuo.</li>
             <li>Proponed <b>una mejora por cada erre</b>: una para reducir, una para reutilizar y una para reciclar.</li>
             <li>Decid cu&aacute;l de las tres tendr&iacute;a <b>m&aacute;s efecto</b> y por qu&eacute;.</li>
@@ -1278,8 +1278,8 @@ S.append(dict(
       </ol>
       <div class="nota">
         <span class="n-tag">Tema terminado</span>
-        Sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es conseguir que
-        eso que has elegido <b>se sostenga</b>: las estructuras.
+        Sabes qu&eacute; construir, c&oacute;mo dibujarlo y <b>de qu&eacute; hacerlo</b>. Lo siguiente es mirar de cerca
+        cada familia de materiales, empezando por la m&aacute;s antigua: <b>la madera</b>.
       </div>
 
       <figure class="foto">

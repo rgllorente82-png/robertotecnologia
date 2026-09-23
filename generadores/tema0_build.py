@@ -219,8 +219,7 @@ def cuerpo(k, n):
             </g>
           </svg>
         </div>
-        <div class="pie">Es el mismo bucle para una piedra tallada y para un cohete. Y es exactamente lo que
-          vas a hacer t&uacute; en cada proyecto de este curso.</div>
+        <div class="pie">Es el mismo bucle para una piedra tallada y para un cohete.</div>
       </div>
       <p>Ese bucle lleva funcionando dos millones y medio de a&ntilde;os, y es exactamente lo que vas a hacer t&uacute;
          este curso en cada proyecto.</p>

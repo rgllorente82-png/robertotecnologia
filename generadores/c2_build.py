@@ -1417,7 +1417,7 @@ S5_TEORIA = u'''
         <p style="font-size:17px;text-align:center;margin:10px 0">
            <b>&empty; &uacute;til = D &middot; cos(180&deg; / N)</b></p>
         <p>Con D = 8,30 y N = 16 salen <b>8,14 mm</b>: de las tres d&eacute;cimas de holgura que
-           pediste te quedan <b>1,4</b>. Con N = 8 salen 7,67, y el eje de 8 <b>ya no pasa</b>. El
+           pediste te quedan <b>0,14 mm</b> (1,4 d&eacute;cimas). Con N = 8 salen 7,67, y el eje de 8 <b>ya no pasa</b>. El
            agujero es el mismo en el modelo; lo que ha cambiado es c&oacute;mo se ha guardado.</p>
         <p>De ah&iacute; salen las dos costumbres del taller: <b>subir la resoluci&oacute;n</b> al
            exportar (en Tinkercad, exportar en &laquo;alta calidad&raquo;) y <b>agrandar los agujeros
@@ -2176,7 +2176,7 @@ S8_TEORIA = u'''
               apreciar del orden de <b>diez veces menos</b> que la tolerancia que compruebas.</li>
         </ul>
       </div>
-      <p>Al banco. Es tu soporte, con las seis cotas que sali&oacute;n del modelo de la sesi&oacute;n
+      <p>Al banco. Es tu soporte, con las seis cotas que salieron del modelo de la sesi&oacute;n
          5, fabricado y medido.</p>
 ''' + CONTROL + u'''
       <div class="entender">

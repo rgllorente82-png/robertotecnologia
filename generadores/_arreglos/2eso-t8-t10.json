@@ -1,0 +1,128 @@
+[
+ {
+  "fichero": "2eso/TyD/tema8/index.html",
+  "viejo": "La tensi&oacute;n (empu&aacute;n), la intensidad",
+  "nuevo": "La tensi&oacute;n (empuj&oacute;n), la intensidad",
+  "motivo": "Errata: «empuán» por «empujón» (pie de la ley de Ohm, S2)."
+ },
+ {
+  "fichero": "2eso/TyD/tema8/index.html",
+  "viejo": "120 &times; 258 = <b>30,9 kg de CO&#8322;</b>",
+  "nuevo": "120 &times; 258 = <b>31,0 kg de CO&#8322;</b>",
+  "motivo": "Redondeo: 120 × 258 g = 30.960 g = 30,96 kg, que redondea a 31,0 kg, no 30,9."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "y los perif&eacute;ricos que permiten entrada y salida.",
+  "nuevo": "y los perif&eacute;ricos de <b>entrada</b> y de <b>salida</b>, que meten y sacan la informaci&oacute;n.",
+  "motivo": "Dice «cinco componentes» y enumeraba cuatro; el SVG dibuja cinco cajas (entrada, CPU, RAM, almacenamiento, salida)."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "a velocidades de gigahertz.",
+  "nuevo": "a un ritmo que se mide en gigahercios.",
+  "motivo": "La página dice «gigahercios», no «gigahertz»."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "el SO alterna entre ellos cada microsegundo (time sharing).",
+  "nuevo": "el SO alterna entre ellos por turnos de unos pocos milisegundos (time sharing).",
+  "motivo": "El pie decía «cada microsegundo»; la S5 de la página y el propio SVG hablan de milisegundos."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "<figcaption>El <b>Sistema Operativo (SO) como repartidor</b>: mientras ves ocho programas funcionando a la vez,",
+  "nuevo": "<figcaption>La RAM no es de un solo programa: en el centro del dibujo, varios programas <b>se reparten</b> la mesa, y por eso con quince pesta&ntilde;as se llena. Quien reparte ese sitio, y tambi&eacute;n los turnos de CPU y los archivos, es el <b>sistema operativo (SO)</b>, que ver&aacute;s en la sesi&oacute;n 5. Mientras ves varios programas funcionando a la vez,",
+  "motivo": "La figura del SO está en la S2 (RAM), no en la S5; se reescribe el principio del pie para que encaje donde está (el SVG dedica su panel central a la memoria) y anuncie la S5. Moverla exige cambiar su ancla en pon_diagramas.py."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "porque los &oacute;rg&oacute;nos internos solo saben decir",
+  "nuevo": "porque los circuitos internos solo saben decir",
+  "motivo": "Errata «órgónos»; el SVG no la lleva."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "1 MB para una foto, 1 GB para una pel&iacute;cula.",
+  "nuevo": "1 MB para una foto peque&ntilde;a, 1 GB para un cuarto de hora de v&iacute;deo.",
+  "motivo": "Contradicción con el SVG de la misma figura (1 MB = foto de baja resolución, 1 GB = 15 minutos de vídeo) y con la S3, que dice que una foto de móvil ocupa unos 4 MB."
+ },
+ {
+  "fichero": "2eso/TyD/tema9/index.html",
+  "viejo": "<b>&iquest;y si hay millones de estas m&aacute;quinas",
+  "nuevo": "<b>&iquest;y si hay miles de millones de estas m&aacute;quinas",
+  "motivo": "Unificar con el cierre del tema, que dice «miles de millones»."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "H&aacute;zlas t&uacute;, no las leas",
+  "nuevo": "Hazlas t&uacute;, no las leas",
+  "motivo": "Errata: «hazlas» no lleva tilde."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "no hay manera de qued&aacute;is antes,",
+  "nuevo": "no hay manera de quedar antes,",
+  "motivo": "Frase rota: «no hay manera de quedáis antes»."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "      <h3>D&oacute;nde vive todo eso: el disco</h3>\n      <p>Un <b>disco duro</b> (HDD) guarda los datos en platos magn&eacute;ticos que giran, con un cabezal\n      que se mueve por encima. Un <b>SSD</b> no tiene piezas m&oacute;viles: guarda en memoria, como un\n      pendrive grande.</p>\n      <table class=\"tabla-ancha\">\n        <thead><tr><th scope=\"col\"></th><th scope=\"col\">Disco duro (HDD)</th><th scope=\"col\">SSD</th></tr></thead>\n        <tbody>\n          <tr><td><b>Velocidad</b></td><td>Lento: hay que esperar a que el plato gire</td><td>Mucho m&aacute;s r&aacute;pido</td></tr>\n          <tr><td><b>Golpes</b></td><td>Se estropea si se cae en marcha</td><td>Aguanta mejor</td></tr>\n          <tr><td><b>Precio por giga</b></td><td>M&aacute;s barato</td><td>M&aacute;s caro</td></tr>\n          <tr><td><b>Ruido</b></td><td>Se oye</td><td>Silencioso</td></tr>\n        </tbody>\n      </table>\n      <p>Por eso un ordenador viejo revive al cambiarle el disco por un SSD, y por eso los\n      servidores donde se guardan copias siguen llevando discos duros: ah&iacute; importa el precio por\n      giga, no la velocidad.</p>\n",
+  "nuevo": "",
+  "motivo": "Bloque HDD/SSD fuera de sitio en la S4 (contraseñas); repite la S2 del tema 9 y nada lo cita."
+ },
+ {
+  "fichero": "generadores/u8_build.py",
+  "viejo": "      <h3>D&oacute;nde vive todo eso: el disco</h3>\n      <p>Un <b>disco duro</b> (HDD) guarda los datos en platos magn&eacute;ticos que giran, con un cabezal\n      que se mueve por encima. Un <b>SSD</b> no tiene piezas m&oacute;viles: guarda en memoria, como un\n      pendrive grande.</p>\n      <table class=\"tabla-ancha\">\n        <thead><tr><th></th><th>Disco duro (HDD)</th><th>SSD</th></tr></thead>\n        <tbody>\n          <tr><td><b>Velocidad</b></td><td>Lento: hay que esperar a que el plato gire</td><td>Mucho m&aacute;s r&aacute;pido</td></tr>\n          <tr><td><b>Golpes</b></td><td>Se estropea si se cae en marcha</td><td>Aguanta mejor</td></tr>\n          <tr><td><b>Precio por giga</b></td><td>M&aacute;s barato</td><td>M&aacute;s caro</td></tr>\n          <tr><td><b>Ruido</b></td><td>Se oye</td><td>Silencioso</td></tr>\n        </tbody>\n      </table>\n      <p>Por eso un ordenador viejo revive al cambiarle el disco por un SSD, y por eso los\n      servidores donde se guardan copias siguen llevando discos duros: ah&iacute; importa el precio por\n      giga, no la velocidad.</p>\n",
+  "nuevo": "",
+  "motivo": "El mismo bloque en el generador (allí la tabla va sin scope=\"col\", por eso otra entrada)."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "El <b>modelo de capas OSI</b> (Open Systems Interconnection): siete niveles que van desde los cables f&iacute;sicos en la base hasta la aplicaci&oacute;n que usa el usuario en la c&uacute;spide. Cada capa tiene sus propios protocolos (WiFi, TCP, HTTP, etc.) que hablan con su equivalente en el otro lado. Es la <b>gram&aacute;tica de Internet</b>: c&oacute;mo un m&oacute;vil en Madrid consigue hablar con un servidor en Silicon Valley sin que les importe c&oacute;mo est&aacute;n conectadas las m&aacute;quinas.",
+  "nuevo": "Internet va por <b>capas</b>, una encima de otra, y cada una solo habla con la suya del otro lado. Este dibujo es el modelo que las ordena (se llama <b>OSI</b> y cuenta siete), y no hace falta aprend&eacute;rselo. Lo que ves en esta sesi&oacute;n est&aacute; en las de abajo: los <b>cables</b> y el WiFi, y encima la de <b>red</b>, la de la <b>direcci&oacute;n IP</b> y los <b>routers</b>, que decide por d&oacute;nde va cada paquete. El navegador, arriba del todo, no necesita saber c&oacute;mo est&aacute;n conectadas las m&aacute;quinas.",
+  "motivo": "El pie explicaba el modelo OSI, que la página no trata; se reescribe para colgarlo de lo que sí cuenta (paquetes, IP, routers). El SVG solo muestra OSI."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "<b>HTTP vs HTTPS: el candado protege cifrado</b>.",
+  "nuevo": "<b>HTTP vs HTTPS: qu&eacute; protege el candado</b>.",
+  "motivo": "Frase rota; se usa el título del propio SVG."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "El candado 🔒 en el navegador significa que está activado.",
+  "nuevo": "El candado del navegador significa que está activado.",
+  "motivo": "En la web no se usan emojis."
+ },
+ {
+  "fichero": "img/http-vs-https-security.svg",
+  "viejo": ">⚠ PELIGRO: datos visibles<",
+  "nuevo": ">PELIGRO: datos visibles<",
+  "motivo": "Emoji dentro de un rótulo del SVG del candado (sin emojis en la web)."
+ },
+ {
+  "fichero": "img/http-vs-https-security.svg",
+  "viejo": ">🔒 SEGURO: datos cifrados<",
+  "nuevo": ">SEGURO: datos cifrados<",
+  "motivo": "Emoji dentro de un rótulo del SVG del candado (sin emojis en la web)."
+ },
+ {
+  "fichero": "img/http-vs-https-security.svg",
+  "viejo": ">🔐 KhD9%jFk<",
+  "nuevo": ">KhD9%jFk<",
+  "motivo": "Emoji dentro de un rótulo del SVG del candado (sin emojis en la web)."
+ },
+ {
+  "fichero": "img/http-vs-https-security.svg",
+  "viejo": "con candado 🔒 = CON cifrado",
+  "nuevo": "con candado = CON cifrado",
+  "motivo": "Emoji dentro de un rótulo del SVG del candado (sin emojis en la web)."
+ },
+ {
+  "fichero": "img/http-vs-https-security.svg",
+  "viejo": ">⚠️ IMPORTANTE:<",
+  "nuevo": ">IMPORTANTE:<",
+  "motivo": "Emoji dentro de un rótulo del SVG del candado (sin emojis en la web)."
+ }
+]

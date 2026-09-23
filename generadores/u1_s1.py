@@ -151,8 +151,8 @@ S1 = u'''    <section class="bloque">
 
       <figure class="foto">
         <img src="../../../img/technological-process-steps.svg" width="1000" height="700" loading="lazy"
-             alt="El proceso tecnol&oacute;gico: 7 pasos desde definir el problema hasta documentar">
-        <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>. Cada paso produce algo: el 1 produce un problema claro, el 2 produce una lista de requisitos comprobables, el 3 un dise&ntilde;o concreto. El proceso no es lineal: cuando pruebas en el paso 5, a menudo tienes que volver al 6 (mejorar) o incluso al 3 (redise&ntilde;ar). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.
+             alt="El proceso tecnol&oacute;gico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atr&aacute;s desde evaluar hasta el dise&ntilde;o">
+        <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>: detectar la necesidad, analizar el problema, buscar ideas, elegir y dise&ntilde;ar, planificar, construir y evaluar. Cada paso produce algo: el 1, un problema claro; el 2, una lista de requisitos comprobables; el 4, un dise&ntilde;o concreto. El proceso no es lineal: si al evaluar, en el paso 7, no se cumplen los requisitos, se vuelve atr&aacute;s, casi siempre al dise&ntilde;o (paso 4). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.
           <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
         </figcaption>
       </figure>
@@ -360,9 +360,9 @@ S1 = u'''    <section class="bloque">
 
       <figure class="foto">
         <img src="../../../img/technological_process_workflow.svg" width="1000" height="600" loading="lazy"
-             alt="Diagrama de flujo del proceso tecnológico: 7 pasos desde detectar hasta evaluar, con retroalimentación">
-        <figcaption>El <b>proceso tecnológico</b> como flujo: detectar, analizar, diseñar, planificar, construir, probar, evaluar.
-          La flecha de retorno que ves del paso 7 al paso 2 no es un error: es lo que ocurre cuando no cumple los requisitos.</figcaption>
+             alt="Diagrama de flujo del proceso tecnológico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atrás desde evaluar hasta el diseño">
+        <figcaption>El <b>proceso tecnológico</b> como flujo: detectar la necesidad, analizar el problema, buscar ideas, elegir y diseñar, planificar, construir y evaluar.
+          La flecha que vuelve del paso 7 al 4 no es un error: es lo que ocurre cuando no cumple los requisitos del paso 2.</figcaption>
       </figure>
 
     </section>

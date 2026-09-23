@@ -1,0 +1,140 @@
+[
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "A medio abrir puede quedarse con 2,5 V, y eso\n           ya son 300 mW dentro",
+  "nuevo": "A medio abrir puede quedarse con 2,5 V, y 2,5 V por\n           250 mA son 625 mW dentro",
+  "motivo": "Con los 250 mA del mismo parrafo, 2,5 V dan 625 mW, no 300 mW."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "Con el vigilante, a los tres\n              segundos para y",
+  "nuevo": "Con el vigilante, en cuanto pasa\n              un segundo sin acabar el paso, para y",
+  "motivo": "El codigo (millis() - tPaso > 1000) y la escena (T_VIGILANTE = 1.0 s) paran a 1 s, no a 3 s."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "Parejas &middot; 20 min</span>\n        </div>\n        <div class=\"ficha-cuerpo\">\n          <h4>Primera parte &middot; leer (6 min)</h4>",
+  "nuevo": "Parejas &middot; 15 min</span>\n        </div>\n        <div class=\"ficha-cuerpo\">\n          <h4>Primera parte &middot; leer (5 min)</h4>",
+  "motivo": "S4: el minutado (10+20+15+15=60) y el rotulo dan 15 min de practica; la ficha decia 20 (6+14)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "<h4>Segunda parte &middot; dibujar (14 min)</h4>",
+  "nuevo": "<h4>Segunda parte &middot; dibujar (10 min)</h4>",
+  "motivo": "S4: partes de la actividad reajustadas a 15 min (5+10)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "del tama&ntilde;o de unas\n         mic&oacute;nes,",
+  "nuevo": "del tama&ntilde;o de unas\n         micras,",
+  "motivo": "Errata: micones -> micras."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "jusfif&iacute;calo",
+  "nuevo": "justif&iacute;calo",
+  "motivo": "Errata."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema5/index.html",
+  "viejo": "o pudi&eacute;ndose la pila",
+  "nuevo": "o gast&aacute;ndose la pila",
+  "motivo": "Errata: por el sentido, la pila se gasta."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema6/index.html",
+  "viejo": "Parejas &middot; 20 min</span>\n        </div>\n        <div class=\"ficha-cuerpo\">\n          <h4>Primera parte &middot; entrenar (8 min)</h4>",
+  "nuevo": "Parejas &middot; 15 min</span>\n        </div>\n        <div class=\"ficha-cuerpo\">\n          <h4>Primera parte &middot; entrenar (6 min)</h4>",
+  "motivo": "S4: el minutado (10+25+15+10=60) y el rotulo dan 15 min de practica; la ficha decia 20 (8+4+8)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema6/index.html",
+  "viejo": "<h4>Segunda parte &middot; el l&iacute;mite (4 min)</h4>",
+  "nuevo": "<h4>Segunda parte &middot; el l&iacute;mite (3 min)</h4>",
+  "motivo": "S4: partes reajustadas a 15 min (6+3+6)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema6/index.html",
+  "viejo": "<h4>Tercera parte &middot; el coste del fallo (8 min)</h4>",
+  "nuevo": "<h4>Tercera parte &middot; el coste del fallo (6 min)</h4>",
+  "motivo": "S4: partes reajustadas a 15 min (6+3+6)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema6/index.html",
+  "viejo": "treinta\n        de cada una de cuatro jornadas&mdash;",
+  "nuevo": "treinta\n        de cada una de cuatro jornadas, cada jornada en una maceta distinta&mdash;",
+  "motivo": "S7: en la escena cada jornada es una maceta (jors: maceta 1..4; 'la 4.a jornada es OTRA maceta'); se dice desde el encargo para que cuadre con 'tres macetas' y 'una cuarta maceta' del recuadro y el cierre."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema6/index.html",
+  "viejo": "a <b>por jornada</b> y no toques",
+  "nuevo": "a <b>por jornada</b> (cada jornada es una maceta) y no toques",
+  "motivo": "S7: misma unificacion jornada = maceta junto al mando de la escena."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema6/index.html",
+  "viejo": "Un registro por\n              segundo se la carga en <b>un d&iacute;a</b>.",
+  "nuevo": "Un registro por\n              segundo, si se escribe siempre en la misma celda, se la carga en algo m&aacute;s de\n              <b>un d&iacute;a</b>.",
+  "motivo": "S8: solo es cierto escribiendo siempre en la misma celda (86.400 escrituras al dia frente a 100.000); con los 128 registros en circulo cada celda se escribe mucho menos."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema4/index.html",
+  "viejo": "<p>Y de ah&iacute; sale la <b>resoluci&oacute;n</b>: 5 / 1023 = <b>0,0049&nbsp;V</b>, casi\n           cinco mil&eacute;simas de voltio.",
+  "nuevo": "<p>La <b>resoluci&oacute;n</b> (lo que vale cada escal&oacute;n) sale de repartir 5&nbsp;V en\n           1024 escalones: 5 / 1024 = <b>0,00488&nbsp;V</b>, casi cinco mil&eacute;simas de voltio.\n           (Para volver a voltios se divide entre 1023, para que el 1023 caiga justo en 5&nbsp;V;\n           las dos cuentas se diferencian en un 0,1&nbsp;%.)",
+  "motivo": "Coherencia con tema5 y tema6: el escalon es Vref/1024 = 4,88 mV; la vuelta a voltios, /1023 (como explica tema6 S2)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema4/index.html",
+  "viejo": "<p>5 / 1023 = <b>0,0049&nbsp;V</b>, unos 5&nbsp;mV.",
+  "nuevo": "<p>5 / 1024 = <b>0,00488&nbsp;V</b>, unos 5&nbsp;mV.",
+  "motivo": "Misma coherencia en la respuesta del cierre de S2."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema4/index.html",
+  "viejo": "Con la palanca de clase 1, aplicas menos fuerza pero recorres m&aacute;s distancia.",
+  "nuevo": "En la palanca de clase 1 el fulcro est&aacute; entre la fuerza y la carga: si est&aacute; m&aacute;s cerca de la carga, aplicas menos fuerza pero recorres m&aacute;s distancia; si est&aacute; m&aacute;s cerca de tu mano, es al rev&eacute;s.",
+  "motivo": "En primer genero la ganancia depende de donde este el fulcro; no siempre se aplica menos fuerza."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema4/index.html",
+  "viejo": "cl&aacute;vais la sonda",
+  "nuevo": "clav&aacute;is la sonda",
+  "motivo": "Errata de tilde."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema4/index.html",
+  "viejo": "&iquest;os la juga&iacute;s?",
+  "nuevo": "&iquest;os la jug&aacute;is?",
+  "motivo": "Errata de tilde."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema4/index.html",
+  "viejo": "qu&eacute; move&iacute;s.",
+  "nuevo": "qu&eacute; mov&eacute;is.",
+  "motivo": "Errata de tilde."
+ },
+ {
+  "fichero": "img/mechanical-advantage-levers.svg",
+  "viejo": "0.75m</text>\n\n    <line x1=\"110\" y1=\"380\" x2=\"190\" y2=\"380\" stroke=\"#666\" stroke-width=\"1\" stroke-dasharray=\"3,3\"/>\n    <text x=\"150\" y=\"375\" class=\"label\" font-size=\"8\" fill=\"#666\">1m</text>",
+  "nuevo": "0.25m</text>\n\n    <line x1=\"110\" y1=\"380\" x2=\"190\" y2=\"380\" stroke=\"#666\" stroke-width=\"1\" stroke-dasharray=\"3,3\"/>\n    <text x=\"150\" y=\"375\" class=\"label\" font-size=\"8\" fill=\"#666\">0.75m</text>",
+  "motivo": "Clase 2 del dibujo: con 0,75 m + 1 m el brazo de fuerza es 1,75 m y la ventaja 1,75/0,75 = 2,3, no 4:1 con 25 kg. Con 0,25 m y 0,75 m, 1/0,25 = 4:1 y 25 kg x 1 m = 100 kg x 0,25 m."
+ },
+ {
+  "fichero": "img/mechanical-advantage-levers.svg",
+  "viejo": "(Fulcro en el medio: Tenazas, Balancín)",
+  "nuevo": "(Fulcro entre fuerza y carga: Tenazas, Balancín)",
+  "motivo": "El dibujo pone el fulcro a 1 m y 0,5 m: no esta en el medio; lo que define la clase 1 es estar entre fuerza y carga."
+ },
+ {
+  "fichero": "generadores/c5_build.py",
+  "viejo": "u'B.4'], u'Parejas &middot; 20 min', u'''\n          <h4>Primera parte &middot; leer (6 min)</h4>",
+  "nuevo": "u'B.4'], u'Parejas &middot; 15 min', u'''\n          <h4>Primera parte &middot; leer (5 min)</h4>",
+  "motivo": "Generador de tema5 S4: misma correccion del minutado (15 min, 5+10)."
+ },
+ {
+  "fichero": "generadores/c6_build.py",
+  "viejo": "u'C.4'], u'Parejas &middot; 20 min', u'''\n          <h4>Primera parte &middot; entrenar (8 min)</h4>",
+  "nuevo": "u'C.4'], u'Parejas &middot; 15 min', u'''\n          <h4>Primera parte &middot; entrenar (6 min)</h4>",
+  "motivo": "Generador de tema6 S4: misma correccion del minutado (15 min, 6+3+6)."
+ }
+]

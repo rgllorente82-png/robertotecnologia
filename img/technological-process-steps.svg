@@ -23,8 +23,8 @@
   <g>
     <circle cx="80" cy="140" r="45" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
     <text x="80" y="135" class="step-label" fill="#fff">1</text>
-    <text x="80" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Definir</text>
-    <text x="80" y="220" class="label" font-size="9" text-anchor="middle">el problema</text>
+    <text x="80" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Detectar</text>
+    <text x="80" y="220" class="label" font-size="9" text-anchor="middle">la necesidad</text>
   </g>
 
   <!-- Arrow 1-2 -->
@@ -34,8 +34,8 @@
   <g>
     <circle cx="235" cy="140" r="45" fill="#f39c12" stroke="#d68910" stroke-width="2"/>
     <text x="235" y="135" class="step-label" fill="#fff">2</text>
-    <text x="235" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Especificar</text>
-    <text x="235" y="220" class="label" font-size="9" text-anchor="middle">requisitos</text>
+    <text x="235" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Analizar</text>
+    <text x="235" y="220" class="label" font-size="9" text-anchor="middle">el problema</text>
   </g>
 
   <!-- Arrow 2-3 -->
@@ -45,8 +45,8 @@
   <g>
     <circle cx="390" cy="140" r="45" fill="#3498db" stroke="#1a73e8" stroke-width="2"/>
     <text x="390" y="135" class="step-label" fill="#fff">3</text>
-    <text x="390" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Diseñar</text>
-    <text x="390" y="220" class="label" font-size="9" text-anchor="middle">la solución</text>
+    <text x="390" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Buscar</text>
+    <text x="390" y="220" class="label" font-size="9" text-anchor="middle">ideas</text>
   </g>
 
   <!-- Arrow 3-4 -->
@@ -56,8 +56,8 @@
   <g>
     <circle cx="545" cy="140" r="45" fill="#9b59b6" stroke="#7d3c98" stroke-width="2"/>
     <text x="545" y="135" class="step-label" fill="#fff">4</text>
-    <text x="545" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Construir</text>
-    <text x="545" y="220" class="label" font-size="9" text-anchor="middle">el prototipo</text>
+    <text x="545" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Elegir</text>
+    <text x="545" y="220" class="label" font-size="9" text-anchor="middle">y diseñar</text>
   </g>
 
   <!-- Arrow 4-5 -->
@@ -67,8 +67,8 @@
   <g>
     <circle cx="700" cy="140" r="45" fill="#27ae60" stroke="#229954" stroke-width="2"/>
     <text x="700" y="135" class="step-label" fill="#fff">5</text>
-    <text x="700" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Probar</text>
-    <text x="700" y="220" class="label" font-size="9" text-anchor="middle">y validar</text>
+    <text x="700" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Planificar</text>
+    <text x="700" y="220" class="label" font-size="9" text-anchor="middle">el trabajo</text>
   </g>
 
   <!-- Arrow 5-6 -->
@@ -78,8 +78,8 @@
   <g>
     <circle cx="855" cy="140" r="45" fill="#16a085" stroke="#117a65" stroke-width="2"/>
     <text x="855" y="135" class="step-label" fill="#fff">6</text>
-    <text x="855" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Mejorar</text>
-    <text x="855" y="220" class="label" font-size="9" text-anchor="middle">el diseño</text>
+    <text x="855" y="205" class="label" font-size="10" text-anchor="middle" font-weight="bold">Construir</text>
+    <text x="855" y="220" class="label" font-size="9" text-anchor="middle">el objeto</text>
   </g>
 
   <!-- Arrow 6-7 (downward) -->
@@ -89,13 +89,13 @@
   <g>
     <circle cx="855" cy="305" r="45" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
     <text x="855" y="300" class="step-label" fill="#fff">7</text>
-    <text x="855" y="372" class="label" style="font-size: 10px; text-anchor: middle" font-weight="bold">Documentar</text>
-    <text x="855" y="388" class="label" style="font-size: 9px; text-anchor: middle">y comunicar</text>
+    <text x="855" y="372" class="label" style="font-size: 10px; text-anchor: middle" font-weight="bold">Evaluar</text>
+    <text x="855" y="388" class="label" style="font-size: 9px; text-anchor: middle">¿cumple?</text>
   </g>
 
-  <!-- Feedback loop from 6 to 5 -->
-  <path d="M 810 140 Q 755 110 745 140" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowdark)" stroke-dasharray="5,3"/>
-  <text x="742" y="86" class="label" style="font-size: 9px" fill="#e74c3c">retroalimentación</text>
+  <!-- Feedback loop from 7 (evaluar) back to 4 (disenar) -->
+  <path d="M 810 305 L 545 305 L 545 234" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowdark)" stroke-dasharray="5,3"/>
+  <text x="570" y="296" class="label" style="font-size: 9px" fill="#e74c3c">si no cumple, se vuelve al diseño</text>
 
   <!-- BOTTOM: Details -->
   <g>
@@ -104,30 +104,30 @@
     <text x="500" y="440" class="title" font-size="13">Qué se hace en cada paso</text>
 
     <g font-family="Arial" font-size="10.5" fill="#2c3e50" text-anchor="start">
-      <text x="60" y="470"><tspan font-weight="bold">1. Definir el problema</tspan></text>
-      <text x="80" y="488">¿Qué necesito construir? ¿Para quién? ¿Por qué no existe ya?</text>
+      <text x="60" y="470"><tspan font-weight="bold">1. Detectar la necesidad</tspan></text>
+      <text x="80" y="488">Qué falta y a quién le falta.</text>
 
-      <text x="60" y="510"><tspan font-weight="bold">2. Especificar requisitos</tspan></text>
-      <text x="80" y="528">Lo que DEBE cumplir: tamaño, peso, materiales, resistencia y presupuesto.</text>
+      <text x="60" y="510"><tspan font-weight="bold">2. Analizar el problema</tspan></text>
+      <text x="80" y="528">Qué condiciones tiene que cumplir la solución: los requisitos.</text>
 
-      <text x="60" y="550"><tspan font-weight="bold">3. Diseñar la solución</tspan></text>
-      <text x="80" y="568">Croquis acotados, despieces, matriz de decisión de materiales, hoja de proceso, Gantt.</text>
+      <text x="60" y="550"><tspan font-weight="bold">3. Buscar ideas</tspan></text>
+      <text x="80" y="568">Varias, no una. Cuantas más, mejor la elegida.</text>
 
-      <text x="60" y="590"><tspan font-weight="bold">4. Construir el prototipo</tspan></text>
-      <text x="80" y="608">Ejecutar el plan: medir, cortar, ensamblar, probar componentes individuales.</text>
+      <text x="60" y="590"><tspan font-weight="bold">4. Elegir y diseñar</tspan></text>
+      <text x="80" y="608">Escoger una con un criterio y concretarla: medidas, materiales, piezas, dibujos.</text>
 
-      <text x="60" y="630"><tspan font-weight="bold">5. Probar y validar</tspan></text>
-      <text x="80" y="648">¿Cumple los requisitos? ¿Funciona bajo condiciones normales y extremas?</text>
+      <text x="60" y="630"><tspan font-weight="bold">5. Planificar</tspan></text>
+      <text x="80" y="648">Quién hace qué, con qué y en cuánto tiempo.</text>
 
-      <text x="500" y="470"><tspan font-weight="bold">6. Mejorar el diseño</tspan></text>
-      <text x="520" y="488">Si algo falla: vuelves al paso anterior, arreglas y pruebas de nuevo.</text>
+      <text x="500" y="470"><tspan font-weight="bold">6. Construir</tspan></text>
+      <text x="520" y="488">Fabricar lo diseñado, siguiendo el plan.</text>
 
-      <text x="500" y="510"><tspan font-weight="bold">7. Documentar y comunicar</tspan></text>
-      <text x="520" y="528">Memoría del proyecto: cómo lo hiciste, qué aprendíste, cómo se usa.</text>
+      <text x="500" y="510"><tspan font-weight="bold">7. Evaluar</tspan></text>
+      <text x="520" y="528">¿Cumple los requisitos del paso 2? Si no, se vuelve atrás.</text>
 
       <text x="500" y="560" class="label" font-size="11" fill="#e74c3c" font-weight="bold">Esto no es lineal:</text>
-      <text x="520" y="580">La retroalimentación de la prueba (5) vuelve a mejorar (6), no siempre a diseñar.</text>
-      <text x="520" y="598">Muchos ciclos cortos: diseña poco, construye poco, prueba, mejora, repite.</text>
+      <text x="520" y="580">Casi siempre se vuelve atrás, y casi siempre al diseño (4).</text>
+      <text x="520" y="598">Volver atrás no es fracasar: es cómo funciona.</text>
       <text x="520" y="616">Es lo que hace un ingeniero: itera hasta que funciona.</text>
     </g>
   </g>

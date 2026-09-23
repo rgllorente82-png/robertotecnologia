@@ -436,8 +436,10 @@ S2_TEORIA = u'''
         <p>Para pasar una lectura a voltios:</p>
         <p style="font-size:17px;text-align:center;margin:10px 0">
            <b>V = lectura &middot; 5 / 1023</b></p>
-        <p>Y de ah&iacute; sale la <b>resoluci&oacute;n</b>: 5 / 1023 = <b>0,0049&nbsp;V</b>, casi
-           cinco mil&eacute;simas de voltio. Lo que est&eacute; por debajo de eso, el Arduino
+        <p>La <b>resoluci&oacute;n</b> (lo que vale cada escal&oacute;n) sale de repartir 5&nbsp;V en
+           1024 escalones: 5 / 1024 = <b>0,00488&nbsp;V</b>, casi cinco mil&eacute;simas de voltio.
+           (Para volver a voltios se divide entre 1023, para que el 1023 caiga justo en 5&nbsp;V;
+           las dos cuentas se diferencian en un 0,1&nbsp;%.) Lo que est&eacute; por debajo de eso, el Arduino
            <b>no lo ve</b>. No es un defecto de la placa: es que un n&uacute;mero entero no puede
            tener infinitos escalones.</p>
       </div>
@@ -540,7 +542,7 @@ S2_CIERRE = u'''
           u'error = 450 &minus; 484 = <b>&minus;34</b>. Negativo, o sea que hay <b>m&aacute;s</b> '
           u'humedad de la pedida: no se riega.</p>') + pregunta(
           u'&iquest;Qu&eacute; resoluci&oacute;n tiene la entrada anal&oacute;gica de un Arduino Uno?',
-          u'<p>5 / 1023 = <b>0,0049&nbsp;V</b>, unos 5&nbsp;mV. Hay 1024 valores posibles (del 0 al '
+          u'<p>5 / 1024 = <b>0,00488&nbsp;V</b>, unos 5&nbsp;mV. Hay 1024 valores posibles (del 0 al '
           u'1023) repartidos entre 0 y 5&nbsp;V.</p>') + pregunta(
           u'&iquest;Qu&eacute; pasa si te equivocas en el <b>signo</b> del error?',
           u'<p>Que el sistema corrige al rev&eacute;s y cada correcci&oacute;n empeora las cosas: '

@@ -18,88 +18,84 @@
   <!-- Row 1 -->
   <g id="step-1">
     <rect class="step-box" x="40" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="105" y="105">1. Detectar</text>
-    <text class="step-desc" x="50" y="120">el problema</text>
-    <text class="step-desc" x="50" y="135">o necesidad</text>
-    <text class="step-desc" x="50" y="150">que se quiere</text>
-    <text class="step-desc" x="50" y="165">resolver</text>
+    <text class="step-title" x="105" y="105" style="text-anchor: middle">1. Detectar</text>
+    <text class="step-desc" x="50" y="120">la necesidad:</text>
+    <text class="step-desc" x="50" y="135">qué falta</text>
+    <text class="step-desc" x="50" y="150">y a quién</text>
+    <text class="step-desc" x="50" y="165">le falta</text>
   </g>
 
   <path class="arrow" d="M 170 130 L 220 130"/>
 
   <g id="step-2">
     <rect class="step-box" x="220" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="285" y="105">2. Analizar</text>
-    <text class="step-desc" x="230" y="120">¿Cómo es?</text>
-    <text class="step-desc" x="230" y="135">¿Qué tiene?</text>
-    <text class="step-desc" x="230" y="150">¿Para qué</text>
-    <text class="step-desc" x="230" y="165">sirve?</text>
+    <text class="step-title" x="285" y="105" style="text-anchor: middle">2. Analizar</text>
+    <text class="step-desc" x="230" y="120">el problema:</text>
+    <text class="step-desc" x="230" y="135">qué tiene que</text>
+    <text class="step-desc" x="230" y="150">cumplir</text>
+    <text class="step-desc" x="230" y="165">(requisitos)</text>
   </g>
 
   <path class="arrow" d="M 350 130 L 400 130"/>
 
   <g id="step-3">
     <rect class="step-box" x="400" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="465" y="105">3. Diseñar</text>
-    <text class="step-desc" x="410" y="120">la solución:</text>
-    <text class="step-desc" x="410" y="135">croquis, planos,</text>
-    <text class="step-desc" x="410" y="150">lista de</text>
-    <text class="step-desc" x="410" y="165">materiales</text>
+    <text class="step-title" x="465" y="105" style="text-anchor: middle; font-size: 12px">3. Buscar ideas</text>
+    <text class="step-desc" x="410" y="120">varias, no una:</text>
+    <text class="step-desc" x="410" y="135">cuantas más,</text>
+    <text class="step-desc" x="410" y="150">mejor la</text>
+    <text class="step-desc" x="410" y="165">elegida</text>
   </g>
 
   <path class="arrow" d="M 530 130 L 580 130"/>
 
   <g id="step-4">
     <rect class="step-box" x="580" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="645" y="105" style="text-anchor: middle">4. Planificar</text>
-    <text class="step-desc" x="590" y="120">pasos de</text>
-    <text class="step-desc" x="590" y="135">trabajo, tiempo,</text>
-    <text class="step-desc" x="590" y="150">recursos</text>
-    <text class="step-desc" x="590" y="165">(Gantt)</text>
+    <text class="step-title" x="645" y="105" style="text-anchor: middle; font-size: 12px">4. Elegir y diseñar</text>
+    <text class="step-desc" x="590" y="120">con un criterio;</text>
+    <text class="step-desc" x="590" y="135">medidas,</text>
+    <text class="step-desc" x="590" y="150">materiales,</text>
+    <text class="step-desc" x="590" y="165">piezas, dibujos</text>
   </g>
 
   <path class="arrow" d="M 710 130 L 760 130"/>
 
   <g id="step-5">
     <rect class="step-box" x="760" y="80" width="130" height="100" rx="5"/>
-    <text class="step-title" x="825" y="105" style="text-anchor: middle">5. Construir</text>
-    <text class="step-desc" x="770" y="120">seguir el</text>
-    <text class="step-desc" x="770" y="135">proceso:</text>
-    <text class="step-desc" x="770" y="150">herramientas,</text>
-    <text class="step-desc" x="770" y="165">técnicas</text>
+    <text class="step-title" x="825" y="105" style="text-anchor: middle">5. Planificar</text>
+    <text class="step-desc" x="770" y="120">quién hace qué,</text>
+    <text class="step-desc" x="770" y="135">con qué y en</text>
+    <text class="step-desc" x="770" y="150">cuánto tiempo</text>
+    <text class="step-desc" x="770" y="165">(Gantt)</text>
   </g>
 
-  <!-- Row 2 arrows -->
-  <path class="arrow" d="M 825 80 L 825 20 L 465 20 L 465 80"/>
+  <!-- Row 2 arrows: del 5 al 6 -->
+  <path class="arrow" d="M 825 180 L 825 200 L 285 200 L 285 218"/>
 
   <!-- Row 3 -->
   <g id="step-6">
     <rect class="step-box" x="220" y="220" width="130" height="100" rx="5"/>
-    <text class="step-title" x="285" y="245">6. Probar</text>
-    <text class="step-desc" x="230" y="260">¿Funciona?</text>
-    <text class="step-desc" x="230" y="275">¿Cumple los</text>
-    <text class="step-desc" x="230" y="290">requisitos?</text>
-    <text class="step-desc" x="230" y="305">¿Es seguro?</text>
+    <text class="step-title" x="285" y="245" style="text-anchor: middle">6. Construir</text>
+    <text class="step-desc" x="230" y="260">siguiendo</text>
+    <text class="step-desc" x="230" y="275">el plan:</text>
+    <text class="step-desc" x="230" y="290">herramientas,</text>
+    <text class="step-desc" x="230" y="305">técnicas</text>
   </g>
 
   <path class="arrow" d="M 350 270 L 400 270"/>
 
   <g id="step-7">
     <rect class="step-box" x="400" y="220" width="130" height="100" rx="5"/>
-    <text class="step-title" x="465" y="245">7. Evaluar</text>
-    <text class="step-desc" x="410" y="260">¿Qué salió bien?</text>
-    <text class="step-desc" x="410" y="275">¿Qué mejorar?</text>
-    <text class="step-desc" x="410" y="290">¿Impacto</text>
-    <text class="step-desc" x="410" y="305">ambiental?</text>
+    <text class="step-title" x="465" y="245" style="text-anchor: middle">7. Evaluar</text>
+    <text class="step-desc" x="410" y="260">¿Cumple los</text>
+    <text class="step-desc" x="410" y="275">requisitos</text>
+    <text class="step-desc" x="410" y="290">del paso 2?</text>
+    <text class="step-desc" x="410" y="305">Si no, atrás</text>
   </g>
 
-  <!-- Feedback loop -->
-  <path class="arrow" d="M 400 270 L 350 270" stroke="#F57C00" stroke-width="2.5"/>
-  <text x="365" y="260" style="font-size: 10px; fill: #F57C00; font-weight: bold;">si no</text>
-
-  <!-- Cycle indicator -->
-  <path class="arrow" d="M 465 320 L 465 380 Q 500 410 465 440 Q 380 460 285 440 Q 250 430 250 380" stroke="#7B1FA2" stroke-width="2.5" fill="none" marker-end="url(#arrowhead-purple)"/>
-  <text x="320" y="430" style="font-size: 11px; fill: #7B1FA2; font-weight: bold;">Proceso cíclico</text>
+  <!-- Vuelta atras: del 7 (evaluar) al 4 (elegir y disenar) -->
+  <path class="arrow" d="M 530 270 L 645 270 L 645 182" stroke="#7B1FA2" stroke-width="2.5" fill="none" marker-end="url(#arrowhead-purple)"/>
+  <text x="560" y="262" style="font-size: 11px; fill: #7B1FA2; font-weight: bold;">si no cumple</text>
 
   <marker id="arrowhead-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
     <polygon points="0 0, 10 3, 0 6" fill="#7B1FA2"/>
@@ -108,7 +104,7 @@
   <!-- Bottom notes -->
   <rect x="40" y="480" width="880" height="100" fill="#FFF9C4" stroke="#F57F17" stroke-width="1" rx="3"/>
   <text x="490" y="505" style="font-size: 13px; font-weight: bold; text-anchor: middle; fill: #F57F17;">Características del Proceso Tecnológico</text>
-  <text x="50" y="530" style="font-size: 11px; fill: #333;">• Es cíclico: después de evaluar, se vuelve a analizar para mejorar</text>
+  <text x="50" y="530" style="font-size: 11px; fill: #333;">• No es una línea recta: si al evaluar no cumple, se vuelve atrás, casi siempre al diseño</text>
   <text x="50" y="550" style="font-size: 11px; fill: #333;">• Resuelve problemas reales: desde una necesidad hasta un producto funcional</text>
-  <text x="50" y="570" style="font-size: 11px; fill: #333;">• Requiere plaificación: tiempo, recursos, materiales y herramientas</text>
+  <text x="50" y="570" style="font-size: 11px; fill: #333;">• Requiere planificación: tiempo, recursos, materiales y herramientas</text>
 </svg>

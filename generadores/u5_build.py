@@ -1742,7 +1742,7 @@ S4 = (
               autom&aacute;ticas antiguas.</i></li>
         </ul>
         <h4>Y el trato, por cuarta vez</h4>
-        <p>El gato del coche multiplica tu fuerza <b>m&aacute;s de 300 veces</b>&hellip; y para subir el
+        <p>El gato de la escena (palanca de 25 cm, paso de 5 mm) multiplica tu fuerza <b>m&aacute;s de 300 veces</b>&hellip; y para subir el
            coche diez cent&iacute;metros tu mano tiene que recorrer m&aacute;s de <b>treinta metros</b>.
            Es la misma regla de la palanca, del polipasto y de los engranajes, llevada al extremo.</p>
       </div>
@@ -1838,7 +1838,8 @@ S4 = (
           <div class="nota" style="margin-top:14px">
             <span class="n-tag">Lo que de verdad se eval&uacute;a</span>
             El recorrido de la mano en el gato. Sale un n&uacute;mero <b>rid&iacute;culo</b>, y est&aacute;
-            bien: es el precio de multiplicar la fuerza por casi quinientos. Si alguien lo da por
+            bien: es el precio de multiplicar la fuerza por casi quinientos &mdash;m&aacute;s que el gato de la teor&iacute;a,
+            porque este tiene la palanca m&aacute;s larga y el paso m&aacute;s fino&mdash;. Si alguien lo da por
             equivocado porque &laquo;no puede ser tanto&raquo;, ah&iacute; hay una conversaci&oacute;n
             que vale por media clase.
           </div>

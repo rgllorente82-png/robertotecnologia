@@ -91,7 +91,7 @@
     <!-- Specs -->
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="middle">
       <text x="830" y="286">Píxeles: 12.000.000</text>
-      <text x="830" y="304">Bytes: ~10 MB</text>
+      <text x="830" y="304">Bytes: ~4 MB</text>
       <text x="830" y="326">Uso: fotografía,</text>
       <text x="830" y="342">imprenta, cine</text>
     </g>

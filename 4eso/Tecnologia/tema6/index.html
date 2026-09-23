@@ -2701,10 +2701,10 @@ void loop() {
         <div class="ficha-cab">
           <span>Actividad 4 &middot; Entrenar, medir y decidir qu&eacute; fallo duele m&aacute;s</span>
           <span class="chips"><span class="chip">4.2</span><span class="chip">5.1</span><span class="chip">C.1</span><span class="chip">C.4</span></span>
-          <span>Parejas &middot; 20 min</span>
+          <span>Parejas &middot; 15 min</span>
         </div>
         <div class="ficha-cuerpo">
-          <h4>Primera parte &middot; entrenar (8 min)</h4>
+          <h4>Primera parte &middot; entrenar (6 min)</h4>
           <p>Con la escena de arriba, y anotando los n&uacute;meros en una tabla de cuatro columnas
              (ejemplos, acierto en los suyos, acierto en los de prueba, modelo tonto):</p>
           <ol class="pasos">
@@ -2716,11 +2716,11 @@ void loop() {
             <li>Con los sesgados puestos, pulsad <b>preguntar</b> y pinchad en la zona donde no hay
                 ejemplos. &iquest;Contesta? &iquest;Duda?</li>
           </ol>
-          <h4>Segunda parte &middot; el l&iacute;mite (4 min)</h4>
+          <h4>Segunda parte &middot; el l&iacute;mite (3 min)</h4>
           <p>Cargad <b>El caso de 1969</b> y entrenad varias veces. Escribid en dos frases
              <b>por qu&eacute;</b> no converge, y qu&eacute; habr&iacute;a que cambiar: &iquest;m&aacute;s
              ejemplos, m&aacute;s pasadas, u otra cosa?</p>
-          <h4>Tercera parte &middot; el coste del fallo (8 min)</h4>
+          <h4>Tercera parte &middot; el coste del fallo (6 min)</h4>
           <p>Elegid <b>dos</b> de los proyectos del curso. Para cada uno, escribid:</p>
           <ul>
             <li>Qu&eacute; ser&iacute;a una <b>falsa alarma</b> y qu&eacute; ser&iacute;a que <b>se le
@@ -4280,7 +4280,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
       <div class="aviso">
         <span class="n-tag">El encargo de hoy</span>
         Vuestro aparato lleva d&iacute;as midiendo. Coged <b>120 medidas</b> guardadas &mdash;treinta
-        de cada una de cuatro jornadas&mdash; y poned a cada una, <b>a mano</b>, si en ese momento
+        de cada una de cuatro jornadas, cada jornada en una maceta distinta&mdash; y poned a cada una, <b>a mano</b>, si en ese momento
         hac&iacute;a falta actuar o no. Entrenad con 40 y probad con otras 40 elegidas al azar.
       </div>
       <p>Sale un <b>93 %</b>. En un trabajo de clase eso se escribe en negrita y se pasa a la
@@ -4316,7 +4316,7 @@ for (byte i = 0; i &lt; N; i++) suma += hist[i];</pre>
         </ol>
       </div>
       <p>La escena tiene las 120 medidas. Cambia el mando de <b>&laquo;parto los datos&raquo;</b> de
-         <b>al azar</b> a <b>por jornada</b> y no toques nada m&aacute;s: ni los ejemplos, ni el modelo,
+         <b>al azar</b> a <b>por jornada</b> (cada jornada es una maceta) y no toques nada m&aacute;s: ni los ejemplos, ni el modelo,
          ni el n&uacute;mero de ejemplos. Mira las dos filas de acierto.</p>
 
       <div class="escena" id="esc-dat">
@@ -5521,7 +5521,8 @@ void loop() {
               &laquo;guardo solo cuando pasa algo&raquo; cambia tanto.</li>
           <li>Cada celda de esa EEPROM aguanta unas <b>100.000 escrituras</b> y se gasta. Un registro
               cada media hora durante un curso son unas 12.000: cabe de sobra. Un registro por
-              segundo se la carga en <b>un d&iacute;a</b>. En la memoria RAM esto no pasa; en la
+              segundo, si se escribe siempre en la misma celda, se la carga en algo m&aacute;s de
+              <b>un d&iacute;a</b>. En la memoria RAM esto no pasa; en la
               EEPROM, s&iacute;.</li>
         </ul>
         <p>Y un pariente cercano del modo seguro, un piso m&aacute;s abajo: el <b>perro guardi&aacute;n</b>

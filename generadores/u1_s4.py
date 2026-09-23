@@ -313,7 +313,7 @@ S4 = u'''
          mismo soporte. Eso no significa que unos sean m&aacute;s r&aacute;pidos: significa que unos han
          contado las esperas y otros no.</p>
       <ol>
-        <li>&iquest;Por qu&eacute; el secado de la cola ocupa una fila del Gantt si no lo hace nadie?
+        <li>&iquest;Por qu&eacute; la espera de turno de la base de corte ocupa una fila del Gantt si no la hace nadie?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque ocupa <b>tiempo</b>, y el plan es un reparto del tiempo, no del trabajo. Una espera que no est&aacute; dibujada aparece igual, pero por sorpresa y cuando ya no queda sesi&oacute;n.</p></div></details></li>
         <li>&iquest;Qu&eacute; es la holgura de una tarea?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Los minutos que puede retrasarse <b>sin retrasar el final</b>. En el ejemplo, <i>Cortar A</i> acaba en el minuto 23 y no hace falta hasta el 27: tiene 4 minutos de holgura. Las tareas sin holgura son las que hay que vigilar.</p></div></details></li>

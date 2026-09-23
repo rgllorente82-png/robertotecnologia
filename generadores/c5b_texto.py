@@ -891,8 +891,8 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
               est&eacute;s en el paso 1, A tiene la orden de salir. As&iacute; da igual si la
               v&aacute;lvula se perdi&oacute; el impulso.</li>
           <li><b>El vigilante de tiempo.</b> Esperar a un final de carrera para siempre es una
-              m&aacute;quina parada sin que nadie sepa por qu&eacute;. Con el vigilante, a los tres
-              segundos para y <b>avisa de en qu&eacute; paso se ha quedado</b>, que es la
+              m&aacute;quina parada sin que nadie sepa por qu&eacute;. Con el vigilante, en cuanto pasa
+              un segundo sin acabar el paso, para y <b>avisa de en qu&eacute; paso se ha quedado</b>, que es la
               informaci&oacute;n que hace falta para arreglarlo. El n&uacute;mero no se elige a
               ojo: se pone <b>unas cinco veces lo que tarda el paso m&aacute;s largo</b>, para
               que no salte con un d&iacute;a malo y s&iacute; salte cuando algo se ha roto.</li>
@@ -1390,7 +1390,7 @@ S8_CIERRE = u'''
     u'Tu proyecto funciona, pero el actuador rinde menos de lo que deber&iacute;a y nada da error. '
     u'&iquest;Qu&eacute; dos cosas miras?',
     u'<p>La <b>tensi&oacute;n en bornes del actuador</b> mientras trabaja (puede estar bajando la '
-    u'fuente o pudi&eacute;ndose la pila) y la <b>ca&iacute;da en el cable</b> (con 800 mA y cable '
+    u'fuente o gast&aacute;ndose la pila) y la <b>ca&iacute;da en el cable</b> (con 800 mA y cable '
     u'fino y largo se pierde m&aacute;s de medio voltio). Las dos se miden con el pol&iacute;metro '
     u'<b>con el actuador en marcha</b>: en reposo no se ve nada.</p>') + pregunta(
     u'&iquest;Por qu&eacute; un fusible va en el positivo de la fuente de potencia y no en el del '

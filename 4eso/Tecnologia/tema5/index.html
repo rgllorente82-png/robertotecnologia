@@ -1024,7 +1024,7 @@ window.QUIETO = function(){
           <ol class="pasos">
             <li>Mueve el deslizador de luz de la LDR de un extremo al otro y anota la cuenta
                 <b>m&aacute;s baja</b> y la <b>m&aacute;s alta</b>.</li>
-            <li>Elige un <b>umbral</b> y jusfif&iacute;calo: &iquest;por qu&eacute; ese y no el del
+            <li>Elige un <b>umbral</b> y justif&iacute;calo: &iquest;por qu&eacute; ese y no el del
                 medio exacto?</li>
             <li>Escribe en la libreta la l&iacute;nea del <code>if</code> que dispara tu aviso,
                 <b>con el signo correcto</b> seg&uacute;n c&oacute;mo lo hayas montado.</li>
@@ -1104,7 +1104,7 @@ window.QUIETO = function(){
       </div>
       <p>Lo que no cuadra es la <b>corriente</b>. Un pin de Arduino no es un grifo: dentro del chip,
          cada pin es un transistor min&uacute;sculo grabado en silicio, del tama&ntilde;o de unas
-         mic&oacute;nes, y la hoja de caracter&iacute;sticas del ATmega328P lo dice sin rodeos:</p>
+         micras, y la hoja de caracter&iacute;sticas del ATmega328P lo dice sin rodeos:</p>
       <div class="copiar">
         <h3 class="h-menor">Lo que da un pin de Arduino Uno</h3>
         <ul>
@@ -1175,8 +1175,8 @@ window.QUIETO = function(){
         </ul>
         <p><b>Por qu&eacute; importa saturar</b>: un transistor a medio abrir se queda con parte de
            la tensi&oacute;n, y tensi&oacute;n por corriente es <b>calor</b>. Saturado se queda con
-           0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y eso
-           ya son 300 mW dentro de una c&aacute;psula del tama&ntilde;o de un guisante.</p>
+           0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y 2,5 V por
+           250 mA son 625 mW dentro de una c&aacute;psula del tama&ntilde;o de un guisante.</p>
       </div>
       <figure class="foto">
         <img src="../../../img/transistor-switch-concept.svg" width="1000" height="700" loading="lazy"
@@ -2923,10 +2923,10 @@ window.QUIETO = function(){
         <div class="ficha-cab">
           <span>Actividad 4 &middot; Dibujar el circuito de tu proyecto</span>
           <span class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip">B.3</span><span class="chip">B.4</span></span>
-          <span>Parejas &middot; 20 min</span>
+          <span>Parejas &middot; 15 min</span>
         </div>
         <div class="ficha-cuerpo">
-          <h4>Primera parte &middot; leer (6 min)</h4>
+          <h4>Primera parte &middot; leer (5 min)</h4>
           <p>Aqu&iacute; hay tres circuitos con un fallo cada uno. Decid <b>qu&eacute; falla</b> y
              <b>qu&eacute; pasar&iacute;a al accionarlos</b>:</p>
           <ol class="pasos">
@@ -2935,7 +2935,7 @@ window.QUIETO = function(){
                 rev&eacute;s: la v&iacute;a 1 al cilindro y la 2 al compresor.</li>
             <li>Una 5/2 con los dos escapes (3 y 5) <b>tapados con un tap&oacute;n</b>.</li>
           </ol>
-          <h4>Segunda parte &middot; dibujar (14 min)</h4>
+          <h4>Segunda parte &middot; dibujar (10 min)</h4>
           <p>Elegid <b>dos</b> de los tres proyectos del cat&aacute;logo del curso &mdash;por
              ejemplo el <b>riego</b> y la <b>ventilaci&oacute;n</b>&mdash; y dibujad
              a mano, con s&iacute;mbolos normalizados, su circuito neum&aacute;tico:</p>
@@ -4833,8 +4833,8 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
               est&eacute;s en el paso 1, A tiene la orden de salir. As&iacute; da igual si la
               v&aacute;lvula se perdi&oacute; el impulso.</li>
           <li><b>El vigilante de tiempo.</b> Esperar a un final de carrera para siempre es una
-              m&aacute;quina parada sin que nadie sepa por qu&eacute;. Con el vigilante, a los tres
-              segundos para y <b>avisa de en qu&eacute; paso se ha quedado</b>, que es la
+              m&aacute;quina parada sin que nadie sepa por qu&eacute;. Con el vigilante, en cuanto pasa
+              un segundo sin acabar el paso, para y <b>avisa de en qu&eacute; paso se ha quedado</b>, que es la
               informaci&oacute;n que hace falta para arreglarlo. El n&uacute;mero no se elige a
               ojo: se pone <b>unas cinco veces lo que tarda el paso m&aacute;s largo</b>, para
               que no salte con un d&iacute;a malo y s&iacute; salte cuando algo se ha roto.</li>
@@ -6215,7 +6215,7 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
               <li>&iquest;Para qu&eacute; sirve la columna &laquo;cu&aacute;nto tiempo&raquo; del presupuesto de corriente?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Para sacar la <b>media</b>, que es otra cosa que el pico. El <b>pico</b> decide la <b>fuente</b> (tiene que poder darlo todo a la vez). La <b>media</b> decide <b>cu&aacute;nto dura una pila</b> y cu&aacute;nta energ&iacute;a gasta al a&ntilde;o. Confundirlas lleva a comprar una fuente que no arranca o unas pilas que duran dos d&iacute;as.</p></div></details></li>
         <li>Tu proyecto funciona, pero el actuador rinde menos de lo que deber&iacute;a y nada da error. &iquest;Qu&eacute; dos cosas miras?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La <b>tensi&oacute;n en bornes del actuador</b> mientras trabaja (puede estar bajando la fuente o pudi&eacute;ndose la pila) y la <b>ca&iacute;da en el cable</b> (con 800 mA y cable fino y largo se pierde m&aacute;s de medio voltio). Las dos se miden con el pol&iacute;metro <b>con el actuador en marcha</b>: en reposo no se ve nada.</p></div></details></li>
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>La <b>tensi&oacute;n en bornes del actuador</b> mientras trabaja (puede estar bajando la fuente o gast&aacute;ndose la pila) y la <b>ca&iacute;da en el cable</b> (con 800 mA y cable fino y largo se pierde m&aacute;s de medio voltio). Las dos se miden con el pol&iacute;metro <b>con el actuador en marcha</b>: en reposo no se ve nada.</p></div></details></li>
         <li>&iquest;Por qu&eacute; un fusible va en el positivo de la fuente de potencia y no en el del Arduino?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Porque es ah&iacute; donde hay corriente suficiente para hacer da&ntilde;o. Se pone del <b>doble</b> de la corriente de trabajo, para que no salte con los arranques normales y s&iacute; con un cortocircuito. Y va donde se pueda cambiar sin desmontar nada: es la &uacute;nica pieza cuyo trabajo es romperse.</p></div></details></li>
         <li>&iquest;Por qu&eacute; tres papeles valen m&aacute;s que una explicaci&oacute;n?

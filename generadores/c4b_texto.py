@@ -647,7 +647,7 @@ S6_CIERRE = u'''
 # ==========================================================================
 S7_RETO = u'''
       <p>El grupo de al lado ha terminado antes y os pasa su n&uacute;mero: <b>&laquo;el umbral es
-         480, funciona&raquo;</b>. Lo pon&eacute;is en vuestro programa, cl&aacute;vais la sonda y
+         480, funciona&raquo;</b>. Lo pon&eacute;is en vuestro programa, clav&aacute;is la sonda y
          encend&eacute;is.</p>
       <p>Y vuestra maceta se encharca en dos d&iacute;as.</p>
       <div class="reto-piensa">
@@ -881,7 +881,7 @@ S7_CIERRE = u'''
 S8_RETO = u'''
       <p>Vuestro riego lleva tres d&iacute;as funcionando en la mesa del taller y no ha fallado ni
          una vez. Enhorabuena.</p>
-      <p>Ahora la pregunta que importa: <b>&iquest;os la juga&iacute;s?</b> Se va la clase de
+      <p>Ahora la pregunta que importa: <b>&iquest;os la jug&aacute;is?</b> Se va la clase de
          vacaciones. Vuelve todo el mundo el 8 de enero. &iquest;Firm&aacute;is que la planta va a
          estar viva?</p>
       <div class="reto-piensa">
@@ -1026,7 +1026,7 @@ S8_TEORIA = u'''
           <li><b>El problema</b>, con un dato del centro. &laquo;En el instituto hay 14 plantas y en
               las Navidades pasadas se secaron 5.&raquo; Diez segundos.</li>
           <li><b>El lazo</b>, en una frase: qu&eacute; med&iacute;s, con qu&eacute; lo
-              compar&aacute;is, qu&eacute; move&iacute;s. Con el diagrama de bloques de la
+              compar&aacute;is, qu&eacute; mov&eacute;is. Con el diagrama de bloques de la
               sesi&oacute;n 2 en la pantalla.</li>
           <li><b>Un n&uacute;mero.</b> El que mejor os defienda: mililitros en dos semanas frente a
               regar a mano, u horas por debajo del punto de marchitez. <b>Uno solo</b>, bien

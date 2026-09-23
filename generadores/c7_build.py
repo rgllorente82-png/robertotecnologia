@@ -276,7 +276,7 @@ S1_PRACTICA = ficha(
     u'Actividad 1 &middot; La frontera, medida',
     [u'CE4 &middot; 4.1', u'B.1', u'B.2'], u'Parejas &middot; 20 min', u'''
           <h4>Primera parte &middot; los cuatro n&uacute;meros (8 min)</h4>
-          <p>Con la escena de arriba, con la <b>semilla 7</b>, y anotando en una tabla de cuatro
+          <p>Con la escena de arriba, con la <b>semilla 7</b>, y anotando en una tabla de cinco
              columnas (cerebro, muebles, suelo cubierto, choques, pasos):</p>
           <ol class="pasos">
             <li><b>Programa grabado</b> + muebles <i>como el d&iacute;a que se grab&oacute;</i>.

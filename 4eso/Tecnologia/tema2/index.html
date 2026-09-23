@@ -364,7 +364,7 @@ footer .wrap{padding-block:18px 26px}
       <figure class="foto">
         <img src="../../../img/cad-workflow.svg" width="1071" height="581" loading="lazy"
              alt="Flujo CAD: Idea, Dibujo 2D, Modelo 3D, Simulaci&oacute;n, CAM/Fabricaci&oacute;n">
-        <figcaption>El <b>flujo de CAD</b> (Computer-Aided Design): (1) <b>Idea</b> en papel, (2) <b>Dibujo 2D</b> con vistas ortogonales y cotas precisas, (3) <b>Modelo 3D</b> param&eacute;trico (todo conectado: cambiar una cota actualiza la pieza entera), (4) <b>Simular</b> (fuerzas, movimiento, esfuerzos), (5) <b>CAM</b> (traducir a G-code para CNC o impresora 3D). Software: AutoCAD/SolidWorks para industria, FreeCAD/Tinkercad para educaci&oacute;n. La ventaja: ver en 3D antes de fabricar, sin errores.
+        <figcaption>El <b>flujo de CAD</b> (Computer-Aided Design): (1) <b>Idea</b> en papel, (2) <b>Dibujo 2D</b> con vistas ortogonales y cotas precisas, (3) <b>Modelo 3D</b> param&eacute;trico (todo conectado: cambiar una cota actualiza la pieza entera), (4) <b>Simular</b> (fuerzas, movimiento, esfuerzos), (5) <b>CAM</b> (traducir a G-code para CNC o impresora 3D). Software: AutoCAD/SolidWorks para industria, FreeCAD/Tinkercad para educaci&oacute;n. La ventaja: ver la pieza en 3D antes de fabricar. Lo que no hace es quitar los errores: la tolerancia de cada m&aacute;quina, la sangr&iacute;a del l&aacute;ser y el agujero que encoge al exportar el STL siguen ah&iacute;, y de eso va este tema.
           <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
         </figcaption>
       </figure>
@@ -2100,8 +2100,8 @@ footer .wrap{padding-block:18px 26px}
 
       <figure class="foto">
         <img src="../../../img/manufacturing-methods.svg" width="1124" height="664" loading="lazy"
-             alt="M&eacute;todos de fabricaci&oacute;n: Sustractiva (quitar material, 30-80% residuos) vs Aditiva (a&ntilde;adir material, 0-5% residuos)">
-        <figcaption><b>Fabricaci&oacute;n Sustractiva vs Aditiva</b>: Sustractiva QUITA material (torneado, fresado CNC, cortadora l&aacute;ser) - eficiente para producci&oacute;n en serie pero genera mucho residuo (30-80%). Aditiva A&Ntilde;ADE material (impresoras 3D FDM/SLA, sinterizado) - m&aacute;s lenta pero cero desperdicio (~5%), perfecta para prototipos. Elecci&oacute;n: Sustractiva si necesitas velocidad y cantidad; Aditiva si necesitas formas complejas y flexibilidad.
+             alt="M&eacute;todos de fabricaci&oacute;n: Sustractiva (quitar material) frente a Aditiva (a&ntilde;adir material capa a capa)">
+        <figcaption><b>Fabricaci&oacute;n sustractiva frente a aditiva</b>. La sustractiva parte de un bloque o un tablero y le <b>quita</b> material (sierra, taladro, lima, cortadora l&aacute;ser): lo que sobra es residuo. La aditiva lo <b>a&ntilde;ade</b> capa a capa (impresora 3D) y es la &uacute;nica que puede hacer formas huecas por dentro, pero es la m&aacute;s lenta: con una impresora para diez grupos, la cola dura casi dos semanas de clase. No hay una ganadora, y se elige antes de dibujar, porque cada t&eacute;cnica decide lo que puedes dibujar.
           <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
         </figcaption>
       </figure>
@@ -3316,7 +3316,7 @@ footer .wrap{padding-block:18px 26px}
         <p style="font-size:17px;text-align:center;margin:10px 0">
            <b>&empty; &uacute;til = D &middot; cos(180&deg; / N)</b></p>
         <p>Con D = 8,30 y N = 16 salen <b>8,14 mm</b>: de las tres d&eacute;cimas de holgura que
-           pediste te quedan <b>1,4</b>. Con N = 8 salen 7,67, y el eje de 8 <b>ya no pasa</b>. El
+           pediste te quedan <b>0,14 mm</b> (1,4 d&eacute;cimas). Con N = 8 salen 7,67, y el eje de 8 <b>ya no pasa</b>. El
            agujero es el mismo en el modelo; lo que ha cambiado es c&oacute;mo se ha guardado.</p>
         <p>De ah&iacute; salen las dos costumbres del taller: <b>subir la resoluci&oacute;n</b> al
            exportar (en Tinkercad, exportar en &laquo;alta calidad&raquo;) y <b>agrandar los agujeros
@@ -4835,7 +4835,7 @@ footer .wrap{padding-block:18px 26px}
               apreciar del orden de <b>diez veces menos</b> que la tolerancia que compruebas.</li>
         </ul>
       </div>
-      <p>Al banco. Es tu soporte, con las seis cotas que sali&oacute;n del modelo de la sesi&oacute;n
+      <p>Al banco. Es tu soporte, con las seis cotas que salieron del modelo de la sesi&oacute;n
          5, fabricado y medido.</p>
 
       <div class="escena" id="esc-cd">

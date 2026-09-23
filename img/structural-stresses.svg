@@ -96,7 +96,7 @@
   <!-- Row 5: SHEAR/CORTANTE -->
   <g>
     <rect x="30" y="260" width="190" height="140" class="stress-box"/>
-    <text x="125" y="285" class="label" font-weight="bold" font-size="13">CORTANTE (CIZALLA)</text>
+    <text x="125" y="285" class="label" font-weight="bold" font-size="13">CORTADURA (CIZALLA)</text>
     <text x="125" y="300" class="label" font-size="10" fill="#666">Se desliza / cizalla</text>
 
     <!-- Visual representation: shearing -->
@@ -117,10 +117,10 @@
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
       <text x="290" y="310"><tspan font-weight="bold">Compresión:</tspan> Las columnas de un edificio aguantan el peso de los pisos encima</text>
-      <text x="290" y="330"><tspan font-weight="bold">Tensión:</tspan> Los cables de un puente colgante se estiran por el peso del tablero</text>
+      <text x="290" y="330"><tspan font-weight="bold">Tracción:</tspan> Los cables de un puente colgante se estiran por el peso del tablero</text>
       <text x="290" y="350"><tspan font-weight="bold">Flexión:</tspan> Una viga de acero se dobla si la cargas en el medio (pero no debe romper)</text>
       <text x="290" y="370"><tspan font-weight="bold">Torsión:</tspan> Un tornillo se retuerce al entrar en el material, o un eje de motor</text>
-      <text x="290" y="390"><tspan font-weight="bold">Cortante:</tspan> Las tijeras cizallan: una hoja sube y otra baja, cortando el papel entre ellas</text>
+      <text x="290" y="390"><tspan font-weight="bold">Cortadura:</tspan> Las tijeras cizallan: una hoja sube y otra baja, cortando el papel entre ellas</text>
     </g>
   </g>
 
@@ -131,10 +131,10 @@
     <text x="50" y="465" class="label" font-weight="bold" font-size="12" text-anchor="start" fill="#e74c3c">La regla de oro: cada material tiene un límite</text>
 
     <g font-family="Arial" font-size="11" fill="#2c3e50" text-anchor="start">
-      <text x="50" y="495"><tspan font-weight="bold">Acero:</tspan> Aguanta mucha tensión (por eso se usa en cables) y compresión (vigas), pero less torsión</text>
-      <text x="50" y="520"><tspan font-weight="bold">Hormigón:</tspan> Aguanta bien <tspan font-weight="bold">compresión</tspan> (columnas, muros) pero <tspan font-weight="bold">nada de tensión</tspan> (por eso se refuerza con acero)</text>
+      <text x="50" y="495"><tspan font-weight="bold">Acero:</tspan> Aguanta mucha tracción (por eso se usa en cables) y compresión (vigas), pero menos torsión</text>
+      <text x="50" y="520"><tspan font-weight="bold">Hormigón:</tspan> Aguanta bien <tspan font-weight="bold">compresión</tspan> (columnas, muros) pero <tspan font-weight="bold">nada de tracción</tspan> (por eso se refuerza con acero)</text>
       <text x="50" y="545"><tspan font-weight="bold">Aluminio:</tspan> Más ligero que el acero, menos resistente, pero excelente para estructuras que no pesan mucho</text>
-      <text x="50" y="570"><tspan font-weight="bold">Plástico impreso (3D):</tspan> Débil en todos los esfuerzos, especialmente en tensión y cortante</text>
+      <text x="50" y="570"><tspan font-weight="bold">Plástico impreso (3D):</tspan> Débil en todos los esfuerzos, especialmente en tracción y cortadura</text>
       <text x="50" y="595"><tspan font-weight="bold">Madera:</tspan> Resiste bien la compresión <tspan font-weight="bold">paralela</tspan> a las fibras (columna de madera), pero no la perpendicular</text>
       <text x="50" y="620"><tspan font-weight="bold">Evitar fallos:</tspan> Los ingenieros eligen materiales y formas para que el esfuerzo máximo que sufran sea menor que su límite de ruptura. Y dejan un margen de seguridad.</text>
       <text x="50" y="655"><tspan font-weight="bold">Triangular funciona:</tspan> Un triángulo no se deforma. Por eso se usan en cerchas, grúas y cualquier sitio donde necesites resistencia máxima</text>

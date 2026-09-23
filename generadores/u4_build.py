@@ -242,7 +242,7 @@ S1 = (
       <div class="nota">
         <span class="n-tag">Siguiente sesi&oacute;n</span>
         Cada pieza sufre ya un esfuerzo con nombre. Lo siguiente es que <b>no todas las estructuras
-        reparten igual</b>: hay familias &mdash;masiva, abovedada, entramada, triangulada, colgante&mdash;
+        reparten igual</b>: hay familias &mdash;masiva, abovedada, entramada, triangulada, colgante y laminar&mdash;
         y cada una lleva la fuerza al suelo de una manera distinta.
       </div>
   '''))

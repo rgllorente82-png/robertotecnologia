@@ -113,7 +113,7 @@
     <!-- Row 2: Precision -->
     <line x1="50" y1="460" x2="970" y2="460" stroke="#dadce0" stroke-width="1"/>
     <text x="50" y="457" class="label" font-size="10" font-weight="bold">Precisión</text>
-    <text x="150" y="457" class="label" font-size="10">Baja (no sabe dónde es)</text>
+    <text x="150" y="457" class="label" font-size="10">Baja (no sabe dónde está)</text>
     <text x="400" y="457" class="label" font-size="10">Alta (ángulo exacto)</text>
     <text x="650" y="457" class="label" font-size="10">Muy alta (pasos)</text>
 
@@ -140,7 +140,7 @@
 
     <!-- Row 6: Use case -->
     <line x1="50" y1="520" x2="970" y2="520" stroke="#dadce0" stroke-width="1"/>
-    <text x="50" y="517" class="label" font-size="10" font-weight="bold">Cuando usar</text>
+    <text x="50" y="517" class="label" font-size="10" font-weight="bold">Cuándo usar</text>
     <text x="150" y="517" class="label" font-size="9">Movimiento rápido,</text>
     <text x="150" y="530" class="label" style="font-size: 9px">sin importar exactitud</text>
     <text x="400" y="517" class="label" font-size="9">Posición exacta,</text>

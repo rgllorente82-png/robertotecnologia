@@ -644,7 +644,7 @@ S3 = (
       <div class="nota">
         <span class="n-tag">Y despu&eacute;s del tema</span>
         Tienes una m&aacute;quina que procesa informaci&oacute;n ella sola. La pregunta siguiente es la que abre
-        la unidad de <b>Internet, datos y seguridad</b>: <b>&iquest;y si hay millones de estas m&aacute;quinas
+        la unidad de <b>Internet, datos y seguridad</b>: <b>&iquest;y si hay miles de millones de estas m&aacute;quinas
         y quieren hablar entre ellas?</b>
       </div>
   '''))

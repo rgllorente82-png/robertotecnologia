@@ -74,11 +74,11 @@ S3 = u'''
           publicado bajo la licencia de esta p&aacute;gina.</figcaption>
       </figure>
       <div class="nota">
-        <span class="n-tag">Esto ya lo trabajaste en el tema 2</span>
-        Aqu&iacute; es un recordatorio de tres l&iacute;neas, no materia nueva: las
-        <b>vistas</b>, las <b>escalas</b>, las reglas de acotaci&oacute;n y el <b>cajet&iacute;n</b> los diste
-        en el <a href="../tema2/">tema 2, <i>Representaci&oacute;n gr&aacute;fica de un proyecto</i></a>, que va antes que este.
-        Lo que cambia hoy es para qu&eacute; lo usas: aqu&iacute; el croquis no es el ejercicio, es el papel con el que
+        <span class="n-tag">Esto se ve a fondo en el tema 2</span>
+        Aqu&iacute; basta con tres l&iacute;neas: las
+        <b>vistas</b>, las <b>escalas</b>, las reglas de acotaci&oacute;n y el <b>cajet&iacute;n</b> se trabajan
+        en el <a href="../tema2/">tema 2, <i>Expresi&oacute;n gr&aacute;fica de un proyecto</i></a>, que viene despu&eacute;s de este.
+        Lo que importa hoy es para qu&eacute; lo usas: aqu&iacute; el croquis no es el ejercicio, es el papel con el que
         vais a cortar.
       </div>
 

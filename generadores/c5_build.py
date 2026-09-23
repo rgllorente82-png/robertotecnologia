@@ -282,7 +282,7 @@ S1_PRACTICA = ficha(
           <ol class="pasos">
             <li>Mueve el deslizador de luz de la LDR de un extremo al otro y anota la cuenta
                 <b>m&aacute;s baja</b> y la <b>m&aacute;s alta</b>.</li>
-            <li>Elige un <b>umbral</b> y jusfif&iacute;calo: &iquest;por qu&eacute; ese y no el del
+            <li>Elige un <b>umbral</b> y justif&iacute;calo: &iquest;por qu&eacute; ese y no el del
                 medio exacto?</li>
             <li>Escribe en la libreta la l&iacute;nea del <code>if</code> que dispara tu aviso,
                 <b>con el signo correcto</b> seg&uacute;n c&oacute;mo lo hayas montado.</li>
@@ -360,7 +360,7 @@ S2_RETO = u'''
       </div>
       <p>Lo que no cuadra es la <b>corriente</b>. Un pin de Arduino no es un grifo: dentro del chip,
          cada pin es un transistor min&uacute;sculo grabado en silicio, del tama&ntilde;o de unas
-         mic&oacute;nes, y la hoja de caracter&iacute;sticas del ATmega328P lo dice sin rodeos:</p>
+         micras, y la hoja de caracter&iacute;sticas del ATmega328P lo dice sin rodeos:</p>
       <div class="copiar">
         <h4>Lo que da un pin de Arduino Uno</h4>
         <ul>
@@ -421,8 +421,8 @@ S2_TEORIA = u'''
         </ul>
         <p><b>Por qu&eacute; importa saturar</b>: un transistor a medio abrir se queda con parte de
            la tensi&oacute;n, y tensi&oacute;n por corriente es <b>calor</b>. Saturado se queda con
-           0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y eso
-           ya son 300 mW dentro de una c&aacute;psula del tama&ntilde;o de un guisante.</p>
+           0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y 2,5 V por
+           250 mA son 625 mW dentro de una c&aacute;psula del tama&ntilde;o de un guisante.</p>
       </div>
       <p>Mira las cuatro barras de la escena. Cambia la carga, cambia la resistencia de base y mira
          cu&aacute;ndo se pone verde el letrero.</p>
@@ -1102,8 +1102,8 @@ S4_TEST = test('c5', u'Comprueba lo de estas cuatro sesiones', [
 
 S4_PRACTICA = ficha(
     u'Actividad 4 &middot; Dibujar el circuito de tu proyecto',
-    [u'CE4 &middot; 4.1', u'B.3', u'B.4'], u'Parejas &middot; 20 min', u'''
-          <h4>Primera parte &middot; leer (6 min)</h4>
+    [u'CE4 &middot; 4.1', u'B.3', u'B.4'], u'Parejas &middot; 15 min', u'''
+          <h4>Primera parte &middot; leer (5 min)</h4>
           <p>Aqu&iacute; hay tres circuitos con un fallo cada uno. Decid <b>qu&eacute; falla</b> y
              <b>qu&eacute; pasar&iacute;a al accionarlos</b>:</p>
           <ol class="pasos">
@@ -1112,7 +1112,7 @@ S4_PRACTICA = ficha(
                 rev&eacute;s: la v&iacute;a 1 al cilindro y la 2 al compresor.</li>
             <li>Una 5/2 con los dos escapes (3 y 5) <b>tapados con un tap&oacute;n</b>.</li>
           </ol>
-          <h4>Segunda parte &middot; dibujar (14 min)</h4>
+          <h4>Segunda parte &middot; dibujar (10 min)</h4>
           <p>Elegid <b>dos</b> de los tres proyectos del cat&aacute;logo del curso &mdash;por
              ejemplo el <b>riego</b> y la <b>ventilaci&oacute;n</b>&mdash; y dibujad
              a mano, con s&iacute;mbolos normalizados, su circuito neum&aacute;tico:</p>

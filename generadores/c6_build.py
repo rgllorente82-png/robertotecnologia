@@ -845,8 +845,8 @@ S4_TEORIA = u'''
 
 S4_PRACTICA = ficha(
     u'Actividad 4 &middot; Entrenar, medir y decidir qu&eacute; fallo duele m&aacute;s',
-    [u'4.2', u'5.1', u'C.1', u'C.4'], u'Parejas &middot; 20 min', u'''
-          <h4>Primera parte &middot; entrenar (8 min)</h4>
+    [u'4.2', u'5.1', u'C.1', u'C.4'], u'Parejas &middot; 15 min', u'''
+          <h4>Primera parte &middot; entrenar (6 min)</h4>
           <p>Con la escena de arriba, y anotando los n&uacute;meros en una tabla de cuatro columnas
              (ejemplos, acierto en los suyos, acierto en los de prueba, modelo tonto):</p>
           <ol class="pasos">
@@ -858,11 +858,11 @@ S4_PRACTICA = ficha(
             <li>Con los sesgados puestos, pulsad <b>preguntar</b> y pinchad en la zona donde no hay
                 ejemplos. &iquest;Contesta? &iquest;Duda?</li>
           </ol>
-          <h4>Segunda parte &middot; el l&iacute;mite (4 min)</h4>
+          <h4>Segunda parte &middot; el l&iacute;mite (3 min)</h4>
           <p>Cargad <b>El caso de 1969</b> y entrenad varias veces. Escribid en dos frases
              <b>por qu&eacute;</b> no converge, y qu&eacute; habr&iacute;a que cambiar: &iquest;m&aacute;s
              ejemplos, m&aacute;s pasadas, u otra cosa?</p>
-          <h4>Tercera parte &middot; el coste del fallo (8 min)</h4>
+          <h4>Tercera parte &middot; el coste del fallo (6 min)</h4>
           <p>Elegid <b>dos</b> de los proyectos del curso. Para cada uno, escribid:</p>
           <ul>
             <li>Qu&eacute; ser&iacute;a una <b>falsa alarma</b> y qu&eacute; ser&iacute;a que <b>se le

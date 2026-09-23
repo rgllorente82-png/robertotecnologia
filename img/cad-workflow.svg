@@ -137,7 +137,7 @@
     <g font-family="Arial" font-size="9" fill="#2c3e50" text-anchor="start">
       <text x="695" y="370">✓ Visualizar antes de fabricar</text>
       <text x="695" y="385">✓ Modificaciones rápidas</text>
-      <text x="695" y="400">✓ Precisión: errores = 0</text>
+      <text x="695" y="400">✓ Cotas exactas en el modelo</text>
       <text x="695" y="415">✓ Exportar a fabricación (CNC,</text>
       <text x="695" y="428">  3D Print, Láser)</text>
       <text x="695" y="443">✓ Simular funcionamiento antes</text>

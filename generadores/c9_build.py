@@ -378,7 +378,7 @@ S2_RETO = u'''
            sobrevivir: beber, cocinar y lavarse lo m&iacute;nimo. Si la bomba tiene que dar de beber a
            2.500 personas y sube 1.400 litros cada hora, <b>&iquest;cu&aacute;ntas horas al d&iacute;a
            tiene que estar girando ese tiovivo?</b></p>
-        <p>Es una divisi&oacute;n. H&aacute;zla en el cuaderno <b>antes</b> de tocar la escena.</p>
+        <p>Es una divisi&oacute;n. Hazla en el cuaderno <b>antes</b> de tocar la escena.</p>
       </div>
 ''' + SITIO + u'''
       <p>Con los n&uacute;meros que promet&iacute;a el folleto salen casi <b>dieciocho horas</b> de
@@ -710,7 +710,7 @@ S3_PRACTICA = ficha(
           <h4>Segunda ronda (8 min)</h4>
           <p>Al rev&eacute;s. Y al terminar, las dos cosas que de verdad ense&ntilde;an:</p>
           <ul>
-            <li>Comparad <b>la nota que esper&aacute;bais</b> con <b>la que os ha puesto el otro
+            <li>Comparad <b>la nota que esperabais</b> con <b>la que os ha puesto el otro
                 grupo</b>. Anotad la diferencia y, sobre todo, <b>en qu&eacute; fila</b> est&aacute;
                 la mayor discrepancia. Casi siempre es la misma: la del impacto.</li>
             <li>Escribid la pregunta que peor hab&eacute;is contestado y, con los cuatro movimientos
@@ -767,7 +767,7 @@ S3_CIERRE = u'''
 # SESION 4 - Lo que queda
 # ==========================================================================
 S4_RETO = u'''
-      <p>&Uacute;ltima sesi&oacute;n del curso, y empieza con la pregunta que se qued&oacute; colgando.</p>
+      <p>Cuarta sesi&oacute;n de la unidad, y empieza con la pregunta que se qued&oacute; colgando.</p>
       <div class="aviso">
         <span class="n-tag">El encargo</span>
         Vuestra l&aacute;mpara autom&aacute;tica apaga la luz cuando no hace falta, o sea que
@@ -874,10 +874,10 @@ S4_TEORIA = u'''
       <div class="entender">
         <span class="e-tag">Solo para entenderlo</span>
         <p><b>Lo que no cab&iacute;a.</b> Este curso se ha quedado fuera bastante, y conviene saber
-           qu&eacute;: el an&aacute;lisis de ciclo de vida hecho en serio, la accesibilidad (dise&ntilde;ar
-           para quien no ve, no oye o no puede apretar un bot&oacute;n), el residuo electr&oacute;nico y
-           d&oacute;nde acaba, y el derecho a reparar. Cuatro cosas que dan para un curso entero
-           cada una.</p>
+           qu&eacute;: el an&aacute;lisis de ciclo de vida hecho en serio, que da para un curso entero.
+           La accesibilidad (dise&ntilde;ar para quien no ve, no oye o no puede apretar un bot&oacute;n),
+           el residuo electr&oacute;nico y d&oacute;nde acaba, y el derecho a reparar s&iacute; han
+           entrado: los visteis en el tema 8 y aqu&iacute; no se repiten.</p>
       </div>
 ''' + foto('c9-repair-cafe.jpg',
            u'Vista desde arriba de un local con mesas largas donde varias personas reparan una '
@@ -1300,7 +1300,7 @@ S5_CIERRE = u'''
     + pregunta(
           u'El mismo aparato cumple con la vecina y suspende en el huerto. &iquest;Por qu&eacute;?',
           u'<p>Porque el requisito lo pone la persona, no el aparato. La vecina se va <b>15 '
-          u'd&iacute;as</b> y tiene cinco macetas que piden medio litro al d&iacute;a: son 7,6 '
+          u'd&iacute;as</b> y tiene cinco macetas que entre todas piden medio litro al d&iacute;a: son 7,6 '
           u'litros. El huerto est&aacute; <b>43 d&iacute;as</b> solo y el bancal pide 6 litros al '
           u'd&iacute;a: son <b>258 litros</b>. No cabe en ning&uacute;n dep&oacute;sito que pod&aacute;is '
           u'poner, as&iacute; que all&iacute; hay que cambiar el dise&ntilde;o, no los mandos.</p>')\
@@ -1524,8 +1524,9 @@ S6_CIERRE = u'''
           u'<p>Porque el precio es lo que pagas el primer d&iacute;a y el coste es lo que te cuesta '
           u'tenerlo: hay que sumarle <b>lo que se gasta</b> (pilas, piezas, agua) y sobre todo '
           u'<b>las horas de quien lo cuida</b>. Esas horas no se facturan, pero las pone alguien. '
-          u'En el caso de partida son 22 horas en cinco a&ntilde;os, m&aacute;s de trece veces el '
-          u'precio del material.</p>') + pregunta(
+          u'En el caso de partida son 22 horas en cinco a&ntilde;os: a 12 &euro; la hora, como en la '
+          u'escena, y con 67 &euro; de piezas y pilas, mantenerlo cuesta m&aacute;s de trece veces lo '
+          u'que cost&oacute; el material.</p>') + pregunta(
           u'Un aparato aguanta cuatro d&iacute;as y tarda dos en volver. &iquest;Qu&eacute; '
           u'disponibilidad tiene? &iquest;Y si aguanta dos y tarda cuatro?',
           u'<p>El <b>67 %</b> en el primer caso (cuatro d&iacute;as de cada seis) y el <b>33 %</b> '
@@ -2215,7 +2216,7 @@ S = [
          chips=[u'CE2 &middot; 2.1', u'CE6 &middot; 6.3', u'A.2', u'D.4'], cuerpo=S3),
     dict(corto=u'Lo que queda',
          titulo=u'&iquest;Cu&aacute;ndo devuelve tu aparato lo que cost&oacute; hacerlo?',
-         entradilla=u'La &uacute;ltima cuenta del curso, y no sale bien. Impactos que no se pueden '
+         entradilla=u'La cuenta del propio aparato, y no sale bien. Impactos que no se pueden '
                     u'sumar, escala, y por d&oacute;nde seguir.',
          minutado=MIN_TEST,
          chips=[u'CE6 &middot; 6.2', u'CE6 &middot; 6.3', u'D.2', u'D.3', u'D.4'], cuerpo=S4),

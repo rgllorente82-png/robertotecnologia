@@ -1036,7 +1036,7 @@ S8_TEORIA = u'''
               entregada</i> y <i>agua en el suelo</i>.</li>
           <li><b>Sin topes de seguridad</b> (sesi&oacute;n 7), el agarrotamiento deja el motor
               bloqueado <b>120 minutos</b>. Con topes, <b>6</b>. Y f&iacute;jate en un detalle
-              inc&oacute;modo: la humedad m&iacute;nima del d&iacute;a es 26,3 % con topes y 26,2 %
+              inc&oacute;modo: la humedad m&iacute;nima del d&iacute;a es 26,2 % con topes y 26,3 %
               sin ellos. La planta <b>no nota la diferencia</b>; el que la nota es el motor. Hay
               fallos que no se ven en el resultado.</li>
           <li><b>Sin m&aacute;quina de estados</b> (sesi&oacute;n 4), el brazo sigue movi&eacute;ndose

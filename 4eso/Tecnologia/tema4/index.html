@@ -1406,8 +1406,10 @@ window.QUIETO = function(){
         <p>Para pasar una lectura a voltios:</p>
         <p style="font-size:17px;text-align:center;margin:10px 0">
            <b>V = lectura &middot; 5 / 1023</b></p>
-        <p>Y de ah&iacute; sale la <b>resoluci&oacute;n</b>: 5 / 1023 = <b>0,0049&nbsp;V</b>, casi
-           cinco mil&eacute;simas de voltio. Lo que est&eacute; por debajo de eso, el Arduino
+        <p>La <b>resoluci&oacute;n</b> (lo que vale cada escal&oacute;n) sale de repartir 5&nbsp;V en
+           1024 escalones: 5 / 1024 = <b>0,00488&nbsp;V</b>, casi cinco mil&eacute;simas de voltio.
+           (Para volver a voltios se divide entre 1023, para que el 1023 caiga justo en 5&nbsp;V;
+           las dos cuentas se diferencian en un 0,1&nbsp;%.) Lo que est&eacute; por debajo de eso, el Arduino
            <b>no lo ve</b>. No es un defecto de la placa: es que un n&uacute;mero entero no puede
            tener infinitos escalones.</p>
       </div>
@@ -1528,7 +1530,7 @@ else                    digitalWrite(9, LOW);</pre>
         <li>La sonda lee 450 y la consigna es del 40&nbsp;%. &iquest;Cu&aacute;l es el error?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>No se puede restar todav&iacute;a: 450 son cuentas y 40 es un porcentaje. Hay que pasar la consigna a cuentas: L = 620 &minus; 3,4 &middot; 40 = <b>484</b>. Y ahora s&iacute;: error = 450 &minus; 484 = <b>&minus;34</b>. Negativo, o sea que hay <b>m&aacute;s</b> humedad de la pedida: no se riega.</p></div></details></li>
         <li>&iquest;Qu&eacute; resoluci&oacute;n tiene la entrada anal&oacute;gica de un Arduino Uno?
-          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>5 / 1023 = <b>0,0049&nbsp;V</b>, unos 5&nbsp;mV. Hay 1024 valores posibles (del 0 al 1023) repartidos entre 0 y 5&nbsp;V.</p></div></details></li>
+          <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>5 / 1024 = <b>0,00488&nbsp;V</b>, unos 5&nbsp;mV. Hay 1024 valores posibles (del 0 al 1023) repartidos entre 0 y 5&nbsp;V.</p></div></details></li>
         <li>&iquest;Qu&eacute; pasa si te equivocas en el <b>signo</b> del error?
           <details class="resp"><summary>Ver respuesta</summary><div class="resp-cuerpo"><p>Que el sistema corrige al rev&eacute;s y cada correcci&oacute;n empeora las cosas: <b>realimentaci&oacute;n positiva</b>. Se dispara hasta que algo lo para. Es el acople del micr&oacute;fono con el altavoz.</p></div></details></li>
 
@@ -2072,7 +2074,7 @@ repetir siempre:
       <figure class="foto">
         <img src="../../../img/mechanical-advantage-levers.svg" width="1087" height="632" loading="lazy"
              alt="Palancas de clase 1 y clase 2 mostrando ventaja mec&aacute;nica y distancias">
-        <figcaption>Las <b>palancas como m&aacute;quinas simples</b> demuestran el principio fundamental de la mec&aacute;nica: <b>cambias fuerza por distancia</b>. Con la palanca de clase 1, aplicas menos fuerza pero recorres m&aacute;s distancia. La ventaja mec&aacute;nica es el cociente entre la distancia de entrada y la distancia de salida. La misma regla de oro aplica en todos los mecanismos: ganas en fuerza, pierdes en velocidad; ganas en velocidad, pierdes en fuerza.
+        <figcaption>Las <b>palancas como m&aacute;quinas simples</b> demuestran el principio fundamental de la mec&aacute;nica: <b>cambias fuerza por distancia</b>. En la palanca de clase 1 el fulcro est&aacute; entre la fuerza y la carga: si est&aacute; m&aacute;s cerca de la carga, aplicas menos fuerza pero recorres m&aacute;s distancia; si est&aacute; m&aacute;s cerca de tu mano, es al rev&eacute;s. La ventaja mec&aacute;nica es el cociente entre la distancia de entrada y la distancia de salida. La misma regla de oro aplica en todos los mecanismos: ganas en fuerza, pierdes en velocidad; ganas en velocidad, pierdes en fuerza.
           <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
         </figcaption>
       </figure>
@@ -4199,7 +4201,7 @@ void loop() {
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
 
       <p>El grupo de al lado ha terminado antes y os pasa su n&uacute;mero: <b>&laquo;el umbral es
-         480, funciona&raquo;</b>. Lo pon&eacute;is en vuestro programa, cl&aacute;vais la sonda y
+         480, funciona&raquo;</b>. Lo pon&eacute;is en vuestro programa, clav&aacute;is la sonda y
          encend&eacute;is.</p>
       <p>Y vuestra maceta se encharca en dos d&iacute;as.</p>
       <div class="reto-piensa">
@@ -4805,7 +4807,7 @@ void loop() {
 
       <p>Vuestro riego lleva tres d&iacute;as funcionando en la mesa del taller y no ha fallado ni
          una vez. Enhorabuena.</p>
-      <p>Ahora la pregunta que importa: <b>&iquest;os la juga&iacute;s?</b> Se va la clase de
+      <p>Ahora la pregunta que importa: <b>&iquest;os la jug&aacute;is?</b> Se va la clase de
          vacaciones. Vuelve todo el mundo el 8 de enero. &iquest;Firm&aacute;is que la planta va a
          estar viva?</p>
       <div class="reto-piensa">
@@ -5234,7 +5236,7 @@ void loop() {
           <li><b>El problema</b>, con un dato del centro. &laquo;En el instituto hay 14 plantas y en
               las Navidades pasadas se secaron 5.&raquo; Diez segundos.</li>
           <li><b>El lazo</b>, en una frase: qu&eacute; med&iacute;s, con qu&eacute; lo
-              compar&aacute;is, qu&eacute; move&iacute;s. Con el diagrama de bloques de la
+              compar&aacute;is, qu&eacute; mov&eacute;is. Con el diagrama de bloques de la
               sesi&oacute;n 2 en la pantalla.</li>
           <li><b>Un n&uacute;mero.</b> El que mejor os defienda: mililitros en dos semanas frente a
               regar a mano, u horas por debajo del punto de marchitez. <b>Uno solo</b>, bien

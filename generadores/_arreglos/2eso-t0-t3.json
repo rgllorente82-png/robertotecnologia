@@ -1,0 +1,332 @@
+[
+ {
+  "fichero": "2eso/TyD/tema0/index.html",
+  "viejo": "Es el mismo bucle para una piedra tallada y para un cohete. Y es exactamente lo que\n          vas a hacer t&uacute; en cada proyecto de este curso.</div>",
+  "nuevo": "Es el mismo bucle para una piedra tallada y para un cohete.</div>",
+  "motivo": "T0: la frase 'es exactamente lo que vas a hacer tu en cada proyecto' salia dos veces seguidas (pie y parrafo)"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "        <span class=\"n-tag\">Esto ya lo trabajaste en el tema 2</span>\n        Aqu&iacute; es un recordatorio de tres l&iacute;neas, no materia nueva: las\n        <b>vistas</b>, las <b>escalas</b>, las reglas de acotaci&oacute;n y el <b>cajet&iacute;n</b> los diste\n        en el <a href=\"../tema2/\">tema 2, <i>Representaci&oacute;n gr&aacute;fica de un proyecto</i></a>, que va antes que este.\n        Lo que cambia hoy es para qu&eacute; lo usas:",
+  "nuevo": "        <span class=\"n-tag\">Esto se ve a fondo en el tema 2</span>\n        Aqu&iacute; basta con tres l&iacute;neas: las\n        <b>vistas</b>, las <b>escalas</b>, las reglas de acotaci&oacute;n y el <b>cajet&iacute;n</b> se trabajan\n        en el <a href=\"../tema2/\">tema 2, <i>Expresi&oacute;n gr&aacute;fica de un proyecto</i></a>, que viene despu&eacute;s de este.\n        Lo que importa hoy es para qu&eacute; lo usas:",
+  "motivo": "T1: decia que el tema 2 va antes que este, pero va despues; y el tema 2 se llama Expresion grafica, no Representacion grafica"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. Eso es justo lo que trabajasteis en el\n        <b>tema 2</b>, que disteis antes que este.",
+  "nuevo": "reglas de acotaci&oacute;n y un <b>cajet&iacute;n</b> que diga qui&eacute;n lo firma. Eso es justo lo que vais a trabajar en el\n        <b>tema 2</b>, el siguiente.",
+  "motivo": "T1 cierre: 'que disteis antes que este' contradice la numeracion y el boton 'Ir al tema 2'"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "alt=\"El proceso tecnol&oacute;gico: 7 pasos desde definir el problema hasta documentar\">\n        <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>. Cada paso produce algo: el 1 produce un problema claro, el 2 produce una lista de requisitos comprobables, el 3 un dise&ntilde;o concreto. El proceso no es lineal: cuando pruebas en el paso 5, a menudo tienes que volver al 6 (mejorar) o incluso al 3 (redise&ntilde;ar). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.",
+  "nuevo": "alt=\"El proceso tecnol&oacute;gico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atr&aacute;s desde evaluar hasta el dise&ntilde;o\">\n        <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>: detectar la necesidad, analizar el problema, buscar ideas, elegir y dise&ntilde;ar, planificar, construir y evaluar. Cada paso produce algo: el 1, un problema claro; el 2, una lista de requisitos comprobables; el 4, un dise&ntilde;o concreto. El proceso no es lineal: si al evaluar, en el paso 7, no se cumplen los requisitos, se vuelve atr&aacute;s, casi siempre al dise&ntilde;o (paso 4). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.",
+  "motivo": "T1: el pie de la figura de los siete pasos usaba otra lista (probar, mejorar, documentar); ahora usa los siete pasos de la pagina"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "alt=\"Diagrama de flujo del proceso tecnológico: 7 pasos desde detectar hasta evaluar, con retroalimentación\">\n        <figcaption>El <b>proceso tecnológico</b> como flujo: detectar, analizar, diseñar, planificar, construir, probar, evaluar.\n          La flecha de retorno que ves del paso 7 al paso 2 no es un error: es lo que ocurre cuando no cumple los requisitos.</figcaption>",
+  "nuevo": "alt=\"Diagrama de flujo del proceso tecnológico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atrás desde evaluar hasta el diseño\">\n        <figcaption>El <b>proceso tecnológico</b> como flujo: detectar la necesidad, analizar el problema, buscar ideas, elegir y diseñar, planificar, construir y evaluar.\n          La flecha que vuelve del paso 7 al 4 no es un error: es lo que ocurre cuando no cumple los requisitos del paso 2.</figcaption>",
+  "motivo": "T1: el pie del diagrama de flujo se saltaba 'buscar ideas' y metia 'probar'; ahora son los siete pasos de la pagina"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "<li>&iquest;Por qu&eacute; el secado de la cola ocupa una fila del Gantt si no lo hace nadie?",
+  "nuevo": "<li>&iquest;Por qu&eacute; la espera de turno de la base de corte ocupa una fila del Gantt si no la hace nadie?",
+  "motivo": "T1 S4 cierre: el ejemplo no lleva cola; la espera sin nadie es el turno de la base de corte (tarea 7)"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "<p id=\"test-u1-p7\">7. En el diagrama de Gantt, el secado de la cola ocupa una fila entera aunque no lo haga nadie. &iquest;Por qu&eacute;?</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u1-6\" value=\"0\">para que se vea que se ha usado cola</label>",
+  "nuevo": "<p id=\"test-u1-p7\">7. En el diagrama de Gantt, la espera de turno de la base de corte ocupa una fila entera aunque no la haga nadie. &iquest;Por qu&eacute;?</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u1-6\" value=\"0\">para que se vea que se ha usado la base de corte</label>",
+  "motivo": "T1 test p7: el ejemplo no lleva cola; la espera es la de la base de corte"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "Y mientras la cola agarra, el Gantt ense&ntilde;a qu&eacute; otra cosa se puede ir haciendo.",
+  "nuevo": "Y mientras se espera turno, el Gantt ense&ntilde;a qu&eacute; otra cosa se puede ir haciendo.",
+  "motivo": "T1 test p7: 'mientras la cola agarra' -> la espera es el turno de la base de corte"
+ },
+ {
+  "fichero": "2eso/TyD/tema1/index.html",
+  "viejo": "Con el tercero no: se cuelgan 3 kg y se mira.",
+  "nuevo": "Con el tercero no: se pone el m&oacute;vil, se empuja arriba con un dedo y se mira si se levanta.",
+  "motivo": "T1 test p2: 'se cuelgan 3 kg' no comprueba 'no volcar al tocar la pantalla'; la prueba de la pagina es empujar arriba con un dedo"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Definir</text>\n    <text x=\"80\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">el problema</text>",
+  "nuevo": "font-weight=\"bold\">Detectar</text>\n    <text x=\"80\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">la necesidad</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Especificar</text>\n    <text x=\"235\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">requisitos</text>",
+  "nuevo": "font-weight=\"bold\">Analizar</text>\n    <text x=\"235\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">el problema</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Diseñar</text>\n    <text x=\"390\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">la solución</text>",
+  "nuevo": "font-weight=\"bold\">Buscar</text>\n    <text x=\"390\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">ideas</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Construir</text>\n    <text x=\"545\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">el prototipo</text>",
+  "nuevo": "font-weight=\"bold\">Elegir</text>\n    <text x=\"545\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">y diseñar</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Probar</text>\n    <text x=\"700\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">y validar</text>",
+  "nuevo": "font-weight=\"bold\">Planificar</text>\n    <text x=\"700\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">el trabajo</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Mejorar</text>\n    <text x=\"855\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">el diseño</text>",
+  "nuevo": "font-weight=\"bold\">Construir</text>\n    <text x=\"855\" y=\"220\" class=\"label\" font-size=\"9\" text-anchor=\"middle\">el objeto</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "font-weight=\"bold\">Documentar</text>\n    <text x=\"855\" y=\"388\" class=\"label\" style=\"font-size: 9px; text-anchor: middle\">y comunicar</text>",
+  "nuevo": "font-weight=\"bold\">Evaluar</text>\n    <text x=\"855\" y=\"388\" class=\"label\" style=\"font-size: 9px; text-anchor: middle\">¿cumple?</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "  <!-- Feedback loop from 6 to 5 -->\n  <path d=\"M 810 140 Q 755 110 745 140\" stroke=\"#e74c3c\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrowdark)\" stroke-dasharray=\"5,3\"/>\n  <text x=\"742\" y=\"86\" class=\"label\" style=\"font-size: 9px\" fill=\"#e74c3c\">retroalimentación</text>",
+  "nuevo": "  <!-- Feedback loop from 7 (evaluar) back to 4 (disenar) -->\n  <path d=\"M 810 305 L 545 305 L 545 234\" stroke=\"#e74c3c\" stroke-width=\"2\" fill=\"none\" marker-end=\"url(#arrowdark)\" stroke-dasharray=\"5,3\"/>\n  <text x=\"570\" y=\"296\" class=\"label\" style=\"font-size: 9px\" fill=\"#e74c3c\">si no cumple, se vuelve al diseño</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological-process-steps.svg",
+  "viejo": "      <text x=\"60\" y=\"470\"><tspan font-weight=\"bold\">1. Definir el problema</tspan></text>\n      <text x=\"80\" y=\"488\">¿Qué necesito construir? ¿Para quién? ¿Por qué no existe ya?</text>\n\n      <text x=\"60\" y=\"510\"><tspan font-weight=\"bold\">2. Especificar requisitos</tspan></text>\n      <text x=\"80\" y=\"528\">Lo que DEBE cumplir: tamaño, peso, materiales, resistencia y presupuesto.</text>\n\n      <text x=\"60\" y=\"550\"><tspan font-weight=\"bold\">3. Diseñar la solución</tspan></text>\n      <text x=\"80\" y=\"568\">Croquis acotados, despieces, matriz de decisión de materiales, hoja de proceso, Gantt.</text>\n\n      <text x=\"60\" y=\"590\"><tspan font-weight=\"bold\">4. Construir el prototipo</tspan></text>\n      <text x=\"80\" y=\"608\">Ejecutar el plan: medir, cortar, ensamblar, probar componentes individuales.</text>\n\n      <text x=\"60\" y=\"630\"><tspan font-weight=\"bold\">5. Probar y validar</tspan></text>\n      <text x=\"80\" y=\"648\">¿Cumple los requisitos? ¿Funciona bajo condiciones normales y extremas?</text>\n\n      <text x=\"500\" y=\"470\"><tspan font-weight=\"bold\">6. Mejorar el diseño</tspan></text>\n      <text x=\"520\" y=\"488\">Si algo falla: vuelves al paso anterior, arreglas y pruebas de nuevo.</text>\n\n      <text x=\"500\" y=\"510\"><tspan font-weight=\"bold\">7. Documentar y comunicar</tspan></text>\n      <text x=\"520\" y=\"528\">Memoría del proyecto: cómo lo hiciste, qué aprendíste, cómo se usa.</text>\n\n      <text x=\"500\" y=\"560\" class=\"label\" font-size=\"11\" fill=\"#e74c3c\" font-weight=\"bold\">Esto no es lineal:</text>\n      <text x=\"520\" y=\"580\">La retroalimentación de la prueba (5) vuelve a mejorar (6), no siempre a diseñar.</text>\n      <text x=\"520\" y=\"598\">Muchos ciclos cortos: diseña poco, construye poco, prueba, mejora, repite.</text>\n      <text x=\"520\" y=\"616\">Es lo que hace un ingeniero: itera hasta que funciona.</text>",
+  "nuevo": "      <text x=\"60\" y=\"470\"><tspan font-weight=\"bold\">1. Detectar la necesidad</tspan></text>\n      <text x=\"80\" y=\"488\">Qué falta y a quién le falta.</text>\n\n      <text x=\"60\" y=\"510\"><tspan font-weight=\"bold\">2. Analizar el problema</tspan></text>\n      <text x=\"80\" y=\"528\">Qué condiciones tiene que cumplir la solución: los requisitos.</text>\n\n      <text x=\"60\" y=\"550\"><tspan font-weight=\"bold\">3. Buscar ideas</tspan></text>\n      <text x=\"80\" y=\"568\">Varias, no una. Cuantas más, mejor la elegida.</text>\n\n      <text x=\"60\" y=\"590\"><tspan font-weight=\"bold\">4. Elegir y diseñar</tspan></text>\n      <text x=\"80\" y=\"608\">Escoger una con un criterio y concretarla: medidas, materiales, piezas, dibujos.</text>\n\n      <text x=\"60\" y=\"630\"><tspan font-weight=\"bold\">5. Planificar</tspan></text>\n      <text x=\"80\" y=\"648\">Quién hace qué, con qué y en cuánto tiempo.</text>\n\n      <text x=\"500\" y=\"470\"><tspan font-weight=\"bold\">6. Construir</tspan></text>\n      <text x=\"520\" y=\"488\">Fabricar lo diseñado, siguiendo el plan.</text>\n\n      <text x=\"500\" y=\"510\"><tspan font-weight=\"bold\">7. Evaluar</tspan></text>\n      <text x=\"520\" y=\"528\">¿Cumple los requisitos del paso 2? Si no, se vuelve atrás.</text>\n\n      <text x=\"500\" y=\"560\" class=\"label\" font-size=\"11\" fill=\"#e74c3c\" font-weight=\"bold\">Esto no es lineal:</text>\n      <text x=\"520\" y=\"580\">Casi siempre se vuelve atrás, y casi siempre al diseño (4).</text>\n      <text x=\"520\" y=\"598\">Volver atrás no es fracasar: es cómo funciona.</text>\n      <text x=\"520\" y=\"616\">Es lo que hace un ingeniero: itera hasta que funciona.</text>",
+  "motivo": "T1 figura de los siete pasos: el SVG usaba otra lista (probar, mejorar, documentar); pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"105\" y=\"105\">1. Detectar</text>\n    <text class=\"step-desc\" x=\"50\" y=\"120\">el problema</text>\n    <text class=\"step-desc\" x=\"50\" y=\"135\">o necesidad</text>\n    <text class=\"step-desc\" x=\"50\" y=\"150\">que se quiere</text>\n    <text class=\"step-desc\" x=\"50\" y=\"165\">resolver</text>",
+  "nuevo": "    <text class=\"step-title\" x=\"105\" y=\"105\" style=\"text-anchor: middle\">1. Detectar</text>\n    <text class=\"step-desc\" x=\"50\" y=\"120\">la necesidad:</text>\n    <text class=\"step-desc\" x=\"50\" y=\"135\">qué falta</text>\n    <text class=\"step-desc\" x=\"50\" y=\"150\">y a quién</text>\n    <text class=\"step-desc\" x=\"50\" y=\"165\">le falta</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"285\" y=\"105\">2. Analizar</text>\n    <text class=\"step-desc\" x=\"230\" y=\"120\">¿Cómo es?</text>\n    <text class=\"step-desc\" x=\"230\" y=\"135\">¿Qué tiene?</text>\n    <text class=\"step-desc\" x=\"230\" y=\"150\">¿Para qué</text>\n    <text class=\"step-desc\" x=\"230\" y=\"165\">sirve?</text>",
+  "nuevo": "    <text class=\"step-title\" x=\"285\" y=\"105\" style=\"text-anchor: middle\">2. Analizar</text>\n    <text class=\"step-desc\" x=\"230\" y=\"120\">el problema:</text>\n    <text class=\"step-desc\" x=\"230\" y=\"135\">qué tiene que</text>\n    <text class=\"step-desc\" x=\"230\" y=\"150\">cumplir</text>\n    <text class=\"step-desc\" x=\"230\" y=\"165\">(requisitos)</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"465\" y=\"105\">3. Diseñar</text>\n    <text class=\"step-desc\" x=\"410\" y=\"120\">la solución:</text>\n    <text class=\"step-desc\" x=\"410\" y=\"135\">croquis, planos,</text>\n    <text class=\"step-desc\" x=\"410\" y=\"150\">lista de</text>\n    <text class=\"step-desc\" x=\"410\" y=\"165\">materiales</text>",
+  "nuevo": "    <text class=\"step-title\" x=\"465\" y=\"105\" style=\"text-anchor: middle; font-size: 12px\">3. Buscar ideas</text>\n    <text class=\"step-desc\" x=\"410\" y=\"120\">varias, no una:</text>\n    <text class=\"step-desc\" x=\"410\" y=\"135\">cuantas más,</text>\n    <text class=\"step-desc\" x=\"410\" y=\"150\">mejor la</text>\n    <text class=\"step-desc\" x=\"410\" y=\"165\">elegida</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"645\" y=\"105\" style=\"text-anchor: middle\">4. Planificar</text>\n    <text class=\"step-desc\" x=\"590\" y=\"120\">pasos de</text>\n    <text class=\"step-desc\" x=\"590\" y=\"135\">trabajo, tiempo,</text>\n    <text class=\"step-desc\" x=\"590\" y=\"150\">recursos</text>\n    <text class=\"step-desc\" x=\"590\" y=\"165\">(Gantt)</text>",
+  "nuevo": "    <text class=\"step-title\" x=\"645\" y=\"105\" style=\"text-anchor: middle; font-size: 12px\">4. Elegir y diseñar</text>\n    <text class=\"step-desc\" x=\"590\" y=\"120\">con un criterio;</text>\n    <text class=\"step-desc\" x=\"590\" y=\"135\">medidas,</text>\n    <text class=\"step-desc\" x=\"590\" y=\"150\">materiales,</text>\n    <text class=\"step-desc\" x=\"590\" y=\"165\">piezas, dibujos</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"825\" y=\"105\" style=\"text-anchor: middle\">5. Construir</text>\n    <text class=\"step-desc\" x=\"770\" y=\"120\">seguir el</text>\n    <text class=\"step-desc\" x=\"770\" y=\"135\">proceso:</text>\n    <text class=\"step-desc\" x=\"770\" y=\"150\">herramientas,</text>\n    <text class=\"step-desc\" x=\"770\" y=\"165\">técnicas</text>\n  </g>\n\n  <!-- Row 2 arrows -->\n  <path class=\"arrow\" d=\"M 825 80 L 825 20 L 465 20 L 465 80\"/>",
+  "nuevo": "    <text class=\"step-title\" x=\"825\" y=\"105\" style=\"text-anchor: middle\">5. Planificar</text>\n    <text class=\"step-desc\" x=\"770\" y=\"120\">quién hace qué,</text>\n    <text class=\"step-desc\" x=\"770\" y=\"135\">con qué y en</text>\n    <text class=\"step-desc\" x=\"770\" y=\"150\">cuánto tiempo</text>\n    <text class=\"step-desc\" x=\"770\" y=\"165\">(Gantt)</text>\n  </g>\n\n  <!-- Row 2 arrows: del 5 al 6 -->\n  <path class=\"arrow\" d=\"M 825 180 L 825 200 L 285 200 L 285 218\"/>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"285\" y=\"245\">6. Probar</text>\n    <text class=\"step-desc\" x=\"230\" y=\"260\">¿Funciona?</text>\n    <text class=\"step-desc\" x=\"230\" y=\"275\">¿Cumple los</text>\n    <text class=\"step-desc\" x=\"230\" y=\"290\">requisitos?</text>\n    <text class=\"step-desc\" x=\"230\" y=\"305\">¿Es seguro?</text>",
+  "nuevo": "    <text class=\"step-title\" x=\"285\" y=\"245\" style=\"text-anchor: middle\">6. Construir</text>\n    <text class=\"step-desc\" x=\"230\" y=\"260\">siguiendo</text>\n    <text class=\"step-desc\" x=\"230\" y=\"275\">el plan:</text>\n    <text class=\"step-desc\" x=\"230\" y=\"290\">herramientas,</text>\n    <text class=\"step-desc\" x=\"230\" y=\"305\">técnicas</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "    <text class=\"step-title\" x=\"465\" y=\"245\">7. Evaluar</text>\n    <text class=\"step-desc\" x=\"410\" y=\"260\">¿Qué salió bien?</text>\n    <text class=\"step-desc\" x=\"410\" y=\"275\">¿Qué mejorar?</text>\n    <text class=\"step-desc\" x=\"410\" y=\"290\">¿Impacto</text>\n    <text class=\"step-desc\" x=\"410\" y=\"305\">ambiental?</text>\n  </g>\n\n  <!-- Feedback loop -->\n  <path class=\"arrow\" d=\"M 400 270 L 350 270\" stroke=\"#F57C00\" stroke-width=\"2.5\"/>\n  <text x=\"365\" y=\"260\" style=\"font-size: 10px; fill: #F57C00; font-weight: bold;\">si no</text>\n\n  <!-- Cycle indicator -->\n  <path class=\"arrow\" d=\"M 465 320 L 465 380 Q 500 410 465 440 Q 380 460 285 440 Q 250 430 250 380\" stroke=\"#7B1FA2\" stroke-width=\"2.5\" fill=\"none\" marker-end=\"url(#arrowhead-purple)\"/>\n  <text x=\"320\" y=\"430\" style=\"font-size: 11px; fill: #7B1FA2; font-weight: bold;\">Proceso cíclico</text>",
+  "nuevo": "    <text class=\"step-title\" x=\"465\" y=\"245\" style=\"text-anchor: middle\">7. Evaluar</text>\n    <text class=\"step-desc\" x=\"410\" y=\"260\">¿Cumple los</text>\n    <text class=\"step-desc\" x=\"410\" y=\"275\">requisitos</text>\n    <text class=\"step-desc\" x=\"410\" y=\"290\">del paso 2?</text>\n    <text class=\"step-desc\" x=\"410\" y=\"305\">Si no, atrás</text>\n  </g>\n\n  <!-- Vuelta atras: del 7 (evaluar) al 4 (elegir y disenar) -->\n  <path class=\"arrow\" d=\"M 530 270 L 645 270 L 645 182\" stroke=\"#7B1FA2\" stroke-width=\"2.5\" fill=\"none\" marker-end=\"url(#arrowhead-purple)\"/>\n  <text x=\"560\" y=\"262\" style=\"font-size: 11px; fill: #7B1FA2; font-weight: bold;\">si no cumple</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "  <text x=\"50\" y=\"530\" style=\"font-size: 11px; fill: #333;\">• Es cíclico: después de evaluar, se vuelve a analizar para mejorar</text>",
+  "nuevo": "  <text x=\"50\" y=\"530\" style=\"font-size: 11px; fill: #333;\">• No es una línea recta: si al evaluar no cumple, se vuelve atrás, casi siempre al diseño</text>",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "img/technological_process_workflow.svg",
+  "viejo": "• Requiere plaificación: tiempo, recursos, materiales y herramientas",
+  "nuevo": "• Requiere planificación: tiempo, recursos, materiales y herramientas",
+  "motivo": "T1 diagrama de flujo: el SVG se saltaba 'buscar ideas' y metia 'probar'; pasa a los siete pasos de la pagina"
+ },
+ {
+  "fichero": "2eso/TyD/tema2/index.html",
+  "viejo": "Ya sabes explicar lo que quieres construir. En el pr&oacute;ximo tema toca <b>llevar un proyecto entero</b>:\n        del encargo al objeto montado, pasando por el croquis acotado que acabas de aprender a hacer.",
+  "nuevo": "Ya sabes explicar lo que quieres construir. En el pr&oacute;ximo tema toca decidir <b>de qu&eacute; se hace</b>:\n        los materiales, sus propiedades y c&oacute;mo se elige uno comparando esas propiedades con lo que necesitas.",
+  "motivo": "T2 cierre: anunciaba 'llevar un proyecto entero' y el tema 3 es Materiales"
+ },
+ {
+  "fichero": "2eso/TyD/tema2/index.html",
+  "viejo": "<span class=\"min\"><b>15'</b> Teor&iacute;a</span>\n        <span class=\"min\"><b>10'</b> Animaci&oacute;n</span>",
+  "nuevo": "<span class=\"min\"><b>10'</b> Teor&iacute;a</span>\n        <span class=\"min\"><b>15'</b> Animaci&oacute;n</span>",
+  "motivo": "T2 S5: la cabecera marcaba 15' de teoria y 10' de animacion; los apartados dicen 10 y 15"
+ },
+ {
+  "fichero": "2eso/TyD/tema2/index.html",
+  "viejo": "Velázquez sí, Picasso no: <em>Las Meninas</em> está en dominio público y se puede publicar, pero las obras de Picasso siguen protegidas (hasta 2043 en España). Si quieres usar el <em>Guernica</em> en clase, enlaza a la web del Museo Reina Sofía en lugar de subir la imagen al Site.",
+  "nuevo": "Velázquez sí, Picasso no: <em>Las Meninas</em> está en dominio público y cualquiera puede publicarla, pero las obras de Picasso siguen protegidas (hasta 2043 en España). Si quieres usar el <em>Guernica</em> en un trabajo que vayas a publicar, pon un enlace a la web del Museo Reina Sofía en lugar de copiar la imagen.",
+  "motivo": "T2 S1: nota de derechos de autor escrita para el profesor ('subir la imagen al Site'); reescrita para el alumno"
+ },
+ {
+  "fichero": "2eso/TyD/tema2/index.html",
+  "viejo": "<div class=\"rotulo\"><span class=\"num\">05</span> Imágenes libres para el Site</div>\n      <p>Recursos de Wikimedia Commons con licencia libre, listos para incrustar o proyectar. Comprueba siempre la licencia concreta de cada archivo antes de publicarlo.</p>",
+  "nuevo": "<div class=\"rotulo\"><span class=\"num\">05</span> Para ver más planos</div>\n      <p>Planos y láminas reales en Wikimedia Commons, con licencia libre. Si usas alguno en un trabajo, mira la licencia de ese archivo y cita a su autor.</p>",
+  "motivo": "T2 S1: seccion 'Imagenes libres para el Site' era una nota para el profesor; reescrita para el alumno"
+ },
+ {
+  "fichero": "2eso/TyD/tema2/index.html",
+  "viejo": "<span>Cientos de planos reales para enseñar cómo es un dibujo técnico de verdad.</span>",
+  "nuevo": "<span>Cientos de planos reales para ver cómo es un dibujo técnico de verdad.</span>",
+  "motivo": "T2 S1: 'para ensenar' era voz de profesor"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Un material se elige comparando propiedades. La pr&oacute;xima sesi&oacute;n va de <b>c&oacute;mo se miden</b>\n        esas propiedades &mdash;porque si no se miden, volvemos a las opiniones.",
+  "nuevo": "Un material se elige comparando propiedades. Pero antes de medirlas hay que ir un paso atr&aacute;s:\n        la pr&oacute;xima sesi&oacute;n va de <b>de d&oacute;nde sale</b> cada material.",
+  "motivo": "T3 S1: anunciaba como se miden las propiedades, pero la S2 es de materias primas (los ensayos son la S3)"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Ya sabes de d&oacute;nde sale cada material. Ahora, c&oacute;mo se <b>elige</b> uno: midiendo lo que\n        aguanta, lo que pesa y lo que conduce.",
+  "nuevo": "Ya sabes de d&oacute;nde sale cada material. Ahora, c&oacute;mo se <b>miden</b> sus propiedades, para\n        elegir con datos y no con opiniones.",
+  "motivo": "T3 S2: el enlace a la S3 (ensayos) ya dice que va de medir"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<p>En la sesi&oacute;n anterior qued&oacute; claro que un material se elige <b>comparando propiedades</b>.",
+  "nuevo": "<p>En la primera sesi&oacute;n qued&oacute; claro que un material se elige <b>comparando propiedades</b>.",
+  "motivo": "T3 S3: lo de comparar propiedades fue la S1, no la sesion anterior"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Mientras la respuesta sea «se nota», seguimos en las opiniones del tema anterior.",
+  "nuevo": "Mientras la respuesta sea «se nota», seguimos en las opiniones de la primera sesi&oacute;n.",
+  "motivo": "T3 S3: las opiniones ('porque es barato') eran de la S1 de este tema, no del tema anterior"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "En la sesi&oacute;n anterior el cuadro de aluminio dec&iacute;a",
+  "nuevo": "En la primera sesi&oacute;n el cuadro de aluminio dec&iacute;a",
+  "motivo": "T3 S3: el cuadro de aluminio estaba en la S1, no en la sesion anterior"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Elegir y medir: hecho. Toca mirar los materiales uno a uno,\n        empezando por el m&aacute;s antiguo de todos: <b>la madera</b>.",
+  "nuevo": "Elegir y medir: hecho. Toca mirar de cerca una familia de materiales, la m&aacute;s joven\n        de todas: <b>los pl&aacute;sticos</b>, que hubo que inventar.",
+  "motivo": "T3 S3: anunciaba la madera y la S4 es de plasticos (la madera es el tema 4)"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Eso es media decisi&oacute;n. Falta la otra mitad de la decisi&oacute;n: <b>qu&eacute; pasa con &eacute;l cuando el\n        objeto se tira</b>. Y el test del tema.",
+  "nuevo": "Elegir un material por sus propiedades es media decisi&oacute;n. Falta la otra mitad: <b>qu&eacute; pasa con &eacute;l\n        cuando el objeto se tira</b>. Y el test del tema.",
+  "motivo": "T3 S4: texto redundante ('media decision... la otra mitad de la decision') y 'Eso' sin referente"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "seg&uacute;n contaban los duenos de los salones",
+  "nuevo": "seg&uacute;n contaban los due&ntilde;os de los salones",
+  "motivo": "T3 S4: errata 'duenos'"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<figcaption>Comparación de tres materiales técnicos fundamentales: madera (material natural), metal (elemento puro) y plástico (material sintético), con sus propiedades y características principales.\n          <span class=\"credito\">Generado por Claude · CC BY-SA 4.0 · Comparativa de materiales</span>",
+  "nuevo": "<figcaption>Comparación de tres materiales técnicos: la madera, de origen vegetal, y el metal y el plástico, los dos de origen mineral, con sus propiedades y sus aplicaciones principales.\n          <span class=\"credito\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>",
+  "motivo": "T3 S4: 'metal (elemento puro)' es falso en general; el credito debe ser Elaboracion propia como el resto de diagramas propios"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "'No es reciclar por gusto: es que <b>extraer sale car&iacute;simo</b>, como viste con el aluminio.'",
+  "nuevo": "'No es reciclar por gusto: es que <b>extraer y fabricar desde cero sale car&iacute;simo</b>, y ah&iacute; se gasta la mayor parte de la energ&iacute;a.'",
+  "motivo": "T3 S5 widget: 'como viste con el aluminio' remite a algo que no esta en este tema (el cuadro de aluminio de la S1 no habla de coste de extraer)"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<li>Reconstruid su <b>ciclo de vida completo</b>, las cinco fases, con todo el detalle que pod&aacute;is.</li>",
+  "nuevo": "<li>Reconstruid su <b>ciclo de vida completo</b>, las cinco fases &mdash;extraer, fabricar, transportar, usar y tirar&mdash;, con todo el detalle que pod&aacute;is.</li>",
+  "motivo": "T3 S5 actividad: pedia 'las cinco fases' y el texto no las enumeraba (solo el widget)"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<span>Actividad 3 &middot; La autopsia de un objeto</span>",
+  "nuevo": "<span>Actividad 1 &middot; La autopsia de un objeto</span>",
+  "motivo": "T3: numeracion de actividades 3, -, 4, 7, 8 -> 1 a 5"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<span>El &aacute;rbol geneal&oacute;gico de cinco objetos</span>",
+  "nuevo": "<span>Actividad 2 &middot; El &aacute;rbol geneal&oacute;gico de cinco objetos</span>",
+  "motivo": "T3: la actividad de la S2 no llevaba numero"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<span>Actividad 4 &middot; Montar una escala de dureza del aula</span>",
+  "nuevo": "<span>Actividad 3 &middot; Montar una escala de dureza del aula</span>",
+  "motivo": "T3: numeracion de actividades"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<span>Actividad 7 &middot; Leer los tri&aacute;ngulos</span>",
+  "nuevo": "<span>Actividad 4 &middot; Leer los tri&aacute;ngulos</span>",
+  "motivo": "T3: numeracion de actividades"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "<span>Actividad 8 &middot; El juicio a un objeto</span>",
+  "nuevo": "<span>Actividad 5 &middot; El juicio a un objeto</span>",
+  "motivo": "T3: numeracion de actividades"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "        <li>&iquest;Qu&eacute; significa que la madera sea anis&oacute;tropa?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>Que <b>sus propiedades cambian seg&uacute;n la direcci&oacute;n</b>: mucho a lo largo de la veta, poco a lo ancho.</p></div></details></li>\n        <li>&iquest;Qu&eacute; problema resuelve el contrachapado?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>La anisotrop&iacute;a. Cruzando la veta de cada capa 90 grados, <b>ninguna direcci&oacute;n queda d&eacute;bil</b>.</p></div></details></li>\n        <li>&iquest;C&oacute;mo distingues un metal f&eacute;rrico de uno que no lo es?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>Con un <b>im&aacute;n</b>. Si se pega, lleva hierro. Con la excepci&oacute;n del acero inoxidable, que lo lleva y no se pega.</p></div></details></li>\n        <li>&iquest;Por qu&eacute; reciclar aluminio ahorra tant&iacute;sima energ&iacute;a?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>Porque lo caro es <b>separarlo del mineral por electrolisis</b>, y eso ya se hizo. Reciclar solo exige fundirlo.</p></div></details></li>",
+  "nuevo": "        <li>&iquest;Qu&eacute; diferencia hay entre dureza y tenacidad?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>La <b>dureza</b> es la resistencia a ser rayado. La <b>tenacidad</b> es aguantar golpes sin romperse, y su contrario es la <b>fragilidad</b>.</p></div></details></li>\n        <li>&iquest;Qu&eacute; diferencia hay entre un material natural y uno artificial? Pon un ejemplo de cada.\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>El <b>natural</b> se usa tal como se encuentra, o casi: la lana de un jersey. El <b>artificial</b> se obtiene <b>transformando</b> la materia prima con procesos f&iacute;sicos o reacciones qu&iacute;micas: el metacrilato, que sale del petr&oacute;leo.</p></div></details></li>\n        <li>&iquest;Qu&eacute; dice el tri&aacute;ngulo con un n&uacute;mero de un envase, y qu&eacute; no dice?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>Dice <b>de qu&eacute; pl&aacute;stico est&aacute; hecho</b>. No promete que se recicle: un 6 o un 7 lo llevan y casi siempre acaban incinerados o en vertedero.</p></div></details></li>\n        <li>&iquest;Qu&eacute; diferencia hay entre el modelo lineal y el modelo circular?\n          <details class=\"resp\"><summary>Ver respuesta</summary><div class=\"resp-cuerpo\"><p>En el <b>lineal</b> se extrae, se fabrica, se usa y se tira. En el <b>circular</b>, lo que se tira vuelve a entrar como materia prima.</p></div></details></li>",
+  "motivo": "T3 test de la S5: cuatro preguntas (anisotropia, contrachapado, iman, electrolisis) eran de los temas 4 y 5; sustituidas por contenido del tema 3"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "          <p id=\"test-u3-p2\">2. La madera de balsa se corta con la u&ntilde;a. En la clasificaci&oacute;n de maderas es&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-1\" value=\"0\">dura, aunque no lo parezca</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-1\" value=\"1\">blanda, porque es blanda</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-1\" value=\"2\">ni una cosa ni otra: est&aacute; aparte</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> La clasificaci&oacute;n es <b>bot&aacute;nica</b>, no de dureza real: duras son las de hoja caduca y blandas las de hoja perenne. La balsa es de hoja caduca, as&iacute; que es dura. Es la trampa favorita de esta parte del tema.</div>",
+  "nuevo": "          <p id=\"test-u3-p2\">2. Una goma se estira y vuelve a su forma; la plastilina se queda deformada. Eso es porque&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-1\" value=\"0\">la goma es el&aacute;stica y la plastilina, pl&aacute;stica</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-1\" value=\"1\">la goma es pl&aacute;stica y la plastilina, el&aacute;stica</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-1\" value=\"2\">la goma es m&aacute;s dura que la plastilina</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> En la <b>elasticidad</b> el material se deforma y recupera su forma; en la <b>plasticidad</b> se queda deformado. El nombre enga&ntilde;a: lo pl&aacute;stico es lo que no vuelve. Y la dureza no tiene nada que ver: es la resistencia a ser rayado.</div>",
+  "motivo": "T3 autotest p2: maderas duras/blandas es del tema 4; sustituida por elasticidad/plasticidad (S1), correcta en la misma posicion"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "          <p id=\"test-u3-p3\">3. La le&ntilde;a se raja siempre a lo largo porque&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-2\" value=\"0\">el hacha se clava mejor en esa direcci&oacute;n</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-2\" value=\"1\">la madera est&aacute; seca y se agrieta por donde sea</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-2\" value=\"2\">sus fibras van paralelas al tronco y se separan f&aacute;cil entre ellas</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> Por dentro es un manojo de pajitas pegadas: fuerte a lo largo, f&aacute;cil de separar a lo ancho. Esa dependencia de la direcci&oacute;n se llama <b>anisotrop&iacute;a</b>, y el acero no la tiene.</div>",
+  "nuevo": "          <p id=\"test-u3-p3\">3. La lana, el algod&oacute;n y el petr&oacute;leo son materias primas de origen&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-2\" value=\"0\">animal las tres: todas las usa el ser humano</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-2\" value=\"1\">natural las dos primeras y artificial el petr&oacute;leo</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-2\" value=\"2\">animal, vegetal y mineral</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> Las materias primas se clasifican por su origen: la lana sale de un animal, el algod&oacute;n de una planta y el petr&oacute;leo de la tierra, que es origen <b>mineral</b>. Por eso el pl&aacute;stico, que sale del petr&oacute;leo, es de origen mineral. Natural y artificial es otra clasificaci&oacute;n, la de los materiales, no la del origen.</div>",
+  "motivo": "T3 autotest p3: anisotropia de la madera es del tema 4; sustituida por el origen de las materias primas (S2), correcta en la misma posicion"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "          <p id=\"test-u3-p4\">4. El contrachapado se invent&oacute; para&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-3\" value=\"0\">abaratar la madera usando restos</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-3\" value=\"1\">imitar el aspecto del roble a precio de aglomerado</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-3\" value=\"2\">quitarle a la madera su punto d&eacute;bil, cruzando las capas</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> Cada derivado arregla un defecto concreto: el contrachapado, la anisotrop&iacute;a y el alabeo, cruzando la veta 90&deg;. Aprovechar restos es el <b>aglomerado</b> y el aspecto del roble es la <b>chapa</b>. No son sucedáneos baratos: son soluciones t&eacute;cnicas.</div>",
+  "nuevo": "          <p id=\"test-u3-p4\">4. Un envase lleva el tri&aacute;ngulo con un 6 dentro. Eso significa que&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-3\" value=\"0\">se recicla seguro, porque lleva el s&iacute;mbolo</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-3\" value=\"1\">est&aacute; hecho de seis capas de pl&aacute;stico</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-3\" value=\"2\">es de PS, y lo m&aacute;s probable es que acabe incinerado o en vertedero</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> El tri&aacute;ngulo dice <b>de qu&eacute; pl&aacute;stico</b> est&aacute; hecho, no que se recicle. El 6 es el PS &mdash;porex, bandejas&mdash;: voluminoso y poco rentable, as&iacute; que casi siempre acaba incinerado o en vertedero. El s&iacute;mbolo informa; no promete.</div>",
+  "motivo": "T3 autotest p4: contrachapado es del tema 4; sustituida por el triangulo de los plasticos (S4), correcta en la misma posicion"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Ah&iacute; est&aacute; la sesi&oacute;n 2 entera.",
+  "nuevo": "Ah&iacute; est&aacute; la sesi&oacute;n 3 entera.",
+  "motivo": "T3 autotest p6: los ensayos son la sesion 3, no la 2"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "          <p id=\"test-u3-p7\">7. Producir un kilo de aluminio cuesta unos 45 kWh y reciclarlo, unos 2. La consecuencia m&aacute;s importante es que&hellip;</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-6\" value=\"0\">reciclarlo sale a cuenta aunque a nadie le importe el planeta</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-6\" value=\"1\">el aluminio es un material barato</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-6\" value=\"2\">conviene usar acero en su lugar</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> Esas barras no son un dato de ecolog&iacute;a: son de econom&iacute;a. Un material con esa diferencia tiene el reciclaje <b>garantizado</b>, porque el que recicla gana dinero. Ah&iacute; est&aacute; la explicaci&oacute;n de que las latas vuelvan y otras cosas no.</div>",
+  "nuevo": "          <p id=\"test-u3-p7\">7. Un cuadro de bici de aluminio puede fallar sin aviso despu&eacute;s de muchos a&ntilde;os de uso. &iquest;Qu&eacute; ensayo descubre ese riesgo?</p>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-6\" value=\"0\">el de fatiga: cargar y descargar miles de veces</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-6\" value=\"1\">el de dureza: ver qui&eacute;n raya a qui&eacute;n</label>\n          <label class=\"ta-op\"><input type=\"radio\" name=\"u3-6\" value=\"2\">el de resiliencia: un martillazo</label>\n          <div class=\"ta-por\"><b>Por qu&eacute;:</b> Un material puede aguantar un golpe fuerte y romperse por muchos golpes flojos. El ensayo de resiliencia mide un golpe &uacute;nico y el de dureza solo dice qui&eacute;n raya a qui&eacute;n. El que carga y descarga miles de veces es el de <b>fatiga</b>, y de ah&iacute; sale el &laquo;se fatiga&raquo; del cuadro de aluminio.</div>",
+  "motivo": "T3 autotest p7: los 45 kWh del aluminio son del tema 5; sustituida por el ensayo de fatiga (S1 y S3), correcta en la misma posicion"
+ },
+ {
+  "fichero": "2eso/TyD/tema3/index.html",
+  "viejo": "Lo siguiente es conseguir que\n        eso que has elegido <b>se sostenga</b>: las estructuras.",
+  "nuevo": "Lo siguiente es mirar de cerca\n        cada familia de materiales, empezando por la m&aacute;s antigua: <b>la madera</b>.",
+  "motivo": "T3 cierre: anunciaba las estructuras y el tema 4 (enlace de abajo) es Madera"
+ }
+]

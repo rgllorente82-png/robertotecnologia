@@ -25,7 +25,7 @@
   <!-- Section 1: Class 1 Lever (Balanced) -->
   <g>
     <text x="100" y="90" class="title" font-size="12" text-anchor="start" font-weight="bold">Clase 1: PALANCA EQUILIBRADA</text>
-    <text x="100" y="110" class="label" font-size="10" text-anchor="start" fill="#666">(Fulcro en el medio: Tenazas, Balancín)</text>
+    <text x="100" y="110" class="label" font-size="10" text-anchor="start" fill="#666">(Fulcro entre fuerza y carga: Tenazas, Balancín)</text>
 
     <!-- Lever -->
     <line x1="30" y1="150" x2="200" y2="150" class="lever"/>
@@ -80,10 +80,10 @@
 
     <!-- Distances -->
     <line x1="35" y1="380" x2="110" y2="380" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="72" y="375" class="label" font-size="8" fill="#666">0.75m</text>
+    <text x="72" y="375" class="label" font-size="8" fill="#666">0.25m</text>
 
     <line x1="110" y1="380" x2="190" y2="380" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
-    <text x="150" y="375" class="label" font-size="8" fill="#666">1m</text>
+    <text x="150" y="375" class="label" font-size="8" fill="#666">0.75m</text>
 
     <text x="60" y="465" class="label" font-size="9" text-anchor="middle" font-weight="bold">Ventaja: 4:1</text>
     <text x="60" y="480" class="label" font-size="8" text-anchor="middle">Aplicas 25kg para</text>
@@ -106,8 +106,8 @@
     <text x="330" y="270">Aplicas 10 kg de fuerza = Levantas 100 kg</text>
 
     <text x="330" y="310" font-weight="bold">Regla de oro: Cambias fuerza por distancia</text>
-    <text x="330" y="330">• Más distancia de entrada → Menos fuerza (pero te cansas más)</text>
-    <text x="330" y="350">• Menos distancia de entrada → Más fuerza (pero ganas precisión)</text>
+    <text x="330" y="330">• Más distancia de entrada → Menos fuerza, pero más recorrido</text>
+    <text x="330" y="350">• Menos distancia de entrada → Más fuerza, pero menos recorrido</text>
     <text x="330" y="370">• La ENERGÍA TOTAL no cambia (Energía = Fuerza × Distancia)</text>
 
     <text x="330" y="410" font-weight="bold" fill="#e74c3c">No hay máquina que multiplique energía:</text>

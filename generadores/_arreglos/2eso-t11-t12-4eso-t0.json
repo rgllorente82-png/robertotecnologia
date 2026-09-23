@@ -1,0 +1,38 @@
+[
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "Tres destinos diferentes requieren diferente resoluci&oacute;n. En pantalla cabe una foto peque&ntilde;a; en A4 hace falta talla grande; en Instagram sobra casi siempre. La relaci&oacute;n entre p&iacute;xeles y &laquo;MB&raquo; es lineal: el doble de p&iacute;xeles pesa cuatro veces m&aacute;s si no se comprime, pero solo el doble si se comprime bien.",
+  "nuevo": "Tres destinos distintos piden resoluciones distintas: un icono se queda en 100 &times; 100 p&iacute;xeles, una foto para la web o las redes en 800 &times; 600 y una para imprimir en 4000 &times; 3000. En bruto, el peso crece al mismo ritmo que los p&iacute;xeles, porque cada uno son 3 bytes: el doble de p&iacute;xeles, el doble de peso. Lo que enga&ntilde;a es el tama&ntilde;o: con el doble de ancho y el doble de alto hay <b>cuatro veces</b> m&aacute;s p&iacute;xeles, y pesa cuatro veces m&aacute;s. Los pesos de las tarjetas son aproximados; abajo est&aacute; la cuenta en bruto de la foto grande.",
+  "motivo": "El pie se contradecia (relacion lineal y a la vez doble de pixeles = cuatro veces el peso) y decia 'en Instagram sobra casi siempre'. Se alinea con la S2: peso en bruto = pixeles x 3 bytes (proporcional) y doble de ancho = cuatro veces el peso; los destinos se toman de las tarjetas del propio SVG."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "La <b>colaboraci&oacute;n digital moderno</b>",
+  "nuevo": "La <b>colaboraci&oacute;n digital moderna</b>",
+  "motivo": "Concordancia: colaboracion ... moderna."
+ },
+ {
+  "fichero": "2eso/TyD/tema12/index.html",
+  "viejo": "micr&oacute;fono y sensor de luz.</li>",
+  "nuevo": "micr&oacute;fono. La luz la mide con sus propios LED.</li>",
+  "motivo": "La S4 dice que no hay sensor de luz y que la placa mide la luz con su matriz de LED; la S3 lo contaba como un sensor mas."
+ },
+ {
+  "fichero": "2eso/TyD/tema12/index.html",
+  "viejo": "el ordenador de\n         la sesi&oacute;n del tema 7 ya ten&iacute;a",
+  "nuevo": "el ordenador de\n         la sesi&oacute;n de entrada y salida del tema 9 ya ten&iacute;a",
+  "motivo": "En 2.o el ordenador es el tema 9 (Equipos informaticos); las entradas y salidas son su S4 'Entrada y salida'."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema0/index.html",
+  "viejo": "El c&aacute;non olduvayense",
+  "nuevo": "El canon olduvayense",
+  "motivo": "Errata: canon (llana acabada en n, sin tilde)."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema0/index.html",
+  "viejo": "exige hornos, min&iacute;a y comercio",
+  "nuevo": "exige hornos, miner&iacute;a y comercio",
+  "motivo": "Errata: mineria."
+ }
+]

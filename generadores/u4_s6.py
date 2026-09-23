@@ -152,7 +152,7 @@ PREGUNTAS = [
  dict(p=u'En el ensayo, un puente rompe porque una barra <b>se dobla de golpe</b>. &iquest;Qu&eacute; '
         u'hab&iacute;a que haber hecho?',
       op=[u'usar m&aacute;s cinta en los nudos',
-          u'acortar esa barra con un nudo intermedio, o doblarla con otro palillo',
+          u'acortar esa barra con un nudo intermedio, o meter un canuto dentro de otro',
           u'hacer todo el puente m&aacute;s pesado'],
       ok=1,
       por=u'Doblarse de golpe es <b>pandeo</b>, y el pandeo depende sobre todo de lo <b>larga y '
@@ -197,7 +197,7 @@ CIERRE = u'''
       </ul>
       <div class="caja caja-nuestro">
         <span class="n-tag">La pregunta que lo resume</span>
-        <p>Cuando termines tu puente de palillos, hazte la misma pregunta que un ingeniero:
+        <p>Cuando termines tu puente de canutos, hazte la misma pregunta que un ingeniero:
         <b>&iquest;aguanta lo mismo con menos material?</b> Esa pregunta es, a la vez, la de la nota
         y la de la sostenibilidad.</p>
       </div>

@@ -1219,10 +1219,10 @@ S6_RETO = u'''
         tres mand&aacute;is vuestro trozo al chat del grupo y <b>uno de los tres los pega en un solo
         documento</b>. Cronometradlo.
       </div>
-      <p>Y ahora contad tres cosas: cu&aacute;ntos <b>minutos</b> ha costado juntarlo, cu&aacute;ntas
-         <b>letras distintas</b> tiene el documento resultante, y cu&aacute;ntas veces aparece el
+      <p>Y ahora contad tres cosas: cu&aacute;ntos <b>minutos</b> ha costado juntarlo, cu&aacute;ntos
+         <b>tipos de letra</b> distintos tiene el documento resultante, y cu&aacute;ntas veces aparece el
          mismo dato &mdash;el precio de la bomba, la fecha de entrega&mdash; escrito de <b>dos
-         maneras distintas</b>. Lo normal es que salgan tres letras, siete minutos y dos datos que no
+         maneras distintas</b>. Lo normal es que salgan tres tipos de letra, siete minutos y dos datos que no
          coinciden.</p>
       <div class="reto-piensa">
         <span class="n-tag">Piensa un momento</span>

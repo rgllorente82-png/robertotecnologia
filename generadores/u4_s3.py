@@ -16,9 +16,9 @@ from unidad_base import bloque, ficha, pregunta
 RETO = u'''
       <p>Saca una <b>regla de pl&aacute;stico</b> del estuche y haz estas dos cosas, en este orden:</p>
       <ol class="pasos">
-        <li>Su&eacute;tala por los dos extremos <b>en horizontal, plana</b>, y aprieta hacia abajo en el
+        <li>Suj&eacute;tala por los dos extremos <b>en horizontal, plana</b>, y aprieta hacia abajo en el
             centro. Se dobla como si nada.</li>
-        <li>Ahora gírala 90 grados y su&eacute;tala <b>de canto</b>. Vuelve a apretar igual de fuerte.</li>
+        <li>Ahora gírala 90 grados y suj&eacute;tala <b>de canto</b>. Vuelve a apretar igual de fuerte.</li>
       </ol>
       <div class="aviso">
         <span class="n-tag">La pregunta</span>
