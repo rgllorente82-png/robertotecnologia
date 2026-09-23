@@ -1,0 +1,8 @@
+[
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "<svg viewBox=\"0 0 640 260\" role=\"img\" aria-label=\"Corte de un tronco",
+  "nuevo": "<svg viewBox=\"0 -12 640 282\" role=\"img\" aria-label=\"Corte de un tronco",
+  "motivo": "«A · Corteza» (y=8) y «E · Médula» (y=262) quedaban fuera del recuadro y salían cortados."
+ }
+]

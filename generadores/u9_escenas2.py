@@ -156,6 +156,7 @@ ESCENA_LICENCIAS = u'''
         }
 
         var COLOR = {v:'var(--goo-verde)', a:'var(--goo-amarillo)', r:'var(--goo-rojo)'};
+        var TINTA = {v:'var(--verde-texto)', a:'var(--amar-texto)', r:'var(--goo-rojo)'};
 
         /* ---- la cuenta: se aplican las reglas pieza a pieza ---- */
         function calcula(){
@@ -287,9 +288,9 @@ ESCENA_LICENCIAS = u'''
             s += texto(46, y+16, escapa(p.n),
                        {s:12, f:1, c: dentro ? 'var(--ink)' : 'var(--ink-soft)'});
             s += texto(336, y+16, escapa(p.lic), {s:10.5,
-                       c: dentro ? 'var(--ink-soft)' : 'var(--line)'});
+                       c: 'var(--ink-soft)'});
             s += texto(618, y+16, dentro ? e.v : 'no la usas',
-                       {s:10.5, a:'end', p:dentro, c: dentro ? COLOR[e.c] : 'var(--line)'});
+                       {s:10.5, a:'end', p:dentro, c: dentro ? TINTA[e.c] : 'var(--ink-soft)'});
           });
 
           s += '<rect x="16" y="250" width="608" height="64" fill="'
@@ -297,7 +298,7 @@ ESCENA_LICENCIAS = u'''
              + (c.ok ? 'var(--goo-verde)' : 'var(--goo-rojo)')+'" stroke-width="2"></rect>';
           s += texto(32, 272, c.ok ? 'TU TRABAJO PUEDE SALIR CON:' : 'AS\\u00cd NO:', {s:10, p:1});
           s += texto(32, 294, c.res, {s:16, p:1, f:1,
-                     c: c.ok ? 'var(--goo-verde)' : 'var(--goo-rojo)'});
+                     c: c.ok ? 'var(--verde-texto)' : 'var(--goo-rojo)'});
 
           svg.innerHTML = s;
 
@@ -852,7 +853,7 @@ ESCENA_CONTRASTE = u'''
           </div>
         </div>
         <div class="lienzo">
-          <svg viewBox="0 0 640 320" id="svg-contraste" role="img"
+          <svg viewBox="0 0 640 320" id="svg-contraste" data-contraste="a-proposito" role="img"
                aria-label="Muestra de texto con los dos colores elegidos y la raz&oacute;n de contraste que sale de la norma"></svg>
         </div>
         <div class="pie" id="pie-contraste"></div>

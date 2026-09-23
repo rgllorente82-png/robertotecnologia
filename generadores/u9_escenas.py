@@ -940,11 +940,11 @@ ESCENA_PESO = u'''
           s += texto(X, y, 'PESO EN BRUTO, A 3 BYTES POR P\\u00cdXEL', {s:10, p:1}); y += 12;
           s += '<rect x="'+X+'" y="'+y+'" width="300" height="20" fill="var(--goo-rojo)" '
              + 'opacity=".55"></rect>';
-          s += texto(X + 8, y + 14, bytes(peso) + '  \\u00b7  la foto entera', {s:11});
+          s += texto(X + 8, y + 14, bytes(peso) + '  \\u00b7  la foto entera', {s:11, c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'});
           y += 26;
           s += '<rect x="'+X+'" y="'+y+'" width="'+Math.max(2, 300*pesoU/peso).toFixed(1)
              + '" height="20" fill="var(--goo-verde)" opacity=".55"></rect>';
-          s += texto(X + 8, y + 14, bytes(pesoU) + '  \\u00b7  lo que se ve', {s:11});
+          s += texto(X + 8, y + 14, bytes(pesoU) + '  \\u00b7  lo que se ve', {s:11, c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'});
           y += 36;
           s += texto(X, y, 'IMPRESA A 300 PUNTOS POR PULGADA MEDIR\\u00cdA', {s:10, p:1}); y += 18;
           s += texto(X, y, num(F.w / 300 * 2.54) + ' cm de ancho', {s:12.5, p:1});
@@ -1314,8 +1314,8 @@ ESCENA_CARRERA = u'''
              lleva su numero fuera del lienzo. */
           function cifra(w, y, t){
             return (X0 + w + 60 < 632)
-              ? texto(X0 + w + 8, y, t, {s:11})
-              : texto(X0 + w - 8, y, t, {s:11, a:'end'});
+              ? texto(X0 + w + 8, y, t, {s:11, c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'})
+              : texto(X0 + w - 8, y, t, {s:11, a:'end', c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'});
           }
 
           s += texto(124, 71, 'LA CLASE LEE', {s:10, a:'end', p:1});

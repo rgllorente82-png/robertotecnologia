@@ -1008,7 +1008,7 @@ ESCENA_DERECHOS = u'''
                + '" class="rotulo-svg" style="font-size:11.5px;fill:var(--ink)">'
                + breve(T.f) + '</text>';
             m += '<text x="' + x.toFixed(1) + '" y="248" text-anchor="' + T.anc
-               + '" class="rotulo-svg" style="font-size:9.5px;fill:' + T.col + '">'
+               + '" class="rotulo-svg" style="font-size:9.5px;fill:' + T.col.replace('goo-amarillo', 'amar-texto').replace('goo-verde', 'verde-texto') + '">'
                + T.etq + (T.d ? '  (' + T.d + ' d\\u00edas)' : '') + '</text>';
           }
           if(dh >= 0 && dh <= d3){
@@ -1044,7 +1044,7 @@ ESCENA_DERECHOS = u'''
             for(j = 0; j < lt.length && j < 2; j++)
               m += '<text x="32" y="' + (334 + j * 17) + '" class="rotulo-svg" '
                  + 'style="font-size:12.5px;fill:'
-                 + (puede ? 'var(--goo-verde)' : 'var(--goo-amarillo)') + '">'
+                 + (puede ? 'var(--verde-texto)' : 'var(--amar-texto)') + '">'
                  + esc(lt[j]) + '</text>';
           }
 

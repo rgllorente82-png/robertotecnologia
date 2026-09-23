@@ -2503,7 +2503,7 @@ footer .wrap{padding-block:18px 26px}
               s += '<rect x="' + xi.toFixed(1) + '" y="' + Y4 + '" width="' + w.toFixed(1)
                  + '" height="' + H4 + '" fill="' + t[2] + '"/>';
               if(w > 92) s += '<text x="' + (xi + w/2).toFixed(1) + '" y="' + (Y4 + 18)
-                 + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:#fff">'
+                 + '" text-anchor="middle" style="font-family:var(--f-m);font-size:10.5px;fill:' + (t[2] == '#fbbc05' ? '#202124' : '#fff') + '">'
                  + t[0] + '</text>';
             }
             xi += w;

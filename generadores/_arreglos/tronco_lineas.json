@@ -1,0 +1,8 @@
+[
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "<path d=\"M320 10v18M470 60l-22 16M470 130h-24M470 200l-30-22M320 250v-18\"/>",
+  "nuevo": "<path d=\"M320 10v6M470 60L418 84M470 130H404M470 200L356 147M320 250V136\"/>",
+  "motivo": "Las líneas no llegaban a su capa: B, C y D acababan fuera del tronco, A en la albura y E (médula) en el anillo de fuera. Ahora cada una termina dentro de la capa que nombra."
+ }
+]

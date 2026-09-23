@@ -1,0 +1,80 @@
+[
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "<svg viewBox=\"0 0 640 320\" id=\"svg-contraste\" role=\"img\"",
+  "nuevo": "<svg viewBox=\"0 0 640 320\" id=\"svg-contraste\" data-contraste=\"a-proposito\" role=\"img\"",
+  "motivo": "La escena ENSEÑA el contraste: su ejemplo malo tiene que verse mal. La marca de exenta se perdió al renumerar."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "s += texto(X + 8, y + 14, bytes(peso) + '  \\u00b7  la foto entera', {s:11});",
+  "nuevo": "s += texto(X + 8, y + 14, bytes(peso) + '  \\u00b7  la foto entera', {s:11, c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'});",
+  "motivo": "Gris sobre la barra roja: 1,5:1. Con halo se lee sobre la barra y fuera de ella."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "s += texto(X + 8, y + 14, bytes(pesoU) + '  \\u00b7  lo que se ve', {s:11});",
+  "nuevo": "s += texto(X + 8, y + 14, bytes(pesoU) + '  \\u00b7  lo que se ve', {s:11, c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'});",
+  "motivo": "La misma barra, en verde."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "? texto(X0 + w + 8, y, t, {s:11})\n              : texto(X0 + w - 8, y, t, {s:11, a:'end'});",
+  "nuevo": "? texto(X0 + w + 8, y, t, {s:11, c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'})\n              : texto(X0 + w - 8, y, t, {s:11, a:'end', c:'var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round'});",
+  "motivo": "La cifra que cae dentro de la barra azul: 1,7:1."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "c: dentro ? 'var(--ink-soft)' : 'var(--line)'});",
+  "nuevo": "c: 'var(--ink-soft)'});",
+  "motivo": "La licencia de una foto que no se usa iba en el color de las líneas: 1,4:1."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "{s:10.5, a:'end', p:dentro, c: dentro ? COLOR[e.c] : 'var(--line)'});",
+  "nuevo": "{s:10.5, a:'end', p:dentro, c: dentro ? TINTA[e.c] : 'var(--ink-soft)'});",
+  "motivo": "«no la usas» en el color de las líneas, y el verde de relleno usado como letra: 2,75:1."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "var COLOR = {v:'var(--goo-verde)', a:'var(--goo-amarillo)', r:'var(--goo-rojo)'};",
+  "nuevo": "var COLOR = {v:'var(--goo-verde)', a:'var(--goo-amarillo)', r:'var(--goo-rojo)'};\n        var TINTA = {v:'var(--verde-texto)', a:'var(--amar-texto)', r:'var(--goo-rojo)'};",
+  "motivo": "Para letra, las tintas de texto del sitio, no los colores de relleno."
+ },
+ {
+  "fichero": "2eso/TyD/tema11/index.html",
+  "viejo": "c: c.ok ? 'var(--goo-verde)' : 'var(--goo-rojo)'});",
+  "nuevo": "c: c.ok ? 'var(--verde-texto)' : 'var(--goo-rojo)'});",
+  "motivo": "El veredicto en verde de relleno sobre azul claro: 2,7:1."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "+ '\" class=\"rotulo-svg\" style=\"font-size:9.5px;fill:' + T.col + '\">'",
+  "nuevo": "+ '\" class=\"rotulo-svg\" style=\"font-size:9.5px;fill:' + T.col.replace('goo-amarillo', 'amar-texto').replace('goo-verde', 'verde-texto') + '\">'",
+  "motivo": "La letra en amarillo de relleno sobre blanco: 1,7:1. La raya se queda en amarillo; la letra, en la tinta amarilla de texto."
+ },
+ {
+  "fichero": "2eso/TyD/tema10/index.html",
+  "viejo": "+ (puede ? 'var(--goo-verde)' : 'var(--goo-amarillo)') + '\">'",
+  "nuevo": "+ (puede ? 'var(--verde-texto)' : 'var(--amar-texto)') + '\">'",
+  "motivo": "El aviso de los 14 años en amarillo de relleno: 1,5:1."
+ },
+ {
+  "fichero": "2eso/TyD/tema4/index.html",
+  "viejo": "<g font-family=\"system-ui, sans-serif\" font-size=\"13\" fill=\"#2b3240\">\n              <g stroke=\"#2b3240\" stroke-width=\"1\">",
+  "nuevo": "<g font-family=\"system-ui, sans-serif\" font-size=\"13\" style=\"fill:var(--ink)\">\n              <g style=\"stroke:var(--ink)\" stroke-width=\"1\">",
+  "motivo": "Los nombres de las capas, en tinta fija casi negra: en el tema oscuro, 1,1:1."
+ },
+ {
+  "fichero": "4eso/Tecnologia/tema3/index.html",
+  "viejo": "+ '\" text-anchor=\"middle\" style=\"font-family:var(--f-m);font-size:10.5px;fill:#fff\">'\n                 + t[0] + '</text>';",
+  "nuevo": "+ '\" text-anchor=\"middle\" style=\"font-family:var(--f-m);font-size:10.5px;fill:' + (t[2] == '#fbbc05' ? '#202124' : '#fff') + '\">'\n                 + t[0] + '</text>';",
+  "motivo": "Blanco sobre la barra amarilla: 1,7:1. Sobre amarillo, tinta oscura."
+ },
+ {
+  "fichero": "2eso/TyD/tema2/index.html",
+  "viejo": "<g font-family=\"system-ui, sans-serif\" font-size=\"12\" fill=\"#2b3240\">\n              <g transform=\"translate(40,40)\">\n                <text x=\"90\" y=\"-12\" text-anchor=\"middle\" font-weight=\"600\">Caballera</text>\n                <rect x=\"20\" y=\"40\" width=\"110\" height=\"110\" fill=\"#bfe0ff\" stroke=\"#2b3240\" stroke-width=\"2.5\"/>\n                <path d=\"M20 40 L75 -1 M130 40 L185 -1 M130 150 L185 109\" fill=\"none\" stroke=\"#2b3240\" stroke-width=\"2.5\"/>\n                <path d=\"M75 -1 h110 v110\" fill=\"none\" stroke=\"#2b3240\" stroke-width=\"2.5\"/>\n                <g stroke=\"#e5484d\" stroke-width=\"2\" fill=\"none\">\n                  <path d=\"M20 150 h150\"/><path d=\"M20 150 v-125\"/><path d=\"M20 150 l62 -46\"/>\n                </g>\n                <text x=\"150\" y=\"168\" fill=\"#e5484d\">X</text>\n                <text x=\"4\" y=\"30\" fill=\"#e5484d\">Z</text>\n                <text x=\"86\" y=\"100\" fill=\"#e5484d\">Y &middot; 45&deg;</text>\n              </g>\n              <g transform=\"translate(360,40)\">\n                <text x=\"105\" y=\"-12\" text-anchor=\"middle\" font-weight=\"600\">Isom&eacute;trica</text>\n                <path d=\"M105 30 L185 76 L185 168 L105 214 L25 168 L25 76 Z\" fill=\"#bfe0ff\" stroke=\"#2b3240\" stroke-width=\"2.5\"/>\n                <path d=\"M105 30 L105 122 L185 168 M105 122 L25 168\" fill=\"none\" stroke=\"#2b3240\" stroke-width=\"2.5\"/>\n                <g stroke=\"#e5484d\" stroke-width=\"2\" fill=\"none\">\n                  <path d=\"M105 122 l80 46\"/><path d=\"M105 122 l-80 46\"/><path d=\"M105 122 v-100\"/>\n                </g>\n                <text x=\"190\" y=\"176\" fill=\"#e5484d\">X &middot; 30&deg;</text>\n                <text x=\"2\" y=\"176\" fill=\"#e5484d\">Y &middot; 30&deg;</text>\n                <text x=\"112\" y=\"24\" fill=\"#e5484d\">Z</text>\n              </g>\n            </g>\n          ",
+  "nuevo": "<g font-family=\"system-ui, sans-serif\" font-size=\"12\" style=\"fill:var(--ink)\">\n              <g transform=\"translate(40,40)\">\n                <text x=\"90\" y=\"-12\" text-anchor=\"middle\" font-weight=\"600\">Caballera</text>\n                <rect x=\"20\" y=\"40\" width=\"110\" height=\"110\" style=\"fill:var(--accent-soft);stroke:var(--ink)\" stroke-width=\"2.5\"/>\n                <path d=\"M20 40 L75 -1 M130 40 L185 -1 M130 150 L185 109\" fill=\"none\" style=\"stroke:var(--ink)\" stroke-width=\"2.5\"/>\n                <path d=\"M75 -1 h110 v110\" fill=\"none\" style=\"stroke:var(--ink)\" stroke-width=\"2.5\"/>\n                <g style=\"stroke:var(--goo-rojo)\" stroke-width=\"2\" fill=\"none\">\n                  <path d=\"M20 150 h150\"/><path d=\"M20 150 v-125\"/><path d=\"M20 150 l62 -46\"/>\n                </g>\n                <text x=\"150\" y=\"168\" style=\"fill:var(--goo-rojo)\">X</text>\n                <text x=\"4\" y=\"30\" style=\"fill:var(--goo-rojo)\">Z</text>\n                <text x=\"86\" y=\"100\" style=\"fill:var(--goo-rojo)\">Y &middot; 45&deg;</text>\n              </g>\n              <g transform=\"translate(360,40)\">\n                <text x=\"105\" y=\"-12\" text-anchor=\"middle\" font-weight=\"600\">Isom&eacute;trica</text>\n                <path d=\"M105 30 L185 76 L185 168 L105 214 L25 168 L25 76 Z\" style=\"fill:var(--accent-soft);stroke:var(--ink)\" stroke-width=\"2.5\"/>\n                <path d=\"M105 30 L105 122 L185 168 M105 122 L25 168\" fill=\"none\" style=\"stroke:var(--ink)\" stroke-width=\"2.5\"/>\n                <g style=\"stroke:var(--goo-rojo)\" stroke-width=\"2\" fill=\"none\">\n                  <path d=\"M105 122 l80 46\"/><path d=\"M105 122 l-80 46\"/><path d=\"M105 122 v-100\"/>\n                </g>\n                <text x=\"190\" y=\"176\" style=\"fill:var(--goo-rojo)\">X &middot; 30&deg;</text>\n                <text x=\"2\" y=\"176\" style=\"fill:var(--goo-rojo)\">Y &middot; 30&deg;</text>\n                <text x=\"112\" y=\"24\" style=\"fill:var(--goo-rojo)\">Z</text>\n              </g>\n            </g>\n          ",
+  "motivo": "Rótulos y aristas en tinta fija casi negra (1,1:1 en oscuro) y el rojo sobre azul claro (2,9:1). Ahora con las variables del tema."
+ }
+]

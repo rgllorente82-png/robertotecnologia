@@ -31,7 +31,7 @@ S1_T = u'''
       <div class="escena">
         <div class="escena-barra"><span class="escena-titulo">Las cinco capas del tronco &middot; de fuera adentro</span></div>
         <div class="lienzo">
-          <svg viewBox="0 0 640 260" role="img" aria-label="Corte de un tronco con sus cinco capas: corteza, cambium, albura, duramen y medula">
+          <svg viewBox="0 -12 640 282" role="img" aria-label="Corte de un tronco con sus cinco capas: corteza, cambium, albura, duramen y medula">
             <g transform="translate(320,130)">
               <circle r="120" fill="#8a6134"/>
               <circle r="112" fill="#c9a06a"/>
@@ -42,8 +42,8 @@ S1_T = u'''
                 <circle r="84"/><circle r="94"/><circle r="74"/>
               </g>
             </g>
-            <g font-family="system-ui, sans-serif" font-size="13" fill="#2b3240">
-              <g stroke="#2b3240" stroke-width="1"><path d="M320 10v18M470 60l-22 16M470 130h-24M470 200l-30-22M320 250v-18"/></g>
+            <g font-family="system-ui, sans-serif" font-size="13" style="fill:var(--ink)">
+              <g style="stroke:var(--ink)" stroke-width="1"><path d="M320 10v6M470 60L418 84M470 130H404M470 200L356 147M320 250V136"/></g>
               <text x="320" y="8"   text-anchor="middle" font-weight="600">A &middot; Corteza</text>
               <text x="476" y="60">B &middot; C&aacute;mbium</text>
               <text x="476" y="134">C &middot; Albura</text>
