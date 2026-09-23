@@ -56,13 +56,6 @@ FIGURAS = json.loads(u'''[
   "modo": "antes"
  },
  {
-  "pagina": "2eso/TyD/tema3/index.html",
-  "img": "material-properties.svg",
-  "ancla": "<b>maleabilidad</b>.</li>\\n          <li><b>Densidad</b>: cu&aacute;nto pesa un volumen dado. De ah&iacute; sale que algo sea «ligero».</li>\\n          <li><b>Conductividad</b>: deja pasar el calor o la electricidad. Lo contrario es <b>aislante</b>.</li>\\n        </ul>\\n      </div>",
-  "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/material-properties.svg\\" width=\\"1000\\" height=\\"700\\" loading=\\"lazy\\"\\n             alt=\\"Propiedades mecánicas, térmicas, eléctricas y otras de los materiales\\">\\n        <figcaption>Las <b>propiedades de los materiales</b> se dividen en varias categorías: mecánicas (resistencia, dureza, elasticidad), térmicas (conductividad, punto de fusión), eléctricas (conductividad, semiconductores, aislantes) y otras (densidad, corrosión, trabajabilidad, sostenibilidad). Cada propiedad tiene límites, y el ingeniero elige el material cuyas propiedades se ajustan a lo que necesita, buscando el equilibrio entre prestaciones y coste.\\n          <span class=\\"credito\\">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>\\n        </figcaption>\\n      </figure>",
-  "modo": "antes"
- },
- {
   "pagina": "2eso/TyD/tema8/index.html",
   "img": "ohms-law-triangle.svg",
   "ancla": "<a href=\\"https://www.youtube.com/watch?v=tpt9FlNYq4k\\" target=\\"_blank\\" rel=\\"noopener\\">&aacute;brelo\\n          directamente aqu&iacute;</a>. Es obra de su autor y no forma parte del material publicado bajo la\\n          licencia de esta p&aacute;gina.</p>\\n      </div>",
@@ -117,13 +110,6 @@ FIGURAS = json.loads(u'''[
   "ancla": "</li>\\n          <li><b>El puente se ha tumbado de lado</b> &rarr; falt&oacute; <b>arriostramiento</b>. No es un\\n              problema de resistencia: es de <b>estabilidad</b>, como la sesi&oacute;n 4.</li>\\n        </ul>\\n      </div>",
   "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/u4-puente-folios.jpg\\" width=\\"345\\" height=\\"265\\" loading=\\"lazy\\"\\n             style=\\"max-width:345px;margin:0 auto\\"\\n             alt=\\"Puente de celosía construido con tubos de papel enrollado, visto desde arriba\\">\\n        <figcaption>Uno terminado, para comparar con el vuestro. Mirad tres cosas: <b>no hay ni un\\n        rectángulo</b> —todo son triángulos, que es lo único que no se deforma—; las dos cerchas\\n        laterales están <b>unidas entre sí</b> por barras arriba y abajo, y eso es el arriostramiento\\n        que impide que el puente se tumbe de lado; y cada barra es un <b>canuto</b>, no un folio plano:\\n        el mismo papel, puesto de otra forma, aguanta kilos. Las uniones son el punto débil de todos\\n        los puentes de papel, y aquí se ve por qué: son las únicas piezas que no puedes enrollar.</figcaption>\\n      </figure>",
   "modo": "antes"
- },
- {
-  "pagina": "2eso/TyD/tema3/index.html",
-  "img": "materials_wood_metal_plastic.svg",
-  "ancla": "<div class=\\"entender\\">\\n        <span class=\\"e-tag\\">Solo para entenderlo &middot; no hace falta copiarlo</span>\\n        <p>Durante casi toda la historia esto no se eligi&oacute;: se usaba <b>",
-  "figura": "<figure class=\\"foto\\">\\n        <img src=\\"../../../img/materials_wood_metal_plastic.svg\\" width=\\"960\\" height=\\"400\\" loading=\\"lazy\\"\\n             alt=\\"Comparación de tres materiales técnicos comunes: madera, metal y plástico, con sus propiedades y aplicaciones\\">\\n        <figcaption>Los tres materiales técnicos más comunes: cada uno tiene propiedades distintas que lo hacen\\n          adecuado para usos diferentes. No hay un «mejor»; hay el <b>adecuado para lo que quieres</b>.</figcaption>\\n      </figure>",
-  "modo": "despues"
  },
  {
   "pagina": "2eso/TyD/tema3/index.html",

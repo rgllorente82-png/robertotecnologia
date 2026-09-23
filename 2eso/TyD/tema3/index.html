@@ -513,20 +513,82 @@ footer .wrap{padding-block:18px 26px}
         </ul>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/material-properties.svg" width="1070" height="731" loading="lazy"
-             alt="Propiedades mecánicas, térmicas, eléctricas y otras de los materiales">
-        <figcaption>Las <b>propiedades de los materiales</b> se dividen en varias categorías: mecánicas (resistencia, dureza, elasticidad), térmicas (conductividad, punto de fusión), eléctricas (conductividad, semiconductores, aislantes) y otras (densidad, corrosión, trabajabilidad, sostenibilidad). Cada propiedad tiene límites, y el ingeniero elige el material cuyas propiedades se ajustan a lo que necesita, buscando el equilibrio entre prestaciones y coste.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+      <style>
+      .tabla-prop{width:100%;border-collapse:collapse;font-size:15px;margin:18px 0 6px;background:var(--surface)}
+      .tabla-prop th,.tabla-prop td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+      .tabla-prop thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+      .tabla-prop tbody th{font-weight:700;width:30%}
+      .tabla-prop tbody th span{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+      .tabla-prop td{width:35%}
+      @media (max-width:620px){.tabla-prop{font-size:14px}.tabla-prop th,.tabla-prop td{padding:8px 8px}}
+      </style>
+      <table class="tabla-prop">
+        <thead><tr><th scope="col">Propiedad</th><th scope="col">La tiene mucho</th><th scope="col">La tiene poco</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Dureza<span>No se raya</span></th>
+              <td>El <b>diamante</b>, el <b>vidrio</b>, el <b>acero</b></td>
+              <td>La <b>tiza</b>, la mina del <b>l&aacute;piz</b></td></tr>
+          <tr><th scope="row">Tenacidad<span>Aguanta golpes sin romperse</span></th>
+              <td>El <b>acero</b> de un martillo, la <b>goma</b></td>
+              <td>Es <b>fr&aacute;gil</b>: el <b>vidrio</b>, un plato de <b>cer&aacute;mica</b></td></tr>
+          <tr><th scope="row">Elasticidad<span>Se deforma y vuelve a su forma</span></th>
+              <td>Una <b>goma</b> el&aacute;stica, el <b>muelle</b> de un bol&iacute;grafo</td>
+              <td>La <b>plastilina</b>, el <b>barro</b></td></tr>
+          <tr><th scope="row">Plasticidad<span>Se deforma y se queda as&iacute;</span></th>
+              <td>La <b>plastilina</b>; el <b>cobre</b>, que se estira en hilos (<b>d&uacute;ctil</b>); el <b>aluminio</b>, que se aplasta en l&aacute;minas (<b>maleable</b>)</td>
+              <td>El <b>vidrio</b>: antes de doblarse, se rompe</td></tr>
+          <tr><th scope="row">Densidad<span>Cu&aacute;nto pesa un mismo trozo</span></th>
+              <td>Pesados: el <b>plomo</b>, el <b>acero</b></td>
+              <td>Ligeros: el <b>corcho</b>, el <b>poliestireno</b> de las cajas</td></tr>
+          <tr><th scope="row">Conductividad<span>Deja pasar el calor o la electricidad</span></th>
+              <td>El <b>cobre</b> de los cables, el <b>aluminio</b> de una olla</td>
+              <td>Es <b>aislante</b>: el <b>pl&aacute;stico</b> de un enchufe, la <b>madera</b> de una cuchara</td></tr>
+        </tbody>
+      </table>
 
-      <figure class="foto">
-        <img src="../../../img/materials_wood_metal_plastic.svg" width="960" height="400" loading="lazy"
-             alt="Comparación de tres materiales técnicos comunes: madera, metal y plástico, con sus propiedades y aplicaciones">
-        <figcaption>Los tres materiales técnicos más comunes: cada uno tiene propiedades distintas que lo hacen
-          adecuado para usos diferentes. No hay un «mejor»; hay el <b>adecuado para lo que quieres</b>.</figcaption>
-      </figure>
+      <style>
+      .tres-mat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:26px 0 8px}
+      .tres-mat h4{margin:0 0 4px;font-size:21px;letter-spacing:-.01em}
+      .tres-mat .de{font-family:var(--f-m);font-size:12.5px;color:var(--ink-soft);margin:0 0 12px}
+      .tm{background:var(--surface);border:1.5px solid var(--line);border-top:6px solid var(--c);border-radius:2px;padding:16px 16px 14px;font-size:16px;line-height:1.5}
+      .tm dl{margin:0}
+      .tm dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:12px 0 2px}
+      .tm dd{margin:0}
+      .tres-mat-pie{font-size:16px;margin:6px 0 20px}
+      @media (max-width:760px){.tres-mat{grid-template-columns:1fr}}
+      </style>
+      <h3>Los tres materiales que m&aacute;s vas a usar</h3>
+      <div class="tres-mat">
+        <div class="tm" style="--c:#a0662e">
+          <h4>Madera</h4>
+          <p class="de">Sale de los &aacute;rboles &middot; origen vegetal</p>
+          <dl>
+            <dt>Lo bueno</dt><dd>Es <b>ligera</b>, <b>f&aacute;cil de trabajar</b> con herramientas sencillas y <b>aislante</b>. Y se renueva: se planta otro &aacute;rbol.</dd>
+            <dt>Lo malo</dt><dd><b>Arde</b>, se hincha o se pudre con el <b>agua</b>, y se raja a lo largo de la veta.</dd>
+            <dt>Para qu&eacute;</dt><dd>Muebles, puertas, suelos, tejados, juguetes.</dd>
+          </dl>
+        </div>
+        <div class="tm" style="--c:var(--ink-soft)">
+          <h4>Metal</h4>
+          <p class="de">Sale de minerales &middot; origen mineral</p>
+          <dl>
+            <dt>Lo bueno</dt><dd>Es <b>duro</b> y <b>tenaz</b>, <b>conduce</b> el calor y la electricidad, y se estira en hilos y en l&aacute;minas. Se recicla muy bien.</dd>
+            <dt>Lo malo</dt><dd>Es <b>pesado</b> (el acero), muchos se <b>oxidan</b> y sacarlo del mineral gasta mucha energ&iacute;a.</dd>
+            <dt>Para qu&eacute;</dt><dd>Estructuras, herramientas, cables, coches, latas.</dd>
+          </dl>
+        </div>
+        <div class="tm" style="--c:var(--goo-azul)">
+          <h4>Pl&aacute;stico</h4>
+          <p class="de">Sale del petr&oacute;leo &middot; origen mineral</p>
+          <dl>
+            <dt>Lo bueno</dt><dd>Es <b>ligero</b>, <b>barato</b>, <b>aislante</b>, no se oxida y se le puede dar <b>cualquier forma</b> en un molde.</dd>
+            <dt>Lo malo</dt><dd>Aguanta <b>poco el calor</b>, es menos resistente y tarda much&iacute;simo en desaparecer si acaba en la naturaleza.</dd>
+            <dt>Para qu&eacute;</dt><dd>Envases, carcasas, enchufes, juguetes.</dd>
+          </dl>
+        </div>
+      </div>
+      <p class="tres-mat-pie">Ninguno es el mejor: cada uno es <b>el adecuado</b> para una cosa. Por eso un martillo
+         lleva la cabeza de acero y el mango de madera.</p>
 
       <div class="entender">
         <span class="e-tag">Solo para entenderlo &middot; no hace falta copiarlo</span>
@@ -967,13 +1029,6 @@ footer .wrap{padding-block:18px 26px}
       <div class="eyebrow">Sesi&oacute;n 4 &middot; 60 minutos</div>
       <h2>Los pl&aacute;sticos: hubo que inventarlos</h2>
       <p>No estaban en ninguna parte esperando a que alguien los encontrara. Y se inventaron, ir&oacute;nicamente, para dejar de matar elefantes.</p>
-      <figure class="foto">
-        <img src="../../../img/materials_wood_metal_plastic.svg" width="960" height="400" loading="lazy"
-             alt="Comparación visual de madera, metal y plástico con sus propiedades características">
-        <figcaption>Comparación de tres materiales técnicos: la madera, de origen vegetal, y el metal y el plástico, los dos de origen mineral, con sus propiedades y sus aplicaciones principales.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE1 &middot; 1.2</span><span class="chip">CE2 &middot; 2.2</span><span class="chip">CE7 &middot; 7.1</span><span class="chip sab">A.7</span><span class="chip sab">E.1</span></div>
     </div>
