@@ -65,10 +65,15 @@ def main():
 
     with sync_playwright() as pw:
         b = pw.chromium.launch()
-        pg = b.new_page(viewport={'width': 1280, 'height': 900})
+        # El 200 % se simula como lo hace el navegador: la ventana de 1280 pasa a
+        # medir 640 px de CSS, con cada px pintado con dos. Antes se hacia con
+        # `zoom` de CSS sobre una ventana de 1280, y eso no es lo mismo: la
+        # pagina seguia creyendo que la pantalla era ancha (las media queries y
+        # los vw no se enteran), y el esquema de cierre, que en pantalla ancha
+        # usa el ancho de la pantalla, salia desbordado al doble (23-sep-2026).
+        pg = b.new_page(viewport={'width': 640, 'height': 450}, device_scale_factor=2)
         for ruta, rel in lista:
             pg.goto('file://' + str(pathlib.Path(ruta).resolve()))
-            pg.evaluate("() => { document.documentElement.style.zoom = '%s'; }" % ZOOM)
             n = pg.locator('#nav button[data-ses]').count()
             for i in range(max(n, 1)):
                 if n:

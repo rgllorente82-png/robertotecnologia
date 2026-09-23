@@ -8,9 +8,8 @@ puede meter en cada generador: se escribe en un JSON por tema, en
 `generadores/cierres/`, y este script lo coloca. Va en la tuberia de
 build_seguro, asi que un build no lo borra.
 
-Donde va. Despues de la ultima sesion y antes de la lectura de aula (o de la
-licencia, si la lectura va dentro de una sesion). Fuera de las sesiones: se ve
-debajo de cualquiera, igual que la lectura.
+Donde va. Al final de la ULTIMA sesion, dentro de ella: solo se ve al abrir
+esa sesion. En los temas 0, que no tienen sesiones, al final de la pagina.
 
 El JSON:
 
@@ -45,11 +44,8 @@ CSS = u'''<style>
 .ct h2.ct-h-res{margin-top:34px}
 .ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
   padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
-.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
-.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-ramas{list-style:none;padding:0;position:relative;display:grid;gap:14px;margin:42px 0 0}
 .ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
-.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
 .ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
 .ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
 .ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
@@ -57,14 +53,28 @@ CSS = u'''<style>
 .ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
 .ct-resumen p{margin:0 0 12px}
 .ct-resumen p:last-child{margin-bottom:0}
-@media (max-width:620px){
-  .ct{padding:18px 14px}
-  .ct-centro{margin:0;width:auto}
-  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
-  .ct-ramas::before{display:none}
-  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+/* Pantalla ancha: el esquema sale de la columna de texto y usa el ancho de la
+   pantalla, con todas las ramas en UNA fila; asi el arbol no se parte. El
+   resumen se queda a su ancho de lectura. */
+@media (min-width:1100px){
+  .ct{width:min(1500px,calc(100vw - 48px));margin-left:50%;transform:translateX(-50%);padding:26px 28px}
+  .ct-ramas{grid-template-columns:repeat(var(--n),minmax(0,1fr))}
+  .ct-ramas::before{content:"";position:absolute;left:50%;top:-42px;height:21px;border-left:2px solid var(--line)}
+  .ct-rama::before{content:"";position:absolute;left:50%;top:-22.5px;height:21px;border-left:2px solid var(--line)}
+  /* la raya horizontal va de la primera rama a la ultima, de centro a centro;
+     en el ul y no en cada tarjeta, para que ninguna tarjeta tenga nada fuera */
+  .ct-ramas::after{content:"";position:absolute;top:-22.5px;border-top:2px solid var(--line);
+    left:calc((100% - (var(--n) - 1) * 14px) / var(--n) / 2);right:calc((100% - (var(--n) - 1) * 14px) / var(--n) / 2)}
+  .ct h2.ct-h-res,.ct-resumen{max-width:860px;margin-left:auto;margin-right:auto}
 }
-@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+/* Mas estrecha: arbol vertical, que no se corta nunca. */
+@media (max-width:1099px){
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-rama::before{content:"";position:absolute;left:-16px;top:22px;width:14px;border-top:2px solid var(--line)}
+}
+@media (max-width:620px){.ct{padding:18px 14px}}
+@media print{.ct{break-before:page;width:auto;margin-left:0;transform:none}.ct-rama{break-inside:avoid}}
 </style>'''
 
 
@@ -150,12 +160,12 @@ def bloque(datos):
       </li>''' % (COLORES[i % len(COLORES)], r['enlace'], r['nodo'], hojas))
     res = u'\n'.join(u'      <p>%s</p>' % p for p in datos['resumen'])
     return u'''%s
-  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+  <section class="ct" id="esquema" data-ancho="pantalla" aria-labelledby="ct-h-esq">
     %s
     <div class="ct-eyebrow">Cierre del tema</div>
     <h2 id="ct-h-esq">Esquema del tema</h2>
     <div class="ct-centro">%s</div>
-    <ul class="ct-ramas">
+    <ul class="ct-ramas" style="--n:%d">
 %s
     </ul>
     <h2 class="ct-h-res" id="resumen">Resumen</h2>
@@ -164,18 +174,71 @@ def bloque(datos):
     </div>
   </section>
 %s
-''' % (INI, CSS, m['centro'], u'\n'.join(ramas), res, FIN)
+''' % (INI, CSS, m['centro'], len(m['ramas']), u'\n'.join(ramas), res, FIN)
+
+
+VACIAS = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta',
+          'source', 'track', 'wbr', 'path', 'circle', 'rect', 'line', 'polygon',
+          'polyline', 'ellipse', 'stop', 'use'}
+
+
+def fin_ultima_sesion(s):
+    u"""Posicion del </div> que cierra la ultima `<div id="ses-N">`, o None."""
+    import html.parser
+    ids = re.findall(r'<div id="(ses-\d+)"', s)
+    if not ids:
+        return None
+    objetivo = ids[-1]
+
+    class Lector(html.parser.HTMLParser):
+        def __init__(self):
+            html.parser.HTMLParser.__init__(self, convert_charrefs=False)
+            self.pila, self.fin = [], None
+
+        def handle_starttag(self, tag, attrs):
+            if tag not in VACIAS:
+                self.pila.append((tag, dict(attrs).get('id')))
+
+        def handle_endtag(self, tag):
+            if tag in VACIAS:
+                return
+            while self.pila:
+                t, i = self.pila.pop()
+                if t == tag:
+                    if i == objetivo and self.fin is None:
+                        self.fin = self.getpos()
+                    break
+
+    lector = Lector()
+    lector.feed(s)
+    if not lector.fin:
+        return None
+    lin, col = lector.fin
+    off = sum(len(l) for l in s.splitlines(True)[:lin - 1]) + col
+    return off if s[off:off + 6] == u'</div>' else None
 
 
 def coloca(pagina, datos):
     s = io.open(pagina, encoding='utf-8').read()
     limpio = BLOQUE.sub(u'', s)
-    for ancla in (u'  <div class="lectura">', u'  <section class="cc-aviso"'):
-        if limpio.count(ancla) == 1:
-            nuevo = limpio.replace(ancla, bloque(datos) + u'\n' + ancla, 1)
-            break
+    # Dentro de la ULTIMA sesion, al final (Roberto, 23-sep: «al final de la
+    # ultima sesion de cada tema, no al final de cada sesion»). Las sesiones se
+    # ocultan con `hidden`: fuera de ellas, el cierre salia debajo de todas.
+    # Donde acaba la sesion lo dice un lector de HTML, no una busqueda de
+    # texto: en los temas 3 y 6 de 2.o hay contenido suelto entre la ultima
+    # sesion y la lectura, y el ultimo </div> no era el suyo.
+    fin = fin_ultima_sesion(limpio)
+    if fin is None:                      # tema 0: no tiene sesiones
+        ancla = None
+        for a in (u'  <div class="lectura">', u'  <section class="cc-aviso"'):
+            if limpio.count(a) == 1:
+                ancla = limpio.index(a)
+                break
+        if ancla is None:
+            return u'sin ancla'
+        nuevo = limpio[:ancla] + bloque(datos) + u'\n' + limpio[ancla:]
     else:
-        return u'sin ancla'
+        nuevo = limpio[:fin] + bloque(datos) + limpio[fin:]
     if nuevo != s:
         io.open(pagina, 'w', encoding='utf-8', newline='').write(nuevo)
         return u'puesto'

@@ -41,6 +41,12 @@ JS_FALLOS = u"""() => {
       a = a.parentElement;
     }
     if (conScroll) continue;
+    // el esquema de cierre del tema es MAS ANCHO que su sesion a proposito: en
+    // pantalla ancha sale de la columna de texto (data-ancho="pantalla"). Sus
+    // antepasados no cuentan como desbordados mientras la pagina entera no se
+    // vaya a lo ancho; lo que haya dentro de el se sigue mirando uno a uno.
+    if (e.querySelector('[data-ancho="pantalla"]') &&
+        document.documentElement.scrollWidth <= window.innerWidth) continue;
     if (e.scrollWidth > e.clientWidth + 2 && e.clientWidth > 0) {
       const t = (e.textContent||'').trim().slice(0, 28);
       out.push('se sale a lo ancho (' + e.scrollWidth + '>' + e.clientWidth + '): ' +
