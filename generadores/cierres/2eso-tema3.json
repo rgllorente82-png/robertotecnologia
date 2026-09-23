@@ -1,0 +1,59 @@
+{
+ "mapa": {
+  "centro": "Los materiales",
+  "ramas": [
+   {
+    "enlace": "se eligen por",
+    "nodo": "Sus propiedades: el mejor material no existe",
+    "hojas": [
+     "Bici de acero, aluminio o carbono: ninguno gana en todo",
+     "<b>Dureza</b>, <b>tenacidad</b>, <b>elasticidad</b>, <b>plasticidad</b>",
+     "<b>Densidad</b> y <b>conductividad</b>; el precio no es propiedad"
+    ]
+   },
+   {
+    "enlace": "salen de",
+    "nodo": "Materias primas vegetales, animales o minerales",
+    "hojas": [
+     "El plástico es de origen mineral: sale del petróleo",
+     "<b>Natural</b>: se usa tal como se encuentra",
+     "<b>Artificial</b>: se transforma la materia prima"
+    ]
+   },
+   {
+    "enlace": "se miden con",
+    "nodo": "Ensayos",
+    "hojas": [
+     "<b>Ensayo</b>: prueba normalizada, sale lo mismo a cualquiera",
+     "Dureza: <b>escala de Mohs</b>, quién raya a quién",
+     "Tracción, compresión, flexión, resiliencia y fatiga"
+    ]
+   },
+   {
+    "enlace": "incluyen",
+    "nodo": "Los plásticos, que hubo que inventar",
+    "hojas": [
+     "<b>Polímero</b>: repetición de un <b>monómero</b>",
+     "<b>Termoplásticos</b>, <b>termoestables</b> y <b>elastómeros</b>",
+     "El triángulo dice de qué plástico es, no que se recicle"
+    ]
+   },
+   {
+    "enlace": "tienen",
+    "nodo": "Un ciclo de vida",
+    "hojas": [
+     "Modelo <b>lineal</b> o <b>circular</b>; <b>huella de carbono</b>",
+     "Reducir, reutilizar, reciclar: en ese orden",
+     "<b>Obsolescencia programada</b>: diseñar para que dure poco"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Ningún material es el mejor. Elegir uno es comparar sus <b>propiedades</b> con lo que necesitas. En una bici, el carbono es el más ligero y el peor de reparar, y el acero el más pesado y el que más dura. Las propiedades que hay que conocer son la <b>dureza</b>, la <b>tenacidad</b> (su contrario es la <b>fragilidad</b>), la <b>elasticidad</b>, la <b>plasticidad</b>, la <b>densidad</b> y la <b>conductividad</b>. El precio no es una propiedad: es una consecuencia.",
+  "Los materiales se sacan de <b>materias primas</b>, que por su origen son vegetales, animales o minerales. El plástico es de origen mineral: sale del petróleo. Un material es <b>natural</b> si se usa tal como se encuentra, y <b>artificial</b> si se transforma la materia prima con procesos físicos o reacciones químicas.",
+  "Una propiedad solo sirve si se puede medir. Un <b>ensayo</b> es una prueba normalizada: la haga quien la haga, sale lo mismo. La dureza se mide con la <b>escala de Mohs</b>, del 1 (talco) al 10 (diamante): si A raya a B, A es más duro. Es ordinal: dice quién va delante, no cuánto. Otros ensayos son tracción, compresión, flexión, resiliencia y fatiga.",
+  "Los plásticos hubo que inventarlos. Un plástico es un <b>polímero</b>: una molécula larguísima que repite un <b>monómero</b>. Los <b>termoplásticos</b> tienen las cadenas sueltas, se ablandan con calor y se reciclan. Los <b>termoestables</b> las tienen unidas y se queman sin ablandarse. Los <b>elastómeros</b> se estiran y recuperan la forma. El triángulo con un número dice de qué plástico está hecho, no que se recicle.",
+  "El objeto no termina cuando lo tiras. Su <b>ciclo de vida</b> va desde la materia prima hasta el residuo. En el modelo <b>lineal</b> se tira; en el <b>circular</b>, vuelve a ser materia prima. Las tres erres van en este orden: <b>reducir</b>, <b>reutilizar</b> y <b>reciclar</b>, la última porque sigue gastando energía. Ninguna tecnología nace buena ni mala: resuelve un problema y crea el siguiente."
+ ]
+}

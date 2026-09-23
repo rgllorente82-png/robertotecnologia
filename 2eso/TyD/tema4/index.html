@@ -1241,6 +1241,81 @@ footer .wrap{padding-block:18px 26px}
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">La madera</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">está formada por</span>
+        <div class="ct-nodo">Fibras de celulosa unidas con lignina</div>
+        <ul class="ct-hojas"><li>Cinco capas: <b>corteza</b>, <b>cámbium</b>, <b>albura</b>, <b>duramen</b> y <b>médula</b></li><li><b>Albura</b>: joven y clara; <b>duramen</b>: antiguo y duro</li><li>Un <b>anillo de crecimiento</b> por año</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se obtiene en</span>
+        <div class="ct-nodo">Siete operaciones, en orden</div>
+        <ul class="ct-hojas"><li><b>Apeo</b>, <b>desramado</b>, <b>tronzado</b> y <b>descortezado</b></li><li><b>Transporte</b>, <b>serrado</b> y <b>secado</b></li><li>Sin secar, encoge y se <b>alabea</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">se caracteriza por</span>
+        <div class="ct-nodo">Sus propiedades</div>
+        <ul class="ct-hojas"><li>Poco densa, aislante, sonora y biodegradable</li><li><b>Anisótropa</b>: resiste a lo largo de la <b>veta</b></li><li><b>Blandas</b> (pino) y <b>duras</b> (roble)</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">se corrige con</span>
+        <div class="ct-nodo">Los tableros derivados</div>
+        <ul class="ct-hojas"><li><b>Aglomerado</b>: astillas prensadas con cola</li><li><b>Contrachapado</b>: láminas con la veta cruzada</li><li><b>DM</b>: fibras con resinas; admite acabados</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se trabaja con</span>
+        <div class="ct-nodo">Siete operaciones de taller</div>
+        <ul class="ct-hojas"><li>Medir y marcar, <b>sujetar</b>, cortar, perforar, limar y lijar</li><li>Uniones <b>desmontables</b> (tornillos) y <b>fijas</b> (cola, clavos)</li><li><b>Acabado</b>: barniz, pintura o cera, para que dure</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>La madera es el material que forma el tronco de los árboles. Por dentro son <b>fibras de celulosa</b> pegadas con <b>lignina</b>. El tronco tiene cinco capas, de fuera adentro: <b>corteza</b>, <b>cámbium</b>, <b>albura</b>, <b>duramen</b> y <b>médula</b>. La albura es la más joven, clara y blanda. El duramen es la más antigua, oscura y dura, y es el que se busca para un mueble que tenga que durar.</p>
+      <p>Del bosque al aserradero hay siete operaciones, en este orden: <b>apeo</b> o tala, <b>desramado</b>, <b>tronzado</b>, <b>descortezado</b>, <b>transporte</b>, <b>serrado</b> y <b>secado</b>. El secado no es un capricho: la madera recién cortada lleva mucha agua dentro, y al secarse encoge y se <b>alabea</b>.</p>
+      <p>La madera es poco densa (casi todas flotan), aislante, resistente, sonora y biodegradable. Es <b>anisótropa</b>: resiste mucho a lo largo de la <b>veta</b> y poco a lo ancho. Las de coníferas, como el pino, se llaman <b>blandas</b>, y las de frondosas, como el roble, <b>duras</b>. Pero el nombre engaña: la balsa es una madera dura y se corta con la uña.</p>
+      <p>Los <b>tableros derivados</b> corrigen los defectos de la madera maciza. El <b>aglomerado</b> son astillas prensadas con cola. El <b>contrachapado</b> son láminas encoladas con la veta cruzada. El <b>DM</b> son fibras con resinas: es liso y admite acabados. El contrachapado no es «madera peor»: es madera a la que se le ha quitado el punto débil.</p>
+      <p>En el taller se sigue siempre el mismo orden: medir y marcar, <b>sujetar</b>, cortar, perforar, limar y lijar, unir y dar acabado. La pieza va sujeta antes de tocarla con un filo. Las uniones son <b>desmontables</b> (tornillos, herrajes) o <b>fijas</b> (cola, clavos, espigas). Y el <b>acabado</b> no es para que quede bonito: es para que dure.</p>
+      <p>Además, su <b>balance de carbono</b> es negativo: al quemarse suelta menos CO<sub>2</sub> del que el árbol absorbió al crecer. Por eso cuenta como renovable, siempre que salga de una explotación sostenible.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"

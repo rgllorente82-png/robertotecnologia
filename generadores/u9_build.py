@@ -320,7 +320,7 @@ S1 = (
             u'igual en todas partes.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 9.1 &middot; Abrir un documento por dentro',
+    u'Actividad 11.1 &middot; Abrir un documento por dentro',
     [u'4.1', u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <div class="nota">
             <span class="n-tag">Con qu&eacute; se hace</span>
@@ -588,7 +588,7 @@ S2 = (
             u'distinci&oacute;n.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 9.2 &middot; Poner una presentaci&oacute;n a dieta',
+    u'Actividad 11.2 &middot; Poner una presentaci&oacute;n a dieta',
     [u'4.1', u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <div class="nota">
             <span class="n-tag">Con qu&eacute; se hace</span>
@@ -825,7 +825,7 @@ S3 = (
             u'r&uacute;brica de arriba: comprobadlo mientras lo veis.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 9.3 &middot; Rehacer una diapositiva y medir el aula',
+    u'Actividad 11.3 &middot; Rehacer una diapositiva y medir el aula',
     [u'4.1', u'2.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
@@ -1123,7 +1123,7 @@ S4 = (
             u'en voz alta qu&eacute; obliga cada letra: si te sale sola, lo tienes.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 9.4 &middot; Vestir un trabajo con im&aacute;genes que s&iacute; se pueden usar',
+    u'Actividad 11.4 &middot; Vestir un trabajo con im&aacute;genes que s&iacute; se pueden usar',
     [u'6.2', u'6.3'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <div class="nota">
             <span class="n-tag">Con qu&eacute; se hace</span>
@@ -1382,7 +1382,7 @@ S5 = (
   ''') +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 9.5 &middot; Cuatro manos, un documento',
+    u'Actividad 11.5 &middot; Cuatro manos, un documento',
     [u'2.1', u'4.1'], u'Grupos de 4 &middot; 25 min &middot; sobre 10', u'''
           <div class="nota">
             <span class="n-tag">Con qu&eacute; se hace</span>
@@ -1743,7 +1743,7 @@ S6 = (
             u'escena de arriba, pero con una p&aacute;gina real.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 15 min', ficha(
-    u'Actividad 9.6 &middot; Que lo entienda alguien que no estaba',
+    u'Actividad 11.6 &middot; Que lo entienda alguien que no estaba',
     [u'4.1', u'6.3'], u'Parejas &middot; 15 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
@@ -1887,7 +1887,7 @@ S = [
 CFG = dict(
  ruta='2eso/TyD/tema11/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
-       u'&middot; <a href="../">TyD</a> &middot; Tema 9',
+       u'&middot; <a href="../">TyD</a> &middot; Tema 11',
  h1=u'Herramientas digitales y difusi&oacute;n',
  titulo=u'Tema 11 &middot; Herramientas digitales y difusi&oacute;n',
  tema=u'Tema 11', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',

@@ -1,0 +1,73 @@
+{
+ "mapa": {
+  "centro": "Sostenibilidad y accesibilidad",
+  "ramas": [
+   {
+    "enlace": "se mide con",
+    "nodo": "La huella de carbono",
+    "hojas": [
+     "<b>Huella = cantidad × factor de emisión</b>, en kg de CO₂e",
+     "Un número sin <b>límite declarado</b> no se compara con nada",
+     "<b>Orden de magnitud</b>: divide, no restes"
+    ]
+   },
+   {
+    "enlace": "sirve a todos con",
+    "nodo": "El diseño universal",
+    "hojas": [
+     "Frente a la <b>accesibilidad</b>, la diferencia es de cuándo",
+     "Los <b>siete principios</b> de Mace (1997) y el <b>efecto del corte de acera</b>",
+     "Rampa = desnivel / pendiente; pulsador de 0,80 a 1,20 m y 12 cm²",
+     "<b>Contraste</b> de 4,5:1: diferencia de luminancia, no de color"
+    ]
+   },
+   {
+    "enlace": "se acaba por",
+    "nodo": "La obsolescencia, con tres preguntas",
+    "hojas": [
+     "<b>Límite técnico</b>, <b>engaño</b> o <b>decisión de diseño</b>",
+     "Cártel <b>Phoebus</b>: fraude con actas; la batería de litio: química",
+     "Apple, multada por <b>engaño por omisión</b>",
+     "Alargar la vida es lo que más baja la huella"
+    ]
+   },
+   {
+    "enlace": "come y deja",
+    "nodo": "Energía y residuo",
+    "hojas": [
+     "<b>Autonomía</b> = capacidad (mAh) / <b>corriente media</b> (mA)",
+     "delay() no duerme; <b>power-down</b> sí, pero la placa no",
+     "<b>Inventario de residuo</b>: <b>recorte</b> no es <b>sobrante</b>",
+     "Fracciones: <b>RAEE</b>, pilas, envases, metales y resto"
+    ]
+   },
+   {
+    "enlace": "se juzga con",
+    "nodo": "La cuenta completa y los requisitos",
+    "hojas": [
+     "<b>Punto de equilibrio</b> frente a una <b>unidad funcional</b>",
+     "El dato que no existe va como <b>banda</b>",
+     "Los <b>requisitos</b> se escriben antes de rediseñar",
+     "kg de CO₂e <b>por año de servicio</b>, no en total"
+    ]
+   },
+   {
+    "enlace": "se defiende con",
+    "nodo": "Una cifra defendible",
+    "hojas": [
+     "Número y unidad, límite, etiqueta, <b>rango</b> y de qué depende",
+     "A una objeción no se la discute: <b>se recalcula</b>",
+     "Aguanta, depende de esto, o no lo sé"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Para ordenar lo que contamina hace falta una unidad: el <b>kilogramo de CO₂ equivalente</b>. La cuenta es una sola: <b>huella = cantidad × factor de emisión</b>. Lo difícil es de dónde sacas el factor y el <b>límite</b> de la cuenta, que hay que declarar. Para comparar huellas, divide, no restes: si una cosa pesa mil veces más que otra, afinar la pequeña no sirve para nada.",
+  "La <b>accesibilidad</b> arregla un problema concreto con una adaptación; el <b>diseño universal</b> diseña desde el principio para que no haga falta. La diferencia es de cuándo: puesto el escalón, la rampa ya no cabe, porque su longitud es desnivel / pendiente. Por el <b>efecto del corte de acera</b>, lo que hace falta para una minoría acaba siendo mejor para todos. El <b>contraste</b> mide diferencia de luminancia, no de color.",
+  "Tres preguntas separan el fraude del <b>límite técnico</b>: ¿había una alternativa que durase más al mismo coste?, ¿se le ocultó al comprador?, ¿puede el dueño arreglarlo? El cártel <b>Phoebus</b> fue fraude; la batería de litio es química; a Apple la multaron por <b>engaño por omisión</b>.",
+  "La <b>autonomía</b> es la capacidad de la pila entre la <b>corriente media</b>. Un delay() no ahorra nada; dormir de verdad, sí. En el <b>inventario de residuo</b> se pesa todo, y el <b>sobrante</b> no es <b>recorte</b>: es una plancha más pequeña si alguien la guarda. La placa y los cables son <b>RAEE</b>, las pilas van aparte y el contrachapado no va al contenedor azul.",
+  "Compensar es siempre frente a algo: frente a la misma tarea sin tu aparato. El <b>punto de equilibrio</b> es el momento en que lo ahorrado alcanza lo que costó fabricarlo. El dato que no existe se mete como <b>banda</b>. Para rediseñar, los <b>requisitos</b> se escriben antes, porque el aparato que menos emite es el que no existe.",
+  "Una cifra defendible lleva número y unidad, límite, etiqueta, <b>rango</b> y de qué depende. A una objeción no se la discute: se convierte en un número y se recalcula delante."
+ ]
+}

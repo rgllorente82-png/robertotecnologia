@@ -1,0 +1,60 @@
+{
+ "mapa": {
+  "centro": "La madera",
+  "ramas": [
+   {
+    "enlace": "está formada por",
+    "nodo": "Fibras de celulosa unidas con lignina",
+    "hojas": [
+     "Cinco capas: <b>corteza</b>, <b>cámbium</b>, <b>albura</b>, <b>duramen</b> y <b>médula</b>",
+     "<b>Albura</b>: joven y clara; <b>duramen</b>: antiguo y duro",
+     "Un <b>anillo de crecimiento</b> por año"
+    ]
+   },
+   {
+    "enlace": "se obtiene en",
+    "nodo": "Siete operaciones, en orden",
+    "hojas": [
+     "<b>Apeo</b>, <b>desramado</b>, <b>tronzado</b> y <b>descortezado</b>",
+     "<b>Transporte</b>, <b>serrado</b> y <b>secado</b>",
+     "Sin secar, encoge y se <b>alabea</b>"
+    ]
+   },
+   {
+    "enlace": "se caracteriza por",
+    "nodo": "Sus propiedades",
+    "hojas": [
+     "Poco densa, aislante, sonora y biodegradable",
+     "<b>Anisótropa</b>: resiste a lo largo de la <b>veta</b>",
+     "<b>Blandas</b> (pino) y <b>duras</b> (roble)"
+    ]
+   },
+   {
+    "enlace": "se corrige con",
+    "nodo": "Los tableros derivados",
+    "hojas": [
+     "<b>Aglomerado</b>: astillas prensadas con cola",
+     "<b>Contrachapado</b>: láminas con la veta cruzada",
+     "<b>DM</b>: fibras con resinas; admite acabados"
+    ]
+   },
+   {
+    "enlace": "se trabaja con",
+    "nodo": "Siete operaciones de taller",
+    "hojas": [
+     "Medir y marcar, <b>sujetar</b>, cortar, perforar, limar y lijar",
+     "Uniones <b>desmontables</b> (tornillos) y <b>fijas</b> (cola, clavos)",
+     "<b>Acabado</b>: barniz, pintura o cera, para que dure"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "La madera es el material que forma el tronco de los árboles. Por dentro son <b>fibras de celulosa</b> pegadas con <b>lignina</b>. El tronco tiene cinco capas, de fuera adentro: <b>corteza</b>, <b>cámbium</b>, <b>albura</b>, <b>duramen</b> y <b>médula</b>. La albura es la más joven, clara y blanda. El duramen es la más antigua, oscura y dura, y es el que se busca para un mueble que tenga que durar.",
+  "Del bosque al aserradero hay siete operaciones, en este orden: <b>apeo</b> o tala, <b>desramado</b>, <b>tronzado</b>, <b>descortezado</b>, <b>transporte</b>, <b>serrado</b> y <b>secado</b>. El secado no es un capricho: la madera recién cortada lleva mucha agua dentro, y al secarse encoge y se <b>alabea</b>.",
+  "La madera es poco densa (casi todas flotan), aislante, resistente, sonora y biodegradable. Es <b>anisótropa</b>: resiste mucho a lo largo de la <b>veta</b> y poco a lo ancho. Las de coníferas, como el pino, se llaman <b>blandas</b>, y las de frondosas, como el roble, <b>duras</b>. Pero el nombre engaña: la balsa es una madera dura y se corta con la uña.",
+  "Los <b>tableros derivados</b> corrigen los defectos de la madera maciza. El <b>aglomerado</b> son astillas prensadas con cola. El <b>contrachapado</b> son láminas encoladas con la veta cruzada. El <b>DM</b> son fibras con resinas: es liso y admite acabados. El contrachapado no es «madera peor»: es madera a la que se le ha quitado el punto débil.",
+  "En el taller se sigue siempre el mismo orden: medir y marcar, <b>sujetar</b>, cortar, perforar, limar y lijar, unir y dar acabado. La pieza va sujeta antes de tocarla con un filo. Las uniones son <b>desmontables</b> (tornillos, herrajes) o <b>fijas</b> (cola, clavos, espigas). Y el <b>acabado</b> no es para que quede bonito: es para que dure.",
+  "Además, su <b>balance de carbono</b> es negativo: al quemarse suelta menos CO<sub>2</sub> del que el árbol absorbió al crecer. Por eso cuenta como renovable, siempre que salga de una explotación sostenible."
+ ]
+}

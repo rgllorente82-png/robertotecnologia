@@ -1,0 +1,59 @@
+{
+ "mapa": {
+  "centro": "Los metales",
+  "ramas": [
+   {
+    "enlace": "se obtienen",
+    "nodo": "De la naturaleza",
+    "hojas": [
+     "<b>Nativos</b>: cobre, oro, plata y platino",
+     "El resto, de un <b>mineral</b>: <b>mena</b> y <b>ganga</b>",
+     "La mena se separa por imantación o decantación"
+    ]
+   },
+   {
+    "enlace": "el hierro se transforma",
+    "nodo": "En el alto horno",
+    "hojas": [
+     "Mena + <b>carbón</b> + <b>caliza</b>, a 1.500 °C",
+     "Sale <b>arrabio</b>; la caliza se lleva la escoria",
+     "En el <b>convertidor</b> se afina: <b>acero</b>"
+    ]
+   },
+   {
+    "enlace": "se caracterizan por",
+    "nodo": "Sus propiedades",
+    "hojas": [
+     "Resistencia y <b>conductividad</b>",
+     "<b>Dúctil</b> → hilos; <b>maleable</b> → láminas",
+     "Magnetismo y <b>oxidación</b>"
+    ]
+   },
+   {
+    "enlace": "se clasifican en",
+    "nodo": "Férricos y no férricos",
+    "hojas": [
+     "<b>Férricos</b>, según el carbono: hierro dulce, acero, fundición",
+     "<b>No férricos</b>: aluminio, cobre, cinc, estaño, plomo",
+     "Aleaciones: <b>latón</b>, <b>bronce</b>, acero inoxidable"
+    ]
+   },
+   {
+    "enlace": "se trabajan con",
+    "nodo": "Conformado, uniones y protección",
+    "hojas": [
+     "Laminado, trefilado, forja, fundición y embutición",
+     "Tornillo (se deshace), remache y soldadura (no)",
+     "Contra el óxido: pintar, galvanizar o alear"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Casi ningún metal está puro en la naturaleza. Solo unos pocos, los <b>metales nativos</b> (cobre, oro, plata y platino), aparecen tal cual. Todos los demás hay que sacarlos de un <b>mineral</b>, en el que la <b>mena</b> es la parte que tiene el metal y la <b>ganga</b> es lo que se desecha. Hubo Edad del Bronce antes que del Hierro por la <b>temperatura</b>: el cobre y el estaño funden hacia los 1.000 °C, y el hierro necesita pasar de 1.500 °C.",
+  "El hierro se obtiene en el <b>alto horno</b>, a 1.500 °C. La mena entra con <b>carbón</b>, que es el combustible y aporta el carbono, y con <b>caliza</b>, que atrapa las impurezas en la escoria. Sale <b>arrabio</b>, y el arrabio, afinado en el <b>convertidor</b>, da <b>acero</b>.",
+  "Los metales son resistentes y buenos <b>conductores</b> del calor y de la electricidad. Son <b>dúctiles</b> (se estiran en hilos) y <b>maleables</b> (se aplastan en láminas). Algunos son magnéticos, y casi todos se <b>oxidan</b>. Contra el óxido hay tres defensas: pintar, recubrir con otro metal (galvanizado con cinc) o alear, como el acero inoxidable con el cromo.",
+  "Los <b>férricos</b> llevan hierro, y el porcentaje de carbono los separa: <b>hierro dulce</b>, <b>acero</b> (hasta el 2 %) y <b>fundición</b> (más del 2 %). Cuanto más carbono, más dureza y menos tenacidad. Los <b>no férricos</b> son los demás: aluminio (ligero), cobre (conductor), cinc, estaño y plomo. Mezclados dan aleaciones como el <b>latón</b> y el <b>bronce</b>.",
+  "Para darles forma se usan el <b>laminado</b> (chapa), el <b>trefilado</b> (hilo), la <b>forja</b> (a golpes, en caliente), la <b>fundición</b> (en molde) y la <b>embutición</b> (piezas huecas). Para unirlos se usan el <b>tornillo</b>, que se puede deshacer, y el <b>remache</b> y la <b>soldadura</b>, que no. Y la chatarra no es basura: fundir chatarra de aluminio gasta alrededor de un 5 % de la energía que costaría sacarlo de la bauxita."
+ ]
+}

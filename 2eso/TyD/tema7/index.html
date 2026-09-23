@@ -3979,6 +3979,81 @@ window.QUIETO = function(){
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Los mecanismos</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">multiplican la fuerza con</span>
+        <div class="ct-nodo">La palanca</div>
+        <ul class="ct-hojas"><li><b>F · b<sub>F</sub> = R · b<sub>R</sub></b></li><li>Tres géneros: en medio el apoyo, la resistencia o la fuerza</li><li>Cambia fuerza por recorrido</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">suben cargas con</span>
+        <div class="ct-nodo">Poleas y polipastos</div>
+        <ul class="ct-hojas"><li><b>Polea fija</b>: F = R, solo cambia la dirección</li><li><b>Polea móvil</b>: F = R / 2</li><li><b>Polipasto</b>: F = R / n, con n tramos de cuerda</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">transmiten el giro con</span>
+        <div class="ct-nodo">Engranajes, cadena y correa</div>
+        <ul class="ct-hojas"><li><b>i = z<sub>1</sub> / z<sub>2</sub> = n<sub>2</sub> / n<sub>1</sub></b></li><li><b>Reductor</b>: más despacio y con más fuerza</li><li><b>Tornillo sin fin</b>: reduce muchísimo y no va al revés</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">transforman con</span>
+        <div class="ct-nodo">Biela-manivela, leva, tornillo y cremallera</div>
+        <ul class="ct-hojas"><li><b>Biela-manivela</b>: giro ↔ ir y venir; carrera = 2 · r</li><li><b>Piñón-cremallera</b> y <b>tornillo-tuerca</b>: giro → recto</li><li><b>Leva y seguidor</b>: el movimiento que dibujes</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se trazan con</span>
+        <div class="ct-nodo">El módulo</div>
+        <ul class="ct-hojas"><li><b>d = m · z</b></li><li>Solo engranan con el mismo módulo</li><li>Distancia entre centros: (d<sub>1</sub> + d<sub>2</sub>) / 2</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Un <b>mecanismo</b> recibe un movimiento y una fuerza y los entrega cambiados. La <b>palanca</b> es una barra rígida que gira alrededor de un punto de apoyo o <b>fulcro</b>, y cumple la ley F · b<sub>F</sub> = R · b<sub>R</sub>. En la de <b>primer género</b> el apoyo está en medio (tijeras). En la de <b>segundo género</b>, la resistencia (carretilla): siempre gana fuerza. En la de <b>tercer género</b>, la fuerza (pinzas de depilar): siempre la pierde.</p>
+      <p>La <b>polea fija</b> no multiplica la fuerza: solo cambia su dirección. La <b>polea móvil</b> la divide entre dos. El <b>polipasto</b> la divide entre n, el número de tramos que sostienen la carga, y hay que tirar n metros de cuerda por cada metro que sube.</p>
+      <p>Los <b>engranajes</b> transmiten el giro con dientes, que no patinan. La <b>relación de transmisión</b> es i = z<sub>1</sub>/z<sub>2</sub> = n<sub>2</sub>/n<sub>1</sub>. Si i es menor que 1 es un <b>reductor</b>: gira más despacio y con más fuerza. La <b>cadena</b> y la <b>correa</b> transmiten a distancia, y el <b>tornillo sin fin</b> reduce muchísimo y no se puede mover al revés.</p>
+      <p>Los mecanismos de <b>transformación</b> cambian la clase de movimiento. La <b>biela-manivela</b> convierte un giro en un ir y venir, y al revés; su carrera es 2 · r, y la biela no la cambia. El <b>piñón-cremallera</b> y el <b>tornillo-tuerca</b> pasan de giro a movimiento recto. La <b>leva</b> da el movimiento que dibujes, pero necesita un muelle para volver.</p>
+      <p>Para hacer una rueda dentada se elige primero el <b>módulo</b>, que fija el tamaño del diente. El diámetro ya no se elige, se calcula: d = m · z. Dos ruedas solo engranan si tienen el mismo módulo.</p>
+      <p>Y debajo de todos hay una sola idea: <b>ningún mecanismo regala nada</b>. Lo que se gana en fuerza se paga en recorrido o en velocidad, porque ninguna máquina crea energía. Y en la máquina real, el <b>rozamiento</b> se queda una parte por el camino.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"

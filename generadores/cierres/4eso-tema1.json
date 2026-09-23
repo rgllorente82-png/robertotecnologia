@@ -1,0 +1,70 @@
+{
+ "mapa": {
+  "centro": "El proyecto tecnológico",
+  "ramas": [
+   {
+    "enlace": "empieza por",
+    "nodo": "Un problema, no una solución",
+    "hojas": [
+     "Algo que le pasa a alguien, que se puede observar y medir",
+     "<b>Prueba de las piezas</b>: tacha aparatos, materiales y tecnologías",
+     "Tamaño = afectados × veces por semana × coste de cada vez × semanas"
+    ]
+   },
+   {
+    "enlace": "se concreta en",
+    "nodo": "Requisitos que se pueden comprobar",
+    "hojas": [
+     "Cuatro piezas: <b>magnitud</b>, <b>comparador y valor</b>, <b>unidad</b> y cómo se comprueba",
+     "«Que riegue bien» es un deseo, no un requisito",
+     "Tiran unos de otros: un <b>compromiso</b>; se decide cuál manda"
+    ]
+   },
+   {
+    "enlace": "se elige con",
+    "nodo": "Una matriz de decisión",
+    "hojas": [
+     "Primero <b>divergir</b>, luego <b>converger</b>",
+     "Criterios sacados de los requisitos, con su <b>peso</b> y su escala",
+     "Puntuación = suma de (peso × nota); se justifican los pesos"
+    ]
+   },
+   {
+    "enlace": "se planifica en",
+    "nodo": "Un diagrama de Gantt",
+    "hojas": [
+     "Cada tarea: qué, cuánto dura, de qué depende y quién",
+     "<b>Holgura</b>: cuánto se puede retrasar sin retrasar el proyecto",
+     "<b>Camino crítico</b>: la cadena de tareas con holgura cero",
+     "La espera cuesta calendario: el material se pide el primer día"
+    ]
+   },
+   {
+    "enlace": "se registra en",
+    "nodo": "El cuaderno y el documento compartido",
+    "hojas": [
+     "<b>Cuaderno</b> por fechas; <b>memoria</b> por temas, al final",
+     "Asiento: fecha, quién, qué, de qué cuelga, por qué y qué lo cambiaría",
+     "<b>Fuente única de verdad</b> e <b>historial de versiones</b>"
+    ]
+   },
+   {
+    "enlace": "se cuenta y se cierra",
+    "nodo": "En tres minutos, y con números",
+    "hojas": [
+     "<b>Regla del minuto uno</b>: qué hace el aparato",
+     "Tres minutos son unas cuatrocientas palabras; y un <b>plan B</b>",
+     "Cierre: cuánto os habéis desviado, dónde y qué os lleváis"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un proyecto empieza por un <b>problema</b>, no por una solución. Un problema es algo que le pasa a alguien, que se puede observar y medir, y que se escribe sin nombrar ninguna pieza. Para comprobarlo está la <b>prueba de las piezas</b>: si tachas los aparatos y la frase se sigue entendiendo, era un problema. El Segway funcionaba, pero resolvía un problema que casi nadie tenía. Y un problema se mide: afectados × veces por semana × coste de cada vez × semanas.",
+  "Después vienen los <b>requisitos</b>. Un requisito es una frase que se puede convertir en una comparación, y lleva cuatro piezas: la <b>magnitud</b>, el <b>comparador y el valor</b>, la <b>unidad</b> y <b>cómo se comprueba</b>. Los requisitos tiran unos de otros: eso es un <b>compromiso</b>, y hay que dejar escrito cuál manda.",
+  "Para elegir, primero se <b>diverge</b> (muchas soluciones, sin valorar) y luego se <b>converge</b>. En la <b>matriz de decisión</b> los criterios salen de los requisitos, cada uno con un <b>peso</b> de 1 a 5, y cada nota lleva su escala escrita. La puntuación es la suma de peso × nota. La matriz no decide por vosotros: lo que hay que justificar son los pesos.",
+  "El calendario va en un <b>diagrama de Gantt</b>. La <b>holgura</b> es cuánto se puede retrasar una tarea sin retrasar el proyecto, y el <b>camino crítico</b> es la cadena de tareas con holgura cero. La espera no cuesta trabajo, pero sí calendario: el material se pide el primer día.",
+  "Las decisiones se apuntan en el <b>cuaderno</b>, ordenado por fechas y escrito el día que pasan las cosas. La <b>memoria</b> se escribe al final, con el cuaderno delante. En el documento compartido, cada dato vive en un solo sitio, y el <b>historial de versiones</b> guarda el qué, pero no el por qué.",
+  "Un proyecto no se cuenta en el orden en que se hizo: con la <b>regla del minuto uno</b>, quien escucha tiene que saber qué hace el aparato al acabar el primer minuto. Y al cerrarlo se contesta cuánto os habéis desviado, dónde y qué os lleváis, con un número. Calcular siempre por debajo tiene nombre: <b>falacia de la planificación</b>."
+ ]
+}

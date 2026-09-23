@@ -1,0 +1,69 @@
+{
+ "mapa": {
+  "centro": "Programación y robótica",
+  "ramas": [
+   {
+    "enlace": "empieza por",
+    "nodo": "Un algoritmo",
+    "hojas": [
+     "<b>Ordenado</b>, <b>finito</b> y <b>sin ambigüedad</b>",
+     "La máquina hace lo que pone: no mira ni corrige",
+     "<b>Depurar</b>: seguir el programa paso a paso"
+    ]
+   },
+   {
+    "enlace": "repite con",
+    "nodo": "Bucles",
+    "hojas": [
+     "<b>Repetir N veces</b>: cuando sabes cuántas",
+     "<b>Repetir mientras</b>: cuando no lo sabes",
+     "<b>Bucle infinito</b>: nada cambia la condición"
+    ]
+   },
+   {
+    "enlace": "toca el mundo con",
+    "nodo": "La placa micro:bit",
+    "hojas": [
+     "<b>Entradas</b> (botones, sensores) y <b>salidas</b> (LED, altavoz)",
+     "<b>Al iniciar</b>, una vez; <b>para siempre</b>, sin parar",
+     "<b>Variable</b>: un cajón con nombre para acordarse"
+    ]
+   },
+   {
+    "enlace": "decide con",
+    "nodo": "Sensores y condicionales",
+    "hojas": [
+     "Un <b>sensor</b> da un número, y nada más",
+     "El programa lo compara con un <b>umbral</b>",
+     "Dos umbrales contra el parpadeo: <b>histéresis</b>"
+    ]
+   },
+   {
+    "enlace": "se mueve como",
+    "nodo": "Un robot",
+    "hojas": [
+     "Sensores, decisión y <b>actuadores</b>",
+     "Dos medidas que comparar para saber por dónde",
+     "Lo que hace cambia lo que mide: <b>lazo cerrado</b>"
+    ]
+   },
+   {
+    "enlace": "se demuestra en",
+    "nodo": "Un proyecto que merece la pena",
+    "hojas": [
+     "Medir, comparar con un umbral y actuar",
+     "Umbral justificado con tres medidas propias",
+     "Mejor que no hacer nada, con dos números comparados"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Programar es decir las cosas sin dejar huecos, porque una máquina no rellena nada. Un <b>algoritmo</b> es un conjunto <b>ordenado</b> y <b>finito</b> de instrucciones <b>sin ambigüedad</b> que resuelve un problema. El robot choca con la pared porque la instrucción decía «avanza». Cuando algo falla, se sigue el programa paso a paso: eso es <b>depurar</b>.",
+  "Un <b>bucle</b> hace que un trozo de programa se repita. No hace que la máquina trabaje menos: ahorra escritura. <b>Repetir N veces</b> sirve cuando sabes cuántas; <b>repetir mientras</b>, cuando no lo sabes. Si dentro no pasa nada que cambie la condición, sale un <b>bucle infinito</b>.",
+  "Un programa, solo, no toca nada del mundo: le faltan <b>entradas</b> y <b>salidas</b>. La <b>micro:bit</b> las tiene a la vista: 25 LED, dos botones, sensores y pines. Lo de <b>al iniciar</b> se hace una vez, y lo de <b>para siempre</b> se repite sin parar. Una <b>variable</b> es un cajón con nombre donde el programa guarda un dato para acordarse.",
+  "Un <b>sensor</b> convierte una magnitud física en un número, y nada más. El programa lo entiende comparándolo con un <b>umbral</b> en un <b>condicional</b>: si… entonces… si no. El umbral lo eliges tú, y por eso hay que medir antes. Si la lectura tiembla alrededor del umbral, se usan dos umbrales: <b>histéresis</b>.",
+  "Una medida sola dice cuánta luz hay, no por dónde. Hacen falta dos medidas que comparar. Un <b>robot</b> recibe información con sensores, decide y actúa con <b>actuadores</b>. Cuando lo que hace cambia lo que va a medir después, es un <b>lazo cerrado</b>.",
+  "Tu proyecto junta <b>entrada</b>, <b>decisión</b> y <b>salida</b>: medir, comparar con un umbral y actuar. El umbral se justifica con tres medidas vuestras. Y un proyecto termina cuando demuestras con números que es mejor que no hacer nada."
+ ]
+}

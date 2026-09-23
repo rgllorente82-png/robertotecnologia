@@ -1,0 +1,59 @@
+{
+ "mapa": {
+  "centro": "La tecnología",
+  "ramas": [
+   {
+    "enlace": "es",
+    "nodo": "Resolver necesidades fabricando objetos y sistemas",
+    "hojas": [
+     "Conocimientos, técnicas y herramientas",
+     "No son los aparatos: es la manera",
+     "Bucle: <b>necesidad</b>, idea, fabrico y pruebo, mejoro"
+    ]
+   },
+   {
+    "enlace": "se distingue de",
+    "nodo": "La técnica y la ciencia",
+    "hojas": [
+     "<b>Técnica</b>: cómo se hace",
+     "<b>Ciencia</b>: por qué ocurre",
+     "<b>Tecnología</b>: cómo resuelvo este problema"
+    ]
+   },
+   {
+    "enlace": "hoy es",
+    "nodo": "La digitalización",
+    "hojas": [
+     "<b>Digitalizar</b>: convertir información en números",
+     "Vinilo: un surco que pierde en cada copia",
+     "Archivo: números que se copian exactos",
+     "Lo malo también se copia: bulos y <b>brecha digital</b>"
+    ]
+   },
+   {
+    "enlace": "empezó con",
+    "nodo": "La piedra tallada, hace unos 2,6 millones de años",
+    "hojas": [
+     "Cada salto abarca menos tiempo que el anterior",
+     "Se <b>acelera</b>: cada invento se apoya en los anteriores"
+    ]
+   },
+   {
+    "enlace": "cambió el mundo en",
+    "nodo": "Cuatro revoluciones industriales",
+    "hojas": [
+     "1.ª, el vapor; 2.ª, electricidad y producción en serie",
+     "3.ª, electrónica y ordenadores; 4.ª, máquinas que deciden",
+     "La máquina de Watt se conoce por su <b>plano técnico</b>"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "La <b>tecnología</b> no son los aparatos: es la forma de resolver problemas fabricando cosas. Es el conjunto de conocimientos, técnicas y herramientas que usamos para crear objetos y sistemas que resuelven necesidades de las personas. Una cuchara de madera es tecnología, y un móvil también.",
+  "No la confundas con la técnica ni con la ciencia, que en el examen se pregunta. La <b>técnica</b> responde a cómo se hace: es saber hacerlo, y se aprende imitando. La <b>ciencia</b> responde a por qué ocurre: quiere entender, no fabricar. La <b>tecnología</b> responde a cómo resuelvo este problema, y junta las dos. A veces va por delante: la máquina de vapor movía fábricas antes de que existiera la termodinámica que la explica.",
+  "Nadie inventa por inventar. Todo empieza por una <b>necesidad</b>: se busca una solución con lo que se sabe, se fabrica, se prueba y se mejora. Si no funciona, vuelta a empezar. Es el mismo bucle para una piedra tallada y para un cohete, y es el que vas a seguir en cada proyecto.",
+  "<b>Digitalizar</b> no es usar ordenadores: es convertir información en números para que una máquina pueda guardarla, copiarla, enviarla y transformarla. Un vinilo guarda un surco, y cada copia pierde un poco. Un archivo guarda números, y copiar un 7 da un 7. Por eso copiar deja de costar y la distancia deja de importar. Pero un bulo se copia igual de barato, y quien no tiene conexión se queda fuera: es la <b>brecha digital</b>. Antes de reenviar algo, búscalo en otro sitio.",
+  "La primera tecnología fue la <b>piedra tallada</b>, hace unos 2,6 millones de años. Desde entonces la tecnología se <b>acelera</b>, porque cada invento se apoya en los anteriores. Hubo cuatro <b>revoluciones industriales</b>: el vapor, la electricidad y la producción en serie, la electrónica y los ordenadores, y las máquinas que deciden."
+ ]
+}

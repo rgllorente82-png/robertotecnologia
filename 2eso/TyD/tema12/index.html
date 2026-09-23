@@ -348,7 +348,7 @@ footer .wrap{padding-block:18px 26px}
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 <header class="top">
   <div class="wrap">
-    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 10</div>
+    <div class="eyebrow"><a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> &middot; <a href="../">TyD</a> &middot; Tema 12</div>
     <h1>Programaci&oacute;n y rob&oacute;tica</h1>
     <nav class="sesiones" id="nav" aria-label="Sesiones del tema"><button type="button" data-ses="1" aria-pressed="true">S1 &middot; Dec&iacute;rselo a una m&aacute;quina</button><button type="button" data-ses="2">S2 &middot; Repetir y decidir</button><button type="button" data-ses="3">S3 &middot; La placa: micro:bit</button><button type="button" data-ses="4">S4 &middot; Sensores y entradas</button><button type="button" data-ses="5">S5 &middot; El robot</button><button type="button" data-ses="6">S6 &middot; Proyecto y test</button></nav>
   </div>
@@ -3111,6 +3111,86 @@ footer .wrap{padding-block:18px 26px}
 
   </div>
 
+
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Programación y robótica</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">empieza por</span>
+        <div class="ct-nodo">Un algoritmo</div>
+        <ul class="ct-hojas"><li><b>Ordenado</b>, <b>finito</b> y <b>sin ambigüedad</b></li><li>La máquina hace lo que pone: no mira ni corrige</li><li><b>Depurar</b>: seguir el programa paso a paso</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">repite con</span>
+        <div class="ct-nodo">Bucles</div>
+        <ul class="ct-hojas"><li><b>Repetir N veces</b>: cuando sabes cuántas</li><li><b>Repetir mientras</b>: cuando no lo sabes</li><li><b>Bucle infinito</b>: nada cambia la condición</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">toca el mundo con</span>
+        <div class="ct-nodo">La placa micro:bit</div>
+        <ul class="ct-hojas"><li><b>Entradas</b> (botones, sensores) y <b>salidas</b> (LED, altavoz)</li><li><b>Al iniciar</b>, una vez; <b>para siempre</b>, sin parar</li><li><b>Variable</b>: un cajón con nombre para acordarse</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">decide con</span>
+        <div class="ct-nodo">Sensores y condicionales</div>
+        <ul class="ct-hojas"><li>Un <b>sensor</b> da un número, y nada más</li><li>El programa lo compara con un <b>umbral</b></li><li>Dos umbrales contra el parpadeo: <b>histéresis</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se mueve como</span>
+        <div class="ct-nodo">Un robot</div>
+        <ul class="ct-hojas"><li>Sensores, decisión y <b>actuadores</b></li><li>Dos medidas que comparar para saber por dónde</li><li>Lo que hace cambia lo que mide: <b>lazo cerrado</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se demuestra en</span>
+        <div class="ct-nodo">Un proyecto que merece la pena</div>
+        <ul class="ct-hojas"><li>Medir, comparar con un umbral y actuar</li><li>Umbral justificado con tres medidas propias</li><li>Mejor que no hacer nada, con dos números comparados</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Programar es decir las cosas sin dejar huecos, porque una máquina no rellena nada. Un <b>algoritmo</b> es un conjunto <b>ordenado</b> y <b>finito</b> de instrucciones <b>sin ambigüedad</b> que resuelve un problema. El robot choca con la pared porque la instrucción decía «avanza». Cuando algo falla, se sigue el programa paso a paso: eso es <b>depurar</b>.</p>
+      <p>Un <b>bucle</b> hace que un trozo de programa se repita. No hace que la máquina trabaje menos: ahorra escritura. <b>Repetir N veces</b> sirve cuando sabes cuántas; <b>repetir mientras</b>, cuando no lo sabes. Si dentro no pasa nada que cambie la condición, sale un <b>bucle infinito</b>.</p>
+      <p>Un programa, solo, no toca nada del mundo: le faltan <b>entradas</b> y <b>salidas</b>. La <b>micro:bit</b> las tiene a la vista: 25 LED, dos botones, sensores y pines. Lo de <b>al iniciar</b> se hace una vez, y lo de <b>para siempre</b> se repite sin parar. Una <b>variable</b> es un cajón con nombre donde el programa guarda un dato para acordarse.</p>
+      <p>Un <b>sensor</b> convierte una magnitud física en un número, y nada más. El programa lo entiende comparándolo con un <b>umbral</b> en un <b>condicional</b>: si… entonces… si no. El umbral lo eliges tú, y por eso hay que medir antes. Si la lectura tiembla alrededor del umbral, se usan dos umbrales: <b>histéresis</b>.</p>
+      <p>Una medida sola dice cuánta luz hay, no por dónde. Hacen falta dos medidas que comparar. Un <b>robot</b> recibe información con sensores, decide y actúa con <b>actuadores</b>. Cuando lo que hace cambia lo que va a medir después, es un <b>lazo cerrado</b>.</p>
+      <p>Tu proyecto junta <b>entrada</b>, <b>decisión</b> y <b>salida</b>: medir, comparar con un umbral y actuar. El umbral se justifica con tres medidas vuestras. Y un proyecto termina cuando demuestras con números que es mejor que no hacer nada.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
 
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">

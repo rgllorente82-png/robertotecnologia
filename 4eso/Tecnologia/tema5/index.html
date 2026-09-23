@@ -6237,6 +6237,85 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Electrónica y neumática</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se entera con</span>
+        <div class="ct-nodo">Un sensor en un divisor de tensión</div>
+        <ul class="ct-hojas"><li>analogRead() mide voltios, no ohmios</li><li>V<sub>salida</sub> = 5 V · R2 / (R1 + R2)</li><li>La fija, parecida al sensor en el punto que importa</li><li><b>Conversor A/D</b> de 10 bits: de 0 a 1023</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">mueve cargas con</span>
+        <div class="ct-nodo">Un transistor como interruptor</div>
+        <ul class="ct-hojas"><li>Un pin da 20 mA; una bomba pide 250</li><li>I<sub>colector</sub> = β · I<sub>base</sub>; se trabaja <b>saturado</b></li><li>Rb = (5 − 0,7) / I<sub>base</sub>, con margen de 5 a 10</li><li><b>Diodo de rueda libre</b> en cada bobina, y masa común</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">hace fuerza con</span>
+        <div class="ct-nodo">Cilindros neumáticos</div>
+        <ul class="ct-hojas"><li>F = p · A, con 1 bar = 0,1 N/mm²</li><li>Doblar el diámetro multiplica la fuerza por cuatro</li><li><b>Simple efecto</b> (muelle) o <b>doble efecto</b> (dos tomas)</li><li>El aire se cuenta en <b>litros normales</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">los manda con</span>
+        <div class="ct-nodo">Válvulas distribuidoras</div>
+        <ul class="ct-hojas"><li><b>3/2</b> y <b>5/2</b>: vías / posiciones</li><li>Vías: 1 presión; 2 y 4 trabajo; 3 y 5 escapes</li><li><b>Mando directo</b> o <b>mando indirecto</b></li><li><b>Función Y</b> en serie; <b>función O</b> con válvula selectora</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se monta y se programa</span>
+        <div class="ct-nodo">Del esquema a la placa de pruebas</div>
+        <ul class="ct-hojas"><li>Un esquema es una lista de <b>nudos</b></li><li>Los cinco agujeros de una columna son un nudo</li><li>El signo del if depende de dónde va el sensor</li><li>10 kΩ de la base a masa, y LOW antes de pinMode</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se completa con</span>
+        <div class="ct-nodo">Electroválvulas, secuencias y papeles</div>
+        <ul class="ct-hojas"><li>La <b>servopilotada</b> necesita presión para conmutar</li><li>A+ B+ A− B−, saltando por <b>final de carrera</b></li><li>El pico elige la fuente; la media, la pila</li><li>Esquema, lista de conexiones y hoja de puesta en marcha</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Un pin analógico mide voltios, no ohmios, así que el sensor va en un <b>divisor de tensión</b>, dos resistencias en serie entre 5 V y masa: V<sub>salida</sub> = 5 V · R2 / (R1 + R2). La resistencia fija se elige parecida a la del sensor en el punto que te importa. El <b>conversor A/D</b> del Arduino Uno es de 10 bits: da un número de 0 a 1023, con escalones de 4,9 mV.</p>
+      <p>Un pin da 20 mA, y una bomba pide 250. Hace falta un <b>transistor</b>: una corriente pequeña por la base deja pasar una mucho mayor del colector al emisor. Como interruptor se trabaja <b>saturado</b>, para que no se caliente, y la resistencia de base sale de Rb = (5 − 0,7) / I<sub>base</sub>. Cada carga con bobina lleva su <b>diodo de rueda libre</b>, y la pila del motor comparte la masa con el Arduino.</p>
+      <p>Para hacer fuerza está la <b>neumática</b>: F = p · A, con 1 bar = 0,1 N/mm². Doblar el diámetro multiplica la fuerza por cuatro. El cilindro de <b>simple efecto</b> vuelve con un muelle; el de <b>doble efecto</b> tiene dos tomas. Se mandan con una <b>válvula distribuidora</b>: la <b>3/2</b> para simple efecto y la <b>5/2</b> para doble efecto. En la industria casi todo es <b>mando indirecto</b>.</p>
+      <p>Un esquema es una lista de <b>nudos</b>, y en la placa de pruebas los cinco agujeros de una columna son un nudo. Los fallos se buscan con el polímetro, desde la fuente hacia la carga. Dónde va el sensor decide el signo del if. Y al enchufar los pines quedan al aire, así que va una resistencia de 10 kΩ de la base a masa.</p>
+      <p>La <b>electroválvula</b> es eléctrica por un lado y neumática por el otro. Una secuencia como A+ B+ A− B− pasa de paso por <b>final de carrera</b>, no por tiempo. Un proyecto entregado lleva su presupuesto de corriente y tres papeles: el esquema, la lista de conexiones y la hoja de puesta en marcha. En electrónica, «al aire» nunca quiere decir «a cero».</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"

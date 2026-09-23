@@ -1,0 +1,61 @@
+{
+ "mapa": {
+  "centro": "El dibujo técnico",
+  "ramas": [
+   {
+    "enlace": "se diferencia del",
+    "nodo": "Dibujo artístico",
+    "hojas": [
+     "Artístico: libre, admite muchas lecturas",
+     "Técnico: objetivo, preciso, a escala y normalizado",
+     "Solo admite una interpretación: <b>idioma universal</b>"
+    ]
+   },
+   {
+    "enlace": "pasa por",
+    "nodo": "Boceto, croquis y plano",
+    "hojas": [
+     "<b>Boceto</b>: a mano alzada, sin medidas",
+     "<b>Croquis</b>: a mano alzada, con cotas reales y sin escala",
+     "<b>Plano</b>: con instrumentos o CAD, a escala y con cajetín"
+    ]
+   },
+   {
+    "enlace": "representa la pieza en",
+    "nodo": "Tres vistas, en el sistema europeo",
+    "hojas": [
+     "<b>Alzado</b> de frente; <b>planta</b> debajo",
+     "<b>Perfil izquierdo</b>, a la derecha del alzado",
+     "<b>Correspondencia</b>: anchos, alturas y profundidad",
+     "Perspectivas: <b>caballera</b> e <b>isométrica</b>"
+    ]
+   },
+   {
+    "enlace": "usa",
+    "nodo": "Cinco tipos de línea",
+    "hojas": [
+     "Continua gruesa: aristas visibles",
+     "De trazos: aristas ocultas; trazo y punto: ejes",
+     "La gruesa, el doble de ancha que la fina"
+    ]
+   },
+   {
+    "enlace": "sigue",
+    "nodo": "La normalización (normas UNE e ISO)",
+    "hojas": [
+     "Serie A: cada formato, la mitad del anterior",
+     "La <b>escala</b> no cambia nunca la cifra de cota",
+     "Cotas en milímetros, una sola vez",
+     "Marco y <b>cajetín</b> de 180 × 30 mm"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "El <b>dibujo artístico</b> transmite sensaciones: es libre y cada persona lo interpreta a su manera. El <b>dibujo técnico</b> representa un objeto de forma objetiva, precisa y normalizada para poder fabricarlo. Lleva medidas reales, va a escala y sigue normas internacionales, así que solo admite una interpretación. Por eso es un idioma universal.",
+  "Una idea pasa por tres dibujos. El <b>boceto</b> es rápido, a mano alzada y sin medidas: sirve para pensar. El <b>croquis</b> también va a mano alzada, pero acotado con medidas reales; no está a escala, pero sus cotas son reales. El <b>plano</b> se hace con instrumentos o con CAD, a escala, acotado y con cajetín. Es el único documento que va al taller.",
+  "En perspectiva ninguna cara se ve en su tamaño real. Por eso la pieza se dibuja en tres <b>vistas</b>: el <b>alzado</b>, de frente; la <b>planta</b>, desde arriba y debajo del alzado; y el <b>perfil izquierdo</b>, que en el sistema europeo va a la derecha. Alzado y planta comparten anchos, alzado y perfil comparten alturas. Esa <b>correspondencia</b> es tu corrector automático. En la perspectiva <b>caballera</b> la profundidad se reduce a la mitad; en la <b>isométrica</b> los tres ejes van a 120°.",
+  "Cada línea dice algo. La continua gruesa marca las aristas visibles; la de trazos, las ocultas; la de trazo y punto, los ejes; la continua fina, las cotas. La gruesa es el doble de ancha que la fina.",
+  "La <b>normalización</b> hace que el plano se entienda en cualquier taller. El papel es de la serie A, y cada formato es la mitad del anterior. La <b>escala</b> no cambia nunca la cifra de cota: la cota dice la medida real. Una cota tiene líneas auxiliares, línea de cota y cifra, en milímetros y sin escribir la unidad. Cada medida se pone una sola vez. Y el <b>cajetín</b>, de 180 × 30 mm, va en la esquina inferior derecha."
+ ]
+}

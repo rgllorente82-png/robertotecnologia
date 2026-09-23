@@ -1,0 +1,69 @@
+{
+ "mapa": {
+  "centro": "El ordenador",
+  "ramas": [
+   {
+    "enlace": "es",
+    "nodo": "Una máquina de propósito general",
+    "hojas": [
+     "<b>Hardware</b> (se toca) y <b>software</b> (las instrucciones)",
+     "La <b>CPU</b>: busca, descodifica y ejecuta",
+     "El <b>reloj</b> marca el ritmo: GHz son pulsos, no instrucciones"
+    ]
+   },
+   {
+    "enlace": "guarda en",
+    "nodo": "Dos memorias: la mesa y la estantería",
+    "hojas": [
+     "<b>RAM</b>: lo que se usa ahora; rápida y <b>volátil</b>",
+     "<b>Almacenamiento</b> (disco duro o SSD): lento y <b>no volátil</b>",
+     "Guardar es copiar de la RAM al almacenamiento"
+    ]
+   },
+   {
+    "enlace": "lo escribe todo en",
+    "nodo": "Ceros y unos",
+    "hojas": [
+     "<b>Bit</b> (0 o 1) y <b>byte</b> (8 bits)",
+     "Con n bits, 2<sup>n</sup> combinaciones: 2<sup>8</sup> = 256",
+     "Un byte significa lo que diga el <b>acuerdo</b> (ASCII: A = 65)"
+    ]
+   },
+   {
+    "enlace": "se comunica con",
+    "nodo": "Entrada y salida",
+    "hojas": [
+     "<b>Sensor</b> → <b>muestreo</b> y <b>cuantificación</b> → números",
+     "<b>Actuador</b>: números → el mundo",
+     "<b>Periféricos</b> de entrada, de salida y mixtos, por <b>puertos</b>"
+    ]
+   },
+   {
+    "enlace": "se reparte con",
+    "nodo": "El sistema operativo",
+    "hojas": [
+     "El <b>planificador</b> da turnos de CPU y los quita",
+     "Memoria separada; <b>ficheros</b>, <b>carpetas</b> y <b>permisos</b>",
+     "Habla con los periféricos por el <b>controlador</b> (driver)"
+    ]
+   },
+   {
+    "enlace": "se repara al",
+    "nodo": "Diagnosticar una avería",
+    "hojas": [
+     "El <b>síntoma</b> no es la <b>causa</b>",
+     "<b>Acotar</b>: la prueba que parte la cadena por la mitad",
+     "Cambia una sola cosa cada vez y anótalo"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un ordenador es una <b>máquina de propósito general</b>: la máquina es siempre la misma y lo que cambia es la lista de instrucciones. Lo que se toca es <b>hardware</b>; las instrucciones son <b>software</b>. La <b>CPU</b> repite un ciclo de tres pasos: <b>busca</b> la instrucción, la <b>descodifica</b> y la <b>ejecuta</b>. Los gigahercios del <b>reloj</b> miden el ritmo, no el trabajo.",
+  "Hay dos memorias. La <b>RAM</b> guarda lo que se está usando ahora: es muy rápida y <b>volátil</b>: se borra al cortar la corriente. El <b>almacenamiento</b> (disco duro o SSD) guarda lo que tiene que seguir ahí mañana: es enorme, más lento y <b>no volátil</b>. Si el ordenador se arrastra con muchas pestañas, lo que se ha llenado es la RAM, no el disco.",
+  "Dentro solo hay ceros y unos. Un <b>bit</b> tiene dos estados y un <b>byte</b> son 8 bits. Con n bits salen 2<sup>n</sup> combinaciones: con 8, 256. Se usan dos símbolos porque el ruido eléctrico no los confunde. Un byte por sí solo no significa nada: el mismo 0100 0001 es el 65, la letra A en <b>ASCII</b> o un gris. Lo decide un <b>acuerdo</b>.",
+  "La temperatura, el sonido y la luz son <b>señales analógicas</b>; dentro de la máquina, todo es <b>señal digital</b>. Un <b>sensor</b> convierte una magnitud física en eléctrica, y el conversor la pasa a números con el <b>muestreo</b> (cada cuánto se mira) y la <b>cuantificación</b> (con cuánta finura). Un <b>actuador</b> hace el camino de vuelta. Los <b>periféricos</b> son de entrada, de salida o mixtos, y se enchufan por <b>puertos</b>.",
+  "El <b>sistema operativo</b> reparte la máquina. Su <b>planificador</b> da a cada proceso un turno de CPU y se lo quita aunque no haya terminado. También separa la memoria de cada proceso, gestiona <b>ficheros</b>, <b>carpetas</b> y <b>permisos</b>, y habla con los periféricos a través de los controladores.",
+  "Cuando algo falla, el <b>síntoma</b> no es la <b>causa</b>. Se <b>acota</b>: la mejor prueba es la que parte la cadena por la mitad. Y se cambia una sola cosa cada vez."
+ ]
+}

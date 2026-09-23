@@ -2409,6 +2409,86 @@ footer .wrap{padding-block:18px 26px}
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">El proceso tecnológico</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">es</span>
+        <div class="ct-nodo">Siete pasos para que el resultado no dependa de la suerte</div>
+        <ul class="ct-hojas"><li>El paso que decide todo: los <b>requisitos</b></li><li>Requisito: condición que se comprueba sin discutir</li><li>No es una línea recta: se vuelve atrás</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">busca</span>
+        <div class="ct-nodo">Muchas ideas antes de elegir</div>
+        <ul class="ct-hojas"><li>Mientras se proponen, no se critica ninguna</li><li><b>Matriz de decisión</b>: puntuación × peso</li><li>Los pesos se justifican y la decisión queda escrita</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">diseña con</span>
+        <div class="ct-nodo">Croquis acotado y lista de materiales</div>
+        <ul class="ct-hojas"><li><b>Boceto</b> sin medidas, <b>croquis</b> con medidas, <b>plano</b> a escala</li><li><b>Despiece</b> y <b>lista de materiales</b></li><li>Cada medida sale de un requisito</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">planifica con</span>
+        <div class="ct-nodo">Hoja de proceso y diagrama de Gantt</div>
+        <ul class="ct-hojas"><li>Quién, con qué herramienta y en cuántos minutos</li><li><b>Precedencia</b>: tareas que esperan a otra</li><li>Las esperas también se dibujan; <b>holgura</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">construye</span>
+        <div class="ct-nodo">Medir y marcar, cortar, unir y acabar</div>
+        <ul class="ct-hojas"><li>Mide dos veces, corta una; por fuera de la raya</li><li>El cúter, sobre la base de corte y hacia fuera</li><li><b>Encastre a media madera</b>: une por la forma</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">termina al</span>
+        <div class="ct-nodo">Evaluar y escribir la memoria técnica</div>
+        <ul class="ct-hojas"><li>Comparar con los requisitos, uno a uno, midiendo</li><li>Un no: corregir la pieza, cambiar el diseño o el requisito</li><li><b>Memoria técnica</b>: el rastro de las decisiones</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>El <b>proceso tecnológico</b> es el orden de pasos para pasar de una necesidad a un objeto que la resuelve, de forma que el resultado no dependa de la inspiración y otra persona pueda continuar. Son siete: detectar la necesidad, analizar el problema, buscar ideas, elegir y diseñar, planificar, construir y evaluar. El libro los llama <b>fases del proyecto técnico</b>, y el examen usa sus nombres.</p>
+      <p>El paso que decide todo es el 2: escribir los <b>requisitos</b>. Un requisito es una condición que la solución tiene que cumplir, escrita para comprobarla sin discutir. «Que sea resistente» no vale. Un requisito bueno se comprueba con una regla, un cronómetro o un sí/no.</p>
+      <p>Después, muchas ideas. Mientras se proponen no se critica ninguna, porque una idea imposible le da a otro una posible. Para elegir se usa la <b>matriz de decisión</b>: cada criterio lleva un <b>peso</b>, y gana la idea con más puntos. No elige por ti: deja la decisión por escrito.</p>
+      <p>Diseñar es acotar. El <b>boceto</b> va sin medidas; el <b>croquis</b>, a mano alzada y con las medidas; el <b>plano</b>, a escala. El <b>despiece</b> separa el conjunto en piezas, y la <b>lista de materiales</b> es la lista de la compra. Cada medida sale de un requisito.</p>
+      <p>Planificar es decir quién, con qué y en cuántos minutos, en la <b>hoja de proceso</b> y en el <b>diagrama de Gantt</b>. Hay tareas que no empiezan hasta que acaba otra (<b>precedencia</b>), y las esperas también se dibujan. En el taller: mide dos veces y corta una, el cúter sobre la base de corte y hacia fuera, y une por la forma con un <b>encastre</b>.</p>
+      <p>Evaluar es volver a los requisitos, uno a uno, y medir. Un no es información: se corrige la pieza, se cambia el diseño o se cambia el requisito explicando por qué. Todo queda en la <b>memoria técnica</b>. Y volver atrás no es fracasar: es cómo funciona.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>

@@ -1,0 +1,69 @@
+{
+ "mapa": {
+  "centro": "El proceso tecnológico",
+  "ramas": [
+   {
+    "enlace": "es",
+    "nodo": "Siete pasos para que el resultado no dependa de la suerte",
+    "hojas": [
+     "El paso que decide todo: los <b>requisitos</b>",
+     "Requisito: condición que se comprueba sin discutir",
+     "No es una línea recta: se vuelve atrás"
+    ]
+   },
+   {
+    "enlace": "busca",
+    "nodo": "Muchas ideas antes de elegir",
+    "hojas": [
+     "Mientras se proponen, no se critica ninguna",
+     "<b>Matriz de decisión</b>: puntuación × peso",
+     "Los pesos se justifican y la decisión queda escrita"
+    ]
+   },
+   {
+    "enlace": "diseña con",
+    "nodo": "Croquis acotado y lista de materiales",
+    "hojas": [
+     "<b>Boceto</b> sin medidas, <b>croquis</b> con medidas, <b>plano</b> a escala",
+     "<b>Despiece</b> y <b>lista de materiales</b>",
+     "Cada medida sale de un requisito"
+    ]
+   },
+   {
+    "enlace": "planifica con",
+    "nodo": "Hoja de proceso y diagrama de Gantt",
+    "hojas": [
+     "Quién, con qué herramienta y en cuántos minutos",
+     "<b>Precedencia</b>: tareas que esperan a otra",
+     "Las esperas también se dibujan; <b>holgura</b>"
+    ]
+   },
+   {
+    "enlace": "construye",
+    "nodo": "Medir y marcar, cortar, unir y acabar",
+    "hojas": [
+     "Mide dos veces, corta una; por fuera de la raya",
+     "El cúter, sobre la base de corte y hacia fuera",
+     "<b>Encastre a media madera</b>: une por la forma"
+    ]
+   },
+   {
+    "enlace": "termina al",
+    "nodo": "Evaluar y escribir la memoria técnica",
+    "hojas": [
+     "Comparar con los requisitos, uno a uno, midiendo",
+     "Un no: corregir la pieza, cambiar el diseño o el requisito",
+     "<b>Memoria técnica</b>: el rastro de las decisiones"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "El <b>proceso tecnológico</b> es el orden de pasos para pasar de una necesidad a un objeto que la resuelve, de forma que el resultado no dependa de la inspiración y otra persona pueda continuar. Son siete: detectar la necesidad, analizar el problema, buscar ideas, elegir y diseñar, planificar, construir y evaluar. El libro los llama <b>fases del proyecto técnico</b>, y el examen usa sus nombres.",
+  "El paso que decide todo es el 2: escribir los <b>requisitos</b>. Un requisito es una condición que la solución tiene que cumplir, escrita para comprobarla sin discutir. «Que sea resistente» no vale. Un requisito bueno se comprueba con una regla, un cronómetro o un sí/no.",
+  "Después, muchas ideas. Mientras se proponen no se critica ninguna, porque una idea imposible le da a otro una posible. Para elegir se usa la <b>matriz de decisión</b>: cada criterio lleva un <b>peso</b>, y gana la idea con más puntos. No elige por ti: deja la decisión por escrito.",
+  "Diseñar es acotar. El <b>boceto</b> va sin medidas; el <b>croquis</b>, a mano alzada y con las medidas; el <b>plano</b>, a escala. El <b>despiece</b> separa el conjunto en piezas, y la <b>lista de materiales</b> es la lista de la compra. Cada medida sale de un requisito.",
+  "Planificar es decir quién, con qué y en cuántos minutos, en la <b>hoja de proceso</b> y en el <b>diagrama de Gantt</b>. Hay tareas que no empiezan hasta que acaba otra (<b>precedencia</b>), y las esperas también se dibujan. En el taller: mide dos veces y corta una, el cúter sobre la base de corte y hacia fuera, y une por la forma con un <b>encastre</b>.",
+  "Evaluar es volver a los requisitos, uno a uno, y medir. Un no es información: se corrige la pieza, se cambia el diseño o se cambia el requisito explicando por qué. Todo queda en la <b>memoria técnica</b>. Y volver atrás no es fracasar: es cómo funciona."
+ ]
+}

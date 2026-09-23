@@ -5402,6 +5402,86 @@ footer .wrap{padding-block:18px 26px}
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Proyectos de servicio</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">empieza preguntando</span>
+        <div class="ct-nodo">Quién decide qué se fabrica</div>
+        <ul class="ct-hojas"><li><b>Demanda solvente</b>: quien lo sufre y puede pagar</li><li><b>Precio mínimo</b> = coste de desarrollo ÷ (personas × años de venta)</li><li>Quien decide no es quien lo sufre</li><li>Dinero público, compra garantizada, premio o sin ánimo de lucro</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">tiene que ser</span>
+        <div class="ct-nodo">Tecnología apropiada</div>
+        <ul class="ct-hojas"><li>La que encaja con el <b>sitio</b> donde va a vivir</li><li>La <b>PlayPump</b>: 18 horas de giro al día, 27 con el caudal real</li><li>Las <b>cinco preguntas del sitio</b></li><li>Casi toda la energía se va en esperar: la placa</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">se defiende con</span>
+        <div class="ct-nodo">La rúbrica y la cuenta del retorno</div>
+        <ul class="ct-hojas"><li>6,5 de 10 puntos: lo que hace por alguien; montarlo, 0</li><li>«No lo hemos medido», y cómo lo averiguaríais</li><li>Años en devolverlo = lo que costó ÷ ahorro al año</li><li>Hay <b>impactos que no se pueden sumar</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">sirve a</span>
+        <div class="ct-nodo">Una persona con nombre</div>
+        <ul class="ct-hojas"><li>Un <b>requisito</b> es una frase que se puede comprobar</li><li><b>Requisito</b>, <b>restricción</b> y <b>deseo</b></li><li>Se preguntan hechos del pasado y se anota entre comillas</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">sigue vivo con</span>
+        <div class="ct-nodo">Mantenimiento y un paquete para el siguiente</div>
+        <ul class="ct-hojas"><li>El <b>precio</b> no es el <b>coste</b>: suma las horas de quien lo cuida</li><li><b>Disponibilidad</b> = días funcionando ÷ días totales</li><li>El mantenimiento se decide diseñando</li><li>Sin licencia, <b>todos los derechos reservados</b>; esta web, <b>CC BY-SA</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se entrega con</span>
+        <div class="ct-nodo">La prueba de aceptación</div>
+        <ul class="ct-hojas"><li>Qué se mide, con qué, una <b>banda</b>, repeticiones y quién está delante</li><li>Se acuerda antes y tiene que poder fallar</li><li>El <b>acta de entrega</b>: una hoja y dos firmas</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Lo que se fabrica no sigue al daño: sigue a la <b>demanda solvente</b>, la gente que sufre un problema y puede pagar por quitárselo. La cuenta es <b>precio mínimo = coste de desarrollo ÷ (personas que lo comprarán × años de venta)</b>. Si no cabe en lo que puede pagar quien lo sufre, no se fabrica. Y cuando quien decide no es quien lo sufre, lo que se compra es peor.</p>
+      <p>La <b>tecnología apropiada</b> es la que encaja con el sitio donde va a vivir: su energía, sus materiales, sus manos y su dinero. La <b>PlayPump</b> tenía dinero y premios, y falló porque la cuenta pedía más horas de giro de las que tiene un día. Antes de dar por bueno un diseño se le hacen las <b>cinco preguntas del sitio</b>.</p>
+      <p>En la defensa, los puntos están en lo que el aparato hace por alguien, no en cómo se montó. Si no tienes un dato, di «no lo hemos medido» y cómo lo averiguarías. Los años en devolver lo que costó son lo que costó ÷ ahorro al año, y si pasan de lo que dura, no lo devuelve nunca. Litros, kilovatios hora y euros no se suman.</p>
+      <p>Un <b>requisito</b> es una frase que se puede comprobar: lleva un número, quién lo pidió y cómo se sabrá si se cumple. No es lo mismo que una <b>restricción</b> ni que un <b>deseo</b>. En la entrevista se preguntan hechos del pasado y se anota lo que dice, entre comillas.</p>
+      <p>El <b>precio</b> es lo que pagas el primer día; el <b>coste</b> suma lo que se gasta y las horas de quien lo cuida. La <b>disponibilidad</b> es días funcionando ÷ días totales, y el mantenimiento se decide diseñando. Para que otro lo continúe se deja un paquete con esquema, programa y <b>licencia</b>: sin ella, tiene todos los derechos reservados.</p>
+      <p>«Funciona» no se puede comprobar. La <b>prueba de aceptación</b> dice qué se mide, con qué, entre qué y qué, cuántas veces y quién está delante. Se acuerda antes y tiene que poder fallar. Un proyecto no termina cuando funciona, termina cuando funciona en manos de otro.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>

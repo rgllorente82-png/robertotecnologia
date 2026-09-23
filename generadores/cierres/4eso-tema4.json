@@ -1,0 +1,75 @@
+{
+ "mapa": {
+  "centro": "Los sistemas de control",
+  "ramas": [
+   {
+    "enlace": "pueden ser",
+    "nodo": "De lazo abierto o de lazo cerrado",
+    "hojas": [
+     "<b>Lazo abierto</b>: la orden no depende del resultado",
+     "<b>Lazo cerrado</b>: mide, compara con la <b>consigna</b> y corrige",
+     "Solo los distingue la <b>realimentación</b>",
+     "Corrige mientras le quede actuador; si no, <b>saturación</b>"
+    ]
+   },
+   {
+    "enlace": "se dibujan con",
+    "nodo": "El diagrama de bloques",
+    "hojas": [
+     "<b>Sensor</b>, <b>comparador</b>, <b>controlador</b> y <b>actuador</b>",
+     "analogRead(A0) da un número de 0 a 1023",
+     "Se calibra con la recta de dos puntos: misma unidad antes de restar",
+     "Signo del error al revés: <b>realimentación positiva</b>"
+    ]
+   },
+   {
+    "enlace": "deciden con",
+    "nodo": "El control todo-nada",
+    "hojas": [
+     "Solo encendido o apagado: siempre oscila",
+     "<b>Histéresis</b>: enciende en C − h/2 y apaga en C + h/2",
+     "Banda estrecha: más precisión, menos vida del relé",
+     "El retardo se paga en <b>sobrepasamiento</b>"
+    ]
+   },
+   {
+    "enlace": "se mueven con",
+    "nodo": "Un motor que dé el par necesario",
+    "hojas": [
+     "<b>Par</b>: M = F · d; una barra uniforme, a L/2",
+     "1 kg·cm = 0,0981 N·m",
+     "La reductora divide la velocidad y multiplica el par",
+     "Caso peor por 2; el <b>contrapeso</b>, lo más barato"
+    ]
+   },
+   {
+    "enlace": "se afinan con",
+    "nodo": "El control proporcional",
+    "hojas": [
+     "u = error / <b>BP</b>, recortado entre 0 y 1",
+     "En Arduino, <b>PWM</b>: analogWrite(pin, N) con N de 0 a 255",
+     "No oscila, pero deja un <b>error permanente</b>",
+     "Lo quita la <b>acción integral</b>, que no entra en 4.º"
+    ]
+   },
+   {
+    "enlace": "se escriben y se rompen",
+    "nodo": "Un lazo que gira, y pruebas provocadas",
+    "hojas": [
+     "<b>millis()</b> en vez de delay(): el lazo tiene que girar",
+     "Media, margen, dosis y espera, y <b>tope de seguridad</b>",
+     "Sonda calibrada con báscula y clavada en la raíz",
+     "Probar es provocar el fallo; <b>estado seguro</b>"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un <b>sistema de control</b> gobierna una máquina para que haga lo que queremos. En <b>lazo abierto</b> la orden no depende del resultado: la tostadora nunca prueba el pan. En <b>lazo cerrado</b> se mide, se compara con la <b>consigna</b> y se corrige. Solo los distingue la <b>realimentación</b>. Y el lazo cerrado corrige mientras le quede actuador: si pide más del 100 %, hay <b>saturación</b>.",
+  "Todos se dibujan con el mismo <b>diagrama de bloques</b>: <b>sensor</b>, <b>comparador</b>, <b>controlador</b> y <b>actuador</b>, y la flecha de realimentación, que cierra el lazo. analogRead() da un número de 0 a 1023, no un por ciento. Se calibra con una recta de dos puntos, y antes de restar los dos números tienen que estar en la misma unidad. Con el signo al revés sale <b>realimentación positiva</b>.",
+  "El <b>control todo-nada</b> solo enciende y apaga, así que siempre oscila. Con <b>histéresis</b> enciende al bajar de C − h/2 y apaga al subir de C + h/2; una banda estrecha ajusta más, pero el relé dura mucho menos. El <b>control proporcional</b> da un mando proporcional al error, u = error / BP, y en Arduino se hace con <b>PWM</b>. No oscila, pero deja un <b>error permanente</b>: necesita equivocarse para trabajar.",
+  "Para mover algo se calcula el <b>par</b>, M = F · d, en el caso peor. El peso de una barra uniforme actúa en su centro, a L/2. Una reductora divide la velocidad y multiplica el par, porque la potencia no se crea. Un <b>contrapeso</b> es de lejos lo más barato.",
+  "Al programarlo, el lazo tiene que girar: con <b>delay()</b> el Arduino no puede apagar la bomba, y el patrón de <b>millis()</b> espera sin dormirse. Hacen falta la media de varias lecturas, dosis y espera por el <b>tiempo muerto</b>, y un <b>tope de seguridad</b>. La sonda se calibra pesando la maceta.",
+  "Probar es provocar el fallo tú: lo que no has provocado, no lo has probado. Cuando no sabe qué hacer, el sistema va al <b>estado seguro</b>; en un riego, no regar. Y un lazo cerrado no es mejor que su sensor."
+ ]
+}

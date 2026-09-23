@@ -269,7 +269,7 @@ S1 = (
         u'cables y mapas.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 8.1 &middot; La cuenta de los cables y la cuenta de los paquetes',
+    u'Actividad 10.1 &middot; La cuenta de los cables y la cuenta de los paquetes',
     [u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
@@ -515,7 +515,7 @@ S2 = (
             u'ciberseguridad.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 8.2 &middot; Qu&eacute; protege el candado y qu&eacute; no',
+    u'Actividad 10.2 &middot; Qu&eacute; protege el candado y qu&eacute; no',
     [u'6.2'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
@@ -729,7 +729,7 @@ S3 = (
             u'Un minuto, para fijar la diferencia entre la cookie que hace falta y la que te sigue.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 8.3 &middot; Auditor&iacute;a de tu propio m&oacute;vil',
+    u'Actividad 10.3 &middot; Auditor&iacute;a de tu propio m&oacute;vil',
     [u'6.3'], u'Individual &middot; 25 min &middot; sobre 10', u'''
           <div class="nota">
             <span class="n-tag">Antes de empezar</span>
@@ -1130,7 +1130,7 @@ S4 = (
             u'Para ver el paso a paso de activarlo, que es m&aacute;s f&aacute;cil de lo que parece.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 8.4 &middot; La cuenta de tu propia puerta',
+    u'Actividad 10.4 &middot; La cuenta de tu propia puerta',
     [u'6.2', u'6.3'], u'Individual &middot; 25 min &middot; sobre 10', u'''
           <div class="nota">
             <span class="n-tag">Antes de empezar</span>
@@ -1396,7 +1396,7 @@ S5 = (
             u'La misma regla contada con ejemplos de aparatos de hoy.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 8.5 &middot; &iquest;Sobrevivir&iacute;as?',
+    u'Actividad 10.5 &middot; &iquest;Sobrevivir&iacute;as?',
     [u'6.1', u'6.3'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
@@ -1720,7 +1720,7 @@ S6 = (
         u'Los mismos derechos contados por el organismo que se encarga de hacerlos cumplir.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 15 min', ficha(
-    u'Actividad 8.6 &middot; El mismo mensaje, pero que sirva',
+    u'Actividad 10.6 &middot; El mismo mensaje, pero que sirva',
     [u'6.3'], u'Individual &middot; 15 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <ol class="pasos">
@@ -1865,7 +1865,7 @@ S = [
 CFG = dict(
  ruta='2eso/TyD/tema10/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
-       u'&middot; <a href="../">TyD</a> &middot; Tema 8',
+       u'&middot; <a href="../">TyD</a> &middot; Tema 10',
  h1=u'Internet, datos y seguridad',
  titulo=u'Tema 10 &middot; Internet, datos y seguridad',
  tema=u'Tema 10', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',

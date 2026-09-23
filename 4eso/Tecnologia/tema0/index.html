@@ -931,6 +931,80 @@ footer .wrap{padding-block:18px 26px}
   <p>Para usos que excedan la licencia, abre una incidencia en
      <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
 </section>
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Tecnología, técnica y sociedad</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se define como</span>
+        <div class="ct-nodo">El conocimiento que permite producir</div>
+        <ul class="ct-hojas"><li><i>Téchne</i> (arte, oficio) + <i>logía</i> (estudio)</li><li>No es el objeto: es el conocimiento</li><li>Diseña bienes y servicios para necesidades humanas</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se distingue de</span>
+        <div class="ct-nodo">La técnica y la ciencia</div>
+        <ul class="ct-hojas"><li><b>Técnica</b>: ¿cómo se hace? <b>Ciencia</b>: ¿por qué ocurre?</li><li><b>Tecnología</b>: ¿cómo lo resuelvo?</li><li>La <b>máquina de vapor</b>: la tecnología empuja a la ciencia</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">reorganiza</span>
+        <div class="ct-nodo">La sociedad, en cuatro pasos</div>
+        <ul class="ct-hojas"><li>Cambia la producción y aparece <b>excedente</b></li><li>Se reorganiza la <b>estructura social</b></li><li>Surgen problemas que se tardan en regular</li><li>Neutral en su intención, nunca en sus consecuencias</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">hoy se llama</span>
+        <div class="ct-nodo">Digitalización</div>
+        <ul class="ct-hojas"><li>Digitalizar, digitalización de procesos, transformación digital</li><li><b>Coste marginal</b> de reproducción casi cero</li><li>Información <b>procesable por máquinas</b></li><li>No es inmaterial: la nube consume electricidad y agua</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se acelera en</span>
+        <div class="ct-nodo">La historia</div>
+        <ul class="ct-hojas"><li>De la piedra tallada a la inteligencia artificial</li><li>Cuatro <b>revoluciones industriales</b></li><li>Cada invento se apoya en todos los anteriores</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>La tecnología no es un catálogo de aparatos. La palabra viene del griego <i>téchne</i> (arte, oficio) y <i>logía</i> (estudio): el estudio de cómo se hacen las cosas. La <b>tecnología</b> no es el objeto, es el conocimiento que permite producirlo, aplicado al diseño y producción de bienes y servicios que satisfacen necesidades humanas.</p>
+      <p>Hay tres conceptos que no se mezclan. La <b>técnica</b> responde a ¿cómo se hace?, la <b>ciencia</b> a ¿por qué ocurre? y la <b>tecnología</b> a ¿cómo lo resuelvo? La técnica es anterior a la ciencia en millones de años, y solo desde el <b>siglo XVIII</b> la ciencia guía sistemáticamente a la técnica. La relación no va en una sola dirección: la <b>máquina de vapor</b> funcionaba décadas antes de que se formulara la termodinámica.</p>
+      <p>Toda tecnología decisiva desencadena cuatro pasos. Cambia lo que se puede producir, aparece <b>excedente</b>, se reorganiza la <b>estructura social</b> y surgen problemas nuevos que la sociedad tarda en regular. Por eso la tecnología puede ser neutral en su <b>intención</b>, pero nunca en sus <b>consecuencias</b>.</p>
+      <p>La palabra digitalización tiene tres sentidos: <b>digitalizar</b> (muestrear y cuantificar), la <b>digitalización de procesos</b> y la <b>transformación digital</b>. Su propiedad clave es que el <b>coste marginal</b> de reproducción es prácticamente cero. Además, la información digital es <b>procesable por máquinas</b>, y ahí pasa a ser una cuestión política. Y no es inmaterial: la nube está hecha de hierro, cobre y refrigeración.</p>
+      <p>De la piedra tallada a la IA, la tecnología no avanza a ritmo constante: se acelera, porque cada invento se apoya en todos los anteriores. Las cuatro <b>revoluciones industriales</b> cambiaron la forma de fabricar: el vapor, la electricidad y la producción en serie, el chip y los robots coordinados por software.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"

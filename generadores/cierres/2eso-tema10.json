@@ -1,0 +1,69 @@
+{
+ "mapa": {
+  "centro": "Internet, datos y seguridad",
+  "ramas": [
+   {
+    "enlace": "funciona con",
+    "nodo": "Paquetes numerados",
+    "hojas": [
+     "Cada <b>paquete</b>: de dónde viene, a dónde va y su número",
+     "La <b>dirección IP</b> identifica cada máquina; el <b>router</b> encamina",
+     "El <b>DNS</b> traduce el nombre a una IP"
+    ]
+   },
+   {
+    "enlace": "se protege con",
+    "nodo": "El cifrado y el candado",
+    "hojas": [
+     "El método es público; la <b>clave</b>, secreta",
+     "<b>https</b>: nadie del camino lee ni cambia lo que mandas",
+     "El candado no dice si la web es honrada: mira el dominio"
+    ]
+   },
+   {
+    "enlace": "deja",
+    "nodo": "Datos que valen dinero",
+    "hojas": [
+     "<b>Cookies</b> propias y de terceros: se pueden borrar",
+     "La <b>huella digital</b> del aparato: no se borra",
+     "Los <b>permisos</b> siguen concedidos hasta que los quitas"
+    ]
+   },
+   {
+    "enlace": "se cierra con",
+    "nodo": "Contraseñas y defensas",
+    "hojas": [
+     "Larga gana a rara: combinaciones = alfabeto<sup>longitud</sup>",
+     "La web guarda la <b>huella</b> (hash) con <b>sal</b>",
+     "<b>Gestor de contraseñas</b> y <b>segundo factor</b>",
+     "<b>Malware</b>: virus, gusano, troyano, spyware, ransomware"
+    ]
+   },
+   {
+    "enlace": "se guarda en",
+    "nodo": "La nube: el ordenador de otro",
+    "hojas": [
+     "<b>Sincronizar</b> no es <b>copia de seguridad</b>",
+     "Regla <b>3-2-1</b>: 3 copias, 2 soportes, 1 fuera de casa"
+    ]
+   },
+   {
+    "enlace": "te da",
+    "nodo": "Derechos sobre tus datos",
+    "hojas": [
+     "<b>Acceso</b>, <b>rectificación</b>, <b>supresión</b> y <b>portabilidad</b>",
+     "Gratis, un mes de plazo y reclamación a la <b>AEPD</b>",
+     "En España decides tú solo desde los <b>14 años</b>"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Internet no reserva un camino para cada conversación: no cabe. Parte lo que mandas en <b>paquetes</b> numerados, que llevan de dónde vienen y a dónde van. Pueden ir por caminos distintos y llegar desordenados, y si falta uno se vuelve a pedir. Cada máquina tiene una <b>dirección IP</b>, los <b>routers</b> deciden por dónde sale cada paquete y el <b>DNS</b> traduce el nombre que escribes en una IP.",
+  "<b>Cifrar</b> es transformar un mensaje con una <b>clave</b>. El método es público y lo único secreto es la clave. El candado de <b>https</b> garantiza que nadie del camino lee ni cambia lo que mandas, y que hablas con el dueño de ese dominio. No dice si la web es honrada ni esconde a dónde vas: por eso hay que mirar el dominio.",
+  "Casi todo lo que saben de ti se lo das tú al usar el servicio, y el aparato se identifica solo. Una <b>cookie</b> te la ponen en el navegador y se puede borrar; la <b>huella digital</b> es cómo es tu aparato y no se borra. Los <b>permisos</b> siguen concedidos hasta que los quitas.",
+  "Una contraseña <b>larga</b> gana a una rara, porque cada carácter multiplica el montón por el alfabeto entero. Una web bien hecha no guarda tu contraseña, sino su <b>huella</b> (hash) con una <b>sal</b>. No la repitas: usa un <b>gestor de contraseñas</b> y activa el <b>segundo factor</b>. Contra el <b>malware</b>, lo primero es actualizar y tener <b>copia de seguridad</b>.",
+  "La <b>nube</b> es el ordenador de otro. <b>Sincronizar</b> no es hacer una copia de seguridad: si borras, lo sincronizado copia el borrado. Por eso vale la regla <b>3-2-1</b>: 3 copias, en 2 soportes distintos, con 1 fuera de casa.",
+  "Sobre tus datos tienes derechos, no favores: <b>acceso</b>, <b>rectificación</b>, <b>supresión</b> y <b>portabilidad</b>. Son gratis, tienen un mes para contestar y, si no, se reclama a la <b>Agencia Española de Protección de Datos</b>. En España, desde los 14 años los ejerces tú solo."
+ ]
+}

@@ -2916,6 +2916,81 @@ window.QUIETO = function(){
     </div>
   </section>
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Las estructuras</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">sufren</span>
+        <div class="ct-nodo">Cinco esfuerzos</div>
+        <ul class="ct-hojas"><li><b>Tracción</b>, <b>compresión</b>, <b>flexión</b>, <b>torsión</b> y <b>cortadura</b></li><li>Pieza comprimida, larga y delgada: <b>pandea</b></li><li>El <b>triángulo</b> es la única figura indeformable</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se clasifican en</span>
+        <div class="ct-nodo">Seis familias</div>
+        <ul class="ct-hojas"><li><b>Masiva</b>, <b>abovedada</b> y <b>entramada</b></li><li><b>Triangulada</b>, <b>colgante</b> y <b>laminar</b></li><li>La forma hace que el material trabaje en lo que aguanta</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">aprovechan el material con</span>
+        <div class="ct-nodo">Perfiles y secciones</div>
+        <ul class="ct-hojas"><li>El <b>eje neutro</b> ni se estira ni se acorta</li><li>Material lejos del eje: más aguante a flexión</li><li>Mismo acero: el perfil en I aguanta 12 veces más</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">no vuelcan si</span>
+        <div class="ct-nodo">La vertical del CDG cae dentro de la base</div>
+        <ul class="ct-hojas"><li><b>Centro de gravedad</b> y <b>base de sustentación</b></li><li>Ensanchar la base, bajar el CDG, lastrar o anclar</li><li>El peso total no sale en la fórmula</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se ponen a prueba con</span>
+        <div class="ct-nodo">Un ensayo hasta la rotura</div>
+        <ul class="ct-hojas"><li>Nota: peso aguantado ÷ peso del puente</li><li>Fallos: pandeo, tracción, nudo o vuelco</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Una <b>estructura</b> soporta las cargas de un objeto y las conduce hasta el suelo. No aguanta porque sea fuerte: <b>aguanta porque reparte</b>. Cada pieza sufre un esfuerzo: <b>tracción</b> (la alargan), <b>compresión</b> (la aplastan), <b>flexión</b> (la curvan), <b>torsión</b> (la retuercen) o <b>cortadura</b> (tienden a cortarla). Una pieza comprimida, larga y delgada <b>pandea</b>: se dobla de golpe hacia un lado.</p>
+      <p>El <b>triángulo</b> es la única figura indeformable: fijados los tres lados, los tres ángulos quedan determinados. Por eso se <b>triangula</b>, con diagonales llamadas <b>tirantes</b> o <b>riostras</b>, como en las grúas y las torres eléctricas.</p>
+      <p>Hay seis familias: <b>masiva</b>, <b>abovedada</b>, <b>entramada</b>, <b>triangulada</b>, <b>colgante</b> y <b>laminar</b>. La forma se elige para que el material trabaje solo en el esfuerzo que aguanta bien. La piedra se parte estirada, así que se le da forma de <b>arco</b>, que empuja hacia fuera y necesita <b>contrafuertes</b>. El cable no puede empujar, solo tirar: de él se cuelga el puente.</p>
+      <p>Con la misma cantidad de material, una pieza aguanta más a flexión cuanto más lejos del <b>eje neutro</b> esté ese material. El eje neutro es la línea que ni se estira ni se acorta. Con el mismo acero, un <b>perfil</b> en I aguanta unas doce veces más que un cuadrado macizo.</p>
+      <p>Además de no romperse, una estructura no puede volcar. Un cuerpo no vuelca mientras la vertical de su <b>centro de gravedad</b> caiga dentro de su <b>base de sustentación</b>. Para que vuelque menos se ensancha la base, se baja el centro de gravedad, se añade peso abajo o se ancla. Lo que importa no es cuánto pesa, sino dónde pesa.</p>
+      <p>Todo se comprueba con un <b>ensayo destructivo</b>. La nota del puente es el peso que aguanta dividido por lo que pesa. Si una barra se dobla de golpe, es pandeo; si se despega un nudo, ha fallado la unión; si se tumba de lado, faltó <b>arriostramiento</b>.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"

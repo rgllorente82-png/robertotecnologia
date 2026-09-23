@@ -1,0 +1,73 @@
+{
+ "mapa": {
+  "centro": "Proyectos de servicio",
+  "ramas": [
+   {
+    "enlace": "empieza preguntando",
+    "nodo": "Quién decide qué se fabrica",
+    "hojas": [
+     "<b>Demanda solvente</b>: quien lo sufre y puede pagar",
+     "<b>Precio mínimo</b> = coste de desarrollo ÷ (personas × años de venta)",
+     "Quien decide no es quien lo sufre",
+     "Dinero público, compra garantizada, premio o sin ánimo de lucro"
+    ]
+   },
+   {
+    "enlace": "tiene que ser",
+    "nodo": "Tecnología apropiada",
+    "hojas": [
+     "La que encaja con el <b>sitio</b> donde va a vivir",
+     "La <b>PlayPump</b>: 18 horas de giro al día, 27 con el caudal real",
+     "Las <b>cinco preguntas del sitio</b>",
+     "Casi toda la energía se va en esperar: la placa"
+    ]
+   },
+   {
+    "enlace": "se defiende con",
+    "nodo": "La rúbrica y la cuenta del retorno",
+    "hojas": [
+     "6,5 de 10 puntos: lo que hace por alguien; montarlo, 0",
+     "«No lo hemos medido», y cómo lo averiguaríais",
+     "Años en devolverlo = lo que costó ÷ ahorro al año",
+     "Hay <b>impactos que no se pueden sumar</b>"
+    ]
+   },
+   {
+    "enlace": "sirve a",
+    "nodo": "Una persona con nombre",
+    "hojas": [
+     "Un <b>requisito</b> es una frase que se puede comprobar",
+     "<b>Requisito</b>, <b>restricción</b> y <b>deseo</b>",
+     "Se preguntan hechos del pasado y se anota entre comillas"
+    ]
+   },
+   {
+    "enlace": "sigue vivo con",
+    "nodo": "Mantenimiento y un paquete para el siguiente",
+    "hojas": [
+     "El <b>precio</b> no es el <b>coste</b>: suma las horas de quien lo cuida",
+     "<b>Disponibilidad</b> = días funcionando ÷ días totales",
+     "El mantenimiento se decide diseñando",
+     "Sin licencia, <b>todos los derechos reservados</b>; esta web, <b>CC BY-SA</b>"
+    ]
+   },
+   {
+    "enlace": "se entrega con",
+    "nodo": "La prueba de aceptación",
+    "hojas": [
+     "Qué se mide, con qué, una <b>banda</b>, repeticiones y quién está delante",
+     "Se acuerda antes y tiene que poder fallar",
+     "El <b>acta de entrega</b>: una hoja y dos firmas"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Lo que se fabrica no sigue al daño: sigue a la <b>demanda solvente</b>, la gente que sufre un problema y puede pagar por quitárselo. La cuenta es <b>precio mínimo = coste de desarrollo ÷ (personas que lo comprarán × años de venta)</b>. Si no cabe en lo que puede pagar quien lo sufre, no se fabrica. Y cuando quien decide no es quien lo sufre, lo que se compra es peor.",
+  "La <b>tecnología apropiada</b> es la que encaja con el sitio donde va a vivir: su energía, sus materiales, sus manos y su dinero. La <b>PlayPump</b> tenía dinero y premios, y falló porque la cuenta pedía más horas de giro de las que tiene un día. Antes de dar por bueno un diseño se le hacen las <b>cinco preguntas del sitio</b>.",
+  "En la defensa, los puntos están en lo que el aparato hace por alguien, no en cómo se montó. Si no tienes un dato, di «no lo hemos medido» y cómo lo averiguarías. Los años en devolver lo que costó son lo que costó ÷ ahorro al año, y si pasan de lo que dura, no lo devuelve nunca. Litros, kilovatios hora y euros no se suman.",
+  "Un <b>requisito</b> es una frase que se puede comprobar: lleva un número, quién lo pidió y cómo se sabrá si se cumple. No es lo mismo que una <b>restricción</b> ni que un <b>deseo</b>. En la entrevista se preguntan hechos del pasado y se anota lo que dice, entre comillas.",
+  "El <b>precio</b> es lo que pagas el primer día; el <b>coste</b> suma lo que se gasta y las horas de quien lo cuida. La <b>disponibilidad</b> es días funcionando ÷ días totales, y el mantenimiento se decide diseñando. Para que otro lo continúe se deja un paquete con esquema, programa y <b>licencia</b>: sin ella, tiene todos los derechos reservados.",
+  "«Funciona» no se puede comprobar. La <b>prueba de aceptación</b> dice qué se mide, con qué, entre qué y qué, cuántas veces y quién está delante. Se acuerda antes y tiene que poder fallar. Un proyecto no termina cuando funciona, termina cuando funciona en manos de otro."
+ ]
+}

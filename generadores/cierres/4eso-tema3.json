@@ -1,0 +1,71 @@
+{
+ "mapa": {
+  "centro": "Materiales y ciclo de vida",
+  "ramas": [
+   {
+    "enlace": "se miden con",
+    "nodo": "El análisis de ciclo de vida (ACV)",
+    "hojas": [
+     "Cinco etapas: extraer, fabricar, transportar, usar y tirar",
+     "<b>Unidad funcional</b>: se comparan servicios, no objetos",
+     "<b>Límites del sistema</b>: de la cuna a la puerta, a la tumba o a la cuna"
+    ]
+   },
+   {
+    "enlace": "cada material lleva",
+    "nodo": "Su energía incorporada, en MJ/kg",
+    "hojas": [
+     "Aluminio: 186 MJ/kg; fundirlo, solo 0,97",
+     "La <b>electrólisis</b> Hall-Héroult separa el aluminio del oxígeno",
+     "Reciclado: 8,3 MJ/kg, un 95,5 % de ahorro"
+    ]
+   },
+   {
+    "enlace": "se eligen con",
+    "nodo": "Una matriz de criterios en conflicto",
+    "hojas": [
+     "La rigidez de una placa va con E · t³",
+     "Primero los <b>eliminatorios</b>, después los <b>ponderados</b>",
+     "Normalizar de 0 a 10; dos décimas no es ganar"
+    ]
+   },
+   {
+    "enlace": "se diseñan para",
+    "nodo": "Poder repararlos",
+    "hojas": [
+     "Coste = tiempo × tarifa + pieza + riesgo; si pasa del 60 %, nadie repara",
+     "Uniones desmontables y piezas <b>normalizadas</b>",
+     "La ley: <b>derecho a reparar</b> y baterías extraíbles"
+    ]
+   },
+   {
+    "enlace": "al final se convierten en",
+    "nodo": "Material reciclado y kilos de CO₂",
+    "hojas": [
+     "Los rendimientos se <b>multiplican</b>: vuelven 581 g de cada kilo",
+     "<b>Ciclo cerrado</b> (lata a lata) o <b>ciclo abierto</b>",
+     "Huella = cantidad × <b>factor de emisión</b>",
+     "Un megajulio no tiene un CO₂; la caliza lo suelta sin quemar nada"
+    ]
+   },
+   {
+    "enlace": "se cierra con",
+    "nodo": "La jerarquía de residuos y la memoria de impacto",
+    "hojas": [
+     "Prevención, preparación para la reutilización, reciclado, otra valorización y eliminación",
+     "Reciclar llega tarde; durar actúa antes",
+     "Cada número: <b>medido</b>, <b>de fuente</b> o <b>estimado</b>",
+     "<b>Análisis de sensibilidad</b>: ¿de qué depende?"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "El material no se acaba cuando lo compras. A un producto le pasan cinco cosas: extraer, fabricar, transportar, usar y tirar, y sumarlas con método es el <b>análisis de ciclo de vida</b> (ACV). No se comparan objetos, sino servicios: eso es la <b>unidad funcional</b>. Y hay que decir dónde empieza y acaba la cuenta: los <b>límites del sistema</b>.",
+  "La <b>energía incorporada</b> es toda la energía que hubo que gastar para tener un kilo de material listo para usar. Fundir un kilo de aluminio cuesta 0,97 MJ, pero producirlo cuesta 186, porque en la naturaleza no hay aluminio: hay óxido de aluminio, y separarlo con la <b>electrólisis</b> es lo que cuesta. Por eso reciclarlo ahorra el 95 %.",
+  "Una pieza tiene que cumplir varios <b>criterios en conflicto</b>. Primero se aplican los <b>eliminatorios</b>, que no puntúan, y después se puntúan los <b>ponderados</b>. A igualdad de rigidez, la tapa de acero pesa cuatro veces y media más que la de contrachapado, porque la rigidez de una placa va con E · t³.",
+  "Un aparato que no se puede abrir no se ha estropeado: se diseñó así. Si arreglarlo pasa del 60 % del precio de uno nuevo, nadie repara, y dentro de esa cuenta manda el tiempo. Por eso importa elegir uniones <b>desmontables</b> y piezas <b>normalizadas</b>, y hoy también lo pide la ley.",
+  "<b>Reciclable</b> es una propiedad del material; <b>reciclado</b>, un resultado del sistema. Los rendimientos de la cadena se multiplican: de cada kilo de latas vuelven 581 gramos. En el <b>ciclo cerrado</b> el material vuelve al mismo producto; en el <b>ciclo abierto</b>, a otro de menos exigencia. Además, un megajulio no tiene un CO₂: la huella es cantidad × <b>factor de emisión</b>, y la caliza del cemento suelta CO₂ sin quemar nada.",
+  "Reciclar es el tercer escalón de la <b>jerarquía de residuos</b>, detrás de la <b>prevención</b> y la <b>preparación para la reutilización</b>: llega tarde, y durar actúa antes. Todo acaba en la <b>memoria de impacto</b>, donde cada número va etiquetado como medido, de fuente o estimado, y el <b>análisis de sensibilidad</b> dice de qué depende lo que afirmas."
+ ]
+}

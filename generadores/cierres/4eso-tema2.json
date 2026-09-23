@@ -1,0 +1,73 @@
+{
+ "mapa": {
+  "centro": "Diseño y fabricación",
+  "ramas": [
+   {
+    "enlace": "se dibuja en",
+    "nodo": "Un plano acotado",
+    "hojas": [
+     "<b>Croquis</b> a mano alzada; <b>plano</b> a escala, con <b>cajetín</b>",
+     "<b>Acotación en cadena</b>: los errores se suman",
+     "<b>Desde una referencia</b>: cada cota solo carga con su error",
+     "Cada medida, una sola vez, y ninguna cota de más"
+    ]
+   },
+   {
+    "enlace": "encaja gracias a",
+    "nodo": "Tolerancias y ajustes",
+    "hojas": [
+     "La medida útil no es un número, es un intervalo",
+     "Ajuste <b>con juego</b>, <b>con apriete</b> o <b>indeterminado</b>",
+     "<b>Sistema de agujero único</b>: se fija el agujero",
+     "El instrumento aprecia diez veces menos que la tolerancia"
+    ]
+   },
+   {
+    "enlace": "se une con",
+    "nodo": "Uniones desmontables o fijas",
+    "hojas": [
+     "¿Esto se va a tener que abrir alguna vez?",
+     "Falla la pieza alrededor del agujero: σ = F / (d · t)",
+     "Pegado: τ = F / área; alargar el solape es gratis"
+    ]
+   },
+   {
+    "enlace": "se fabrica y se modela",
+    "nodo": "Con la técnica elegida antes de dibujar",
+    "hojas": [
+     "Sierra, láser o impresora 3D: cada una cambia el dibujo",
+     "Broca: n = 1000 · V<sub>c</sub> / (π · D)",
+     "Modelo <b>paramétrico</b>; el <b>STL</b> es una piel de triángulos",
+     "∅ útil = D · cos(180° / N)"
+    ]
+   },
+   {
+    "enlace": "se organiza y se monta",
+    "nodo": "Despiece, plan de corte y cadena de cotas",
+    "hojas": [
+     "Las grandes primero, y dejar la <b>sangría</b>",
+     "Taladrar antes de recortar; <b>plantilla</b> para piezas iguales",
+     "<b>Cota de cierre</b>: se suman todas las tolerancias",
+     "Se lima la pieza que no hace de referencia a nadie"
+    ]
+   },
+   {
+    "enlace": "se defiende con",
+    "nodo": "Números: lo pedido, lo medido y la diferencia",
+    "hojas": [
+     "<b>Expediente de fabricación</b>: cinco hojas, con las incidencias",
+     "<b>Control dimensional</b>: desviación en % de la tolerancia",
+     "El <b>desajuste</b> se corrige; la <b>dispersión</b> se aguanta"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un <b>plano</b> es un dibujo a escala hecho para que otra persona fabrique la pieza sin preguntarte nada. Lleva las <b>cotas</b> en milímetros, la escala, el material y el <b>cajetín</b> con su versión. En la <b>acotación en cadena</b> los errores se suman: cuatro cotas con 0,2 mm de error pueden dejar el último agujero a 0,8 mm. <b>Desde una referencia</b>, cada cota solo carga con su propio error.",
+  "Nadie ha fabricado nunca una pieza de 8,000 mm. Por eso se escribe la <b>tolerancia</b>, entre qué dos números te vale. Al juntar eje y agujero sale un <b>ajuste con juego</b>, <b>con apriete</b> o <b>indeterminado</b>, que es el peor. Una tolerancia que no se puede comprobar con lo que hay es un deseo.",
+  "Las uniones son <b>desmontables</b> o <b>fijas</b>, y la pregunta que decide es si eso se va a tener que abrir alguna vez. En vuestros proyectos el tornillo no es el que falla: falla el material alrededor del agujero, σ = F / (d · t). En el pegado manda el área, y alargar el solape no cuesta nada.",
+  "La técnica no se elige al final, porque cambia el dibujo: la sierra pide rincones redondeados, el láser que todo sea plano y la impresora cuidado con las capas. Para taladrar, n = 1000 · V<sub>c</sub> / (π · D): la broca gorda va a menos vueltas. En el modelo <b>paramétrico</b> cambiar el servo es mover un número; el <b>STL</b> es una piel de triángulos, y el agujero sale más pequeño.",
+  "Antes del primer corte hay tres cosas decididas: el <b>despiece</b>, el <b>plan de corte</b> (las grandes primero y dejando la <b>sangría</b>) y el orden de las operaciones. Las piezas iguales se marcan con una <b>plantilla</b>. Al montar aparece la <b>cota de cierre</b>, que no dibujó nadie, y en ella se suman todas las tolerancias.",
+  "Una pieza no se defiende enseñándola, sino con números: lo que pediste, lo que mediste y la diferencia. El <b>expediente de fabricación</b> tiene cinco hojas, y la de incidencias es la más valiosa. Si la tolerancia es más estrecha que la <b>dispersión</b> de tu máquina, la culpa es del plano, no de las manos."
+ ]
+}

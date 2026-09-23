@@ -5238,6 +5238,86 @@ footer .wrap{padding-block:18px 26px}
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Materiales y ciclo de vida</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se miden con</span>
+        <div class="ct-nodo">El análisis de ciclo de vida (ACV)</div>
+        <ul class="ct-hojas"><li>Cinco etapas: extraer, fabricar, transportar, usar y tirar</li><li><b>Unidad funcional</b>: se comparan servicios, no objetos</li><li><b>Límites del sistema</b>: de la cuna a la puerta, a la tumba o a la cuna</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">cada material lleva</span>
+        <div class="ct-nodo">Su energía incorporada, en MJ/kg</div>
+        <ul class="ct-hojas"><li>Aluminio: 186 MJ/kg; fundirlo, solo 0,97</li><li>La <b>electrólisis</b> Hall-Héroult separa el aluminio del oxígeno</li><li>Reciclado: 8,3 MJ/kg, un 95,5 % de ahorro</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">se eligen con</span>
+        <div class="ct-nodo">Una matriz de criterios en conflicto</div>
+        <ul class="ct-hojas"><li>La rigidez de una placa va con E · t³</li><li>Primero los <b>eliminatorios</b>, después los <b>ponderados</b></li><li>Normalizar de 0 a 10; dos décimas no es ganar</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">se diseñan para</span>
+        <div class="ct-nodo">Poder repararlos</div>
+        <ul class="ct-hojas"><li>Coste = tiempo × tarifa + pieza + riesgo; si pasa del 60 %, nadie repara</li><li>Uniones desmontables y piezas <b>normalizadas</b></li><li>La ley: <b>derecho a reparar</b> y baterías extraíbles</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">al final se convierten en</span>
+        <div class="ct-nodo">Material reciclado y kilos de CO₂</div>
+        <ul class="ct-hojas"><li>Los rendimientos se <b>multiplican</b>: vuelven 581 g de cada kilo</li><li><b>Ciclo cerrado</b> (lata a lata) o <b>ciclo abierto</b></li><li>Huella = cantidad × <b>factor de emisión</b></li><li>Un megajulio no tiene un CO₂; la caliza lo suelta sin quemar nada</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se cierra con</span>
+        <div class="ct-nodo">La jerarquía de residuos y la memoria de impacto</div>
+        <ul class="ct-hojas"><li>Prevención, preparación para la reutilización, reciclado, otra valorización y eliminación</li><li>Reciclar llega tarde; durar actúa antes</li><li>Cada número: <b>medido</b>, <b>de fuente</b> o <b>estimado</b></li><li><b>Análisis de sensibilidad</b>: ¿de qué depende?</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>El material no se acaba cuando lo compras. A un producto le pasan cinco cosas: extraer, fabricar, transportar, usar y tirar, y sumarlas con método es el <b>análisis de ciclo de vida</b> (ACV). No se comparan objetos, sino servicios: eso es la <b>unidad funcional</b>. Y hay que decir dónde empieza y acaba la cuenta: los <b>límites del sistema</b>.</p>
+      <p>La <b>energía incorporada</b> es toda la energía que hubo que gastar para tener un kilo de material listo para usar. Fundir un kilo de aluminio cuesta 0,97 MJ, pero producirlo cuesta 186, porque en la naturaleza no hay aluminio: hay óxido de aluminio, y separarlo con la <b>electrólisis</b> es lo que cuesta. Por eso reciclarlo ahorra el 95 %.</p>
+      <p>Una pieza tiene que cumplir varios <b>criterios en conflicto</b>. Primero se aplican los <b>eliminatorios</b>, que no puntúan, y después se puntúan los <b>ponderados</b>. A igualdad de rigidez, la tapa de acero pesa cuatro veces y media más que la de contrachapado, porque la rigidez de una placa va con E · t³.</p>
+      <p>Un aparato que no se puede abrir no se ha estropeado: se diseñó así. Si arreglarlo pasa del 60 % del precio de uno nuevo, nadie repara, y dentro de esa cuenta manda el tiempo. Por eso importa elegir uniones <b>desmontables</b> y piezas <b>normalizadas</b>, y hoy también lo pide la ley.</p>
+      <p><b>Reciclable</b> es una propiedad del material; <b>reciclado</b>, un resultado del sistema. Los rendimientos de la cadena se multiplican: de cada kilo de latas vuelven 581 gramos. En el <b>ciclo cerrado</b> el material vuelve al mismo producto; en el <b>ciclo abierto</b>, a otro de menos exigencia. Además, un megajulio no tiene un CO₂: la huella es cantidad × <b>factor de emisión</b>, y la caliza del cemento suelta CO₂ sin quemar nada.</p>
+      <p>Reciclar es el tercer escalón de la <b>jerarquía de residuos</b>, detrás de la <b>prevención</b> y la <b>preparación para la reutilización</b>: llega tarde, y durar actúa antes. Todo acaba en la <b>memoria de impacto</b>, donde cada número va etiquetado como medido, de fuente o estimado, y el <b>análisis de sensibilidad</b> dice de qué depende lo que afirmas.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"

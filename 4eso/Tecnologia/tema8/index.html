@@ -6083,6 +6083,86 @@ footer .wrap{padding-block:18px 26px}
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Sostenibilidad y accesibilidad</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se mide con</span>
+        <div class="ct-nodo">La huella de carbono</div>
+        <ul class="ct-hojas"><li><b>Huella = cantidad × factor de emisión</b>, en kg de CO₂e</li><li>Un número sin <b>límite declarado</b> no se compara con nada</li><li><b>Orden de magnitud</b>: divide, no restes</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">sirve a todos con</span>
+        <div class="ct-nodo">El diseño universal</div>
+        <ul class="ct-hojas"><li>Frente a la <b>accesibilidad</b>, la diferencia es de cuándo</li><li>Los <b>siete principios</b> de Mace (1997) y el <b>efecto del corte de acera</b></li><li>Rampa = desnivel / pendiente; pulsador de 0,80 a 1,20 m y 12 cm²</li><li><b>Contraste</b> de 4,5:1: diferencia de luminancia, no de color</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">se acaba por</span>
+        <div class="ct-nodo">La obsolescencia, con tres preguntas</div>
+        <ul class="ct-hojas"><li><b>Límite técnico</b>, <b>engaño</b> o <b>decisión de diseño</b></li><li>Cártel <b>Phoebus</b>: fraude con actas; la batería de litio: química</li><li>Apple, multada por <b>engaño por omisión</b></li><li>Alargar la vida es lo que más baja la huella</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">come y deja</span>
+        <div class="ct-nodo">Energía y residuo</div>
+        <ul class="ct-hojas"><li><b>Autonomía</b> = capacidad (mAh) / <b>corriente media</b> (mA)</li><li>delay() no duerme; <b>power-down</b> sí, pero la placa no</li><li><b>Inventario de residuo</b>: <b>recorte</b> no es <b>sobrante</b></li><li>Fracciones: <b>RAEE</b>, pilas, envases, metales y resto</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se juzga con</span>
+        <div class="ct-nodo">La cuenta completa y los requisitos</div>
+        <ul class="ct-hojas"><li><b>Punto de equilibrio</b> frente a una <b>unidad funcional</b></li><li>El dato que no existe va como <b>banda</b></li><li>Los <b>requisitos</b> se escriben antes de rediseñar</li><li>kg de CO₂e <b>por año de servicio</b>, no en total</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se defiende con</span>
+        <div class="ct-nodo">Una cifra defendible</div>
+        <ul class="ct-hojas"><li>Número y unidad, límite, etiqueta, <b>rango</b> y de qué depende</li><li>A una objeción no se la discute: <b>se recalcula</b></li><li>Aguanta, depende de esto, o no lo sé</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Para ordenar lo que contamina hace falta una unidad: el <b>kilogramo de CO₂ equivalente</b>. La cuenta es una sola: <b>huella = cantidad × factor de emisión</b>. Lo difícil es de dónde sacas el factor y el <b>límite</b> de la cuenta, que hay que declarar. Para comparar huellas, divide, no restes: si una cosa pesa mil veces más que otra, afinar la pequeña no sirve para nada.</p>
+      <p>La <b>accesibilidad</b> arregla un problema concreto con una adaptación; el <b>diseño universal</b> diseña desde el principio para que no haga falta. La diferencia es de cuándo: puesto el escalón, la rampa ya no cabe, porque su longitud es desnivel / pendiente. Por el <b>efecto del corte de acera</b>, lo que hace falta para una minoría acaba siendo mejor para todos. El <b>contraste</b> mide diferencia de luminancia, no de color.</p>
+      <p>Tres preguntas separan el fraude del <b>límite técnico</b>: ¿había una alternativa que durase más al mismo coste?, ¿se le ocultó al comprador?, ¿puede el dueño arreglarlo? El cártel <b>Phoebus</b> fue fraude; la batería de litio es química; a Apple la multaron por <b>engaño por omisión</b>.</p>
+      <p>La <b>autonomía</b> es la capacidad de la pila entre la <b>corriente media</b>. Un delay() no ahorra nada; dormir de verdad, sí. En el <b>inventario de residuo</b> se pesa todo, y el <b>sobrante</b> no es <b>recorte</b>: es una plancha más pequeña si alguien la guarda. La placa y los cables son <b>RAEE</b>, las pilas van aparte y el contrachapado no va al contenedor azul.</p>
+      <p>Compensar es siempre frente a algo: frente a la misma tarea sin tu aparato. El <b>punto de equilibrio</b> es el momento en que lo ahorrado alcanza lo que costó fabricarlo. El dato que no existe se mete como <b>banda</b>. Para rediseñar, los <b>requisitos</b> se escriben antes, porque el aparato que menos emite es el que no existe.</p>
+      <p>Una cifra defendible lleva número y unidad, límite, etiqueta, <b>rango</b> y de qué depende. A una objeción no se la discute: se convierte en un número y se recalcula delante.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>

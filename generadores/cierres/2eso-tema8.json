@@ -1,0 +1,59 @@
+{
+ "mapa": {
+  "centro": "La electricidad",
+  "ramas": [
+   {
+    "enlace": "circula por",
+    "nodo": "Un circuito: un camino cerrado",
+    "hojas": [
+     "<b>Generador</b>, <b>conductores</b>, <b>receptor</b> y <b>elemento de control</b>",
+     "Abierto, cerrado o <b>cortocircuito</b> (vuelta sin receptor)",
+     "Se dibuja con <b>simbología normalizada</b> (IEC 60617)"
+    ]
+   },
+   {
+    "enlace": "se mide con",
+    "nodo": "Tres magnitudes y la ley de Ohm",
+    "hojas": [
+     "<b>Tensión</b> (V), el empujón: voltímetro en paralelo",
+     "<b>Intensidad</b> (A), el caudal: amperímetro en serie",
+     "<b>Resistencia</b> (Ω), el estorbo · <b>I = V / R</b>"
+    ]
+   },
+   {
+    "enlace": "se conecta en",
+    "nodo": "Serie o paralelo",
+    "hojas": [
+     "<b>Serie</b>: un camino, las resistencias se suman",
+     "<b>Paralelo</b>: misma tensión, las corrientes se suman",
+     "En serie una fundida apaga todas; en paralelo, no"
+    ]
+   },
+   {
+    "enlace": "se paga por",
+    "nodo": "Potencia y energía",
+    "hojas": [
+     "<b>P = V × I</b>, en vatios: lo deprisa que gastas",
+     "<b>E = P × t</b>, en <b>kWh</b>: lo que llevas gastado",
+     "Factura: <b>término de potencia</b> + <b>término de energía</b>"
+    ]
+   },
+   {
+    "enlace": "se gobierna con",
+    "nodo": "El LED y los elementos de control",
+    "hojas": [
+     "El <b>LED</b> es un diodo y no es óhmico",
+     "Resistencia limitadora: <b>R = (V<sub>fuente</sub> − V<sub>f</sub>) / I</b>",
+     "<b>Pulsador</b> (vuelve solo) e <b>interruptor</b> (se queda)"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un cable solo no enciende nada. Las cargas no se gastan en la bombilla: la atraviesan y tienen que volver al generador. Por eso hace falta un <b>circuito</b>, un camino cerrado con <b>generador</b>, <b>conductores</b>, <b>receptor</b> y <b>elemento de control</b>. Si hay camino de vuelta sin receptor, es un <b>cortocircuito</b>: la corriente se dispara y algo se quema. El circuito se dibuja con <b>simbología normalizada</b>, que dice qué está conectado con qué.",
+  "Tres magnitudes lo describen todo. La <b>tensión</b> (V) es el empujón y se mide en voltios con el <b>voltímetro</b>, en paralelo. La <b>intensidad</b> (I) es el caudal y se mide en amperios con el <b>amperímetro</b>, en serie. La <b>resistencia</b> (R) es el estorbo y se mide en ohmios. Las ata la <b>ley de Ohm</b>: <b>I = V / R</b>.",
+  "Hay dos maneras de conectar varios receptores. En <b>serie</b> hay un solo camino: la corriente es la misma, las resistencias se suman y, si uno falla, se paran todos. En <b>paralelo</b> cada uno tiene su camino: la tensión es la misma, las corrientes se suman y, si uno falla, los demás siguen.",
+  "La <b>potencia</b> (<b>P = V × I</b>, en vatios) dice lo deprisa que gastas. La <b>energía</b> (<b>E = P × t</b>) dice lo que llevas gastado, y la factura la cobra en <b>kWh</b>, con la potencia en kW y el tiempo en horas. La factura suma el <b>término de potencia</b>, que pagas aunque no gastes, y el <b>término de energía</b>. En la <b>etiqueta energética</b>, el número de kWh al año es el que sirve para calcular.",
+  "Un <b>LED</b> es un diodo: conduce en un solo sentido y no es óhmico. Pasada su <b>tensión directa</b> (V<sub>f</sub>), la corriente se dispara. Por eso lleva siempre una <b>resistencia limitadora</b> en serie, <b>R = (V<sub>fuente</sub> − V<sub>f</sub>) / I</b>, y se coge el valor de la caja más próximo por encima. Para mandar, el <b>pulsador</b> vuelve solo y el <b>interruptor</b> se queda como lo dejes."
+ ]
+}

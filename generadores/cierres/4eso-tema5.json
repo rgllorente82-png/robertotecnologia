@@ -1,0 +1,74 @@
+{
+ "mapa": {
+  "centro": "Electrónica y neumática",
+  "ramas": [
+   {
+    "enlace": "se entera con",
+    "nodo": "Un sensor en un divisor de tensión",
+    "hojas": [
+     "analogRead() mide voltios, no ohmios",
+     "V<sub>salida</sub> = 5 V · R2 / (R1 + R2)",
+     "La fija, parecida al sensor en el punto que importa",
+     "<b>Conversor A/D</b> de 10 bits: de 0 a 1023"
+    ]
+   },
+   {
+    "enlace": "mueve cargas con",
+    "nodo": "Un transistor como interruptor",
+    "hojas": [
+     "Un pin da 20 mA; una bomba pide 250",
+     "I<sub>colector</sub> = β · I<sub>base</sub>; se trabaja <b>saturado</b>",
+     "Rb = (5 − 0,7) / I<sub>base</sub>, con margen de 5 a 10",
+     "<b>Diodo de rueda libre</b> en cada bobina, y masa común"
+    ]
+   },
+   {
+    "enlace": "hace fuerza con",
+    "nodo": "Cilindros neumáticos",
+    "hojas": [
+     "F = p · A, con 1 bar = 0,1 N/mm²",
+     "Doblar el diámetro multiplica la fuerza por cuatro",
+     "<b>Simple efecto</b> (muelle) o <b>doble efecto</b> (dos tomas)",
+     "El aire se cuenta en <b>litros normales</b>"
+    ]
+   },
+   {
+    "enlace": "los manda con",
+    "nodo": "Válvulas distribuidoras",
+    "hojas": [
+     "<b>3/2</b> y <b>5/2</b>: vías / posiciones",
+     "Vías: 1 presión; 2 y 4 trabajo; 3 y 5 escapes",
+     "<b>Mando directo</b> o <b>mando indirecto</b>",
+     "<b>Función Y</b> en serie; <b>función O</b> con válvula selectora"
+    ]
+   },
+   {
+    "enlace": "se monta y se programa",
+    "nodo": "Del esquema a la placa de pruebas",
+    "hojas": [
+     "Un esquema es una lista de <b>nudos</b>",
+     "Los cinco agujeros de una columna son un nudo",
+     "El signo del if depende de dónde va el sensor",
+     "10 kΩ de la base a masa, y LOW antes de pinMode"
+    ]
+   },
+   {
+    "enlace": "se completa con",
+    "nodo": "Electroválvulas, secuencias y papeles",
+    "hojas": [
+     "La <b>servopilotada</b> necesita presión para conmutar",
+     "A+ B+ A− B−, saltando por <b>final de carrera</b>",
+     "El pico elige la fuente; la media, la pila",
+     "Esquema, lista de conexiones y hoja de puesta en marcha"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un pin analógico mide voltios, no ohmios, así que el sensor va en un <b>divisor de tensión</b>, dos resistencias en serie entre 5 V y masa: V<sub>salida</sub> = 5 V · R2 / (R1 + R2). La resistencia fija se elige parecida a la del sensor en el punto que te importa. El <b>conversor A/D</b> del Arduino Uno es de 10 bits: da un número de 0 a 1023, con escalones de 4,9 mV.",
+  "Un pin da 20 mA, y una bomba pide 250. Hace falta un <b>transistor</b>: una corriente pequeña por la base deja pasar una mucho mayor del colector al emisor. Como interruptor se trabaja <b>saturado</b>, para que no se caliente, y la resistencia de base sale de Rb = (5 − 0,7) / I<sub>base</sub>. Cada carga con bobina lleva su <b>diodo de rueda libre</b>, y la pila del motor comparte la masa con el Arduino.",
+  "Para hacer fuerza está la <b>neumática</b>: F = p · A, con 1 bar = 0,1 N/mm². Doblar el diámetro multiplica la fuerza por cuatro. El cilindro de <b>simple efecto</b> vuelve con un muelle; el de <b>doble efecto</b> tiene dos tomas. Se mandan con una <b>válvula distribuidora</b>: la <b>3/2</b> para simple efecto y la <b>5/2</b> para doble efecto. En la industria casi todo es <b>mando indirecto</b>.",
+  "Un esquema es una lista de <b>nudos</b>, y en la placa de pruebas los cinco agujeros de una columna son un nudo. Los fallos se buscan con el polímetro, desde la fuente hacia la carga. Dónde va el sensor decide el signo del if. Y al enchufar los pines quedan al aire, así que va una resistencia de 10 kΩ de la base a masa.",
+  "La <b>electroválvula</b> es eléctrica por un lado y neumática por el otro. Una secuencia como A+ B+ A− B− pasa de paso por <b>final de carrera</b>, no por tiempo. Un proyecto entregado lleva su presupuesto de corriente y tres papeles: el esquema, la lista de conexiones y la hoja de puesta en marcha. En electrónica, «al aire» nunca quiere decir «a cero»."
+ ]
+}

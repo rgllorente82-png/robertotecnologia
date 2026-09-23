@@ -1,0 +1,73 @@
+{
+ "mapa": {
+  "centro": "Robótica y automatismos",
+  "ramas": [
+   {
+    "enlace": "un robot es",
+    "nodo": "Una máquina que se entera",
+    "hojas": [
+     "<b>Percibe</b> el entorno, <b>decide</b> y <b>actúa</b>, sin que nadie la lleve",
+     "El lavavajillas se mira a sí mismo: no decide, <b>ejecuta</b>",
+     "¿Si cambias el mundo, cambia lo que hace la máquina?"
+    ]
+   },
+   {
+    "enlace": "se mueve con",
+    "nodo": "Motores que no saben dónde están",
+    "hojas": [
+     "Un delay() mide <b>tiempo</b>, no distancia",
+     "<b>Paso angular</b> = 360° / pasos; mm por paso = π · D / pasos",
+     "<b>Exactitud</b> y <b>precisión</b> no son sinónimos",
+     "El <b>error sistemático</b> no se arregla repitiendo"
+    ]
+   },
+   {
+    "enlace": "llega a su sitio con",
+    "nodo": "Grados de libertad y cinemática",
+    "hojas": [
+     "En el espacio, <b>6 GdL</b>: 3 de posición y 3 de orientación",
+     "<b>Cinemática directa</b>: x = L₁·cos θ₁ + L₂·cos(θ₁ + θ₂)",
+     "<b>Espacio de trabajo</b>: corona entre |L₁ − L₂| y L₁ + L₂",
+     "<b>Cinemática inversa</b>: ninguna solución, dos o infinitas"
+    ]
+   },
+   {
+    "enlace": "se programa como",
+    "nodo": "Máquina de estados",
+    "hojas": [
+     "<b>Estados</b>, <b>eventos</b>, <b>transiciones</b> y <b>acciones</b>",
+     "Tabla de transiciones: 4 × 5 = 20 casillas, todas contestadas",
+     "Ni un delay(): el tiempo se mide con <b>millis()</b>"
+    ]
+   },
+   {
+    "enlace": "se pone en marcha con",
+    "nodo": "Su propia fuente y el referenciado",
+    "hojas": [
+     "Motor parado + resistencia del camino → <b>brown-out</b> (menos de 2,7 V)",
+     "<b>Dos fuentes</b> y los negativos unidos: <b>masa común</b>",
+     "<b>Referenciar</b>: ir despacio hasta un sensor y poner ahí el cero",
+     "Final de carrera <b>normalmente cerrado</b>; dos pasadas"
+    ]
+   },
+   {
+    "enlace": "se diseña pensando en",
+    "nodo": "El caso peor",
+    "hojas": [
+     "<b>Tope de tiempo de maniobra</b> contra el atasco",
+     "<b>Estado seguro</b>: dónde se queda cada pieza sin órdenes",
+     "Orden: quitar el peligro, <b>guarda</b>, sensor, avisar, decirlo",
+     "<b>Ficha técnica</b> de seis apartados, y un fallo provocado en directo"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un <b>robot</b> es una máquina que <b>percibe</b> su entorno, <b>decide</b> a partir de lo que ha percibido y <b>actúa</b> sobre ese entorno, sin que nadie la esté llevando. Un lavavajillas tiene sensores, pero se miran a sí mismos: no decide, <b>ejecuta</b>. Un robot es una máquina que se entera.",
+  "Un motor no sabe dónde está. Un delay() mide <b>tiempo</b>, no distancia. En el <b>paso a paso</b>, el <b>paso angular</b> es 360° / pasos por vuelta, y la rueda avanza π · D / pasos por vuelta en cada paso. <b>Exactitud</b> es que la media caiga en el centro; <b>precisión</b>, que los intentos caigan juntos. Un <b>error sistemático</b> no se arregla repitiendo: se arregla encontrando la causa.",
+  "Hacen falta tantos <b>grados de libertad</b> como cosas quieras controlar a la vez: en el espacio, seis. La <b>cinemática directa</b> va de los ángulos al sitio, y la trampa es el θ₁ + θ₂. El <b>espacio de trabajo</b> del brazo de dos eslabones es una corona. La <b>cinemática inversa</b> va del sitio a los ángulos, y puede no tener solución o tener dos.",
+  "Un automatismo se escribe como una <b>máquina de estados</b>: <b>estados</b>, <b>eventos</b>, <b>transiciones</b> y <b>acciones</b>. En la <b>tabla de transiciones</b> se contestan todas las casillas. Un delay() es un rato sin mirar, así que el tiempo se mide con <b>millis()</b>.",
+  "Un motor parado pide muchísima más corriente que girando, y la caída deja a la placa por debajo de 2,7 V: salta el <b>brown-out</b>. El actuador come de su propia fuente, con los negativos unidos: <b>masa común</b>. Al encenderse, la máquina se <b>referencia</b>: va a mirar dónde está en vez de suponerlo.",
+  "No preguntes si va a pasar: pregunta qué hace la máquina si pasa. Se calcula con el <b>caso peor</b>: un <b>tope de tiempo de maniobra</b>, un <b>estado seguro</b> para cada pieza y una <b>guarda</b> antes que un sensor. Todo va en la <b>ficha técnica</b>, y en la demostración se provoca un fallo en directo."
+ ]
+}

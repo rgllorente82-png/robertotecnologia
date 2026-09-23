@@ -1,0 +1,59 @@
+{
+ "mapa": {
+  "centro": "Las estructuras",
+  "ramas": [
+   {
+    "enlace": "sufren",
+    "nodo": "Cinco esfuerzos",
+    "hojas": [
+     "<b>Tracción</b>, <b>compresión</b>, <b>flexión</b>, <b>torsión</b> y <b>cortadura</b>",
+     "Pieza comprimida, larga y delgada: <b>pandea</b>",
+     "El <b>triángulo</b> es la única figura indeformable"
+    ]
+   },
+   {
+    "enlace": "se clasifican en",
+    "nodo": "Seis familias",
+    "hojas": [
+     "<b>Masiva</b>, <b>abovedada</b> y <b>entramada</b>",
+     "<b>Triangulada</b>, <b>colgante</b> y <b>laminar</b>",
+     "La forma hace que el material trabaje en lo que aguanta"
+    ]
+   },
+   {
+    "enlace": "aprovechan el material con",
+    "nodo": "Perfiles y secciones",
+    "hojas": [
+     "El <b>eje neutro</b> ni se estira ni se acorta",
+     "Material lejos del eje: más aguante a flexión",
+     "Mismo acero: el perfil en I aguanta 12 veces más"
+    ]
+   },
+   {
+    "enlace": "no vuelcan si",
+    "nodo": "La vertical del CDG cae dentro de la base",
+    "hojas": [
+     "<b>Centro de gravedad</b> y <b>base de sustentación</b>",
+     "Ensanchar la base, bajar el CDG, lastrar o anclar",
+     "El peso total no sale en la fórmula"
+    ]
+   },
+   {
+    "enlace": "se ponen a prueba con",
+    "nodo": "Un ensayo hasta la rotura",
+    "hojas": [
+     "Nota: peso aguantado ÷ peso del puente",
+     "Fallos: pandeo, tracción, nudo o vuelco"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Una <b>estructura</b> soporta las cargas de un objeto y las conduce hasta el suelo. No aguanta porque sea fuerte: <b>aguanta porque reparte</b>. Cada pieza sufre un esfuerzo: <b>tracción</b> (la alargan), <b>compresión</b> (la aplastan), <b>flexión</b> (la curvan), <b>torsión</b> (la retuercen) o <b>cortadura</b> (tienden a cortarla). Una pieza comprimida, larga y delgada <b>pandea</b>: se dobla de golpe hacia un lado.",
+  "El <b>triángulo</b> es la única figura indeformable: fijados los tres lados, los tres ángulos quedan determinados. Por eso se <b>triangula</b>, con diagonales llamadas <b>tirantes</b> o <b>riostras</b>, como en las grúas y las torres eléctricas.",
+  "Hay seis familias: <b>masiva</b>, <b>abovedada</b>, <b>entramada</b>, <b>triangulada</b>, <b>colgante</b> y <b>laminar</b>. La forma se elige para que el material trabaje solo en el esfuerzo que aguanta bien. La piedra se parte estirada, así que se le da forma de <b>arco</b>, que empuja hacia fuera y necesita <b>contrafuertes</b>. El cable no puede empujar, solo tirar: de él se cuelga el puente.",
+  "Con la misma cantidad de material, una pieza aguanta más a flexión cuanto más lejos del <b>eje neutro</b> esté ese material. El eje neutro es la línea que ni se estira ni se acorta. Con el mismo acero, un <b>perfil</b> en I aguanta unas doce veces más que un cuadrado macizo.",
+  "Además de no romperse, una estructura no puede volcar. Un cuerpo no vuelca mientras la vertical de su <b>centro de gravedad</b> caiga dentro de su <b>base de sustentación</b>. Para que vuelque menos se ensancha la base, se baja el centro de gravedad, se añade peso abajo o se ancla. Lo que importa no es cuánto pesa, sino dónde pesa.",
+  "Todo se comprueba con un <b>ensayo destructivo</b>. La nota del puente es el peso que aguanta dividido por lo que pesa. Si una barra se dobla de golpe, es pandeo; si se despega un nudo, ha fallado la unión; si se tumba de lado, faltó <b>arriostramiento</b>."
+ ]
+}

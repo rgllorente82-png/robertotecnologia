@@ -1,0 +1,61 @@
+{
+ "mapa": {
+  "centro": "Tecnología, técnica y sociedad",
+  "ramas": [
+   {
+    "enlace": "se define como",
+    "nodo": "El conocimiento que permite producir",
+    "hojas": [
+     "<i>Téchne</i> (arte, oficio) + <i>logía</i> (estudio)",
+     "No es el objeto: es el conocimiento",
+     "Diseña bienes y servicios para necesidades humanas"
+    ]
+   },
+   {
+    "enlace": "se distingue de",
+    "nodo": "La técnica y la ciencia",
+    "hojas": [
+     "<b>Técnica</b>: ¿cómo se hace? <b>Ciencia</b>: ¿por qué ocurre?",
+     "<b>Tecnología</b>: ¿cómo lo resuelvo?",
+     "La <b>máquina de vapor</b>: la tecnología empuja a la ciencia"
+    ]
+   },
+   {
+    "enlace": "reorganiza",
+    "nodo": "La sociedad, en cuatro pasos",
+    "hojas": [
+     "Cambia la producción y aparece <b>excedente</b>",
+     "Se reorganiza la <b>estructura social</b>",
+     "Surgen problemas que se tardan en regular",
+     "Neutral en su intención, nunca en sus consecuencias"
+    ]
+   },
+   {
+    "enlace": "hoy se llama",
+    "nodo": "Digitalización",
+    "hojas": [
+     "Digitalizar, digitalización de procesos, transformación digital",
+     "<b>Coste marginal</b> de reproducción casi cero",
+     "Información <b>procesable por máquinas</b>",
+     "No es inmaterial: la nube consume electricidad y agua"
+    ]
+   },
+   {
+    "enlace": "se acelera en",
+    "nodo": "La historia",
+    "hojas": [
+     "De la piedra tallada a la inteligencia artificial",
+     "Cuatro <b>revoluciones industriales</b>",
+     "Cada invento se apoya en todos los anteriores"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "La tecnología no es un catálogo de aparatos. La palabra viene del griego <i>téchne</i> (arte, oficio) y <i>logía</i> (estudio): el estudio de cómo se hacen las cosas. La <b>tecnología</b> no es el objeto, es el conocimiento que permite producirlo, aplicado al diseño y producción de bienes y servicios que satisfacen necesidades humanas.",
+  "Hay tres conceptos que no se mezclan. La <b>técnica</b> responde a ¿cómo se hace?, la <b>ciencia</b> a ¿por qué ocurre? y la <b>tecnología</b> a ¿cómo lo resuelvo? La técnica es anterior a la ciencia en millones de años, y solo desde el <b>siglo XVIII</b> la ciencia guía sistemáticamente a la técnica. La relación no va en una sola dirección: la <b>máquina de vapor</b> funcionaba décadas antes de que se formulara la termodinámica.",
+  "Toda tecnología decisiva desencadena cuatro pasos. Cambia lo que se puede producir, aparece <b>excedente</b>, se reorganiza la <b>estructura social</b> y surgen problemas nuevos que la sociedad tarda en regular. Por eso la tecnología puede ser neutral en su <b>intención</b>, pero nunca en sus <b>consecuencias</b>.",
+  "La palabra digitalización tiene tres sentidos: <b>digitalizar</b> (muestrear y cuantificar), la <b>digitalización de procesos</b> y la <b>transformación digital</b>. Su propiedad clave es que el <b>coste marginal</b> de reproducción es prácticamente cero. Además, la información digital es <b>procesable por máquinas</b>, y ahí pasa a ser una cuestión política. Y no es inmaterial: la nube está hecha de hierro, cobre y refrigeración.",
+  "De la piedra tallada a la IA, la tecnología no avanza a ritmo constante: se acelera, porque cada invento se apoya en todos los anteriores. Las cuatro <b>revoluciones industriales</b> cambiaron la forma de fabricar: el vapor, la electricidad y la producción en serie, el chip y los robots coordinados por software."
+ ]
+}

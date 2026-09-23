@@ -1,0 +1,73 @@
+{
+ "mapa": {
+  "centro": "Programación, IoT e inteligencia artificial",
+  "ramas": [
+   {
+    "enlace": "se programa en",
+    "nodo": "Arduino: código C++ y entradas analógicas",
+    "hojas": [
+     "<b>setup()</b> una vez; <b>loop()</b> para siempre",
+     "El <b>tipo</b> decide bytes, hasta dónde cuenta y decimales",
+     "<b>Truncamiento</b> y <b>desbordamiento</b> fallan callando",
+     "analogRead() da de 0 a 1023, en escalones de 4,88 mV"
+    ]
+   },
+   {
+    "enlace": "se conecta con",
+    "nodo": "El IoT: un mensaje y alguien escuchando",
+    "hojas": [
+     "Quién, qué, cuándo y a dónde; lo demás es sobre",
+     "<b>HTTP</b>: petición y respuesta; <b>MQTT</b>: publicar y suscribirse",
+     "El cifrado no tapa los <b>metadatos</b>"
+    ]
+   },
+   {
+    "enlace": "aprende con",
+    "nodo": "Ejemplos: entrenar en vez de programar",
+    "hojas": [
+     "Tú pones los ejemplos; el programa busca los <b>pesos</b>",
+     "Una recta solo separa lo que se separa con una recta",
+     "Vale el acierto en los que no ha visto, frente al <b>modelo tonto</b>",
+     "Falsa alarma y «se le pasa» no cuestan igual"
+    ]
+   },
+   {
+    "enlace": "decide con",
+    "nodo": "Memoria: las últimas medidas",
+    "hojas": [
+     "<b>Buffer circular</b>: pos = (pos + 1) % N",
+     "<b>Media</b> para el ruido; <b>mediana</b> para el pico",
+     "Cada medida gasta bytes de los 2.048"
+    ]
+   },
+   {
+    "enlace": "avisa con",
+    "nodo": "Una política de avisos",
+    "hojas": [
+     "El Uno no tiene wifi: USB, ESP-01 o ESP32",
+     "<b>Periódico</b>, <b>por evento</b> o <b>evento + latido</b>",
+     "El <b>latido</b> hace visible el silencio",
+     "Sin red: guardar en cola y reintentar"
+    ]
+   },
+   {
+    "enlace": "se defiende con",
+    "nodo": "Números medidos y un modo seguro",
+    "hojas": [
+     "Prueba de otro día, sitio o aparato: sin <b>fuga</b>",
+     "Ganar al modelo tonto y a un si de una línea",
+     "<b>Máquina de estados</b> con su estado SEGURO",
+     "Del <b>modo seguro</b> se sale a mano"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un programa de Arduino es un <b>sketch</b> con dos partes: <b>setup()</b>, que se ejecuta una vez, y <b>loop()</b>, que se repite para siempre. Cada variable lleva su <b>tipo</b>, porque la placa reserva la memoria antes de arrancar. Elegir mal no da error: da números mal. Un int tira los decimales y, al pasar de 32.767, se <b>desborda</b>. Una entrada digital no mide: compara. Para medir está el <b>conversor A/D</b>: analogRead() devuelve un entero de 0 a 1023, y cada <b>escalón</b> vale 4,88 mV. Los decimales de más los pone la división, no la medida.",
+  "El <b>IoT</b> son aparatos que mandan lo que miden a otro sitio de la red. Su mensaje lleva quién, qué, cuándo y a dónde. Con <b>HTTP</b> el aparato llama al servidor y espera respuesta; con <b>MQTT</b> publica en un tema y el <b>bróker</b> se lo pasa a quien se ha suscrito. El cifrado protege el contenido, pero no tapa los <b>metadatos</b>.",
+  "Cuando sabes reconocer algo pero no escribir la regla, se entrena: tú pones los ejemplos, ya etiquetados, y el programa busca los <b>pesos</b>. El acierto que vale es el de los ejemplos que no ha visto, y tiene que ganar al <b>modelo tonto</b> que dice siempre lo mismo.",
+  "Una medida suelta puede mentir. Por eso el programa guarda las últimas en un <b>buffer circular</b> y decide con la <b>media</b>, que alisa el ruido, o con la <b>mediana</b>, que tira el pico. Para avisar se usa el aviso <b>por evento con latido</b>: el <b>latido</b> hace que el silencio de un aparato estropeado se pueda detectar.",
+  "Con tus datos, el conjunto de prueba tiene que ser de otro día, otro sitio u otro aparato. Si no, hay <b>fuga</b> y el número sale inflado. Además, el modelo tiene que ganar a un si de una línea; si no, no lo pongas.",
+  "Al final, el programa entero se escribe como <b>máquina de estados</b>. Su <b>modo seguro</b> deja de actuar, avisa de que se ha parado y solo se sale de él a mano. No arregla el problema: lo hace visible."
+ ]
+}

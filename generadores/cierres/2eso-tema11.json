@@ -1,0 +1,71 @@
+{
+ "mapa": {
+  "centro": "Herramientas digitales y difusión",
+  "ramas": [
+   {
+    "enlace": "separan",
+    "nodo": "Lo que dice y cómo se ve",
+    "hojas": [
+     "Texto plano, documento con marcas y <b>página fija</b> (PDF)",
+     "<b>Estilos</b>: marcar lo que algo es, no pintar lo que parece",
+     "Hoja de cálculo: la <b>fórmula</b> guarda el cálculo"
+    ]
+   },
+   {
+    "enlace": "guardan imágenes como",
+    "nodo": "Mapa de bits o vectorial",
+    "hojas": [
+     "<b>Mapa de bits</b>: rejilla de <b>píxeles</b> (JPEG, PNG)",
+     "<b>Vectorial</b>: instrucciones de dibujo (SVG)",
+     "Una imagen no tiene tamaño: tiene píxeles",
+     "Compresión <b>sin pérdida</b> (PNG) y <b>con pérdida</b> (JPEG)"
+    ]
+   },
+   {
+    "enlace": "se presentan con",
+    "nodo": "Una idea por diapositiva",
+    "hojas": [
+     "<b>Leer va más rápido que escuchar</b>",
+     "Guion, diapositiva y documento: tres cosas",
+     "<b>Prueba del pulgar</b> y no bajar de 24 pt"
+    ]
+   },
+   {
+    "enlace": "respetan",
+    "nodo": "Derechos de autor y licencias",
+    "hojas": [
+     "Por defecto, <b>todos los derechos reservados</b>",
+     "<b>Creative Commons</b>: BY, SA, NC y ND",
+     "<b>Dominio público</b>: cuenta cuándo murió el autor",
+     "Se cita: qué es, quién, con qué licencia y de dónde"
+    ]
+   },
+   {
+    "enlace": "se escriben en",
+    "nodo": "Un documento compartido",
+    "hojas": [
+     "Mandar un fichero es hacer una copia",
+     "El <b>historial de versiones</b> evita que se pierda",
+     "En lo tuyo cambias; en lo de otro, <b>comentas</b>"
+    ]
+   },
+   {
+    "enlace": "se publican para",
+    "nodo": "Alguien que no estaba",
+    "hojas": [
+     "<b>Titular</b>, entradilla y <b>pirámide invertida</b>",
+     "<b>Texto alternativo</b> y encabezados marcados",
+     "<b>Contraste</b>: al menos 4,5 : 1 en texto normal"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un documento guarda dos cosas: <b>lo que dice</b> y <b>cómo se ve</b>. Lo primero viaja en el fichero; lo segundo lo decide el programa al abrirlo. Por eso tu trabajo se descoloca en otro ordenador sin que falte una palabra. Los títulos se marcan con <b>estilos</b>, no se pintan. El <b>PDF</b> guarda la página ya maquetada: es el formato para entregar, pero editarlo cuesta.",
+  "Una foto es un <b>mapa de bits</b>, una rejilla de <b>píxeles</b>. Un logotipo va en <b>vectorial</b> (SVG): instrucciones que se redibujan a cualquier tamaño. Una imagen no tiene tamaño: tiene píxeles. Arrastrar la esquina no quita peso; hay que redimensionar. Las fotos van en <b>JPEG</b>, con pérdida, y los dibujos en <b>PNG</b>, sin pérdida.",
+  "Al presentar, <b>leer va más rápido que escuchar</b>. Si pones en la diapositiva lo que vas a decir, dejan de escucharte. Una idea por diapositiva, y el resto a las <b>notas del orador</b>. La <b>prueba del pulgar</b> dice si una imagen explica o decora.",
+  "Los <b>derechos de autor</b> nacen con la obra, sin trámite. Si una obra no dice nada, tiene <b>todos los derechos reservados</b>: el silencio no es un sí. Una <b>licencia</b> es el permiso dado por adelantado, y las <b>Creative Commons</b> combinan cuatro condiciones. En el <b>dominio público</b> cuenta cuándo murió el autor: antiguo no es libre.",
+  "<b>Mandar un fichero es hacer una copia</b>. Un <b>documento compartido</b> con <b>historial de versiones</b> no evita que dos toquéis el mismo apartado, pero sí que se pierda. El choque se evita repartiendo los apartados por escrito. En lo tuyo cambias; en lo de otro, <b>comentas</b>.",
+  "Publicar es escribir para <b>alguien que no estaba</b>. El <b>titular</b> dice qué es y cómo acabó, y la <b>pirámide invertida</b> pone el resultado arriba. Quien no ve la pantalla necesita <b>texto alternativo</b> en las imágenes y títulos marcados. Y el <b>contraste</b> se calcula: al menos 4,5 : 1."
+ ]
+}

@@ -5738,6 +5738,86 @@ void loop() {
   </div>
 
 
+
+
+
+<!-- cierre-tema: lo pone generadores/pon_cierre.py desde generadores/cierres/; no se edita aqui -->
+  <section class="ct" id="esquema" aria-labelledby="ct-h-esq">
+    <style>
+.ct{margin-top:34px;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:22px 20px}
+.ct-eyebrow{font-family:var(--f-m);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ct h2{font-size:21px;margin:4px 0 18px;letter-spacing:-.01em}
+.ct h2.ct-h-res{margin-top:34px}
+.ct-centro{display:block;width:max-content;max-width:100%;margin:0 auto;background:var(--ink);color:var(--surface);
+  padding:10px 18px;border-radius:2px;font-weight:700;font-size:17px;text-align:center}
+.ct-ramas{list-style:none;margin:0;padding:0;position:relative;display:grid;gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:2px solid var(--line);margin-top:20px;padding-top:20px}
+.ct-ramas::before{content:"";position:absolute;left:50%;top:-22px;height:20px;border-left:2px solid var(--line)}
+.ct-rama{position:relative;background:var(--paper);border:1.5px solid var(--line);border-radius:2px;padding:10px 12px 12px}
+.ct-rama::before{content:"";position:absolute;left:50%;top:-21px;height:19px;border-left:2px solid var(--line)}
+.ct-enlace{display:block;font-family:var(--f-m);font-size:12px;font-style:italic;color:var(--ink-soft);margin-bottom:6px}
+.ct-nodo{font-weight:700;padding:4px 0 6px 10px;border-left:4px solid var(--c, var(--goo-azul));line-height:1.35}
+.ct-hojas{list-style:none;margin:8px 0 0;padding:0 0 0 10px;border-left:2px solid var(--line-soft)}
+.ct-hojas li{position:relative;padding:3px 0 3px 12px;font-size:14.5px;line-height:1.45}
+.ct-hojas li::before{content:"";position:absolute;left:-10px;top:14px;width:16px;border-top:2px solid var(--line-soft)}
+.ct-resumen p{margin:0 0 12px}
+.ct-resumen p:last-child{margin-bottom:0}
+@media (max-width:620px){
+  .ct{padding:18px 14px}
+  .ct-centro{margin:0;width:auto}
+  .ct-ramas{border-top:0;border-left:2px solid var(--line);margin:0 0 0 14px;padding:14px 0 0 14px}
+  .ct-ramas::before{display:none}
+  .ct-rama::before{left:-16px;top:22px;height:0;width:14px;border-left:0;border-top:2px solid var(--line)}
+}
+@media print{.ct{break-before:page}.ct-rama{break-inside:avoid}}
+</style>
+    <div class="ct-eyebrow">Cierre del tema</div>
+    <h2 id="ct-h-esq">Esquema del tema</h2>
+    <div class="ct-centro">Programación, IoT e inteligencia artificial</div>
+    <ul class="ct-ramas">
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">se programa en</span>
+        <div class="ct-nodo">Arduino: código C++ y entradas analógicas</div>
+        <ul class="ct-hojas"><li><b>setup()</b> una vez; <b>loop()</b> para siempre</li><li>El <b>tipo</b> decide bytes, hasta dónde cuenta y decimales</li><li><b>Truncamiento</b> y <b>desbordamiento</b> fallan callando</li><li>analogRead() da de 0 a 1023, en escalones de 4,88 mV</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se conecta con</span>
+        <div class="ct-nodo">El IoT: un mensaje y alguien escuchando</div>
+        <ul class="ct-hojas"><li>Quién, qué, cuándo y a dónde; lo demás es sobre</li><li><b>HTTP</b>: petición y respuesta; <b>MQTT</b>: publicar y suscribirse</li><li>El cifrado no tapa los <b>metadatos</b></li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-amarillo)">
+        <span class="ct-enlace">aprende con</span>
+        <div class="ct-nodo">Ejemplos: entrenar en vez de programar</div>
+        <ul class="ct-hojas"><li>Tú pones los ejemplos; el programa busca los <b>pesos</b></li><li>Una recta solo separa lo que se separa con una recta</li><li>Vale el acierto en los que no ha visto, frente al <b>modelo tonto</b></li><li>Falsa alarma y «se le pasa» no cuestan igual</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-verde)">
+        <span class="ct-enlace">decide con</span>
+        <div class="ct-nodo">Memoria: las últimas medidas</div>
+        <ul class="ct-hojas"><li><b>Buffer circular</b>: pos = (pos + 1) % N</li><li><b>Media</b> para el ruido; <b>mediana</b> para el pico</li><li>Cada medida gasta bytes de los 2.048</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-azul)">
+        <span class="ct-enlace">avisa con</span>
+        <div class="ct-nodo">Una política de avisos</div>
+        <ul class="ct-hojas"><li>El Uno no tiene wifi: USB, ESP-01 o ESP32</li><li><b>Periódico</b>, <b>por evento</b> o <b>evento + latido</b></li><li>El <b>latido</b> hace visible el silencio</li><li>Sin red: guardar en cola y reintentar</li></ul>
+      </li>
+      <li class="ct-rama" style="--c:var(--goo-rojo)">
+        <span class="ct-enlace">se defiende con</span>
+        <div class="ct-nodo">Números medidos y un modo seguro</div>
+        <ul class="ct-hojas"><li>Prueba de otro día, sitio o aparato: sin <b>fuga</b></li><li>Ganar al modelo tonto y a un si de una línea</li><li><b>Máquina de estados</b> con su estado SEGURO</li><li>Del <b>modo seguro</b> se sale a mano</li></ul>
+      </li>
+    </ul>
+    <h2 class="ct-h-res" id="resumen">Resumen</h2>
+    <div class="ct-resumen">
+      <p>Un programa de Arduino es un <b>sketch</b> con dos partes: <b>setup()</b>, que se ejecuta una vez, y <b>loop()</b>, que se repite para siempre. Cada variable lleva su <b>tipo</b>, porque la placa reserva la memoria antes de arrancar. Elegir mal no da error: da números mal. Un int tira los decimales y, al pasar de 32.767, se <b>desborda</b>. Una entrada digital no mide: compara. Para medir está el <b>conversor A/D</b>: analogRead() devuelve un entero de 0 a 1023, y cada <b>escalón</b> vale 4,88 mV. Los decimales de más los pone la división, no la medida.</p>
+      <p>El <b>IoT</b> son aparatos que mandan lo que miden a otro sitio de la red. Su mensaje lleva quién, qué, cuándo y a dónde. Con <b>HTTP</b> el aparato llama al servidor y espera respuesta; con <b>MQTT</b> publica en un tema y el <b>bróker</b> se lo pasa a quien se ha suscrito. El cifrado protege el contenido, pero no tapa los <b>metadatos</b>.</p>
+      <p>Cuando sabes reconocer algo pero no escribir la regla, se entrena: tú pones los ejemplos, ya etiquetados, y el programa busca los <b>pesos</b>. El acierto que vale es el de los ejemplos que no ha visto, y tiene que ganar al <b>modelo tonto</b> que dice siempre lo mismo.</p>
+      <p>Una medida suelta puede mentir. Por eso el programa guarda las últimas en un <b>buffer circular</b> y decide con la <b>media</b>, que alisa el ruido, o con la <b>mediana</b>, que tira el pico. Para avisar se usa el aviso <b>por evento con latido</b>: el <b>latido</b> hace que el silencio de un aparato estropeado se pueda detectar.</p>
+      <p>Con tus datos, el conjunto de prueba tiene que ser de otro día, otro sitio u otro aparato. Si no, hay <b>fuga</b> y el número sale inflado. Además, el modelo tiene que ganar a un si de una línea; si no, no lo pongas.</p>
+      <p>Al final, el programa entero se escribe como <b>máquina de estados</b>. Su <b>modo seguro</b> deja de actuar, avisa de que se ha parado y solo se sale de él a mano. No arregla el problema: lo hace visible.</p>
+    </div>
+  </section>
+<!-- /cierre-tema -->
+
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>

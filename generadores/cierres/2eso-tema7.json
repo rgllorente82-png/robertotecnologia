@@ -1,0 +1,60 @@
+{
+ "mapa": {
+  "centro": "Los mecanismos",
+  "ramas": [
+   {
+    "enlace": "multiplican la fuerza con",
+    "nodo": "La palanca",
+    "hojas": [
+     "<b>F · b<sub>F</sub> = R · b<sub>R</sub></b>",
+     "Tres géneros: en medio el apoyo, la resistencia o la fuerza",
+     "Cambia fuerza por recorrido"
+    ]
+   },
+   {
+    "enlace": "suben cargas con",
+    "nodo": "Poleas y polipastos",
+    "hojas": [
+     "<b>Polea fija</b>: F = R, solo cambia la dirección",
+     "<b>Polea móvil</b>: F = R / 2",
+     "<b>Polipasto</b>: F = R / n, con n tramos de cuerda"
+    ]
+   },
+   {
+    "enlace": "transmiten el giro con",
+    "nodo": "Engranajes, cadena y correa",
+    "hojas": [
+     "<b>i = z<sub>1</sub> / z<sub>2</sub> = n<sub>2</sub> / n<sub>1</sub></b>",
+     "<b>Reductor</b>: más despacio y con más fuerza",
+     "<b>Tornillo sin fin</b>: reduce muchísimo y no va al revés"
+    ]
+   },
+   {
+    "enlace": "transforman con",
+    "nodo": "Biela-manivela, leva, tornillo y cremallera",
+    "hojas": [
+     "<b>Biela-manivela</b>: giro ↔ ir y venir; carrera = 2 · r",
+     "<b>Piñón-cremallera</b> y <b>tornillo-tuerca</b>: giro → recto",
+     "<b>Leva y seguidor</b>: el movimiento que dibujes"
+    ]
+   },
+   {
+    "enlace": "se trazan con",
+    "nodo": "El módulo",
+    "hojas": [
+     "<b>d = m · z</b>",
+     "Solo engranan con el mismo módulo",
+     "Distancia entre centros: (d<sub>1</sub> + d<sub>2</sub>) / 2"
+    ]
+   }
+  ]
+ },
+ "resumen": [
+  "Un <b>mecanismo</b> recibe un movimiento y una fuerza y los entrega cambiados. La <b>palanca</b> es una barra rígida que gira alrededor de un punto de apoyo o <b>fulcro</b>, y cumple la ley F · b<sub>F</sub> = R · b<sub>R</sub>. En la de <b>primer género</b> el apoyo está en medio (tijeras). En la de <b>segundo género</b>, la resistencia (carretilla): siempre gana fuerza. En la de <b>tercer género</b>, la fuerza (pinzas de depilar): siempre la pierde.",
+  "La <b>polea fija</b> no multiplica la fuerza: solo cambia su dirección. La <b>polea móvil</b> la divide entre dos. El <b>polipasto</b> la divide entre n, el número de tramos que sostienen la carga, y hay que tirar n metros de cuerda por cada metro que sube.",
+  "Los <b>engranajes</b> transmiten el giro con dientes, que no patinan. La <b>relación de transmisión</b> es i = z<sub>1</sub>/z<sub>2</sub> = n<sub>2</sub>/n<sub>1</sub>. Si i es menor que 1 es un <b>reductor</b>: gira más despacio y con más fuerza. La <b>cadena</b> y la <b>correa</b> transmiten a distancia, y el <b>tornillo sin fin</b> reduce muchísimo y no se puede mover al revés.",
+  "Los mecanismos de <b>transformación</b> cambian la clase de movimiento. La <b>biela-manivela</b> convierte un giro en un ir y venir, y al revés; su carrera es 2 · r, y la biela no la cambia. El <b>piñón-cremallera</b> y el <b>tornillo-tuerca</b> pasan de giro a movimiento recto. La <b>leva</b> da el movimiento que dibujes, pero necesita un muelle para volver.",
+  "Para hacer una rueda dentada se elige primero el <b>módulo</b>, que fija el tamaño del diente. El diámetro ya no se elige, se calcula: d = m · z. Dos ruedas solo engranan si tienen el mismo módulo.",
+  "Y debajo de todos hay una sola idea: <b>ningún mecanismo regala nada</b>. Lo que se gana en fuerza se paga en recorrido o en velocidad, porque ninguna máquina crea energía. Y en la máquina real, el <b>rozamiento</b> se queda una parte por el camino."
+ ]
+}

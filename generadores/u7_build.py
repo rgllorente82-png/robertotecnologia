@@ -197,7 +197,7 @@ S1 = (
         u'microsc&oacute;picos acaban siendo un procesador.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 7.1 &middot; Escribe un programa para una m&aacute;quina tonta',
+    u'Actividad 9.1 &middot; Escribe un programa para una m&aacute;quina tonta',
     [u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>Con qu&eacute; cuentas</h4>
           <p>Solo con estas seis &oacute;rdenes, las mismas de la escena de arriba. No hay m&aacute;s.</p>
@@ -409,7 +409,7 @@ S2 = (
         u'Repasa los tres componentes con piezas reales en la mano.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 7.2 &middot; La factura de la lentitud',
+    u'Actividad 9.2 &middot; La factura de la lentitud',
     [u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>El caso</h4>
           <p>Un ordenador del aula tiene <b>8 GB de RAM</b> y un <b>disco duro de platos de 500 GB</b>,
@@ -584,7 +584,7 @@ S3 = (
             u'Cuenta la misma historia del reto de hoy: por qu&eacute; dos estados y no diez.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 7.3 &middot; Cu&aacute;nto ocupa lo que haces',
+    u'Actividad 9.3 &middot; Cu&aacute;nto ocupa lo que haces',
     [u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>Qu&eacute; hay que hacer</h4>
           <p>Para la parte de letras pod&eacute;is usar la escena de los ocho interruptores: poned el n&uacute;mero
@@ -819,7 +819,7 @@ S4 = (
             u'vocabulario, no para aprender de cero.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 7.4 &middot; Elegir un sensor con la cuenta hecha',
+    u'Actividad 9.4 &middot; Elegir un sensor con la cuenta hecha',
     [u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <h4>El encargo</h4>
           <p>El instituto quiere que un ordenador vigile el <b>invernadero</b> y avise si la temperatura
@@ -1059,7 +1059,7 @@ S5 = (
             u'medias.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 25 min', ficha(
-    u'Actividad 7.5 &middot; Destripar el equipo del aula',
+    u'Actividad 9.5 &middot; Destripar el equipo del aula',
     [u'6.1'], u'Parejas &middot; 25 min &middot; sobre 10', u'''
           <div class="aviso">
             <span class="n-tag">Antes de tocar nada</span>
@@ -1081,7 +1081,7 @@ S5 = (
                 el que m&aacute;s os sorprenda y decid por qu&eacute;.</li>
             <li>Abrid <b>diez pesta&ntilde;as</b> del navegador y volved a mirar la RAM ocupada. Calculad
                 <b>cu&aacute;nto ha subido</b> y <b>cu&aacute;nto por pesta&ntilde;a</b>. Comparadlo con
-                los 0,35&nbsp;GB por pesta&ntilde;a que daba la actividad 7.2: &iquest;se parece a lo
+                los 0,35&nbsp;GB por pesta&ntilde;a que daba la actividad 9.2: &iquest;se parece a lo
                 que gasta este equipo?</li>
             <li>En vuestra carpeta personal cread el &aacute;rbol <b>tema7 / pruebas /</b> y dentro un
                 fichero de texto con una frase vuestra. Anotad su <b>ruta completa</b> y su
@@ -1352,7 +1352,7 @@ S6 = (
             u'El mismo m&eacute;todo aplicado a un equipo real, con las herramientas delante.')) +
 
   bloque('02', u'Pr&aacute;ctica &middot; 20 min', ficha(
-    u'Actividad 7.6 &middot; Cuatro aver&iacute;as y un m&eacute;todo',
+    u'Actividad 9.6 &middot; Cuatro aver&iacute;as y un m&eacute;todo',
     [u'6.1'], u'Parejas &middot; 20 min &middot; sobre 10', u'''
           <div class="aviso">
             <span class="n-tag">Seguridad</span>
@@ -1482,7 +1482,7 @@ S = [
 CFG = dict(
  ruta='2eso/TyD/tema9/',
  migas=u'<a href="../../../">Materiales</a> &middot; <a href="../../">2.&ordm; ESO</a> '
-       u'&middot; <a href="../">TyD</a> &middot; Tema 7',
+       u'&middot; <a href="../">TyD</a> &middot; Tema 9',
  h1=u'El ordenador y sus componentes',
  titulo=u'Tema 9 &middot; El ordenador y sus componentes',
  tema=u'Tema 9', curso=u'2.&ordm; de ESO', materia=u'Tecnolog&iacute;a y Digitalizaci&oacute;n',

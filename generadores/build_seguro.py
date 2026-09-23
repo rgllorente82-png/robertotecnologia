@@ -26,6 +26,8 @@ TUBERIA = ['ordena_indice', 'afina_fotos', 'pon_metadatos', 'afina_texto',
            'afina_lectores', 'afina_navegador', 'afina_test', 'afina_impresion',
            'afina_salto', 'afina_mandos', 'afina_tablas', 'afina_visor',
            'pon_diagramas',
+           # esquema y resumen al final de cada tema (Roberto, 23-sep)
+           'pon_cierre',
            # el ultimo: un build rehace el test con la buena siempre en el
            # mismo sitio (22-sep: c7b, las diez en medio, por segunda vez)
            'baraja_tests']
