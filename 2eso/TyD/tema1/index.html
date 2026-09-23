@@ -158,7 +158,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -360,6 +359,36 @@ footer .wrap{padding-block:18px 26px}
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -464,7 +493,6 @@ footer .wrap{padding-block:18px 26px}
         cumplen o no. Si no los escribiste, <b>nunca sabr&aacute;s si tu soluci&oacute;n es buena</b>, solo si te gusta.
       </div>
 
-
       <h3>C&oacute;mo se llama esto en el libro</h3>
       <p>Lo que aqu&iacute; llamamos <b>los siete pasos</b>, el libro lo llama <b>las fases del proyecto
       t&eacute;cnico</b>. Es lo mismo con otros nombres, y conviene saber los dos porque el examen usa los
@@ -522,13 +550,6 @@ footer .wrap{padding-block:18px 26px}
       elegir lo que se puede desmontar y tiene repuestos, y dejar el reciclaje para cuando ya no
       queda otra. Es una decisi&oacute;n que se toma en la fase&nbsp;2, no al tirar el objeto.</p>
 
-      <figure class="foto">
-        <img src="../../../img/technological-process-steps.svg" width="1000" height="700" loading="lazy"
-             alt="El proceso tecnol&oacute;gico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atr&aacute;s desde evaluar hasta el dise&ntilde;o">
-        <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>: detectar la necesidad, analizar el problema, buscar ideas, elegir y dise&ntilde;ar, planificar, construir y evaluar. Cada paso produce algo: el 1, un problema claro; el 2, una lista de requisitos comprobables; el 4, un dise&ntilde;o concreto. El proceso no es lineal: si al evaluar, en el paso 7, no se cumplen los requisitos, se vuelve atr&aacute;s, casi siempre al dise&ntilde;o (paso 4). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <div class="escena" id="esc-proceso">
         <div class="escena-barra">
@@ -633,7 +654,6 @@ footer .wrap{padding-block:18px 26px}
       })();
       </script>
 
-
       <div class="narrador" id="narr-u1">
         <div class="narrador-fig" id="narr-u1-fig"></div>
         <div class="narrador-txt">
@@ -731,11 +751,20 @@ footer .wrap{padding-block:18px 26px}
       <p>Casi siempre se vuelve atr&aacute;s. Construyes y descubres que la ranura no aprieta: vuelves al dise&ntilde;o. Eso <b>no es fracasar</b>, es c&oacute;mo funciona. Lo que ser&iacute;a un fallo es descubrirlo
          cuando ya has fabricado mil unidades.</p>
 
-      <figure class="foto">
-        <img src="../../../img/technological_process_workflow.svg" width="1000" height="600" loading="lazy"
-             alt="Diagrama de flujo del proceso tecnológico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atrás desde evaluar hasta el diseño">
-        <figcaption>El <b>proceso tecnológico</b> como flujo: detectar la necesidad, analizar el problema, buscar ideas, elegir y diseñar, planificar, construir y evaluar.
-          La flecha que vuelve del paso 7 al 4 no es un error: es lo que ocurre cuando no cumple los requisitos del paso 2.</figcaption>
+      <figure class="esq" data-esquema="2eso-t1-evaluar-dos-salidas">
+        <p class="esq-titulo">Paso 7: al evaluar hay dos salidas</p>
+        <div class="esq-tarjetas esq-vs">
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+            <h4>Cumple los requisitos</h4>
+            <p>Los requisitos que escribisteis en el paso 2 se cumplen todos. El proyecto está terminado y se cuenta en la <b>memoria técnica</b>.</p>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-rojo)">
+            <h4>No los cumple</h4>
+            <p>Se vuelve atrás, casi siempre al <b>diseño</b> (paso 4): se corrige, se construye otra vez y se vuelve a evaluar.</p>
+            <p>Ejemplo: la ranura del soporte no aprieta, así que se cambia la ranura en el diseño.</p>
+          </div>
+        </div>
+        <figcaption>Volver atrás no es fracasar: así funciona el proceso tecnológico.</figcaption>
       </figure>
 
     </section>
@@ -2494,8 +2523,6 @@ footer .wrap{padding-block:18px 26px}
   </section>
 <!-- /cierre-tema -->
 </div>
-
-
 
 
 

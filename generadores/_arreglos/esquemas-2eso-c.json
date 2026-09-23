@@ -1,0 +1,58 @@
+[
+ {
+  "pagina": "2eso/TyD/tema8/index.html",
+  "img": "electric-circuit-basics.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Repite los cuatro elementos y los estados de la caja de al lado, y justo debajo va la lámina interactiva de símbolos IEC. Además contradice la página: dice que un circuito necesita 3 cosas (la página, 4), usa \"voltaje\" y \"carga\" en vez de tensión y receptor, y sus símbolos (resistencia en zigzag, pila) no son los normalizados que enseña."
+ },
+ {
+  "pagina": "2eso/TyD/tema8/index.html",
+  "img": "ohms-law-triangle.svg",
+  "accion": "svg",
+  "marca": "2eso-t8-ley-ohm-triangulo",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t8-ley-ohm-triangulo\">\n  <p class=\"esq-titulo\">El tri&aacute;ngulo de la ley de Ohm: tapa lo que buscas</p>\n  <svg viewBox=\"0 0 640 360\" role=\"img\" aria-label=\"Tri&aacute;ngulo de la ley de Ohm: la V arriba; la I y la R abajo, una al lado de la otra\" style=\"display:block;width:100%;max-width:420px;height:auto;margin:0 auto 16px\">\n  <path d=\"M320 20 L550 330 L90 330 Z\" style=\"fill:var(--surface);stroke:var(--ink);stroke-width:4;stroke-linejoin:round\"/>\n  <line x1=\"194\" y1=\"190\" x2=\"446\" y2=\"190\" style=\"stroke:var(--ink);stroke-width:4\"/>\n  <line x1=\"320\" y1=\"190\" x2=\"320\" y2=\"330\" style=\"stroke:var(--ink);stroke-width:4\"/>\n  <text x=\"320\" y=\"165\" text-anchor=\"middle\" style=\"fill:var(--ink);font-size:78px;font-weight:700;font-family:var(--f-m)\">V</text>\n  <text x=\"240\" y=\"300\" text-anchor=\"middle\" style=\"fill:var(--ink);font-size:78px;font-weight:700;font-family:var(--f-m)\">I</text>\n  <text x=\"400\" y=\"300\" text-anchor=\"middle\" style=\"fill:var(--ink);font-size:78px;font-weight:700;font-family:var(--f-m)\">R</text>\n</svg>\n  <div class=\"esq-tarjetas\">\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-azul)\">\n      <h4>&iquest;Buscas la I?</h4>\n      <p><b>Intensidad</b>, en amperios. Tapa la I: queda la V <b>encima</b> de la R.</p>\n      <p style=\"font-family:var(--f-m);font-size:17px\"><b>I = V / R</b></p>\n      <p>Pila de 4,5 V y bombilla de 9 &#8486;: I&nbsp;=&nbsp;4,5&nbsp;/&nbsp;9&nbsp;=&nbsp;<b>0,5&nbsp;A</b>.</p>\n    </div>\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n      <h4>&iquest;Buscas la V?</h4>\n      <p><b>Tensi&oacute;n</b>, en voltios. Tapa la V: quedan la I y la R, <b>una al lado de otra</b>.</p>\n      <p style=\"font-family:var(--f-m);font-size:17px\"><b>V = I &times; R</b></p>\n      <p>La misma bombilla: V&nbsp;=&nbsp;0,5&nbsp;&times;&nbsp;9&nbsp;=&nbsp;<b>4,5&nbsp;V</b>.</p>\n    </div>\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-amarillo)\">\n      <h4>&iquest;Buscas la R?</h4>\n      <p><b>Resistencia</b>, en ohmios. Tapa la R: queda la V <b>encima</b> de la I.</p>\n      <p style=\"font-family:var(--f-m);font-size:17px\"><b>R = V / I</b></p>\n      <p>La misma bombilla: R&nbsp;=&nbsp;4,5&nbsp;/&nbsp;0,5&nbsp;=&nbsp;<b>9&nbsp;&#8486;</b>.</p>\n    </div>\n  </div>\n  <p class=\"esq-nota\">Raya tumbada, <b>dividir</b>; raya de pie, <b>multiplicar</b>. Y siempre con V en voltios, I en amperios y R en ohmios.</p>\n</figure>",
+  "motivo": "El triángulo es un dibujo de verdad: se deja en SVG en línea con V, I y R grandes, y las tres fórmulas de la caja \"Ley de Ohm\" en tarjetas con el ejemplo resuelto de la página (4,5 V y 9 Ω). Se quitan los datos que la página no da (LED de 20 mA, 10 Ω, pila AA 1,5 V, ejemplos de 2 A y 12 V) y el \"multiplica los otros\", que es falso para I y R."
+ },
+ {
+  "pagina": "2eso/TyD/tema8/index.html",
+  "img": "series-parallel-circuits.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Justo debajo está la escena interactiva que dibuja los dos montajes con símbolos normalizados, y después la caja \"Conexión en serie / en paralelo\". El SVG además contradice la página: en serie pinta cada LED con distinto brillo (en serie la corriente es la misma y lucen igual) y usa 9 V ÷ 3 = 3 V cuando la página trabaja con 4,5 V y 1,5 V por lámpara."
+ },
+ {
+  "pagina": "2eso/TyD/tema8/index.html",
+  "img": "electrical-power-energy.svg",
+  "accion": "html",
+  "marca": "2eso-t8-potencia-energia",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t8-potencia-energia\">\n  <p class=\"esq-titulo\">Dos magnitudes que no hay que confundir</p>\n  <div class=\"esq-tarjetas esq-vs\">\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-azul)\">\n      <h4>Potencia (P)</h4>\n      <p><b>Lo deprisa</b> que gastas: la energ&iacute;a de cada segundo.</p>\n      <dl>\n        <dt>Se mide en</dt><dd><b>vatios (W)</b></dd>\n        <dt>F&oacute;rmula</dt><dd><b>P = V &times; I</b></dd>\n        <dt>D&oacute;nde la ves</dt><dd>Escrita en el <b>aparato</b></dd>\n      </dl>\n    </div>\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n      <h4>Energ&iacute;a (E)</h4>\n      <p><b>Lo que llevas gastado</b>: la potencia por el rato.</p>\n      <dl>\n        <dt>Se mide en</dt><dd><b>julios</b>; en casa, <b>kilovatios-hora (kWh)</b></dd>\n        <dt>F&oacute;rmula</dt><dd><b>E = P &times; t</b></dd>\n        <dt>D&oacute;nde la ves</dt><dd>En la <b>factura</b></dd>\n      </dl>\n    </div>\n  </div>\n  <p class=\"esq-nota\">El reto, con las dos: bombilla LED de 9 W durante 8 h &rarr; 0,009 kW &times; 8 h = <b>0,072 kWh</b>. Microondas de 1.000 W durante 5 minutos &rarr; 1 kW &times; 5/60 h = <b>0,083 kWh</b>. Cien veces m&aacute;s potencia, y casi la misma energ&iacute;a.</p>\n</figure>",
+  "motivo": "Potencia frente a energía en dos tarjetas enfrentadas, con las palabras de la página (lo deprisa / lo gastado, aparato / factura) y el reto del microondas pasado a kWh con su regla. Fuera los datos que la página no da (tostadora 230 V × 5 A, horno 15 A, 0,15 €/kWh, batería de 3.000 mAh...)."
+ },
+ {
+  "pagina": "2eso/TyD/tema9/index.html",
+  "img": "binary-representation.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Está en la cabecera de la sesión 3 y todo lo que dice lo da mejor la teoría: los ocho interruptores interactivos, la caja \"Bit y byte\" y la tabla de combinaciones. Contradice la página: 1 KB = 1.024 bytes (la página: 1 kB son mil bytes), y trae datos que no da (1 GB = 15 min de vídeo, 1 TB = 2.000 películas)."
+ },
+ {
+  "pagina": "2eso/TyD/tema9/index.html",
+  "img": "computer-architecture.svg",
+  "accion": "html",
+  "marca": "2eso-t9-piezas-ordenador",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t9-piezas-ordenador\">\n  <p class=\"esq-titulo\">Las piezas de un ordenador y qu&eacute; hace cada una</p>\n  <div class=\"esq-tarjetas\">\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-rojo)\">\n      <h4>Entrada</h4>\n      <p>Mete la informaci&oacute;n: <b>teclado</b>, <b>rat&oacute;n</b>, <b>micr&oacute;fono</b>, <b>c&aacute;mara</b>.</p>\n    </div>\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-azul)\">\n      <h4>CPU</h4>\n      <p>Obedece la lista de instrucciones: la <b>busca</b>, la <b>descodifica</b> y la <b>ejecuta</b>. Sin parar.</p>\n    </div>\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-amarillo)\">\n      <h4>Memoria</h4>\n      <p><b>RAM</b>: lo que se usa ahora. R&aacute;pida, y se borra al apagar.</p>\n      <p><b>Almacenamiento</b> (disco duro o SSD): lo que sigue ah&iacute; ma&ntilde;ana. M&aacute;s lento.</p>\n    </div>\n    <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n      <h4>Salida</h4>\n      <p>Saca la informaci&oacute;n: <b>pantalla</b>, <b>altavoces</b>, <b>impresora</b>.</p>\n    </div>\n  </div>\n  <p class=\"esq-nota\">Hoy, la <b>CPU</b>. La memoria es la sesi&oacute;n 2, y la entrada y la salida, la sesi&oacute;n 4.</p>\n</figure>",
+  "motivo": "Mapa de las piezas en cuatro tarjetas (entrada, CPU, memoria, salida) con lo que dice la página de cada una y a qué sesión va. Fuera lo que no da: bus de datos, caché L1 de ~1 ns, \"red\" como salida."
+ },
+ {
+  "pagina": "2eso/TyD/tema9/index.html",
+  "img": "os-process-management.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Es el sistema operativo y está en la cabecera de la sesión 2 (RAM y almacenamiento); el SO lo explica la sesión 5 con su escena de turnos y la caja \"Qué hace un sistema operativo\". Trae cifras que la página no da (Browser 500 MB, SO 1,2 GB) y dice que el SO cambia de programa cada milisegundo, cuando la página dice turnos de unos pocos milisegundos."
+ }
+]

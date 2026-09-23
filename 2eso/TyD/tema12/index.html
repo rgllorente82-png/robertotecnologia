@@ -342,6 +342,36 @@ footer .wrap{padding-block:18px 26px}
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -1475,11 +1505,24 @@ footer .wrap{padding-block:18px 26px}
            es una decisi&oacute;n de dise&ntilde;o de alguien: con 25 luces, o desfila o no se puede.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/programming_robotics_concepts.svg" width="1000" height="600" loading="lazy"
-             alt="Conceptos de programación: sensores, bloques de programación (bucles, condicionales, variables), algoritmos y estructura de un programa">
-        <figcaption>Los conceptos clave de programación y robótica: sensores que entienden el mundo, bloques que lo controlan (bucles, condicionales, variables),
-          y la estructura básica de un programa en micro:bit con inicialización y bucle infinito.</figcaption>
+      <figure class="esq" data-esquema="2eso-t12-microbit-partes">
+        <p class="esq-titulo">La micro:bit: entradas, programa y salidas</p>
+        <div class="esq-tarjetas">
+          <div class="esq-tarjeta" style="--c:var(--goo-azul)">
+            <h4>Entradas</h4>
+            <p>Por donde le llega lo que pasa fuera.</p>
+            <ul><li>Los botones A y B</li><li>Aceler&oacute;metro, br&uacute;jula, term&oacute;metro y micr&oacute;fono</li><li>La luz, que la mide con sus propios LED</li></ul>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-amarillo)">
+            <h4>Programa</h4>
+            <dl><dt>Al iniciar</dt><dd>Una sola vez, al encender.</dd><dt>Para siempre</dt><dd>Se repite sin parar mientras la placa tenga corriente.</dd></dl>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+            <h4>Salidas</h4>
+            <p>Por donde el programa cambia algo fuera.</p>
+            <ul><li>Los 25 LED, en cuadr&iacute;cula de 5&nbsp;&times;&nbsp;5</li><li>Lo que le conectes por los pines del borde, como un motor</li></ul>
+          </div>
+        </div>
       </figure>
 
     </section>
@@ -1641,12 +1684,23 @@ footer .wrap{padding-block:18px 26px}
            dato del sensor, y es lo que de verdad hay que ajustar en un automatismo.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/conditional-if-else.svg" width="1000" height="700" loading="lazy"
-             alt="Diagrama de flujo de condicionales: si condici&oacute;n entonces acci&oacute;n">
-        <figcaption><b>Estructura de un condicional: SI &hellip; ENTONCES &hellip; SI NO &hellip;</b> El programa compara dos valores (condici&oacute;n), obtiene S&iacute; o NO, y ejecuta uno de dos caminos. En el ejemplo: si temperatura &lt; 20, encender calefacci&oacute;n; si no, apagarla. La indentaci&oacute;n (los espacios al inicio de la l&iacute;nea) marca qu&eacute; c&oacute;digo va dentro de cada rama. Un programa sin condicionales no podr&iacute;a adaptarse al mundo: siempre har&iacute;a lo mismo.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="2eso-t12-condicional-farola">
+        <p class="esq-titulo">Un condicional, con la farola</p>
+        <div class="esq-tarjeta" style="--c:var(--goo-azul)">
+          <h4>La condici&oacute;n: nivel de luz &lt; 50</h4>
+          <p>Una comparaci&oacute;n que solo puede dar dos resultados. El 50 es el <b>umbral</b>: lo decides t&uacute;, no el sensor.</p>
+        </div>
+        <div class="esq-tarjetas esq-vs" style="margin-top:14px">
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+            <h4>Verdadero</h4>
+            <p>Hay poca luz. Se hace lo de <b>si &hellip; entonces</b>: encender los 25 LED.</p>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-rojo)">
+            <h4>Falso</h4>
+            <p>Hay luz de sobra. Se hace lo de <b>si no</b>: borrar la pantalla.</p>
+          </div>
+        </div>
+        <p class="esq-nota">Todo va dentro de <b>para siempre</b>: la placa lee el sensor, compara con el umbral y decide, una y otra vez.</p>
       </figure>
       <p>Pru&eacute;balo. Aqu&iacute; la placa est&aacute; ejecutando su bucle <b>para siempre</b> diez veces por
          segundo: lee el sensor, compara con el umbral y enciende o apaga. La rama verde de la

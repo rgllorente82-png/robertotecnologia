@@ -365,6 +365,36 @@ footer .wrap{padding-block:18px 26px}
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -545,12 +575,19 @@ footer .wrap{padding-block:18px 26px}
            dicen c&oacute;mo hay que hacerlo para que dos estudios distintos se puedan comparar.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/material-lifecycle.svg" width="1000" height="500" loading="lazy"
-             alt="Ciclo de vida del material: Extracción, Procesamiento, Fabricación, Distribución, Uso, y opción de Reciclaje o Vertedero">
-        <figcaption>El <b>ciclo de vida del material</b>: desde la extracción del mineral en la mina hasta el uso y el final del producto. Cada fase consume energía y genera residuos, y cuál pesa más depende del aparato: por eso la cuenta se hace etapa por etapa. La economía circular busca que el material vuelva a entrar (reciclaje) en lugar de acabar en vertedero, recuperando la energía ya invertida.
-          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t3-limites-del-sistema">
+        <p class="esq-titulo">Qu&eacute; etapas entran en cada cuenta</p>
+        <table class="esq-tabla">
+          <thead><tr><th>Etapa</th><th>De la cuna a la puerta</th><th>De la cuna a la tumba</th><th>De la cuna a la cuna</th></tr></thead>
+          <tbody>
+            <tr><th>Extraer</th><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td></tr>
+            <tr><th>Fabricar</th><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td></tr>
+            <tr><th>Transportar</th><td>Hasta la puerta de la f&aacute;brica</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td></tr>
+            <tr><th>Usar</th><td style="color:var(--ink-soft)">No</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td></tr>
+            <tr><th>Tirar</th><td style="color:var(--ink-soft)">No</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;</td><td style="color:var(--verde-texto);font-weight:700">S&iacute;, y el material vuelve a entrar</td></tr>
+          </tbody>
+        </table>
+        <p class="esq-nota">La de la puerta de la f&aacute;brica es la que dan casi todos los fabricantes, y deja fuera el uso. Antes de creerse un n&uacute;mero, se pregunta d&oacute;nde empieza y d&oacute;nde acaba la cuenta.</p>
       </figure>
       <p>Del ACV hay que quedarse con dos ideas, y son las dos que la gente se salta.</p>
 
@@ -1166,12 +1203,31 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
 
-      <figure class="foto">
-        <img src="../../../img/embodied-energy-comparison.svg" width="1000" height="700" loading="lazy"
-             alt="Energ&iacute;a incorporada de materiales: madera aserrada 10 MJ, acero 25 MJ, aluminio 186 MJ">
-        <figcaption><b>La &quot;mochila energ&eacute;tica&quot; de cada material</b>. Un kilo de madera aserrada lleva incorporados unos 10 MJ (el contrachapado, 15); el acero, 25 MJ; el aluminio, 186 MJ. <b>No es lo mismo que fundir</b> (eso cuesta 1 MJ en el horno): es toda la energ&iacute;a del proceso: mina, refiner&iacute;a, transporte, electr&oacute;lisis en el caso del aluminio. Esta energ&iacute;a ya est&aacute; gastada el d&iacute;a que compras el material.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t3-energia-incorporada">
+        <p class="esq-titulo">La mochila de cada material: MJ para tener listo 1 kg</p>
+        <div style="background:var(--surface);border:1.5px solid var(--line);padding:16px 16px 6px">
+          <div style="margin:0 0 12px">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px"><span>Madera aserrada</span><b style="white-space:nowrap">10 MJ</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:16px"><div style="width:5.4%;min-width:3px;height:100%;background:var(--goo-verde)"></div></div>
+          </div>
+          <div style="margin:0 0 12px">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px"><span>Contrachapado</span><b style="white-space:nowrap">15 MJ</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:16px"><div style="width:8.1%;min-width:3px;height:100%;background:var(--goo-verde)"></div></div>
+          </div>
+          <div style="margin:0 0 12px">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px"><span>Acero</span><b style="white-space:nowrap">25 MJ</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:16px"><div style="width:13.4%;min-width:3px;height:100%;background:var(--goo-azul)"></div></div>
+          </div>
+          <div style="margin:0 0 12px">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px"><span>Aluminio</span><b style="white-space:nowrap">186 MJ</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:16px"><div style="width:100.0%;min-width:3px;height:100%;background:var(--goo-rojo)"></div></div>
+          </div>
+          <div style="margin:0 0 12px">
+            <div style="display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px"><span>Solo fundir 1 kg de aluminio que ya es metal</span><b style="white-space:nowrap">0,97 MJ</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:16px"><div style="width:0.5%;min-width:3px;height:100%;background:var(--goo-amarillo)"></div></div>
+          </div>
+        </div>
+        <figcaption>Las barras van a escala. La energ&iacute;a incorporada es toda la del proceso (mina, refiner&iacute;a, transporte y, en el aluminio, la electr&oacute;lisis), y ya est&aacute; gastada el d&iacute;a que compras el material. Fundirlo es la rayita de abajo.</figcaption>
       </figure>
 
 

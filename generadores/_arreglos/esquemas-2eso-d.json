@@ -1,0 +1,66 @@
+[
+ {
+  "pagina": "2eso/TyD/tema10/index.html",
+  "img": "http-vs-https-security.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Repite lo que la escena interactiva de justo debajo ('Lo que ve cada salto del camino') enseña mejor, y las dos cajas de libreta 'http y https' y 'Lo que el candado NO dice'. Además mete cosas que la página no dice (virus, contraseñas fáciles, 'en blogs es menos crítico') y afirma 'nadie los puede leer' sin la salvedad de los extremos que la página sí da. Quitándola, 'En la escena de abajo...' queda pegado a la escena."
+ },
+ {
+  "pagina": "2eso/TyD/tema10/index.html",
+  "img": "network-layers-osi.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "La página no explica el modelo OSI (el propio pie dice que no hace falta aprendérselo); casi todo son datos que la página no da (siete capas, puertos 80/443, SSL en la capa 6, MAC, switch). Está entre 'Prueba la red de abajo' y la escena de los paquetes, y rompe esa frase."
+ },
+ {
+  "pagina": "2eso/TyD/tema11/index.html",
+  "img": "file-formats.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Repite la tabla 'Formatos de fichero' de la misma sesión (texto plano / documento con marcas / página fija), que lo dice mejor. Y la contradice: PDF 'inmodificable' y 'tamaño grande' (la página: 'cuesta editarlo'), DOCX 'pesado, incompatible', y añade vídeo, audio y HTML que la sesión no trata."
+ },
+ {
+  "pagina": "2eso/TyD/tema11/index.html",
+  "img": "image-pixels-color.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Está en la cabecera de la S2, antes del reto, y su pie destripa la cuenta que el reto pide hacer (35 MB en bruto, 3 MB el fichero). La rejilla y los 3 bytes por píxel ya los dan el reto ('Las dos multiplicaciones') y la foto del sensor. Sus datos no los da la página o la contradicen: tabla de pesos JPG inventada, '1920×1080 = foto móvil' (la página: 4.032 × 3.024), 0-255 y 16,7 millones de colores."
+ },
+ {
+  "pagina": "2eso/TyD/tema11/index.html",
+  "img": "digital-collaboration.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Cabecera de la S5, antes del reto que pregunta cómo os repartís el trabajo: destripa la respuesta. Todo lo que dice lo cuentan mejor la escena de probabilidades y las cajas 'Copia y original', 'Documento compartido e historial' y 'Comentario frente a cambio'. Y contradice la idea clave de la página: da a entender que la nube evita el conflicto, cuando la página dice que no evita pisarse, solo que se pierda; además nombra marcas (Google Docs, OneDrive, Notion) y guarda un 'tarea_v3_FINAL.docx'."
+ },
+ {
+  "pagina": "2eso/TyD/tema11/index.html",
+  "img": "image-resolution-filesize.svg",
+  "accion": "html",
+  "marca": "2eso-t11-cuenta-foto",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t11-cuenta-foto\">\n        <p class=\"esq-titulo\">La cuenta de una foto, paso a paso</p>\n        <ol class=\"esq-pasos\">\n          <li><b>P&iacute;xeles</b> Ancho &times; alto. La foto de un m&oacute;vil: 4.032&nbsp;&times;&nbsp;3.024 = 12.192.768, los &laquo;12 megap&iacute;xeles&raquo;.</li>\n          <li><b>Peso en bruto</b> P&iacute;xeles &times; 3 bytes, uno de rojo, uno de verde y uno de azul: unos 35 MB.</li>\n          <li><b>Peso del fichero</b> Lo que dice el m&oacute;vil: entre 2 y 4 MB. El resto lo ha quitado la compresi&oacute;n.</li>\n          <li><b>Raz&oacute;n de compresi&oacute;n</b> Peso en bruto &divide; peso del fichero. Cambia de una foto a otra.</li>\n        </ol>\n        <p class=\"esq-nota\">Y antes de nada, el destino: en una diapositiva no se ven m&aacute;s de <b>1.920 p&iacute;xeles de ancho</b>. Lo que pase de ah&iacute; ocupa, viaja y tarda, y no lo ve nadie.</p>\n      </figure>",
+  "motivo": "Justo antes de la práctica 11.2, que pide esas cuentas. El SVG daba destinos y pesos que la página no da o contradice (800×600 para web, 4000×3000 para imprimir, JPG al 10 %, PNG al 20 %, WebP al 5 %; la página mide que el PNG apenas ahorra en fotos). Se cambia por la cadena de cuentas de la propia sesión, con sus cifras (4.032 × 3.024, 3 bytes, ~35 MB, 2-4 MB, 1.920 de ancho)."
+ },
+ {
+  "pagina": "2eso/TyD/tema12/index.html",
+  "img": "programming_robotics_concepts.svg",
+  "accion": "html",
+  "marca": "2eso-t12-microbit-partes",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t12-microbit-partes\">\n        <p class=\"esq-titulo\">La micro:bit: entradas, programa y salidas</p>\n        <div class=\"esq-tarjetas\">\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-azul)\">\n            <h4>Entradas</h4>\n            <p>Por donde le llega lo que pasa fuera.</p>\n            <ul><li>Los botones A y B</li><li>Aceler&oacute;metro, br&uacute;jula, term&oacute;metro y micr&oacute;fono</li><li>La luz, que la mide con sus propios LED</li></ul>\n          </div>\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-amarillo)\">\n            <h4>Programa</h4>\n            <dl><dt>Al iniciar</dt><dd>Una sola vez, al encender.</dd><dt>Para siempre</dt><dd>Se repite sin parar mientras la placa tenga corriente.</dd></dl>\n          </div>\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n            <h4>Salidas</h4>\n            <p>Por donde el programa cambia algo fuera.</p>\n            <ul><li>Los 25 LED, en cuadr&iacute;cula de 5&nbsp;&times;&nbsp;5</li><li>Lo que le conectes por los pines del borde, como un motor</li></ul>\n          </div>\n        </div>\n      </figure>",
+  "motivo": "Cierra la teoría de la S3 ordenando lo que la sesión cuenta (entradas, salidas, al iniciar / para siempre). El SVG mezclaba algoritmo y bucles de otras sesiones y contradecía a la página: 'Luz (LDR)' como sensor de la micro:bit, cuando la página dice que la mide con sus propios LED; y la estructura 'INICIO / CONFIGURAR / BUCLE INFINITO' no usa los nombres de los bloques."
+ },
+ {
+  "pagina": "2eso/TyD/tema12/index.html",
+  "img": "conditional-if-else.svg",
+  "accion": "html",
+  "marca": "2eso-t12-condicional-farola",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t12-condicional-farola\">\n        <p class=\"esq-titulo\">Un condicional, con la farola</p>\n        <div class=\"esq-tarjeta\" style=\"--c:var(--goo-azul)\">\n          <h4>La condici&oacute;n: nivel de luz &lt; 50</h4>\n          <p>Una comparaci&oacute;n que solo puede dar dos resultados. El 50 es el <b>umbral</b>: lo decides t&uacute;, no el sensor.</p>\n        </div>\n        <div class=\"esq-tarjetas esq-vs\" style=\"margin-top:14px\">\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n            <h4>Verdadero</h4>\n            <p>Hay poca luz. Se hace lo de <b>si &hellip; entonces</b>: encender los 25 LED.</p>\n          </div>\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-rojo)\">\n            <h4>Falso</h4>\n            <p>Hay luz de sobra. Se hace lo de <b>si no</b>: borrar la pantalla.</p>\n          </div>\n        </div>\n        <p class=\"esq-nota\">Todo va dentro de <b>para siempre</b>: la placa lee el sensor, compara con el umbral y decide, una y otra vez.</p>\n      </figure>",
+  "motivo": "El SVG explicaba el condicional con una calefacción y código Python, que la página no usa (trabaja con bloques de MakeCode y la farola). Se rehace con el ejemplo de la sesión: el programa Farola de la escena de debajo (si nivel de luz < 50 entonces encender los 25 LED, si no borrar la pantalla), con condición, umbral y las dos ramas."
+ }
+]

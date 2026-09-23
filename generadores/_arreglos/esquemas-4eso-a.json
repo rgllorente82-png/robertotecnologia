@@ -1,0 +1,58 @@
+[
+ {
+  "pagina": "4eso/Tecnologia/tema1/index.html",
+  "img": "problem-vs-solution.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Va en la sesion 2 (requisitos) pero habla de problema frente a solucion, que es la sesion 1; el contraste util de la sesion 2 (deseo frente a requisito, con sus cuatro piezas) ya esta escrito en el texto unas lineas mas abajo. Ademas traia cifras que la pagina no da (200 h/ano, <300 EUR, 1 m2) y llamaba 'problema bien escrito' a lo que son requisitos."
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema1/index.html",
+  "img": "design-thinking-process.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "La pagina no usa el Design Thinking en ningun sitio (su recorrido es problema medido, requisitos, alternativas con matriz, Gantt...); el esquema de seis fases abre la sesion 3 sin relacion con ella y el pie ya dice todo lo que dice el dibujo."
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema1/index.html",
+  "img": "project-phases-timeline.svg",
+  "accion": "quitar",
+  "marca": "",
+  "html": "",
+  "motivo": "Las cinco fases solo aparecen en este pie; la sesion 4 trabaja con las doce tareas reales y su Gantt interactivo, y el camino critico y la holgura ya estan definidos en la teoria. El SVG ademas repartia el proyecto en 8 semanas (Semana 1...Semana 8), que choca con las 21 sesiones de la pagina."
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema2/index.html",
+  "img": "cad-workflow.svg",
+  "accion": "html",
+  "marca": "4eso-t2-del-diseno-a-la-pieza",
+  "html": "<figure class=\"esq\" data-esquema=\"4eso-t2-del-diseno-a-la-pieza\">\n        <p class=\"esq-titulo\">Del dise&ntilde;o a la pieza, y d&oacute;nde se cuela el error en cada paso</p>\n        <ol class=\"esq-pasos\">\n          <li><b>Plano acotado</b> Cotas en cadena, desde una referencia o mixtas. En cadena, los errores peque&ntilde;os se suman. <i>(Sesi&oacute;n 1)</i></li>\n          <li><b>Tolerancia</b> Ninguna pieza mide 8,000 mm: se pide entre qu&eacute; dos n&uacute;meros vale. <i>(Sesi&oacute;n 2)</i></li>\n          <li><b>Modelo 3D con par&aacute;metros</b> Cambiar un dato es mover un n&uacute;mero, no repasar el modelo entero. <i>(Sesi&oacute;n 5)</i></li>\n          <li><b>STL para la m&aacute;quina</b> Solo guarda v&eacute;rtices, y al exportar el agujero encoge. <i>(Sesi&oacute;n 5)</i></li>\n          <li><b>Sierra, l&aacute;ser o impresora</b> Cada una tiene su tolerancia; el l&aacute;ser, adem&aacute;s, su sangr&iacute;a. <i>(Sesi&oacute;n 4)</i></li>\n        </ol>\n        <p class=\"esq-nota\">Dibujar con ordenador deja ver la pieza antes de fabricarla, pero no quita ninguno de estos errores. De eso va este tema: saber d&oacute;nde entra cada uno.</p>\n      </figure>",
+  "motivo": "Abre la unidad: se cambia el flujo CAD generico (FEA, G-code, ocho programas que la pagina no usa) por el recorrido de la propia unidad y el error que entra en cada paso, que es la frase final del pie antiguo."
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema2/index.html",
+  "img": "manufacturing-methods.svg",
+  "accion": "html",
+  "marca": "4eso-t2-sustractiva-aditiva",
+  "html": "<figure class=\"esq\" data-esquema=\"4eso-t2-sustractiva-aditiva\">\n        <p class=\"esq-titulo\">Quitar material o a&ntilde;adirlo</p>\n        <div class=\"esq-tarjetas esq-vs\">\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-azul)\">\n            <h4>Sustractiva</h4>\n            <p>Parte de un bloque o un tablero y le <b>quita</b> material. Lo que sobra es residuo.</p>\n            <dl>\n              <dt>En el aula</dt><dd>Sierra, taladro, lima, cortadora l&aacute;ser.</dd>\n              <dt>Lo que te obliga a dibujar</dt><dd>Sierra: fuera las curvas y rincones redondeados. L&aacute;ser: todo plano y descontando la sangr&iacute;a.</dd>\n              <dt>Tiempo</dt><dd>Con la sierra, la tapa est&aacute; en una sesi&oacute;n; con el l&aacute;ser, en cinco minutos.</dd>\n            </dl>\n          </div>\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n            <h4>Aditiva</h4>\n            <p><b>A&ntilde;ade</b> el material capa a capa. Es la &uacute;nica que hace formas huecas por dentro.</p>\n            <dl>\n              <dt>En el aula</dt><dd>La impresora 3D.</dd>\n              <dt>Lo que te obliga a dibujar</dt><dd>Cuidado con los voladizos, con la orientaci&oacute;n de las capas y con los agujeros, que salen peque&ntilde;os.</dd>\n              <dt>Tiempo</dt><dd>La m&aacute;s lenta: una impresora para diez grupos son casi dos semanas de clase.</dd>\n            </dl>\n          </div>\n        </div>\n        <p class=\"esq-nota\">No hay una ganadora. La t&eacute;cnica se elige <b>antes</b> de dibujar, porque decide lo que puedes dibujar.</p>\n      </figure>",
+  "motivo": "Sustractiva frente a aditiva en dos tarjetas con lo que dice la sesion 4 (herramientas del aula, lo que cada tecnica obliga a dibujar, tiempo). Se quitan torneado, fresado CNC, SLA, sinterizado y 'soldadura/pegado' como tecnica aditiva, que la pagina no da (y lo ultimo es una union, no fabricacion aditiva)."
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema3/index.html",
+  "img": "embodied-energy-comparison.svg",
+  "accion": "html",
+  "marca": "4eso-t3-energia-incorporada",
+  "html": "<figure class=\"esq\" data-esquema=\"4eso-t3-energia-incorporada\">\n        <p class=\"esq-titulo\">La mochila de cada material: MJ para tener listo 1 kg</p>\n        <div style=\"background:var(--surface);border:1.5px solid var(--line);padding:16px 16px 6px\">\n          <div style=\"margin:0 0 12px\">\n            <div style=\"display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px\"><span>Madera aserrada</span><b style=\"white-space:nowrap\">10 MJ</b></div>\n            <div style=\"background:var(--surface-2);border:1px solid var(--line);height:16px\"><div style=\"width:5.4%;min-width:3px;height:100%;background:var(--goo-verde)\"></div></div>\n          </div>\n          <div style=\"margin:0 0 12px\">\n            <div style=\"display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px\"><span>Contrachapado</span><b style=\"white-space:nowrap\">15 MJ</b></div>\n            <div style=\"background:var(--surface-2);border:1px solid var(--line);height:16px\"><div style=\"width:8.1%;min-width:3px;height:100%;background:var(--goo-verde)\"></div></div>\n          </div>\n          <div style=\"margin:0 0 12px\">\n            <div style=\"display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px\"><span>Acero</span><b style=\"white-space:nowrap\">25 MJ</b></div>\n            <div style=\"background:var(--surface-2);border:1px solid var(--line);height:16px\"><div style=\"width:13.4%;min-width:3px;height:100%;background:var(--goo-azul)\"></div></div>\n          </div>\n          <div style=\"margin:0 0 12px\">\n            <div style=\"display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px\"><span>Aluminio</span><b style=\"white-space:nowrap\">186 MJ</b></div>\n            <div style=\"background:var(--surface-2);border:1px solid var(--line);height:16px\"><div style=\"width:100.0%;min-width:3px;height:100%;background:var(--goo-rojo)\"></div></div>\n          </div>\n          <div style=\"margin:0 0 12px\">\n            <div style=\"display:flex;justify-content:space-between;gap:12px;font-size:15.5px;line-height:1.4;margin:0 0 4px\"><span>Solo fundir 1 kg de aluminio que ya es metal</span><b style=\"white-space:nowrap\">0,97 MJ</b></div>\n            <div style=\"background:var(--surface-2);border:1px solid var(--line);height:16px\"><div style=\"width:0.5%;min-width:3px;height:100%;background:var(--goo-amarillo)\"></div></div>\n          </div>\n        </div>\n        <figcaption>Las barras van a escala. La energ&iacute;a incorporada es toda la del proceso (mina, refiner&iacute;a, transporte y, en el aluminio, la electr&oacute;lisis), y ya est&aacute; gastada el d&iacute;a que compras el material. Fundirlo es la rayita de abajo.</figcaption>\n      </figure>",
+  "motivo": "Barras a escala con las cifras de la pagina (madera aserrada 10, contrachapado 15, acero 25, aluminio 186 MJ/kg) y la de fundir 0,97 MJ, que es el gancho de la sesion 2. Fuera las listas de ventajas y los tres parrafos de texto dentro de la imagen."
+ },
+ {
+  "pagina": "4eso/Tecnologia/tema3/index.html",
+  "img": "material-lifecycle.svg",
+  "accion": "html",
+  "marca": "4eso-t3-limites-del-sistema",
+  "html": "<figure class=\"esq\" data-esquema=\"4eso-t3-limites-del-sistema\">\n        <p class=\"esq-titulo\">Qu&eacute; etapas entran en cada cuenta</p>\n        <table class=\"esq-tabla\">\n          <thead><tr><th>Etapa</th><th>De la cuna a la puerta</th><th>De la cuna a la tumba</th><th>De la cuna a la cuna</th></tr></thead>\n          <tbody>\n            <tr><th>Extraer</th><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td></tr>\n            <tr><th>Fabricar</th><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td></tr>\n            <tr><th>Transportar</th><td>Hasta la puerta de la f&aacute;brica</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td></tr>\n            <tr><th>Usar</th><td style=\"color:var(--ink-soft)\">No</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td></tr>\n            <tr><th>Tirar</th><td style=\"color:var(--ink-soft)\">No</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;</td><td style=\"color:var(--verde-texto);font-weight:700\">S&iacute;, y el material vuelve a entrar</td></tr>\n          </tbody>\n        </table>\n        <p class=\"esq-nota\">La de la puerta de la f&aacute;brica es la que dan casi todos los fabricantes, y deja fuera el uso. Antes de creerse un n&uacute;mero, se pregunta d&oacute;nde empieza y d&oacute;nde acaba la cuenta.</p>\n      </figure>",
+  "motivo": "Las cinco etapas ya estan en lista justo encima, y el SVG usaba otras seis (procesamiento, distribucion, vertedero). Se cambia por lo que la lista sola no enseña: que etapas cuenta cada limite del sistema (cuna a la puerta, a la tumba, a la cuna), con los terminos de la pagina."
+ }
+]

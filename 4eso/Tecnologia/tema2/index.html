@@ -339,6 +339,36 @@ footer .wrap{padding-block:18px 26px}
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -361,12 +391,16 @@ footer .wrap{padding-block:18px 26px}
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>25'</b> Teor&iacute;a</span><span class="min"><b>20'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE3 &middot; 3.1</span><span class="chip sab">A.2 &middot; A.3.1</span></div>
 
-      <figure class="foto">
-        <img src="../../../img/cad-workflow.svg" width="1071" height="581" loading="lazy"
-             alt="Flujo CAD: Idea, Dibujo 2D, Modelo 3D, Simulaci&oacute;n, CAM/Fabricaci&oacute;n">
-        <figcaption>El <b>flujo de CAD</b> (Computer-Aided Design): (1) <b>Idea</b> en papel, (2) <b>Dibujo 2D</b> con vistas ortogonales y cotas precisas, (3) <b>Modelo 3D</b> param&eacute;trico (todo conectado: cambiar una cota actualiza la pieza entera), (4) <b>Simular</b> (fuerzas, movimiento, esfuerzos), (5) <b>CAM</b> (traducir a G-code para CNC o impresora 3D). Software: AutoCAD/SolidWorks para industria, FreeCAD/Tinkercad para educaci&oacute;n. La ventaja: ver la pieza en 3D antes de fabricar. Lo que no hace es quitar los errores: la tolerancia de cada m&aacute;quina, la sangr&iacute;a del l&aacute;ser y el agujero que encoge al exportar el STL siguen ah&iacute;, y de eso va este tema.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t2-del-diseno-a-la-pieza">
+        <p class="esq-titulo">Del dise&ntilde;o a la pieza, y d&oacute;nde se cuela el error en cada paso</p>
+        <ol class="esq-pasos">
+          <li><b>Plano acotado</b> Cotas en cadena, desde una referencia o mixtas. En cadena, los errores peque&ntilde;os se suman. <i>(Sesi&oacute;n 1)</i></li>
+          <li><b>Tolerancia</b> Ninguna pieza mide 8,000 mm: se pide entre qu&eacute; dos n&uacute;meros vale. <i>(Sesi&oacute;n 2)</i></li>
+          <li><b>Modelo 3D con par&aacute;metros</b> Cambiar un dato es mover un n&uacute;mero, no repasar el modelo entero. <i>(Sesi&oacute;n 5)</i></li>
+          <li><b>STL para la m&aacute;quina</b> Solo guarda v&eacute;rtices, y al exportar el agujero encoge. <i>(Sesi&oacute;n 5)</i></li>
+          <li><b>Sierra, l&aacute;ser o impresora</b> Cada una tiene su tolerancia; el l&aacute;ser, adem&aacute;s, su sangr&iacute;a. <i>(Sesi&oacute;n 4)</i></li>
+        </ol>
+        <p class="esq-nota">Dibujar con ordenador deja ver la pieza antes de fabricarla, pero no quita ninguno de estos errores. De eso va este tema: saber d&oacute;nde entra cada uno.</p>
       </figure>
     </div>
     <section class="bloque">
@@ -2098,12 +2132,29 @@ footer .wrap{padding-block:18px 26px}
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>15'</b> Pr&aacute;ctica</span><span class="min"><b>10'</b> Test</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1 &middot; 2.2</span><span class="chip">CE5 &middot; 5.1</span><span class="chip sab">A.3 &middot; D.4</span></div>
 
-      <figure class="foto">
-        <img src="../../../img/manufacturing-methods.svg" width="1124" height="664" loading="lazy"
-             alt="M&eacute;todos de fabricaci&oacute;n: Sustractiva (quitar material) frente a Aditiva (a&ntilde;adir material capa a capa)">
-        <figcaption><b>Fabricaci&oacute;n sustractiva frente a aditiva</b>. La sustractiva parte de un bloque o un tablero y le <b>quita</b> material (sierra, taladro, lima, cortadora l&aacute;ser): lo que sobra es residuo. La aditiva lo <b>a&ntilde;ade</b> capa a capa (impresora 3D) y es la &uacute;nica que puede hacer formas huecas por dentro, pero es la m&aacute;s lenta: con una impresora para diez grupos, la cola dura casi dos semanas de clase. No hay una ganadora, y se elige antes de dibujar, porque cada t&eacute;cnica decide lo que puedes dibujar.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t2-sustractiva-aditiva">
+        <p class="esq-titulo">Quitar material o a&ntilde;adirlo</p>
+        <div class="esq-tarjetas esq-vs">
+          <div class="esq-tarjeta" style="--c:var(--goo-azul)">
+            <h4>Sustractiva</h4>
+            <p>Parte de un bloque o un tablero y le <b>quita</b> material. Lo que sobra es residuo.</p>
+            <dl>
+              <dt>En el aula</dt><dd>Sierra, taladro, lima, cortadora l&aacute;ser.</dd>
+              <dt>Lo que te obliga a dibujar</dt><dd>Sierra: fuera las curvas y rincones redondeados. L&aacute;ser: todo plano y descontando la sangr&iacute;a.</dd>
+              <dt>Tiempo</dt><dd>Con la sierra, la tapa est&aacute; en una sesi&oacute;n; con el l&aacute;ser, en cinco minutos.</dd>
+            </dl>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+            <h4>Aditiva</h4>
+            <p><b>A&ntilde;ade</b> el material capa a capa. Es la &uacute;nica que hace formas huecas por dentro.</p>
+            <dl>
+              <dt>En el aula</dt><dd>La impresora 3D.</dd>
+              <dt>Lo que te obliga a dibujar</dt><dd>Cuidado con los voladizos, con la orientaci&oacute;n de las capas y con los agujeros, que salen peque&ntilde;os.</dd>
+              <dt>Tiempo</dt><dd>La m&aacute;s lenta: una impresora para diez grupos son casi dos semanas de clase.</dd>
+            </dl>
+          </div>
+        </div>
+        <p class="esq-nota">No hay una ganadora. La t&eacute;cnica se elige <b>antes</b> de dibujar, porque decide lo que puedes dibujar.</p>
       </figure>
     </div>
     <section class="bloque">

@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -394,6 +393,36 @@ window.QUIETO = function(){
             window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 };
 </script>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -1141,13 +1170,6 @@ window.QUIETO = function(){
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
 
-      <figure class="foto">
-        <img src="../../../img/transistor-basics.svg" width="1171" height="668" loading="lazy"
-             alt="El transistor como interruptor y amplificador, con aplicaciones prácticas">
-        <figcaption>El <b>transistor</b> es el componente que revolucionó la electrónica moderna: permite que una pequeña corriente de control abra o cierre el paso a una corriente mucho mayor. Como interruptor electrónico, permite que Arduino controle motores, bombas y electroválvulas. Como amplificador, es la base de radios, equipos de audio y toda la electrónica analógica. Inventado en 1947, un transistor moderno cuesta apenas 1 céntimo.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h3>Un grifo que abre otro grifo</h3>
       <div class="copiar">
@@ -1178,12 +1200,26 @@ window.QUIETO = function(){
            0,2 V, y 0,2 V por 250 mA son 50 mW, nada. A medio abrir puede quedarse con 2,5 V, y 2,5 V por
            250 mA son 625 mW dentro de una c&aacute;psula del tama&ntilde;o de un guisante.</p>
       </div>
-      <figure class="foto">
-        <img src="../../../img/transistor-switch-concept.svg" width="1000" height="700" loading="lazy"
-             alt="El transistor como interruptor: comparaci&oacute;n entre base sin se&ntilde;al y con se&ntilde;al">
-        <figcaption><b>El transistor como interruptor inteligente</b>. Con 0 V en la base: transistor bloqueado, comportamiento como interruptor ABIERTO, no fluye corriente. Con 5 V en la base: transistor conduciendo (saturado), comportamiento como interruptor CERRADO, fluye corriente. Una corriente peque&ntilde;a en la base (~10 mA) controla una corriente enorme en el colector (~500 mA): es la amplificaci&oacute;n.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t5-transistor-estados">
+        <p class="esq-titulo">El mismo transistor y la bomba de 250&nbsp;mA, seg&uacute;n lo que le llegue a la base</p>
+        <div class="esq-tarjetas">
+          <div class="esq-tarjeta" style="--c:var(--ink-soft)">
+            <h4>Pin a 0 V</h4>
+            <p>No entra corriente por la base, as&iacute; que del colector al emisor no pasa nada.</p>
+            <p><b>Interruptor abierto.</b> La bomba, parada.</p>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-amarillo)">
+            <h4>Base escasa: a medio abrir</h4>
+            <p>Pasa corriente, pero el transistor se queda con parte de la tensi&oacute;n: por ejemplo 2,5&nbsp;V.</p>
+            <p><b>2,5 V &middot; 250 mA = 625 mW</b> de calor dentro de un guisante.</p>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+            <h4>Base de sobra: saturado</h4>
+            <p>Abierto del todo. Se queda solo con 0,2&nbsp;V.</p>
+            <p><b>0,2 V &middot; 250 mA = 50 mW</b>, nada. <b>Interruptor cerrado.</b> La bomba, en marcha.</p>
+          </div>
+        </div>
+        <p class="esq-nota">Como interruptor, el que queremos es el tercero: se le da a la base mucha m&aacute;s corriente de la que hace falta, para que se abra del todo.</p>
       </figure>
       <p>Mira las cuatro barras de la escena. Cambia la carga, cambia la resistencia de base y mira
          cu&aacute;ndo se pone verde el letrero.</p>
@@ -1378,20 +1414,20 @@ window.QUIETO = function(){
           }
 
           /* transistor NPN */
-          s += '<circle cx="250" cy="215" r="30" fill="var(--surface)" stroke="var(--ink-soft)" stroke-width="1.5"></circle>';
-          s += hilo('M242 199 V231', 'var(--ink)', 3.5);
-          s += hilo('M200 215 H242', 'var(--ink)', 2);
-          s += hilo('M242 205 L266 193 V168', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
+          s += '<circle cx="234" cy="215" r="30" fill="var(--surface)" stroke="var(--ink-soft)" stroke-width="1.5"></circle>';
+          s += hilo('M226 199 V231', 'var(--ink)', 3.5);
+          s += hilo('M200 215 H226', 'var(--ink)', 2);
+          s += hilo('M226 205 L250 193 V168', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
                     sano ? 2.5 : 2);
-          s += hilo('M242 225 L266 237 V282', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
+          s += hilo('M226 225 L250 237 V282', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
                     sano ? 2.5 : 2);
           /* la flecha del emisor, que es lo que dice que es NPN */
-          s += '<path d="M262 235 l-11 -3 l3 9 Z" fill="var(--ink)"></path>';
-          s += rot(284, 172, r.Q.n, 'font-size:11px;fill:var(--ink);font-weight:500');
+          s += '<path d="M246 235 l-11 -3 l3 9 Z" fill="var(--ink)"></path>';
+          s += rot(268, 172, r.Q.n, 'font-size:11px;fill:var(--ink);font-weight:500');
           /* las tres patillas, rotuladas donde salen */
-          s += rot(274, 188, 'C', 'font-size:10.5px;fill:var(--ink)');
-          s += rot(274, 254, 'E', 'font-size:10.5px;fill:var(--ink)');
-          s += rot(206, 208, 'B', 'font-size:10.5px;fill:var(--ink)');
+          s += rot(258, 188, 'C', 'font-size:10.5px;fill:var(--ink)');
+          s += rot(258, 254, 'E', 'font-size:10.5px;fill:var(--ink)');
+          s += rot(189, 208, 'B', 'font-size:10.5px;fill:var(--ink)');
 
           /* resistencia de base y pin */
           s += caja(128, 205, 56, 20, 'var(--surface)', 'var(--ink-soft)', 2);
@@ -1405,10 +1441,10 @@ window.QUIETO = function(){
                    + (pinAlto ? 'var(--goo-azul)' : 'var(--ink-soft)'), 'middle');
 
           /* masa comun: el Arduino y la carga tienen que compartirla */
-          s += hilo('M266 282 V296 H40 V230');
-          s += hilo('M253 296 H279', 'var(--ink-soft)', 2.5);
-          s += hilo('M257 301 H275', 'var(--ink-soft)', 2);
-          s += hilo('M261 306 H271', 'var(--ink-soft)', 2);
+          s += hilo('M250 282 V296 H40 V230');
+          s += hilo('M237 296 H263', 'var(--ink-soft)', 2.5);
+          s += hilo('M241 301 H259', 'var(--ink-soft)', 2);
+          s += hilo('M245 306 H255', 'var(--ink-soft)', 2);
           s += rot(150, 316, 'la masa es la MISMA para los dos', 'font-size:9px', 'middle');
 
           /* ==================== panel de cuentas ==================== */
@@ -6321,8 +6357,6 @@ void salta(int siguiente) { paso = siguiente; tPaso = millis(); }</pre>
   </section>
 <!-- /cierre-tema -->
 </div>
-
-
 
 
 

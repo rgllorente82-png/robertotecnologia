@@ -1,0 +1,1 @@
+[{"fichero": "4eso/Tecnologia/tema5/index.html", "viejo": "s += rot(206, 208, 'B', 'font-size:10.5px;fill:var(--ink)');", "nuevo": "s += rot(189, 208, 'B', 'font-size:10.5px;fill:var(--ink)');", "motivo": "Al mover el transistor, la B quedaba encima del borde del círculo."}]

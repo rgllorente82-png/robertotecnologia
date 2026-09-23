@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -337,6 +336,36 @@ footer .wrap{padding-block:18px 26px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
+}
+</style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
 }
 </style>
 </head>
@@ -1604,12 +1633,15 @@ void loop() {
     </section>
 
     <section class="bloque">
-      <figure class="foto">
-        <img src="../../../img/iot-architecture.svg" width="1369" height="440" loading="lazy"
-             alt="Arquitectura IoT: Sensores y dispositivos inteligentes env&iacute;an datos a trav&eacute;s de gateway a la nube para an&aacute;lisis, que devuelven decisiones a los actuadores">
-        <figcaption>La <b>arquitectura IoT</b> (Internet de las Cosas): sensores y dispositivos miden el mundo real y transmiten datos a trav&eacute;s de protocolos inal&aacute;mbricos (WiFi, Bluetooth, LTE, LoRaWAN) hasta un gateway que centraliza la comunicaci&oacute;n. Desde la nube se analizan los datos, y la aplicaci&oacute;n decide qu&eacute; hacer y env&iacute;a &oacute;rdenes de vuelta a los actuadores. El termostato inteligente de tu casa es exactamente esto: detecta temperatura, la env&iacute;a a internet, tu tel&eacute;fono compara con lo que deseas, y activa la calefacci&oacute;n.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t6-iot-camino">
+        <p class="esq-titulo">El camino de un dato, del aula a tu casa</p>
+        <ol class="esq-pasos" style="padding-left:0">
+          <li><b>Tu placa</b> mide y escribe el mensaje: qui&eacute;n, qu&eacute;, cu&aacute;ndo y a d&oacute;nde. <i>Alguien manda.</i></li>
+          <li><b>El router del centro</b> lo deja salir a la red. Si no va cifrado, lo ve entero.</li>
+          <li><b>El servidor</b> lo recibe y lo guarda. <i>Alguien escucha.</i></li>
+          <li><b>Tu m&oacute;vil</b> se lo pide al servidor y te ense&ntilde;a el n&uacute;mero.</li>
+        </ol>
+        <p class="esq-nota">A veces el camino se recorre al rev&eacute;s: una orden que sale del m&oacute;vil y llega a la placa.</p>
       </figure>
     </section>
     <section class="bloque">
@@ -1644,13 +1676,6 @@ void loop() {
            entienda, no para medir nada.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/iot-system-architecture.svg" width="1000" height="700" loading="lazy"
-             alt="Arquitectura IoT: capa de sensores, capa de procesamiento local con Arduino, capa de nube e inteligencia">
-        <figcaption><b>De los sensores a las decisiones</b>. En el huerto hay sensores que miden humedad, temperatura y luz. Un Arduino local los lee y toma decisiones simples (si humedad &lt; 40%, riega). <b>Sin internet, funciona igual: es automatismo</b>. Pero si se conecta a la nube, puede aprender. La nube ve el histórico, detecta patrones (a las 9 AM siempre hace más calor), y optimiza: "próxima vez, riega solo 15 minutos". Eso es IoT: <b>local + inteligencia remota</b>.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <p>Aqu&iacute; tienes el mensaje de verdad, escrito en los tres formatos que se usan.
          Cambia el identificador, el valor y cada cu&aacute;nto se manda, y mira lo que ocupa cada uno
@@ -5827,8 +5852,6 @@ void loop() {
 
 
 
-
-
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>
@@ -6072,7 +6095,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
-
 
 
 

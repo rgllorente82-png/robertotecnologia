@@ -26,6 +26,8 @@ TUBERIA = ['ordena_indice', 'afina_fotos', 'pon_metadatos', 'afina_texto',
            'afina_lectores', 'afina_navegador', 'afina_test', 'afina_impresion',
            'afina_salto', 'afina_mandos', 'afina_tablas', 'afina_visor',
            'pon_diagramas',
+           # estilo comun de los esquemas en HTML (Roberto, 23-sep)
+           'pon_estilo_esquemas',
            # esquema y resumen al final de cada tema (Roberto, 23-sep)
            'pon_cierre',
            # el ultimo: un build rehace el test con la buena siempre en el

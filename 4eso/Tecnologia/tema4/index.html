@@ -352,6 +352,36 @@ window.QUIETO = function(){
             window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 };
 </script>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -548,12 +578,34 @@ window.QUIETO = function(){
            El fr&iacute;o, la puerta abierta, el conserje.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/open-closed-loop-control.svg" width="1000" height="700" loading="lazy"
-             alt="Lazo abierto vs lazo cerrado: diferencia entre control sin sensor y control con realimentaci&oacute;n">
-        <figcaption><b>Lazo abierto vs Lazo cerrado: la realimentaci&oacute;n es la clave</b>. En lazo abierto, das una orden y ya: la bomba bombea 30 segundos, punto. En lazo cerrado, un <b>sensor mide</b> qué pasó, un <b>comparador decide</b> si hay que cambiar la orden, y <b>realimenta</b> esa decisión al actuador. Resultado: el sistema se adapta al entorno en tiempo real.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t4-lazo-abierto-cerrado">
+        <p class="esq-titulo">La tostadora y el horno, en bloques</p>
+        <div class="esq-tarjetas esq-vs">
+          <div class="esq-tarjeta" style="--c:var(--goo-rojo)">
+          <h4>Lazo abierto</h4>
+          <p>La tostadora: la orden no depende del resultado.</p>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Orden</b>: dos minutos</div>
+          <div aria-hidden="true" style="text-align:center;color:var(--ink-soft);font-size:22px;line-height:1.1">&darr;</div>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Actuador</b>: la resistencia calienta</div>
+          <div aria-hidden="true" style="text-align:center;color:var(--ink-soft);font-size:22px;line-height:1.1">&darr;</div>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Resultado</b>: la tostada, como salga</div>
+          <p style="margin-top:10px">Nadie mira el pan. Si est&aacute; congelado, sale crudo y no se entera.</p>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+          <h4>Lazo cerrado</h4>
+          <p>El horno: se mide, se compara y se corrige.</p>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Consigna</b>: 180&nbsp;&deg;C</div>
+          <div aria-hidden="true" style="text-align:center;color:var(--ink-soft);font-size:22px;line-height:1.1">&darr;</div>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Comparador</b>: &iquest;cu&aacute;nto falta hasta la consigna?</div>
+          <div aria-hidden="true" style="text-align:center;color:var(--ink-soft);font-size:22px;line-height:1.1">&darr;</div>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Actuador</b>: la resistencia calienta m&aacute;s o menos</div>
+          <div aria-hidden="true" style="text-align:center;color:var(--ink-soft);font-size:22px;line-height:1.1">&darr;</div>
+          <div style="border:1.5px solid var(--line);background:var(--surface-2);padding:7px 10px;border-radius:2px"><b>Resultado</b>: la temperatura del horno</div>
+          <div aria-hidden="true" style="text-align:center;color:var(--verde-texto);font-size:22px;line-height:1.1">&darr;</div>
+          <div style="border:1.5px dashed var(--goo-verde);padding:7px 10px;border-radius:2px"><b>Realimentaci&oacute;n</b>: el term&oacute;metro mide la temperatura y la devuelve al comparador, que vuelve a comparar. As&iacute; todo el rato.</div>
+          </div>
+        </div>
+        <p class="esq-nota">Las piezas que calientan son las mismas. Lo &uacute;nico que cambia es la flecha que vuelve: por eso el horno aguanta que abras la puerta y la tostadora no.</p>
       </figure>
 
       <p>Ahora los dos a la vez, con n&uacute;meros. Los dos hornos de la escena llevan
@@ -2071,12 +2123,40 @@ repetir siempre:
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
-      <figure class="foto">
-        <img src="../../../img/mechanical-advantage-levers.svg" width="1087" height="632" loading="lazy"
-             alt="Palancas de clase 1 y clase 2 mostrando ventaja mec&aacute;nica y distancias">
-        <figcaption>Las <b>palancas como m&aacute;quinas simples</b> demuestran el principio fundamental de la mec&aacute;nica: <b>cambias fuerza por distancia</b>. En la palanca de clase 1 el fulcro est&aacute; entre la fuerza y la carga: si est&aacute; m&aacute;s cerca de la carga, aplicas menos fuerza pero recorres m&aacute;s distancia; si est&aacute; m&aacute;s cerca de tu mano, es al rev&eacute;s. La ventaja mec&aacute;nica es el cociente entre la distancia de entrada y la distancia de salida. La misma regla de oro aplica en todos los mecanismos: ganas en fuerza, pierdes en velocidad; ganas en velocidad, pierdes en fuerza.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t4-par-barrera">
+        <p class="esq-titulo">La barrera: d&oacute;nde act&uacute;a el peso</p>
+        <svg viewBox="0 0 640 330" role="img" style="width:100%;height:auto;display:block;background:var(--surface);border:1.5px solid var(--line)"
+             aria-label="List&oacute;n de 80 cent&iacute;metros que gira sobre el eje del servo en un extremo. Su peso, 1,47 newtons, act&uacute;a en el centro, a 0,40 metros del eje, no en la punta. Par: 1,47 por 0,40, 0,589 newton metro.">
+          <defs><marker id="p4-fk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" style="fill:var(--ink-soft)"/></marker><marker id="p4-fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" style="fill:var(--goo-azul)"/></marker><marker id="p4-fp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M0 0 L10 5 L0 10 Z" style="fill:var(--ink)"/></marker><marker id="p4-fr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" style="fill:var(--goo-rojo)"/></marker></defs>
+          <!-- cota L -->
+          <line x1="70" y1="52" x2="590" y2="52" style="stroke:var(--ink-soft);stroke-width:1.5" marker-start="url(#p4-fk)" marker-end="url(#p4-fk)"/>
+          <line x1="70" y1="40" x2="70" y2="128" style="stroke:var(--line);stroke-width:1.5"/>
+          <line x1="590" y1="40" x2="590" y2="128" style="stroke:var(--line);stroke-width:1.5"/>
+          <text x="330" y="40" text-anchor="middle" style="fill:var(--ink-soft);font-family:var(--f-b);font-size:20px">L = 0,80 m</text>
+          <!-- cota d -->
+          <line x1="70" y1="104" x2="330" y2="104" style="stroke:var(--goo-azul);stroke-width:2.5" marker-start="url(#p4-fa)" marker-end="url(#p4-fa)"/>
+          <line x1="330" y1="92" x2="330" y2="128" style="stroke:var(--goo-azul);stroke-width:1.5"/>
+          <text x="200" y="92" text-anchor="middle" style="fill:var(--ink);font-family:var(--f-b);font-size:22px">d = L/2 = 0,40 m</text>
+          <!-- liston -->
+          <rect x="70" y="128" width="520" height="22" rx="3" style="fill:var(--goo-amarillo);stroke:var(--ink);stroke-width:1.5"/>
+          <!-- eje del servo -->
+          <circle cx="70" cy="139" r="15" style="fill:var(--surface);stroke:var(--ink);stroke-width:3"/>
+          <circle cx="70" cy="139" r="4" style="fill:var(--ink)"/>
+          <text x="70" y="188" text-anchor="middle" style="fill:var(--ink);font-family:var(--f-b);font-size:22px">eje</text>
+          <text x="70" y="212" text-anchor="middle" style="fill:var(--ink-soft);font-family:var(--f-b);font-size:20px">(servo)</text>
+          <!-- peso en el centro -->
+          <circle cx="330" cy="139" r="6" style="fill:var(--ink)"/>
+          <line x1="330" y1="150" x2="330" y2="232" style="stroke:var(--ink);stroke-width:4" marker-end="url(#p4-fp)"/>
+          <text x="314" y="200" text-anchor="end" style="fill:var(--ink);font-family:var(--f-b);font-size:22px"><tspan style="font-weight:700">P = 1,47 N</tspan></text>
+          <text x="314" y="226" text-anchor="end" style="fill:var(--ink-soft);font-family:var(--f-b);font-size:20px">el peso, en el centro</text>
+          <!-- el error: en la punta -->
+          <line x1="590" y1="150" x2="590" y2="220" style="stroke:var(--goo-rojo);stroke-width:3;stroke-dasharray:6 5" marker-end="url(#p4-fr)"/>
+          <text x="590" y="250" text-anchor="end" style="fill:var(--goo-rojo);font-family:var(--f-b);font-size:20px">en la punta, no:</text>
+          <text x="590" y="274" text-anchor="end" style="fill:var(--goo-rojo);font-family:var(--f-b);font-size:20px">da el doble</text>
+          <!-- la cuenta -->
+          <text x="320" y="306" text-anchor="middle" style="fill:var(--ink);font-family:var(--f-b);font-size:22px">M = P &middot; d = 1,47 N &middot; 0,40 m = <tspan style="font-weight:700">0,589 N&middot;m</tspan></text>
+        </svg>
+        <figcaption>El list&oacute;n gira sobre un extremo, pero su peso no tira desde la punta: tira desde el centro. Por eso la distancia al eje es la mitad de lo que mide.</figcaption>
       </figure>
 
       <div class="copiar">

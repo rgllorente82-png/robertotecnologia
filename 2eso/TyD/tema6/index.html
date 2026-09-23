@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -339,6 +338,36 @@ window.QUIETO = function(){
             window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 };
 </script>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -390,14 +419,6 @@ window.QUIETO = function(){
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 25 min</div>
-
-      <figure class="foto">
-        <img src="../../../img/structural-stresses.svg" width="1109" height="732" loading="lazy"
-             alt="Los cinco esfuerzos en estructuras: compresión, tracción, flexión, torsión y cortadura">
-        <figcaption>Los <b>cinco esfuerzos básicos</b> que pueden afectar a una estructura: compresión (se aplasta), tracción (se estira), flexión (se dobla), torsión (se retuerce) y cortadura (se cizalla). Cada material tiene un límite diferente para cada uno, y el ingeniero elige el material y la forma para que el esfuerzo máximo sea menor que su límite de ruptura.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h3>No aguanta porque sea fuerte: aguanta porque reparte</h3>
 
@@ -681,13 +702,7 @@ window.QUIETO = function(){
 
       <h3>El truco que lo cambia todo: triangular</h3>
 
-      <figure class="foto">
-        <img src="../../../img/triangulation-structures.svg" width="1186" height="702" loading="lazy"
-             alt="Comparación entre rectángulo que se deforma y triángulo rígido">
-        <figcaption>El <b>rectángulo es flexible</b>: sus vértices pueden moverse, deformando la figura. El <b>triángulo es indeformable</b>: con tres lados fijos, todos los ángulos quedan determinados. Triangular una estructura (añadir diagonales) crea triángulos internos que impiden cualquier deformación. Este es el principio fundamental de grúas, torres, puentes y cualquier estructura que soporte cargas.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+      <figure class="esq" data-esquema="2eso-t6-triangular"><p class="esq-titulo">Empuja de lado: quién se deforma y quién no</p><div class="esq-tarjetas"><div class="esq-tarjeta" style="--c:var(--goo-rojo)"><h4>El cuadrado se deforma</h4><svg viewBox="0 0 240 150" role="img" aria-label="Un cuadrado de cuatro barras empujado de lado por arriba se tuerce y queda como un rombo" style="display:block;width:100%;max-width:250px;height:auto;margin:4px auto 12px"><line x1="70" y1="36" x2="170" y2="36" style="stroke:var(--ink-soft);stroke-width:2;stroke-linecap:round;stroke-dasharray:6 5"/><line x1="70" y1="36" x2="70" y2="136" style="stroke:var(--ink-soft);stroke-width:2;stroke-linecap:round;stroke-dasharray:6 5"/><line x1="170" y1="36" x2="170" y2="136" style="stroke:var(--ink-soft);stroke-width:2;stroke-linecap:round;stroke-dasharray:6 5"/><line x1="70" y1="136" x2="170" y2="136" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="70" y1="136" x2="115" y2="46" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="170" y1="136" x2="215" y2="46" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="115" y1="46" x2="215" y2="46" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><circle cx="70" cy="136" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="170" cy="136" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="115" cy="46" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="215" cy="46" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><line x1="14" y1="46" x2="88" y2="46" style="stroke:var(--goo-amarillo);stroke-width:5"/><polygon points="86,37 86,55 100,46" style="fill:var(--goo-amarillo)"/></svg><p>Sus vértices pueden moverse. Ninguna barra cambia de largo: cambian los ángulos, y se viene abajo.</p></div><div class="esq-tarjeta" style="--c:var(--goo-verde)"><h4>El triángulo, no</h4><svg viewBox="0 0 240 150" role="img" aria-label="Un triángulo de tres barras empujado de lado por arriba no cambia de forma" style="display:block;width:100%;max-width:250px;height:auto;margin:4px auto 12px"><line x1="70" y1="136" x2="170" y2="136" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="70" y1="136" x2="120" y2="46" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="170" y1="136" x2="120" y2="46" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><circle cx="70" cy="136" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="170" cy="136" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="120" cy="46" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><line x1="30" y1="46" x2="94" y2="46" style="stroke:var(--goo-amarillo);stroke-width:5"/><polygon points="92,37 92,55 106,46" style="fill:var(--goo-amarillo)"/></svg><p>Fijados los tres lados, los tres ángulos quedan determinados. No hay otra forma posible.</p></div><div class="esq-tarjeta" style="--c:var(--goo-azul)"><h4>Cuadrado + diagonal</h4><svg viewBox="0 0 240 150" role="img" aria-label="El mismo cuadrado con una barra en diagonal queda partido en dos triángulos y ya no se tuerce" style="display:block;width:100%;max-width:250px;height:auto;margin:4px auto 12px"><line x1="70" y1="136" x2="170" y2="136" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="70" y1="136" x2="70" y2="36" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="170" y1="136" x2="170" y2="36" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="70" y1="36" x2="170" y2="36" style="stroke:var(--ink);stroke-width:5;stroke-linecap:round"/><line x1="70" y1="136" x2="170" y2="36" style="stroke:var(--goo-verde);stroke-width:6;stroke-linecap:round"/><circle cx="70" cy="136" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="170" cy="136" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="70" cy="36" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><circle cx="170" cy="36" r="5" style="fill:var(--surface);stroke:var(--ink);stroke-width:2.5"/><line x1="6" y1="36" x2="44" y2="36" style="stroke:var(--goo-amarillo);stroke-width:5"/><polygon points="42,27 42,45 56,36" style="fill:var(--goo-amarillo)"/></svg><p>Una barra diagonal, el <b>tirante</b> o <b>riostra</b>, lo parte en dos triángulos. Eso es triangular: torres eléctricas, grúas, cerchas.</p></div></div><p class="esq-nota">Flecha naranja: la fuerza que llega de fuera. Barra verde: la diagonal que triangula.</p></figure>
 
       <div class="escena">
         <div class="escena-barra"><span class="escena-titulo">El tri&aacute;ngulo y el cuadrado, en movimiento</span></div>
@@ -1085,11 +1100,6 @@ window.QUIETO = function(){
            naranja = fuerza que llega de fuera.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/structures-types.svg" width="1099" height="432" loading="lazy"
-             alt="Tres tipos principales de estructuras: viga, arco y celosía">
-        <figcaption>Tipos de estructuras: <b>viga</b> (resiste flexión), <b>arco</b> (resiste compresión), <b>celosía</b> (barras en tracción/compresión). Cada estructura transfiere las fuerzas de manera distinta según su forma.</figcaption>
-      </figure>
 
       <h3>Las tres en la realidad</h3>
       <div class="galeria-ri">
@@ -2617,8 +2627,6 @@ window.QUIETO = function(){
 <!-- /cierre-tema -->
 </div>
 
-
-
   <section class="demos" id="demostraciones">
     <div class="demos-cab">
       <span class="eyebrow-d">Cuatro demostraciones de mesa</span>
@@ -2999,8 +3007,6 @@ window.QUIETO = function(){
   </section>
 
 
-
-
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"
@@ -3258,8 +3264,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
-
-
 
 
 <!-- Tamaño de letra del cuerpo · 20-sep-2026 -->

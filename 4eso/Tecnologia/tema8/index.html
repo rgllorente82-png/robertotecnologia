@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -338,6 +337,36 @@ footer .wrap{padding-block:18px 26px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
+}
+</style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
 }
 </style>
 </head>
@@ -551,12 +580,29 @@ footer .wrap{padding-block:18px 26px}
            usarlo</b>. Gu&aacute;rdalo, porque en la sesi&oacute;n 3 lo vamos a necesitar entero.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/product-lifecycle-sustainability.svg" width="1056" height="735" loading="lazy"
-             alt="Ciclo de vida de un producto en cinco fases, y el reparto de su huella en un m&oacute;vil, el iPhone 17 de 256 GB: fabricarlo 76 %, cargarlo 18 %, traerlo 4 % y deshacerse de &eacute;l 1 %">
-        <figcaption><b>D&oacute;nde est&aacute; el impacto ambiental real</b>. El ciclo de vida de un producto pasa por cinco fases, y cu&aacute;l pesa m&aacute;s depende del aparato. En un m&oacute;vil manda la <b>fabricaci&oacute;n</b>: en el iPhone 17 de arriba, fabricarlo es el 76 % y cargarlo durante tres a&ntilde;os, el 18 %. Por eso lo que m&aacute;s baja su huella es <b>que dure</b>: la fabricaci&oacute;n se paga una sola vez y se reparte entre los a&ntilde;os que se use.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
+      <figure class="esq" data-esquema="4eso-t8-huella-movil-fases">
+        <p class="esq-titulo">Dónde está la huella de un móvil</p>
+        <p style="margin:0 0 12px;font-size:15.5px">iPhone 17 de 256 GB: <b>55 kg de CO₂e</b> en total, repartidos así según Apple.</p>
+        <div style="display:grid;gap:12px;background:var(--surface);border:1.5px solid var(--line);padding:14px 16px">
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:15.5px;margin-bottom:4px"><span><b>Fabricarlo</b></span><b>76 %</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:22px"><div style="height:100%;width:76%;min-width:4px;background:var(--goo-azul)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:15.5px;margin-bottom:4px"><span>Cargarlo durante tres años</span><b>18 %</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:22px"><div style="height:100%;width:18%;min-width:4px;background:var(--goo-azul)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:15.5px;margin-bottom:4px"><span>Traerlo</span><b>4 %</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:22px"><div style="height:100%;width:4%;min-width:4px;background:var(--goo-azul)"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;gap:10px;font-size:15.5px;margin-bottom:4px"><span>Deshacerse de él</span><b>1 %</b></div>
+            <div style="background:var(--surface-2);border:1px solid var(--line);height:22px"><div style="height:100%;width:1%;min-width:4px;background:var(--goo-azul)"></div></div>
+          </div>
+        </div>
+        <p class="esq-nota"><b>Fabricarlo pesa cuatro veces más que usarlo.</b> Suman 99 y no 100 porque van redondeados, como los publica el fabricante.</p>
+        <figcaption>Por eso lo que más baja la huella de un móvil es <b>que dure</b>: la fabricación se paga una sola vez y se reparte entre los años que se use.</figcaption>
       </figure>
 
       <h3>Medir no es obvio: hay que ir a buscarlo</h3>
@@ -965,12 +1011,6 @@ footer .wrap{padding-block:18px 26px}
 
     </section>
 
-    <figure class="foto">
-      <img src="../../../img/embodied-energy-comparison.svg" width="1000" height="700" loading="lazy" alt="Comparaci&oacute;n de energ&iacute;a incorporada: aluminio, acero, plástico, papel, madera - producción, transporte, reciclaje">
-      <figcaption><b>Energ&iacute;a incorporada en materiales.</b> La electricidad que enciendes ahora tiene un costo claro: el kWh multiplicado por la potencia. Pero cada cosa que fabricas ya trae consigo horas de energía anterior: la que cost&oacute; extraer, refinar, transportar y transformar. El aluminio cuesta quince veces m&aacute;s que el acero en esa energ&iacute;a fantasma. Eso no quiere decir que no se use: solo que el coste est&aacute; repartido y no sale de tu factura.
-        <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-      </figcaption>
-    </figure>
 
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
@@ -1841,7 +1881,6 @@ footer .wrap{padding-block:18px 26px}
             <a href="https://commons.wikimedia.org/wiki/File:Livermore_Centennial_Light_Bulb.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
-
 
       <h3>Caso 2 &middot; L&iacute;mite t&eacute;cnico, sin culpable: la bater&iacute;a de litio</h3>
       <p>Una bater&iacute;a de litio pierde capacidad aunque no la uses, y m&aacute;s todav&iacute;a
@@ -6171,8 +6210,6 @@ footer .wrap{padding-block:18px 26px}
 
 
 
-
-
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>
@@ -6416,7 +6453,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
-
 
 
 

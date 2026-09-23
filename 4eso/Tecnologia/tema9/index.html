@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -337,6 +336,36 @@ footer .wrap{padding-block:18px 26px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
+}
+</style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
 }
 </style>
 </head>
@@ -1476,14 +1505,6 @@ footer .wrap{padding-block:18px 26px}
            a tres kil&oacute;metros, puede que no.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/appropriate-technology.svg" width="1061" height="776" loading="lazy"
-             alt="Tecnolog&iacute;a apropiada vs inadecuada: ejemplo de riego autom&aacute;tico con IA versus sensor de humedad y electrov&aacute;lvula">
-        <figcaption><b>Tecnolog&iacute;a apropiada vs inadecuada</b>. Un robot inteligente con IA para riego es demasiado para la tarea, cuesta miles de euros, se rompe sin remedio y falla por completo si se daña. Un simple sensor de humedad m&aacute;s una electrov&aacute;lvula es <b>la soluci&oacute;n justa</b>: cuesta decenas de euros, dura a&ntilde;os, y si falla se cambia en minutos.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
-
       <div class="copiar">
         <h4>Las cinco preguntas del sitio</h4>
         <p>Antes de dar por bueno un dise&ntilde;o, se le hacen estas cinco. Si alguna no tiene
@@ -2089,19 +2110,25 @@ footer .wrap{padding-block:18px 26px}
 
     </section>
 
-    <figure class="foto">
-      <img src="../../../img/evaluation-criteria-matrix.svg" width="1000" height="700" loading="lazy" alt="Matriz de evaluación de rúbrica: criterios de puntuación para proyecto de riego automático">
-      <figcaption><b>Matriz de evaluación.</b> Una rúbrica hace tres cosas: (1) sabes antes de empezar exactamente qué se va a valorar, (2) todos los profesores puntúan igual porque usan los mismos criterios, (3) tú puedes mejorar sabiendo precisamente dónde están los puntos. La rúbrica no es castigo, es transparencia.
-        <span class="credito">Elaboración propia &middot; CC BY-SA 4.0</span>
-      </figcaption>
-    </figure>
+    <figure class="esq" data-esquema="4eso-t9-rubrica-defensa">
+        <p class="esq-titulo">La rúbrica de la defensa</p>
+        <table class="esq-tabla">
+          <thead><tr><th scope="col">Fila</th><th scope="col">Qué se mira</th><th scope="col" style="text-align:right">Peso</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">El problema y a quién le sirve</th><td>quién lo sufre, dónde, y cómo lo sabéis</td><td style="text-align:right;white-space:nowrap"><b>1,5</b></td></tr>
+            <tr><th scope="row">El aparato, funcionando</th><td>delante del jurado, o grabado si falla</td><td style="text-align:right;white-space:nowrap"><b>2</b></td></tr>
+            <tr><th scope="row">Una medida vuestra, con unidades</th><td>un número que habéis tomado vosotros</td><td style="text-align:right;white-space:nowrap"><b>2</b></td></tr>
+            <tr><th scope="row">El impacto, con la cuenta a la vista</th><td>agua, energía o dinero, y de dónde sale</td><td style="text-align:right;white-space:nowrap"><b>2</b></td></tr>
+            <tr><th scope="row">Lo que falla y qué haríais</th><td>el fallo de verdad, no uno de adorno</td><td style="text-align:right;white-space:nowrap"><b>1,5</b></td></tr>
+            <tr><th scope="row">Las respuestas a las preguntas</th><td>separar lo medido de lo supuesto</td><td style="text-align:right;white-space:nowrap"><b>1</b></td></tr>
+            <tr style="color:var(--ink-soft)"><th scope="row">Cómo lo montamos, paso a paso</th><td>lo que más apetece contar, y no puntúa</td><td style="text-align:right;white-space:nowrap"><b>0</b></td></tr>
+            <tr><th scope="row">Total</th><td></td><td style="text-align:right"><b>10</b></td></tr>
+          </tbody>
+        </table>
+        <p class="esq-nota">Cada fila se puntúa con un <b>nivel de 0 a 3</b>; con un 3 te llevas su peso entero. «Cómo lo montamos» vale <b>cero</b>: si preguntan, se cuenta; si no, va en la memoria escrita.</p>
+        <figcaption>Es la rúbrica de la escena de los seis minutos, y la que usa el otro grupo en la actividad 3.</figcaption>
+      </figure>
 
-    <figure class="foto">
-      <img src="../../../img/solution-impact-matrix.svg" width="1000" height="700" loading="lazy" alt="Matriz de impacto: efectividad vs complejidad de soluciones tecnológicas">
-      <figcaption><b>Matriz de impacto.</b> Antes de comprometerte con una solución, gráfica dos preguntas: ¿realmente resuelve el problema? (efectividad), ¿cuánto trabajo cuesta implementarla? (complejidad). La zona verde es donde quieres estar: alta efectividad, baja complejidad. La zona roja es la trampa: parece fácil pero no funciona.
-        <span class="credito">Elaboración propia &middot; CC BY-SA 4.0</span>
-      </figcaption>
-    </figure>
 
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 20 min</div>
@@ -2614,7 +2641,6 @@ footer .wrap{padding-block:18px 26px}
           directamente aqu&iacute;</a>. El v&iacute;deo es de su autor y no forma parte del material
           publicado bajo la licencia de esta p&aacute;gina.</p>
       </div>
-
 
       <h3>Lo que queda del curso</h3>
       <div class="copiar">
@@ -4601,7 +4627,6 @@ footer .wrap{padding-block:18px 26px}
         </figcaption>
       </figure>
 
-
       <h3>Y ahora el permiso</h3>
       <p>Cambiad la escena al segundo modo, <b>&laquo;lo que deja hacer la licencia&raquo;</b>.
          Empezad por la primera opci&oacute;n, la de <b>no poner nada</b>, que es lo que hace casi
@@ -5489,9 +5514,6 @@ footer .wrap{padding-block:18px 26px}
 </div>
 
 
-
-
-
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>
@@ -5735,8 +5757,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
-
-
 
 
 <!-- Tamaño de letra del cuerpo · 20-sep-2026 -->

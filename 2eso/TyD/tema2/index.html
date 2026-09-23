@@ -555,7 +555,6 @@
   body{font-family:var(--f-body); letter-spacing:.01em}
   .eyebrow, .rotulo, .chip, .cifra, .rotulo-svg, .flecha-rot{font-family:var(--f-mono)}
 
-
   
   /* ---- papel técnico: tinta plana, retícula, sin degradados ni difuminados ---- */
   :root{
@@ -613,7 +612,6 @@
   .aviso{border-left:4px solid var(--pencil)}
   .def{border-left:4px solid var(--ink)}
 
-  
 
   /* ---- los cuatro colores de Google, planos ---- */
   :root{--goo-azul:#4285f4;--goo-rojo:#ea4335;--goo-amarillo:#fbbc04;--verde-texto:#188038;--tinta-sobre:#202124;--amar-texto:#8a6410;--goo-verde:#34a853}
@@ -709,6 +707,36 @@
  "learningResourceType":"Unidad didáctica interactiva"
 }
 </script>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -1364,13 +1392,6 @@
         </table>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/sketch-to-plan-progression.svg" width="1000" height="590" loading="lazy"
-             alt="Evoluci&oacute;n del dibujo desde boceto r&aacute;pido a croquis acotado y plano t&eacute;cnico con cajet&iacute;n">
-        <figcaption><strong>Cómo evoluciona un dibujo:</strong> desde la idea rápida (boceto) hasta el documento oficial (plano)
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h4>Dos reglas que te van a puntuar</h4>
       <ul>
@@ -1542,12 +1563,34 @@
         <li>El que deje <strong>menos aristas ocultas</strong> (líneas de trazos).</li>
       </ul>
 
-      <figure class="foto">
-        <img src="../../../img/orthogonal_projection_views.svg" width="1000" height="700" loading="lazy"
-             alt="Sistema de proyección ortogonal: tres vistas (alzado, planta, perfil) de una pieza con dimensiones">
-        <figcaption>Las <b>tres vistas</b> en el sistema europeo: cada vista se dibuja en su posición relativa,
-          vinculadas por líneas de alineación. La correspondencia entre ellas (anchos, alturas, profundidades)
-          garantiza que la pieza se puede reconstruir exactamente desde el plano.</figcaption>
+      <figure class="esq" data-esquema="2eso-t2-tres-vistas-europeo">
+        <p class="esq-titulo">Dónde va cada vista en el sistema europeo</p>
+        <svg viewBox="0 0 640 430" role="img" style="width:100%;height:auto;display:block;max-width:640px"
+             aria-label="Las tres vistas de una pieza en L en el sistema europeo: el alzado arriba a la izquierda, la planta debajo del alzado y el perfil izquierdo a la derecha del alzado, unidas por líneas de referencia">
+          <g style="stroke:var(--ink-soft)" stroke-width="1.2" fill="none">
+            <path d="M40 210 V280 M180 210 V280 M240 210 V280"/>
+            <path d="M240 70 H330 M240 170 H330 M240 210 H330"/>
+          </g>
+          <g style="fill:var(--accent-soft);stroke:var(--ink)" stroke-width="3" stroke-linejoin="round">
+            <path d="M40 210 H240 V70 H180 V170 H40 Z"/>
+            <rect x="40" y="280" width="200" height="100"/>
+            <rect x="330" y="70" width="100" height="140"/>
+          </g>
+          <g style="stroke:var(--ink)" stroke-width="3">
+            <path d="M180 280 V380"/>
+            <path d="M330 170 H430"/>
+          </g>
+          <g font-family="system-ui, sans-serif" style="fill:var(--ink)">
+            <text x="40" y="32" font-size="26" font-weight="700">ALZADO</text>
+            <text x="40" y="58" font-size="20" style="fill:var(--ink-soft)">de frente</text>
+            <text x="330" y="32" font-size="26" font-weight="700">PERFIL IZQUIERDO</text>
+            <text x="330" y="58" font-size="20" style="fill:var(--ink-soft)">desde la izquierda</text>
+            <text x="40" y="412" font-size="26" font-weight="700">PLANTA <tspan font-weight="400" font-size="20" style="fill:var(--ink-soft)">desde arriba</tspan></text>
+            <text x="252" y="252" font-size="22">mismo ancho</text>
+            <text x="446" y="146" font-size="22">misma altura</text>
+          </g>
+        </svg>
+        <figcaption>Una pieza en L: la <b>planta</b> va <b>debajo</b> del alzado y el <b>perfil izquierdo</b>, a su <b>derecha</b>. Las líneas finas son las líneas de referencia: el alzado y la planta comparten los anchos; el alzado y el perfil, las alturas; y la planta y el perfil, la profundidad.</figcaption>
       </figure>
     
       <h3>Y al rev&eacute;s: de las vistas a un dibujo que se entiende de un vistazo</h3>
@@ -2427,8 +2470,6 @@
 
 
 
-
-
   <div class="lectura">
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
       <path d="M24 12 C20 8 14 7 8 8 v28 c6-1 12 0 16 4 4-4 10-5 16-4 V8 c-6-1-12 0-16 4 Z"
@@ -2465,7 +2506,6 @@
      <a href="https://github.com/rgllorente82-png/robertotecnologia/issues">el repositorio del proyecto</a>.</p>
 </section>
 
-  
 </main>
 
 <footer class="pie-pag wrap" style="padding-left:0;padding-right:0">
@@ -2672,7 +2712,6 @@
       g.style.opacity = (g.dataset.fase === 'boceto') ? '1' : '0';
     });
   }
-
 
   /* ---- escena S5: formatos, escalas y partes de una cota ---- */
   var svgN = document.getElementById('svg-norma');
@@ -3387,7 +3426,6 @@
   }
 })();
 </script>
-
 
 
 

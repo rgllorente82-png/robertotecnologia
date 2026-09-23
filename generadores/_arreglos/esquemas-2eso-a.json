@@ -1,0 +1,38 @@
+[
+ {
+  "pagina": "2eso/TyD/tema1/index.html",
+  "img": "technological-process-steps.svg",
+  "accion": "quitar",
+  "motivo": "Repite la lista «Los siete pasos» que está justo encima y la escena interactiva que va justo debajo (con la vuelta atrás)."
+ },
+ {
+  "pagina": "2eso/TyD/tema1/index.html",
+  "img": "technological_process_workflow.svg",
+  "accion": "html",
+  "marca": "2eso-t1-evaluar-dos-salidas",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t1-evaluar-dos-salidas\">\n        <p class=\"esq-titulo\">Paso 7: al evaluar hay dos salidas</p>\n        <div class=\"esq-tarjetas esq-vs\">\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-verde)\">\n            <h4>Cumple los requisitos</h4>\n            <p>Los requisitos que escribisteis en el paso 2 se cumplen todos. El proyecto está terminado y se cuenta en la <b>memoria técnica</b>.</p>\n          </div>\n          <div class=\"esq-tarjeta\" style=\"--c:var(--goo-rojo)\">\n            <h4>No los cumple</h4>\n            <p>Se vuelve atrás, casi siempre al <b>diseño</b> (paso 4): se corrige, se construye otra vez y se vuelve a evaluar.</p>\n            <p>Ejemplo: la ranura del soporte no aprieta, así que se cambia la ranura en el diseño.</p>\n          </div>\n        </div>\n        <figcaption>Volver atrás no es fracasar: así funciona el proceso tecnológico.</figcaption>\n      </figure>",
+  "motivo": "Tercera vez que se listaban los 7 pasos; se deja solo lo que añade a «Y no es una línea recta»: las dos salidas del paso 7, con el ejemplo de la ranura de la página."
+ },
+ {
+  "pagina": "2eso/TyD/tema2/index.html",
+  "img": "sketch-to-plan-progression.svg",
+  "accion": "quitar",
+  "motivo": "La tabla boceto/croquis/plano y las tres fichas de encima dicen lo mismo, y la animación siguiente dibuja la misma pieza en L; además el SVG metía tolerancias (±0,2) y «el plano se firma», que la página no da."
+ },
+ {
+  "pagina": "2eso/TyD/tema2/index.html",
+  "img": "orthogonal_projection_views.svg",
+  "accion": "svg",
+  "marca": "2eso-t2-tres-vistas-europeo",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t2-tres-vistas-europeo\">\n        <p class=\"esq-titulo\">Dónde va cada vista en el sistema europeo</p>\n        <svg viewBox=\"0 0 640 430\" role=\"img\" style=\"width:100%;height:auto;display:block;max-width:640px\"\n             aria-label=\"Las tres vistas de una pieza en L en el sistema europeo: el alzado arriba a la izquierda, la planta debajo del alzado y el perfil izquierdo a la derecha del alzado, unidas por líneas de referencia\">\n          <g style=\"stroke:var(--ink-soft)\" stroke-width=\"1.2\" fill=\"none\">\n            <path d=\"M40 210 V280 M180 210 V280 M240 210 V280\"/>\n            <path d=\"M240 70 H330 M240 170 H330 M240 210 H330\"/>\n          </g>\n          <g style=\"fill:var(--accent-soft);stroke:var(--ink)\" stroke-width=\"3\" stroke-linejoin=\"round\">\n            <path d=\"M40 210 H240 V70 H180 V170 H40 Z\"/>\n            <rect x=\"40\" y=\"280\" width=\"200\" height=\"100\"/>\n            <rect x=\"330\" y=\"70\" width=\"100\" height=\"140\"/>\n          </g>\n          <g style=\"stroke:var(--ink)\" stroke-width=\"3\">\n            <path d=\"M180 280 V380\"/>\n            <path d=\"M330 170 H430\"/>\n          </g>\n          <g font-family=\"system-ui, sans-serif\" style=\"fill:var(--ink)\">\n            <text x=\"40\" y=\"32\" font-size=\"26\" font-weight=\"700\">ALZADO</text>\n            <text x=\"40\" y=\"58\" font-size=\"20\" style=\"fill:var(--ink-soft)\">de frente</text>\n            <text x=\"330\" y=\"32\" font-size=\"26\" font-weight=\"700\">PERFIL IZQUIERDO</text>\n            <text x=\"330\" y=\"58\" font-size=\"20\" style=\"fill:var(--ink-soft)\">desde la izquierda</text>\n            <text x=\"40\" y=\"412\" font-size=\"26\" font-weight=\"700\">PLANTA <tspan font-weight=\"400\" font-size=\"20\" style=\"fill:var(--ink-soft)\">desde arriba</tspan></text>\n            <text x=\"252\" y=\"252\" font-size=\"22\">mismo ancho</text>\n            <text x=\"446\" y=\"146\" font-size=\"22\">misma altura</text>\n          </g>\n        </svg>\n        <figcaption>Una pieza en L: la <b>planta</b> va <b>debajo</b> del alzado y el <b>perfil izquierdo</b>, a su <b>derecha</b>. Las líneas finas son las líneas de referencia: el alzado y la planta comparten los anchos; el alzado y el perfil, las alturas; y la planta y el perfil, la profundidad.</figcaption>\n      </figure>",
+  "motivo": "Es un dibujo de verdad (colocación de las vistas); rehecho en línea y corregido: el SVG viejo ponía la planta ENCIMA del alzado (sistema americano), contra la página."
+ },
+ {
+  "pagina": "2eso/TyD/tema3/index.html",
+  "img": "mohs_hardness_scale.svg",
+  "accion": "html",
+  "marca": "2eso-t3-mohs-quien-raya",
+  "html": "<figure class=\"esq\" data-esquema=\"2eso-t3-mohs-quien-raya\">\n        <p class=\"esq-titulo\">La escala de Mohs, con cosas que conoces</p>\n        <table class=\"esq-tabla\">\n          <thead><tr><th scope=\"col\">Dureza</th><th scope=\"col\">Material</th><th scope=\"col\">Qué pasa al rayar</th></tr></thead>\n          <tbody>\n            <tr><td><b>1</b></td><th scope=\"row\">Talco<small>mineral de la escala</small></th><td>El más blando: hasta la uña lo raya.</td></tr>\n            <tr><td><b>2,5</b></td><th scope=\"row\">Uña</th><td>Raya el talco, pero no una moneda de cobre.</td></tr>\n            <tr><td><b>3</b></td><th scope=\"row\">Cobre<small>una moneda</small></th><td>La uña no la raya; el hierro, sí.</td></tr>\n            <tr><td><b>4,5</b></td><th scope=\"row\">Hierro</th><td>Raya el cobre. Lo raya el vidrio.</td></tr>\n            <tr><td><b>5,5</b></td><th scope=\"row\">Vidrio</th><td>Raya el hierro. Lo raya el acero.</td></tr>\n            <tr><td><b>6,5</b></td><th scope=\"row\">Acero<small>una navaja</small></th><td>Raya el vidrio, y el vidrio a él no.</td></tr>\n            <tr><td><b>7</b></td><th scope=\"row\">Cuarzo<small>mineral de la escala</small></th><td>Raya el acero.</td></tr>\n            <tr><td><b>9</b></td><th scope=\"row\">Corindón<small>mineral de la escala</small></th><td>Solo lo raya el diamante.</td></tr>\n            <tr><td><b>10</b></td><th scope=\"row\">Diamante<small>mineral de la escala</small></th><td>El más duro: lo raya todo y nada lo raya.</td></tr>\n          </tbody>\n        </table>\n        <p class=\"esq-nota\">Cada material raya a los de <b>número menor</b> y lo rayan los de <b>número mayor</b>. Y el número dice quién va delante, no cuánto más duro es.</p>\n      </figure>",
+  "motivo": "El SVG daba 10 minerales con pruebas (lima, cuchillo) que la página no da y una errónea (topacio «solo lo raya el diamante»); se rehace con los materiales y durezas de la propia página (escena de rayado y ficha)."
+ }
+]

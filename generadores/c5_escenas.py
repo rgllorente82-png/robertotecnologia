@@ -602,20 +602,20 @@ ESCENA_TRANSISTOR = u'''
           }
 
           /* transistor NPN */
-          s += '<circle cx="250" cy="215" r="30" fill="var(--surface)" stroke="var(--ink-soft)" stroke-width="1.5"></circle>';
-          s += hilo('M242 199 V231', 'var(--ink)', 3.5);
-          s += hilo('M200 215 H242', 'var(--ink)', 2);
-          s += hilo('M242 205 L266 193 V168', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
+          s += '<circle cx="234" cy="215" r="30" fill="var(--surface)" stroke="var(--ink-soft)" stroke-width="1.5"></circle>';
+          s += hilo('M226 199 V231', 'var(--ink)', 3.5);
+          s += hilo('M200 215 H226', 'var(--ink)', 2);
+          s += hilo('M226 205 L250 193 V168', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
                     sano ? 2.5 : 2);
-          s += hilo('M242 225 L266 237 V282', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
+          s += hilo('M226 225 L250 237 V282', sano ? 'var(--goo-verde)' : 'var(--ink-soft)',
                     sano ? 2.5 : 2);
           /* la flecha del emisor, que es lo que dice que es NPN */
-          s += '<path d="M262 235 l-11 -3 l3 9 Z" fill="var(--ink)"></path>';
-          s += rot(284, 172, r.Q.n, 'font-size:11px;fill:var(--ink);font-weight:500');
+          s += '<path d="M246 235 l-11 -3 l3 9 Z" fill="var(--ink)"></path>';
+          s += rot(268, 172, r.Q.n, 'font-size:11px;fill:var(--ink);font-weight:500');
           /* las tres patillas, rotuladas donde salen */
-          s += rot(274, 188, 'C', 'font-size:10.5px;fill:var(--ink)');
-          s += rot(274, 254, 'E', 'font-size:10.5px;fill:var(--ink)');
-          s += rot(206, 208, 'B', 'font-size:10.5px;fill:var(--ink)');
+          s += rot(258, 188, 'C', 'font-size:10.5px;fill:var(--ink)');
+          s += rot(258, 254, 'E', 'font-size:10.5px;fill:var(--ink)');
+          s += rot(189, 208, 'B', 'font-size:10.5px;fill:var(--ink)');
 
           /* resistencia de base y pin */
           s += caja(128, 205, 56, 20, 'var(--surface)', 'var(--ink-soft)', 2);
@@ -629,10 +629,10 @@ ESCENA_TRANSISTOR = u'''
                    + (pinAlto ? 'var(--goo-azul)' : 'var(--ink-soft)'), 'middle');
 
           /* masa comun: el Arduino y la carga tienen que compartirla */
-          s += hilo('M266 282 V296 H40 V230');
-          s += hilo('M253 296 H279', 'var(--ink-soft)', 2.5);
-          s += hilo('M257 301 H275', 'var(--ink-soft)', 2);
-          s += hilo('M261 306 H271', 'var(--ink-soft)', 2);
+          s += hilo('M250 282 V296 H40 V230');
+          s += hilo('M237 296 H263', 'var(--ink-soft)', 2.5);
+          s += hilo('M241 301 H259', 'var(--ink-soft)', 2);
+          s += hilo('M245 306 H255', 'var(--ink-soft)', 2);
           s += rot(150, 316, 'la masa es la MISMA para los dos', 'font-size:9px', 'middle');
 
           /* ==================== panel de cuentas ==================== */

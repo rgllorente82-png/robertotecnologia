@@ -158,7 +158,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -390,6 +389,36 @@ footer .wrap{padding-block:18px 26px}
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -411,13 +440,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Un trabajo se descoloca al abrirlo en otro ordenador y no falta ni una palabra. La explicaci&oacute;n reparte la unidad entera: lo que dice y c&oacute;mo se ve son dos cosas.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">B.2 &middot; D.1</span></div>
-    <figure class="foto">
-        <img src="../../../img/file-formats.svg" width="1000" height="600" loading="lazy"
-             alt="Formatos de archivo: TXT, DOCX, PDF, JPG/PNG, MP4, HTML, MP3 - contenido, ventajas y desventajas">
-        <figcaption>Los <b>formatos de archivo</b> m&aacute;s comunes: un <b>.TXT</b> es s&oacute;lo texto (ligero, universal). Un <b>.DOCX</b> guarda formato, estilos y metadatos (flexible, pesado). Un <b>.PDF</b> congela la posici&oacute;n (se ve igual siempre, pero es dif&iacute;cil de editar). Las <b>im&aacute;genes</b> son grillas de p&iacute;xeles. Los <b>videos</b> son fotogramas + audio. La diferencia entre guardar &laquo;qu&eacute; dice&raquo; (texto, c&oacute;digo) y guardar &laquo;c&oacute;mo se ve&raquo; (imagen, PDF) es fundamental: lo primero ocupa poco, lo segundo mucho.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+    
       </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -426,7 +449,6 @@ footer .wrap{padding-block:18px 26px}
          qui&eacute;n lo ve pasar por el camino. Todo eso lo mirabas t&uacute;. A partir de hoy le
          damos la vuelta a la pregunta: <b>ya no eres el que mira, eres el que publica</b>.</p>
       <p>Y produciendo pasa una cosa que todo el mundo ha vivido.</p>
-
 
       <div class="narrador" id="narr-u9">
         <div class="narrador-fig" id="narr-u9-fig"></div>
@@ -559,7 +581,6 @@ footer .wrap{padding-block:18px 26px}
          escribiste y no se toca. En el de la derecha cambia la <b>letra</b>, el <b>papel</b> y el
          <b>cuerpo</b>, y fíjate en tres cosas: cu&aacute;ntas l&iacute;neas salen, cu&aacute;ntas
          hojas, y <b>en qu&eacute; hoja acaba la segunda foto</b>.</p>
-
 
       <div class="escena" id="esc-maqueta">
         <div class="escena-barra">
@@ -906,7 +927,6 @@ footer .wrap{padding-block:18px 26px}
          negrita.</p>
       <p>Compru&eacute;balo. En la escena de abajo, pide el &iacute;ndice de las dos maneras.</p>
 
-
       <div class="escena" id="esc-estilos">
         <div class="escena-barra">
           <span class="escena-titulo">Lo mismo, de dos maneras</span>
@@ -1163,7 +1183,6 @@ footer .wrap{padding-block:18px 26px}
         <p>Regla corta: <b>marcar lo que algo es, no pintar lo que parece</b>.</p>
       </div>
 
-
       <h3>El paquete completo, y el que no has tocado todav&iacute;a</h3>
       <p>Un <b>paquete de ofim&aacute;tica</b> &mdash;LibreOffice, Microsoft Office, Google Docs&mdash; no
       es un programa: son varios que se parecen por fuera y hacen cosas distintas.</p>
@@ -1383,13 +1402,7 @@ footer .wrap{padding-block:18px 26px}
       <p>Una foto de m&oacute;vil son 35 MB en bruto y el fichero dice 3. Entre esas dos cifras est&aacute;n la rejilla de p&iacute;xeles, la compresi&oacute;n y la diferencia entre guardar casillas y guardar instrucciones.</p>
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE4 &middot; 4.1</span><span class="chip">CE6 &middot; 6.1</span><span class="chip sab">B.2 &middot; D.1</span></div>
-    <figure class="foto">
-        <img src="../../../img/image-pixels-color.svg" width="1164" height="684" loading="lazy"
-             alt="Una imagen es una grilla de p&iacute;xeles con color RGB: resoluci&oacute;n, tama&ntilde;o de archivo, y modelo de color">
-        <figcaption>Una <b>imagen digital es una grilla de p&iacute;xeles</b>, cada uno con un n&uacute;mero que es su color (RGB: rojo, verde, azul, 0-255 cada uno). La <b>resoluci&oacute;n</b> dice cu&aacute;ntos p&iacute;xeles: 1920&times;1080 Full HD son 2 millones de p&iacute;xeles. Cada p&iacute;xel necesita 3 bytes (uno por cada color), as&iacute; que una foto sin comprimir pesa unos 6 MB. Con compresi&oacute;n JPG baja a 500 KB. Por eso tu m&oacute;vil toma fotos de 4.032&times;3.024: parecen 35 MB pero se transforman en 3 MB.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+    
       </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -1450,7 +1463,6 @@ footer .wrap{padding-block:18px 26px}
       <p>Guardar una rejilla tiene una consecuencia incómoda que se ve mejor ampliando. A la
          izquierda de la escena hay un s&iacute;mbolo guardado como <b>casillas</b>; a la derecha,
          el mismo s&iacute;mbolo guardado como <b>instrucciones de dibujo</b>. Acerca los dos.</p>
-
 
       <div class="escena" id="esc-mapa">
         <div class="escena-barra">
@@ -1694,7 +1706,6 @@ footer .wrap{padding-block:18px 26px}
          cent&iacute;metro</b>. Y lo que se ve en una diapositiva proyectada son, como mucho,
          <b>1.920 &times; 1.080</b>: eso es todo lo que puede ense&ntilde;ar el proyector.</p>
 
-
       <div class="escena" id="esc-peso">
         <div class="escena-barra">
           <span class="escena-titulo">La foto que metes</span>
@@ -1914,12 +1925,16 @@ footer .wrap{padding-block:18px 26px}
 
     </section>
 
-      <figure class="foto">
-      <img src="../../../img/image-resolution-filesize.svg" width="1000" height="700" loading="lazy" alt="Comparaci&oacute;n de resoluci&oacute;n de imagen: baja, media y alta, con p&iacute;xeles y tama&ntilde;o de archivo">
-      <figcaption><b>Resoluci&oacute;n y tama&ntilde;o de archivo.</b> Tres destinos distintos piden resoluciones distintas: un icono se queda en 100 &times; 100 p&iacute;xeles, una foto para la web o las redes en 800 &times; 600 y una para imprimir en 4000 &times; 3000. En bruto, el peso crece al mismo ritmo que los p&iacute;xeles, porque cada uno son 3 bytes: el doble de p&iacute;xeles, el doble de peso. Lo que enga&ntilde;a es el tama&ntilde;o: con el doble de ancho y el doble de alto hay <b>cuatro veces</b> m&aacute;s p&iacute;xeles, y pesa cuatro veces m&aacute;s. Los pesos de las tarjetas son aproximados; abajo est&aacute; la cuenta en bruto de la foto grande.
-        <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-      </figcaption>
-    </figure>
+      <figure class="esq" data-esquema="2eso-t11-cuenta-foto">
+        <p class="esq-titulo">La cuenta de una foto, paso a paso</p>
+        <ol class="esq-pasos">
+          <li><b>P&iacute;xeles</b> Ancho &times; alto. La foto de un m&oacute;vil: 4.032&nbsp;&times;&nbsp;3.024 = 12.192.768, los &laquo;12 megap&iacute;xeles&raquo;.</li>
+          <li><b>Peso en bruto</b> P&iacute;xeles &times; 3 bytes, uno de rojo, uno de verde y uno de azul: unos 35 MB.</li>
+          <li><b>Peso del fichero</b> Lo que dice el m&oacute;vil: entre 2 y 4 MB. El resto lo ha quitado la compresi&oacute;n.</li>
+          <li><b>Raz&oacute;n de compresi&oacute;n</b> Peso en bruto &divide; peso del fichero. Cambia de una foto a otra.</li>
+        </ol>
+        <p class="esq-nota">Y antes de nada, el destino: en una diapositiva no se ven m&aacute;s de <b>1.920 p&iacute;xeles de ancho</b>. Lo que pase de ah&iacute; ocupa, viaja y tarda, y no lo ve nadie.</p>
+      </figure>
     <section class="bloque">
       <div class="rotulo"><span class="num">02</span> Pr&aacute;ctica &middot; 25 min</div>
       <div class="ficha">
@@ -2039,7 +2054,6 @@ footer .wrap{padding-block:18px 26px}
          t&uacute; se lo est&aacute;s llenando por dos sitios a la vez. Vamos a medirlo. Pega tu
          primera diapositiva en la caja de abajo &mdash;o usa la que viene puesta&mdash; y mira las
          dos barras.</p>
-
 
       <div class="escena" id="esc-carrera">
         <div class="escena-barra">
@@ -2284,7 +2298,6 @@ footer .wrap{padding-block:18px 26px}
          eliges en la diapositiva se convierte en mil&iacute;metros sobre la pantalla, y esos
          mil&iacute;metros o llegan a la &uacute;ltima fila o no llegan. Juega con la escena:
          cambia el cuerpo, el tama&ntilde;o de la pantalla y la fila.</p>
-
 
       <div class="escena" id="esc-aula">
         <div class="escena-barra">
@@ -2750,7 +2763,6 @@ footer .wrap{padding-block:18px 26px}
       <p>Ahora lo interesante: esas condiciones <b>se suman</b>, y no todas se llevan bien. Mete
          piezas en el trabajo y mira qu&eacute; licencia puede llevar el resultado.</p>
 
-
       <div class="escena" id="esc-licencias">
         <div class="escena-barra">
           <span class="escena-titulo">Lo tuyo y lo que has cogido con licencia libre</span>
@@ -2784,7 +2796,6 @@ footer .wrap{padding-block:18px 26px}
         var pie = document.getElementById('pie-licencias');
 
         var HOY = new Date().getFullYear();   /* el ano de verdad, no uno escrito */
-
 
         var PIEZAS = [
           {id:'texto',  n:'Tu texto y tus dibujos',
@@ -3224,13 +3235,6 @@ footer .wrap{padding-block:18px 26px}
       <div class="minutado"><span class="min"><b>10'</b> Reto</span><span class="min"><b>20'</b> Teor&iacute;a</span><span class="min"><b>25'</b> Pr&aacute;ctica</span><span class="min"><b>5'</b> Cierre</span></div>
       <div class="chips"><span class="chip">CE2 &middot; 2.1</span><span class="chip">CE4 &middot; 4.1</span><span class="chip sab">B.1 &middot; B.3</span></div>
 
-      <figure class="foto">
-        <img src="../../../img/digital-collaboration.svg" width="1113" height="652" loading="lazy"
-             alt="Colaboraci&oacute;n digital: emails vs nube compartida, comentarios, y historial de versiones">
-        <figcaption>La <b>colaboraci&oacute;n digital moderna</b>: el m&eacute;todo antiguo de emails genera conflictos (Ana edita v1, Bob edita v1, &iquest;cu&aacute;l es correcta?). Con <b>nube compartida</b> (Google Docs, OneDrive) hay UNA versi&oacute;n que se sincroniza al instante. Los <b>comentarios</b> permiten feedback sin cambiar el texto. El <b>historial</b> guarda todas las versiones anteriores. Un &uacute;nico documento, un &uacute;nico due&ntilde;o, todo el mundo viendo lo mismo.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
     </div>
     <section class="bloque">
       <div class="rotulo"><span class="num">00</span> Reto inicial &middot; 10 min</div>
@@ -3265,7 +3269,6 @@ footer .wrap{padding-block:18px 26px}
       <p>La segunda aver&iacute;a no se ve venir, y es la que hace da&ntilde;o de verdad: si cada uno
          empieza por donde le apetece, <b>dos van a tocar el mismo apartado</b>. No de vez en cuando:
          casi siempre. Y se puede calcular exactamente cu&aacute;ntas veces.</p>
-
 
       <div class="escena" id="esc-pisar">
         <div class="escena-barra">
@@ -3806,7 +3809,6 @@ footer .wrap{padding-block:18px 26px}
          quien lee <b>mira</b> la pantalla. Vamos a quitar eso y a ver qu&eacute; queda de la
          p&aacute;gina.</p>
 
-
       <div class="escena" id="esc-lector">
         <div class="escena-barra">
           <span class="escena-titulo">C&oacute;mo est&aacute; hecha la p&aacute;gina</span>
@@ -3838,7 +3840,6 @@ footer .wrap{padding-block:18px 26px}
         var VEL = 180;      /* palabras por minuto de locucion */
         var COSTE_ARCH = 4; /* segundos en deletrear el nombre de un fichero */
         var COSTE_SALTO = 1.2;
-
 
         var PAGINA = [
           {t:'h1', txt:'Nuestro puente de palillos', pal:4},
@@ -4042,7 +4043,6 @@ footer .wrap{padding-block:18px 26px}
       <p>En la sesi&oacute;n de las presentaciones calculamos si una letra <b>llegaba</b> al fondo del
          aula. Faltaba la otra mitad del problema, que no es el tama&ntilde;o sino el
          <b>color</b>. Y tambi&eacute;n es una cuenta.</p>
-
 
       <div class="escena" id="esc-contraste">
         <div class="escena-barra">
@@ -4537,10 +4537,6 @@ footer .wrap{padding-block:18px 26px}
   </section>
 <!-- /cierre-tema -->
 </div>
-
-
-
-
 
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">

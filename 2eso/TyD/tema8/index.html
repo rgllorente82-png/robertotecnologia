@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -337,6 +336,36 @@ footer .wrap{padding-block:18px 26px}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   html{scroll-behavior:auto!important}
+}
+</style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
 }
 </style>
 </head>
@@ -874,14 +903,6 @@ footer .wrap{padding-block:18px 26px}
 
       <h3>C&oacute;mo se dibuja: simbolog&iacute;a normalizada</h3>
 
-      <figure class="foto">
-        <img src="../../../img/electric-circuit-basics.svg" width="1106" height="632" loading="lazy"
-             alt="Circuito el&eacute;ctrico b&aacute;sico con s&iacute;mbolos normalizados: bater&iacute;a, cables, carga, interruptor y s&iacute;mbolos de componentes">
-        <figcaption>Los <b>elementos b&aacute;sicos de un circuito el&eacute;ctrico</b> y los s&iacute;mbolos normalizados que se usan en los esquemas. Voltaje, corriente, resistencia y la ley de Ohm que los une.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
-
       <p>Un esquema el&eacute;ctrico no es un dibujo del montaje: es un <b>plano</b>. No importa d&oacute;nde
          est&eacute; f&iacute;sicamente cada pieza ni qu&eacute; forma tiene, importa <b>qu&eacute; est&aacute; conectado con
          qu&eacute;</b>. Para eso cada componente tiene un s&iacute;mbolo acordado internacionalmente.</p>
@@ -1350,13 +1371,38 @@ footer .wrap{padding-block:18px 26px}
           licencia de esta p&aacute;gina.</p>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/ohms-law-triangle.svg" width="1000" height="700" loading="lazy"
-             alt="Tensi&oacute;n, intensidad y resistencia: el tri&aacute;ngulo de Ohm">
-        <figcaption><strong>La ley de Ohm:</strong> La tensi&oacute;n (empuj&oacute;n), la intensidad (caudal) y la resistencia (estorbo) se relacionan con V = I &times; R. Tapar lo que buscas y multiplicar (o dividir) los otros dos.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+      <figure class="esq" data-esquema="2eso-t8-ley-ohm-triangulo">
+  <p class="esq-titulo">El tri&aacute;ngulo de la ley de Ohm: tapa lo que buscas</p>
+  <svg viewBox="0 0 640 360" role="img" aria-label="Tri&aacute;ngulo de la ley de Ohm: la V arriba; la I y la R abajo, una al lado de la otra" style="display:block;width:100%;max-width:420px;height:auto;margin:0 auto 16px">
+  <path d="M320 20 L550 330 L90 330 Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:4;stroke-linejoin:round"/>
+  <line x1="194" y1="190" x2="446" y2="190" style="stroke:var(--ink);stroke-width:4"/>
+  <line x1="320" y1="190" x2="320" y2="330" style="stroke:var(--ink);stroke-width:4"/>
+  <text x="320" y="165" text-anchor="middle" style="fill:var(--ink);font-size:78px;font-weight:700;font-family:var(--f-m)">V</text>
+  <text x="240" y="300" text-anchor="middle" style="fill:var(--ink);font-size:78px;font-weight:700;font-family:var(--f-m)">I</text>
+  <text x="400" y="300" text-anchor="middle" style="fill:var(--ink);font-size:78px;font-weight:700;font-family:var(--f-m)">R</text>
+</svg>
+  <div class="esq-tarjetas">
+    <div class="esq-tarjeta" style="--c:var(--goo-azul)">
+      <h4>&iquest;Buscas la I?</h4>
+      <p><b>Intensidad</b>, en amperios. Tapa la I: queda la V <b>encima</b> de la R.</p>
+      <p style="font-family:var(--f-m);font-size:17px"><b>I = V / R</b></p>
+      <p>Pila de 4,5 V y bombilla de 9 &#8486;: I&nbsp;=&nbsp;4,5&nbsp;/&nbsp;9&nbsp;=&nbsp;<b>0,5&nbsp;A</b>.</p>
+    </div>
+    <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+      <h4>&iquest;Buscas la V?</h4>
+      <p><b>Tensi&oacute;n</b>, en voltios. Tapa la V: quedan la I y la R, <b>una al lado de otra</b>.</p>
+      <p style="font-family:var(--f-m);font-size:17px"><b>V = I &times; R</b></p>
+      <p>La misma bombilla: V&nbsp;=&nbsp;0,5&nbsp;&times;&nbsp;9&nbsp;=&nbsp;<b>4,5&nbsp;V</b>.</p>
+    </div>
+    <div class="esq-tarjeta" style="--c:var(--goo-amarillo)">
+      <h4>&iquest;Buscas la R?</h4>
+      <p><b>Resistencia</b>, en ohmios. Tapa la R: queda la V <b>encima</b> de la I.</p>
+      <p style="font-family:var(--f-m);font-size:17px"><b>R = V / I</b></p>
+      <p>La misma bombilla: R&nbsp;=&nbsp;4,5&nbsp;/&nbsp;0,5&nbsp;=&nbsp;<b>9&nbsp;&#8486;</b>.</p>
+    </div>
+  </div>
+  <p class="esq-nota">Raya tumbada, <b>dividir</b>; raya de pie, <b>multiplicar</b>. Y siempre con V en voltios, I en amperios y R en ohmios.</p>
+</figure>
 
     </section>
     <section class="bloque">
@@ -1473,13 +1519,6 @@ footer .wrap{padding-block:18px 26px}
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
-      <figure class="foto">
-        <img src="../../../img/series-parallel-circuits.svg" width="1200" height="500" loading="lazy"
-             alt="Comparaci&oacute;n de circuitos en serie y paralelo con bombillas LED">
-        <figcaption>En <b>serie</b>, todas las bombillas comparten el mismo camino: si se funde una, se corta el circuito completo. En <b>paralelo</b>, cada bombilla tiene su propio camino: si se funde una, las dem&aacute;s siguen luciendo. Las dos formas de entender c&oacute;mo se cablean las casas.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h3>Los dos montajes, con las cuentas delante</h3>
       <p>Tres l&aacute;mparas iguales de 9 &#8486; y una pila de 4,5 V. Cambia de montaje, pulsa una
@@ -1912,13 +1951,30 @@ footer .wrap{padding-block:18px 26px}
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
-      <figure class="foto">
-        <img src="../../../img/electrical-power-energy.svg" width="1000" height="600" loading="lazy"
-             alt="Potencia eléctrica y energía: diferencia entre vatios y kilovatio-hora">
-        <figcaption>La <b>potencia (P)</b> mide lo que gastas EN ESTE MOMENTO, en vatios. La <b>energía (E)</b> mide lo que acumulas en el tiempo, en kilovatio-hora (kWh). Es la diferencia entre el brillo actual de la bombilla (potencia) y la factura de electricidad (energía). P = V × I. E = P × t. Mezclar estas dos es el error más frecuente en problemas de electricidad.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+      <figure class="esq" data-esquema="2eso-t8-potencia-energia">
+  <p class="esq-titulo">Dos magnitudes que no hay que confundir</p>
+  <div class="esq-tarjetas esq-vs">
+    <div class="esq-tarjeta" style="--c:var(--goo-azul)">
+      <h4>Potencia (P)</h4>
+      <p><b>Lo deprisa</b> que gastas: la energ&iacute;a de cada segundo.</p>
+      <dl>
+        <dt>Se mide en</dt><dd><b>vatios (W)</b></dd>
+        <dt>F&oacute;rmula</dt><dd><b>P = V &times; I</b></dd>
+        <dt>D&oacute;nde la ves</dt><dd>Escrita en el <b>aparato</b></dd>
+      </dl>
+    </div>
+    <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+      <h4>Energ&iacute;a (E)</h4>
+      <p><b>Lo que llevas gastado</b>: la potencia por el rato.</p>
+      <dl>
+        <dt>Se mide en</dt><dd><b>julios</b>; en casa, <b>kilovatios-hora (kWh)</b></dd>
+        <dt>F&oacute;rmula</dt><dd><b>E = P &times; t</b></dd>
+        <dt>D&oacute;nde la ves</dt><dd>En la <b>factura</b></dd>
+      </dl>
+    </div>
+  </div>
+  <p class="esq-nota">El reto, con las dos: bombilla LED de 9 W durante 8 h &rarr; 0,009 kW &times; 8 h = <b>0,072 kWh</b>. Microondas de 1.000 W durante 5 minutos &rarr; 1 kW &times; 5/60 h = <b>0,083 kWh</b>. Cien veces m&aacute;s potencia, y casi la misma energ&iacute;a.</p>
+</figure>
 
       <h3>Lo deprisa que gastas: la potencia</h3>
       <p>En la sesi&oacute;n 2 te quedaste con dos n&uacute;meros: el empuj&oacute;n (V) y el caudal (I). Multiplicarlos
@@ -3899,9 +3955,6 @@ footer .wrap{padding-block:18px 26px}
 </div>
 
 
-
-
-
   <section class="cc-aviso" id="licencia"
   xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
   <h2>Licencia y uso</h2>
@@ -4164,8 +4217,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
-
-
 
 
 <!-- Tamaño de letra del cuerpo · 20-sep-2026 -->

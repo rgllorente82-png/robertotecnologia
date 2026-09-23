@@ -149,13 +149,7 @@ S1 = u'''    <section class="bloque">
       elegir lo que se puede desmontar y tiene repuestos, y dejar el reciclaje para cuando ya no
       queda otra. Es una decisi&oacute;n que se toma en la fase&nbsp;2, no al tirar el objeto.</p>
 
-      <figure class="foto">
-        <img src="../../../img/technological-process-steps.svg" width="1000" height="700" loading="lazy"
-             alt="El proceso tecnol&oacute;gico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atr&aacute;s desde evaluar hasta el dise&ntilde;o">
-        <figcaption><b>Los siete pasos del proceso tecnol&oacute;gico</b>: detectar la necesidad, analizar el problema, buscar ideas, elegir y dise&ntilde;ar, planificar, construir y evaluar. Cada paso produce algo: el 1, un problema claro; el 2, una lista de requisitos comprobables; el 4, un dise&ntilde;o concreto. El proceso no es lineal: si al evaluar, en el paso 7, no se cumplen los requisitos, se vuelve atr&aacute;s, casi siempre al dise&ntilde;o (paso 4). Eso es lo que hacen de verdad los ingenieros: iterar hasta que funciona.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+      
 
       <div class="escena" id="esc-proceso">
         <div class="escena-barra">
@@ -358,11 +352,20 @@ S1 = u'''    <section class="bloque">
       <p>Casi siempre se vuelve atr&aacute;s. Construyes y descubres que la ranura no aprieta: vuelves al dise&ntilde;o. Eso <b>no es fracasar</b>, es c&oacute;mo funciona. Lo que ser&iacute;a un fallo es descubrirlo
          cuando ya has fabricado mil unidades.</p>
 
-      <figure class="foto">
-        <img src="../../../img/technological_process_workflow.svg" width="1000" height="600" loading="lazy"
-             alt="Diagrama de flujo del proceso tecnológico: 7 pasos desde detectar la necesidad hasta evaluar, con la vuelta atrás desde evaluar hasta el diseño">
-        <figcaption>El <b>proceso tecnológico</b> como flujo: detectar la necesidad, analizar el problema, buscar ideas, elegir y diseñar, planificar, construir y evaluar.
-          La flecha que vuelve del paso 7 al 4 no es un error: es lo que ocurre cuando no cumple los requisitos del paso 2.</figcaption>
+      <figure class="esq" data-esquema="2eso-t1-evaluar-dos-salidas">
+        <p class="esq-titulo">Paso 7: al evaluar hay dos salidas</p>
+        <div class="esq-tarjetas esq-vs">
+          <div class="esq-tarjeta" style="--c:var(--goo-verde)">
+            <h4>Cumple los requisitos</h4>
+            <p>Los requisitos que escribisteis en el paso 2 se cumplen todos. El proyecto está terminado y se cuenta en la <b>memoria técnica</b>.</p>
+          </div>
+          <div class="esq-tarjeta" style="--c:var(--goo-rojo)">
+            <h4>No los cumple</h4>
+            <p>Se vuelve atrás, casi siempre al <b>diseño</b> (paso 4): se corrige, se construye otra vez y se vuelve a evaluar.</p>
+            <p>Ejemplo: la ranura del soporte no aprieta, así que se cambia la ranura en el diseño.</p>
+          </div>
+        </div>
+        <figcaption>Volver atrás no es fracasar: así funciona el proceso tecnológico.</figcaption>
       </figure>
 
     </section>

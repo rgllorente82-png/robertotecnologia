@@ -156,7 +156,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -382,6 +381,36 @@ window.QUIETO = function(){
             window.matchMedia('(prefers-reduced-motion: reduce)').matches);
 };
 </script>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -399,14 +428,6 @@ window.QUIETO = function(){
   <div id="ses-1">
     <div class="ses-head">
       <div class="eyebrow">Sesi&oacute;n 1 &middot; 60 minutos</div>
-
-      <figure class="foto">
-        <img src="../../../img/forces-newtons-laws.svg" width="1362" height="740" loading="lazy"
-             alt="Las tres leyes de Newton: inercia, F=ma y acción-reacción">
-        <figcaption>Las <b>tres leyes de Newton</b> explican todo lo que va a pasar en este tema: 1ª Ley (inercia): sin fuerza, un objeto sigue igual. 2ª Ley (F = m·a): más fuerza produce más aceleración. 3ª Ley (acción-reacción): toda fuerza tiene una pareja que va en dirección contraria. Las máquinas simples (palancas, poleas, engranajes) son formas inteligentes de repartir y modificar las fuerzas, pero no crean fuerza de la nada.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <h2>La barra que multiplica: por qu&eacute; un tubo afloja lo que t&uacute; no</h2>
       <p>Una palanca no te hace m&aacute;s fuerte: te cambia fuerza por recorrido. De ah&iacute; sale todo lo dem&aacute;s del tema.</p>
@@ -530,20 +551,12 @@ window.QUIETO = function(){
       })();
       </script>
 
-  
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">01</span> Teor&iacute;a &middot; 20 min</div>
 
       <h3>Una barra, un punto y un trato</h3>
 
-      <figure class="foto">
-        <img src="../../../img/simple-machines.svg" width="1512" height="544" loading="lazy"
-             alt="Las 6 máquinas simples: palanca, rueda y eje, polea, plano inclinado, cuña y tornillo">
-        <figcaption>Las <b>seis máquinas simples</b> que han resuelto todos los problemas de fuerza desde la antigüedad. Todas siguen el mismo principio: cambian fuerza por distancia. Aumentas uno, pierdes el otro. La ventaja mecánica es el intercambio.
-          <span class="credito">Elaboración propia · CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
       <p>Pon una barra sobre un punto fijo, la carga en un lado y tu mano en el otro. Eso es todo el
          invento. Lo interesante es que la barra <b>no reparte la fuerza a partes iguales</b>: reparte
@@ -742,13 +755,7 @@ window.QUIETO = function(){
         </ul>
       </div>
 
-      <figure class="foto">
-        <img src="../../../img/lever-classes.svg" width="1000" height="750" loading="lazy"
-             alt="Las tres clases de palancas: fulcro en medio, carga en medio, esfuerzo en medio">
-        <figcaption><strong>Las tres clases de palancas:</strong> Orden de posiciones, ventaja mec&aacute;nica y ejemplos de cada clase
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
+      <figure class="esq" data-esquema="2eso-t7-tres-generos"><p class="esq-titulo">Los tres géneros, dibujados</p><div class="esq-tarjetas"><div class="esq-tarjeta" style="--c:var(--goo-azul)"><h4>Primer género</h4><p><b>Apoyo en medio</b></p><svg viewBox="0 0 240 132" role="img" aria-label="Palanca de primer género: la resistencia en un extremo, el apoyo en medio y la fuerza en el otro extremo, empujando hacia abajo" style="display:block;width:100%;max-width:250px;height:auto;margin:4px auto 12px"><line x1="18" y1="72" x2="222" y2="72" style="stroke:var(--ink-soft);stroke-width:8;stroke-linecap:round"/><polygon points="100,77 85,106 115,106" style="fill:var(--ink)"/><line x1="30" y1="14" x2="30" y2="54" style="stroke:var(--goo-rojo);stroke-width:5"/><polygon points="21,52 39,52 30,66" style="fill:var(--goo-rojo)"/><text x="42" y="32" style="fill:var(--goo-rojo);font:700 20px var(--f-b,sans-serif)">R</text><line x1="210" y1="14" x2="210" y2="54" style="stroke:var(--goo-verde);stroke-width:5"/><polygon points="201,52 219,52 210,66" style="fill:var(--goo-verde)"/><text x="222" y="32" style="fill:var(--goo-verde);font:700 20px var(--f-b,sans-serif)">F</text></svg><p>Puede ganar o perder fuerza, según dónde pongas el apoyo. <b>Tijeras, balancín, martillo sacando un clavo.</b></p></div><div class="esq-tarjeta" style="--c:var(--goo-verde)"><h4>Segundo género</h4><p><b>Resistencia en medio</b></p><svg viewBox="0 0 240 132" role="img" aria-label="Palanca de segundo género: el apoyo en un extremo, la resistencia en medio y la fuerza en el otro extremo, tirando hacia arriba" style="display:block;width:100%;max-width:250px;height:auto;margin:4px auto 12px"><line x1="18" y1="72" x2="222" y2="72" style="stroke:var(--ink-soft);stroke-width:8;stroke-linecap:round"/><polygon points="30,77 15,106 45,106" style="fill:var(--ink)"/><line x1="110" y1="14" x2="110" y2="54" style="stroke:var(--goo-rojo);stroke-width:5"/><polygon points="101,52 119,52 110,66" style="fill:var(--goo-rojo)"/><text x="122" y="32" style="fill:var(--goo-rojo);font:700 20px var(--f-b,sans-serif)">R</text><line x1="210" y1="128" x2="210" y2="90" style="stroke:var(--goo-verde);stroke-width:5"/><polygon points="201,92 219,92 210,78" style="fill:var(--goo-verde)"/><text x="222" y="124" style="fill:var(--goo-verde);font:700 20px var(--f-b,sans-serif)">F</text></svg><p>Siempre gana fuerza: el brazo de F es forzosamente mayor que el de R. <b>Carretilla, cascanueces, abrebotellas.</b></p></div><div class="esq-tarjeta" style="--c:var(--goo-rojo)"><h4>Tercer género</h4><p><b>Fuerza en medio</b></p><svg viewBox="0 0 240 132" role="img" aria-label="Palanca de tercer género: el apoyo en un extremo, la fuerza en medio tirando hacia arriba y la resistencia en el otro extremo" style="display:block;width:100%;max-width:250px;height:auto;margin:4px auto 12px"><line x1="18" y1="72" x2="222" y2="72" style="stroke:var(--ink-soft);stroke-width:8;stroke-linecap:round"/><polygon points="30,77 15,106 45,106" style="fill:var(--ink)"/><line x1="210" y1="14" x2="210" y2="54" style="stroke:var(--goo-rojo);stroke-width:5"/><polygon points="201,52 219,52 210,66" style="fill:var(--goo-rojo)"/><text x="222" y="32" style="fill:var(--goo-rojo);font:700 20px var(--f-b,sans-serif)">R</text><line x1="110" y1="128" x2="110" y2="90" style="stroke:var(--goo-verde);stroke-width:5"/><polygon points="101,92 119,92 110,78" style="fill:var(--goo-verde)"/><text x="122" y="124" style="fill:var(--goo-verde);font:700 20px var(--f-b,sans-serif)">F</text></svg><p>Siempre pierde fuerza y gana recorrido y velocidad. <b>Pinzas de depilar, caña de pescar, tu brazo.</b></p></div></div><p class="esq-nota">El triángulo es el <b>apoyo</b>. <b>R</b> es la resistencia, lo que hay que vencer; <b>F</b> es la fuerza que haces tú. Lo que decide el género es qué queda en medio.</p></figure>
 
       <div class="video" id="video-palanca" data-vid="8fDOm-XJBOQ">
         <button type="button" class="video-play" aria-label="Reproducir el v&iacute;deo: Ley de la palanca (mecanismos)">
@@ -1795,8 +1802,6 @@ window.QUIETO = function(){
             <a href="https://commons.wikimedia.org/wiki/File:Antikythera_Mechanism_-_National_Archaeological_Museum,_Athens_by_Joy_of_Museum.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></span>
         </figcaption>
       </figure>
-
-
 
 
       <h3>Para qu&eacute; sirve esto de verdad: la caja de cambios</h3>
@@ -2873,8 +2878,7 @@ window.QUIETO = function(){
            mundo llev&oacute; un mecanismo peor <b>por un motivo legal, no t&eacute;cnico</b>. La
            tecnolog&iacute;a no la deciden solo los ingenieros.</p>
       </div>
-  
-    
+
       <div class="escena" id="esc-olivos">
         <div class="escena-barra"><span class="escena-titulo">Transformar el movimiento, en el campo &middot; 18 segundos</span></div>
         <div class="lienzo" style="padding:0;background:#000;display:flex;justify-content:center">
@@ -3948,7 +3952,6 @@ window.QUIETO = function(){
       })();
       </script>
 
-  
     </section>
     <section class="bloque">
       <div class="rotulo"><span class="num">03</span> Cierre del tema &middot; 10 min</div>
@@ -4060,9 +4063,6 @@ window.QUIETO = function(){
   </section>
 <!-- /cierre-tema -->
 </div>
-
-
-
 
 
   <div class="lectura">
@@ -4322,8 +4322,6 @@ new MutationObserver(function(){if(!document.querySelector('.cc-sello'))document
   }
 })();
 </script>
-
-
 
 
 <!-- Tamaño de letra del cuerpo · 20-sep-2026 -->

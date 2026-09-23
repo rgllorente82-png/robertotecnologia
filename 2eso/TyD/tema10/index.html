@@ -158,7 +158,6 @@ h4{font-size:15.5px;margin:16px 0 4px}
 .ejeq{fill:var(--ink-soft);font-family:var(--f-m);font-size:11px}
 .etq{fill:var(--ink);font-family:var(--f-m);font-size:11px;font-weight:500}
 
-
 .foto{margin:16px 0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);overflow:hidden}
 .foto img{width:100%;height:auto;display:block}
 .foto figcaption{padding:11px 14px;font-size:14px;line-height:1.5;color:var(--ink);border-top:1px solid var(--line)}
@@ -384,6 +383,36 @@ footer .wrap{padding-block:18px 26px}
   html{scroll-behavior:auto!important}
 }
 </style>
+<style id="esq-kit">
+.esq{margin:26px 0;padding:0}
+.esq-titulo{font-weight:700;font-size:18px;margin:0 0 12px;letter-spacing:-.01em}
+.esq figcaption{font-size:15px;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.esq-tabla{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--surface);margin:0}
+.esq-tabla th,.esq-tabla td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top;line-height:1.45}
+.esq-tabla thead th{background:var(--surface-2);font-family:var(--f-m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);font-weight:500}
+.esq-tabla tbody th{font-weight:700}
+.esq-tabla tbody th small{display:block;font-weight:400;font-size:13.5px;color:var(--ink-soft);margin-top:2px}
+.esq-tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.esq-tarjeta{background:var(--surface);border:1.5px solid var(--line);border-top:5px solid var(--c,var(--goo-azul));border-radius:2px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.esq-tarjeta h4{margin:0 0 6px;font-size:18px}
+.esq-tarjeta p{margin:0 0 8px}
+.esq-tarjeta p:last-child{margin-bottom:0}
+.esq-tarjeta dl{margin:0}
+.esq-tarjeta dt{font-family:var(--f-m);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);margin:10px 0 2px}
+.esq-tarjeta dd{margin:0}
+.esq-tarjeta ul{margin:4px 0 0;padding-left:18px}
+.esq-tarjetas.esq-vs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.esq-pasos{list-style:none;margin:0;padding:0;counter-reset:paso;display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.esq-pasos>li{counter-increment:paso;position:relative;background:var(--surface);border:1.5px solid var(--line);border-radius:2px;padding:12px 14px 12px 14px;font-size:15.5px;line-height:1.45}
+.esq-pasos>li::before{content:counter(paso);display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--goo-azul);color:var(--tinta-sobre);font:700 14px var(--f-m);margin-bottom:6px}
+.esq-pasos>li b:first-of-type{display:block;font-size:16.5px;margin-bottom:2px}
+.esq-nota{margin:12px 0 0;padding:10px 14px;border-left:5px solid var(--goo-amarillo);background:var(--surface);font-size:15.5px}
+@media (max-width:620px){
+  .esq-tarjetas,.esq-tarjetas.esq-vs,.esq-pasos{grid-template-columns:1fr}
+  .esq-tabla{font-size:14.5px}
+  .esq-tabla th,.esq-tabla td{padding:8px}
+}
+</style>
 </head>
 <body>
 <!-- saltar la cabecera: WCAG 2.4.1 -->
@@ -414,7 +443,6 @@ footer .wrap{padding-block:18px 26px}
          mesa, con sus ceros y sus unos guardados dentro.</p>
       <p>Coges el m&oacute;vil, le das a un v&iacute;deo y el v&iacute;deo aparece. Y <b>el v&iacute;deo no estaba
          dentro</b>.</p>
-
 
       <div class="narrador" id="narr-u8">
         <div class="narrador-fig" id="narr-u8-fig"></div>
@@ -561,14 +589,6 @@ footer .wrap{padding-block:18px 26px}
       <p>Prueba la red de abajo. Pide el v&iacute;deo y, <b>mientras los paquetes van de camino</b>, corta un
          cable pulsando encima. Fíjate en dos cosas: en qu&eacute; pasa con el paquete que iba justo por
          ah&iacute;, y en el orden en el que llegan los seis.</p>
-
-      <figure class="foto">
-        <img src="../../../img/network-layers-osi.svg" width="800" height="600" loading="lazy"
-             alt="Modelo OSI de 7 capas: F&iacute;sica, Enlace, Red, Transporte, Sesi&oacute;n, Presentaci&oacute;n, Aplicaci&oacute;n, con protocolos y ejemplos pr&aacute;cticos en cada capa">
-        <figcaption>Internet va por <b>capas</b>, una encima de otra, y cada una solo habla con la suya del otro lado. Este dibujo es el modelo que las ordena (se llama <b>OSI</b> y cuenta siete), y no hace falta aprend&eacute;rselo. Lo que ves en esta sesi&oacute;n est&aacute; en las de abajo: los <b>cables</b> y el WiFi, y encima la de <b>red</b>, la de la <b>direcci&oacute;n IP</b> y los <b>routers</b>, que decide por d&oacute;nde va cada paquete. El navegador, arriba del todo, no necesita saber c&oacute;mo est&aacute;n conectadas las m&aacute;quinas.
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
 
 
       <div class="escena" id="esc-ruta">
@@ -931,7 +951,6 @@ footer .wrap{padding-block:18px 26px}
       <p>T&uacute; no escribes 192.0.2.41 en el navegador. Escribes un nombre. Pero la red <b>solo sabe ir a
          un n&uacute;mero</b>, as&iacute; que alguien tiene que traducir, y eso ocurre <b>antes</b> de que
          empiece a llegar nada.</p>
-
 
       <div class="escena" id="esc-dns">
         <div class="escena-barra">
@@ -1340,14 +1359,6 @@ footer .wrap{padding-block:18px 26px}
          &mdash;inventados, no los tuyos&mdash; y ve pulsando cada salto del camino con
          <b>http</b> y con <b>https</b>. Mira sobre todo los dos extremos.</p>
 
-      <figure class="foto">
-        <img src="../../../img/http-vs-https-security.svg" width="1000" height="700" loading="lazy"
-             alt="HTTP vs HTTPS: comparaci&oacute;n de seguridad entre datos sin cifrar y datos cifrados">
-        <figcaption><b>HTTP vs HTTPS: qu&eacute; protege el candado</b>. En HTTP los datos viajan en texto limpio: cualquiera en el camino (red Wi-Fi pública, router del ISP&hellip;) puede verlo. <b>Tus contraseñas están expuestas.</b> En HTTPS los datos viajan cifrados: aunque alguien los intercepte, solo ve un galimatías. El candado del navegador significa que está activado. Pero cuidado: HTTPS protege que nadie <b>vea</b> lo que envías, no que <b>sea real</b> el sitio (ojo con phishing).
-          <span class="credito">Elaboraci&oacute;n propia &middot; CC BY-SA 4.0</span>
-        </figcaption>
-      </figure>
-
 
       <div class="escena" id="esc-espia">
         <div class="escena-barra">
@@ -1568,7 +1579,6 @@ footer .wrap{padding-block:18px 26px}
          pasar por esas diez m&aacute;quinas de otros. Parece imposible: cualquier cosa que mandes para
          acordar la clave la oye el de en medio.</p>
       <p>Pues se puede. Mira los n&uacute;meros de abajo y cambia los secretos con los botones.</p>
-
 
       <div class="escena" id="esc-clave">
         <div class="escena-barra">
@@ -1950,7 +1960,6 @@ footer .wrap{padding-block:18px 26px}
          no dice nada. <b>Juntos, s&iacute;.</b></p>
       <p>La escena de abajo no es un ejemplo inventado: son <b>tus datos, le&iacute;dos ahora mismo</b> en el
          aparato desde el que est&aacute;s mirando esto.</p>
-
 
       <div class="escena" id="esc-huella">
         <div class="escena-barra">
@@ -2420,7 +2429,6 @@ footer .wrap{padding-block:18px 26px}
          despu&eacute;s algo largo y f&aacute;cil, y f&iacute;jate en las cuatro cajas del medio: son la
          misma contrase&ntilde;a con <b>un carácter m&aacute;s</b> cada vez.</p>
 
-
       <div class="escena" id="esc-fuerza">
         <div class="escena-barra">
           <span class="escena-titulo">Cu&aacute;nto aguanta</span>
@@ -2698,7 +2706,6 @@ footer .wrap{padding-block:18px 26px}
          habr&iacute;a nada que hacer. Por eso una web bien hecha <b>no guarda tu contrase&ntilde;a</b>.
          Escribe una abajo y mira lo que guarda de verdad.</p>
 
-
       <div class="escena" id="esc-hash">
         <div class="escena-barra">
           <span class="escena-titulo">Lo que la web guarda de ti</span>
@@ -2971,7 +2978,6 @@ footer .wrap{padding-block:18px 26px}
            dem&aacute;s sin saber ninguna otra contrase&ntilde;a. <b>Esa va distinta de todas, larga, y
            con segundo factor.</b></p>
       </div>
-
 
       <h3>De qu&eacute; te defiendes: los programas malignos</h3>
       <p>Un <b>programa maligno</b> o <b>malware</b> es c&oacute;digo escrito a prop&oacute;sito para da&ntilde;ar un
@@ -3330,7 +3336,6 @@ footer .wrap{padding-block:18px 26px}
          detalle: es la diferencia entre perder un trabajo de tres semanas o no perderlo.</p>
       <p>Abajo tienes los sitios donde puede vivir un archivo. Ponlos y qu&iacute;talos, haz que pase
          algo y mira qui&eacute;n sobrevive. Empieza por el experimento que dice el pie.</p>
-
 
       <div class="escena" id="esc-nube">
         <div class="escena-barra">
@@ -3837,7 +3842,6 @@ footer .wrap{padding-block:18px 26px}
          cookies. Hoy la vamos a usar para otra cosa: para <b>pedir</b>.</p>
       <p>Elige un derecho abajo, pon la fecha de hoy y mira el calendario. Despu&eacute;s cambia la
          fecha de env&iacute;o a un <b>31 de enero</b> y fíjate en lo que hace el plazo.</p>
-
 
       <div class="escena" id="esc-derechos">
         <div class="escena-barra">
@@ -4500,9 +4504,6 @@ footer .wrap{padding-block:18px 26px}
   </section>
 <!-- /cierre-tema -->
 </div>
-
-
-
 
 
   <section class="cc-aviso" id="licencia"
