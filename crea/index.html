@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crea con IA — Tecnología</title>
+<style>
+  :root{
+    --bg:#0f172a; --panel:#1e293b; --accent:#38bdf8; --accent2:#4ade80;
+    --text:#e2e8f0; --muted:#94a3b8; --danger:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg); color:var(--text); min-height:100vh;
+  }
+  header{ padding:20px 16px 8px; text-align:center; }
+  header h1{ margin:0 0 4px; font-size:1.6em; }
+  header p{ margin:0; color:var(--muted); font-size:0.95em; }
+  main{ max-width:900px; margin:0 auto; padding:16px; }
+  .card{
+    background:var(--panel); border-radius:14px; padding:18px; margin-bottom:16px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.3);
+  }
+  label{ display:block; margin-bottom:6px; font-weight:600; font-size:0.9em; color:var(--muted); }
+  input[type=text], input[type=password], textarea{
+    width:100%; padding:10px 12px; border-radius:8px; border:1px solid #334155;
+    background:#0f172a; color:var(--text); font-size:1em; margin-bottom:12px; font-family:inherit;
+  }
+  textarea{ min-height:70px; resize:vertical; }
+  button{
+    padding:12px 20px; border-radius:8px; border:none; font-weight:700; font-size:1em;
+    cursor:pointer; transition:opacity .15s;
+  }
+  button:disabled{ opacity:0.5; cursor:not-allowed; }
+  .btn-primary{ background:var(--accent); color:#0f172a; }
+  .btn-ok{ background:var(--accent2); color:#0f172a; }
+  .btn-secondary{ background:#334155; color:var(--text); }
+  .row{ display:flex; gap:10px; flex-wrap:wrap; }
+  #resultado{ display:none; }
+  #frame-wrap{
+    border:2px solid #334155; border-radius:10px; overflow:hidden; margin-bottom:14px;
+    background:#fff;
+  }
+  iframe{ width:100%; height:480px; border:none; display:block; }
+  #estado{ min-height:1.4em; color:var(--muted); font-size:0.9em; margin-bottom:8px; }
+  .error{ color:var(--danger); }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+  .chip{
+    background:#334155; color:var(--text); border:none; border-radius:999px;
+    padding:6px 14px; font-size:0.85em; cursor:pointer;
+  }
+  .chip:hover{ background:#475569; }
+  #gate{ text-align:center; padding-top:60px; }
+  footer{ text-align:center; color:var(--muted); font-size:0.8em; padding:20px; }
+  a{ color:var(--accent); }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="card" style="max-width:340px;margin:0 auto;">
+    <h2 style="margin-top:0">🔑 Clave de clase</h2>
+    <p style="color:var(--muted);font-size:0.9em">Pídesela a tu profesor.</p>
+    <input type="password" id="clave-input" placeholder="Clave">
+    <button class="btn-primary" style="width:100%" onclick="entrar()">Entrar</button>
+    <p id="gate-error" class="error"></p>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+  <header>
+    <h1>🎮 Crea con IA</h1>
+    <p>Escribe qué quieres construir y la IA lo genera al momento</p>
+  </header>
+  <main>
+    <div class="card">
+      <label for="prompt">¿Qué quieres construir?</label>
+      <div class="chips">
+        <button class="chip" onclick="rellenar('un juego de la serpiente (Snake), con puntuación y que vaya cada vez más rápido')">🐍 Snake</button>
+        <button class="chip" onclick="rellenar('un juego de Pong para dos jugadores en el mismo teclado')">🏓 Pong</button>
+        <button class="chip" onclick="rellenar('un juego de rompe ladrillos (Arkanoid) con una barra que se mueve con el ratón')">🧱 Arkanoid</button>
+        <button class="chip" onclick="rellenar('un juego tipo Flappy Bird sencillo con un pájaro que salta al pulsar espacio')">🐦 Flappy</button>
+        <button class="chip" onclick="rellenar('un juego de marcianitos (Space Invaders) sencillo')">👾 Marcianitos</button>
+        <button class="chip" onclick="rellenar('un juego de memoria con parejas de cartas con emojis')">🃏 Memoria</button>
+      </div>
+      <textarea id="prompt" placeholder="Ej: un juego de la serpiente con fondo morado y que la comida sea una manzana roja"></textarea>
+      <div class="row">
+        <button class="btn-primary" id="btn-generar" onclick="generar()">✨ Crear</button>
+      </div>
+      <div id="estado"></div>
+    </div>
+
+    <div class="card" id="resultado">
+      <div id="frame-wrap"><iframe id="frame" sandbox="allow-scripts"></iframe></div>
+      <div class="row">
+        <button class="btn-secondary" onclick="descargar()">⬇️ Descargar .html</button>
+        <button class="btn-ok" onclick="mostrarPublicar()">📤 Publicar en la galería</button>
+      </div>
+      <div id="publicar-form" style="display:none;margin-top:14px">
+        <label for="titulo">Título de tu creación</label>
+        <input type="text" id="titulo" placeholder="Ej: Mi Snake morado">
+        <label for="autor">Tu nombre</label>
+        <input type="text" id="autor" placeholder="Ej: Ana, 2ºB">
+        <button class="btn-ok" onclick="publicar()">Enviar a revisión</button>
+        <p style="color:var(--muted);font-size:0.85em">Tu profesor lo revisará antes de que aparezca en la <a href="../galeria/">galería</a>.</p>
+      </div>
+    </div>
+  </main>
+  <footer>Generado con IA · revisa siempre el resultado antes de compartirlo · <a href="../galeria/">Ver galería de la clase</a></footer>
+</div>
+
+<script>
+const API = "https://aptisbot.es/rt-api/crea";
+let CLAVE = "";
+let ultimoHTML = "";
+
+function entrar(){
+  const v = document.getElementById('clave-input').value.trim();
+  if(!v){ document.getElementById('gate-error').textContent = "Escribe la clave."; return; }
+  CLAVE = v;
+  document.getElementById('gate').style.display = "none";
+  document.getElementById('app').style.display = "block";
+  sessionStorage.setItem('rtcrea_clave', v);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const guardada = sessionStorage.getItem('rtcrea_clave');
+  if(guardada){ CLAVE = guardada; document.getElementById('gate').style.display='none'; document.getElementById('app').style.display='block'; }
+});
+
+function rellenar(txt){ document.getElementById('prompt').value = txt; }
+
+async function generar(){
+  const prompt = document.getElementById('prompt').value.trim();
+  const estado = document.getElementById('estado');
+  const btn = document.getElementById('btn-generar');
+  if(!prompt){ estado.textContent = "Escribe primero qué quieres crear."; estado.className='error'; return; }
+  btn.disabled = true;
+  estado.className = '';
+  estado.textContent = "⏳ Generando... (puede tardar hasta 20-30 segundos)";
+  document.getElementById('resultado').style.display = 'none';
+  try{
+    const r = await fetch(API + "/generar", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({clave: CLAVE, prompt})
+    });
+    const data = await r.json();
+    if(data.error){
+      estado.className = 'error';
+      estado.textContent = "❌ " + data.error;
+      if(r.status === 403){ sessionStorage.removeItem('rtcrea_clave'); }
+    } else {
+      ultimoHTML = data.html;
+      document.getElementById('frame').srcdoc = ultimoHTML;
+      document.getElementById('resultado').style.display = 'block';
+      document.getElementById('publicar-form').style.display = 'none';
+      estado.textContent = "✅ ¡Listo! Prueba tu creación abajo. Puedes pedir cambios escribiendo otra vez arriba (ej. 'hazlo más difícil') y pulsando Crear de nuevo.";
+    }
+  } catch(e){
+    estado.className = 'error';
+    estado.textContent = "❌ Fallo de conexión: " + e;
+  }
+  btn.disabled = false;
+}
+
+function descargar(){
+  const blob = new Blob([ultimoHTML], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'mi_creacion.html';
+  a.click();
+}
+
+function mostrarPublicar(){
+  document.getElementById('publicar-form').style.display = 'block';
+}
+
+async function publicar(){
+  const titulo = document.getElementById('titulo').value.trim() || "Sin título";
+  const autor = document.getElementById('autor').value.trim() || "Anónimo";
+  const estado = document.getElementById('estado');
+  try{
+    const r = await fetch(API + "/enviar", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({clave: CLAVE, titulo, autor, html: ultimoHTML})
+    });
+    const data = await r.json();
+    if(data.error){ estado.className='error'; estado.textContent = "❌ " + data.error; }
+    else{
+      document.getElementById('publicar-form').style.display = 'none';
+      estado.className = '';
+      estado.textContent = "📤 Enviado. Cuando tu profesor lo apruebe, aparecerá en la galería.";
+    }
+  } catch(e){ estado.className='error'; estado.textContent = "❌ Fallo de conexión: " + e; }
+}
+</script>
+</body>
+</html>

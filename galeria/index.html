@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galería de la clase — Tecnología</title>
+<style>
+  :root{ --bg:#0f172a; --panel:#1e293b; --accent:#38bdf8; --text:#e2e8f0; --muted:#94a3b8; }
+  *{box-sizing:border-box}
+  body{ margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--text); }
+  header{ padding:20px 16px 10px; text-align:center; }
+  header h1{ margin:0 0 4px; }
+  header p{ color:var(--muted); margin:0; }
+  main{ max-width:1100px; margin:0 auto; padding:16px; }
+  .grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+  .card{ background:var(--panel); border-radius:14px; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.3); cursor:pointer; transition:transform .15s; }
+  .card:hover{ transform:translateY(-4px); }
+  .thumb{ height:160px; background:#fff; position:relative; overflow:hidden; }
+  .thumb iframe{ width:400%; height:400%; border:none; transform:scale(0.25); transform-origin:top left; pointer-events:none; }
+  .info{ padding:12px; }
+  .info h3{ margin:0 0 4px; font-size:1.05em; }
+  .info p{ margin:0; color:var(--muted); font-size:0.85em; }
+  #vacio{ text-align:center; color:var(--muted); padding:60px 0; }
+  #modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10; padding:20px; }
+  #modal.abierto{ display:flex; flex-direction:column; }
+  #modal .barra{ display:flex; justify-content:space-between; align-items:center; color:#fff; margin-bottom:10px; }
+  #modal iframe{ flex:1; width:100%; border:none; border-radius:10px; background:#fff; }
+  #modal button{ background:var(--accent); border:none; border-radius:8px; padding:8px 16px; font-weight:700; cursor:pointer; }
+  footer{ text-align:center; color:var(--muted); font-size:0.85em; padding:24px; }
+  a{ color:var(--accent); }
+</style>
+</head>
+<body>
+<header>
+  <h1>🏆 Galería de la clase</h1>
+  <p>Lo que han creado tus compañeros con IA</p>
+</header>
+<main>
+  <div class="grid" id="grid"></div>
+  <div id="vacio" style="display:none">Todavía no hay nada publicado. <a href="../crea/">¡Sé el primero!</a></div>
+</main>
+<footer><a href="../crea/">← Volver a crear</a></footer>
+
+<div id="modal">
+  <div class="barra">
+    <strong id="modal-titulo"></strong>
+    <button onclick="cerrar()">Cerrar ✕</button>
+  </div>
+  <iframe id="modal-frame" sandbox="allow-scripts"></iframe>
+</div>
+
+<script>
+const API = "https://aptisbot.es/rt-api/crea";
+
+async function cargar(){
+  const grid = document.getElementById('grid');
+  try{
+    const r = await fetch(API + "/galeria");
+    const items = await r.json();
+    if(!items.length){ document.getElementById('vacio').style.display = 'block'; return; }
+    for(const it of items){
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.onclick = () => abrir(it.id, it.titulo);
+      card.innerHTML = `
+        <div class="thumb"><iframe src="${API}/galeria/${it.id}"></iframe></div>
+        <div class="info"><h3>${escapeHtml(it.titulo)}</h3><p>${escapeHtml(it.autor)}${it.curso? ' · '+escapeHtml(it.curso):''}</p></div>`;
+      grid.appendChild(card);
+    }
+  } catch(e){
+    grid.innerHTML = '<p style="color:#f87171">No se pudo cargar la galería.</p>';
+  }
+}
+
+function escapeHtml(s){
+  const d = document.createElement('div'); d.textContent = s; return d.innerHTML;
+}
+
+function abrir(id, titulo){
+  document.getElementById('modal-titulo').textContent = titulo;
+  document.getElementById('modal-frame').src = API + "/galeria/" + id;
+  document.getElementById('modal').classList.add('abierto');
+}
+function cerrar(){
+  document.getElementById('modal').classList.remove('abierto');
+  document.getElementById('modal-frame').src = '';
+}
+
+cargar();
+</script>
+</body>
+</html>
