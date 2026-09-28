@@ -1485,6 +1485,23 @@
           </div></details>
         </li>
       </ol>
+
+      <div class="video" id="video-escuadra" data-vid="4tpTZjV-ewU">
+        <button type="button" class="video-play" aria-label="Reproducir el vídeo: paralelas y perpendiculares con escuadra y cartabón">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Paralelas y perpendiculares, escuadra y cartabón</b>
+            <span>Profevili</span>
+          </span>
+        </button>
+        <p class="video-nota">Es justo el instrumento con el que se traza un plano: la escuadra fija, el cartabón desliza sobre ella. Fíjate en la mano que no dibuja &mdash;esa es la que sujeta y no se mueve&mdash;, que es donde falla casi todo el mundo la primera vez.
+          El vídeo no se carga hasta que lo pulsas, y se reproduce
+          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=4tpTZjV-ewU" target="_blank" rel="noopener">ábrelo
+          directamente aquí</a>. El vídeo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta página.</p>
+      </div>
+
       <div class="nota">
         <span class="n-tag">Siguiente sesión</span>
         Las tres vistas: cómo se aplana una pieza de tres dimensiones en alzado, planta y perfil sin perder información.
@@ -1695,6 +1712,22 @@
       <div class="nota">
         <span class="n-tag">Truco de clase</span>
         Pon la pieza sobre la mesa y agáchate hasta tenerla a la altura de los ojos: eso es el alzado. Súbete a mirarla desde arriba: la planta. Muévete a su izquierda: el perfil. Si lo haces con el cuerpo, ya no se te olvida.
+      </div>
+
+      <div class="video" id="video-vistas-real" data-vid="nI7F6pr0WGU">
+        <button type="button" class="video-play" aria-label="Reproducir el vídeo: obtención de vistas">
+          <span class="video-tri" aria-hidden="true"></span>
+          <span class="video-txt">
+            <b>Obtención de vistas</b>
+            <span>Tecnomies</span>
+          </span>
+        </button>
+        <p class="video-nota">Antes de la práctica, ve el mismo proceso con una pieza distinta a las de la animación: si lo entiendes con una tercera pieza, ya lo has entendido de verdad.
+          El vídeo no se carga hasta que lo pulsas, y se reproduce
+          sin cookies de seguimiento. Si la red del centro bloquea YouTube,
+          <a href="https://www.youtube.com/watch?v=nI7F6pr0WGU" target="_blank" rel="noopener">ábrelo
+          directamente aquí</a>. El vídeo es de su autor y no forma parte del material
+          publicado bajo la licencia de esta página.</p>
       </div>
     </section>
 
@@ -3492,5 +3525,27 @@
 })();
 </script>
 
+<script>
+/* Los videos de YouTube no se cargan hasta que el alumno los pulsa: asi la
+   pagina abre rapido y no se planta una cookie de seguimiento por la cara. */
+(function(){
+  document.querySelectorAll('.video[data-vid]').forEach(function(c){
+    var b = c.querySelector('.video-play');
+    if(!b) return;
+    b.addEventListener('click', function(){
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + c.dataset.vid
+            + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.title = b.querySelector('.video-txt b').textContent;
+      f.allow = 'accelerometer; autoplay; encrypted-media; picture-in-picture';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      b.replaceWith(f);
+    });
+  });
+})();
+</script>
+
+<script data-goatcounter="https://bots-educativos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
