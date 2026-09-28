@@ -156,6 +156,7 @@ def pagina(cfg):
 <footer><div class="wrap">%s &middot; %s &middot; %s</div></footer>
 %s
 %s
+<script data-goatcounter="https://bots-educativos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos, lectura(cfg, cuerpos),
                aviso_licencia(cfg['titulo'], canon),
