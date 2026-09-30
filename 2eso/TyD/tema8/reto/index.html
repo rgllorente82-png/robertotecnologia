@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>&iquest;Se enciende? &middot; Tema 8 Electricidad &middot; 2.&ordm; ESO</title>
+<meta name="description" content="Reto por grupos: lee el circuito dibujado (interruptores, bombillas, pila) y adivina qu&eacute; pasa antes de que se revele. Tema 8 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Oswald:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#15110d; --panel:#1f1811; --panel-2:#2a2017; --panel-3:#382a1b;
+  --papel:#ece1c8; --papel-2:#e4d5b4; --papel-3:#f3ebd7;
+  --linea:#bda480; --tinta2:#8a7a5e;
+  --laton:#c19a4e; --laton-claro:#e3c07a; --laton-osc:#8a6a31;
+  --ok:#2f6f57; --mal:#a02c25; --hilo:#8a7a5e; --hilo-viva:#e3c07a;
+  --bombilla-off:#4a4234; --bombilla-on:#ffd35c;
+  --f-display:'Cinzel',Georgia,serif; --f-cond:'Oswald',Impact,sans-serif; --f-serif:'Spectral',Georgia,serif;
+}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--papel);font:16px/1.5 var(--f-serif);
+  background-image:radial-gradient(1200px 680px at 50% -14%,#241a10 0%,transparent 64%)}
+.marco{display:flex;flex-direction:column;height:100%;max-width:1200px;margin:0 auto;padding:14px}
+header{flex:0 0 auto;display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+h1{font:700 26px var(--f-display);color:var(--laton-claro);margin:0}
+h1 small{display:block;font:500 13px var(--f-cond);color:var(--papel-2);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+button{font:600 13px var(--f-cond);letter-spacing:.04em;text-transform:uppercase;background:var(--panel-2);
+  color:var(--papel-2);border:1px solid var(--laton-osc);border-radius:6px;padding:7px 12px;cursor:pointer}
+button:hover{background:var(--panel-3)}
+button.laton{background:var(--laton);color:#241a0c;border-color:var(--laton-claro)}
+button.grande{padding:12px 22px;font-size:15px}
+button:disabled{opacity:.35;cursor:default}
+
+#marcador{display:flex;gap:8px;flex-wrap:wrap;flex:0 0 auto;margin-bottom:12px}
+.grupo{background:var(--panel);border:1px solid var(--linea);border-radius:8px;padding:8px 10px;min-width:112px;
+  display:flex;flex-direction:column;gap:4px;position:relative}
+.grupo.acerto{border-color:var(--ok);box-shadow:0 0 0 2px var(--ok) inset}
+.grupo input{background:transparent;border:none;color:var(--papel-3);font:600 13px var(--f-cond);width:100%;padding:0}
+.grupo input:focus{outline:1px dashed var(--laton-osc)}
+.grupo .fila{display:flex;align-items:center;justify-content:space-between}
+.grupo .pts{font:700 20px var(--f-display);color:var(--laton-claro)}
+.grupo .marcar{font:600 10px var(--f-cond);padding:3px 7px;border-radius:5px}
+.grupo .quitar{position:absolute;top:2px;right:4px;font-size:11px;color:var(--tinta2);cursor:pointer;background:none;border:none;padding:2px}
+
+main{flex:1 1 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;overflow:auto;
+  background:var(--panel);border:1px solid var(--linea);border-radius:14px;padding:18px}
+#contador{font:600 13px var(--f-cond);letter-spacing:.08em;text-transform:uppercase;color:var(--laton)}
+svg#diagrama{width:100%;max-width:640px;height:auto}
+.hilo{stroke:var(--hilo);stroke-width:3;fill:none}
+.pila-larga{stroke:var(--papel-3);stroke-width:3}
+.pila-corta{stroke:var(--papel-3);stroke-width:6}
+.etiqueta{fill:var(--papel-2);font:500 13px var(--f-cond)}
+.contacto{fill:var(--hilo)}
+.palanca{stroke-width:3;stroke-linecap:round}
+.palanca.cerrada{stroke:var(--ok)}
+.palanca.abierta{stroke:var(--mal)}
+.bombilla{stroke-width:2.5}
+.bombilla.off{fill:var(--panel-2);stroke:var(--hilo)}
+.bombilla.on{fill:var(--bombilla-on);stroke:var(--laton-claro);filter:drop-shadow(0 0 9px var(--bombilla-on))}
+.bombilla.fundida{fill:var(--panel-2);stroke:var(--mal)}
+.filamento{stroke:var(--hilo);stroke-width:1.5}
+.x-fundida{stroke:var(--mal);stroke-width:2.5}
+.ampcirc{fill:var(--panel-2);stroke:var(--hilo);stroke-width:2.5}
+.ampletra{fill:var(--papel-2);font:700 13px var(--f-cond);text-anchor:middle}
+.amplectura{fill:var(--laton-claro);font:700 16px var(--f-cond);text-anchor:middle}
+.resframe{fill:none;stroke:var(--hilo);stroke-width:2.5}
+#pregunta{font:1 21px/1.5 var(--f-serif);color:var(--papel-3);text-align:center;max-width:600px;margin:0}
+#explicacion{font:italic 400 17px/1.5 var(--f-serif);color:var(--papel-2);background:var(--panel-2);
+  border-left:3px solid var(--ok);padding:12px 16px;border-radius:0 8px 8px 0;max-width:600px;margin:0}
+.controles{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+footer{flex:0 0 auto;margin-top:10px;font:400 12px var(--f-serif);color:var(--tinta2);text-align:center}
+footer a{color:var(--laton)}
+@media (max-width:640px){h1{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="marco">
+
+<header>
+  <h1>&iquest;Se enciende?<small>Tema 8 &middot; Electricidad &middot; 2.&ordm; de ESO</small></h1>
+  <div style="display:flex;gap:8px">
+    <button id="btn-reset">Reiniciar partida</button>
+  </div>
+</header>
+
+<div id="marcador"></div>
+
+<main>
+  <div id="contador"></div>
+  <svg id="diagrama" viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg"></svg>
+  <p id="pregunta"></p>
+  <p id="explicacion" hidden></p>
+  <div class="controles">
+    <button class="laton grande" id="btn-revelar">Revelar</button>
+    <button class="grande" id="btn-siguiente" hidden>Siguiente reto &rarr;</button>
+  </div>
+</main>
+
+<footer>Lee el circuito, discutid en el grupo y decidid antes de revelar. Marca qu&eacute; grupos han acertado y pasa al siguiente reto.
+  Vuelve a <a href="../">Tema 8 &middot; Electricidad</a>.</footer>
+
+</div>
+
+<script>
+// ---------- dibujo ----------
+function seg(x1,y1,x2,y2){ return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="hilo"/>`; }
+
+function bateria(cx,cy,label){
+  return `<line x1="${cx-16}" y1="${cy-8}" x2="${cx+16}" y2="${cy-8}" class="pila-larga"/>
+          <line x1="${cx-9}" y1="${cy+8}" x2="${cx+9}" y2="${cy+8}" class="pila-corta"/>
+          <text x="${cx-40}" y="${cy-16}" class="etiqueta">${label}</text>`;
+}
+
+function interruptor(cx,cy,vert,cerrado){
+  if(!vert){
+    const x1=cx-17,x2=cx+17;
+    const palanca = cerrado
+      ? `<line x1="${x1}" y1="${cy}" x2="${x2}" y2="${cy}" class="palanca cerrada"/>`
+      : `<line x1="${x1}" y1="${cy}" x2="${cx+9}" y2="${cy-14}" class="palanca abierta"/>`;
+    return `<circle cx="${x1}" cy="${cy}" r="4" class="contacto"/><circle cx="${x2}" cy="${cy}" r="4" class="contacto"/>${palanca}`;
+  }
+  const y1=cy-17,y2=cy+17;
+  const palanca = cerrado
+    ? `<line x1="${cx}" y1="${y1}" x2="${cx}" y2="${y2}" class="palanca cerrada"/>`
+    : `<line x1="${cx}" y1="${y1}" x2="${cx+14}" y2="${cy-9}" class="palanca abierta"/>`;
+  return `<circle cx="${cx}" cy="${y1}" r="4" class="contacto"/><circle cx="${cx}" cy="${y2}" r="4" class="contacto"/>${palanca}`;
+}
+
+function bombilla(cx,cy,estado,label){
+  const cls = 'bombilla ' + (estado==='encendida'?'on':estado==='fundida'?'fundida':'off');
+  const x = estado==='fundida'
+    ? `<line x1="${cx-9}" y1="${cy-9}" x2="${cx+9}" y2="${cy+9}" class="x-fundida"/>
+       <line x1="${cx-9}" y1="${cy+9}" x2="${cx+9}" y2="${cy-9}" class="x-fundida"/>`
+    : `<line x1="${cx-8}" y1="${cy-8}" x2="${cx+8}" y2="${cy+8}" class="filamento"/>
+       <line x1="${cx-8}" y1="${cy+8}" x2="${cx+8}" y2="${cy-8}" class="filamento"/>`;
+  const etiqueta = label ? `<text x="${cx}" y="${cy-24}" class="etiqueta" text-anchor="middle">${label}</text>` : '';
+  return `${etiqueta}<circle cx="${cx}" cy="${cy}" r="16" class="${cls}"/>${x}`;
+}
+
+function resistencia(cx,cy,label){
+  return `<rect x="${cx-20}" y="${cy-10}" width="40" height="20" rx="3" class="resframe"/>
+          <text x="${cx}" y="${cy-18}" class="etiqueta" text-anchor="middle">${label}</text>`;
+}
+
+function amperimetro(cx,cy,lectura){
+  return `<circle cx="${cx}" cy="${cy}" r="16" class="ampcirc"/><text x="${cx}" y="${cy+5}" class="ampletra">A</text>
+          ${lectura!=null?`<text x="${cx}" y="${cy+36}" class="amplectura">${lectura}</text>`:''}`;
+}
+
+function dibujaComp(c, cx, cy, vert, revelado){
+  const cerrado = revelado && 'cerradoFinal' in c ? c.cerradoFinal : c.cerrado;
+  const estado = revelado && c.estadoFinal ? c.estadoFinal : (c.estadoInicial||'off');
+  if(c.tipo==='interruptor') return interruptor(cx,cy,vert,cerrado);
+  if(c.tipo==='bombilla') return bombilla(cx,cy,estado,c.label);
+  if(c.tipo==='resistencia') return resistencia(cx,cy,c.label);
+  if(c.tipo==='amperimetro') return amperimetro(cx,cy, revelado ? c.lectura : null);
+  return '';
+}
+
+function dibujaSerie(comps, revelado){
+  const y=50, xL=60, xR=580, yB=200;
+  let svg = seg(xL,y,xL,110) + seg(xL,130,xL,yB) + bateria(xL,120,'9V');
+  svg += seg(xL,yB,xR,yB) + seg(xR,y,xR,yB);
+  const n=comps.length, x0=130, x1=510;
+  const step = n>1 ? (x1-x0)/(n-1) : 0;
+  const centros = comps.map((c,i)=> n===1 ? (x0+x1)/2 : x0+step*i);
+  let prev=xL;
+  centros.forEach(cx=>{ svg += seg(prev,y,cx-20,y); prev=cx+20; });
+  svg += seg(prev,y,xR,y);
+  comps.forEach((c,i)=>{ svg += dibujaComp(c, centros[i], y, false, revelado); });
+  return svg;
+}
+
+function dibujaParalelo(ramas, revelado){
+  const xL=60, yTop=60, yBot=200, xR=600;
+  let svg = seg(xL,yTop,xR,yTop) + seg(xL,yBot,xR,yBot);
+  svg += seg(xL,yTop,xL,120) + seg(xL,140,xL,yBot) + bateria(xL,130,'9V');
+  const n=ramas.length, x0=220, x1=560;
+  const step = n>1 ? (x1-x0)/(n-1) : 0;
+  ramas.forEach((rama,i)=>{
+    const cx = n===1 ? (x0+x1)/2 : x0+step*i;
+    if(rama.length===0){ svg += seg(cx,yTop,cx,yBot); return; }
+    const centrosY = rama.length===1 ? [130] : [100,160];
+    let prev=yTop;
+    rama.forEach((c,j)=>{ const cy=centrosY[j]; svg += seg(cx,prev,cx,cy-20); prev=cy+20; });
+    svg += seg(cx,prev,cx,yBot);
+    rama.forEach((c,j)=>{ svg += dibujaComp(c, cx, centrosY[j], true, revelado); });
+  });
+  return svg;
+}
+
+function render(reto, revelado){
+  const svg = reto.tipo==='serie' ? dibujaSerie(reto.comps, revelado) : dibujaParalelo(reto.ramas, revelado);
+  document.getElementById('diagrama').innerHTML = svg;
+}
+
+// ---------- retos ----------
+const RETOS = [
+  { tipo:'serie', pregunta:'El interruptor está cerrado. ¿Qué bombillas se encienden?',
+    comps:[ {tipo:'interruptor', cerrado:true},
+            {tipo:'bombilla', estadoInicial:'off', estadoFinal:'encendida'},
+            {tipo:'bombilla', estadoInicial:'off', estadoFinal:'encendida'} ],
+    explicacion:'Están en serie: es un solo camino. Con el interruptor cerrado, la corriente pasa por las dos y las dos se encienden.' },
+
+  { tipo:'paralelo', pregunta:'Un interruptor cerrado y el otro abierto. ¿Qué bombilla se enciende?',
+    ramas:[ [ {tipo:'interruptor', cerrado:true}, {tipo:'bombilla', estadoInicial:'off', estadoFinal:'encendida'} ],
+            [ {tipo:'interruptor', cerrado:false}, {tipo:'bombilla', estadoInicial:'off', estadoFinal:'off'} ] ],
+    explicacion:'En paralelo cada bombilla tiene su propio camino: solo se enciende la que tiene el interruptor cerrado.' },
+
+  { tipo:'serie', pregunta:'La segunda bombilla está fundida (rota por dentro). ¿Se enciende la primera?',
+    comps:[ {tipo:'interruptor', cerrado:true},
+            {tipo:'bombilla', estadoInicial:'off', estadoFinal:'off'},
+            {tipo:'bombilla', estadoInicial:'fundida', estadoFinal:'fundida'} ],
+    explicacion:'En serie hay un solo camino. Si una bombilla está fundida, el camino se corta y no llega corriente a ninguna: tampoco se enciende la primera.' },
+
+  { tipo:'paralelo', pregunta:'La bombilla de la derecha está fundida. ¿Se enciende la de la izquierda?',
+    ramas:[ [ {tipo:'bombilla', estadoInicial:'off', estadoFinal:'encendida'} ],
+            [ {tipo:'bombilla', estadoInicial:'fundida', estadoFinal:'fundida'} ] ],
+    explicacion:'En paralelo cada una tiene su propio camino. Que una esté fundida no afecta a la otra: la izquierda se enciende igual.' },
+
+  { tipo:'paralelo', pregunta:'El cable de la izquierda no pasa por ningún receptor. ¿Se enciende la bombilla de la derecha?',
+    ramas:[ [], [ {tipo:'bombilla', estadoInicial:'off', estadoFinal:'off'} ] ],
+    explicacion:'Es un cortocircuito: toda la corriente se va por el cable sin receptor, que ofrece cero resistencia. La bombilla se queda sin corriente y, además, algo se puede quemar.' },
+
+  { tipo:'paralelo', pregunta:'Los dos interruptores empiezan abiertos. ¿Cuál hay que cerrar para encender SOLO la bombilla de la derecha?',
+    ramas:[ [ {tipo:'interruptor', cerrado:false, cerradoFinal:false}, {tipo:'bombilla', estadoInicial:'off', estadoFinal:'off'} ],
+            [ {tipo:'interruptor', cerrado:false, cerradoFinal:true}, {tipo:'bombilla', estadoInicial:'off', estadoFinal:'encendida'} ] ],
+    explicacion:'Hay que cerrar SOLO el interruptor de la derecha. El de la izquierda se queda abierto: esa rama sigue sin corriente.' },
+
+  { tipo:'serie', pregunta:'La pila da 9V y la resistencia es de 3Ω. ¿Cuántos amperios marca el amperímetro?',
+    comps:[ {tipo:'resistencia', label:'R = 3Ω'},
+            {tipo:'amperimetro', lectura:'3 A'} ],
+    explicacion:'Ley de Ohm: I = V / R = 9 / 3 = 3 A.' },
+
+  { tipo:'serie', pregunta:'Las dos bombillas están fundidas. El interruptor está cerrado. ¿Se enciende algo?',
+    comps:[ {tipo:'interruptor', cerrado:true},
+            {tipo:'bombilla', estadoInicial:'fundida', estadoFinal:'fundida'},
+            {tipo:'bombilla', estadoInicial:'fundida', estadoFinal:'fundida'} ],
+    explicacion:'No: aunque el interruptor esté cerrado, las dos bombillas fundidas cortan el único camino que hay. No circula corriente.' },
+
+  { tipo:'serie', pregunta:'Este LED NO lleva resistencia limitadora. Cierras el interruptor. ¿Qué pasa?',
+    comps:[ {tipo:'interruptor', cerrado:true},
+            {tipo:'bombilla', label:'LED', estadoInicial:'off', estadoFinal:'fundida'} ],
+    explicacion:'El LED no es óhmico: pasada su tensión directa, la corriente se dispara sin control. Sin resistencia que la limite, el LED se funde al momento.' },
+
+  { tipo:'serie', pregunta:'El mismo LED, ahora con su resistencia limitadora en serie. Cierras el interruptor. ¿Qué pasa?',
+    comps:[ {tipo:'interruptor', cerrado:true},
+            {tipo:'resistencia', label:'R limitadora'},
+            {tipo:'bombilla', label:'LED', estadoInicial:'off', estadoFinal:'encendida'} ],
+    explicacion:'La resistencia limitadora deja pasar justo la corriente que el LED aguanta: se enciende sin fundirse. Por eso un LED nunca va solo.' },
+];
+
+let idx = 0;
+let grupos = [{n:'Grupo 1',p:0},{n:'Grupo 2',p:0},{n:'Grupo 3',p:0},{n:'Grupo 4',p:0}];
+let acertaron = new Set();
+
+const marcador = document.getElementById('marcador');
+
+function pintarMarcador(){
+  marcador.innerHTML = '';
+  grupos.forEach((g,i)=>{
+    const d = document.createElement('div');
+    d.className = 'grupo' + (acertaron.has(i)?' acerto':'');
+    d.innerHTML = `<button class="quitar" title="Quitar grupo">&times;</button>
+      <input value="${g.n}" data-i="${i}">
+      <div class="fila"><span class="pts">${g.p}</span>
+        <button class="marcar">${acertaron.has(i)?'✓ acertó':'marcar'}</button></div>`;
+    d.querySelector('input').addEventListener('input', e=>{ grupos[i].n = e.target.value; });
+    d.querySelector('.quitar').addEventListener('click', ()=>{
+      if(grupos.length<=2) return alert('Hacen falta al menos 2 grupos.');
+      grupos.splice(i,1); acertaron.delete(i); pintarMarcador();
+    });
+    d.querySelector('.marcar').addEventListener('click', ()=>{
+      if(acertaron.has(i)) acertaron.delete(i); else acertaron.add(i);
+      pintarMarcador();
+    });
+    marcador.appendChild(d);
+  });
+}
+
+function pintarReto(){
+  const reto = RETOS[idx];
+  document.getElementById('contador').textContent = `Reto ${idx+1} de ${RETOS.length}`;
+  document.getElementById('pregunta').textContent = reto.pregunta;
+  document.getElementById('explicacion').hidden = true;
+  document.getElementById('btn-revelar').hidden = false;
+  document.getElementById('btn-siguiente').hidden = true;
+  acertaron = new Set();
+  pintarMarcador();
+  render(reto, false);
+}
+
+document.getElementById('btn-revelar').addEventListener('click', ()=>{
+  const reto = RETOS[idx];
+  render(reto, true);
+  document.getElementById('explicacion').textContent = reto.explicacion;
+  document.getElementById('explicacion').hidden = false;
+  document.getElementById('btn-revelar').hidden = true;
+  document.getElementById('btn-siguiente').hidden = false;
+});
+
+document.getElementById('btn-siguiente').addEventListener('click', ()=>{
+  acertaron.forEach(i=>{ if(grupos[i]) grupos[i].p += 10; });
+  idx = (idx+1) % RETOS.length;
+  pintarReto();
+});
+
+document.getElementById('btn-reset').addEventListener('click', ()=>{
+  if(!confirm('¿Reiniciar la partida? Se pierden los puntos y se vuelve al primer reto.')) return;
+  grupos.forEach(g=>g.p=0);
+  idx = 0;
+  pintarReto();
+});
+
+pintarReto();
+</script>
+</body>
+</html>
