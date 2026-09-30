@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cortocircuito &middot; Tema 8 Electricidad &middot; 2.&ordm; ESO</title>
+<meta name="description" content="Juego de tablero de preguntas sobre el circuito, la ley de Ohm, serie y paralelo, potencia y energ&iacute;a, y el LED. Tema 8 de Tecnolog&iacute;a y Digitalizaci&oacute;n de 2.&ordm; de ESO.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Oswald:wght@400;500;600&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+:root{
+  --bg:#15110d; --panel:#1f1811; --panel-2:#2a2017; --panel-3:#382a1b;
+  --papel:#ece1c8; --papel-2:#e4d5b4; --papel-3:#f3ebd7;
+  --linea:#bda480; --tinta:#2a2014;
+  --laton:#c19a4e; --laton-claro:#e3c07a; --laton-osc:#8a6a31;
+  --ok:#2f6f57; --mal:#a02c25; --sombra:rgba(0,0,0,.45);
+  --f-display:'Cinzel',Georgia,serif; --f-cond:'Oswald',Impact,sans-serif;
+  --f-serif:'Spectral',Georgia,serif;
+}
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--papel);font:16px/1.5 var(--f-serif);
+  background-image:radial-gradient(1200px 680px at 50% -14%,#241a10 0%,transparent 64%)}
+.marco{display:flex;flex-direction:column;height:100%;max-width:1700px;margin:0 auto;padding:14px}
+header{flex:0 0 auto;display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+h1{font:700 26px var(--f-display);color:var(--laton-claro);margin:0;letter-spacing:.01em}
+h1 small{display:block;font:500 13px var(--f-cond);color:var(--papel-2);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+button{font:600 13px var(--f-cond);letter-spacing:.04em;text-transform:uppercase;background:var(--panel-2);
+  color:var(--papel-2);border:1px solid var(--laton-osc);border-radius:6px;padding:7px 12px;cursor:pointer}
+button:hover{background:var(--panel-3)}
+button.laton{background:var(--laton);color:#241a0c;border-color:var(--laton-claro)}
+button.ok{background:var(--ok);color:var(--papel-3);border-color:#4a9578}
+button.mal{background:var(--mal);color:var(--papel-3);border-color:#c94a41}
+button:disabled{opacity:.35;cursor:default}
+
+/* ---------- marcador de grupos ---------- */
+#marcador{display:flex;gap:8px;flex-wrap:wrap;flex:0 0 auto;margin-bottom:12px}
+.grupo{background:var(--panel);border:1px solid var(--linea);border-radius:8px;padding:8px 12px;min-width:108px;
+  display:flex;flex-direction:column;gap:2px;position:relative}
+.grupo.turno{border-color:var(--laton);box-shadow:0 0 0 2px var(--laton) inset}
+.grupo input{background:transparent;border:none;color:var(--papel-3);font:600 14px var(--f-cond);
+  width:100%;padding:0;letter-spacing:.02em}
+.grupo input:focus{outline:1px dashed var(--laton-osc)}
+.grupo .pts{font:700 22px var(--f-display);color:var(--laton-claro)}
+.grupo .quitar{position:absolute;top:2px;right:4px;font-size:11px;color:var(--tinta2,#6e5b41);cursor:pointer;background:none;border:none;padding:2px}
+
+/* ---------- tablero ---------- */
+#tablero{flex:1 1 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;overflow:auto}
+.cat{grid-row:1;background:var(--panel-3);border:1px solid var(--linea);border-radius:8px 8px 0 0;
+  padding:8px 6px;text-align:center;font:600 13px/1.25 var(--f-cond);letter-spacing:.01em;color:var(--papel-3)}
+.celda{background:var(--panel);border:1px solid var(--laton-osc);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font:700 30px var(--f-display);
+  color:var(--laton-claro);cursor:pointer;min-height:64px}
+.celda:hover{background:var(--panel-2)}
+.celda.usada{background:var(--panel);color:var(--tinta2,#4a3d2c);cursor:default;opacity:.4}
+.celda.usada:hover{background:var(--panel)}
+
+/* ---------- overlay pregunta ---------- */
+#overlay{position:fixed;inset:0;background:rgba(10,7,4,.86);display:flex;align-items:center;justify-content:center;padding:20px;z-index:10}
+#tarjeta{background:var(--panel-3);border:1px solid var(--linea);border-radius:14px;max-width:820px;width:100%;
+  padding:28px 32px;box-shadow:0 20px 60px var(--sombra)}
+#tarjeta .cab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+#tarjeta .cab span:first-child{font:600 13px var(--f-cond);letter-spacing:.06em;text-transform:uppercase;color:var(--laton)}
+#tarjeta .cab span:last-child{font:700 20px var(--f-display);color:var(--laton-claro)}
+#preg{font:1 22px/1.5 var(--f-serif);color:var(--papel-3);margin:0 0 18px}
+#resp{font:italic 400 18px/1.5 var(--f-serif);color:var(--papel-2);background:var(--panel-2);
+  border-left:3px solid var(--ok);padding:12px 16px;border-radius:0 8px 8px 0;margin:0 0 18px}
+#turno-actual{font:600 14px var(--f-cond);color:var(--papel-2);margin-bottom:14px}
+#turno-actual b{color:var(--laton-claro)}
+.acciones{display:flex;gap:10px;flex-wrap:wrap}
+.acciones button{padding:10px 16px;font-size:14px}
+#robo-lista{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+
+/* ---------- pie ---------- */
+footer{flex:0 0 auto;margin-top:10px;font:400 12px var(--f-serif);color:var(--tinta2,#8a7a5e);text-align:center}
+footer a{color:var(--laton)}
+@media (max-width:900px){
+  #tablero{grid-template-columns:1fr;grid-auto-flow:row}
+  .cat{grid-row:auto}
+  .celda{grid-column:auto}
+}
+</style>
+</head>
+<body>
+<div class="marco">
+
+<header>
+  <h1>Cortocircuito<small>Tema 8 &middot; Electricidad &middot; 2.&ordm; de ESO</small></h1>
+  <div style="display:flex;gap:8px">
+    <button id="btn-add">+ Grupo</button>
+    <button id="btn-reset">Reiniciar partida</button>
+  </div>
+</header>
+
+<div id="marcador"></div>
+
+<div id="tablero"></div>
+
+<footer>Preg&uacute;ntale a la clase, en grupos de 4. Cinco categor&iacute;as, de 10 (f&aacute;cil) a 40 (dif&iacute;cil) puntos.
+  Vuelve a <a href="../">Tema 8 &middot; Electricidad</a>.</footer>
+
+</div>
+
+<div id="overlay" hidden>
+  <div id="tarjeta">
+    <div class="cab"><span id="ov-cat"></span><span id="ov-pts"></span></div>
+    <p id="turno-actual">Responde el grupo en turno: <b id="turno-nombre"></b></p>
+    <p id="preg"></p>
+    <p id="resp" hidden></p>
+    <div class="acciones" id="ac-inicial">
+      <button class="laton" id="btn-ver-resp">Mostrar respuesta</button>
+    </div>
+    <div class="acciones" id="ac-juicio" hidden>
+      <button class="ok" id="btn-acierto">Acierto: +<span class="pts-txt"></span> para <span id="nombre-en-juego"></span></button>
+      <button class="mal" id="btn-fallo">Fallo &mdash; pasa la pregunta</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = [
+  {n:"El circuito", qs:[
+    {p:10,q:"¿Qué forma tiene que tener un circuito para que la corriente circule?",r:"Una forma cerrada: un camino cerrado (un anillo), del generador al receptor y de vuelta."},
+    {p:20,q:"Nombra las cuatro partes básicas de un circuito.",r:"Generador, conductores, receptor y elemento de control."},
+    {p:30,q:"Un cable une los dos polos del generador sin pasar por ningún receptor. ¿Cómo se llama esto y qué pasa?",r:"Es un cortocircuito: la corriente se dispara sin control y algo se puede quemar."},
+    {p:40,q:"¿Cómo se llama la simbología con la que se dibujan los circuitos para que se entiendan igual en cualquier país?",r:"Simbología normalizada, la norma IEC 60617."},
+  ]},
+  {n:"Ley de Ohm", qs:[
+    {p:10,q:"¿Con qué aparato se mide la tensión, y cómo se conecta: en serie o en paralelo?",r:"Con el voltímetro, conectado en paralelo."},
+    {p:20,q:"¿Con qué aparato se mide la intensidad, y cómo se conecta?",r:"Con el amperímetro, conectado en serie."},
+    {p:30,q:"Escribe la ley de Ohm y di qué representa cada letra.",r:"I = V / R — I es la intensidad (A), V la tensión (V) y R la resistencia (Ω)."},
+    {p:40,q:"Un circuito tiene una pila de 9V y una resistencia de 3Ω. ¿Cuánta intensidad circula?",r:"I = V/R = 9/3 = 3 A."},
+  ]},
+  {n:"Serie y paralelo", qs:[
+    {p:10,q:"En una conexión en serie, si se funde una bombilla, ¿qué pasa con las demás?",r:"Se apagan todas: solo hay un camino y se rompe para todos."},
+    {p:20,q:"En una conexión en paralelo, si un receptor falla, ¿qué pasa con los demás?",r:"Siguen funcionando: cada uno tiene su propio camino."},
+    {p:30,q:"En serie, ¿qué es igual para todos los receptores y qué se suma?",r:"La intensidad es la misma en todos; las resistencias (y las tensiones de cada uno) se suman."},
+    {p:40,q:"En paralelo, ¿qué es igual para todos los receptores y qué se suma?",r:"La tensión es igual para todos; las corrientes de cada rama se suman."},
+  ]},
+  {n:"Potencia y factura", qs:[
+    {p:10,q:"¿Cuál es la fórmula de la potencia eléctrica?",r:"P = V × I, y se mide en vatios (W)."},
+    {p:20,q:"¿En qué unidad cobra la compañía eléctrica la energía que consumes?",r:"En kWh, el kilovatio-hora."},
+    {p:30,q:"Una bombilla de 60W está encendida 5 horas. ¿Cuánta energía gasta, en Wh y en kWh?",r:"E = P × t = 60 × 5 = 300 Wh = 0,3 kWh."},
+    {p:40,q:"¿Por qué la factura de la luz trae dos términos aunque un mes no gastes casi nada?",r:"El término de potencia se paga por lo contratado, aunque no lo uses; el término de energía sí depende de lo que consumas de verdad."},
+  ]},
+  {n:"LED y control", qs:[
+    {p:10,q:"¿Qué diferencia hay entre un pulsador y un interruptor?",r:"El pulsador vuelve solo a su posición al soltarlo; el interruptor se queda como lo dejes."},
+    {p:20,q:"¿Qué componente electrónico es un LED?",r:"Un diodo: conduce la corriente en un solo sentido."},
+    {p:30,q:"¿Por qué un LED necesita siempre una resistencia en serie con él?",r:"Porque no es óhmico: pasada su tensión directa la corriente se dispara sin control y el LED se funde."},
+    {p:40,q:"Un LED tiene una tensión directa de 2V, lo alimentas con una pila de 9V y quieres una intensidad de 0,02A. ¿Qué resistencia limitadora necesitas?",r:"R = (V_fuente − V_f) / I = (9 − 2) / 0,02 = 350 Ω."},
+  ]},
+];
+
+let grupos = [{n:"Grupo 1",p:0},{n:"Grupo 2",p:0},{n:"Grupo 3",p:0},{n:"Grupo 4",p:0}];
+let turno = 0;
+let usadas = new Set();
+let robando = [];         // índices de grupos que aún pueden intentarlo en la celda actual
+let celdaActual = null;   // {ci, qi}
+
+const marcador = document.getElementById('marcador');
+const tablero = document.getElementById('tablero');
+
+function pintarMarcador(){
+  marcador.innerHTML = '';
+  grupos.forEach((g,i)=>{
+    const d = document.createElement('div');
+    d.className = 'grupo' + (i===turno?' turno':'');
+    d.innerHTML = `<button class="quitar" title="Quitar grupo">&times;</button>
+      <input value="${g.n}" data-i="${i}">
+      <span class="pts">${g.p}</span>`;
+    d.querySelector('input').addEventListener('input', e=>{ grupos[i].n = e.target.value; });
+    d.querySelector('.quitar').addEventListener('click', ()=>{
+      if(grupos.length<=2) return alert('Hacen falta al menos 2 grupos.');
+      grupos.splice(i,1); if(turno>=grupos.length) turno=0; pintarMarcador();
+    });
+    marcador.appendChild(d);
+  });
+}
+
+function pintarTablero(){
+  tablero.innerHTML = '';
+  CATS.forEach(c=>{
+    const cab = document.createElement('div');
+    cab.className = 'cat'; cab.textContent = c.n;
+    tablero.appendChild(cab);
+  });
+  for(let qi=0; qi<4; qi++){
+    CATS.forEach((c,ci)=>{
+      const key = ci+'-'+qi;
+      const celda = document.createElement('div');
+      celda.className = 'celda' + (usadas.has(key)?' usada':'');
+      celda.textContent = c.qs[qi].p;
+      if(!usadas.has(key)) celda.addEventListener('click', ()=>abrirPregunta(ci,qi));
+      tablero.appendChild(celda);
+    });
+  }
+}
+
+function siguienteTurno(){ turno = (turno+1) % grupos.length; }
+
+function abrirPregunta(ci,qi){
+  celdaActual = {ci,qi};
+  // orden de intento: primero el grupo en turno, luego los demás en orden
+  robando = grupos.map((_,i)=>(turno+i)%grupos.length);
+  const c = CATS[ci], item = c.qs[qi];
+  document.getElementById('ov-cat').textContent = c.n;
+  document.getElementById('ov-pts').textContent = item.p + ' pts';
+  document.getElementById('preg').textContent = item.q;
+  document.getElementById('resp').hidden = true;
+  document.getElementById('resp').textContent = item.r;
+  document.getElementById('turno-nombre').textContent = grupos[robando[0]].n;
+  document.getElementById('ac-inicial').hidden = false;
+  document.getElementById('ac-juicio').hidden = true;
+  document.getElementById('overlay').hidden = false;
+}
+
+document.getElementById('btn-ver-resp').addEventListener('click', ()=>{
+  document.getElementById('resp').hidden = false;
+  document.getElementById('ac-inicial').hidden = true;
+  const item = CATS[celdaActual.ci].qs[celdaActual.qi];
+  document.querySelectorAll('.pts-txt').forEach(s=>s.textContent = item.p);
+  document.getElementById('nombre-en-juego').textContent = grupos[robando[0]].n;
+  document.getElementById('ac-juicio').hidden = false;
+});
+
+document.getElementById('btn-acierto').addEventListener('click', ()=>{
+  const item = CATS[celdaActual.ci].qs[celdaActual.qi];
+  grupos[robando[0]].p += item.p;
+  cerrarCelda();
+});
+
+document.getElementById('btn-fallo').addEventListener('click', ()=>{
+  robando.shift();
+  if(robando.length===0){ cerrarCelda(); return; }
+  document.getElementById('nombre-en-juego').textContent = grupos[robando[0]].n;
+  document.getElementById('turno-nombre').textContent = grupos[robando[0]].n;
+});
+
+function cerrarCelda(){
+  usadas.add(celdaActual.ci+'-'+celdaActual.qi);
+  document.getElementById('overlay').hidden = true;
+  siguienteTurno();
+  pintarMarcador();
+  pintarTablero();
+}
+
+document.getElementById('btn-add').addEventListener('click', ()=>{
+  if(grupos.length>=8) return alert('Máximo 8 grupos.');
+  grupos.push({n:'Grupo '+(grupos.length+1), p:0});
+  pintarMarcador();
+});
+
+document.getElementById('btn-reset').addEventListener('click', ()=>{
+  if(!confirm('¿Reiniciar la partida? Se pierden los puntos y se destapan todas las casillas.')) return;
+  grupos.forEach(g=>g.p=0);
+  turno = 0; usadas = new Set();
+  pintarMarcador(); pintarTablero();
+});
+
+pintarMarcador();
+pintarTablero();
+</script>
+</body>
+</html>
