@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SdA · El Aula de Tecnología Modelo en Sweet Home 3D · 2.º ESO</title>
+<meta name="description" content="Situación de Aprendizaje de Expresión Gráfica y CAD 3D para 2.º de ESO: diseña el aula de Tecnología con Sweet Home 3D en EducaAndOS para el reto de la Junta de Andalucía.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Roboto:wght@400;500;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#e8ebef;
+  --surface:#ffffff;
+  --surface-2:#f4f6f8;
+  --ink:#15212e;
+  --ink-soft:#54646f;
+  --line:#c7d1da;
+  --line-soft:#dde4ea;
+  --accent:#0b6e99;
+  --accent-soft:#e0eef5;
+  --pencil:#c2492b;
+  --pencil-soft:#f7e7e2;
+  --green:#2c7a5c;
+  --green-soft:#e6f4ea;
+  --shadow:0 1px 0 rgba(21,33,46,.05), 0 8px 24px -16px rgba(21,33,46,.35);
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Sans 3",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101720;
+    --surface:#182028;
+    --surface-2:#1e2833;
+    --ink:#e8eef4;
+    --ink-soft:#9dafbd;
+    --line:#31404e;
+    --line-soft:#26323e;
+    --accent:#57b6dd;
+    --accent-soft:#11303d;
+    --pencil:#ea7a5e;
+    --pencil-soft:#3a2119;
+    --green:#6cc4a0;
+    --green-soft:#163327;
+    --shadow:0 1px 0 rgba(0,0,0,.3), 0 10px 26px -18px rgba(0,0,0,.9);
+  }
+}
+
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px}
+header.top{
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+  padding:24px 0 20px;
+  margin-bottom:32px;
+}
+.eyebrow{
+  font-family:var(--f-mono);
+  font-size:12.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+  margin-bottom:8px;
+}
+.eyebrow a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
+.eyebrow a:hover{border-bottom-color:currentColor;color:var(--accent)}
+h1.title{
+  font-family:var(--f-display);
+  font-size:clamp(26px, 4vw, 36px);
+  line-height:1.2;
+  margin:0 0 12px;
+  color:var(--ink);
+}
+.meta-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 10px;border-radius:4px;
+  background:var(--surface-2);border:1px solid var(--line);
+  font-family:var(--f-mono);font-size:12px;color:var(--ink);
+}
+.chip.blue{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.chip.green{background:var(--green-soft);border-color:var(--green);color:var(--green)}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:8px;
+  padding:24px 28px;
+  margin-bottom:28px;
+  box-shadow:var(--shadow);
+}
+.card h2{
+  font-family:var(--f-display);
+  font-size:22px;
+  margin:0 0 14px;
+  color:var(--ink);
+  display:flex;align-items:center;gap:10px;
+}
+.card h3{
+  font-family:var(--f-display);
+  font-size:18px;
+  margin:20px 0 10px;
+  color:var(--ink);
+}
+
+.aviso-reto{
+  background:var(--accent-soft);
+  border-left:4px solid var(--accent);
+  padding:16px 20px;
+  border-radius:0 6px 6px 0;
+  margin:18px 0;
+}
+.aviso-reto b{color:var(--accent);display:block;margin-bottom:4px;font-family:var(--f-display);font-size:16px}
+
+.tabla-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface);margin:16px 0 20px}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:540px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{
+  font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);background:var(--surface-2);
+}
+tr:last-child td{border-bottom:none}
+
+.libreria-grid{
+  display:grid;grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));gap:12px;margin:16px 0;
+}
+.lib-item{
+  background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:12px 14px;
+}
+.lib-item b{display:block;font-size:14.5px;margin-bottom:3px}
+.lib-item span{display:block;font-size:13px;color:var(--ink-soft);font-family:var(--f-mono)}
+.lib-item a{
+  display:inline-block;margin-top:6px;font-size:12.5px;font-weight:600;color:var(--accent);text-decoration:none;
+}
+.lib-item a:hover{text-decoration:underline}
+
+ol.pasos{margin:12px 0;padding-left:22px}
+ol.pasos li{margin-bottom:10px}
+ol.pasos li b{color:var(--ink)}
+
+.nav-pie{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:24px 0 40px;border-top:1px solid var(--line);margin-top:36px;
+}
+.nav-pie a{
+  font-weight:600;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:6px;
+}
+.nav-pie a:hover{text-decoration:underline}
+
+.cc-sello{position:fixed;right:14px;bottom:14px;z-index:9999;
+  display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:4px;
+  background:rgba(18,32,46,.95);color:#fff;text-decoration:none;
+  font:500 12px/1.2 "Roboto",sans-serif;letter-spacing:.02em}
+.cc-sello:hover{background:#12202e}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="eyebrow"><a href="../../../">Materiales</a> · <a href="../../">2.º ESO</a> · <a href="../">TyD</a> · <a href="./">Tema 2 (Expresión gráfica)</a> · SdA</div>
+    <h1 class="title">Situación de Aprendizaje: El Aula de Tecnología Modelo</h1>
+    <p style="margin:0;color:var(--ink-soft)">Diseño asistido por ordenador (CAD 2D/3D), levantamiento arquitectónico con Sweet Home 3D en EducaAndOS y acotación normalizada.</p>
+    <div class="meta-badges">
+      <span class="chip blue">2.º ESO · Tecnología y Digitalización</span>
+      <span class="chip green">LOMLOE Andalucía · BOJA 104 (30/05/2023)</span>
+      <span class="chip">5 sesiones (60 min)</span>
+      <span class="chip">CE2 (2.1) · CE4 (4.1)</span>
+      <span class="chip">Saberes B.1 · B.2 · B.3</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- RETO Y NARRATIVA -->
+  <section class="card">
+    <h2>🎯 La Narrativa del Reto</h2>
+    <div class="aviso-reto">
+      <b>Convocatoria de la Junta de Andalucía</b>
+      «La Consejería de Desarrollo Educativo y Formación Profesional va a edificar nuevos IES en Andalucía y busca el diseño de la mejor aula de Tecnología de la comunidad para replicar su distribución en los nuevos centros.<br><br>
+      Vuestra misión en equipos de 2.º de ESO es medir con precisión milimétrica nuestra aula actual, digitalizar su plano en Sweet Home 3D con cotas normalizadas y diseñar una <b>propuesta de mejora innovadora</b> que convenza a la Junta de que nuestra clase debe ser el modelo oficial.»
+    </div>
+    <p>Con este proyecto el alumnado no dibuja figuras abstractas: aprende a medir un espacio real con flexómetro, a consensuar un croquis técnico en la pizarra, a levantar paredes y vanos en un software CAD 3D profesional de software libre en EducaAndOS y a justificar una propuesta de diseño entregada en Google Classroom.</p>
+  </section>
+
+  <!-- CONCRECIÓN CURRICULAR -->
+  <section class="card">
+    <h2>📋 Marco Curricular (Andalucía)</h2>
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Elemento</th>
+            <th>Código</th>
+            <th>Descripción oficial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Competencia Específica</b></td>
+            <td><b>CE2</b></td>
+            <td>Abordar problemas tecnológicos con autonomía y creatividad, aplicando estrategias de trabajo colaborativo.</td>
+          </tr>
+          <tr>
+            <td><b>Criterio de Evaluación</b></td>
+            <td><b>2.1</b></td>
+            <td>Organizar y planificar el trabajo en equipo de forma equitativa, distribuyendo tareas y responsabilidades para la toma de datos y resolución de un reto técnico.</td>
+          </tr>
+          <tr>
+            <td><b>Competencia Específica</b></td>
+            <td><b>CE4</b></td>
+            <td>Describir, representar y comunicar el diseño de un objeto o espacio técnico mediante herramientas de expresión gráfica tradicionales y digitales.</td>
+          </tr>
+          <tr>
+            <td><b>Criterio de Evaluación</b></td>
+            <td><b>4.1</b></td>
+            <td>Representar y acotar la planta de un espacio técnico combinando croquis a mano alzada y aplicaciones digitales CAD 2D/3D (Sweet Home 3D), aplicando escalas y normas básicas de acotación.</td>
+          </tr>
+          <tr>
+            <td><b>Saberes Básicos</b></td>
+            <td><b>B.1 · B.2 · B.3</b></td>
+            <td>Croquis acotado y plano. Sistemas de representación (vistas en planta 2D y perspectiva 3D). Herramientas informáticas CAD para documentación técnica.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECUENCIA DE SESIONES -->
+  <section class="card">
+    <h2>🛠️ Secuencia Didáctica (5 Sesiones)</h2>
+
+    <h3>Sesión 1 · Preparación del software CAD y banco de modelos libres</h3>
+    <p>Trabajo en el aula de informática con <b>EducaAndOS</b>:</p>
+    <ol class="pasos">
+      <li><b>Instalación:</b> Abrir el gestor de paquetes / centro de software de EducaAndOS e instalar <code>Sweet Home 3D</code> (o mediante <code>sudo apt install sweethome3d</code>).</li>
+      <li><b>Descarga de bibliotecas:</b> Desde el repositorio oficial de Sweet Home 3D (<a href="https://www.sweethome3d.com/es/importar-modelos-3d/" target="_blank" rel="noopener">sweethome3d.com/es/importar-modelos-3d/</a>) descargamos los 8 paquetes libres:
+        <div class="libreria-grid">
+          <div class="lib-item"><b>Contributions 1.9.3</b><span>29 MB · 511 modelos · Arte Libre</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-Contributions-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>LucaPresidente 1.9.3</b><span>3.7 MB · 64 modelos · Arte Libre</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-LucaPresidente-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>Trees 1.9.3</b><span>6.7 MB · 10 árboles · Arte Libre</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-Trees-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>Scopia 1.9.3</b><span>69.5 MB · 500 modelos · CC-BY</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-Scopia-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>KatorLegaz 1.9.3</b><span>8.9 MB · 90 modelos · CC-BY</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-KatorLegaz-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>BlendSwap CC-0 1.9.3</b><span>23.8 MB · 175 modelos · Dominio público</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-BlendSwap-CC-0-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>BlendSwap CC-BY 1.9.3</b><span>23.9 MB · 135 modelos · CC-BY</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-BlendSwap-CC-BY-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+          <div class="lib-item"><b>Reallusion 1.9.3</b><span>10.7 MB · 25 modelos · Arte Libre</span><a href="https://prdownloads.sourceforge.net/sweethome3d/3DModels-Reallusion-1.9.3.zip" target="_blank" rel="noopener">Descargar ZIP</a></div>
+        </div>
+      </li>
+      <li><b>Importación:</b> En Sweet Home 3D ir a <i>Mobiliario &gt; Importar biblioteca de mobiliario...</i> y cargar los ficheros <code>.sh3f</code> para tener disponibles bancos de taller, ordenadores, estanterías y paneles.</li>
+    </ol>
+
+    <hr style="border:none;border-top:1px solid var(--line-soft);margin:24px 0">
+
+    <h3>Sesión 2 · Trabajo de campo colaborativo: toma de medidas y croquis en pizarra</h3>
+    <p>Organizamos la clase en 4 grupos cooperativos con flexómetros y cintas métricas:</p>
+    <ul>
+      <li><b>Grupo 1 (Perímetro exterior):</b> Longitud total, anchura del aula y altura del suelo al techo.</li>
+      <li><b>Grupo 2 (Huecos y accesos):</b> Puerta principal (ancho, alto y sentido de apertura), ventanas (ancho, alto y cota de antepecho desde el suelo).</li>
+      <li><b>Grupo 3 (Mobiliario de taller):</b> Bancos de trabajo de madera, tornillos de banco, panel de herramientas y extintores.</li>
+      <li><b>Grupo 4 (Informática y almacenaje):</b> Mesas de ordenadores, armario de materiales, mesa del profesor y pizarra.</li>
+    </ul>
+    <p><b>Puesta en común:</b> Cada grupo apunta sus datos en la pizarra y entre todos consensuamos el <b>croquis acotado de la planta</b> en centímetros. Cada alumno lo copia en su cuaderno.</p>
+
+    <hr style="border:none;border-top:1px solid var(--line-soft);margin:24px 0">
+
+    <h3>Sesión 3 · Levantamiento arquitectónico y acotación 2D en Sweet Home 3D</h3>
+    <ol class="pasos">
+      <li><b>Paredes perimetrales:</b> Con la herramienta <i>Crear paredes</i>, trazar los muros exteriores introduciendo las dimensiones exactas y fijando la altura real del aula (ej. 3,00 m) y el grosor del tabique.</li>
+      <li><b>Vanos:</b> Colocar las puertas y ventanas desde el catálogo. Con doble clic se ajusta su anchura, altura y la elevación sobre el suelo del antepecho.</li>
+      <li><b>Acotación normalizada:</b> Con la herramienta <i>Crear cotas</i>, acotar en la vista 2D las medidas totales exteriores y las cotas a ejes de vanos, cuidando que las cifras no se pisen con las líneas ni las paredes.</li>
+    </ol>
+
+    <hr style="border:none;border-top:1px solid var(--line-soft);margin:24px 0">
+
+    <h3>Sesión 4 · Mobiliario del taller y texturizado de materiales</h3>
+    <ol class="pasos">
+      <li><b>Equipamiento real:</b> Ubicar en la planta 2D los bancos de taller, taburetes, mesas de ordenadores y estanterías del catálogo importado en la Sesión 1.</li>
+      <li><b>Escalado paramétrico:</b> Doble clic en cada mueble para introducir sus medidas reales (ancho, fondo, altura).</li>
+      <li><b>Habitaciones y texturas:</b> Con <i>Crear habitaciones</i> se genera el suelo para calcular la superficie en m² y se aplican materiales realistas (gres o cemento en suelo; zócalo lavable en paredes).</li>
+    </ol>
+
+    <hr style="border:none;border-top:1px solid var(--line-soft);margin:24px 0">
+
+    <h3>Sesión 5 · Propuesta de mejora para la Junta de Andalucía y entrega en Classroom</h3>
+    <ol class="pasos">
+      <li><b>La Propuesta de Innovación:</b> Cada alumno añade al aula **un espacio o equipamiento que no existe actualmente** y que justificaría que la Junta replique su diseño (ej.: rincón de impresión 3D y corte láser, mesa de pruebas de robótica, zona de reciclaje y gestión de residuos, panel demostrativo de energía solar).</li>
+      <li><b>Exportación de entregables:</b>
+        <ul>
+          <li><b>Plano 2D:</b> <i>Plano &gt; Exportar en formato PDF...</i> (planta acotada con escala).</li>
+          <li><b>Render 3D:</b> <i>Vista 3D &gt; Crear foto...</i> (perspectiva fotorrealista de la mejora).</li>
+          <li><b>Fichero editable:</b> Guardar el archivo nativo <code>.sh3d</code>.</li>
+        </ul>
+      </li>
+      <li><b>Entrega en Classroom:</b> Subir los tres archivos a la tarea de Classroom junto a una justificación escrita de 3-4 líneas defendiendo la propuesta ante la Junta.</li>
+    </ol>
+  </section>
+
+  <!-- RÚBRICA SÉNECA -->
+  <section class="card">
+    <h2>📊 Rúbrica de Evaluación (Séneca / Classroom)</h2>
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Criterio / Apartado</th>
+            <th>Insuficiente (1-4)</th>
+            <th>Suficiente / Bien (5-6)</th>
+            <th>Notable (7-8)</th>
+            <th>Sobresaliente (9-10)</th>
+            <th>Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Medición y croquis en equipo<br><span style="font-family:var(--f-mono);font-size:11px">CE2 · 2.1</span></b></td>
+            <td>No participa en la medición o el croquis no tiene cotas comprensibles.</td>
+            <td>Toma medidas básicas con desproporciones en el croquis.</td>
+            <td>Medidas precisas, croquis claro y trabajo coordinado en el grupo.</td>
+            <td>Croquis exhaustivo con simbología normalizada y excelente trabajo de campo.</td>
+            <td><b>20 %</b></td>
+          </tr>
+          <tr>
+            <td><b>Planta y acotación CAD<br><span style="font-family:var(--f-mono);font-size:11px">CE4 · 4.1</span></b></td>
+            <td>Paredes sin cerrar, desalineadas o sin cotas en Sweet Home 3D.</td>
+            <td>Planta cerrada con cotas incompletas o superpuestas.</td>
+            <td>Planta fiel al aula con paredes bien dimensionadas y cotas legibles.</td>
+            <td>Precisión milimétrica, vanos exactos y acotación técnica normalizada impecable.</td>
+            <td><b>30 %</b></td>
+          </tr>
+          <tr>
+            <td><b>Mobiliario y texturas<br><span style="font-family:var(--f-mono);font-size:11px">CE4 · 4.1</span></b></td>
+            <td>Mobiliario escaso o sin escalar a las dimensiones reales.</td>
+            <td>Mobiliario colocado pero con escalas por defecto o invadiendo pasos.</td>
+            <td>Mobiliario completo escalado y texturizado adecuado de suelos y muros.</td>
+            <td>Distribución espacial óptima respetando normas de seguridad y evacuación del taller.</td>
+            <td><b>25 %</b></td>
+          </tr>
+          <tr>
+            <td><b>Propuesta de innovación<br><span style="font-family:var(--f-mono);font-size:11px">CE2 · 2.1</span></b></td>
+            <td>No añade ninguna propuesta o carece de sentido técnico.</td>
+            <td>Propuesta genérica poco justificada para el aula de Tecnología.</td>
+            <td>Buena propuesta tecnológica (impresión 3D, robótica, etc.) bien integrada.</td>
+            <td>Propuesta sobresaliente, original, funcional y convincentemente defendida para la Junta.</td>
+            <td><b>15 %</b></td>
+          </tr>
+          <tr>
+            <td><b>Entrega en Classroom<br><span style="font-family:var(--f-mono);font-size:11px">Saberes B.3</span></b></td>
+            <td>Entrega incompleta o fuera de plazo.</td>
+            <td>Entrega solo uno de los archivos requeridos (solo foto o solo plano).</td>
+            <td>Entrega los 3 ficheros (.sh3d, PDF del plano y render 3D) en tiempo.</td>
+            <td>Documentación técnica profesional impecable y justificación clara en Classroom.</td>
+            <td><b>10 %</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="nav-pie">
+    <a href="./">← Volver al Tema 2: Expresión gráfica</a>
+    <a href="../../../">Inicio de Materiales →</a>
+  </div>
+
+</main>
+
+<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.es" target="_blank" rel="noopener" class="cc-sello" aria-label="Licencia Creative Commons">
+  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+  <span><b>CC BY-SA 4.0</b> · Roberto P. García Llorente</span>
+</a>
+
+</body>
+</html>
