@@ -42,8 +42,8 @@
 ### Sesión 1 · Preparación del entorno digital y librerías 3D en EducaAndOS
 * **Objetivo:** Instalar Sweet Home 3D y cargar el banco oficial de mobiliario bajo licencias abiertas (Arte Libre, CC-BY, Dominio Público).
 * **Desarrollo:**
-  1. **Instalación:** Abrir el gestor de software de EducaAndOS e instalar **Sweet Home 3D** (o vía terminal: `sudo apt update && sudo apt install sweethome3d`).
-  2. **Descarga de bibliotecas:** Acceder al repositorio oficial (`https://www.sweethome3d.com/es/importar-modelos-3d/`) y descargar los 8 paquetes de modelos:
+  1. **Instalación:** Abrir el gestor / repositorio de software de EducaAndOS e instalar **Sweet Home 3D**.
+  2. **Descarga de bibliotecas:** Acceder al repositorio oficial (`https://www.sweethome3d.com/es/importar-modelos-3d/`) y descargar los 8 paquetes de modelos en formato `.zip`:
      * `3DModels-Contributions-1.9.3.zip` (29 MB – 511 modelos – Licencia de Arte Libre)
      * `3DModels-LucaPresidente-1.9.3.zip` (3.7 MB – 64 modelos – Licencia de Arte Libre)
      * `3DModels-Trees-1.9.3.zip` (6.7 MB – 10 modelos – Licencia de Arte Libre)
@@ -52,8 +52,9 @@
      * `3DModels-BlendSwap-CC-0-1.9.3.zip` (23.8 MB – 175 modelos – Dominio Público)
      * `3DModels-BlendSwap-CC-BY-1.9.3.zip` (23.9 MB – 135 modelos – Licencia CC-BY)
      * `3DModels-Reallusion-1.9.3.zip` (10.7 MB – 25 modelos – Licencia Libre)
-  3. **Importación:** En Sweet Home 3D: menú *Mobiliario > Importar biblioteca de mobiliario...* y cargar los archivos `.sh3f`.
-  4. **Familiarización:** Breve prueba de las 4 ventanas de trabajo (Catálogo de muebles, Lista de elementos, Vista en Planta 2D y Vista Virtual 3D).
+  3. **Descompresión obligatoria:** ⚠️ *Paso imprescindible:* Antes de poder importarlos en el programa, hay que **descomprimir cada archivo `.zip`** (clic derecho > *Extraer aquí* en EducaAndOS). Al extraerlos se obtienen los ficheros con extensión `.sh3f` (formato nativo de librerías de Sweet Home 3D). El software no puede leer los modelos directamente desde los archivos comprimidos `.zip`.
+  4. **Importación:** En Sweet Home 3D: menú *Mobiliario > Importar biblioteca de mobiliario...* y seleccionar los archivos descomprimidos `.sh3f` (o hacer doble clic sobre cada `.sh3f` para que se instalen automáticamente en el catálogo).
+  5. **Familiarización:** Breve prueba de las 4 ventanas de trabajo (Catálogo de muebles a la izquierda, Lista de elementos, Vista en Planta 2D arriba y Vista Virtual 3D abajo).
 
 ---
 
