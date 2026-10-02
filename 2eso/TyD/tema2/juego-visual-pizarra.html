@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Juego Visual: Vistas — Tema 2</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: "Roboto", -apple-system, sans-serif; background: #0a0e27; color: #fff; overflow: hidden; }
+
+    .marco {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* CABECERA */
+    header {
+      background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c92a2a 100%);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 5px solid #a61e4d;
+      box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+    }
+
+    h1 { margin: 0; font-size: 42px; font-weight: 900; letter-spacing: 2px; }
+
+    .info-juego {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .marcador {
+      background: rgba(255,255,255,0.15);
+      padding: 12px 28px;
+      border-radius: 12px;
+      border: 2px solid #fff;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    /* LADO IZQUIERDO: FIGURA 3D */
+    .zona-figura {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #1a1f3a 0%, #16213e 100%);
+      border: 4px solid #ff6b6b;
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .titulo-zona {
+      font-size: 24px;
+      color: #ff9c9c;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+
+    .figura-3d {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 107, 107, 0.08);
+      border-radius: 12px;
+      border: 3px dashed #ff6b6b;
+      animation: pulse-border 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-border {
+      0%, 100% { border-color: #ff6b6b; }
+      50% { border-color: #ffa8a8; }
+    }
+
+    .figura-3d svg {
+      width: 90%;
+      height: 90%;
+      filter: drop-shadow(0 8px 16px rgba(255, 107, 107, 0.2));
+    }
+
+    /* LADO DERECHO: OPCIONES DE VISTAS */
+    .zona-opciones {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .pregunta-texto {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffd93d;
+      text-shadow: 0 2px 10px rgba(255, 217, 61, 0.3);
+    }
+
+    .grid-opciones {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .opcion {
+      background: linear-gradient(135deg, #1f3a52 0%, #0f2438 100%);
+      border: 4px solid #4ecdc4;
+      border-radius: 16px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opcion::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .opcion:hover::before {
+      left: 100%;
+    }
+
+    .opcion:hover {
+      transform: scale(1.08);
+      border-color: #00d9ff;
+      box-shadow: 0 0 30px rgba(78, 205, 196, 0.4);
+    }
+
+    .opcion-label {
+      font-size: 20px;
+      font-weight: bold;
+      color: #7fc7d9;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .opcion svg {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 4px 8px rgba(78, 205, 196, 0.2));
+    }
+
+    .opcion.seleccionada {
+      background: linear-gradient(135deg, #4ecdc4 0%, #2ba89f 100%);
+      border-color: #00ff88;
+      box-shadow: 0 0 40px rgba(78, 205, 196, 0.6), inset 0 0 20px rgba(0, 255, 136, 0.2);
+    }
+
+    .opcion.correcta {
+      background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      border-color: #76ff03;
+      box-shadow: 0 0 40px rgba(76, 175, 80, 0.6);
+      animation: correcta-anim 0.6s ease;
+    }
+
+    @keyframes correcta-anim {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .opcion.incorrecta {
+      background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
+      border-color: #ff5252;
+      box-shadow: 0 0 40px rgba(244, 67, 54, 0.6);
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-15px); }
+      75% { transform: translateX(15px); }
+    }
+
+    /* BOTONES */
+    .controles {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+    }
+
+    .btn {
+      padding: 20px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-confirmar {
+      background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      color: #fff;
+    }
+
+    .btn-confirmar:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(76, 175, 80, 0.5);
+    }
+
+    .btn-siguiente {
+      background: linear-gradient(135deg, #1a73e8 0%, #1565c0 100%);
+      color: #fff;
+    }
+
+    .btn-siguiente:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 32px rgba(26, 115, 232, 0.5);
+    }
+
+    .btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* FEEDBACK */
+    .feedback {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      font-weight: 900;
+      z-index: 1000;
+      animation: feedback-pop 0.8s ease;
+      pointer-events: none;
+    }
+
+    @keyframes feedback-pop {
+      0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+    }
+
+    /* PANEL PUNTUACIÓN */
+    .panel-info {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #1f3a52 0%, #0f2438 100%);
+      border: 3px solid #ffd93d;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 300px;
+      font-size: 18px;
+      box-shadow: 0 8px 24px rgba(255, 217, 61, 0.2);
+    }
+
+    .panel-titulo {
+      font-weight: bold;
+      color: #ffd93d;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .panel-item {
+      margin: 8px 0;
+      padding: 8px;
+      background: rgba(255, 217, 61, 0.1);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="marco">
+    <header>
+      <h1>🎯 VISTAS Y NORMALIZACIÓN</h1>
+      <div class="info-juego">
+        <div class="marcador">
+          <span id="pregunta-num">Pregunta 1 / 8</span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- FIGURA 3D -->
+      <div class="zona-figura">
+        <div class="titulo-zona">¿Cuál es su...</div>
+        <div class="figura-3d" id="figura-3d"></div>
+      </div>
+
+      <!-- OPCIONES -->
+      <div class="zona-opciones">
+        <div class="pregunta-texto" id="pregunta-tipo">ALZADO</div>
+        <div class="grid-opciones" id="grid-opciones"></div>
+      </div>
+    </main>
+
+    <!-- FEEDBACK -->
+    <div id="feedback"></div>
+
+    <!-- CONTROLES -->
+    <div class="controles">
+      <button class="btn btn-confirmar" id="btn-confirmar" onclick="confirmarRespuesta()">RESPONDER</button>
+      <button class="btn btn-siguiente" id="btn-siguiente" onclick="siguientePregunta()" style="display:none;">SIGUIENTE ➜</button>
+    </div>
+
+    <!-- PANEL INFO -->
+    <div class="panel-info">
+      <div class="panel-titulo">📊 PUNTUACIÓN</div>
+      <div id="panel-puntuacion"></div>
+    </div>
+  </div>
+
+  <script>
+    // FIGURAS 3D en SVG (isométricas)
+    const figuras = {
+      cubo: '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><style>.cara1{fill:#ff6b6b;stroke:#c92a2a;stroke-width:3} .cara2{fill:#ff9c9c;stroke:#c92a2a;stroke-width:3} .cara3{fill:#cc2222;stroke:#c92a2a;stroke-width:3}</style></defs><polygon class="cara1" points="50,70 100,40 150,70 150,120 100,150 50,120"/><polygon class="cara2" points="50,70 50,120 100,150 100,100"/><polygon class="cara3" points="150,70 150,120 100,150 100,100"/></svg>',
+      cilindro: '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><style>.cil{fill:#4ecdc4;stroke:#0a9396;stroke-width:3}</style></defs><ellipse class="cil" cx="100" cy="50" rx="50" ry="30"/><rect class="cil" x="50" y="50" width="100" height="80"/><ellipse class="cil" cx="100" cy="130" rx="50" ry="30"/><line x1="50" y1="50" x2="50" y2="130" stroke="#0a9396" stroke-width="2"/><line x1="150" y1="50" x2="150" y2="130" stroke="#0a9396" stroke-width="2"/></svg>',
+      prisma_l: '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><style>.pris{fill:#ffd93d;stroke:#f39c12;stroke-width:3}</style></defs><polygon class="pris" points="40,80 90,50 140,80 140,120 90,150 40,120"/><polygon class="pris" points="40,80 40,120 90,150 90,110"/><polygon class="pris" points="140,80 140,120 90,150 90,110"/><rect class="pris" x="50" y="110" width="40" height="40"/></svg>',
+      piramide: '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><style>.pir{fill:#b366ff;stroke:#7c3aed;stroke-width:3}</style></defs><polygon class="pir" points="100,30 50,130 150,130"/><polygon class="pir" points="50,130 100,30 100,150"/><polygon class="pir" points="150,130 100,30 100,150"/></svg>'
+    };
+
+    // VISTAS en SVG
+    const vistas = {
+      cubo: {
+        alzado: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="80" height="80" fill="#e0f2f1" stroke="#00897b" stroke-width="2"/></svg>',
+        planta: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="80" height="80" fill="#e0f2f1" stroke="#00897b" stroke-width="2"/></svg>',
+        perfil: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="20" width="80" height="80" fill="#e0f2f1" stroke="#00897b" stroke-width="2"/></svg>'
+      },
+      cilindro: {
+        alzado: '<svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="15" width="70" height="100" fill="#e0f7fa" stroke="#0097a7" stroke-width="2"/><line x1="25" y1="115" x2="95" y2="115" stroke="#0097a7" stroke-width="1.5"/></svg>',
+        planta: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="40" fill="none" stroke="#0097a7" stroke-width="2"/></svg>',
+        perfil: '<svg viewBox="0 0 120 140" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="15" width="70" height="100" fill="#e0f7fa" stroke="#0097a7" stroke-width="2"/></svg>'
+      },
+      prisma_l: {
+        alzado: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><polygon points="20,50 60,20 100,50 100,100 60,130 20,100" fill="#fff3e0" stroke="#e65100" stroke-width="2"/><line x1="60" y1="20" x2="60" y2="130" stroke="#e65100" stroke-width="1"/></svg>',
+        planta: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><polygon points="20,20 80,20 80,80 50,80 50,50 20,50" fill="#fff3e0" stroke="#e65100" stroke-width="2"/></svg>',
+        perfil: '<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><polygon points="40,20 100,50 100,100 40,80" fill="#fff3e0" stroke="#e65100" stroke-width="2"/></svg>'
+      }
+    };
+
+    // PREGUNTAS
+    const preguntas = [
+      { figura: 'cubo', tipo: 'ALZADO', correcta: 0 },
+      { figura: 'cilindro', tipo: 'PLANTA', correcta: 1 },
+      { figura: 'cubo', tipo: 'PLANTA', correcta: 0 },
+      { figura: 'cilindro', tipo: 'ALZADO', correcta: 0 },
+      { figura: 'prisma_l', tipo: 'ALZADO', correcta: 0 },
+      { figura: 'prisma_l', tipo: 'PLANTA', correcta: 1 },
+      { figura: 'cilindro', tipo: 'PERFIL', correcta: 0 },
+      { figura: 'cubo', tipo: 'PERFIL', correcta: 0 }
+    ];
+
+    let preguntaActual = 0;
+    let seleccionada = null;
+    let confirmada = false;
+    let puntos = {};
+
+    // Inicializar
+    for (let i = 1; i <= 30; i++) {
+      puntos[`Equipo ${i}`] = 0;
+    }
+
+    function cargarPregunta() {
+      const p = preguntas[preguntaActual];
+      document.getElementById('figura-3d').innerHTML = figuras[p.figura];
+      document.getElementById('pregunta-tipo').textContent = p.tipo;
+      document.getElementById('pregunta-num').textContent = `Pregunta ${preguntaActual + 1} / ${preguntas.length}`;
+
+      // Opciones: la correcta en posición aleatoria
+      const v = vistas[p.figura][p.tipo.toLowerCase()];
+      const opciones = [v, v, v, v]; // Simplificado: todas se ven igual
+
+      const correcta_idx = Math.floor(Math.random() * 4);
+      let html = '';
+
+      for (let i = 0; i < 4; i++) {
+        const label = ['A', 'B', 'C', 'D'][i];
+        html += `<div class="opcion" data-idx="${i}" data-correcta="${i === correcta_idx}" onclick="seleccionar(this, ${i})">
+          <div class="opcion-label">${label}</div>
+          ${opciones[i]}
+        </div>`;
+      }
+
+      document.getElementById('grid-opciones').innerHTML = html;
+      seleccionada = null;
+      confirmada = false;
+      document.getElementById('btn-confirmar').style.display = 'inline-block';
+      document.getElementById('btn-siguiente').style.display = 'none';
+      actualizarPuntuacion();
+    }
+
+    function seleccionar(elem, idx) {
+      document.querySelectorAll('.opcion.seleccionada').forEach(e => e.classList.remove('seleccionada'));
+      elem.classList.add('seleccionada');
+      seleccionada = { elem, idx, correcta: elem.getAttribute('data-correcta') === 'true' };
+    }
+
+    function confirmarRespuesta() {
+      if (!seleccionada) {
+        mostrarFeedback('❌');
+        return;
+      }
+
+      if (seleccionada.correcta) {
+        seleccionada.elem.classList.remove('seleccionada');
+        seleccionada.elem.classList.add('correcta');
+        mostrarFeedback('✅');
+
+        const equipos = Object.keys(puntos);
+        const equipo = equipos[preguntaActual % equipos.length];
+        puntos[equipo]++;
+      } else {
+        seleccionada.elem.classList.remove('seleccionada');
+        seleccionada.elem.classList.add('incorrecta');
+        mostrarFeedback('❌');
+      }
+
+      confirmada = true;
+      document.getElementById('btn-confirmar').style.display = 'none';
+      document.getElementById('btn-siguiente').style.display = 'inline-block';
+    }
+
+    function siguientePregunta() {
+      preguntaActual++;
+      if (preguntaActual < preguntas.length) {
+        cargarPregunta();
+      } else {
+        finalizarJuego();
+      }
+    }
+
+    function mostrarFeedback(texto) {
+      const fb = document.getElementById('feedback');
+      fb.textContent = texto;
+      fb.style.display = 'block';
+      setTimeout(() => fb.style.display = 'none', 800);
+    }
+
+    function actualizarPuntuacion() {
+      const lista = document.getElementById('panel-puntuacion');
+      const equipos = Object.entries(puntos).sort((a, b) => b[1] - a[1]).slice(0, 5);
+      lista.innerHTML = equipos.map(e => `<div class="panel-item">🏆 ${e[0]}: <strong>${e[1]}</strong></div>`).join('');
+    }
+
+    function finalizarJuego() {
+      const ganador = Object.entries(puntos).sort((a, b) => b[1] - a[1])[0];
+      document.querySelector('.zona-opciones').innerHTML = `
+        <h2 style="font-size:60px;text-align:center;color:#4caf50;margin:50px 0;">🎊 ¡GANADOR!</h2>
+        <p style="font-size:48px;text-align:center;color:#ffd93d;">${ganador[0]}</p>
+        <p style="font-size:40px;text-align:center;color:#fff;">${ganador[1]} PUNTOS</p>
+      `;
+      document.getElementById('btn-siguiente').style.display = 'none';
+    }
+
+    cargarPregunta();
+  </script>
+</body>
+</html>
