@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Ejercicio: Vistas, escala y acotación — Tema 2</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; font-family: "Roboto", -apple-system, sans-serif; background: #f8f9fa; }
+    body { padding: 20px; color: #202124; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    .eyebrow { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #5f6368; margin-bottom: 20px; }
+
+    /* SECCIÓN: Arrastrar figuras a vistas */
+    .seccion { background: #fff; border: 1px solid #dadce0; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+    .seccion h2 { font-size: 20px; margin: 0 0 4px; }
+    .seccion-desc { color: #5f6368; margin-bottom: 20px; }
+
+    .grid-arrastre {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    .figuras {
+      border: 2px dashed #dadce0;
+      border-radius: 8px;
+      padding: 16px;
+      background: #f1f3f4;
+      min-height: 400px;
+    }
+
+    .figuras h3 { margin: 0 0 12px; font-size: 14px; color: #5f6368; text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .figura {
+      background: #fff;
+      border: 2px solid #1a73e8;
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 12px;
+      cursor: grab;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .figura:hover { box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3); }
+    .figura.dragging { opacity: 0.6; }
+
+    .figura-mini { width: 60px; height: 60px; flex-shrink: 0; background: #e8f0fe; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+    .figura-mini svg { width: 100%; height: 100%; }
+
+    .figura-info h4 { margin: 0 0 2px; font-size: 14px; }
+    .figura-info p { margin: 0; font-size: 12px; color: #5f6368; }
+
+    .vistas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .vista-zona {
+      border: 2px solid #e8eaed;
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 200px;
+      background: #f1f3f4;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vista-zona h3 { margin: 0 0 12px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: #5f6368; }
+    .vista-zona.ocupada { background: #e8f0fe; border-color: #1a73e8; }
+
+    .vista-svg { width: 100px; height: 100px; background: #fff; border: 1px solid #dadce0; border-radius: 4px; }
+
+    /* Botones */
+    .botones { display: flex; gap: 12px; margin-top: 20px; justify-content: flex-end; }
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      background: #fff;
+      color: #202124;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+    .btn:hover { border-color: #1a73e8; color: #1a73e8; }
+    .btn.primary { background: #1a73e8; color: #fff; border-color: #1a73e8; }
+
+    /* QUIZ: Escala */
+    .quiz { margin-top: 20px; }
+    .pregunta { background: #f1f3f4; border-radius: 4px; padding: 16px; margin-bottom: 16px; }
+    .pregunta p { margin: 0 0 12px; }
+    .opciones { display: grid; gap: 8px; }
+    .opcion {
+      padding: 10px 12px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .opcion:hover { border-color: #1a73e8; }
+    .opcion input[type="radio"] { margin-right: 8px; }
+    .opcion.correcta { border-color: #1e8e3e; background: #e6f4ea; }
+    .opcion.incorrecta { border-color: #d93025; background: #fce8e6; }
+
+    /* Resultado */
+    .resultado {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .resultado.bien { background: #e6f4ea; color: #1e8e3e; }
+    .resultado.mal { background: #fce8e6; color: #d93025; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .grid-arrastre { grid-template-columns: 1fr; }
+      .vistas { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Tema 2 · Expresión gráfica de un proyecto</h1>
+    <p class="eyebrow">Ejercicio interactivo: Vistas, escala y acotación</p>
+
+    <!-- SECCIÓN 1: ARRASTRAR FIGURAS A VISTAS -->
+    <div class="seccion">
+      <h2>1. Relaciona cada figura con sus vistas</h2>
+      <p class="seccion-desc">Arrastra cada figura 3D a sus vistas correspondientes (alzado, planta y perfil). Usa el sistema europeo de proyección ortogonal.</p>
+
+      <div class="grid-arrastre">
+        <!-- FIGURAS 3D -->
+        <div class="figuras">
+          <h3>Figuras 3D</h3>
+          <div class="figura" draggable="true" data-figura="cubo">
+            <div class="figura-mini">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="20,50 50,30 80,50 80,80 50,100 20,80" fill="#1a73e8" stroke="#1a73e8" stroke-width="1.5"/>
+                <polygon points="50,30 80,50 80,80 50,100" fill="#0d47a1" stroke="none"/>
+                <line x1="50" y1="30" x2="50" y2="100" stroke="#1a73e8" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="figura-info">
+              <h4>Cubo</h4>
+              <p>Figura A</p>
+            </div>
+          </div>
+
+          <div class="figura" draggable="true" data-figura="prisma-l">
+            <div class="figura-mini">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="30,35 60,20 85,35 85,70 60,85 30,70" fill="#1a73e8" stroke="#1a73e8" stroke-width="1.5"/>
+                <polygon points="60,20 85,35 85,70 60,85" fill="#0d47a1" stroke="none"/>
+                <polygon points="30,35 30,70 60,85 60,50" fill="#4285f4" stroke="none"/>
+              </svg>
+            </div>
+            <div class="figura-info">
+              <h4>Prisma (L)</h4>
+              <p>Figura B</p>
+            </div>
+          </div>
+
+          <div class="figura" draggable="true" data-figura="cilindro">
+            <div class="figura-mini">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="30" rx="25" ry="15" fill="#1a73e8" stroke="#1a73e8" stroke-width="1.5"/>
+                <path d="M 25 30 L 25 70 A 25 15 0 0 0 75 70 L 75 30" fill="none" stroke="#1a73e8" stroke-width="1.5"/>
+                <ellipse cx="50" cy="70" rx="25" ry="15" fill="#0d47a1" stroke="none"/>
+                <line x1="25" y1="30" x2="25" y2="70" stroke="#1a73e8" stroke-width="1"/>
+                <line x1="75" y1="30" x2="75" y2="70" stroke="#1a73e8" stroke-width="1"/>
+              </svg>
+            </div>
+            <div class="figura-info">
+              <h4>Cilindro</h4>
+              <p>Figura C</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- VISTAS -->
+        <div>
+          <h3 style="font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: #5f6368; margin: 0 0 12px;">Vistas (Alzado · Planta · Perfil)</h3>
+          <div class="vistas" id="vistas-contenedor">
+            <div class="vista-zona" data-vista="alzado">
+              <h3>Alzado</h3>
+              <small>(vista frontal)</small>
+            </div>
+            <div class="vista-zona" data-vista="planta">
+              <h3>Planta</h3>
+              <small>(vista superior)</small>
+            </div>
+            <div class="vista-zona" data-vista="perfil">
+              <h3>Perfil</h3>
+              <small>(vista lateral)</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="botones">
+        <button class="btn" id="btn-limpiar">Limpiar</button>
+        <button class="btn primary" id="btn-comprobar">Comprobar</button>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: PREGUNTAS DE ESCALA -->
+    <div class="seccion">
+      <h2>2. Normalización: Escala y acotación</h2>
+      <p class="seccion-desc">Contesta las preguntas sobre escala, cajetín y acotación.</p>
+
+      <div class="quiz">
+        <div class="pregunta">
+          <p><strong>¿A qué escala está dibujada esta pieza si mide 200 mm en la realidad y 10 cm en el plano?</strong></p>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="q1"> 1:2 (amplificación al 200%)</label>
+            <label class="opcion"><input type="radio" name="q1"> 1:20 (reducción 20 veces)</label>
+            <label class="opcion"><input type="radio" name="q1"> 2:1 (ampliación 2 veces)</label>
+          </div>
+          <button class="btn" onclick="comprobarPregunta(this, 1)">Ver respuesta</button>
+        </div>
+
+        <div class="pregunta">
+          <p><strong>Si el plano tiene escala 1:5, ¿cuánto mide en la realidad una dimensión de 4 cm en el dibujo?</strong></p>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="q2"> 20 cm (4 × 5)</label>
+            <label class="opcion"><input type="radio" name="q2"> 1,25 cm (4 ÷ 5)</label>
+            <label class="opcion"><input type="radio" name="q2"> 9 cm (4 + 5)</label>
+          </div>
+          <button class="btn" onclick="comprobarPregunta(this, 2)">Ver respuesta</button>
+        </div>
+
+        <div class="pregunta">
+          <p><strong>¿Cuál es el orden correcto de los datos en un cajetín?</strong></p>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="q3"> Nombre · Escala · Autor · Fecha (izq-dcha)</label>
+            <label class="opcion"><input type="radio" name="q3"> Autor · Escala · Nombre · Fecha (dcha-izq)</label>
+            <label class="opcion"><input type="radio" name="q3"> Escala · Nombre · Autor · Fecha (variable)</label>
+          </div>
+          <button class="btn" onclick="comprobarPregunta(this, 3)">Ver respuesta</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: TIPOS DE LÍNEA -->
+    <div class="seccion">
+      <h2>3. Tipos de línea: el dibujo tiene ortografía</h2>
+      <p class="seccion-desc">Asocia cada tipo de línea con su uso en un dibujo técnico.</p>
+
+      <div class="quiz">
+        <div class="pregunta">
+          <p><strong>¿Qué línea se usa para las aristas ocultas o que no se ven?</strong></p>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="q4"> Línea continua gruesa</label>
+            <label class="opcion"><input type="radio" name="q4"> Línea punteada (— — —)</label>
+            <label class="opcion"><input type="radio" name="q4"> Línea de trazo y punto (— · —)</label>
+          </div>
+          <button class="btn" onclick="comprobarPregunta(this, 4)">Ver respuesta</button>
+        </div>
+
+        <div class="pregunta">
+          <p><strong>¿Para qué sirve la línea de trazo y punto (— · —)?</strong></p>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="q5"> Marcar aristas visibles</label>
+            <label class="opcion"><input type="radio" name="q5"> Marcar ejes de simetría</label>
+            <label class="opcion"><input type="radio" name="q5"> Marcar cotas y medidas</label>
+          </div>
+          <button class="btn" onclick="comprobarPregunta(this, 5)">Ver respuesta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Respuestas correctas
+    const respuestas = {
+      1: 1, // 1:20
+      2: 0, // 20 cm
+      3: 0, // Nombre · Escala · Autor · Fecha
+      4: 1, // Línea punteada
+      5: 1  // Marcar ejes de simetría
+    };
+
+    function comprobarPregunta(btn, num) {
+      const pregunta = btn.parentElement;
+      const opciones = pregunta.querySelectorAll('.opcion input[type="radio"]');
+      const seleccionada = Array.from(opciones).findIndex(o => o.checked);
+
+      if (seleccionada === -1) {
+        alert('Selecciona una respuesta');
+        return;
+      }
+
+      const esCorrecta = seleccionada === respuestas[num];
+
+      // Marcar opciones
+      pregunta.querySelectorAll('.opcion').forEach((op, i) => {
+        op.classList.remove('correcta', 'incorrecta');
+        if (i === respuestas[num]) op.classList.add('correcta');
+        if (i === seleccionada && !esCorrecta) op.classList.add('incorrecta');
+      });
+
+      // Mostrar resultado
+      let resultado = pregunta.querySelector('.resultado');
+      if (!resultado) {
+        resultado = document.createElement('div');
+        resultado.className = 'resultado';
+        pregunta.appendChild(resultado);
+      }
+      resultado.textContent = esCorrecta ? '✓ Correcto' : '✗ Incorrecto';
+      resultado.className = esCorrecta ? 'resultado bien' : 'resultado mal';
+    }
+
+    // Lógica de arrastre (placeholder - se expandirá)
+    document.getElementById('btn-limpiar').addEventListener('click', () => {
+      document.querySelectorAll('.vista-zona').forEach(z => z.textContent = z.getAttribute('data-vista'));
+    });
+
+    document.getElementById('btn-comprobar').addEventListener('click', () => {
+      alert('Comprobación: implementar validación de figuras en vistas');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Juego de Aula: Vistas y Normalización — Tema 2</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: "Roboto", -apple-system, sans-serif; background: #202124; color: #fff; }
+
+    .marco {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    /* CABECERA */
+    header {
+      background: linear-gradient(135deg, #1a73e8 0%, #1565c0 100%);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #0d47a1;
+    }
+
+    h1 { margin: 0; font-size: 28px; }
+    .puntuacion {
+      font-size: 24px;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+    main {
+      flex: 1;
+      display: flex;
+      gap: 20px;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    /* ZONA DE PREGUNTA/TAREA */
+    .zona-pregunta {
+      flex: 1;
+      background: #292a2d;
+      border: 3px solid #1a73e8;
+      border-radius: 12px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .tipo-pregunta {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7fc3f5;
+      margin-bottom: 20px;
+    }
+
+    .pregunta-titulo {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 0 0 30px;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .pregunta-contenido {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .elemento {
+      background: #35363a;
+      border: 2px solid #5f6368;
+      border-radius: 8px;
+      padding: 15px;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .elemento:hover {
+      border-color: #1a73e8;
+      background: #3a3b40;
+      transform: scale(1.05);
+    }
+
+    .elemento.seleccionado {
+      background: #1a73e8;
+      border-color: #1a73e8;
+      box-shadow: 0 0 20px rgba(26, 115, 232, 0.4);
+    }
+
+    .elemento svg {
+      width: 80%;
+      height: 80%;
+      margin-bottom: 8px;
+    }
+
+    .elemento-label {
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .elemento-check {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      background: #4caf50;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .elemento.seleccionado .elemento-check {
+      display: flex;
+    }
+
+    /* ZONA DE OPCIONES (para quiz) */
+    .zona-opciones {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .opcion {
+      background: #35363a;
+      border: 2px solid #5f6368;
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 16px;
+    }
+
+    .opcion:hover {
+      border-color: #1a73e8;
+      background: #3a3b40;
+    }
+
+    .opcion.seleccionada {
+      background: #1a73e8;
+      border-color: #1a73e8;
+    }
+
+    .opcion.correcta {
+      background: #1e8e3e;
+      border-color: #4caf50;
+    }
+
+    .opcion.incorrecta {
+      background: #d93025;
+      border-color: #f44336;
+    }
+
+    /* BOTONES */
+    .controles {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+    }
+
+    .btn-confirmar {
+      background: #4caf50;
+      color: #fff;
+    }
+
+    .btn-confirmar:hover {
+      background: #45a049;
+      transform: scale(1.05);
+    }
+
+    .btn-siguiente {
+      background: #1a73e8;
+      color: #fff;
+    }
+
+    .btn-siguiente:hover {
+      background: #1565c0;
+      transform: scale(1.05);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* PANEL LATERAL: Puntuación */
+    .panel-puntuacion {
+      width: 280px;
+      background: #292a2d;
+      border: 2px solid #5f6368;
+      border-radius: 12px;
+      padding: 20px;
+      overflow-y: auto;
+      max-height: calc(100vh - 200px);
+    }
+
+    .panel-titulo {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7fc3f5;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #5f6368;
+      padding-bottom: 10px;
+    }
+
+    .puntuacion-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 8px;
+      background: #35363a;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .puntuacion-item.actual {
+      background: #1a73e8;
+      font-weight: bold;
+    }
+
+    .puntuacion-num {
+      background: rgba(255,255,255,0.1);
+      padding: 4px 8px;
+      border-radius: 3px;
+      min-width: 30px;
+      text-align: center;
+    }
+
+    /* ANIMACIONES */
+    .correcta-anim {
+      animation: correcta 0.6s ease;
+    }
+
+    @keyframes correcta {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Responsive para pantalla grande */
+    @media (max-width: 1200px) {
+      .zona-pregunta { padding: 20px; }
+      .pregunta-titulo { font-size: 24px; }
+      .panel-puntuacion { width: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="marco">
+    <header>
+      <h1>🎯 Juego de Aula: Vistas y Normalización</h1>
+      <div class="puntuacion">
+        <span id="pregunta-num">Pregunta 1 / 10</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- PREGUNTA -->
+      <div class="zona-pregunta">
+        <div class="tipo-pregunta" id="tipo-pregunta">Relaciona figuras</div>
+        <h2 class="pregunta-titulo" id="pregunta-titulo">¿Cuál es el alzado de esta figura?</h2>
+
+        <!-- Contenido dinámico -->
+        <div id="contenido-dinamico"></div>
+
+        <!-- Controles -->
+        <div class="controles">
+          <button class="btn btn-confirmar" id="btn-confirmar" onclick="confirmarRespuesta()">Confirmar</button>
+          <button class="btn btn-siguiente" id="btn-siguiente" onclick="siguientePregunta()" style="display:none;">Siguiente</button>
+        </div>
+      </div>
+
+      <!-- PUNTUACIÓN -->
+      <div class="panel-puntuacion">
+        <div class="panel-titulo">🏆 Puntuación</div>
+        <div id="puntuacion-lista"></div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const preguntas = [
+      {
+        tipo: "Relaciona figuras",
+        titulo: "¿Cuál es el ALZADO (vista frontal) de un CUBO?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "□ Cuadrado", correcta: true },
+          { id: "b", texto: "⬠ Hexágono", correcta: false },
+          { id: "c", texto: "▲ Triángulo", correcta: false },
+          { id: "d", texto: "◯ Círculo", correcta: false }
+        ]
+      },
+      {
+        tipo: "Quiz de escala",
+        titulo: "Si una pieza mide 100 mm en realidad y 5 cm en el plano, ¿cuál es la escala?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "1:2 (ampliada 2×)", correcta: false },
+          { id: "b", texto: "1:20 (reducida 20×)", correcta: true },
+          { id: "c", texto: "2:1 (ampliada)", correcta: false },
+          { id: "d", texto: "1:5 (reducida 5×)", correcta: false }
+        ]
+      },
+      {
+        tipo: "Quiz de línea",
+        titulo: "¿Qué línea se usa para las aristas OCULTAS?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "━━━ Continua gruesa", correcta: false },
+          { id: "b", texto: "— — — Punteada", correcta: true },
+          { id: "c", texto: "— · — Trazo y punto", correcta: false },
+          { id: "d", texto: "─ ─ ─ Rayada", correcta: false }
+        ]
+      },
+      {
+        tipo: "Quiz de cajetín",
+        titulo: "¿Cuál es el formato de papel MÁS PEQUEÑO de la serie A?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "A0 (841 × 1189 mm)", correcta: false },
+          { id: "b", texto: "A4 (210 × 297 mm)", correcta: true },
+          { id: "c", texto: "A1 (594 × 841 mm)", correcta: false },
+          { id: "d", texto: "A3 (297 × 420 mm)", correcta: false }
+        ]
+      },
+      {
+        tipo: "Relaciona figuras",
+        titulo: "¿Cuál es la PLANTA (vista superior) de un CILINDRO?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "□ Rectángulo", correcta: false },
+          { id: "b", texto: "◯ Círculo", correcta: true },
+          { id: "c", texto: "▲ Triángulo", correcta: false },
+          { id: "d", texto: "◇ Rombo", correcta: false }
+        ]
+      },
+      {
+        tipo: "Quiz de perspectiva",
+        titulo: "¿A qué escala encoge el isométrico en los ejes Y/Z respecto a la realidad?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "Al 50% (0.5×)", correcta: false },
+          { id: "b", texto: "Al 81.65% ≈ 0.816×", correcta: true },
+          { id: "c", texto: "Al 100% (sin encogimiento)", correcta: false },
+          { id: "d", texto: "Al 70%", correcta: false }
+        ]
+      },
+      {
+        tipo: "Quiz de normalización",
+        titulo: "¿Cuál es el orden CORRECTO de datos en el cajetín?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "Autor, Escala, Nombre, Fecha", correcta: false },
+          { id: "b", texto: "Nombre, Escala, Autor, Fecha", correcta: true },
+          { id: "c", texto: "Fecha, Nombre, Autor, Escala", correcta: false },
+          { id: "d", texto: "Escala, Fecha, Nombre, Autor", correcta: false }
+        ]
+      },
+      {
+        tipo: "Relaciona figuras",
+        titulo: "¿Cuál es el PERFIL (vista lateral) de un PRISMA rectangular LARGO?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "□ Cuadrado pequeño", correcta: true },
+          { id: "b", texto: "▬ Rectángulo largo", correcta: false },
+          { id: "c", texto: "▲ Triángulo", correcta: false },
+          { id: "d", texto: "◇ Rombo", correcta: false }
+        ]
+      },
+      {
+        tipo: "Quiz de acotación",
+        titulo: "¿Cuántas cifras (medidas) MÍNIMAS necesita un cubo para estar completamente acotado?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "1 medida (el lado)", correcta: true },
+          { id: "b", texto: "3 medidas (largo, ancho, alto)", correcta: false },
+          { id: "c", texto: "6 medidas (una por cara)", correcta: false },
+          { id: "d", texto: "9 medidas (una por arista)", correcta: false }
+        ]
+      },
+      {
+        tipo: "Desafío final",
+        titulo: "¿Si duplicas la escala (1:10 → 1:5), el dibujo se hace el doble de grande?",
+        tipo_respuesta: "opcion",
+        opciones: [
+          { id: "a", texto: "SÍ, el doble de tamaño", correcta: true },
+          { id: "b", texto: "No, se mantiene igual", correcta: false },
+          { id: "c", texto: "No, se reduce a la mitad", correcta: false },
+          { id: "d", texto: "Sí, pero solo en el cajetín", correcta: false }
+        ]
+      }
+    ];
+
+    let preguntaActual = 0;
+    let puntuacion = {};
+    let respuestaActual = null;
+    let confirmada = false;
+
+    // Inicializar puntuación
+    for (let i = 1; i <= 30; i++) {
+      puntuacion[`Alumno ${i}`] = 0;
+    }
+
+    function cargarPregunta() {
+      const p = preguntas[preguntaActual];
+      document.getElementById("tipo-pregunta").textContent = p.tipo;
+      document.getElementById("pregunta-titulo").textContent = p.titulo;
+      document.getElementById("pregunta-num").textContent = `Pregunta ${preguntaActual + 1} / ${preguntas.length}`;
+
+      let html = "";
+      if (p.tipo_respuesta === "opcion") {
+        html = '<div class="zona-opciones">';
+        p.opciones.forEach(opt => {
+          html += `<div class="opcion" onclick="seleccionarOpcion(this, '${opt.id}', ${opt.correcta})">
+            <strong>${opt.id.toUpperCase()})</strong> ${opt.texto}
+          </div>`;
+        });
+        html += "</div>";
+      }
+
+      document.getElementById("contenido-dinamico").innerHTML = html;
+      respuestaActual = null;
+      confirmada = false;
+      document.getElementById("btn-confirmar").style.display = "inline-block";
+      document.getElementById("btn-siguiente").style.display = "none";
+      actualizarPuntuacion();
+    }
+
+    function seleccionarOpcion(elem, id, correcta) {
+      document.querySelectorAll(".opcion.seleccionada").forEach(e => e.classList.remove("seleccionada"));
+      elem.classList.add("seleccionada");
+      respuestaActual = { elem, correcta };
+    }
+
+    function confirmarRespuesta() {
+      if (!respuestaActual) {
+        alert("Selecciona una respuesta");
+        return;
+      }
+
+      if (respuestaActual.correcta) {
+        respuestaActual.elem.classList.remove("seleccionada");
+        respuestaActual.elem.classList.add("correcta");
+        respuestaActual.elem.classList.add("correcta-anim");
+
+        // Sumar punto al alumno
+        const alumnos = Object.keys(puntuacion);
+        const alumnoActual = alumnos[preguntaActual % alumnos.length];
+        puntuacion[alumnoActual]++;
+
+        alert(`✓ ¡Correcto! Puntos para ${alumnoActual}`);
+      } else {
+        respuestaActual.elem.classList.remove("seleccionada");
+        respuestaActual.elem.classList.add("incorrecta");
+        alert("✗ Incorrecto. Siguiente.");
+      }
+
+      confirmada = true;
+      document.getElementById("btn-confirmar").style.display = "none";
+      document.getElementById("btn-siguiente").style.display = "inline-block";
+    }
+
+    function siguientePregunta() {
+      preguntaActual++;
+      if (preguntaActual < preguntas.length) {
+        cargarPregunta();
+      } else {
+        finalizarJuego();
+      }
+    }
+
+    function actualizarPuntuacion() {
+      const lista = document.getElementById("puntuacion-lista");
+      const alumnos = Object.entries(puntuacion).sort((a, b) => b[1] - a[1]);
+
+      lista.innerHTML = alumnos.map((a, i) =>
+        `<div class="puntuacion-item ${i === preguntaActual % 30 ? "actual" : ""}">
+          <span>${i + 1}. ${a[0]}</span>
+          <span class="puntuacion-num">${a[1]}</span>
+        </div>`
+      ).join("");
+    }
+
+    function finalizarJuego() {
+      const ganador = Object.entries(puntuacion).sort((a, b) => b[1] - a[1])[0];
+      document.getElementById("contenido-dinamico").innerHTML =
+        `<h2 style="font-size:48px;margin:30px 0;">🎊 ¡FIN DEL JUEGO!</h2>
+         <p style="font-size:28px;">Ganador: <strong>${ganador[0]}</strong> (${ganador[1]} puntos)</p>`;
+      document.getElementById("btn-siguiente").style.display = "none";
+      document.getElementById("btn-confirmar").style.display = "none";
+    }
+
+    // Cargar primera pregunta
+    cargarPregunta();
+  </script>
+</body>
+</html>
