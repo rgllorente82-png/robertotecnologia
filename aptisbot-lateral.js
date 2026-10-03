@@ -1,15 +1,16 @@
 /* Recuadro flotante de AptisBot, en todas las páginas.
    Con pantalla ancha flota en el margen izquierdo; en portátil flota abajo a la izquierda, sobre el contenido;
-   en móvil, abajo a lo ancho, por encima del sello de la licencia y en versión corta. Lleva la cara de la marca y, en pequeño, opiniones
-   de quienes lo han usado (las mismas que publica aptisbot.es, con iniciales), que van rotando.
+   en móvil, abajo a lo ancho, por encima del sello de la licencia y en versión corta. Lleva la cara de la marca y, en pequeño, las opiniones
+   de agradecimiento más fuertes de las que publica aptisbot.es (literales, con iniciales), rotando.
    Se cierra con la × y vuelve a salir cada vez que se abre una página. No se imprime. */
 (function () {
   var OPINIONES = [
-    ['El examen era muy, muy parecido a los tests del bot. Muy, muy útil.', 'J.D. · certificó B2'],
     ['¡He aprobado con 181/200! Nivel C1. Muchas gracias por todo.', 'J.Á. · certificó C1'],
     ['¡BRUTAL! Muchas gracias por esta APP, ha sido clave para esta nota y este nivel.', 'E. · certificó B2'],
-    ['Obtuve el B1 que es lo que necesitaba.', 'N. · certificó B1'],
-    ['Esta misma mañana me han dado el certificado: un C1, nada más y nada menos.', 'F. · certificó C1']
+    ['¡En serio! Esto es una maravilla, de verdad. Un millón de gracias.', 'M. · preparando su Aptis'],
+    ['Se lo paso a mis alumnos y lo he recomendado a otros profes. Gracias por tu ayuda y trabajo.', 'R.H. · profesora'],
+    ['Felicitarte por el gran trabajo que hay detrás de esta app. Me está ayudando mucho.', 'E.V. · objetivo B2'],
+    ['Voy mejorando. Tu bot es espectacular, gracias. Vamos a seguir.', 'F. · progresando']
   ];
   var CARA = '<svg viewBox="0 0 96 96" aria-hidden="true"><path d="M48 8c23-1 41 18 40 40 1 23-18 41-40 40C25 89 7 71 8 48 7 25 25 7 48 8z" fill="#f7a276"/>' +
     '<g fill="none" stroke="#1c1c1c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">' +
