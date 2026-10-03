@@ -1,6 +1,6 @@
 /* Recuadro flotante de AptisBot, en todas las páginas.
-   Con pantalla ancha flota en el margen izquierdo; en portátil y móvil, abajo, por encima del
-   sello de la licencia y en versión corta. Lleva la cara de la marca y, en pequeño, opiniones
+   Con pantalla ancha flota en el margen izquierdo; en portátil flota abajo a la izquierda, sobre el contenido;
+   en móvil, abajo a lo ancho, por encima del sello de la licencia y en versión corta. Lleva la cara de la marca y, en pequeño, opiniones
    de quienes lo han usado (las mismas que publica aptisbot.es, con iniciales), que van rotando.
    Se cierra con la × y vuelve a salir cada vez que se abre una página. No se imprime. */
 (function () {
@@ -27,7 +27,8 @@
     '.apb-lat .apb-o i{font-style:normal;display:block;margin-top:2px;opacity:.85}' +
     '.apb-lat a{display:inline-block;background:var(--accent,#1a73e8);color:var(--surface,#fff);text-decoration:none;font-weight:500;padding:8px 14px;border-radius:999px}' +
     '.apb-lat button{position:absolute;top:4px;right:6px;border:0;background:none;color:var(--ink-soft,#5f6368);font-size:20px;line-height:1;cursor:pointer;padding:6px}' +
-    '@media (max-width:1299px){.apb-lat{top:auto;left:10px;right:10px;width:auto;max-width:420px;bottom:calc(58px + env(safe-area-inset-bottom,0px));padding:10px 14px 12px}' +
+    '@media (min-width:700px) and (max-width:1299px){.apb-lat{top:auto;bottom:14px;width:200px}}' +
+    '@media (max-width:699px){.apb-lat{top:auto;left:10px;right:10px;width:auto;bottom:calc(58px + env(safe-area-inset-bottom,0px));padding:10px 14px 12px}' +
     '.apb-lat p{display:none}.apb-lat .apb-m{margin-bottom:6px;font-size:15px}.apb-lat .apb-m svg{width:30px;height:30px}' +
     '.apb-lat b{font-size:14px;margin:0 0 6px}.apb-lat .apb-o{min-height:3.2em;margin-bottom:8px}}' +
     '@media print{.apb-lat{display:none}}';
