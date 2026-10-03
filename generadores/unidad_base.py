@@ -157,6 +157,7 @@ def pagina(cfg):
 %s
 %s
 <script data-goatcounter="https://bots-educativos.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script defer src="/robertotecnologia/aptisbot-lateral.js"></script>
 </body>
 </html>''' % (cfg['migas'], cfg['h1'], botones, cuerpos, lectura(cfg, cuerpos),
                aviso_licencia(cfg['titulo'], canon),
