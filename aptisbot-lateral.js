@@ -44,7 +44,7 @@
       '<p>Prepara el examen Aptis desde el móvil: práctica diaria y corrección con IA de writing y speaking.</p>' +
       '<div class="apb-o" aria-live="off"></div>' +
       '<a href="https://aptisbot.es/simulador?utm_source=robertotecnologia&utm_medium=web&utm_campaign=flotante" target="_blank" rel="noopener">Prueba nuestro simulacro</a>';
-    var op = caja.querySelector('.apb-o'), n = Math.floor(Math.random() * OPINIONES.length);
+    var op = caja.querySelector('.apb-o'), n = 0;
     function pinta() { op.textContent = '“' + OPINIONES[n][0] + '”'; var f = document.createElement('i'); f.textContent = OPINIONES[n][1]; op.appendChild(f); }
     pinta();
     var reloj = setInterval(function () {
